@@ -1,0 +1,84 @@
+{%- comment -%}
+  ============================================================================
+  MINIMAL TEST snippet — adds ONLY `priceValidUntil` to each offer.
+  ============================================================================
+  Purpose: prove, with zero risk, that replacing Shopify's built-in
+  `{{ product | structured_data }}` with a hand-built block is picked up by
+  Google and clears a warning — before doing the full Group C change.
+
+  This mirrors Dawn's current ProductGroup/hasVariant/offers output EXACTLY and
+  changes ONE thing: it adds "priceValidUntil" inside each variant's offer.
+  Nothing else is added or removed, so the only difference Google sees is that
+  one field.
+
+  SAFE TEST PROCEDURE (does NOT touch your live theme):
+  1. Online Store > Themes > (your live theme) > ... > Duplicate.
+     -> creates an unpublished "Copy of ..." theme.
+  2. On the COPY: ... > Edit code.
+  3. Save this file as snippets/product-structured-data-test.liquid.
+  4. In the COPY's sections/main-product.liquid, replace:
+         <script type="application/ld+json">
+           {{ product | structured_data }}
+         </script>
+     with:
+         {% render 'product-structured-data-test', product: product %}
+  5. On the COPY: ... > Preview. Open any product page in the preview.
+  6. Copy that preview URL and paste it into Google's Rich Results Test
+     (https://search.google.com/test/rich-results). Confirm:
+        - 0 errors,
+        - the offer now shows "priceValidUntil".
+  7. If good -> the mechanism works. Discard or keep the copy; your LIVE theme
+     was never modified. Then we proceed with the full snippet on the live theme.
+
+  (priceValidUntil is just a date ~1 year out; it needs no match to Merchant
+  Center and applies to every priced product, so it's the safest field to test.)
+{%- endcomment -%}
+
+{%- liquid
+  assign price_valid_until = 'now' | date: '%s' | plus: 31536000 | date: '%Y-%m-%d'
+  assign clean_desc = product.description | strip_html | strip_newlines
+-%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "ProductGroup",
+  "@id": "{{ shop.url }}{{ product.url }}#product",
+  "name": {{ product.title | json }},
+  "description": {{ clean_desc | json }},
+  "brand": { "@type": "Brand", "name": {{ product.vendor | json }} },
+  {%- if product.type != blank %}
+  "category": {{ product.type | json }},
+  {%- endif %}
+  "productGroupID": {{ product.id | json }},
+  "url": "{{ shop.url }}{{ product.url }}",
+  {%- if product.featured_image %}
+  "image": "{{ product.featured_image | image_url: width: 1920 }}",
+  {%- endif %}
+  "hasVariant": [
+    {%- for variant in product.variants %}
+    {%- assign v_img = variant.image | default: product.featured_image -%}
+    {
+      "@id": "{{ shop.url }}{{ product.url }}?variant={{ variant.id }}#variant",
+      "@type": "Product",
+      "name": {{ variant.title | prepend: ' - ' | prepend: product.title | json }},
+      "sku": {{ variant.sku | json }},
+      {%- if variant.barcode != blank %}
+      "gtin": {{ variant.barcode | json }},
+      {%- endif %}
+      {%- if v_img %}
+      "image": "{{ v_img | image_url: width: 1920 }}",
+      {%- endif %}
+      "offers": {
+        "@id": "{{ shop.url }}{{ product.url }}?variant={{ variant.id }}#offer",
+        "@type": "Offer",
+        "availability": "{% if variant.available %}https://schema.org/InStock{% else %}https://schema.org/OutOfStock{% endif %}",
+        "price": "{{ variant.price | money_without_currency | replace: ',', '' }}",
+        "priceCurrency": "{{ shop.currency }}",
+        "priceValidUntil": "{{ price_valid_until }}",
+        "url": "{{ shop.url }}{{ product.url }}?variant={{ variant.id }}"
+      }
+    }{%- unless forloop.last %},{%- endunless %}
+    {%- endfor %}
+  ]
+}
+</script>
