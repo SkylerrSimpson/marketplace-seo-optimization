@@ -20,6 +20,8 @@ declare(strict_types=1);
  *   - THROTTLED handling: backs off on the cost-based leaky bucket and paces by the
  *     throttleStatus returned with each response.
  *   - --limit N to process only the first N (good for a small live canary).
+ *   - --ids=ID,ID to process only specific products (e.g. hand-picked low-traffic
+ *     items for testing); takes precedence over --limit.
  *
  * Requires a token with the write_products scope. The current read-only audit token
  * will 403 on --apply until re-authorized with write access.
@@ -28,7 +30,9 @@ declare(strict_types=1);
  *   php apply_metadata.php            # dry-run, all 199 (default)
  *   php apply_metadata.php --limit 3  # dry-run, first 3
  *   php apply_metadata.php --apply    # LIVE write (needs write_products scope)
- *   php apply_metadata.php --apply --limit 3   # live canary on 3 products
+ *   php apply_metadata.php --apply --limit 3        # live canary on first 3
+ *   php apply_metadata.php --ids=123,456            # dry-run only those 2
+ *   php apply_metadata.php --apply --ids=123,456    # live write only those 2
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';
@@ -54,6 +58,20 @@ $idx = array_search('--limit', $argv, true);
 if ($idx !== false && isset($argv[$idx + 1]) && is_numeric($argv[$idx + 1])) {
     $limit = (int) $argv[$idx + 1];
 }
+
+// --ids=ID,ID,... — process ONLY these numeric product ids (a hand-picked canary,
+// e.g. low-traffic items). Takes precedence over --limit. Supports = or space form.
+$onlyIds = [];
+foreach ($argv as $a) {
+    if (str_starts_with($a, '--ids=')) {
+        $onlyIds = array_filter(array_map('trim', explode(',', substr($a, 6))));
+    }
+}
+$iidx = array_search('--ids', $argv, true);
+if ($iidx !== false && isset($argv[$iidx + 1]) && str_starts_with($argv[$iidx + 1], '--') === false) {
+    $onlyIds = array_filter(array_map('trim', explode(',', $argv[$iidx + 1])));
+}
+$onlyIds = array_map('strval', $onlyIds);
 
 
 $shopDomain   = $_ENV['SHOP_DOMAIN']     ?? '';
@@ -126,9 +144,14 @@ GQL;
 /**
  * Send a GraphQL op with THROTTLED backoff + leaky-bucket pacing.
  *
- * @return array{0: array<string,mixed>, 1: array<string,mixed>} [data, extensions]
+ * THROTTLED is always retried (transient). Other top-level errors: if $fatal,
+ * print + exit (used for the idempotency read — a broken read means we can't reason
+ * about state). If not $fatal, return them to the caller so a single product/field
+ * failure (e.g. a missing scope on one mutation) doesn't kill the whole batch.
+ *
+ * @return array{0: array<string,mixed>, 1: array<string,mixed>, 2: array<int,mixed>} [data, extensions, errors]
  */
-function gql(Graphql $client, string $query, array $variables): array
+function gql(Graphql $client, string $query, array $variables, bool $fatal = true): array
 {
     $attempts = 0;
     while (true) {
@@ -147,8 +170,11 @@ function gql(Graphql $client, string $query, array $variables): array
                 sleep(2 * $attempts); // linear backoff
                 continue;
             }
-            fwrite(STDERR, "GraphQL error: " . json_encode($body['errors']) . "\n");
-            exit(1);
+            if ($fatal) {
+                fwrite(STDERR, "GraphQL error: " . json_encode($body['errors']) . "\n");
+                exit(1);
+            }
+            return [[], [], $body['errors']]; // non-fatal: let caller handle
         }
 
         // Pace by remaining bucket so we don't trip THROTTLED on the next call.
@@ -159,7 +185,7 @@ function gql(Graphql $client, string $query, array $variables): array
             sleep((int) ceil($need / $restore));
         }
 
-        return [$body['data'] ?? [], $body['extensions'] ?? []];
+        return [$body['data'] ?? [], $body['extensions'] ?? [], []];
     }
 }
 
@@ -167,8 +193,30 @@ function gql(Graphql $client, string $query, array $variables): array
 // Run
 // ---------------------------------------------------------------------------
 
+$totalAll = count($rows);
+
+// --ids: restrict to the hand-picked product ids (preserving file order).
+if (!empty($onlyIds)) {
+    $want = array_flip($onlyIds);
+    $rows = array_values(array_filter($rows, fn($r) => isset($want[(string) $r['numeric_id']])));
+    $found = array_map(fn($r) => (string) $r['numeric_id'], $rows);
+    $missing = array_diff($onlyIds, $found);
+    if (!empty($missing)) {
+        fwrite(STDERR, "WARNING: --ids not found in phase2_output.json: " . implode(', ', $missing) . "\n");
+    }
+    if (empty($rows)) {
+        fwrite(STDERR, "No matching products for --ids — nothing to do.\n");
+        exit(1);
+    }
+    $limit = null; // --ids defines the set; ignore --limit
+}
+
+$scope = !empty($onlyIds)
+    ? count($rows) . " hand-picked id(s)"
+    : ($limit ?? count($rows)) . " of {$totalAll}";
+
 echo ($apply ? "LIVE APPLY" : "DRY-RUN") . " — seo.description + productType + image.alt over " .
-    ($limit ?? count($rows)) . " of " . count($rows) . " products (api {$apiVersion})\n";
+    "{$scope} products (api {$apiVersion})\n";
 if (!$apply) {
     echo "(no writes will be sent; pass --apply to write — needs write_products scope)\n";
 }
@@ -225,29 +273,44 @@ foreach ($rows as $r) {
     }
 
     // LIVE writes. productUpdate for desc/type, then fileUpdate for the image alt.
-    $rowFailed = false;
+    // Both are non-fatal per-row: a failure on one product/field is logged and the
+    // batch continues. desc/type and alt are tracked separately so a missing
+    // write_files scope (alt) doesn't mask a successful description write.
+    $done = [];
+    $failed = [];
 
     if ($descNeedsWrite || $typeNeedsWrite) {
-        [$data] = gql($client, UPDATE_MUTATION, ['product' => $product]);
+        [$data, , $errs] = gql($client, UPDATE_MUTATION, ['product' => $product], false);
         $ue = $data['productUpdate']['userErrors'] ?? [];
-        if (!empty($ue)) {
-            $errors++; $rowFailed = true;
-            fwrite(STDERR, "  productUpdate userErrors {$r['numeric_id']}: " . json_encode($ue) . "\n");
+        if (!empty($errs) || !empty($ue)) {
+            $failed[] = 'desc/type';
+            fwrite(STDERR, "  productUpdate FAILED {$r['numeric_id']}: " . json_encode(!empty($errs) ? $errs : $ue) . "\n");
+        } else {
+            if ($descNeedsWrite) { $done[] = 'seo.description'; }
+            if ($typeNeedsWrite) { $done[] = "productType -> {$desiredType}"; }
         }
     }
 
-    if (!$rowFailed && $altNeedsWrite) {
-        [$data] = gql($client, ALT_MUTATION, ['files' => [['id' => $altMediaId, 'alt' => $newAlt]]]);
+    if ($altNeedsWrite) {
+        [$data, , $errs] = gql($client, ALT_MUTATION, ['files' => [['id' => $altMediaId, 'alt' => $newAlt]]], false);
         $ue = $data['fileUpdate']['userErrors'] ?? [];
-        if (!empty($ue)) {
-            $errors++; $rowFailed = true;
-            fwrite(STDERR, "  fileUpdate userErrors {$r['numeric_id']}: " . json_encode($ue) . "\n");
+        if (!empty($errs) || !empty($ue)) {
+            $failed[] = 'image.alt';
+            fwrite(STDERR, "  fileUpdate FAILED {$r['numeric_id']}: " . json_encode(!empty($errs) ? $errs : $ue) . "\n");
+        } else {
+            $done[] = 'image.alt';
         }
     }
 
-    if (!$rowFailed) {
+    if (!empty($done) && empty($failed)) {
         $written++;
-        printf("  UPDATED %-14s [%s]\n", $r['numeric_id'], implode(', ', $changes));
+        printf("  UPDATED %-14s [%s]\n", $r['numeric_id'], implode(', ', $done));
+    } elseif (!empty($done) && !empty($failed)) {
+        $written++; $errors++;
+        printf("  PARTIAL %-14s ok:[%s]  failed:[%s]\n", $r['numeric_id'], implode(', ', $done), implode(', ', $failed));
+    } else {
+        $errors++;
+        printf("  FAILED  %-14s [%s]\n", $r['numeric_id'], implode(', ', $failed));
     }
 }
 
