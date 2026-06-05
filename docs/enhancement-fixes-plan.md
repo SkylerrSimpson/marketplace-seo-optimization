@@ -70,6 +70,17 @@ Install (Dawn): in `sections/main-product.liquid` replace the
 `{% render 'product-structured-data', product: product %}`; save the snippet as
 `snippets/product-structured-data.liquid`; test in Google Rich Results Test. Claude verifies after.
 
+VALIDATED 2026-06-04 on a duplicated theme: rendered output on a 13-variant product
+(gold-rush-sifting-screen-classifier-sieve-mini-6-inch) is valid JSON-LD with description +
+priceValidUntil + itemCondition + hasMerchantReturnPolicy present on ALL variants/offers; gtin
+correctly omitted on the one blank-barcode variant; page renders normally. Test path used:
+duplicate live theme -> create snippet `product-structured-data` -> swap the render line ->
+preview -> validate rendered JSON-LD (preview URLs are NOT crawlable by Google's URL test, so
+validate via "Code" mode or by pasting the rendered block). NOTE: a priceValidUntil-only minimal
+test (`product-structured-data-test`) was validated first. READY TO PUBLISH: publish the duplicate,
+then run the LIVE product URL through Rich Results Test (URL mode works on live), click GSC
+"Validate Fix", monitor ~1-2 weeks.
+
 ---
 
 ## Group D — `description` missing (146) → INVESTIGATED 2026-06-04: NO markup fix needed
