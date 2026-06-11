@@ -1,12 +1,8 @@
 # Marketplace SEO Optimization
 
-PHP tooling to audit and improve product metadata (SEO descriptions, product type,
-image alt text, structured-data attributes) across ASR Outdoor's sales channels, and
-to push the approved changes back to each marketplace.
+PHP tooling to audit and improve the shared product dataset owned by **Irongate Enterprises (IGE)** and **Deals Only Web Store (DOWS)** across all active sales channels, and to push approved changes back to each marketplace.
 
-> **Repo is multi-marketplace.** Shopify is implemented today; **Amazon, eBay, and
-> Walmart** are planned and have placeholder folders. The folder is still named
-> `shopify-seo` for now — consider renaming to `marketplace-seo`.
+Marketplaces (Amazon, eBay, Walmart, Shopify) continuously evolve their taxonomy trees. Each leaf node carries required and recommended attributes — descriptions, product type, image alt text, GTINs, structured-data fields, and category-specific properties — that directly affect search ranking, Buy Box eligibility, and AI-agent discoverability. This repo tracks those gaps and closes them through a reviewable, auditable pipeline.
 
 ---
 
@@ -63,12 +59,12 @@ php shopify/scripts/<script>.php
 
 ## Marketplace status
 
-| Marketplace | Status | API |
-|---|---|---|
-| **Shopify**  | ✅ Built (metadata pipeline; write step pending write scope) | [Admin GraphQL](https://shopify.dev/docs/api/admin-graphql/latest/queries/products) · [productUpdate](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productUpdate?language=direct-api) |
-| **Amazon**   | ⏳ Planned | [SP-API Listings Items](https://developer-docs.amazon.com/sp-api/reference/listings-items-v2020-09-01) |
-| **eBay**     | ⏳ Planned | [Sell / Taxonomy API](https://developer.ebay.com/develop/api/sell/taxonomy_api) |
-| **Walmart**  | ⏳ Planned | [Marketplace API](https://developer.walmart.com/us-marketplace/lang-es/docs/utilities-overview) |
+| Marketplace | Status                                                       | API                                                                                                                                                                                                  |
+| ----------- | ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Shopify** | ✅ Built (metadata pipeline; write step pending write scope) | [Admin GraphQL](https://shopify.dev/docs/api/admin-graphql/latest/queries/products) · [productUpdate](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productUpdate?language=direct-api) |
+| **Amazon**  | ⏳ Planned                                                   | [SP-API Listings Items](https://developer-docs.amazon.com/sp-api/reference/listings-items-v2020-09-01)                                                                                               |
+| **eBay**    | ⏳ Planned                                                   | [Sell / Taxonomy API](https://developer.ebay.com/develop/api/sell/taxonomy_api)                                                                                                                      |
+| **Walmart** | ⏳ Planned                                                   | [Marketplace API](https://developer.walmart.com/us-marketplace/lang-es/docs/utilities-overview)                                                                                                      |
 
 The Shopify pipeline is the reference implementation; new marketplaces should mirror its
 shape (read-only audit/export → author/assemble → reviewable output → guarded write).
