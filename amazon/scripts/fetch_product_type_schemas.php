@@ -152,7 +152,7 @@ foreach ($toFetch as $productType) {
         'fetched_at' => date('c'),
         'version'    => $definition['productTypeVersion']['version'] ?? null,
         'locale'     => $definition['locale'] ?? null,
-        'source_url' => $schemaUrl,
+        'source_url' => strtok($schemaUrl, '?'), // strip presigned query string
     ];
 
     ksort($index);
