@@ -6,9 +6,21 @@ Amazon pipeline. **The full plan + week-by-week schedule is in [`PLAN.md`](PLAN.
 
 ## Status
 
-Planning. The connection approach is settled (reuse the company's existing eBay app via the
-`benmorel/ebay-sdk-php` SDK + OAuth); the read/audit scripts get built in Week 1. No code has
-run against production yet.
+**Phase 0 (connect) — in progress.** SDK installed (`benmorel/ebay-sdk-php` +
+`dvicklund/ebay-oauth-php-client`); `scripts/lib/EbayClient.php` + `scripts/check_connection.php`
+built. Verified against **eBay sandbox**: OAuth app-token mint ✓ and Taxonomy
+`getDefaultCategoryTreeId` ✓ (EBAY_US tree id = `0`). The user-token (refresh-grant) + Trading path
+is wired but unverified — it needs a refresh token (a sandbox user token, or the production
+per-account refresh tokens from the secrets store). No code has run against production.
+
+```
+php ebay/scripts/check_connection.php --account=dows --mode=sandbox   # app token + Taxonomy: green
+php ebay/scripts/check_connection.php --all                           # both accounts, production
+```
+
+Notes baked into the client: pin Taxonomy to `apiVersion=v1` (the SDK default `v1_beta` 404s as
+`[2002] Resource not found`); EBAY_US's category tree id is the string `"0"`, so don't use falsy
+checks on it.
 
 ## Layout
 
