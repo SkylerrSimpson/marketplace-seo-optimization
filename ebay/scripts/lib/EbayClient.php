@@ -265,6 +265,96 @@ final class EbayClient
             ?? 'unknown account';
     }
 
+    /**
+     * Authenticated REST call with the user token, returning the full envelope
+     * (status, response headers, raw + decoded body). Use this when you need a
+     * non-2xx body, a response header (e.g. Feed's `Location` task URL), or a
+     * non-JSON payload. $headers are extra request headers (e.g. marketplace id).
+     *
+     * @param array<string,string> $headers
+     * @param string|null          $body    raw request body (e.g. JSON) for POST/PUT
+     * @return array{status:int,headers:array<string,string>,body:string,json:?array}
+     */
+    public function userSend(string $method, string $url, ?string $body = null, array $headers = []): array
+    {
+        $token = $this->userToken();
+
+        $reqHeaders = [
+            "Authorization: Bearer {$token}",
+            'Accept: application/json',
+            'Content-Type: application/json',
+        ];
+        foreach ($headers as $k => $v) {
+            $reqHeaders[] = "{$k}: {$v}";
+        }
+
+        $respHeaders = [];
+        $ch = curl_init($url);
+        curl_setopt_array($ch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_CUSTOMREQUEST  => strtoupper($method),
+            CURLOPT_HTTPHEADER     => $reqHeaders,
+            CURLOPT_TIMEOUT        => 120,
+            CURLOPT_HEADERFUNCTION => function ($ch, string $line) use (&$respHeaders): int {
+                $parts = explode(':', $line, 2);
+                if (count($parts) === 2) {
+                    $respHeaders[strtolower(trim($parts[0]))] = trim($parts[1]);
+                }
+                return strlen($line);
+            },
+        ]);
+        if ($body !== null) {
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
+        }
+        $raw    = curl_exec($ch);
+        $status = (int) curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
+        $err    = curl_error($ch);
+        curl_close($ch);
+
+        if ($raw === false) {
+            throw new RuntimeException("eBay REST request failed: {$err}");
+        }
+
+        $json = json_decode((string) $raw, true);
+
+        return [
+            'status'  => $status,
+            'headers' => $respHeaders,
+            'body'    => (string) $raw,
+            'json'    => is_array($json) ? $json : null,
+        ];
+    }
+
+    /**
+     * Download a binary body (e.g. the gzipped Feed result file) with the user
+     * token, following redirects. Returns the raw bytes; the caller decompresses.
+     */
+    public function userDownload(string $url): string
+    {
+        $token = $this->userToken();
+
+        $ch = curl_init($url);
+        curl_setopt_array($ch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTPHEADER     => ["Authorization: Bearer {$token}", 'Accept: application/octet-stream'],
+            CURLOPT_TIMEOUT        => 300,
+        ]);
+        $body   = curl_exec($ch);
+        $status = (int) curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
+        $err    = curl_error($ch);
+        curl_close($ch);
+
+        if ($body === false) {
+            throw new RuntimeException("eBay file download failed: {$err}");
+        }
+        if ($status < 200 || $status >= 300) {
+            throw new RuntimeException("eBay file download {$status}: " . substr((string) $body, 0, 200));
+        }
+
+        return (string) $body;
+    }
+
     // --- internals ---------------------------------------------------------
 
     private function oauth(): EbayOauthToken
