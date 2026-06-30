@@ -1,0 +1,22 @@
+/* ============================================================================
+   BLOG TITLE — center the "Journal" heading + line underneath it.
+   ----------------------------------------------------------------------------
+   WHERE TO PASTE: append to the BOTTOM of assets/base.css.
+   Targets the blog index title only ( .main-blog .title--primary ), so it does
+   not affect product/collection titles.
+   ============================================================================ */
+.main-blog .title--primary {
+  text-align: center;
+}
+
+/* the line under the title (short, centered accent).
+   Want it full width instead? change width: 8rem -> width: 100%. */
+.main-blog .title--primary::after {
+  content: "";
+  display: block;
+  width: 8rem;
+  height: 2px;
+  margin: 1rem auto 0;
+  background: currentColor;
+  opacity: 0.6;
+}

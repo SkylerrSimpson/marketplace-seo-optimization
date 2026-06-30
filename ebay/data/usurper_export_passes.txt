@@ -1,0 +1,98 @@
+USURPER EXPORT PASS PLAN — DOWS (22-column cap per pass)
+Built by greedy set-cover over the Phase-5 gap worklist (aspect_gaps_worklist.csv)
+against aspect_field_map.json. Run each pass against EACH of the 3 SKU batches.
+Always also select: sku, parent.sku, name (sku is the required join key).
+Newest non-empty value wins; passes ACCUMULATE (column-level merge in fill_aspects.php).
+
+────────────────────────────────────────────────────────────
+PASS 1 — DONE (already exported in the 3 current batch CSVs)
+brand_ebay, color, country_of_origin, type, model, features_ebay, theme,
+pattern, shape, prop65_warn_type, suitable_for, warranty, department_ebay,
+material, height, length, package_includes, number_of_pieces, weight, width,
+mpn, mpn_ebay
+=> covers 2263 / 3541 usurper-addressable gap-rows (64%)
+
+────────────────────────────────────────────────────────────
+PASS 2 — DO THIS (biggest win: 64% -> 94%)   [22 cols]
+character_ebay
+handle_material_ebay
+age_group
+style_ebay
+blade_edge_type_amazon
+recommended_age_range
+voltage_ebay
+dexterity_walmart
+power_source
+blade_length_ebay
+care_instructions_amazon
+occasion
+capacity
+blade_material_ebay
+ingredients_amazon
+battery_technology_ebay
+fill_material_type_amazon
+sport_type_amazon
+fragrance
+fabric_type_amazon
+formulation
+frame_material
+
+────────────────────────────────────────────────────────────
+PASS 3 — OPTIONAL (mop-up: 94% -> 100%)   [22 cols]
+season
+tang_ebay
+room
+closure_amazon
+head_material_type_amazon
+hair_type_amazon
+size_ebay
+skin_type_amazon
+blade_type_ebay
+compatible_devices_amazon
+blade_color_ebay
+gender
+battery_included_ebay
+gun_type_ebay
+finish_type_amazon
+coarseness
+cut
+for_gun_make
+compatible_model
+form
+thickness
+size_type
+
+────────────────────────────────────────────────────────────
+PASS 4 — FALLBACK PROBE (do this!)   [22 cols]
+After Passes 1-3, the generic/eBay column for these aspects was empty per-SKU,
+but the Amazon/Walmart-channel twin was never exported. DOWS sells on Amazon
+(richer required attrs), so these likely carry data the eBay columns don't.
+Rescue ceiling ~1900 gap-rows. Run on all 3 batches.
+number_of_items_amazon
+character
+character_amazon
+theme_amazon
+theme_walmart
+recommendeduse_walmart
+type_of_tool
+model_name_amazon
+handle_material_amazon
+pattern_name_amazon
+item_shape_amazon
+shape_walmart
+style
+style_amazon
+age_range_description_amazon
+voltage_amazon
+power_source_type_amazon
+occasion_type_amazon
+occasion_walmart
+fabriccareinstruction_walmart
+capacity_amazon
+blade_material_type_amazon
+
+────────────────────────────────────────────────────────────
+PASS 5 — SKIP unless trivial (+5 gap-rows only)   [3 cols]
+number_of_blades_ebay
+fuel_type
+opening_mechanism_ebay

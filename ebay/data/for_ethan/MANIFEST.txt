@@ -1,0 +1,33 @@
+eBay REVIEW BUNDLE — for Ethan                        (all DRY-RUN; nothing is live on eBay)
+=========================================================================================
+
+REVIEW SHEETS (fill the 'approved' / 'approved_value' + 'reviewer_notes' columns):
+
+1) eBay_DOWS_item-specifics-aspects_REVIEW.csv   (23074 rows)
+2) eBay_IGE_item-specifics-aspects_REVIEW.csv    (6007 rows)
+     One row per listing x item-specific aspect. 'proposed_value' is our suggested value.
+     NEW: parent listings now have values rolled up from their child variations
+     (source='child_rollup'); 'reviewer_notes' explains each. Country conflicts &
+     per-variation cases are left blank with a FLAG note.
+
+3) eBay_DOWS_descriptions-standardized_REVIEW.csv (1257 rows)
+4) eBay_IGE_descriptions-standardized_REVIEW.csv  (370 rows)
+     One row per listing. Current vs proposed full HTML description, all re-rendered to
+     ONE standard template. 'change_type' says how much copy changed; before/after in
+     both plain text and HTML.
+
+5) eBay_BOTH_mobile-vs-desktop-description-fixes_REVIEW.csv (305 rows)
+     Listings whose hidden MOBILE description didn't match the DESKTOP-visible text.
+     Top 168 rows = MISMATCH (selling copy was hidden from desktop); back 137 rows =
+     NO_MOBILE (no mobile block at all). before_* vs after_* columns; OK listings excluded.
+
+REFERENCE LISTS (context only — no action needed):
+
+  eBay_BOTH_conflicting-country-of-origin_REFERENCE.csv
+     11 parents whose child variations list different countries; left blank in sheet 1/2
+     (set Country per variation; some are likely bad data).
+  eBay_IGE_parents-with-no-children_REFERENCE.txt
+     15 IGE parent listings that have NO child variations in Usurper, so their aspects
+     could NOT be auto-filled.
+
+NOT INCLUDED: the image-remediation sheet (image_review) — that workstream hasn't started.

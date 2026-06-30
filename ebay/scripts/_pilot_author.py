@@ -1,0 +1,77 @@
+#!/usr/bin/env python3
+"""Pilot hand-authored answers — the STYLE REFERENCE for the re-author agents.
+Writes each answer to the right account's desc_authored.jsonl (replacing any prior
+entry for that item_id). Grounded strictly in each listing's source pack."""
+import json, os
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+def p(*a): return os.path.join(ROOT, *a)
+
+ANS = [
+{"item_id":"236206634313","account":"dows",
+ "factual":"The ASR Outdoor 8pc Gold Classifier Set includes eight stackable stainless steel mesh sieves in graduated sizes from 1/2\" down to 1/100\" (1/2\", 1/4\", 1/8\", 1/12\", 1/20\", 1/30\", 1/50\", 1/100\"). Each classifier is built from high-impact ABS with 304 stainless steel wire mesh, fits a standard 3 or 5 gallon bucket, and resists rust and corrosion under normal wear.",
+ "sales":"Spend less time sorting and more time finding color—stack the classifiers over a bucket and screen rocks and soil out of your pay dirt before running it through a pan or sluice. Versatile enough for prospecting, gardening, archaeology, construction, and metal detecting, this complete set helps you recover material faster and more effectively.",
+ "bullets":["Multiple Mesh Sizes: 1/2\", 1/4\", 1/8\", 1/12\", 1/20\", 1/30\", 1/50\", 1/100\"","Stackable Design: Fits any standard 3 or 5 gallon bucket; stack multiple classifiers for efficient recovery","Rugged Weatherproof Build: High-impact ABS and 304 stainless steel wire mesh that won't rust or corrode","Gold Prospecting Equipment: Sift rocks and soil from pay dirt before working it through a pan or sluice box","Multipurpose Sifting Screens: Great for gardening, archaeology, construction, metal detecting, and arts and crafts"],
+ "mobile":"The ASR Outdoor 8pc Gold Classifier Set includes eight stackable stainless steel mesh sieves from 1/2\" to 1/100\", built from high-impact ABS and 304 stainless steel wire mesh. Each fits a standard 3 or 5 gallon bucket and resists rust, so you can quickly screen pay dirt before panning or sluicing."},
+
+{"item_id":"127706888901","account":"dows",
+ "factual":"This ToolTreaux gold testing and weighing kit is a complete all-in-one system that includes a 0.5oz bottle of testing acid, a 0.5oz bottle of neutralizing solution, a gold testing stone, and a portable digital pocket scale with a backlit LCD display. The scale weighs in grams, ounces, tola, carats, and grains, and features tare, counting, and auto shut-off functions.",
+ "sales":"Test, verify, and weigh with confidence whether you are buying, selling, or appraising. Use the scratch-and-test method to quickly check karat authenticity on scrap gold, coins, and jewelry, then confirm exact weight on the precision scale—an ideal companion for pawn shops, jewelry resellers, estate evaluations, and hobbyists.",
+ "bullets":["Complete Testing & Weighing Kit: Testing acid, neutralizing solution, testing stone, and a digital pocket scale in one set","Accurate Acid Testing: Determine karat authenticity with the reliable scratch-and-test method","High Precision Digital Scale: Reads grams, ounces, tola, carats, and grains for precious metals and small valuables","Compact Professional Design: Backlit LCD, tare, counting, and auto shut-off with controlled squeeze bottles","Ideal For Buyers, Sellers & Collectors: Great for pawn shops, resellers, estate evaluations, and hobbyists"],
+ "mobile":"This ToolTreaux gold testing and weighing kit includes 0.5oz testing acid, 0.5oz neutralizing solution, a gold testing stone, and a digital pocket scale with backlit LCD. Use the scratch-and-test method to check karat authenticity on scrap gold, coins, and jewelry, then confirm exact weight—ideal for buyers, sellers, and collectors."},
+
+{"item_id":"127389969219","account":"dows",
+ "factual":"This garden combo set pairs a durable hand trowel with two soft foam kneeling pads. The trowel measures 11 inches by 3 inches, is molded from tough lightweight plastic, and features a 4-inch measuring scale on the scoop, a rubberized thumb grip, and a hang-up hole on the handle.",
+ "sales":"Keep your garden tidy in comfort—kneel on the cushioned foam pads while the lightweight trowel digs, transplants, and measures planting depth in one tool. The rubberized grip keeps it steady and the hang-up hole makes storage easy, so it is ready whenever your garden needs attention.",
+ "bullets":["Trowel Dimensions: 11 inch x 3 inch","Measuring Scale: 4 inch scale on the scoop to control planting depth","Rubberized Thumb Grip on the handle for control","Hang-Up Hole on the handle for easy storage","Includes Two Soft Foam Kneeling Pads for comfortable gardening"],
+ "mobile":"This garden combo set includes a durable 11 in x 3 in hand trowel and two soft foam kneeling pads. The lightweight plastic trowel has a 4-inch measuring scale, a rubberized thumb grip, and a hang-up hole, so you can dig, transplant, and measure planting depth in comfort."},
+
+{"item_id":"236345056421","account":"dows",
+ "factual":"This is a 5-pack of Vaseline Lip Therapy Original Lip Balm sticks, .16oz each. Each stick is formulated with Vaseline's 100% pure, triple-purified petroleum jelly to lock in moisture, and is clinically proven and dermatologist recommended to help heal dry, cracked, dull, sunburnt, and windburnt lips.",
+ "sales":"Keep soft, healthy lips within reach at home, in your bag, and in the car with this convenient five-pack. The non-greasy formula glides on lightweight and works as a daily lip moisturizer, an overnight lip mask, or a smooth base under lipstick—proven relief you can rely on all year.",
+ "bullets":["Unique Formula: 100% pure triple-purified petroleum jelly that locks in moisture","Clinically Proven: Dermatologist recommended to help heal dry, cracked, and chapped lips","Multipurpose: Use as a daily balm, overnight lip mask, or smooth base under lipstick","Non-Greasy Formula: Goes on soft and lightweight without a greasy feel","Value 5-Pack: Five .16oz sticks for home, bag, and car"],
+ "mobile":"This 5-pack of Vaseline Lip Therapy Original Lip Balm (.16oz each) is formulated with 100% pure triple-purified petroleum jelly to lock in moisture. Clinically proven and dermatologist recommended, the non-greasy sticks help heal dry, cracked, and chapped lips and work as a balm, overnight mask, or base under lipstick."},
+
+{"item_id":"127790044097","account":"dows",
+ "factual":"The Destination Gear 6ft Italian Market Tilt Umbrella features a blue and white striped polypropylene canopy on a lightweight aluminum push-up pole. It offers a 3-position tilt function, an integrated wind vent for airflow and stability, and a manual lift opening mechanism. The canopy measures 6 feet across.",
+ "sales":"Bring the charm of a seaside Italian café to your patio, deck, or beach day. The classic blue stripe sets a relaxed, resort-style mood while the tilt function follows the sun for all-day shade and the wind vent keeps things steady—quick to set up and versatile enough for picnics, camping, and backyard bistro sets.",
+ "bullets":["Classic Italian Bistro Style: Eye-catching blue stripe canopy for a coastal café vibe","3-Position Tilt Function: Adjust the canopy angle for optimal sun protection","Durable Aluminum Frame: Lightweight yet sturdy push-up pole for quick setup","Wind Vent for Stability: Integrated vent promotes airflow and reduces wind pressure","Versatile Indoor/Outdoor Use: Great for patios, beaches, picnics, and camping"],
+ "mobile":"The Destination Gear 6ft Italian Market Tilt Umbrella has a blue and white striped polypropylene canopy on a lightweight aluminum pole. A 3-position tilt follows the sun, an integrated wind vent adds stability, and the classic bistro style suits patios, decks, beaches, and picnics."},
+
+{"item_id":"126672923175","account":"dows",
+ "factual":"The TychoTyke Kids Tennis Racket Play Set is a complete two-player set that comes with 2 rackets and 2 matching tennis balls. The rackets and balls are made from durable plastic in bright neon colors, and the set is designed for children ages 3 and up.",
+ "sales":"Add fun, active play to any backyard or park day—this ready-to-play set gets kids moving while they build hand-eye coordination and balance. Tough plastic stands up to hours of play rain or shine, and the bright colors and complete two-racket set make it a great gift for young players.",
+ "bullets":["Promotes Exercise: A fun way for kids to get outdoor activity during playtime","Teaches Hand-Eye Coordination: Helps kids react quickly and improve balance","Complete Set: Includes 2 rackets and 2 matching balls for two-player matches","Durable Construction: Sturdy plastic built for hours of fun, rain or shine","Ages 3 and Up: Designed for young children and a great gift idea"],
+ "mobile":"The TychoTyke Kids Tennis Racket Play Set includes 2 rackets and 2 matching tennis balls in bright neon colors, made from durable plastic for ages 3 and up. It promotes outdoor exercise and hand-eye coordination and is built for hours of two-player fun, rain or shine."},
+
+{"item_id":"236345031475","account":"dows",
+ "factual":"GEAR AID Tenacious Tape Reflective is a high-visibility silver fabric tape made in the United States that uses glass bead technology to reflect light better than standard fluorescent tape. The 3\" x 20\" strip is peel-and-stick, can be cut to size or applied as pre-cut patches, and bonds to outdoor and synthetic fabrics including nylon and vinyl. It is washable and resists peeling.",
+ "sales":"Stay seen after dark and improve safety for the whole family—peel, stick, and go on bikes, running shoes, helmets, water bottles, jackets, and gear. Cut the strip to any shape or use the pre-cut patches for a fast, durable upgrade that keeps reflecting wash after wash.",
+ "bullets":["Glass Bead Reflectivity: Reflects light better than standard fluorescent tape for low-light visibility","Peel-and-Stick Patches: Apply to running and bike gear, helmets, water bottles, shoes, and more","Bonds to Synthetic Fabrics: Sticks to nylon and vinyl; washable and won't peel over time","Cut to Size: Use the 3\" x 20\" strip or the various pre-cut patches on nearly any surface","Made in the USA"],
+ "mobile":"GEAR AID Tenacious Tape Reflective is a high-visibility 3\" x 20\" silver fabric tape that uses glass bead technology to reflect light better than fluorescent tape. Peel and stick it to bikes, shoes, helmets, jackets, and gear, cut it to size, and it stays put—washable and won't peel over time."},
+
+{"item_id":"126495661048","account":"dows",
+ "factual":"The ASR Outdoor High Visibility Trail Marking Ribbon is a roll of weather-proof PVC ribbon in bright high-visibility pink. Each roll is 1 inch wide, 200 feet long, and .06mm thick, designed for marking campsites, construction sites, hunting boundaries, and hiking trails.",
+ "sales":"Mark your ground quickly and clearly so nothing gets lost—the super-bright color stands out against brush and timber, and the weather-proof PVC holds up outdoors. With 200 feet on every roll, you have plenty of ribbon to section off sites, flag trails, and post boundaries season after season.",
+ "bullets":["Material: Weather-Proof PVC","Color: High Visibility Pink","Roll Width: 1 inch","Ribbon Length: 200 feet","Ribbon Thickness: .06mm"],
+ "mobile":"The ASR Outdoor High Visibility Trail Marking Ribbon is a 1-inch-wide, 200-foot roll of weather-proof PVC ribbon in bright pink. The super-bright color stands out against brush and timber, making it easy to mark campsites, construction sites, hunting boundaries, and hiking trails."},
+]
+
+by_acct = {}
+for a in ANS:
+    by_acct.setdefault(a["account"], {})[a["item_id"]] = a
+
+for acct, items in by_acct.items():
+    path = p(f"data/{acct}/output/desc_authored.jsonl")
+    existing = {}
+    if os.path.isfile(path):
+        for line in open(path):
+            line = line.strip()
+            if not line: continue
+            d = json.loads(line)
+            existing[d["item_id"]] = d
+    existing.update(items)
+    with open(path, "w", encoding="utf-8") as fh:
+        for d in existing.values():
+            d.pop("account", None)
+            fh.write(json.dumps(d, ensure_ascii=False) + "\n")
+    print(f"{acct}: {len(items)} pilot answers -> {path} ({len(existing)} total)")

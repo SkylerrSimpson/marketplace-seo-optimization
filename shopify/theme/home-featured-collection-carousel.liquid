@@ -1,0 +1,168 @@
+{%- comment -%}
+  ============================================================================
+  HOME PAGE — Featured Collection auto-rotating carousels (transform-driven)
+  ----------------------------------------------------------------------------
+  Paste this ENTIRE file into ONE Custom Liquid section on the home page,
+  at the bottom (Customize -> Home page -> Add section -> Custom Liquid).
+
+  Applies to all featured-collection product carousels (New Arrivals,
+  Gold Prospecting Kits, Paydirt Kits).
+
+  Why this finally works:
+    - It does NOT use Dawn's native scroll. Dawn's slider has built-in
+      scroll-padding/peek that kept pushing the first product off the left
+      edge. This wraps the row in a clipping viewport and slides the track
+      with CSS transform: translateX(). The start is literally translateX(0)
+      = flush left, and every step is an exact multiple of one card width.
+    - JavaScript measures the viewport in pixels and sizes each card to
+      (viewportWidth - 3*gap) / 4, so exactly 4 whole products show, the 5th
+      is clipped, and there are never partial cards.
+    - Advances one product every 4s, loops, pauses on hover.
+
+  Desktop only (>=990px). On mobile it leaves Dawn's native swipe slider alone.
+  ============================================================================
+{%- endcomment -%}
+
+<script>
+  (function () {
+    var INTERVAL = 4000;  // ms between advances
+    var DESKTOP  = 990;   // px breakpoint
+    var PER_VIEW = 4;     // products shown on desktop
+    var GAP      = 8;     // px gap (matches --grid-desktop-horizontal-spacing)
+    var STEP_PAD = 10;    // px extra slide per advance (clears the outgoing card)
+
+    function setup(component) {
+      var list = component.querySelector('.product-grid.slider');
+      if (!list) return;
+
+      // Wrap the row in a clipping viewport once.
+      var vp = (list.parentNode && list.parentNode.classList && list.parentNode.classList.contains('asr-vp'))
+               ? list.parentNode : null;
+      if (!vp) {
+        vp = document.createElement('div');
+        vp.className = 'asr-vp';
+        list.parentNode.insertBefore(vp, list);
+        vp.appendChild(list);
+      }
+
+      var timer = null, idx = 0;
+      function items() { return Array.prototype.slice.call(list.querySelectorAll('.grid__item')); }
+      function isDesktop() { return window.innerWidth >= DESKTOP; }
+
+      function sizeUp() {
+  var its = items();
+  if (!its.length) return { its: its, step: 0, max: 0 };
+
+  list.style.display = 'flex';
+  list.style.flexWrap = 'nowrap';
+  list.style.overflow = 'visible';
+  list.style.margin = '0';
+  list.style.padding = '0';
+  list.style.columnGap = GAP + 'px';
+  list.style.willChange = 'transform';
+
+  var vw = vp.clientWidth;                          // real viewport width, px
+  var w = (vw - GAP * (PER_VIEW - 1)) / PER_VIEW;   // exact card width
+
+  its.forEach(function (it) {
+    it.style.flex = '0 0 ' + w + 'px';
+    it.style.width = w + 'px';
+    it.style.minWidth = w + 'px';
+    it.style.maxWidth = w + 'px';
+  });
+
+  // Apply the extra padding to each rotation
+  var step = w + GAP + STEP_PAD;
+
+  return {
+    its: its,
+    step: step,
+    max: Math.max(0, its.length - PER_VIEW)
+  };
+}
+
+      function clear() {
+        items().forEach(function (it) {
+          it.style.flex = ''; it.style.width = ''; it.style.minWidth = ''; it.style.maxWidth = '';
+        });
+        ['display','flexWrap','overflow','margin','padding','columnGap','willChange','transform','transition']
+          .forEach(function (p) { list.style[p] = ''; });
+      }
+
+      function go(i, instant) {
+        if (!isDesktop()) { clear(); return; }      // mobile: hand back to Dawn
+        var L = sizeUp();
+        if (!L.its.length) return;
+        if (i > L.max) i = 0;     // loop back to start
+        if (i < 0) i = L.max;
+        idx = i;
+        list.style.transition = instant ? 'none' : 'transform 0.5s ease';
+        list.style.transform = 'translateX(-' + Math.round(idx * L.step) + 'px)';
+      }
+
+      function tick() { go(idx + 1); }
+      function start() {
+        if (timer || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        timer = setInterval(tick, INTERVAL);
+      }
+      function stop() { clearInterval(timer); timer = null; }
+
+      component.addEventListener('mouseenter', stop);
+      component.addEventListener('mouseleave', start);
+      component.addEventListener('focusin', stop);
+      component.addEventListener('focusout', start);
+
+      var rt;
+      window.addEventListener('resize', function () {
+        clearTimeout(rt);
+        rt = setTimeout(function () { go(idx, true); }, 150);
+      });
+
+      // initial: size + snap to the very start (no animation)
+      go(0, true);
+      requestAnimationFrame(function () { go(0, true); });
+      window.addEventListener('load', function () { go(0, true); });
+      start();
+    }
+
+    function ready() {
+      var seen = [];
+      document.querySelectorAll('slider-component .product-grid.slider').forEach(function (list) {
+        var c = list.closest('slider-component');
+        if (c && seen.indexOf(c) === -1) { seen.push(c); setup(c); }
+      });
+    }
+    if (document.readyState !== 'loading') ready();
+    else document.addEventListener('DOMContentLoaded', ready);
+  })();
+</script>
+<style>
+  /* viewport: native (no clip) by default so mobile keeps Dawn's swipe slider */
+  .asr-vp { overflow: visible; }
+
+@media screen and (min-width: 990px) {
+  /* hide arrows + counter only on the featured-collection product carousels */
+  slider-component:has(.product-grid.slider) .slider-buttons {
+    display: none !important;
+  }
+
+  /* align each carousel to the page-width content column */
+  slider-component:has(.product-grid.slider) {
+    display: block;
+    box-sizing: border-box;
+    max-width: var(--page-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    overflow: visible;
+  }
+
+  /* make the clipping viewport 10px wider (5px each side) */
+  slider-component .asr-vp {
+    overflow: hidden;
+    width: calc(100% + 10px);
+    margin-left: -5px;
+  }
+}
+</style>

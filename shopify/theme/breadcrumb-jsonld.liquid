@@ -1,0 +1,135 @@
+{%- comment -%}
+  ============================================================================
+  BreadcrumbList JSON-LD — 3-level, matches the ASR Outdoor nav hierarchy.
+  ----------------------------------------------------------------------------
+  WHERE TO PASTE: layout/theme.liquid, immediately before </head>.
+  (Edit code -> Layout -> theme.liquid -> find </head> -> paste just above it.)
+
+  Renders on COLLECTION and PRODUCT pages only:
+    - Collection (child):  Home -> Parent -> Collection
+    - Collection (parent/other): Home -> Collection
+    - Product:             Home -> Collection -> Product  (most-specific collection,
+                           chosen by priority rank so the money collection wins)
+    - Product (unmapped):  Home -> (first collection) -> Product
+  Pulls live titles/URLs, so it stays correct automatically. The child->parent
+  map mirrors the nav aggregate collections (gold-prospecting / paydirt-kits-1 /
+  outdoor-gear / rockhounding). You currently have NO breadcrumb schema, so this
+  adds it cleanly with nothing to conflict.
+  ============================================================================
+{%- endcomment -%}
+
+{%- liquid
+  assign base = request.origin
+-%}
+
+{%- if template contains 'collection' and collection and collection.handle -%}
+  {%- liquid
+    assign ph = ''
+    assign pt = ''
+    case collection.handle
+      when 'gold-panning-kits','gold-pans','sifters-or-classifiers','sluice-boxes','gold-panning-accessories','gold-prospecting-bucket-kits'
+        assign ph = 'gold-prospecting'
+        assign pt = 'Gold Prospecting'
+      when 'paydirt-kits','gemstone-paydirt','geodes'
+        assign ph = 'paydirt-kits-1'
+        assign pt = 'Paydirt Kits'
+      when 'camping-gear','survival-gear','outdoor-knives','paralace','metal-detecting-equipment'
+        assign ph = 'outdoor-gear'
+        assign pt = 'Outdoor Gear'
+      when 'rockhounding-kits','rockhounding-accessories'
+        assign ph = 'rockhounding'
+        assign pt = 'Rockhounding'
+    endcase
+  -%}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ base | append: '/' | json }} }
+      {%- if ph != '' -%}
+      ,{ "@type": "ListItem", "position": 2, "name": {{ pt | json }}, "item": {{ base | append: '/collections/' | append: ph | json }} }
+      ,{ "@type": "ListItem", "position": 3, "name": {{ collection.title | json }}, "item": {{ base | append: collection.url | json }} }
+      {%- else -%}
+      ,{ "@type": "ListItem", "position": 2, "name": {{ collection.title | json }}, "item": {{ base | append: collection.url | json }} }
+      {%- endif -%}
+    ]
+  }
+  </script>
+{%- endif -%}
+
+{%- if template contains 'product' and product -%}
+  {%- liquid
+    # Pick the single most-specific collection by priority rank (lower = preferred)
+    # so the breadcrumb lands on the money collection (e.g. Gold Panning Kits) and
+    # not whatever Liquid happens to return first.
+    assign chosen = null
+    assign best_rank = 999
+    for c in product.collections
+      assign r = 999
+      case c.handle
+        when 'gold-panning-kits'
+          assign r = 1
+        when 'sluice-boxes'
+          assign r = 2
+        when 'sifters-or-classifiers'
+          assign r = 3
+        when 'gold-pans'
+          assign r = 4
+        when 'gold-prospecting-bucket-kits'
+          assign r = 5
+        when 'gold-panning-accessories'
+          assign r = 6
+        when 'metal-detecting-equipment'
+          assign r = 7
+        when 'rockhounding-kits'
+          assign r = 8
+        when 'rockhounding-accessories'
+          assign r = 9
+        when 'paydirt-kits'
+          assign r = 10
+        when 'gemstone-paydirt'
+          assign r = 11
+        when 'geodes'
+          assign r = 12
+        when 'outdoor-knives'
+          assign r = 13
+        when 'survival-gear'
+          assign r = 14
+        when 'camping-gear'
+          assign r = 15
+        when 'paralace'
+          assign r = 16
+      endcase
+      if r < best_rank
+        assign best_rank = r
+        assign chosen = c
+      endif
+    endfor
+
+    # Fallback: any real collection (skip the catch-all frontpage) if none mapped.
+    unless chosen
+      for c in product.collections
+        unless c.handle == 'frontpage'
+          assign chosen = c
+          break
+        endunless
+      endfor
+    endunless
+  -%}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ base | append: '/' | json }} }
+      {%- if chosen -%}
+      ,{ "@type": "ListItem", "position": 2, "name": {{ chosen.title | json }}, "item": {{ base | append: chosen.url | json }} }
+      ,{ "@type": "ListItem", "position": 3, "name": {{ product.title | json }}, "item": {{ base | append: product.url | json }} }
+      {%- else -%}
+      ,{ "@type": "ListItem", "position": 2, "name": {{ product.title | json }}, "item": {{ base | append: product.url | json }} }
+      {%- endif -%}
+    ]
+  }
+  </script>
+{%- endif -%}
