@@ -1,0 +1,194 @@
+{%- comment -%}
+  ASR Outdoor — sortable blog grid (works on any blog listing).
+
+  SAVE THIS FILE IN THE THEME AS:  snippets/blog-sortable.liquid
+  THEN render it from the blog section:
+     Online Store -> Themes -> Edit code -> Sections -> main-blog.liquid
+     Paste  {% render 'blog-sortable' %}  near the TOP of the section,
+     just inside the outer wrapper (before the default article grid).
+
+  It:
+   - shows a Sort dropdown (view options adapt: the Videos blog gets
+     "Most / Least viewed"; other blogs do not),
+   - loads every post via /blogs/<handle>?view=sortfeed (needs the
+     templates/blog.sortfeed.liquid template),
+   - hides the theme's default grid + pagination and renders its own
+     sorted, paged grid.
+
+  Requires the sortfeed template. Popularity uses custom.view_count (videos)
+  and Featured uses custom.sort_priority (lower number = higher up).
+{%- endcomment -%}
+
+{%- if template contains 'blog' -%}
+{%- assign is_videos = false -%}
+{%- if blog.handle == 'videos' -%}{%- assign is_videos = true -%}{%- endif -%}
+
+{%- comment -%} runs immediately (before the default grid paints) to prevent a flash {%- endcomment -%}
+<script>
+  (function(){
+    var d = document.documentElement;
+    d.classList.add('asr-loading');
+    // failsafe: if the feed never loads (JS error / network), reveal the normal grid
+    window.__asrFailsafe = setTimeout(function(){ d.classList.remove('asr-loading'); }, 6000);
+  })();
+</script>
+
+<div class="asr-sort" data-blog-url="{{ blog.url }}" data-is-videos="{{ is_videos }}" hidden>
+  <div class="asr-sort__bar">
+    <label class="asr-sort__label" for="asr-sort-select">Sort by</label>
+    <select id="asr-sort-select" class="asr-sort__select select__select">
+      <option value="featured">Featured</option>
+      <option value="date_new" selected>Newest first</option>
+      <option value="date_old">Oldest first</option>
+      {%- if is_videos -%}
+      <option value="views_high">Most viewed</option>
+      <option value="views_low">Least viewed</option>
+      {%- endif -%}
+      <option value="title_az">Title A–Z</option>
+      <option value="title_za">Title Z–A</option>
+    </select>
+    <span class="asr-sort__count" id="asr-sort-count" aria-live="polite"></span>
+  </div>
+
+  <div class="asr-sort__grid" id="asr-sort-grid"></div>
+
+  <div class="asr-sort__more-wrap">
+    <button type="button" class="asr-sort__more button button--secondary" id="asr-sort-more" hidden>Show more</button>
+  </div>
+</div>
+
+<style>
+  /* hide the theme's default blog grid + pagination immediately (no flash) */
+  .asr-loading .blog-articles,
+  .asr-loading .pagination-wrapper { display: none !important; }
+
+  .asr-sort__bar{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin:0 auto 2.4rem;}
+  .asr-sort__label{font-weight:600;font-size:1.4rem;}
+  .asr-sort__select{
+    min-width:16rem;font-size:1.4rem;line-height:1.2;cursor:pointer;color:inherit;
+    padding:1rem 3.4rem 1rem 1.4rem;
+    border:.1rem solid rgba(var(--color-foreground,18,18,18),.45);
+    border-radius:.5rem;background-color:rgb(var(--color-background,255,255,255));
+    -webkit-appearance:none;-moz-appearance:none;appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23121212' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+    background-repeat:no-repeat;background-position:right 1.2rem center;background-size:1.4rem;
+  }
+  .asr-sort__count{opacity:.7;font-size:1.2rem;margin-left:auto;}
+  .asr-sort__grid{
+    display:grid;gap:2.4rem 2.4rem;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    margin:0 auto;
+  }
+  @media (max-width:989px){ .asr-sort__grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
+  .asr-card{display:flex;flex-direction:column;opacity:0;transform:translateY(14px);animation:asrFadeUp .55s cubic-bezier(.22,.61,.36,1) both;}
+  @keyframes asrFadeUp{to{opacity:1;transform:none;}}
+  @media (prefers-reduced-motion:reduce){
+    .asr-card{opacity:1;transform:none;animation:none;}
+  }
+  .asr-card__imgwrap{display:block;aspect-ratio:16/9;overflow:hidden;border-radius:var(--media-radius,.4rem);background:#eee;}
+  .asr-card__imgwrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;}
+  .asr-card__imgwrap:hover img{transform:scale(1.04);}
+  .asr-card__date{font-size:.85rem;opacity:.7;margin:.9rem 0 .3rem;}
+  .asr-card__title{font-size:1.7rem;line-height:1.3;margin:0 0 .5rem;}
+  .asr-card__title a{text-decoration:none;color:inherit;}
+  .asr-card__title a:hover{text-decoration:underline;}
+  .asr-card__excerpt{font-size:1.3rem;line-height:1.5;opacity:.85;margin:0 0 .4rem;}
+  .asr-card__views{font-size:.85rem;opacity:.6;}
+  .asr-sort__more-wrap{text-align:center;margin:3rem 0 1rem;}
+  @media (max-width:749px){
+    .asr-sort__grid{grid-template-columns:1fr;gap:2rem;}
+    .asr-sort__count{width:100%;margin-left:0;}
+  }
+</style>
+
+<script>
+(function(){
+  var root = document.querySelector('.asr-sort');
+  if(!root) return;
+  var blogUrl = root.getAttribute('data-blog-url');
+  var isVideos = root.getAttribute('data-is-videos') === 'true';
+  var grid = document.getElementById('asr-sort-grid');
+  var sel = document.getElementById('asr-sort-select');
+  var moreBtn = document.getElementById('asr-sort-more');
+  var countEl = document.getElementById('asr-sort-count');
+  var PAGE = 12;
+  var all = [], sorted = [], shown = 0;
+
+  function esc(s){ return (s==null?'':String(s)).replace(/[&<>"']/g,function(m){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]; }); }
+
+  function fmtViews(n){ n=Number(n)||0; return n>=1000 ? (n/1000).toFixed(n>=10000?0:1)+'k' : n; }
+
+  function comparators(mode){
+    var byTs=function(a,b){return b.timestamp-a.timestamp;};
+    return ({
+      featured:  function(a,b){ return a.priority-b.priority || b.timestamp-a.timestamp; },
+      date_new:  byTs,
+      date_old:  function(a,b){ return a.timestamp-b.timestamp; },
+      views_high:function(a,b){ return b.views-a.views; },
+      views_low: function(a,b){ return a.views-b.views; },
+      title_az:  function(a,b){ return a.title.localeCompare(b.title); },
+      title_za:  function(a,b){ return b.title.localeCompare(a.title); }
+    })[mode] || byTs;
+  }
+
+  function cardHtml(a, i){
+    var img = a.image ? '<a class="asr-card__imgwrap" href="'+esc(a.url)+'"><img src="'+esc(a.image)+'" alt="'+esc(a.title)+'" loading="lazy" width="640" height="360"></a>'
+                      : '<a class="asr-card__imgwrap" href="'+esc(a.url)+'"></a>';
+    var views = (isVideos && a.views>0) ? '<div class="asr-card__views">'+fmtViews(a.views)+' views</div>' : '';
+    var delay = 'style="animation-delay:'+(Math.min(i,12)*0.06).toFixed(2)+'s"';
+    return '<article class="asr-card" '+delay+'>'+img+
+      '<div class="asr-card__date">'+esc(a.date_display)+'</div>'+
+      '<h3 class="asr-card__title"><a href="'+esc(a.url)+'">'+esc(a.title)+'</a></h3>'+
+      (a.excerpt ? '<p class="asr-card__excerpt">'+esc(a.excerpt)+'</p>' : '')+
+      views+'</article>';
+  }
+
+  function render(reset){
+    if(reset){ grid.innerHTML=''; shown=0; }
+    var next = sorted.slice(shown, shown+PAGE);
+    grid.insertAdjacentHTML('beforeend', next.map(function(a,i){ return cardHtml(a,i); }).join(''));
+    shown += next.length;
+    moreBtn.hidden = shown >= sorted.length;
+    countEl.textContent = sorted.length ? ('Showing '+shown+' of '+sorted.length) : '';
+  }
+
+  function applySort(){
+    sorted = all.slice().sort(comparators(sel.value));
+    render(true);
+  }
+
+  function fetchPage(p){
+    return fetch(blogUrl+'?view=sortfeed&page='+p, {headers:{'Accept':'application/json'}})
+      .then(function(r){ return r.text(); })
+      .then(function(t){ try{ return JSON.parse(t); }catch(e){ return null; } });
+  }
+
+  function revealDefault(){ // fallback: show the theme's normal grid
+    clearTimeout(window.__asrFailsafe);
+    document.documentElement.classList.remove('asr-loading');
+  }
+
+  fetchPage(1).then(function(first){
+    if(!first){ revealDefault(); return; } // feed failed -> keep the default grid
+    clearTimeout(window.__asrFailsafe); // feed is good; default stays hidden
+    all = first.articles || [];
+    // load any remaining pages, THEN render once (no double-draw / stutter)
+    var jobs=[];
+    for(var p=2; p<=(first.total_pages||1); p++) jobs.push(fetchPage(p));
+    return Promise.all(jobs).then(function(rest){
+      rest.forEach(function(d){ if(d && d.articles) all = all.concat(d.articles); });
+      // move our controls to exactly where the theme's grid sits, so the page
+      // heading stays on top and everything lines up inside the page width
+      var defGrid = document.querySelector('.blog-articles');
+      if(defGrid && defGrid.parentNode){ defGrid.parentNode.insertBefore(root, defGrid); }
+      root.hidden = false;
+      applySort(); // single render of the full, sorted set
+    });
+  }).catch(revealDefault);
+
+  sel.addEventListener('change', applySort);
+  moreBtn.addEventListener('click', function(){ render(false); });
+})();
+</script>
+{%- endif -%}

@@ -1,0 +1,32 @@
+{%- comment -%}
+  ASR Outdoor — JSON sort feed for blog listings.
+
+  SAVE THIS FILE IN THE THEME AS:  templates/blog.sortfeed.liquid
+  (Online Store -> Themes -> Edit code -> Templates -> Add a new template ->
+   type "blog", template type Liquid, name it "sortfeed".)
+
+  It outputs every article on the blog as JSON (paginated 50 at a time) so the
+  sort dropdown (snippets/blog-sortable.liquid) can load the full set and order
+  it in the browser. Reached at /blogs/<handle>?view=sortfeed&page=N
+{%- endcomment -%}
+{%- layout none -%}
+{%- paginate blog.articles by 50 -%}
+{
+  "page": {{ paginate.current_page }},
+  "total_pages": {{ paginate.pages }},
+  "articles": [
+    {%- for article in blog.articles -%}
+    {
+      "title": {{ article.title | json }},
+      "url": {{ article.url | json }},
+      "image": {{ article.image | image_url: width: 640 | json }},
+      "date_display": {{ article.published_at | date: "%b %-d, %Y" | json }},
+      "timestamp": {{ article.published_at | date: "%s" | plus: 0 }},
+      "views": {{ article.metafields.custom.view_count.value | default: 0 }},
+      "priority": {{ article.metafields.custom.sort_priority.value | default: 999999 }},
+      "excerpt": {{ article.excerpt_or_content | strip_html | truncate: 150 | json }}
+    }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ]
+}
+{%- endpaginate -%}
