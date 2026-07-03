@@ -11,8 +11,13 @@ rewrite — the author may only add / correct / enhance from this material:
   cells — the originals keep features in a specs <td> table, which the old
   extractor missed), and the first image URL.
 
-Inputs:  data/<acct>/output/media/<id>.json   (audit_media.php)
-         data/<acct>/output/items/<id>.json   (enrich_listings.php; aspects)
+Inputs:  data/<acct>/output/media/<id>.json     (audit_media.php)
+         data/<acct>/output/items/<id>.json     (enrich_listings.php; aspects fallback)
+         data/<acct>/output/apply_set.json      (build_apply_set.php; the best-known
+                                                  MERGED aspect set per listing — kept
+                                                  current + human-approved + new fills.
+                                                  Preferred over items/<id>.json's raw,
+                                                  pre-review export when present.)
 Output:  data/<acct>/output/desc_source_pack.jsonl   (one grounding row/listing)
 Usage:   python3 ebay/scripts/extract_description_source.py
 """
@@ -93,17 +98,29 @@ def visible_text(h):
 
 def main():
     for acct in ('dows', 'ige'):
+        apply_set = {}
+        asp = p(f'data/{acct}/output/apply_set.json')
+        if os.path.isfile(asp):
+            apply_set = json.load(open(asp))
+
         out = p(f'data/{acct}/output/desc_source_pack.jsonl')
         n = 0
+        enriched = 0
         with open(out, 'w', encoding='utf-8') as fh:
             for f in sorted(glob.glob(p(f'data/{acct}/output/media/*.json'))):
                 d = json.load(open(f))
                 iid = str(d.get('item_id') or os.path.basename(f)[:-5])
-                item = {}
-                ip = p(f'data/{acct}/output/items/{iid}.json')
-                if os.path.isfile(ip):
-                    item = json.load(open(ip))
-                aspects = item.get('aspects') if isinstance(item.get('aspects'), dict) else {}
+
+                entry = apply_set.get(iid)
+                if entry and entry.get('specifics'):
+                    aspects = entry['specifics']
+                    enriched += 1
+                else:
+                    item = {}
+                    ip = p(f'data/{acct}/output/items/{iid}.json')
+                    if os.path.isfile(ip):
+                        item = json.load(open(ip))
+                    aspects = item.get('aspects') if isinstance(item.get('aspects'), dict) else {}
                 raw = d.get('description') or ''
                 h = strip_chrome(raw)
                 bullets = feature_bullets(h)
@@ -123,7 +140,8 @@ def main():
                 }
                 fh.write(json.dumps(pack, ensure_ascii=False) + '\n')
                 n += 1
-        print(f'{acct}: wrote {n} source packs -> {out}')
+        print(f'{acct}: wrote {n} source packs ({enriched} from apply_set.json, '
+              f'{n - enriched} from raw items/ export) -> {out}')
 
 if __name__ == '__main__':
     main()

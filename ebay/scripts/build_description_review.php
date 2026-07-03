@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 /**
  * build_description_review.php — assemble the DRY-RUN description review sheet for
- * Ethan. NO eBay writes.
+ * Ethan (v2, 21-column schema, 2026-07-03). NO eBay writes.
  *
  * Two-description model (matches ebay/tools/description-generator.html):
  *   FIRST  description = factual paragraph  (size / color / brand / material / what's
@@ -15,19 +15,25 @@ declare(strict_types=1);
  *   PRODUCT SPECS       = auto-rendered from the listing's own aspects.
  *   MOBILE summary      = the hidden, eBay-required <=800-char summary (human-readable,
  *                        never an MPN/part number).
+ *   TITLE               = touched ONLY when the authoring pass flagged the current
+ *                        title as inaccurate/deficient (title_issue=true); otherwise
+ *                        left as-is (new_title blank).
  *
  * Inputs:
  *   desc_source_pack.jsonl   per-listing GROUNDING content (extract_description_source.py):
  *     {item_id, title, price, aspects, short_description, narrative[], feature_bullets[], image}
+ *     aspects here are the MERGED apply_set.json set when available (see that script).
  *   desc_authored.jsonl      the LLM re-author answers, grounded in the pack:
- *     {item_id, factual, sales, bullets:[...], mobile}
+ *     {item_id, factual, sales, bullets:[...], mobile[, title_issue, new_title]}
  *   media/{itemId}.json      current description HTML (the BEFORE column)
+ *   listings.json            item_id -> sku (the authoritative sku source)
  *
  * Where a listing has no authored answer it falls back to its own source pack so the
- * sheet still covers every listing without inventing copy.
+ * sheet still covers every listing without inventing copy (title is never touched in
+ * that case — title_issue only ever comes from an authored answer).
  *
  * Writes:
- *   description_review.csv        one row/listing (before vs after, both slots split out)
+ *   description_review.csv        one row/listing, 21 columns (see column list below)
  *   descriptions/{itemId}.html    the full proposed HTML (easy to eyeball)
  *
  * Usage: php ebay/scripts/build_description_review.php --account=dows|ige
@@ -67,15 +73,22 @@ if (is_file($authPath)) {
     }
 }
 
+// item_id -> sku, from listings.json (the authoritative source — media/items snapshots
+// don't reliably carry sku)
+$skuMap = sourceListingSkuMap($outDir . '/listings.json');
+
 $oneLine = fn(string $s): string => trim(preg_replace('/\s+/u', ' ', $s));
 
 $rev = fopen($outDir . '/description_review.csv', 'w');
-fputcsv($rev, ['item_id','sku','title','price','change_type',
-    'factual_first','sales_second','key_features','mobile_text',
-    'prev_description','new_description','prev_html','proposed_html','what_changed',
-    'current_html_len','proposed_html_len','approved','reviewer_notes']);
+fputcsv($rev, [
+    'item_id', 'sku', 'old_first_description', 'new_first_description',
+    'old_title', 'new_title', 'price', 'old_key_features', 'new_key_features',
+    'old_mobile_text', 'new_mobile_text', 'old_description', 'new_description',
+    'prev_html', 'new_html', 'what_changed', 'approved', 'reviewer_notes',
+    'mpn', 'upc', 'specs/values',
+]);
 
-$total = 0; $authoredCount = 0; $fallbackCount = 0;
+$total = 0; $authoredCount = 0; $fallbackCount = 0; $titleChanged = 0; $titleRejected = 0;
 foreach (file($packPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line) {
     $pack = json_decode($line, true);
     if (!is_array($pack)) { continue; }
@@ -86,30 +99,50 @@ foreach (file($packPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line
     $price    = (string) ($pack['price'] ?? '');
     $aspects  = is_array($pack['aspects'] ?? null) ? $pack['aspects'] : [];
     $imageUrl = (string) ($pack['image'] ?? '');
-    $sku      = (string) (($aspects['sku'] ?? '') ?: '');
+    $sku      = $skuMap[$id] ?? '';
 
     $media       = readJson($mediaDir . "/{$id}.json");
     $currentHtml = (string) ($media['description'] ?? '');
-    $sku         = (string) ($media['sku'] ?? $sku);
+
+    // --- OLD/current columns (always derived the same way, authored answer or not) ---
+    $oldTitle = stripIdentifiers($oneLine($title));
+    $oldFirst = stripIdentifiers($oneLine((string) ($pack['short_description'] ?? '')));
+    $oldBullets = cleanBullets((array) ($pack['feature_bullets'] ?? []));
+    $oldMobile  = extractMobileSpan($currentHtml);
 
     $a = $authored[$id] ?? null;
+    $newTitle = '';
     if ($a !== null && trim((string) ($a['factual'] ?? '')) !== '') {
         // LLM re-author answer, grounded in the source pack
         $factual = stripIdentifiers($oneLine((string) ($a['factual'] ?? '')));
         $sales   = stripIdentifiers($oneLine((string) ($a['sales'] ?? '')));
-        $bullets = array_values(array_filter(array_map(
-            fn($b) => stripIdentifiers($oneLine((string) $b)), (array) ($a['bullets'] ?? [])),
-            fn($b) => $b !== ''));
+        $bullets = cleanBullets((array) ($a['bullets'] ?? []));
         $mobile  = stripIdentifiers($oneLine((string) ($a['mobile'] ?? '')));
         if ($mobile === '') { $mobile = $factual; }
-        $change  = 'Re-authored (factual + sales) + standardized';
+        $titleNote = '';
+        if (!empty($a['title_issue'])) {
+            $cand = stripIdentifiers($oneLine((string) ($a['new_title'] ?? '')));
+            if ($cand === '') {
+                // flagged but no replacement given — nothing to apply
+            } elseif (mb_strlen($cand) > 80) {
+                fwrite(STDERR, "warn: item {$id} new_title exceeds 80 chars ({$cand}) — dropped, title left as-is\n");
+                $titleRejected++;
+            } else {
+                $newTitle = $cand;
+                $titleChanged++;
+            }
+        }
+        $change  = 'Re-authored (factual + sales) + standardized' . ($newTitle !== '' ? '; title updated' : '');
         $summary = 'Re-authored into the two-paragraph standard: a factual first paragraph '
             . '(size/brand/material/contents) and a sales-pitch second paragraph, with the '
-            . 'factual Key Features restored from the original. Grounded in the listing; nothing invented.';
+            . 'factual Key Features restored from the original. Grounded in the listing; nothing invented.'
+            . ($newTitle !== '' ? ' Title flagged inaccurate/deficient and replaced.' : '');
         $authoredCount++;
     } else {
-        // fallback: reuse the listing's own content (no authoring), still standardized
-        $factual = stripIdentifiers($oneLine((string) ($pack['short_description'] ?? '')));
+        // fallback: reuse the listing's own content (no authoring), still standardized.
+        // Title is NEVER touched in the fallback path — title_issue only comes from an
+        // authored answer.
+        $factual = $oldFirst;
         $narr    = array_map('strval', (array) ($pack['narrative'] ?? []));
         $sales   = stripIdentifiers($oneLine($narr[0] ?? ''));
         // don't duplicate: if the sales prose is contained in the factual lead, drop it
@@ -118,9 +151,7 @@ foreach (file($packPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line
         }
         if ($factual === '') { $factual = $sales; $sales = stripIdentifiers($oneLine($narr[1] ?? '')); }
         if ($factual === '') { $factual = $title; }
-        $bullets = array_values(array_filter(array_map(
-            fn($b) => stripIdentifiers($oneLine((string) $b)), (array) ($pack['feature_bullets'] ?? [])),
-            fn($b) => $b !== ''));
+        $bullets = $oldBullets;
         $mobile  = $factual;
         $change  = 'Standardized (copy kept; pending re-author)';
         $summary = 'No authored answer yet — reused the listing\'s own factual summary, narrative '
@@ -129,20 +160,26 @@ foreach (file($packPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line
     }
 
     $mobile   = mobileSummary($mobile);
-    $proposed = renderFull($store, $title, $factual, $sales, $mobile, $bullets, $aspects, $imageUrl);
+    $newTitleFinal = $newTitle !== '' ? $newTitle : $title;
+    $proposed = renderFull($store, $newTitleFinal, $factual, $sales, $mobile, $bullets, $aspects, $imageUrl);
     file_put_contents($descDir . "/{$id}.html", $proposed);
 
-    // readable proposed copy (no store chrome) for the reviewer
-    $keyFeatures = implode(' | ', $bullets);
-    $newText     = $oneLine($factual . ($sales !== '' ? ' ' . $sales : '')
-                 . ($bullets !== [] ? ' Key Features: ' . $keyFeatures : ''));
+    $newKeyFeatures = implode(' | ', $bullets);
+    $newDescText    = $oneLine($factual . ($sales !== '' ? ' ' . $sales : '')
+                    . ($bullets !== [] ? ' Key Features: ' . $newKeyFeatures : ''));
 
     fputcsv($rev, [
-        $id, $sku, $title, $price, $change,
-        $factual, $sales, $keyFeatures, $mobile,
-        $oneLine(strip_tags($currentHtml)), $newText,
-        $oneLine($currentHtml), $oneLine($proposed), $summary,
-        strlen($currentHtml), strlen($proposed), '', '',
+        $id, $sku,
+        $oldFirst, $factual,
+        $oldTitle, $newTitle,
+        $price,
+        implode(' | ', $oldBullets), $newKeyFeatures,
+        $oldMobile, extractMobileSpan($proposed),
+        $oneLine(strip_tags($currentHtml)), $newDescText,
+        $oneLine($currentHtml), $oneLine($proposed),
+        $change, '', '',
+        findAspectCI($aspects, ['mpn']), findAspectCI($aspects, ['upc']),
+        renderSpecsPlain($aspects),
     ]);
     $total++;
 }
@@ -150,6 +187,7 @@ fclose($rev);
 
 echo "=== description review built: {$account} ===\n";
 printf("total listings: %d  (authored %d, fallback %d)\n", $total, $authoredCount, $fallbackCount);
+printf("titles changed: %d  (rejected for >80 chars: %d)\n", $titleChanged, $titleRejected);
 echo "  {$outDir}/description_review.csv\n  {$descDir}/{itemId}.html\n";
 
 // --- renderers -----------------------------------------------------------------
@@ -252,6 +290,71 @@ function renderSpecs(array $aspects): string
     if ($rows === '') { return ''; }
     return "  <h3 style=\"font-size:18px;margin:18px 0 8px\">Product Specifications</h3>\n"
         . "  <ul style=\"padding-left:20px;margin:0 0 16px\">\n{$rows}  </ul>\n";
+}
+
+/** Plain-text sibling of renderSpecs(), for the CSV's specs/values column. mpn/upc are
+ *  skipped — they already get dedicated columns. */
+function renderSpecsPlain(array $aspects): string
+{
+    $skip = ['california prop 65 warning', 'unit type', 'unit quantity', 'sku', 'mpn', 'upc'];
+    $parts = [];
+    foreach ($aspects as $name => $val) {
+        $val = trim((string) (is_array($val) ? implode(', ', $val) : $val));
+        if ($val === '' || in_array(mb_strtolower((string) $name), $skip, true)) { continue; }
+        $parts[] = trim((string) $name) . ': ' . $val;
+    }
+    return implode(' | ', $parts);
+}
+
+/** Case-insensitive aspect lookup — used for mpn/upc. */
+function findAspectCI(array $aspects, array $keys): string
+{
+    $lower = [];
+    foreach ($aspects as $k => $v) { $lower[mb_strtolower(trim((string) $k))] = $v; }
+    foreach ($keys as $k) {
+        if (isset($lower[$k]) && trim((string) $lower[$k]) !== '') {
+            $v = $lower[$k];
+            return trim((string) (is_array($v) ? implode(', ', $v) : $v));
+        }
+    }
+    return '';
+}
+
+/** item_id -> sku, from listings.json — the authoritative sku source (media/items
+ *  snapshots don't reliably carry it). Mirrors build_review_sheet.php's $pSku load. */
+function sourceListingSkuMap(string $listingsPath): array
+{
+    $map = [];
+    if (!is_file($listingsPath)) { return $map; }
+    $list = json_decode((string) file_get_contents($listingsPath), true);
+    foreach ((array) $list as $l) {
+        $id = (string) ($l['item_id'] ?? '');
+        if ($id !== '') { $map[$id] = (string) ($l['sku'] ?? ''); }
+    }
+    return $map;
+}
+
+/** The hidden eBay mobile summary: the schema.org <span property="description"> inside
+ *  the display:none block, tag-stripped to plain text. Same regex as
+ *  find_mobile_desc_mismatch.py's MOBILE_SPAN, ported here so old_mobile_text/
+ *  new_mobile_text can be pulled straight from raw HTML (current or newly rendered)
+ *  without a separate extraction pass. */
+function extractMobileSpan(string $html): string
+{
+    if ($html === '' || !preg_match('/property="description"[^>]*>(.*?)<\/span>/si', $html, $m)) {
+        return '';
+    }
+    $t = strip_tags($m[1]);
+    $t = html_entity_decode($t, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    return trim(preg_replace('/\s+/u', ' ', $t));
+}
+
+/** Clean + join a raw feature_bullets list the same way for old and new columns. */
+function cleanBullets(array $raw): array
+{
+    return array_values(array_filter(array_map(
+        fn($b) => stripIdentifiers(trim(preg_replace('/\s+/u', ' ', (string) $b))), $raw),
+        fn($b) => $b !== ''));
 }
 
 /**
