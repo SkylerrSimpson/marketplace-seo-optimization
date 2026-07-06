@@ -1,389 +1,745 @@
-# Amazon — SP-API Infrastructure
+# Amazon — SP-API Catalog Pipeline
 
-Foundation for auditing the IGE/DOWS Amazon catalog against Amazon's
-per-productType requirements, mirroring the Shopify pipeline's shape
-(read-only audit/export → author → reviewable output → guarded write) but
-adjusted for Amazon's constraints.
+A standalone PHP pipeline that audits the IGE and DOWS Amazon catalogs
+against Amazon's per-productType requirements, fills attribute gaps from
+Usurper (or authors them with Claude when no source exists), and writes the
+result back to Amazon behind a guarded, reversible write path — then projects
+the AI-authored values back into Usurper so the catalog self-heals over time.
 
-> **Status:** Phase 0–4 complete. Phase 5 (audit) is the remaining read-only
-> script. The write phase (`putListingsItem` / `patchListingsItem`) waits on
-> Usurper's catalog dump and on the authored-content phase that depends on it.
+It mirrors the shape of the Shopify pipeline (read-only audit/export → author
+→ reviewable output → guarded write) but is adapted to Amazon's constraints:
+no "list-all" listings endpoint, per-productType schemas, and identifying/
+compliance attributes that are dangerous to write blindly.
 
----
-
-## Context
-
-The Shopify pipeline already audits products, drafts SEO fixes, and writes
-approved changes back via the Admin API. The Amazon side needs an equivalent
-foundation, but the constraints differ:
-
-- **No "list-all" Listings endpoint.** SP-API's Listings Items API is per-SKU
-  (`getListingsItem(sku)`). The conventional way to enumerate a seller's
-  catalog is the **Reports API** (`GET_MERCHANT_LISTINGS_ALL_DATA`).
-- **Schemas are per-productType.** To know what attributes Amazon requires
-  for a given listing, we need the **Product Type Definitions API**. Schemas
-  don't change often, so we cache them to disk (`amazon/data/schemas/`) for
-  manual review and to avoid re-fetching.
-- **The Usurper full-catalog CSV doesn't exist yet.** Skyler is building it.
-  Until then, Amazon's own Reports API serves as our spine — we treat
-  Amazon as the temporary source of truth for "what SKUs do we have?" and
-  write per-SKU JSON snapshots to disk for offline analysis.
-- **No write phase yet.** All scripts below are read-only. The eventual
-  write-back will mirror Shopify's guarded-write pattern (`--apply` flag,
-  dry-run default), but only after authored content exists to push.
-- **Usurper file format is TBD.** `app/Services/UsurperFileProcessor.php`
-  (imports) and `app/Exports/InventoryExport.php` (exports) define
-  Usurper's CSV shape — but they aren't symmetric today, and the import
-  side doesn't yet accept product-data fields (only quantity). We park
-  "emit Usurper-compatible files" until that shape stabilizes, and design
-  our per-SKU JSON to be lossless / re-projectable into whatever Usurper
-  lands on.
-
-Reuse Usurper's SP-API app credentials (one app, two consumers). Single
-marketplace at launch: **US (ATVPDKIKX0DER)**. Start in **sandbox** to
-validate wiring, flip to prod via an env flag.
+> **Status:** Complete and operational for both IGE and DOWS. Read →
+> analyze → AI-draft → guarded write-back → Usurper projection, plus a
+> write-safety layer (backups, restore, identifying/compliance/shrink guards)
+> and a read-only variation-reconciliation diagnostic.
 
 ---
 
-## SDK choice
+## Table of contents
 
-[`jlevers/selling-partner-api`](https://github.com/jlevers/selling-partner-api)
-(raw, Saloon-based). This is the same library Usurper consumes (Usurper
-wraps it via `highsidelabs/laravel-spapi`, which adds DB-backed credential
-storage and Laravel cache). Since this project is plain PHP + dotenv (no
-Laravel), we take the raw SDK directly — the
-`SellingPartnerApi::seller(...)` connector handles refresh tokens
-internally via Saloon's authenticator. Credentials live in `.env` only.
+- [What it does](#what-it-does)
+- [How the pipeline fits together](#how-the-pipeline-fits-together)
+- [The three data layers](#the-three-data-layers)
+- [Setup](#setup)
+- [Directory layout](#directory-layout)
+- [The pipeline, phase by phase](#the-pipeline-phase-by-phase)
+  - [Phase 0 — connectivity check](#phase-0--connectivity-check)
+  - [Phase 1 — catalog export (Reports API)](#phase-1--catalog-export-reports-api)
+  - [Phase 2 — per-SKU listings snapshot](#phase-2--per-sku-listings-snapshot)
+  - [Phase 3 — per-ASIN catalog snapshot](#phase-3--per-asin-catalog-snapshot)
+  - [Phase 4 — product-type schema cache](#phase-4--product-type-schema-cache)
+  - [Phase 5 — audit](#phase-5--audit)
+  - [Phase 6 — gap-fill analysis](#phase-6--gap-fill-analysis)
+  - [Phase 7 — AI-assisted draft generation](#phase-7--ai-assisted-draft-generation)
+  - [Phase 8 — write-back to Amazon](#phase-8--write-back-to-amazon)
+  - [Phase 9 — project drafts to Usurper](#phase-9--project-drafts-to-usurper)
+- [Write-safety layer (Phase 10)](#write-safety-layer-phase-10)
+- [Variation reconciliation (Phase 11)](#variation-reconciliation-phase-11)
+- [Full end-to-end run](#full-end-to-end-run)
+- [Output formats reference](#output-formats-reference)
+- [Deferred / out of scope](#deferred--out-of-scope)
+- [Reference: patterns borrowed from Usurper](#reference-patterns-borrowed-from-usurper)
 
-Composer additions:
+---
+
+## What it does
+
+The end goal is a **complete, compliant Amazon catalog** for both seller
+accounts, kept in sync with Usurper, without ever risking a listing through a
+careless write.
+
+Concretely, the pipeline answers four questions and acts on them:
+
+1. **What do we have on Amazon?** — enumerate every SKU/ASIN (Phases 1–3).
+2. **What does Amazon require that we're missing?** — compare each listing to
+   its product-type schema (Phases 4–5).
+3. **What can we fill, and from where?** — resolve gaps against Usurper data;
+   author the rest with Claude (Phases 6–7).
+4. **How do we push it safely and keep both systems in sync?** — guarded
+   write-back to Amazon with backups + restore, and a projection back into
+   Usurper (Phases 8–10), plus a diagnostic for broken variation families
+   (Phase 11).
+
+Single marketplace at launch: **US (`ATVPDKIKX0DER`)**. Every script defaults
+to **production** credentials (`AMAZON_SPAPI_SANDBOX=false`); Phases 0–7, 9,
+and 11 are read-only or local, so they are safe to run against prod. Only
+Phase 8 (`patch_listings.php --apply`) and `restore_listings.php --apply`
+write to Amazon, and both are dry-run by default.
+
+Two accounts are supported everywhere via `--account=IGE|DOWS` (default
+`IGE`). Credentials are shared — Usurper's SP-API app, two consumers — with a
+`_DOWS` env-suffix convention.
+
+---
+
+## How the pipeline fits together
 
 ```
-composer require jlevers/selling-partner-api
+Phases 0–4  fetch reference data (SP-API → disk)
+   │          reports, per-SKU listings, per-ASIN catalog, product-type schemas
+   ▼
+Phase 5   audit_listings.php        → listings_audit.csv        (what's missing, ranked)
+   ▼
+Phase 6   analyze_gap_fill.php      → listings_gap_fill.csv     (fillable vs needs-authoring)
+   ▼
+Phase 7   draft_listings.php        → drafts/{sku}.json         (committed, human-reviewable)
+   │                                        │
+   ▼                                        ▼
+Phase 8   patch_listings.php        →  Amazon SP-API            (guarded write; --apply required)
+Phase 9   project_to_usurper.php    →  usurper_update_{ts}.csv  (import into Usurper)
+
+Phase 11  analyze_variations.php    → variation_analysis_{ts}.csv (read-only diagnostic)
 ```
 
-That's the only Amazon dependency. The SDK pulls Saloon + Guzzle
-transitively.
+**The self-healing loop:** after a Phase 9 import, the next Usurper
+InventoryExport carries the new `attr.amazon_*` columns. On the next run,
+Phase 6 classifies those attributes as `fillable` — no AI call needed. AI cost
+collapses toward zero for stable products after the first round-trip.
+
+---
+
+## The three data layers
+
+Nearly every design decision in this pipeline rests on distinguishing three
+things Amazon exposes that are **not** interchangeable. Keeping them separate is
+what lets the audit compare against the right baseline and lets Phase 11 detect
+that "what we asserted" has drifted from "what Amazon realized."
+
+1. **Listing** (Listings Items API → Phase 2) — *what we submitted for our SKU*,
+   plus Amazon's validation verdict in the `issues[]` array. This is our model,
+   and it can be non-compliant.
+2. **Schema** (Product Type Definitions API → Phase 4) — **Amazon's
+   rules/requirements**. A listing is validated against the schema; violations
+   surface as entries in the listing's `issues[]`. The schema is the rulebook —
+   the catalog is not.
+3. **Catalog** (Catalog Items API → Phase 3) — **Amazon's realized, merged,
+   public** record for the ASIN, aggregated across every seller on it. This is
+   what shoppers actually see: "what Amazon did with it," not "what Amazon
+   requires."
+
+The listing (what we assert) can diverge from the catalog (what Amazon
+realized) — that divergence is exactly the class of defect Phase 11 detects
+(confirmed live: a SKU whose *listing* asserts a `VARIATION` parent + `SIZE`
+theme while its *catalog* record shows no relationships at all).
+
+**Identifying vs non-identifying attributes** is the other cross-cutting
+distinction, and it governs the write path:
+
+- **Non-identifying** — descriptive/content attributes (bullets, material,
+  color descriptors, keywords, dimensions). Safe to write. **Default write scope.**
+- **Identifying** — attributes that classify a listing or bind it into a
+  variation family, where a wrong value can suppress the listing or detach a
+  variant: `variation_theme` (+ its theme attributes), UPC/EAN/external product
+  IDs, `product_type`, `item_type*`, `item_quantity`, `number_of_items`, and the
+  variation-defining attributes each product type's schema names. **Never
+  written by default** — see [Phase 10](#write-safety-layer-phase-10).
+
+---
+
+## Setup
+
+Requires PHP 8.1+ and Composer. Two dependencies drive the pipeline:
+
+- [`jlevers/selling-partner-api`](https://github.com/jlevers/selling-partner-api)
+  — the raw, Saloon-based SP-API SDK (same library Usurper wraps). The
+  `SellingPartnerApi::seller(...)` connector handles refresh tokens internally.
+- [`anthropic-ai/sdk`](https://github.com/anthropic-ai/sdk) — the official
+  Anthropic PHP SDK, used by Phase 7 for AI-authored attributes.
+
+```bash
+composer install
+cp .env.example .env    # fill in the Amazon block (copy from Usurper's .env)
+```
+
+Required `.env` values (US marketplace, IGE + `_DOWS` variants):
+
+- SP-API app credentials (client id/secret, refresh token, LWA), seller id,
+  `AMAZON_SPAPI_MARKETPLACE_ID=ATVPDKIKX0DER`, `AMAZON_SPAPI_SANDBOX=false`.
+- `ANTHROPIC_API_KEY` — required only for Phase 7.
+
+`lib/bootstrap.php` defines the path constants and an `amazon_paths($account)`
+helper that returns account-scoped paths and creates directories on first use.
+Every script begins with:
+
+```php
+$amazon = new AmazonClient('IGE'); // or 'DOWS'
+$paths  = amazon_paths('IGE');
+```
+
+Every script supports `--help` and `--account=IGE|DOWS`.
 
 ---
 
 ## Directory layout
 
-Data directories are **account-scoped** (`ige/`, `dows/`). Schemas are
-shared across accounts and live outside the account tree.
+Data directories are **account-scoped** (`ige/`, `dows/`). Schemas are shared
+across accounts and live outside the account tree.
 
 ```
 amazon/
 ├── README.md             ← this file
 ├── data/
 │   ├── {account}/        ← one subtree per seller account (ige, dows)
-│   │   ├── input/
-│   │   │   ├── reports/      ← listings_{ts}.tsv + .json, suppressed_{ts}.tsv + .json
-│   │   │   ├── listings/     ← {sku}.json  per-SKU getListingsItem snapshot
-│   │   │   └── catalog/      ← {asin}.json per-ASIN getCatalogItem snapshot
-│   │   │       └── errors/   ← {asin}.json structured error envelope for 404s etc.
-│   │   ├── drafts/       ← (future) authored content
-│   │   └── output/       ← assembled audits / review files
-│   └── schemas/          ← cached Product Type Definition schemas (shared)
-│       ├── _index.json   ← {productType: {fetched_at, version, locale, source_url}}
-│       └── {PRODUCT_TYPE}.json   ← raw schema JSON, one per type
-└── scripts/              ← PHP entrypoints (run via `php amazon/scripts/<x>.php`)
+│   │   ├── input/                             (gitignored — regenerable)
+│   │   │   ├── reports/   ← listings_{ts}.tsv + .json, suppressed_{ts}.tsv + .json
+│   │   │   ├── listings/  ← {sku}.json  per-SKU getListingsItem snapshot
+│   │   │   ├── catalog/   ← {asin}.json per-ASIN getCatalogItem snapshot
+│   │   │   │   └── errors/  ← {asin}.json structured error envelope for 404s
+│   │   │   └── usurper/   ← InventoryExport_{ts}.csv (drop Usurper dumps here)
+│   │   ├── drafts/        ← {sku}.json authored attribute drafts   (committed)
+│   │   ├── backups/       ← {sku}/{ts}.json pre-change snapshots    (committed)
+│   │   └── output/        ← audit / gap-fill / patch-result / variation CSVs (gitignored)
+│   └── schemas/           ← cached Product Type Definition schemas  (committed, shared)
+│       ├── _index.json    ← {productType: {fetched_at, version, locale, source_url}}
+│       └── {PRODUCT_TYPE}.json
+├── scripts/              ← PHP entrypoints (run via `php amazon/scripts/<x>.php`)
+└── lib/ (repo root)     ← AmazonClient, AmazonPatch, IdentifyingAttributes,
+                            ComplianceAttributes, ComplianceResolvers,
+                            UsurperAttributeMap, AmazonRateLimits, …
 ```
 
-All data dirs are gitignored except `drafts/` (authored content = source
-of truth, mirrors Shopify's convention). `data/schemas/` is **committed** —
-small files, high value as a reviewable artifact and as protection
-against accidental re-downloads. Per-SKU/per-ASIN JSON in
-`input/listings/` and `input/catalog/` is gitignored (regenerable,
-potentially large).
+**What's committed vs gitignored:** authored content is source of truth and is
+tracked — `drafts/` and `backups/` are committed; so is `data/schemas/`
+(small, high-value, reviewable, and protection against accidental
+re-downloads). Everything under `input/` and the `output/*.csv|*.txt` files are
+gitignored (regenerable, potentially large). `backups/` sits *outside* `input/`
+specifically so it stays tracked.
 
 ---
 
-## Phase plan
+## The pipeline, phase by phase
 
-### Phase 0 — bootstrap & connectivity ✓
+Each phase below lists **what it's for**, **when to run it**, and **how to
+invoke it**. All scripts accept `--account=IGE|DOWS` (default `IGE`), `--help`,
+and — where a run can be expensive — `--limit=N` for canary runs and `--force`
+to overwrite existing output.
 
-- `jlevers/selling-partner-api` added to `composer.json` and installed.
-- `lib/bootstrap.php` defines `AMAZON_ROOT`, `AMAZON_DATA`, `AMAZON_SCHEMAS`
-  and an `amazon_paths(string $account)` helper that returns account-scoped
-  paths and creates directories on first use:
-  ```php
-  $paths = amazon_paths('IGE');
-  // keys: data, input, reports, listings, catalog, catalog_errors, drafts, output, schemas
-  ```
-- `.env.example` — Amazon block added (placeholders; copy from Usurper's `.env`).
-- `lib/AmazonClient.php` — reads the Amazon env block in its constructor
-  and exposes a configured `SellerConnector` via `$client->connector`.
-  Also exposes `$client->marketplaceId`, `$client->sellerId`,
-  `$client->sandbox`, and a `testConnection()` method. Supports two
-  accounts via env suffix convention (`_DOWS`). Every Amazon script does:
-  ```php
-  $amazon = new AmazonClient('IGE'); // or 'DOWS'
-  $paths  = amazon_paths('IGE');
-  ```
-- `lib/AmazonOperationIds.php` — SP-API operation ID constants, ported
-  from Usurper's `OperationIds.php`.
-- `lib/AmazonRateLimits.php` — per-operation burst/rate/decaySeconds
-  table ported from Usurper's `RateLimits.php`, plus `throttle()` and
-  `retryWithBackoff()` helpers. All Phase 2+ scripts pace themselves with
-  these.
-- **Script 0**: `amazon/scripts/check_connection.php` — calls
-  `testConnection()`, prints endpoint/marketplace/seller, exits 0 on
-  success.
-- All scripts support `--help` and `--account=IGE|DOWS`.
+### Phase 0 — connectivity check
 
-### Phase 1 — catalog export via Reports API ✓
-
-- **Script 1**: `amazon/scripts/export_listings_report.php`.
-  - Requests **two reports upfront** so Amazon processes them in parallel:
-    `GET_MERCHANT_LISTINGS_ALL_DATA` (all active listings) and
-    `GET_MERCHANTS_LISTINGS_FYP_REPORT` (suppressed listings).
-  - Idempotency: skips both if today's files already exist; pass `--force`
-    to overwrite.
-  - Polls each report with 30s→120s exponential backoff (max 20 attempts
-    ≈ 15 min). Console shows `attempt N: {STATUS} — sleeping Xs` so
-    progress is unambiguous. Exits non-zero on FATAL/CANCELLED.
-  - Downloads and optionally GZIP-decompresses each report document.
-  - Writes per report:
-    - `reports/listings_{timestamp}.tsv` — raw TSV
-    - `reports/listings_{timestamp}.json` — normalized sidecar keyed by
-      `seller-sku`; fields include `asin1` (the ASIN key for Phase 3+)
-    - `reports/suppressed_{timestamp}.tsv` + `.json` — suppressed listings
-
-The resulting `listings_*.json` is our **SKU → ASIN map** (`asin1` field)
-for everything else.
-
-### Phase 2 — per-SKU listings snapshot ✓
-
-- **Script 2**: `amazon/scripts/export_listings_items.php`.
-  - Uses `searchListingsItems` (paginated, pageSize 20) rather than
-    per-SKU `getListingsItem`. `includedData`: attributes, issues,
-    summaries, offers, fulfillmentAvailability, procurement,
-    relationships, productTypes.
-  - **Amazon caps `searchListingsItems` at 1,000 results.** For accounts
-    under the cap (IGE: 213 SKUs), paginates normally. For accounts over
-    the cap (DOWS: 4,620 SKUs), falls back to date-range chunking —
-    splits the catalog into windows of 500 SKUs by `open-date` and issues
-    one `searchListingsItems` call per window with `createdAfter`/
-    `createdBefore`. Requires Phase 1 report to be present for the
-    open-date data.
-  - Final fallback: any SKU still missing after all windows is fetched
-    individually via `getListingsItem`.
-  - Writes `input/listings/{sku}.json` — raw API response JSON, lossless.
-  - Idempotent: skips SKUs whose file already exists unless `--force`.
-  - `--limit=N` for canary runs.
-
-### Phase 3 — per-ASIN catalog snapshot ✓
-
-- **Script 3**: `amazon/scripts/export_catalog_items.php`.
-  - Reads the latest `listings_*.json` report sidecar, extracts unique
-    ASINs (`asin1` field). IGE: 179 unique ASINs; DOWS: 3,943.
-  - `catalogItemsV20220401()->getCatalogItem(asin, [US], includedData:
-    ['attributes','classifications','identifiers','productTypes',
-    'relationships','salesRanks','summaries','dimensions','images'])`.
-  - Successes → `input/catalog/{asin}.json` (raw API response, lossless).
-  - Errors (404s, etc.) → `input/catalog/errors/{asin}.json` — a
-    structured JSON envelope (`error`, `http_status`, `asin`,
-    `fetched_at`, `response`) rather than a dropped record. IGE: 5
-    errors (2.8%); DOWS: 188 errors (4.8%) — all confirmed 404s for
-    delisted/discontinued products.
-  - On `--force`, if an ASIN flips outcome (success↔error), the stale
-    file in the opposing directory is deleted automatically.
-  - Idempotency checks both `catalog/` and `catalog/errors/` so 404'd
-    ASINs are not re-fetched on subsequent runs unless `--force`.
-  - `--limit=N` for canary runs.
-
-Why both Listings Items and Catalog Items? Listings Items returns **what
-_we_ told Amazon** (our submitted attributes + Amazon's validation
-issues). Catalog Items returns **what Amazon's catalog actually shows**
-(the merged view with browse-tree classifications, sales ranks, the
-public attribute set). Gap analysis needs both.
-
-### Phase 4 — product type schema cache ✓
-
-- **Script 4**: `amazon/scripts/fetch_product_type_schemas.php`.
-  - Dynamically discovers all account listing directories under
-    `amazon/data/*/input/listings/`, collecting distinct
-    `summaries[*].productType` values. Found **318 distinct product
-    types** across IGE + DOWS combined.
-  - Uses IGE credentials (schemas are account-agnostic; IGE holds the
-    developer app).
-  - For each productType not already cached:
-    `productTypeDefinitionsV20200901()->getDefinitionsProductType(
-    productType, [US], sellerId, requirements: 'LISTING',
-    requirementsEnforced: 'ENFORCED')`. The response contains a URL to
-    the actual JSON Schema document, which is fetched separately and
-    saved to `amazon/data/schemas/{PRODUCT_TYPE}.json`.
-  - Updates `amazon/data/schemas/_index.json` after each schema with
-    `{fetched_at, version, locale, source_url}`, so partial runs are
-    safe to resume.
-  - Re-running is a no-op for already-cached types unless `--force`.
-
-Result: `amazon/data/schemas/` is the reviewable, committed reference
-for what Amazon requires across all 318 product types we sell.
-
-### Phase 5 — audit (read-only)
-
-- **Script 5**: `amazon/scripts/audit_listings.php` — the Amazon
-  counterpart to `shopify/scripts/audit_products.php`.
-  - For each SKU, loads `{account}/input/listings/{sku}.json`,
-    `{account}/input/catalog/{asin}.json`, and
-    `data/schemas/{productType}.json`.
-  - Compares the listing's `attributes` against the schema's
-    `required` + `recommended` attribute sets.
-  - Emits `{account}/output/listings_audit.csv` with one row per
-    SKU: columns for ASIN, productType, missing-required count,
-    missing-recommended count, top missing attribute names, current
-    Amazon issues count, priority score (mirror Shopify's
-    weighted-flag pattern).
-  - Read-only, no API calls (everything works from disk).
-
-Phase 5 is where we **stop for this iteration**. The next phases —
-authored content (drafts), assembly, and guarded write — wait on
-Skyler's Usurper catalog dump so we can correlate Amazon's gaps against
-our own master data.
-
----
-
-## Patterns to mirror from Usurper
-
-`../usurper/app/Services/Inventory/Marketplace/Amazon/` has battle-tested
-patterns that translate directly to standalone PHP scripts:
-
-- **`SellingPartnerApi/BaseApi.php`** — connector lifecycle + per-call
-  retry shape. We don't need the Laravel rate limiter, but the
-  attempt/sleep/retry skeleton transfers.
-- **`SellingPartnerApi/OperationIds.php`** & **`RateLimits.php`** —
-  Amazon's per-operation burst/decay rates. Worth porting verbatim into
-  `lib/amazon_rate_limits.php` so each script can pace itself correctly.
-- **`SellingPartnerApi/{CatalogItems,Listings,ProductTypeDefinitions,Reports}/Api.php`** —
-  exact method signatures and DTO types per operation. Our scripts call
-  the same connector methods directly; these files are the cheat sheet.
-- **`CatalogItemListing.php`** — `parseCatalogItemData()` and
-  `parseListingData()` show what Usurper extracts from each response.
-  Useful reference when normalizing the per-SKU/per-ASIN JSON for
-  downstream scripts (browse-tree flattening etc.).
-
-We do **not** port `FeedWriter.php` yet (61KB; it's the write-side feed
-generator). That comes in the future write phase.
-
----
-
-## Output formats (until Usurper conformance is decided)
-
-- **`{account}/input/listings/{sku}.json`** — raw `ListingsItemsV20210801`
-  response body, lossless. Re-project from this for any derived view.
-- **`{account}/input/catalog/{asin}.json`** — raw `CatalogItemsV20220401`
-  response body, lossless.
-- **`{account}/input/catalog/errors/{asin}.json`** — structured error
-  envelope for ASINs that returned a non-200 from the Catalog API:
-  `{error: true, http_status, asin, fetched_at, response: {errors: [...]}}`.
-- **`{account}/input/reports/listings_{ts}.{tsv,json}`** — raw TSV from
-  Amazon plus a normalized JSON sidecar keyed by `seller-sku`. The sidecar
-  `asin1` field is the SKU→ASIN map consumed by Phase 3.
-- **`{account}/input/reports/suppressed_{ts}.{tsv,json}`** — same shape
-  for suppressed listings.
-- **`data/schemas/{PRODUCT_TYPE}.json`** — raw JSON Schema document from
-  Amazon's schema URL. Committed to git.
-- **`data/schemas/_index.json`** — `{productType: {fetched_at, version, locale, source_url}}`.
-- **`{account}/output/listings_audit.csv`** — Shopify-style audit CSV,
-  one row per SKU.
-
-When Usurper's `UsurperFileProcessor` / `InventoryExport` settle on a
-product-data CSV shape, we add a `amazon/scripts/project_to_usurper.php`
-that re-projects from the per-SKU JSON. The raw JSON is the durable
-artifact; the Usurper CSV is a regenerable projection.
-
----
-
-## Critical files to create
-
-| Path                                            | Purpose                                                     |
-| ----------------------------------------------- | ----------------------------------------------------------- |
-| `composer.json`                                 | add `jlevers/selling-partner-api` ✓                         |
-| `.env.example`                                  | add Amazon credential block ✓                               |
-| `lib/bootstrap.php`                             | add `AMAZON_*` path constants ✓                             |
-| `lib/AmazonClient.php`                          | `SellerConnector` + `testConnection()` ✓                    |
-| `lib/AmazonOperationIds.php`                    | SP-API operation ID constants ✓                             |
-| `lib/AmazonRateLimits.php`                      | per-operation rate table + `throttle()` helper ✓            |
-| `amazon/scripts/check_connection.php`           | Phase 0 ✓                                                   |
-| `amazon/scripts/export_listings_report.php`     | Phase 1 ✓                                                   |
-| `amazon/scripts/export_listings_items.php`      | Phase 2 ✓                                                   |
-| `amazon/scripts/export_catalog_items.php`       | Phase 3 ✓                                                   |
-| `amazon/scripts/fetch_product_type_schemas.php` | Phase 4 ✓                                                   |
-| `amazon/scripts/audit_listings.php`             | Phase 5                                                     |
-| `.gitignore`                                    | ignore `amazon/data/input/{reports,listings,catalog}/`      |
-
----
-
-## Verification
-
-After each phase, the smoke test is a single command:
+**Use case:** confirm SP-API credentials and endpoint are wired correctly
+before doing anything else. Prints endpoint, marketplace, and seller id.
 
 ```bash
-composer install
-cp .env.example .env    # fill in the Amazon block from Usurper's .env
-
-# Phase 0 — connectivity probe
 php amazon/scripts/check_connection.php --account=IGE
+php amazon/scripts/check_connection.php --account=DOWS
+```
 
-# Phase 1 — listings + suppressed reports (both accounts)
+Exits 0 on success. Run this first whenever credentials change.
+
+### Phase 1 — catalog export (Reports API)
+
+**Use case:** Amazon has no "list all my listings" endpoint, so the Reports API
+is our spine. This produces the **SKU → ASIN map** every later phase depends
+on, plus a list of suppressed listings.
+
+Requests two reports upfront so Amazon processes them in parallel:
+`GET_MERCHANT_LISTINGS_ALL_DATA` (active) and `GET_MERCHANTS_LISTINGS_FYP_REPORT`
+(suppressed). Polls with 30s→120s exponential backoff (~15 min max), then
+downloads and writes a raw TSV plus a normalized JSON sidecar keyed by
+`seller-sku` (the `asin1` field is the SKU→ASIN map).
+
+```bash
 php amazon/scripts/export_listings_report.php --account=IGE
 php amazon/scripts/export_listings_report.php --account=DOWS
+php amazon/scripts/export_listings_report.php --account=IGE --force   # re-request today
+```
 
-# Phase 2 — per-SKU snapshot (canary first, then full)
-php amazon/scripts/export_listings_items.php --account=IGE --limit=5
+Idempotent: skips both reports if today's files already exist unless `--force`.
+
+### Phase 2 — per-SKU listings snapshot
+
+**Use case:** capture **what we told Amazon** for every SKU — our submitted
+attributes plus Amazon's validation `issues[]`. This is the model the audit
+compares against the schema.
+
+Uses paginated `searchListingsItems` (pageSize 20). Amazon caps that endpoint
+at 1,000 results, so accounts over the cap (DOWS: ~4,620 SKUs) fall back to
+`open-date` date-range chunking, then to per-SKU `getListingsItem` for any
+stragglers. Writes lossless raw JSON per SKU.
+
+```bash
+php amazon/scripts/export_listings_items.php --account=IGE --limit=5   # canary
 php amazon/scripts/export_listings_items.php --account=IGE
-php amazon/scripts/export_listings_items.php --account=DOWS   # uses date-range chunking (>1000 SKUs)
+php amazon/scripts/export_listings_items.php --account=DOWS             # date-range chunking kicks in
+```
 
-# Phase 3 — per-ASIN catalog snapshot
-php amazon/scripts/export_catalog_items.php --account=IGE --limit=5
+Idempotent per SKU (skips existing files unless `--force`). Requires Phase 1
+for the open-date data used by chunking.
+
+### Phase 3 — per-ASIN catalog snapshot
+
+**Use case:** capture **what Amazon's catalog actually shows** for each ASIN —
+the merged, public view with browse-tree classifications, sales ranks, and the
+aggregated attribute set. Gap analysis and variation reconciliation need both
+this and the Phase 2 listing view.
+
+Reads the latest report sidecar, extracts unique `asin1` values, and calls
+`getCatalogItem`. Successes → `catalog/{asin}.json`; non-200s (mostly 404s for
+delisted products) → `catalog/errors/{asin}.json` as a structured envelope
+rather than a dropped record.
+
+```bash
+php amazon/scripts/export_catalog_items.php --account=IGE --limit=5    # canary
 php amazon/scripts/export_catalog_items.php --account=IGE
 php amazon/scripts/export_catalog_items.php --account=DOWS
+```
 
-# Phase 4 — schema cache (scans all accounts automatically)
-php amazon/scripts/fetch_product_type_schemas.php
+Idempotency checks both `catalog/` and `catalog/errors/`, so 404'd ASINs
+aren't re-fetched. On `--force`, an ASIN that flips outcome
+(success↔error) has its stale file in the opposing directory removed.
 
-# Phase 5 — audit CSV
+### Phase 4 — product-type schema cache
+
+**Use case:** to know what Amazon *requires* for a listing you need its
+product-type schema. This discovers every product type in use across both
+accounts and caches each schema to disk as a reviewable, committed reference.
+
+Scans all `*/input/listings/` for distinct `summaries[*].productType` values,
+then fetches each via the Product Type Definitions API (using IGE credentials —
+schemas are account-agnostic). Writes `data/schemas/{PRODUCT_TYPE}.json` and
+updates `_index.json` after each, so partial runs resume safely.
+
+```bash
+php amazon/scripts/fetch_product_type_schemas.php          # scans all accounts
+php amazon/scripts/fetch_product_type_schemas.php --force  # re-fetch cached types
+```
+
+No-op for already-cached types unless `--force`.
+
+### Phase 5 — audit
+
+**Use case:** the ranked "what's missing" report. For each SKU, compares the
+listing's attributes against the schema's required + recommended sets and emits
+a priority-scored CSV — the Amazon counterpart to Shopify's `audit_products.php`.
+
+Read-only, no API calls (works entirely from the Phase 2–4 snapshots on disk).
+
+```bash
 php amazon/scripts/audit_listings.php --account=IGE
 php amazon/scripts/audit_listings.php --account=DOWS
 ```
 
-Every script defaults to **production** credentials as configured in
-`.env` (`AMAZON_SPAPI_SANDBOX=false`). All scripts through Phase 5 are
-read-only, so prod is safe to run end-to-end.
+Output: `output/listings_audit.csv`, one row per SKU (ASIN, productType,
+missing-required/recommended counts, top missing attribute names, current
+issue count, priority score), sorted by priority.
 
-Acceptance:
+### Phase 6 — gap-fill analysis
 
-- `amazon/data/{account}/input/reports/` contains `listings_*.tsv` and
-  `suppressed_*.tsv`.
-- `amazon/data/{account}/input/listings/` has one JSON per SKU.
-- `amazon/data/{account}/input/catalog/` has one JSON per unique ASIN;
-  404s are in `catalog/errors/` with a structured error envelope.
-- `amazon/data/schemas/` has 318 schema files + a populated `_index.json`.
-- `amazon/data/{account}/output/listings_audit.csv` exists and is sorted
-  by priority.
+**Use case:** decide, for every missing attribute, whether Usurper already has
+the data (`fillable`) or a human/AI must supply it (`needs_authoring`). This is
+what turns the audit into an actionable work list.
+
+Re-derives the full missing-attribute list per SKU (not just Phase 5's top-5
+summary), then resolves each gap against `lib/UsurperAttributeMap.php` — an
+ordered preference list of Usurper columns per Amazon attribute. First
+non-empty column wins; `bullet_point` is multi-source (`attr.feature01`–`05`).
+Any attribute with no explicit map entry is also checked against the
+`attr.amazon_{name}` convention, which is how the self-healing loop closes.
+
+**Before running:** drop the Usurper InventoryExport CSV(s) into the account's
+`usurper/` directory. Any `*.csv` there is accepted; most-recent by mtime wins.
+
+```bash
+# amazon/data/ige/input/usurper/InventoryExport_YYYY-MM-DD-HH-MM-SS.csv
+# amazon/data/dows/input/usurper/InventoryExport_YYYY-MM-DD-HH-MM-SS.csv
+php amazon/scripts/analyze_gap_fill.php --account=IGE
+php amazon/scripts/analyze_gap_fill.php --account=DOWS
+```
+
+Output: `output/listings_gap_fill.csv`, one row per SKU/attribute pair
+(`fillable` rows name the source column and value; SKUs absent from the Usurper
+dump are flagged `sku_not_in_usurper` rather than silently dropped). Prints a
+summary of SKUs affected and fillable-vs-authoring counts.
+
+### Phase 7 — AI-assisted draft generation
+
+**Use case:** produce a committed, human-reviewable draft per SKU. Fillable
+attributes are resolved directly from Usurper; `needs_authoring` attributes are
+authored by Claude with schema-constrained prompts (enum values are validated,
+so invalid values can't slip through).
+
+Reads the Phase 6 CSV grouped by SKU (highest-gap-score first), reloads the
+Usurper export for full untruncated values, and for each SKU batches its
+authoring attributes into one Anthropic call carrying product context + the
+per-attribute schema constraints. Default model is `auto` — haiku for
+enum-constrained fills (cheap, accurate), opus for open-ended prose; each
+AI-authored entry records its own `model` for traceability.
+
+```bash
+# Requires ANTHROPIC_API_KEY in .env
+php amazon/scripts/draft_listings.php --account=IGE --dry-run    # preview, no API calls
+php amazon/scripts/draft_listings.php --account=IGE              # writes drafts/
+php amazon/scripts/draft_listings.php --account=DOWS --dry-run
+php amazon/scripts/draft_listings.php --account=DOWS
+
+# Force a single model (overrides auto):
+php amazon/scripts/draft_listings.php --account=IGE --model=claude-haiku-4-5
+php amazon/scripts/draft_listings.php --account=IGE --model=claude-opus-4-8
+
+# Single-SKU test:
+php amazon/scripts/draft_listings.php --account=IGE --sku=IGE-PENLIGHT
+
+# -NCX/-FBA placeholder templating (see Phase 10.4):
+php amazon/scripts/draft_listings.php --account=IGE --template-placeholders
+```
+
+Idempotent (skips existing drafts unless `--force`). Compliance-critical
+attributes are never AI-authored (see [Phase 10](#write-safety-layer-phase-10)).
+
+**Draft format** (`drafts/{sku}.json`):
+
+```json
+{
+  "sku": "UPD-COLORBOOK-BBY-20820",
+  "asin": "B0EXAMPLE",
+  "product_type": "ART_CRAFT_KIT",
+  "account": "DOWS",
+  "generated_at": "2026-06-29T22:37:25+00:00",
+  "model": "claude-haiku-4-5",
+  "totals": { "fillable": 3, "ai_suggested": 2, "ai_null": 1 },
+  "attributes": {
+    "brand": {
+      "value": "Disney",
+      "is_required": true,
+      "source": "usurper",
+      "usurper_column": "attr.brand_amazon"
+    },
+    "bullet_point": {
+      "value": ["Arts & crafts coloring book", "20 pages"],
+      "is_required": false,
+      "source": "usurper",
+      "usurper_column": "attr.feature01, attr.feature02"
+    },
+    "supplier_declared_dg_hz_regulation": {
+      "value": "not_applicable",
+      "is_required": true,
+      "source": "ai"
+    },
+    "country_of_origin": {
+      "value": null,
+      "is_required": false,
+      "source": "ai"
+    }
+  }
+}
+```
+
+### Phase 8 — write-back to Amazon
+
+**Use case:** push the reviewed drafts to Amazon. This is the one write path,
+and it is wrapped in the [Phase 10 safety layer](#write-safety-layer-phase-10):
+dry-run by default, per-SKU pre-change backups, and identifying/compliance/
+shrink guards.
+
+Reads `drafts/{sku}.json`, formats each attribute into an SP-API PATCH
+(`op: replace` per attribute path, so untouched attributes are left alone),
+and submits via `patchListingsItem`. Skips `null` values and any attribute
+flagged `validation_error` in Phase 7 — only clean values reach Amazon.
+Throttles and retries 429s via `AmazonRateLimits::retryWithBackoff()`.
+
+```bash
+# Dry-run (no API calls) — always review this first:
+php amazon/scripts/patch_listings.php --account=IGE
+php amazon/scripts/patch_listings.php --account=DOWS
+
+# Apply (writes a pre-change backup per touched SKU, then submits):
+php amazon/scripts/patch_listings.php --account=IGE --apply
+php amazon/scripts/patch_listings.php --account=DOWS --apply
+
+# Single-SKU apply:
+php amazon/scripts/patch_listings.php --account=IGE --sku=IGE-PENLIGHT --apply
+
+# Include identifying data (variation theme, IDs, etc. — see Phase 10.1):
+php amazon/scripts/patch_listings.php --account=IGE --apply --include-identifying
+php amazon/scripts/patch_listings.php --account=IGE --apply --include-identifying=variation_theme
+```
+
+Records results to `output/patch_results_{ts}.csv` with per-SKU status
+(ACCEPTED / WITH_WARNINGS / INVALID / ERROR), submission ids, and any Amazon
+issue messages. A dry-run writes the same CSV with `status=dry_run` so scope is
+auditable before committing.
+
+### Phase 9 — project drafts to Usurper
+
+**Use case:** persist the AI-authored values back into Usurper so they become
+native product data — closing the self-healing loop so future runs don't pay
+for AI again.
+
+Reads all `drafts/{sku}.json` and emits a Usurper-compatible CSV. Column
+resolution: `source:usurper` entries are skipped by default (already in
+Usurper); `source:ai` with a known map entry → that column; `source:ai` with no
+map entry → `attr.amazon_{name}` (Usurper creates the custom attribute at
+import time).
+
+```bash
+php amazon/scripts/project_to_usurper.php --account=IGE
+php amazon/scripts/project_to_usurper.php --account=DOWS
+
+# Full attribute refresh (also emit the usurper-sourced values):
+php amazon/scripts/project_to_usurper.php --account=IGE --include-usurper
+
+# Single-SKU:
+php amazon/scripts/project_to_usurper.php --account=IGE --sku=IGE-PENLIGHT
+```
+
+Output: `output/usurper_update_{ts}.csv`. Import it into Usurper. On the next
+InventoryExport those `attr.amazon_*` columns come back, and Phase 6
+reclassifies the attributes as `fillable`.
 
 ---
 
-## Out of scope (deferred)
+## Write-safety layer (Phase 10)
 
-- **Authored drafts / content generation.** Waits on Usurper's full
-  catalog CSV so we know which gaps are ours to fill vs. Amazon-side
-  data quality issues.
-- **Write-back to Amazon** (`putListingsItem` / `patchListingsItem`).
-  Waits on drafts. When we do build it, mirror Shopify's
-  `--apply` / dry-run-default / idempotent / 429-backoff pattern.
-- **CA / MX / BR marketplaces.** All scripts are scoped to US
-  (`ATVPDKIKX0DER`) today. The NA SP-API endpoint covers US, CA
-  (`A2EUQ1WTGCTBG2`), MX, and BR under the same credentials, so adding
-  them is low-friction auth-wise. The design question is whether to
-  issue a single `getCatalogItem` call with multiple `marketplaceIds`
-  (cheaper on quota; response embeds per-marketplace sections in one
-  file) or run a separate per-marketplace fetch into parallel
-  directories (`catalog/us/`, `catalog/ca/`). The combined-call
-  approach saves quota but requires more nuanced response parsing to
-  differentiate US vs. CA data. Deferred until we know whether
-  cross-marketplace gap analysis is worth the refactor.
-- **Usurper-format CSV emitter.** Waits on `UsurperFileProcessor` /
-  `InventoryExport` symmetry. Raw JSON snapshots are designed to be
-  lossless so the projection is straightforward when the shape lands.
+Phase 8 is hardened against a set of explicit stakeholder concerns about the
+write path. Each guard below traces back to one of them:
+
+| Concern | Guard | Where |
+|---|---|---|
+| "Must not lose a listing / must not impact sales." Identifying data is the danger. | Identifying-attribute guard — held back unless `--include-identifying`. | 10.1 |
+| "Be aware of partial vs full update; don't delete information." | PATCH `op: replace` per attribute (others untouched) + shrink-guard on multi-valued attributes. | 10.2 |
+| "Store current state; be able to restore a listing." | Pre-change live snapshots committed to git + `restore_listings.php`. | 10.3 |
+| `-NCX`/`-FBA` placeholders *do* need identifying data, sourced from their base SKU. | Union/fill-missing templating from the base's listing snapshot. | 10.4 |
+| An open-ended list of compliance attributes must *always* be filled. | Compliance list + resolvers; AI barred; unsourced no-resolver attr hard-blocks the SKU. | 10.5 |
+| `item_quantity` / `number_of_items` are identifying and shouldn't be written by default. | On the curated identifying list. | 10.1 |
+
+These guards are always on in `patch_listings.php`; the flags below relax them.
+
+**Write-path decision matrix (`--apply`):**
+
+| Attribute class | Default | With `--include-identifying` |
+|---|---|---|
+| Non-identifying content | **written** | written |
+| Compliance | **written** (or SKU hard-blocked if unsourced) | same |
+| Multi-valued, shorter than live | **skipped + warned** (unless `--allow-shrink`) | same |
+| Identifying (`variation_theme`, product IDs, `product_type`, `item_type*`, `item_quantity`, `number_of_items`, schema variation attrs) | **skipped + logged** | written |
+
+### 10.1 Identifying-attribute guard
+
+Identifying attributes classify a listing or bind it into a variation family —
+a wrong value can suppress the listing or detach a variant. They are **held
+back by default**. `lib/IdentifyingAttributes.php` is a hybrid definition: a
+hand-maintained curated list *plus* the variation-defining attributes each
+product type's cached schema declares (so theme attributes like `color_name`/
+`size_name` are caught automatically). Opt in with `--include-identifying`
+(bare = all; `=a,b` = only the named attributes).
+
+### 10.2 Shrink-guard for multi-valued attributes
+
+`op: replace` on a multi-valued attribute (e.g. `bullet_point`) replaces the
+whole array — the one place a partial draft could delete content. If a draft's
+array is **shorter** than the live listing, that attribute is **skipped and
+warned**, not shrunk. Override with `--allow-shrink` for deliberate cases. The
+comparison baseline is the same live snapshot fetched for the backup, so no
+extra API call and no staleness.
+
+### 10.3 Backup & restore
+
+On every `--apply`, before any patch, the live listing is fetched and written
+to `data/{account}/backups/{sku}/{ts}.json` (committed to git). Only touched
+SKUs are snapshotted, so the footprint stays small. `restore_listings.php`
+replays a chosen backup's attribute values back to Amazon — itself dry-run by
+default, itself taking a fresh pre-restore backup, and subject to the same
+identifying guard.
+
+```bash
+# Restore the latest backup of every SKU (dry-run):
+php amazon/scripts/restore_listings.php --account=IGE
+# Restore one SKU from a specific backup, and apply:
+php amazon/scripts/restore_listings.php --account=IGE --sku=IGE-PENLIGHT --timestamp=2026-07-02-12-00-00 --apply
+```
+
+**Fidelity limits:** restore replays *attribute values only*. It does **not**
+un-suppress a listing Amazon delisted, undo a catalog-level variation
+merge/split, or recover a deleted SKU/offer. SKU-specific commercial data
+(price, offer, fulfillment, procurement — the `NON_RESTORABLE` set) is never
+replayed. For structural/variation problems, diagnose with Phase 11 first.
+
+### 10.4 `-NCX` / `-FBA` placeholder templating
+
+`-NCX`/`-FBA` SKUs are placeholders sharing a base SKU's ASIN/product_type/
+title, so copying identifying data from the base is safe by definition.
+`draft_listings.php --template-placeholders` union-fills each placeholder from
+its base SKU's Amazon listing snapshot (**fill-missing only** — never
+overwrites what the placeholder already has; never copies offer/fulfillment/
+procurement). Entries are tagged `source: base_template`. Writing the copied
+identifying data still requires `--include-identifying` at patch time.
+
+### 10.5 Always-present compliance attributes
+
+`lib/ComplianceAttributes.php` lists attributes that must always be present
+before a patch (seed: `california_proposition_65`, `pesticide_marking`). **AI
+is barred** from authoring these. Resolution is per-attribute:
+
+- **`california_proposition_65`** → deterministic rule in
+  `lib/ComplianceResolvers.php`: product type in the maintained
+  `LEAD_PRODUCT_TYPES` list (32 edged-blade/metal-tool types) →
+  `chemical_names: ["lead"]`; otherwise → `["bisphenol_a_bpa"]`. Because the
+  rule always resolves, Prop 65 never blocks. *Keep the list current for
+  genuinely lead-bearing metal goods — under-listing lead is the compliance
+  miss.*
+- **`pesticide_marking`** (and any attribute with no resolver) → sourced from
+  Usurper (human-verified) only; if absent, the **entire SKU patch is
+  hard-blocked** and reported. Override with `--skip-compliance-block`.
+
+"In scope" is refined per attribute type: the resolvable Prop 65 attr is in
+scope wherever a schema *defines* it (it self-resolves); a no-resolver attr is
+in scope only where a schema *requires* it (`schema.required[]`), so it blocks
+only products that genuinely need the marking.
+
+---
+
+## Variation reconciliation (Phase 11)
+
+**Use case:** diagnose broken variation families — the Gear-Aid-style "a
+variant lost its theme or joined the wrong parent" symptom — without touching
+anything. Read-only, no API calls; works from the on-disk snapshots plus the
+Usurper export.
+
+`analyze_variations.php` reconciles each SKU across the three layers Amazon
+exposes, which are **not** interchangeable:
+
+- **Intended (Usurper)** — `parent.sku`, `sku_type`, `attr.variation_theme_amazon`.
+- **Submitted (Listing)** — `relationships[]` → parent SKUs, `type: VARIATION`, theme.
+- **Realized (Catalog)** — read from the *parent* ASIN's `childAsins` (a
+  child's own record often omits the parent pointer).
+
+Each SKU is tagged with zero or more discrepancy categories and *which layer
+disagrees*: `orphaned_child`, `wrong_parent`, `unexpected_child`,
+`theme_mismatch`, `parent_without_theme`, `dangling_parent`, and
+`listing_catalog_divergence`. Each row also carries a summary of the listing's
+own `issues[]` (Amazon's compliance verdict). Theme comparison is
+token-normalized and heuristic (Usurper themes are free-form).
+
+```bash
+php amazon/scripts/analyze_variations.php --account=IGE
+php amazon/scripts/analyze_variations.php --account=DOWS
+php amazon/scripts/analyze_variations.php --account=IGE --all          # every SKU, not just discrepancies
+php amazon/scripts/analyze_variations.php --account=IGE --sku=IGE-XXX  # single SKU
+```
+
+Output: `output/variation_analysis_{ts}.csv` (one row per SKU) plus a
+`variation_analysis_summary_{ts}.txt` with bucketed category counts and
+actionable-vs-backlog tiers. On the first full run it flagged 42/213 SKUs for
+IGE and 775/4,618 for DOWS; genuine theme mismatches cluster on `MCN-*` SKUs —
+the Gear-Aid family this was built to catch. **Relationship repair is
+deliberately out of scope** — it is the single highest-risk write in the system
+and will be designed separately once this output is trusted.
+
+---
+
+## Full end-to-end run
+
+A complete cold-start run for one account (IGE shown; substitute `DOWS`):
+
+```bash
+composer install
+cp .env.example .env    # fill in the Amazon block
+
+# 0 — connectivity
+php amazon/scripts/check_connection.php --account=IGE
+
+# 1–3 — fetch data
+php amazon/scripts/export_listings_report.php --account=IGE
+php amazon/scripts/export_listings_items.php --account=IGE
+php amazon/scripts/export_catalog_items.php  --account=IGE
+
+# 4 — schema cache (scans all accounts automatically)
+php amazon/scripts/fetch_product_type_schemas.php
+
+# 5–6 — audit + gap-fill (drop Usurper InventoryExport into usurper/ first)
+php amazon/scripts/audit_listings.php     --account=IGE
+php amazon/scripts/analyze_gap_fill.php   --account=IGE
+
+# 7 — draft (dry-run, then write)
+php amazon/scripts/draft_listings.php     --account=IGE --dry-run
+php amazon/scripts/draft_listings.php     --account=IGE
+# → review the committed drafts/{sku}.json before writing anything to Amazon
+
+# 8 — write-back (dry-run, then apply)
+php amazon/scripts/patch_listings.php     --account=IGE            # dry-run
+php amazon/scripts/patch_listings.php     --account=IGE --apply
+
+# 9 — project back to Usurper, then import the CSV into Usurper
+php amazon/scripts/project_to_usurper.php --account=IGE
+
+# 11 — variation diagnostic (any time; read-only)
+php amazon/scripts/analyze_variations.php --account=IGE
+```
+
+**Acceptance checks:**
+
+- `input/reports/` has `listings_*.tsv` and `suppressed_*.tsv`.
+- `input/listings/` has one JSON per SKU; `input/catalog/` one per unique ASIN,
+  with 404s in `catalog/errors/`.
+- `data/schemas/` has the schema files + a populated `_index.json`.
+- `output/listings_audit.csv` exists, sorted by priority.
+- `output/listings_gap_fill.csv` — `fillable` rows have a non-empty
+  `usurper_column` and `usurper_value`.
+- `drafts/*.json` — `source: usurper` entries carry `usurper_column`; enum
+  values are valid schema members.
+- `output/patch_results_{ts}.csv` after Phase 8 (`status=dry_run` on a dry-run).
+- `backups/{sku}/{ts}.json` for each SKU touched by `--apply`.
+- `output/usurper_update_{ts}.csv` after Phase 9 (`attr.amazon_*` = new,
+  `attr.*` = existing Usurper fields).
+
+---
+
+## Output formats reference
+
+| Path | Contents |
+|---|---|
+| `input/reports/listings_{ts}.{tsv,json}` | Raw TSV + normalized sidecar keyed by `seller-sku`; `asin1` is the SKU→ASIN map. |
+| `input/reports/suppressed_{ts}.{tsv,json}` | Same shape, suppressed listings. |
+| `input/listings/{sku}.json` | Raw `ListingsItemsV20210801` response, lossless. |
+| `input/catalog/{asin}.json` | Raw `CatalogItemsV20220401` response, lossless. |
+| `input/catalog/errors/{asin}.json` | `{error, http_status, asin, fetched_at, response}` envelope for non-200s. |
+| `input/usurper/*.csv` | Usurper InventoryExport dump (drop here; latest by mtime wins). |
+| `data/schemas/{PRODUCT_TYPE}.json` | Raw JSON Schema from Amazon. Committed. |
+| `data/schemas/_index.json` | `{productType: {fetched_at, version, locale, source_url}}`. |
+| `output/listings_audit.csv` | One row per SKU: missing counts, top missing attrs, priority. |
+| `output/listings_gap_fill.csv` | One row per SKU/attribute: `fillable`, `usurper_column`, `usurper_value`. |
+| `drafts/{sku}.json` | Authored draft; per-attribute `value`/`is_required`/`source`. Committed. |
+| `backups/{sku}/{ts}.json` | Pre-change live `getListingsItem` snapshot. Committed. |
+| `output/patch_results_{ts}.csv` | Per-SKU write result: status, submission id, issues. |
+| `output/usurper_update_{ts}.csv` | `sku` + one column per AI-authored attribute (`attr.*` / `attr.amazon_*`). |
+| `output/variation_analysis_{ts}.csv` + `_summary_{ts}.txt` | Per-SKU variation discrepancies + bucketed summary. |
+
+---
+
+## Deferred / out of scope
+
+- **CA / MX / BR marketplaces.** All scripts are scoped to US today. The NA
+  endpoint covers CA/MX/BR under the same credentials, so it's low-friction
+  auth-wise; the open design question is single multi-marketplace
+  `getCatalogItem` calls vs parallel per-marketplace directories. Deferred
+  until cross-marketplace gap analysis is shown to be worth the refactor.
+- **Variation relationship repair.** Phase 11 *diagnoses*; writing corrected
+  parentage/themes is the highest-risk write in the system and is designed
+  separately once the diagnostic output is trusted.
+- **Usurper round-trip for non-`attr.*` fields.** `project_to_usurper.php`
+  handles `attr.*` columns. If Usurper's import ever accepts top-level product
+  fields (name, description, …), extend the projection — the raw draft JSON is
+  lossless, so it's straightforward.
+- **`FeedWriter.php` port.** Usurper's 61 KB write-side feed generator is not
+  ported; the pipeline writes via `patchListingsItem` instead.
+
+---
+
+## Reference: patterns borrowed from Usurper
+
+`../usurper/app/Services/Inventory/Marketplace/Amazon/` has battle-tested
+patterns that translated directly into these standalone scripts:
+
+- **`SellingPartnerApi/BaseApi.php`** — connector lifecycle + per-call retry
+  shape (minus the Laravel rate limiter).
+- **`OperationIds.php` / `RateLimits.php`** — per-operation burst/decay rates,
+  ported into `lib/AmazonOperationIds.php` and `lib/AmazonRateLimits.php` so
+  every script paces itself.
+- **`{CatalogItems,Listings,ProductTypeDefinitions,Reports}/Api.php`** — exact
+  method signatures and DTO types; the scripts call the same connector methods.
+- **`CatalogItemListing.php`** — `parseCatalogItemData()` / `parseListingData()`
+  as the reference for what to extract from each response.
+```

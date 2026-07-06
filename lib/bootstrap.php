@@ -53,6 +53,7 @@ function amazon_paths(string $account): array
         'listings'       => $base . '/input/listings',
         'catalog'        => $base . '/input/catalog',
         'catalog_errors' => $base . '/input/catalog/errors',
+        'usurper'        => $base . '/input/usurper',
         'drafts'         => $base . '/drafts',
         'output'         => $base . '/output',
         'schemas'        => AMAZON_SCHEMAS,
