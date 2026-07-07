@@ -49,9 +49,9 @@ signing off on every proposed change before it goes live.
 | 6 | `build_parent_rollup_tasks.py` | For blank *parent* aspects on variation listings, packages all children's Usurper values as evidence for an LLM roll-up judgment. |
 | 6 | `merge_parent_fills.py` | Finalizes the parent roll-up: canonicalizes Country of Origin, fills dominant/unanimous child values into review_sheet.csv. |
 | — | `build_review_sheet.php` | **Builds the master `review_sheet.csv`** — one row per (listing × aspect): current value, gap fills, LLM fills, everything downstream reads this. |
-| — | `ai_check_current.php` | `--tasks`/`--merge`: LLM sanity-check on values already live on eBay. |
-| — | `ai_check_blanks.php` | `--tasks`/`--merge`: LLM judgment on whether a blank aspect is genuinely not-applicable (feeds rule #5 below). |
-| — | `ai_fill_deep.php` | `--tasks`/`--merge`/`--run`: LLM fill (with a certainty score) for gaps nothing deterministic could fill. |
+| — | `ai_review.php --mode=current` | `--tasks`/`--merge`: LLM sanity-check on values already live on eBay. |
+| — | `ai_review.php --mode=blanks` | `--tasks`/`--merge`: LLM judgment on whether a blank aspect is genuinely not-applicable (feeds rule #5 below). |
+| — | `ai_review.php --mode=deep` | `--tasks`/`--merge`/`--run`: LLM fill (with a certainty score) for gaps nothing deterministic could fill. |
 | — | `dedup_answers.php` | Cleans a raw LLM-answers JSONL (last-item-id-wins) before merging. |
 | — | `apply_review_rules.php` | Applies Ethan's 5 proposing rules (allowed-value snap, Prop 65, Country default, Mfr Warranty, blank_value) into `proposed_value`. Re-run **after** `build_review_sheet.php` or it gets clobbered. |
 | — | `triage_blanks.php` | Buckets every still-blank aspect into a reason category, so the team knows *why* it's blank. |

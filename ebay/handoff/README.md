@@ -27,7 +27,7 @@ cd marketplace-seo-optimization
 for f in ebay/handoff/returned/dows_slice_*.out.jsonl; do { cat "$f"; echo; } ; done \
   >> ebay/data/dows/output/current_check_answers.jsonl
 
-php ebay/scripts/ai_check_current.php --account=dows --merge      # writes current_value_checks.csv
+php ebay/scripts/ai_review.php --mode=current --account=dows --merge   # writes current_value_checks.csv
 php ebay/scripts/build_review_sheet.php --account=dows            # folds suggestions into review_sheet.csv
 ```
 Same for `ige`. The answers log is append-only and de-duped on merge by item_id+aspect

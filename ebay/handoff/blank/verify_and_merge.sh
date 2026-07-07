@@ -44,7 +44,7 @@ with open(answers, "a") as f:
 print(f"  appended {len(kept)} valid lines -> {answers}")
 PY
 
-php "$root/ebay/scripts/ai_check_blanks.php" --account="$acct" --merge
+php "$root/ebay/scripts/ai_review.php" --mode=blanks --account="$acct" --merge
 # rebuild the sheet from scratch (clean reviewer_notes) THEN re-apply rules #1-5,
 # otherwise re-running apply_review_rules over an already-tagged sheet doubles notes.
 php "$root/ebay/scripts/build_review_sheet.php" --account="$acct"

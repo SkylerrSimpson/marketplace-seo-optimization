@@ -67,10 +67,10 @@ blank field; the **not-applicable** ones get the literal value `blank_value` (+ 
 
 Pipeline (delegated, mirrors the current-value check):
 ```
-ai_check_blanks.php --tasks   -> blank_check_tasks.jsonl  (one line/listing: title, category, blank aspects)
+ai_review.php --mode=blanks --tasks   -> blank_check_tasks.jsonl  (one line/listing: title, category, blank aspects)
    -> external agent (ebay/handoff/blank/AGENT_PROMPT.md) returns {item_id, na:[{aspect,reason}]}
    -> ebay/handoff/blank/verify_and_merge.sh <acct> results.jsonl
-        = merge + ai_check_blanks --merge -> blank_value_checks.csv
+        = merge + ai_review.php --mode=blanks --merge -> blank_value_checks.csv
         + build_review_sheet + apply_review_rules (re-applies #1-5 cleanly)
 ```
 To judge: DOWS 698 listings / 3,273 blank fields; IGE 191 / 808. `blank_value` is a

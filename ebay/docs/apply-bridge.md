@@ -26,8 +26,8 @@ hand if I run out of usage. Read it top to bottom once; then use the
         ▼
   build_review_sheet.php  ─►  review_sheet.csv   (one row per listing × aspect)
         │                         ▲
-  ai_check_current.php  ──────────┘   (LLM audit of live values → current_value_checks.csv)
-  ai_fill_deep.php / proposed_fills*  (proposed values for GAPS)
+  ai_review.php --mode=current ────┘  (LLM audit of live values → current_value_checks.csv)
+  ai_review.php --mode=deep / proposed_fills*  (proposed values for GAPS)
         │
         ▼
   [ Ethan reviews review_sheet.csv, fills approved_value column ]   ← we are waiting here

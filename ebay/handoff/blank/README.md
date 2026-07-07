@@ -24,7 +24,7 @@ aspect **doesn't apply** to the product (→ mark `blank_value`) or just **unkno
    hallucinated ids; the merge drops unknown ids/aspects safely.
 
 ## Notes
-- Resumable: `ai_check_blanks.php --tasks` regenerates only un-answered listings.
+- Resumable: `ai_review.php --mode=blanks --tasks` regenerates only un-answered listings.
 - `blank_value` is a review marker; `build_apply_set.php` drops it (never written to eBay).
 - Conservative bias: if the agent is unsure an aspect applies, it leaves it OUT of
   `na` (stays blank = "unknown"). A wrong N/A is worse than an unmarked blank.

@@ -32,11 +32,11 @@ declare(strict_types=1);
  *     SELECTION_ONLY (a fixed duration list) — flagged for review instead, since the
  *     standard text isn't a valid pick from that list.
  *  5. Applicability ("does this aspect even apply to this product?") IS mechanised
- *     here, via `ai_check_blanks.php`'s pre-computed LLM judgments in
+ *     here, via `ai_review.php --mode=blanks`'s pre-computed LLM judgments in
  *     blank_value_checks.csv — this script reads those and, where the judgment says
  *     N/A, writes the `blank_value` marker into proposed_value (see rule #5 below;
  *     build_apply_set.php treats a live blank_value as an explicit DELETE). Run
- *     ai_check_blanks.php first or this rule silently has nothing to apply.
+ *     `ai_review.php --mode=blanks` first or this rule silently has nothing to apply.
  *     Documented further in docs/review-rules.md.
  *
  * Usage: php ebay/scripts/apply_review_rules.php --account=dows [--dry]
@@ -208,7 +208,7 @@ while (($r = fgetcsv($fh)) !== false) { $rows[] = $r; }
 fclose($fh);
 
 // rule #5: load the LLM "not applicable" determinations (item_id|normAspect => reason).
-// Built by ai_check_blanks.php --merge; absent until the judgment pass is merged.
+// Built by `ai_review.php --mode=blanks --merge`; absent until the judgment pass is merged.
 $naBlank = [];
 $bnorm = fn(string $s) => preg_replace('/\s+/', ' ', trim(mb_strtolower(rtrim(trim($s), ':'))));
 if (is_file($dir . '/blank_value_checks.csv')) {
@@ -328,6 +328,6 @@ printf("  Country default(China) on blanks: %d\n", $stat['country']);
 printf("  Manufacturer Warranty -> '%s': %d (SELECTION_ONLY flagged: %d)\n",
     WARRANTY_TEXT, $stat['warranty'], $stat['warranty_flag']);
 printf("  blank_value (rule #5 N/A markers applied): %d%s\n", $stat['blank_value'],
-    $naBlank ? '' : '  [no blank_value_checks.csv yet — run ai_check_blanks judgment first]');
+    $naBlank ? '' : '  [no blank_value_checks.csv yet — run ai_review.php --mode=blanks first]');
 printf("  Allowed-snap: exact %d, bucket %d, approx %d, FLAGGED(left as-is) %d\n",
     $stat['snap_exact'], $stat['snap_bucket'], $stat['snap_approx'], $stat['snap_flag']);

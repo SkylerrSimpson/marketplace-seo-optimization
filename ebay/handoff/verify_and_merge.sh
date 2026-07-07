@@ -41,7 +41,7 @@ with open(answers, "a") as f:
 print(f"  appended {len(kept)} valid lines -> {answers}")
 PY
 
-php "$root/ebay/scripts/ai_check_current.php" --account="$acct" --merge
+php "$root/ebay/scripts/ai_review.php" --mode=current --account="$acct" --merge
 php "$root/ebay/scripts/build_review_sheet.php" --account="$acct"
 # Ethan's proposing rules (allowed-value snap, Prop65 blanket, Country default).
 # MUST run last — build_review_sheet regenerates proposed_value from scratch.
