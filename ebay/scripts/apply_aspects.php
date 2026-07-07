@@ -34,6 +34,8 @@ declare(strict_types=1);
  *   php ebay/scripts/apply_aspects.php --account=dows --item=126454417969 --live      # writes that one item
  *   php ebay/scripts/apply_aspects.php --account=dows --limit=20 --verify             # first 20 listings, verify-only
  *   php ebay/scripts/apply_aspects.php --account=dows --live --confirm=WRITE          # full account, all listings
+ *   php ebay/scripts/apply_aspects.php --account=dows --offset=100 --limit=100 --live --confirm=WRITE --exclude=ID,ID
+ *                                                                                     # batch 2 of a sequential run, skipping specific items
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';
@@ -45,12 +47,12 @@ use DTS\eBaySDK\Trading\Types\ItemType;
 use DTS\eBaySDK\Trading\Types\VariationsType;
 use DTS\eBaySDK\Trading\Types\VariationType;
 
-$opts    = getopt('', ['account:', 'item:', 'limit:', 'verify', 'live', 'confirm:', 'help']);
+$opts    = getopt('', ['account:', 'item:', 'limit:', 'offset:', 'exclude:', 'verify', 'live', 'confirm:', 'help']);
 $account = strtolower((string) ($opts['account'] ?? 'dows'));
 $dir     = ebay_dir($account, 'output');
 
 if (isset($opts['help'])) {
-    fwrite(STDOUT, "Usage: php apply_aspects.php --account=dows [--item=ID | --limit=N] [--verify] [--live [--confirm=WRITE]]\n");
+    fwrite(STDOUT, "Usage: php apply_aspects.php --account=dows [--item=ID | --offset=N --limit=N] [--exclude=ID,ID] [--verify] [--live [--confirm=WRITE]]\n");
     exit(0);
 }
 
@@ -59,13 +61,18 @@ if (!$applySet) { fwrite(STDERR, "no apply_set.json for account={$account} — r
 
 [$varBaseline, $varyByOfItem, $multiAspectsOfItem] = loadVariationContext($dir . '/review_sheet.csv');
 
-$itemIds = array_keys($applySet);
+$exclude = isset($opts['exclude'])
+    ? array_flip(array_filter(array_map('trim', explode(',', (string) $opts['exclude']))))
+    : [];
+
+$itemIds = array_values(array_diff(array_keys($applySet), array_keys($exclude)));
 if (isset($opts['item'])) {
     $itemId = (string) $opts['item'];
     if (!isset($applySet[$itemId])) { fwrite(STDERR, "item {$itemId} not in apply_set.json\n"); exit(1); }
+    if (isset($exclude[$itemId])) { fwrite(STDERR, "item {$itemId} is in --exclude\n"); exit(1); }
     $itemIds = [$itemId];
-} elseif (isset($opts['limit'])) {
-    $itemIds = array_slice($itemIds, 0, (int) $opts['limit']);
+} elseif (isset($opts['offset']) || isset($opts['limit'])) {
+    $itemIds = array_slice($itemIds, (int) ($opts['offset'] ?? 0), isset($opts['limit']) ? (int) $opts['limit'] : null);
 }
 
 $isLive   = isset($opts['live']);
@@ -90,6 +97,7 @@ if ($isVerify) {
 $counts = ['ok' => 0, 'error' => 0];
 
 foreach ($itemIds as $itemId) {
+    $itemId     = (string) $itemId;   // numeric-string keys come back as ints
     $entry      = $applySet[$itemId];
     $parentSku  = $entry['sku'];
     $categoryId = (string) ($entry['category_id'] ?? '');

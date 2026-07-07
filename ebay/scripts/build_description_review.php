@@ -33,7 +33,10 @@ declare(strict_types=1);
  * that case — title_issue only ever comes from an authored answer).
  *
  * Writes:
- *   description_review.csv        one row/listing, 21 columns (see column list below)
+ *   description_review.csv        one row/listing, 23 columns (see column list below --
+ *                                  includes old/new_sales_description, the second/sales
+ *                                  paragraph, added 2026-07-07 since it previously only
+ *                                  showed up buried inside new_description/new_html)
  *   descriptions/{itemId}.html    the full proposed HTML (easy to eyeball)
  *
  * Usage: php ebay/scripts/build_description_review.php --account=dows|ige
@@ -82,6 +85,7 @@ $oneLine = fn(string $s): string => trim(preg_replace('/\s+/u', ' ', $s));
 $rev = fopen($outDir . '/description_review.csv', 'w');
 fputcsv($rev, [
     'item_id', 'sku', 'old_first_description', 'new_first_description',
+    'old_sales_description', 'new_sales_description',
     'old_title', 'new_title', 'price', 'old_key_features', 'new_key_features',
     'old_mobile_text', 'new_mobile_text', 'old_description', 'new_description',
     'prev_html', 'new_html', 'what_changed', 'approved', 'reviewer_notes',
@@ -109,6 +113,15 @@ foreach (file($packPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line
     $oldFirst = stripIdentifiers($oneLine((string) ($pack['short_description'] ?? '')));
     $oldBullets = cleanBullets((array) ($pack['feature_bullets'] ?? []));
     $oldMobile  = extractMobileSpan($currentHtml);
+
+    // old_sales_description: the listing's existing narrative/sales-style prose (the
+    // grounding source for a new sales paragraph, or the whole story when there's no
+    // authored answer yet) — distinct from old_first_description's factual lead.
+    $narr = array_map('strval', (array) ($pack['narrative'] ?? []));
+    $oldSales = stripIdentifiers($oneLine($narr[0] ?? ''));
+    if ($oldSales !== '' && $oldFirst !== '' && mb_stripos($oldFirst, mb_substr($oldSales, 0, 40)) !== false) {
+        $oldSales = stripIdentifiers($oneLine($narr[1] ?? ''));
+    }
 
     $a = $authored[$id] ?? null;
     $newTitle = '';
@@ -143,12 +156,7 @@ foreach (file($packPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line
         // Title is NEVER touched in the fallback path — title_issue only comes from an
         // authored answer.
         $factual = $oldFirst;
-        $narr    = array_map('strval', (array) ($pack['narrative'] ?? []));
-        $sales   = stripIdentifiers($oneLine($narr[0] ?? ''));
-        // don't duplicate: if the sales prose is contained in the factual lead, drop it
-        if ($sales !== '' && $factual !== '' && mb_stripos($factual, mb_substr($sales, 0, 40)) !== false) {
-            $sales = stripIdentifiers($oneLine($narr[1] ?? ''));
-        }
+        $sales   = $oldSales;
         if ($factual === '') { $factual = $sales; $sales = stripIdentifiers($oneLine($narr[1] ?? '')); }
         if ($factual === '') { $factual = $title; }
         $bullets = $oldBullets;
@@ -172,6 +180,7 @@ foreach (file($packPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line
     fputcsv($rev, [
         $id, $sku,
         $oldFirst, $factual,
+        $oldSales, $sales,
         $oldTitle, $newTitle,
         $price,
         implode(' | ', $oldBullets), $newKeyFeatures,
