@@ -40,7 +40,7 @@ define('AMAZON_SCHEMAS', AMAZON_DATA . '/schemas'); // shared across all account
  * Usage:  $paths = amazon_paths('IGE');
  *         $paths = amazon_paths('DOWS');
  *
- * @return array{data:string, input:string, reports:string, listings:string, catalog:string, drafts:string, output:string, schemas:string}
+ * @return array{data:string, input:string, reports:string, listings:string, catalog:string, drafts:string, output:string, drift:string, schemas:string}
  */
 function amazon_paths(string $account): array
 {
@@ -56,6 +56,7 @@ function amazon_paths(string $account): array
         'usurper'        => $base . '/input/usurper',
         'drafts'         => $base . '/drafts',
         'output'         => $base . '/output',
+        'drift'          => $base . '/drift',    // committed drift snapshots (tracked over time)
         'schemas'        => AMAZON_SCHEMAS,
     ];
 
