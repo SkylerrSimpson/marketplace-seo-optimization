@@ -61,7 +61,8 @@ signing off on every proposed change before it goes live.
 | — | `normalize_handoff_units.php` | Unit-spelling normalization ("4 In" → "4 in") on a **returned handoff CSV**, with a **vary-by guard**. |
 | — | `normalize_review_sheet_units.php` | Same normalization + guard, applied directly to `review_sheet.csv`'s `proposed_value` (for accounts with no handoff round-trip yet). |
 | — | `build_apply_set.php` | **Stage 1 of write-back.** Collapses the sheet into the exact, complete specifics set to push per listing (approved > deterministic > high-certainty LLM), honoring the merge guard. Writes `apply_set.json` + `apply_preview.csv`. Dry-run, no eBay calls. |
-| — | `write_canary_test.php` | **Stage 2, canary only.** Pushes a small hand-picked test set to eBay via Trading `ReviseItem`, one item at a time. Defaults to `VerifyOnly=true`; `--live` requires re-typing the item id to confirm. **There is no bulk/full write-back script yet** — see "Known gaps" below. |
+| — | `write_canary_test.php` | **Stage 2, canary only.** Pushes a small hand-picked test set (Ethan's edge cases) to eBay via Trading `ReviseItem`, one item at a time. Defaults to `VerifyOnly=true`; `--live` requires re-typing the item id to confirm. |
+| — | `apply_aspects.php` | **Stage 2, full write.** Pushes `apply_set.json` to eBay for real — one item (`--item=`), a slice (`--limit=N`), or the whole account. Same `VerifyOnly`-default / `--live` model as the canary script (shares its payload logic via `lib/aspect_writer.php`); a `--live` run over more than one listing additionally requires `--confirm=WRITE`. Logs every Ack to `apply_aspects_run.csv`. |
 
 ### The vary-by rule (read this before touching any normalize/merge/write script)
 
@@ -81,7 +82,8 @@ category's actual allowed-values list (`data/aspects/{catId}.json` — not the
 MULTI aspects have individual allowed values that themselves contain a comma (eBay's
 Theme picklist has both `"Cartoon"` and `"Cartoon, TV & Movie Characters"` as two
 different single entries) — blindly splitting on every comma breaks those. See
-`write_canary_test.php`'s `buildSpecifics()` for the reference implementation.
+`lib/aspect_writer.php`'s `buildSpecifics()` — the shared implementation both
+`write_canary_test.php` and `apply_aspects.php` build their `ReviseItem` payload with.
 
 ---
 
@@ -130,10 +132,10 @@ factual paragraph rather than a bare title repeat.
 
 ## Known gaps / open work
 
-- **No bulk write-back script.** `write_canary_test.php` is deliberately canary-only
-  (one item, explicit confirmation). The full write across `apply_set.json` for an
-  entire account still needs to be built — reuse its `buildSpecifics()`/vary-by-guard
-  logic, don't start from scratch.
+- **The full-catalog write hasn't been run yet.** `apply_aspects.php` exists and is
+  one-item-live-tested (2026-07-07, item `126454417969` — re-pulled live afterward,
+  all 8 changes confirmed correct, nothing else moved), but the actual full run across
+  all of `apply_set.json` for an account is still pending.
 - **Images pipeline has no write/apply step yet** — `image_review.csv` is the worklist,
   nothing pushes fixes back to eBay yet.
 - `ebay/PLAN.md` is the original Week-1 planning doc and is now superseded by this file —

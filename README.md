@@ -83,7 +83,7 @@ php ebay/scripts/<script>.php --account=dows
 | Marketplace | Status | API |
 |---|---|---|
 | **Shopify**  | ✅ Built — metadata pipeline + collections + GTIN/MPN + accessibility + video/YouTube SEO, all with working write steps | [Admin GraphQL](https://shopify.dev/docs/api/admin-graphql/latest/queries/products) · [productUpdate](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productUpdate?language=direct-api) |
-| **eBay**     | ✅ Built — item aspects (write-back canary-tested live in production) + descriptions (fully re-authored both accounts) pipelines; images audit-only, no write step yet | [Trading API](https://developer.ebay.com/devzone/xml/docs/reference/ebay/index.html) (ReviseItem) · [Taxonomy API](https://developer.ebay.com/develop/api/sell/taxonomy_api) |
+| **eBay**     | ✅ Built — item aspects (canary + one-item live write both confirmed correct; full-catalog write imminent) + descriptions (fully re-authored both accounts) pipelines; images audit-only, no write step yet | [Trading API](https://developer.ebay.com/devzone/xml/docs/reference/ebay/index.html) (ReviseItem) · [Taxonomy API](https://developer.ebay.com/develop/api/sell/taxonomy_api) |
 | **Amazon**   | ⏳ Planned — SP-API event-notification system (Slack or similar) is next up, needs a PM meeting to scope | [SP-API Listings Items](https://developer-docs.amazon.com/sp-api/reference/listings-items-v2020-09-01) |
 | **Walmart**  | ⏳ Planned — same shape of work as eBay (titles, descriptions, aspects, images, SEO), once eBay wraps | [Marketplace API](https://developer.walmart.com/us-marketplace/lang-es/docs/utilities-overview) |
 

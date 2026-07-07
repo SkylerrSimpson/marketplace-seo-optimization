@@ -1,14 +1,17 @@
 # The Write-Back Bridge — apply_set → eBay ItemSpecifics
 
-> **Status update (2026-07-06):** Stage 1 (`build_apply_set.php`) is built and
+> **Status update (2026-07-07):** Stage 1 (`build_apply_set.php`) is built and
 > verified, and DOWS has completed a full round of Ethan's review plus a
 > corrected unit-normalization pass (see `ebay/README.md`'s Pipeline 1 table for
 > the current full script list — several steps only sketched below, like the
-> normalize/merge scripts, now exist as real files). Stage 2 exists in
-> **canary form only**: `ebay/scripts/write_canary_test.php` has been tested
-> live against production DOWS and works — see §4.2, which corrects this doc's
-> original transport decision. **There is still no bulk/full write-back script**
-> across an entire account's `apply_set.json`; that remains open work (§6).
+> normalize/merge scripts, now exist as real files). Stage 2 now has both forms:
+> `ebay/scripts/write_canary_test.php` (canary, 4 hand-picked listings, tested
+> live 2026-07-06) and `ebay/scripts/apply_aspects.php` (the full-account write —
+> see §4.2, which corrects this doc's original transport decision). The bulk
+> script has been one-item live-tested against production DOWS
+> (item `126454417969`, re-pulled afterward and confirmed correct) but the actual
+> full-account run across all of `apply_set.json` hasn't happened yet — that's
+> the next thing to do (§6).
 
 This doc explains the entire bridge in enough detail that you can finish it by
 hand if I run out of usage. Read it top to bottom once; then use the
@@ -223,11 +226,12 @@ cardinality = multiple `Value[]` entries — see the value-cardinality gotcha in
 listings: parent ItemSpecifics as above, varied dimensions go in
 `Item.Variations.Variation[].VariationSpecifics` (a *repeated* array of
 `NameValueListArrayType`, not a single one — easy to get the wrapper type wrong,
-see `write_canary_test.php`'s `buildSpecifics()`/`loadAspectSchema()` for the
-working reference implementation) — keep parent and per-variation specifics
-strictly separate (§2.2). Every `ReviseItem` call should default to
-`VerifyOnly=true` (eBay validates server-side, commits nothing) before any real
-write, exactly as `write_canary_test.php` does.
+see `lib/aspect_writer.php`'s `buildSpecifics()`/`loadAspectSchema()` — the
+shared implementation both `write_canary_test.php` and `apply_aspects.php`
+build their payload with) — keep parent and per-variation specifics strictly
+separate (§2.2). Every `ReviseItem` call should default to `VerifyOnly=true`
+(eBay validates server-side, commits nothing) before any real write, exactly
+as both scripts do.
 
 ### 4.3 Safety rails (must implement before `--apply`)
 - **Canary first:** push the smallest safe set — the 4 listings missing a
@@ -259,18 +263,24 @@ canary class** — do one group end-to-end before bulk.
 - **Drop a bad aspect, never a whole listing** (except a dropped REQUIRED →
   quarantine for manual fix).
 
-## 6. Open items / next actions (updated 2026-07-06)
+## 6. Open items / next actions (updated 2026-07-07)
 1. ☑ Ethan's reviewed `review_sheet.csv` for DOWS round 1 — done, merged via
    `merge_handoff_approvals.php`, then corrected for a unit-normalization
    contamination bug found afterward (see `ebay/README.md`'s vary-by rule).
 2. ☑ Canary write-back proven live on production DOWS via
    `write_canary_test.php` (Trading `ReviseItem`, per §4.2's correction) —
    4 hand-picked test listings, sales history confirmed preserved.
-3. ☐ Build the actual bulk `write_back.php` per §4 (transport corrected to
-   `ReviseItem`, not LMS) — reuse `write_canary_test.php`'s
-   `buildSpecifics()`/vary-by-guard/schema-aware splitting logic rather than
-   starting over. This is the main remaining gap.
-4. ☐ IGE has not yet had any review round — still needs its own
+3. ☑ Built the bulk `apply_aspects.php` per §4 (transport corrected to
+   `ReviseItem`, not LMS), sharing `write_canary_test.php`'s
+   `buildSpecifics()`/vary-by-guard/schema-aware splitting logic via
+   `lib/aspect_writer.php` rather than duplicating it. One-item live-tested
+   (item `126454417969`, solo listing — 8 real changes confirmed correct via a
+   fresh re-pull afterward) plus a `--verify` pass on a variation listing
+   (item `126191730089`, 3 children, values round-tripped unchanged).
+4. ☐ **Run the actual full-account write** — `apply_aspects.php --account=dows
+   --live --confirm=WRITE` (all 1,257 DOWS listings). This is the main
+   remaining gap now.
+5. ☐ IGE has not yet had any review round — still needs its own
    `merge_handoff_approvals.php` pass once Ethan reviews it.
-5. ☐ (optional) deterministic rule-fix for the IGE `Type="standard"` cluster
+6. ☐ (optional) deterministic rule-fix for the IGE `Type="standard"` cluster
    (~120 rows) so Ethan doesn't hand-touch each.
