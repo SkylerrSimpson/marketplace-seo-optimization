@@ -10,11 +10,22 @@ REVIEW SHEETS (fill the 'approved' / 'approved_value' + 'reviewer_notes' columns
      (source='child_rollup'); 'reviewer_notes' explains each. Country conflicts &
      per-variation cases are left blank with a FLAG note.
 
-3) eBay_DOWS_descriptions-standardized_REVIEW.csv (1257 rows)
-4) eBay_IGE_descriptions-standardized_REVIEW.csv  (370 rows)
-     One row per listing. Current vs proposed full HTML description, all re-rendered to
-     ONE standard template. 'change_type' says how much copy changed; before/after in
-     both plain text and HTML.
+3) eBay_DOWS_descriptions-standardized-v2_REVIEW.csv (1257 rows)
+4) eBay_IGE_descriptions-standardized-v2_REVIEW.csv  (370 rows)
+     CURRENT — supersedes the older eBay_{ACCT}_descriptions-standardized_REVIEW.csv
+     (v1, left in this folder for reference only, not for action). v2 was authored
+     after the item-specifics round 1 approvals were merged back in, so the AI writer
+     had full/current aspect data as grounding (v1 did not).
+     One row per listing: old_first_description/new_first_description (factual para),
+     old_title/new_title (title is ONLY changed when materially inaccurate or deficient
+     — missing a stated fact, wrong claim, poor keyword coverage; most titles are
+     untouched — 79/1257 changed for DOWS, 34/370 for IGE), old_key_features/
+     new_key_features, old_mobile_text/new_mobile_text (hidden mobile summary),
+     old_description/new_description (plain text), prev_html/new_html (full rendered
+     HTML), what_changed, approved + reviewer_notes (fill these), mpn/upc (reference
+     only, pulled from current aspects), specs/values (auto-rendered Product
+     Specifications block — reflects round-1 aspect approvals only, pending your
+     round-2 sign-off on the item-specifics sheets above).
 
 5) eBay_BOTH_mobile-vs-desktop-description-fixes_REVIEW.csv (305 rows)
      Listings whose hidden MOBILE description didn't match the DESKTOP-visible text.

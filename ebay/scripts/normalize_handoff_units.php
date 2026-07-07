@@ -28,17 +28,46 @@ declare(strict_types=1);
  * "blank_value") are left untouched on purpose — Size and Capacity in particular mix real
  * measurements with non-measurement values, so no default unit is ever guessed for them.
  *
+ * VARY-BY GUARD (added 2026-07-06, per Ethan's review): an aspect that is the
+ * variation-defining attribute for a listing (review_sheet.csv's `varied_by` column,
+ * e.g. Size/Color/Style) must NEVER have its value rewritten on a child sku. eBay ties
+ * sales history to the exact variation value; changing "4" -> "4 in" on a child's Size
+ * effectively creates a different variation and orphans that history. So for every
+ * (item_id, aspect) pair where aspect == that item's varied_by aspect, the row is left
+ * completely untouched regardless of aspect scope above.
+ *
  * Usage:
- *   php ebay/scripts/normalize_handoff_units.php --input="ebay/handoff/returned/ebay dows first round updates, no features no set includes.csv"
- *   php ebay/scripts/normalize_handoff_units.php --input=... --out=path/to/round2.csv
+ *   php ebay/scripts/normalize_handoff_units.php --input="ebay/handoff/returned/ebay dows first round updates, no features no set includes.csv" --account=dows
+ *   php ebay/scripts/normalize_handoff_units.php --input=... --account=dows --out=path/to/round2.csv
  */
 
-$opts  = getopt('', ['input:', 'out:']);
-$base  = dirname(__DIR__);
-$input = $opts['input'] ?? '';
+$opts    = getopt('', ['input:', 'out:', 'account:']);
+$base    = dirname(__DIR__);
+$input   = $opts['input'] ?? '';
+$account = $opts['account'] ?? '';
 if ($input === '') { fwrite(STDERR, "--input is required\n"); exit(1); }
 if (!is_file($input)) { fwrite(STDERR, "input not found: $input\n"); exit(1); }
+if ($account === '') { fwrite(STDERR, "--account is required (dows|ige) to load the varied_by guard from review_sheet.csv\n"); exit(1); }
 $out = $opts['out'] ?? preg_replace('/\.csv$/i', '', $input) . '.unit_normalized.csv';
+
+/* ---------- vary-by guard: item_id -> set of aspect names (lowercased) that are the
+   variation-defining aspect for that listing, per review_sheet.csv ---------- */
+$reviewSheetPath = "$base/data/$account/output/review_sheet.csv";
+if (!is_file($reviewSheetPath)) { fwrite(STDERR, "review_sheet.csv not found for account $account: $reviewSheetPath\n"); exit(1); }
+$VARY_BY = [];
+$rsfh = fopen($reviewSheetPath, 'r');
+$rsHeader = fgetcsv($rsfh);
+$rsIdx = array_flip($rsHeader);
+foreach (['item_id', 'varied_by'] as $r) {
+    if (!isset($rsIdx[$r])) { fwrite(STDERR, "review_sheet.csv missing column: $r\n"); exit(1); }
+}
+while (($rsRow = fgetcsv($rsfh)) !== false) {
+    $vb = trim($rsRow[$rsIdx['varied_by']] ?? '');
+    if ($vb === '') { continue; }
+    $iid = $rsRow[$rsIdx['item_id']] ?? '';
+    $VARY_BY[$iid][strtolower($vb)] = true;
+}
+fclose($rsfh);
 
 /* ---------- aspect scope ---------- */
 $IN_FAMILY = array_flip(array_map('strtolower', [
@@ -159,14 +188,18 @@ foreach (['item_id', 'sku', 'aspect', 'final_value'] as $r) {
 $ofh = fopen($out, 'w');
 fputcsv($ofh, array_merge($header, ['unit_normalized']));
 
-$rows = 0; $targetRows = 0; $changed = 0; $touched = []; $samples = [];
+$rows = 0; $targetRows = 0; $changed = 0; $touched = []; $samples = []; $varyBySkipped = 0;
 while (($row = fgetcsv($fh)) !== false) {
     $rows++;
+    $itemId = $row[$idx['item_id']] ?? '';
     $aspect = $row[$idx['aspect']] ?? '';
     $value  = $row[$idx['final_value']] ?? '';
     $flag = '';
 
-    if (isset($ALL_TARGETS[strtolower($aspect)])) {
+    $isVaryBy = isset($VARY_BY[$itemId][strtolower($aspect)]);
+    if ($isVaryBy) { $varyBySkipped++; }
+
+    if (!$isVaryBy && isset($ALL_TARGETS[strtolower($aspect)])) {
         $targetRows++;
         [$norm, $chg] = normalizeUnit($aspect, $value, $IN_FAMILY, $LB_FAMILY, $WORD_UNIT_MAP,
             $GLUED_UNITS, $GLUED_CANON, $TRAILING_UNIT_WORDS, $SKIP_VALUES);
@@ -184,7 +217,7 @@ fclose($fh); fclose($ofh);
 
 echo "input:  $input\n";
 echo "out:    $out\n";
-echo "rows: $rows   in-scope aspect rows: $targetRows   unit_normalized=Yes: $changed\n\n";
+echo "rows: $rows   in-scope aspect rows: $targetRows   unit_normalized=Yes: $changed   vary-by skipped: $varyBySkipped\n\n";
 echo "--- changed by aspect ---\n";
 arsort($touched);
 foreach ($touched as $a => $c) { printf("  %-24s %d\n", $a, $c); }

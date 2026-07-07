@@ -161,7 +161,8 @@ foreach (file($packPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line
 
     $mobile   = mobileSummary($mobile);
     $newTitleFinal = $newTitle !== '' ? $newTitle : $title;
-    $proposed = renderFull($store, $newTitleFinal, $factual, $sales, $mobile, $bullets, $aspects, $imageUrl);
+    $altText  = imageAltText($factual, $newTitleFinal);
+    $proposed = renderFull($store, $newTitleFinal, $factual, $sales, $mobile, $bullets, $aspects, $imageUrl, $altText);
     file_put_contents($descDir . "/{$id}.html", $proposed);
 
     $newKeyFeatures = implode(' | ', $bullets);
@@ -206,9 +207,10 @@ echo "  {$outDir}/description_review.csv\n  {$descDir}/{itemId}.html\n";
  *   -> store footer.
  */
 function renderFull(array $store, string $title, string $factual, string $sales,
-    string $mobile, array $bullets, array $aspects, string $imageUrl): string
+    string $mobile, array $bullets, array $aspects, string $imageUrl, string $altText = ''): string
 {
     $h      = esc($title);
+    $alt    = esc($altText !== '' ? $altText : $title);
     $mob    = esc(trim(preg_replace('/\s+/u', ' ', $mobile)));
     $introP = $factual !== '' ? '  <p>' . esc($factual) . "</p>\n" : '';
     $salesP = $sales   !== '' ? '  <p>' . esc($sales)   . "</p>\n" : '';
@@ -222,7 +224,7 @@ function renderFull(array $store, string $title, string $factual, string $sales,
             if ($b === '') { continue; }
             $pos = mb_strpos($b, ':');
             if ($pos !== false && $pos > 0) {
-                $li .= '    <li><strong>' . esc(mb_substr($b, 0, $pos)) . ':</strong> '
+                $li .= '    <li><strong>' . esc(trim(mb_substr($b, 0, $pos))) . ':</strong> '
                     . esc(trim(mb_substr($b, $pos + 1))) . "</li>\n";
             } else {
                 $li .= '    <li>' . esc($b) . "</li>\n";
@@ -236,7 +238,7 @@ function renderFull(array $store, string $title, string $factual, string $sales,
 
     $imageHtml = $imageUrl !== ''
         ? '  <p style="text-align:center;margin:0 0 16px"><img src="' . esc($imageUrl)
-            . '" alt="' . $h . '" style="max-width:100%;width:600px;height:auto"></p>' . "\n"
+            . '" alt="' . $alt . '" style="max-width:100%;width:600px;height:auto"></p>' . "\n"
         : '';
     $specs   = renderSpecs($aspects);
     $brand   = esc($store['brand']);
@@ -261,6 +263,35 @@ HTML;
 }
 
 /**
+ * Alt text for the description's embedded image. eBay's native gallery has no alt-text
+ * field at all (checked the Trading SDK's PictureDetailsType — just a bare URL list), so
+ * this is the only alt attribute we control. Richer than a bare title repeat: the first
+ * grounded sentence of the authored factual paragraph, trimmed to whole words under 150
+ * chars (accessibility best practice keeps alt text concise). Falls back to the title if
+ * there's no factual paragraph to draw from.
+ */
+function imageAltText(string $factual, string $title): string
+{
+    $factual = trim(preg_replace('/\s+/u', ' ', $factual));
+    if ($factual === '') { return $title; }
+    $firstSentence = preg_split('/(?<=[.!?])\s+/u', $factual, 2)[0] ?? $factual;
+    $firstSentence = rtrim($firstSentence, '.!? ');
+    if (mb_strlen($firstSentence) <= 150) { return $firstSentence; }
+    $words = explode(' ', $firstSentence);
+    while (count($words) > 1 && mb_strlen(implode(' ', $words)) > 150) { array_pop($words); }
+    // don't end on a dangling connector word (in, with, and, made, from, a, an, the, of,
+    // for, to, by, or, its comma-separated-list remnant) — drop trailing stopwords/digits
+    // and stray punctuation so the cut reads as a clean fragment, not a hanging half-clause
+    $stop = ['in','with','and','made','from','a','an','the','of','for','to','by','or','at','on'];
+    while (count($words) > 1) {
+        $last = rtrim(mb_strtolower(end($words)), ',.');
+        if (in_array($last, $stop, true) || preg_match('/^\d+,?$/', $last)) { array_pop($words); continue; }
+        break;
+    }
+    return rtrim(implode(' ', $words), ', ');
+}
+
+/**
  * The eBay mobile summary: tag-free plain text. eBay counts the characters in the span
  * SOURCE — i.e. AFTER HTML-escaping (&#039; is six characters) — caps at 800, and drops
  * the remainder. Trim whole words until the ESCAPED text fits 800.
@@ -277,15 +308,34 @@ function mobileSummary(string $intro): string
 /** Length of a string once HTML-escaped — what eBay actually counts in the span. */
 function escLen(string $s): int { return mb_strlen(esc($s)); }
 
-/** A "Product Specifications" list rendered from the listing's own aspects. */
+/**
+ * A "Product Specifications" list rendered from the listing's own aspects. Matches the
+ * generator tool's fixed field order: MPN first, then UPC, then everything else.
+ */
 function renderSpecs(array $aspects): string
 {
     $skip = ['california prop 65 warning', 'unit type', 'unit quantity', 'sku'];
+    $lower = [];
+    foreach ($aspects as $k => $v) { $lower[mb_strtolower(trim((string) $k))] = [$k, $v]; }
+
+    $li = function (string $name, $val): string {
+        return '    <li><strong>' . esc($name) . ':</strong> ' . esc($val) . "</li>\n";
+    };
+
     $rows = '';
-    foreach ($aspects as $name => $val) {
+    foreach (['mpn', 'upc'] as $pinned) {
+        if (!isset($lower[$pinned])) { continue; }
+        [$name, $val] = $lower[$pinned];
         $val = trim((string) (is_array($val) ? implode(', ', $val) : $val));
-        if ($val === '' || in_array(mb_strtolower((string) $name), $skip, true)) { continue; }
-        $rows .= '    <li><strong>' . esc((string) $name) . ':</strong> ' . esc($val) . "</li>\n";
+        if ($val !== '') { $rows .= $li((string) $name, $val); }
+        unset($lower[$pinned]);
+    }
+    foreach ($aspects as $name => $val) {
+        $key = mb_strtolower(trim((string) $name));
+        if ($key === 'mpn' || $key === 'upc' || !isset($lower[$key])) { continue; } // already emitted or dropped
+        $val = trim((string) (is_array($val) ? implode(', ', $val) : $val));
+        if ($val === '' || in_array($key, $skip, true)) { continue; }
+        $rows .= $li((string) $name, $val);
     }
     if ($rows === '') { return ''; }
     return "  <h3 style=\"font-size:18px;margin:18px 0 8px\">Product Specifications</h3>\n"
