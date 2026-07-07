@@ -143,6 +143,9 @@ factual paragraph rather than a bare title repeat.
 
 ## Further reading
 
+- **`ebay/docs/walkthrough.md`** — a single real listing traced through every script in
+  both pipelines, with actual commands and actual before/after data. Start here if the
+  tables above feel abstract.
 - `ebay/docs/review-rules.md`, `ebay/docs/review-guide.md` — the aspects review process in detail.
 - `ebay/docs/apply-bridge.md` — the write-back bridge design (Stage 1/2).
 - `ebay/docs/description-seo.md` — the descriptions pipeline in detail.

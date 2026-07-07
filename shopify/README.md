@@ -13,6 +13,10 @@ from / write to `shopify/data/`. Run from the repo root:
 php shopify/scripts/<script>.php
 ```
 
+**New here?** See **`shopify/docs/walkthrough.md`** first — one real product traced
+through every step of the core pipeline below, with actual commands and actual
+before/after data.
+
 ---
 
 ## Core pipeline — the reference implementation

@@ -6,7 +6,11 @@ ASR Outdoor's sales channels, and to push the approved changes back to each mark
 
 > **If you're new here:** each marketplace folder (`shopify/`, `ebay/`) has its own
 > `README.md` with the full script inventory and run order — start there, this file is
-> just the map. `amazon/` and `walmart/` don't have tooling yet (see status table below).
+> just the map. Better yet, start with the walkthroughs — `shopify/docs/walkthrough.md`
+> and `ebay/docs/walkthrough.md` each trace one real product/listing through every
+> script with actual commands and actual before/after data, which is a faster way in
+> than the reference tables. `amazon/` and `walmart/` don't have tooling yet (see status
+> table below).
 
 ---
 
