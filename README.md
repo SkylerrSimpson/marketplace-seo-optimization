@@ -50,7 +50,10 @@ ASR Outdoor's sales channels, and to push the approved changes back to each mark
 │   └── data/{dows,ige}/{input,output}/, data/aspects/{catId}.json, data/for_ethan/
 │
 ├── amazon/   ← placeholder (SP-API) — notifications work planned next, see multi-week roadmap
-└── walmart/  ← placeholder (Marketplace API) — planned to mirror the eBay pipeline shape
+├── walmart/  ← placeholder (Marketplace API) — planned to mirror the eBay pipeline shape
+│
+└── dowscripts/   ← planned: a Laravel UI wrapper around all of the above, for non-devs.
+                     Not started — see dowscripts/PLAN.md before touching this folder.
 ```
 
 ---
@@ -95,6 +98,11 @@ grounding data. Walmart should follow the same pattern again.
 A closing step across **every** marketplace touched: changes made here also need to be
 imported into **Usurper** (the company's internal inventory management platform) so its
 own custom attributes match what's actually live — not yet started for any marketplace.
+
+Separately: all of the above is CLI-only, which is fine for a dev but not for a non-dev
+teammate. **`dowscripts/`** is a planned Laravel web UI that wraps these same scripts (not
+a rewrite) so anyone on the team can run them from a browser. Planning only, not started
+— see **`dowscripts/PLAN.md`**.
 
 ---
 
