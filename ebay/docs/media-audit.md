@@ -45,3 +45,31 @@ php ebay/scripts/audit_media.php --account=dows --ids=ID --refresh   # one listi
 These render today but aren't in eBay Picture Services: if the bucket/CDN changes
 they break, and eBay can't generate zoom/optimized variants from them. Candidate
 for re-hosting to EPS (gated like all writes).
+
+## Downstream: the actual remediation worklist (`build_image_review.py`)
+
+This audit (`audit_media.php`) is read-only raw material — it doesn't prioritize
+anything. `build_image_review.py` turns `media_summary.csv` + `media_images.csv` into
+the per-listing worklist a human actually works from:
+
+```
+python3 ebay/scripts/build_image_review.py
+   -> data/{account}/output/image_review.csv
+```
+
+One row per listing that has *any* issue, prioritized HIGH (self-hosted/non-EPS) > MED
+(below 800px, no zoom) > LOW (below 1600px ideal, or fewer than 3 images), with the
+exact offending URL(s), a recommended action, and blank `approved`/`reviewer_notes`
+columns for review. Current counts (2026-07-06): DOWS 668/1,257 listings flagged
+(HIGH 84 / MED 100 / LOW 484), IGE 242/370 (HIGH 16 / MED 40 / LOW 186).
+
+**Note on image alt text:** eBay's native Picture gallery has no alt-text field at all —
+confirmed directly against the Trading SDK's `PictureDetailsType`, which is just a bare
+list of URLs. There is no per-gallery-image alt-text lever to pull for eBay the way
+there is for Shopify/Walmart. The only alt attribute under our control is the single
+`<img>` embedded in the standardized description body (see `docs/description-seo.md`),
+which `build_description_review.php`'s `imageAltText()` grounds in the authored factual
+paragraph rather than a bare title repeat.
+
+**Status:** audit + worklist done for both accounts. No write/apply step exists yet for
+images — re-hosting to EPS, adding more images, etc. is still fully manual/unbuilt.

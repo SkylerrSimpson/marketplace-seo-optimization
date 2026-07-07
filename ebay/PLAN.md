@@ -1,5 +1,12 @@
 # eBay Item Specifics Backfill — Implementation Plan
 
+> **SUPERSEDED — kept for history, not current guidance.** This was the original Week-1
+> planning doc. The project has since grown two more phases this doc never covers
+> (descriptions, images) and reversed one decision this doc makes explicitly (§6/§9 say to
+> use bulk Feed/LMS for the write path and avoid Trading `ReviseItem` — Feed/LMS turned out
+> not to support Item Specifics at all, so `ReviseItem` is what actually got built and
+> tested live). **See [`ebay/README.md`](README.md) for the current, accurate picture.**
+
 > This is the authoritative plan. §0 is the plain-English overview; §1–5 are the strategy +
 > technical decisions; **§6 is the day-by-day Week 1 schedule** ("what exactly we're doing");
 > §7–10 are scope, risk, dependencies, and definition of done.

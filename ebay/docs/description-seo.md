@@ -1,78 +1,119 @@
-# eBay description SEO — audit & rewrite (DRY-RUN)
+# eBay description SEO — audit & standardization (DRY-RUN)
 
-Task #5 of the media work: improve the SEO of listing descriptions. Built on the
-`media/` snapshots from `audit_media.php`. **No eBay writes** — output is a review
-sheet for Ethan, gated downstream on prod write creds + Scott sign-off (same as
-the aspect pipeline).
+Re-authors every listing's description into one company-standard HTML template. Built
+on the `media/` snapshots from `audit_media.php`. **No eBay writes** — output is a
+review sheet for Ethan; write-back reuses the merge-guarded transport described in
+`docs/apply-bridge.md` (description is a separate `ReviseItem`/`ReviseFixedPriceItem`
+field, not an aspect).
 
-## Key finding
-The descriptions are mostly healthy, not broken. Avg SEO score 92/100 (DOWS),
-89/100 (IGE); median 400/240 words; 100% median title-keyword coverage; nearly all
-already have bullets + schema + intro keywords; almost no duplicate content. So
-this is **not** a 1,600-listing rewrite — only ~188 listings genuinely need work.
+> **This doc replaces an earlier version (last dated 2026-06-22)** that described a
+> narrower plan — audit-and-flag only ~188 "weak" listings for real authoring, leave the
+> rest untouched. That plan was superseded: **every** listing (1,627 total across both
+> accounts) ended up going through full LLM authoring, grounded in its own real product
+> data, because a shared per-listing template needs every field populated consistently
+> (title, factual paragraph, sales paragraph, bullets, mobile summary) rather than a
+> patchwork of touched/untouched listings.
 
-## Pipeline
+## Pipeline (current)
+
 ```
-analyze_descriptions.php  --account=dows|ige
-   -> description_audit.csv      every listing scored on 8 SEO signals + issues + treatment
-   -> desc_rewrite_tasks.jsonl   only the flagged listings (title, aspects, current copy, issues)
+audit_media.php --account=dows|ige
+   -> media/{id}.json            current description HTML, images, price per listing
 
-[author copy: {item_id, treatment, headline, intro, bullets[]}]  -> desc_rewrite_answers.jsonl
+analyze_descriptions.php --account=dows|ige
+   -> description_audit.csv      every listing scored on 8 SEO signals (word count,
+                                  keyword coverage, bullets, schema, duplicates, etc.)
+   -> desc_rewrite_tasks.jsonl   flagged-listing task file (informs, doesn't gate authoring)
+
+extract_description_source.py
+   -> desc_source_pack.jsonl     the GROUNDING pack per listing: title, price, aspects
+                                  (prefers apply_set.json's merged aspects over the raw
+                                  export), short_description, narrative, feature_bullets,
+                                  image — the author may add wording/fix grammar but may
+                                  NOT invent facts beyond what's in this pack
+
+split_author_batches.py [--size=135]
+   -> author_batches/in_NN.jsonl per-batch input, skipping already-authored listings
+
+[authoring pass: ebay/scripts/AUTHOR_PROMPT.md is the task spec/contract — one JSON
+ object per listing: factual, sales, bullets[], mobile, title_issue, new_title]
+   -> author_batches/out_NN.jsonl
+
+merge_authored_batch.py --account=dows|ige out_NN.jsonl [...]
+   -> desc_authored.jsonl        persistent store, keyed by item_id, idempotent merge
 
 build_description_review.php --account=dows|ige
-   -> description_review.csv     current vs proposed HTML, score_before, issues, + approved/notes cols
+   -> description_review.csv     21-column sheet, old vs new for every field
    -> descriptions/{itemId}.html the full proposed HTML (easy to eyeball/diff)
+
+find_mobile_desc_mismatch.py [--threshold=95]
+build_mobile_fix_review.py
+   -> flags/fixes listings whose hidden mobile summary doesn't match the visible body
 ```
 
-## Scoring signals (`analyze_descriptions.php`)
-word_count, title-keyword coverage, key-aspect coverage, bullets, heading, schema
-markup, keyword-in-intro, duplicate-body detection → 0–100 score + issues[].
+## The authoring contract (`AUTHOR_PROMPT.md`)
 
-## Every listing is standardized to ONE template
-`build_description_review.php` re-renders **every** listing (all 1,627), not just
-the 188, through one canonical template so the description HTML style is identical
-across the whole catalog:
+Every listing gets exactly six authored fields, each **grounded only in that listing's
+own source pack** — the author may reorganize/fix grammar but may not invent specs,
+measurements, materials, counts, or brand claims:
+
+- **factual** — first paragraph. What the item IS: size, color, brand, material,
+  contents. No hype.
+- **sales** — second paragraph. Persuasive "why buy it" — must be distinct from `factual`.
+- **bullets** — 3–6 Key Features as `"Label: detail"` strings.
+- **mobile** — the hidden eBay-required mobile summary, ≤700 authored chars (the
+  template caps the *escaped* length at eBay's real 800-char limit at render time).
+- **title_issue** — boolean, **true only** when the current title is inaccurate or
+  materially deficient (wrong product, missing a stated fact, contradicted claim, poor
+  keyword coverage) — most titles come back `false`. Titles are not rewritten for polish.
+- **new_title** — required when `title_issue: true`, ≤80 chars (eBay's hard title limit).
+
+**Hard rule enforced throughout:** never put an MPN/UPC/EAN/GTIN/SKU/ISBN/part number in
+any of `factual`/`sales`/`bullets`/`mobile`/`new_title` — those are machine codes that
+belong only in the auto-rendered Product Specifications block.
+
+## The multi-variation description gotcha (found 2026-07-06)
+
+A listing with multiple size/length/etc. variations (`review_sheet.csv`'s `varied_by`)
+shares **one description across every child sku**. Early authoring passes sometimes
+stated one specific child's measurement as if it were universal fact (e.g. "This length
+is 25 ft" on a cord also sold in 50/100/500/1000 ft) — misleading for buyers of the other
+variants. Fixed by generalizing/ranging those specific sentences (29 listings across both
+accounts needed this); watch for it in any future authoring pass on a variation listing.
+
+## The canonical HTML template
+
+`build_description_review.php`'s `renderFull()` must match
+`ebay/tools/description-generator.html` (the actual in-house generator tool) structurally,
+byte-for-byte:
 
 ```
-<div … schema.org/Product>
-  <h2> keyword headline / title
-  <p property="description"> intro paragraph
-  [<h3>Key Features</h3><ul>…</ul>]      (only when real feature bullets exist)
-  <h3>Product Specifications</h3><ul>…</ul>   (auto, from the listing's aspects)
-  <meta property="description" …>
+<div … schema.org/Product … max-width:800px>
+  <div style="display:none"><span property="description">MOBILE SUMMARY</span></div>
+  <div>STORE HEADER — brand name, Our Store / Contact Us links, per-account</div>
+  <h2>TITLE</h2>
+  <p>FACTUAL paragraph</p>
+  [<h3>Key Features</h3><ul>…</ul>]           (only when bullets exist)
+  [<p><img …></p>]                             (only when an image URL exists)
+  [<h3>Product Specifications</h3><ul>…</ul>]  (auto, from aspects; MPN/UPC pinned first)
+  <p>SALES paragraph</p>
+  <p>FOOTER — &copy; year, brand name</p>
+</div>
 ```
-This removes the inconsistent per-listing chrome (hidden `<!-- MOBILE DESCRIPTION -->`
-blocks, inline `<style>`, store nav/“About Us/Contact Us”, MSRP lines).
 
-Copy sourcing per listing (the `change_type` column tells Ethan which):
-- **Full rewrite / Full rebuild** (the weak/near-empty 83) — authored headline,
-  intro and selling bullets.
-- **Copy improved + standardized** (the 105 that were OK) — authored keyword lead +
-  the listing's own clean `short_description`, plus real feature bullets extracted
-  from the old HTML.
-- **Reformatted to standard style (copy kept)** (the ~1,439 already-valid) — copy
-  unchanged: intro is the listing's clean `short_description`, just re-rendered in
-  the standard template.
+Two structural bugs were found and fixed comparing against the reference tool: feature
+labels weren't trimmed before the `Label:` bold-split, and Product Specifications didn't
+pin MPN/UPC to the top the way the manual tool does. Both are fixed in the current
+`renderFull()`/`renderSpecs()`.
 
-The specs list is generated FROM each listing's aspects (Prop 65 legal text and
-internal-only fields like Unit Type/Quantity skipped). Feature bullets are pulled
-from existing `<li>`s with store-nav/policy boilerplate filtered out; no features
-are invented, so listings whose originals had none simply omit the Key Features
-section (intro prose still carries them).
+## Status (2026-07-06)
 
-## Results (2026-06-22)
-| | flagged total | copy_rewrite | restructure | tier2_tweak |
-|---|---|---|---|---|
-| DOWS | 130 | 39 | 5 | 86 |
-| IGE  | 58  | 34 | 5 | 19 |
+Both accounts fully authored and rendered: **1,257/1,257 DOWS, 370/370 IGE**. Title
+rewritten (flagged + replaced) on 79 DOWS listings and 34 IGE listings — everything else
+kept its original title. Verified structurally clean (0 issues) against: template
+skeleton match, title ≤80 chars, mobile ≤800 escaped chars, no identifier leakage into
+visible copy. `description_review.csv` (21 columns) is ready for Ethan; copies live in
+`ebay/data/for_ethan/eBay_{ACCT}_descriptions-standardized-v2_REVIEW.csv`.
 
-After authoring + render, **188/188** proposed descriptions have a keyword in the
-intro, bullet structure, schema markup, and an aspect/spec section. Duplicate-body
-pairs were given distinct copy. The 1,544 already-strong descriptions were left
-untouched on purpose.
-
-## Status / gating
-DRY-RUN. `description_review.csv` is ready for Ethan to approve (fill `approved`
-y/n + `reviewer_notes`). Write-back of approved descriptions is gated on prod write
-creds/scope + Scott sign-off, and would reuse the merge-guarded transport from
-`docs/apply-bridge.md` (description is a separate ReviseItem field, not an aspect).
+Write-back of approved descriptions is not yet built — same open gap as the aspects
+pipeline's bulk write-back (see `docs/apply-bridge.md` §6).

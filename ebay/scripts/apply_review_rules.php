@@ -13,23 +13,31 @@ declare(strict_types=1);
  * the merge guard in build_apply_set.php still requires a human approval before any
  * live value changes. Re-runnable / idempotent.
  *
- * Rules (verbatim intent):
+ * Rules (verbatim intent; numbered to match the `rule #N` markers this script writes
+ * into reviewer_notes, so a note in review_sheet.csv always traces back to here):
  *  1. Always prefer an ALLOWED value when proposing, whenever an allowed list
  *     exists (even FREE_TEXT aspects carry eBay's recommended list). e.g. Blade
  *     Size "12 in" with [4" or Less|5"|6"|7"|8"|9"|10" or More] -> 10" or More.
  *     CONSERVATIVE: snap only on a confident match (exact, or numeric->bucket);
  *     otherwise leave the value untouched and flag it (never force a wrong value,
  *     e.g. "Fabric, Sewing" must NOT be snapped to [Left-handed|Right-handed]).
- *  2. Determine if an attribute is applicable; fill an appropriate value if so,
- *     leave blank if not. (Judgement per product -> handled by the LLM fill +
- *     human review, NOT mechanised here. Documented in docs/review-rules.md.)
- *  3. California Prop 65 Warning -> blanket standard text, with exceptions:
+ *  2. California Prop 65 Warning -> blanket standard text, with exceptions:
  *       - testing stones  -> chemical = silica
  *       - solder / metal  -> chemical = lead
  *       - Gear Aid brand  -> NO label (propose blank; if a value is live, suggest DELETE)
  *       - everything else -> chemical = bisphenol_a_(bpa)
- *  4. Country of Origin -> when blank/unknown, default to China (blank rows only;
+ *  3. Country of Origin -> when blank/unknown, default to China (blank rows only;
  *     never overwrite an existing country).
+ *  4. Manufacturer Warranty -> standard WARRANTY_TEXT, unless the aspect is
+ *     SELECTION_ONLY (a fixed duration list) — flagged for review instead, since the
+ *     standard text isn't a valid pick from that list.
+ *  5. Applicability ("does this aspect even apply to this product?") IS mechanised
+ *     here, via `ai_check_blanks.php`'s pre-computed LLM judgments in
+ *     blank_value_checks.csv — this script reads those and, where the judgment says
+ *     N/A, writes the `blank_value` marker into proposed_value (see rule #5 below;
+ *     build_apply_set.php treats a live blank_value as an explicit DELETE). Run
+ *     ai_check_blanks.php first or this rule silently has nothing to apply.
+ *     Documented further in docs/review-rules.md.
  *
  * Usage: php ebay/scripts/apply_review_rules.php --account=dows [--dry]
  *   --dry  print what would change without writing the sheet.

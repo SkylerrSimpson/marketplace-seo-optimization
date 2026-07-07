@@ -1,10 +1,14 @@
 # The Write-Back Bridge — apply_set → eBay ItemSpecifics
 
-> **Status: DRY-RUN ONLY.** Nothing in this pipeline calls eBay. Stage 1
-> (`build_apply_set.php`) is built and verified. Stage 2 (`write_back.php`,
-> the actual transport) is **GATED** on (a) production write credentials +
-> the `sell.inventory`/Trading write scope, and (b) Scott's sign-off. Do not
-> write that stage's network call until both are in hand.
+> **Status update (2026-07-06):** Stage 1 (`build_apply_set.php`) is built and
+> verified, and DOWS has completed a full round of Ethan's review plus a
+> corrected unit-normalization pass (see `ebay/README.md`'s Pipeline 1 table for
+> the current full script list — several steps only sketched below, like the
+> normalize/merge scripts, now exist as real files). Stage 2 exists in
+> **canary form only**: `ebay/scripts/write_canary_test.php` has been tested
+> live against production DOWS and works — see §4.2, which corrects this doc's
+> original transport decision. **There is still no bulk/full write-back script**
+> across an entire account's `apply_set.json`; that remains open work (§6).
 
 This doc explains the entire bridge in enough detail that you can finish it by
 hand if I run out of usage. Read it top to bottom once; then use the
@@ -198,14 +202,32 @@ For each listing in `apply_set.json`, for each SELECTION_ONLY aspect, confirm
 Any failure → drop that one aspect (never the whole listing) and log it; a
 dropped REQUIRED aspect → quarantine the whole listing for manual fix.
 
-### 4.2 Transport — DO NOT use Trading `ReviseItem` directly
-The Trading API `ReviseItem` call is **edge-blocked from this network** (verified
-earlier), and these are legacy listings. Use the **Sell Feed API (LMS)** path:
-build an `XML`/`ReviseFixedPriceItem` feed task, upload, poll the task, fetch the
-result report. The merged `specifics` map → `<ItemSpecifics><NameValueList>` (one
-`NameValueList` per aspect; MULTI = repeated `<Value>`). Variation listings:
-parent ItemSpecifics in the item node, varied dims in `<Variations>` — keep them
-strictly separate (§2.2).
+### 4.2 Transport — corrected 2026-07-06: use Trading `ReviseItem` directly
+
+**This section originally said not to use `ReviseItem` and to route through
+Sell Feed/LMS instead — that turned out to be wrong and has been reversed.**
+Feed/LMS's bulk XML format (see Usurper's own `FeedWriter.php` for the eBay
+feed shape, which was checked directly) only supports `ReviseInventoryStatus`
+(Quantity/Price/SKU) — it has **no Item Specifics support at all**. It was never
+a viable transport for this pipeline. The earlier "edge-blocked" note was about
+the legacy `GetSellerList`/`GetItem` Trading calls specifically (see
+`enrich_listings.php`/`export_listings.php`, which route around that via Browse
+and Sell Feed for reads) — `ReviseItem` itself is reachable and has been used
+successfully in production.
+
+Use Trading **`ReviseItem`** directly (`benmorel/ebay-sdk-php`'s
+`ReviseItemRequestType`). The merged `specifics` map → `Item.ItemSpecifics`, a
+`NameValueListArrayType` wrapping one `NameValueListType` per aspect (MULTI
+cardinality = multiple `Value[]` entries — see the value-cardinality gotcha in
+`ebay/README.md`, including the compound-allowed-value edge case). Variation
+listings: parent ItemSpecifics as above, varied dimensions go in
+`Item.Variations.Variation[].VariationSpecifics` (a *repeated* array of
+`NameValueListArrayType`, not a single one — easy to get the wrapper type wrong,
+see `write_canary_test.php`'s `buildSpecifics()`/`loadAspectSchema()` for the
+working reference implementation) — keep parent and per-variation specifics
+strictly separate (§2.2). Every `ReviseItem` call should default to
+`VerifyOnly=true` (eBay validates server-side, commits nothing) before any real
+write, exactly as `write_canary_test.php` does.
 
 ### 4.3 Safety rails (must implement before `--apply`)
 - **Canary first:** push the smallest safe set — the 4 listings missing a
@@ -237,9 +259,18 @@ canary class** — do one group end-to-end before bulk.
 - **Drop a bad aspect, never a whole listing** (except a dropped REQUIRED →
   quarantine for manual fix).
 
-## 6. Open items / next actions
-1. ☐ Wait on Ethan's reviewed `review_sheet.csv` (filling `approved_value`).
-2. ☐ Re-run `build_apply_set.php`; diff apply sets; review `change`/`delete` rows.
-3. ☐ (gated) Build `write_back.php` per §4 — re-validation + LMS feed + canary.
-4. ☐ (optional) deterministic rule-fix for the IGE `Type="standard"` cluster
+## 6. Open items / next actions (updated 2026-07-06)
+1. ☑ Ethan's reviewed `review_sheet.csv` for DOWS round 1 — done, merged via
+   `merge_handoff_approvals.php`, then corrected for a unit-normalization
+   contamination bug found afterward (see `ebay/README.md`'s vary-by rule).
+2. ☑ Canary write-back proven live on production DOWS via
+   `write_canary_test.php` (Trading `ReviseItem`, per §4.2's correction) —
+   4 hand-picked test listings, sales history confirmed preserved.
+3. ☐ Build the actual bulk `write_back.php` per §4 (transport corrected to
+   `ReviseItem`, not LMS) — reuse `write_canary_test.php`'s
+   `buildSpecifics()`/vary-by-guard/schema-aware splitting logic rather than
+   starting over. This is the main remaining gap.
+4. ☐ IGE has not yet had any review round — still needs its own
+   `merge_handoff_approvals.php` pass once Ethan reviews it.
+5. ☐ (optional) deterministic rule-fix for the IGE `Type="standard"` cluster
    (~120 rows) so Ethan doesn't hand-touch each.
