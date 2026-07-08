@@ -33,7 +33,10 @@ def main():
             if not is_eps:
                 self_urls[iid].append(r['url'])
             try:
-                mn = min(int(float(r['width'])), int(float(r['height'])))
+                # long edge = the longer of width/height, matching audit_media.php's
+                # own below_zoom_800/below_ideal definitions (previously this used
+                # min(), the shorter side, which mis-tiers any non-square image)
+                mn = max(int(float(r['width'])), int(float(r['height'])))
             except Exception:
                 mn = 0
             if mn and mn < ZOOM:

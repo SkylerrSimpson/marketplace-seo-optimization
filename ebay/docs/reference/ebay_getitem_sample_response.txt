@@ -1,0 +1,1723 @@
+eBay Browse API getItem -- full raw response sample
+=====================================================
+Captured 2026-07-08 for item 236345069178 (DOWS account), a solo (non-variation)
+listing, to document exactly what fields this endpoint returns and in what shape.
+Pulled live via GET /buy/browse/v1/item/{itemId} -- this is the ONLY reachable
+read source our aspects/image pipelines use (Trading API GetItem is Akamai
+edge-blocked from this environment -- see export_listings.php header comment).
+
+Notable fields:
+  - color / size / brand / gtin / mpn : convenience top-level duplicates of the
+    same 5 values that also appear inside localizedAspects. Not a second data
+    source -- just a shortcut for the 5 most commonly-needed specifics.
+  - localizedAspects : the COMPLETE item specifics list (all 14 on this listing:
+    Brand, Age Level, Age Range, Prop 65 Warning, Character, Character Family,
+    Color, Country of Origin, MPN, Model, Size, Toy Type, UPC, Vintage). This is
+    what our whole aspects pipeline reads/writes -- most of these have NO
+    top-level shortcut field, so parsing this list is required, not optional.
+  - shipToLocations / taxes : seller account-level shipping/tax policy, not
+    item-specific data -- same shape on every listing regardless of product.
+  - description : the full description HTML -- this is what
+    audit_description_images.php parses for embedded <img> tags / alt text.
+
+=====================================================
+{
+    "itemId": "v1|236345069178|0",
+    "sellerItemRevision": "4",
+    "title": "Light Up Dancing Dino RC T-Rex Dinosaur Predator With Radio Control - Brown",
+    "shortDescription": "Is your child a dinosaur fanatic? Then they need the TychoTyke Dancing Dino T-Rex Predator RC Toy! This unique interactive toy is designed with education in mind. Children can travel back to the Mesozoic area with their very own T-Rex lookalike! It features the T-Rex's iconic spikes and has a roaring sound that will allow your child to pretend they are playing with the apex predator from millions of years ago. The toy itself is constructed of high-quality durable plastic that can withstand hours of indoor or outdoor play.",
+    "price": {
+        "value": "30.00",
+        "currency": "USD"
+    },
+    "categoryPath": "Toys & Hobbies|Radio Control & Control Line|Remote-Controlled Toys",
+    "categoryIdPath": "220|2562|84912",
+    "condition": "New",
+    "conditionId": "1000",
+    "itemLocation": {
+        "city": "Bellingham",
+        "stateOrProvince": "Washington",
+        "postalCode": "982**",
+        "country": "US"
+    },
+    "image": {
+        "imageUrl": "https://i.ebayimg.com/images/g/bMkAAeSwRf9o0ttl/s-l1600.jpg",
+        "width": 1600,
+        "height": 1600
+    },
+    "additionalImages": [
+        {
+            "imageUrl": "https://i.ebayimg.com/images/g/RnAAAeSwz4to0ttl/s-l1600.jpg",
+            "width": 1600,
+            "height": 1600
+        },
+        {
+            "imageUrl": "https://i.ebayimg.com/images/g/Xl4AAeSwQaJo0ttl/s-l1600.jpg",
+            "width": 1600,
+            "height": 1600
+        },
+        {
+            "imageUrl": "https://i.ebayimg.com/images/g/SZkAAeSwR~do0ttl/s-l1600.jpg",
+            "width": 1600,
+            "height": 1600
+        },
+        {
+            "imageUrl": "https://i.ebayimg.com/images/g/UckAAeSwOxZo0ttl/s-l1600.jpg",
+            "width": 1600,
+            "height": 1600
+        },
+        {
+            "imageUrl": "https://i.ebayimg.com/images/g/bMgAAeSwRf9o0ttl/s-l1600.jpg",
+            "width": 1600,
+            "height": 1600
+        }
+    ],
+    "marketingPrice": {
+        "originalPrice": {
+            "value": "49.99",
+            "currency": "USD"
+        },
+        "discountPercentage": "40.0",
+        "discountAmount": {
+            "value": "19.99",
+            "currency": "USD"
+        },
+        "priceTreatment": "LIST_PRICE"
+    },
+    "color": "Brown",
+    "size": "Large",
+    "brand": "KidFun Products",
+    "itemCreationDate": "2025-09-23T17:34:47.000Z",
+    "seller": {
+        "username": "dealsonlywebstore",
+        "feedbackPercentage": "99.7",
+        "feedbackScore": 112668
+    },
+    "gtin": "885189178449",
+    "mpn": "KFP-RCDNO016",
+    "estimatedAvailabilities": [
+        {
+            "deliveryOptions": [
+                "SHIP_TO_HOME"
+            ],
+            "availabilityThresholdType": "MORE_THAN",
+            "availabilityThreshold": 10,
+            "estimatedAvailabilityStatus": "IN_STOCK",
+            "estimatedSoldQuantity": 0,
+            "estimatedRemainingQuantity": 16
+        }
+    ],
+    "shippingOptions": [
+        {
+            "shippingServiceCode": "USPS Priority Mail",
+            "trademarkSymbol": "\u00ae",
+            "shippingCarrierCode": "USPS",
+            "type": "Expedited Shipping",
+            "shippingCost": {
+                "value": "0.00",
+                "currency": "USD"
+            },
+            "quantityUsedForEstimate": 1,
+            "minEstimatedDeliveryDate": "2026-07-10T10:00:00.000Z",
+            "maxEstimatedDeliveryDate": "2026-07-13T10:00:00.000Z",
+            "additionalShippingCostPerUnit": {
+                "value": "0.00",
+                "currency": "USD"
+            },
+            "shippingCostType": "FIXED",
+            "cutOffDateUsedForEstimate": "2026-07-08T20:00:00.000Z"
+        }
+    ],
+    "shipToLocations": {
+        "regionIncluded": [
+            {
+                "regionName": "Worldwide",
+                "regionType": "WORLDWIDE",
+                "regionId": "WORLDWIDE"
+            },
+            {
+                "regionName": "Denmark",
+                "regionType": "COUNTRY",
+                "regionId": "DK"
+            },
+            {
+                "regionName": "New Zealand",
+                "regionType": "COUNTRY",
+                "regionId": "NZ"
+            },
+            {
+                "regionName": "Guatemala",
+                "regionType": "COUNTRY",
+                "regionId": "GT"
+            },
+            {
+                "regionName": "Fiji",
+                "regionType": "COUNTRY",
+                "regionId": "FJ"
+            },
+            {
+                "regionName": "Papua New Guinea",
+                "regionType": "COUNTRY",
+                "regionId": "PG"
+            },
+            {
+                "regionName": "Solomon Islands",
+                "regionType": "COUNTRY",
+                "regionId": "SB"
+            },
+            {
+                "regionName": "Vatican City State",
+                "regionType": "COUNTRY",
+                "regionId": "VA"
+            },
+            {
+                "regionName": "Sierra Leone",
+                "regionType": "COUNTRY",
+                "regionId": "SL"
+            },
+            {
+                "regionName": "Marshall Islands",
+                "regionType": "COUNTRY",
+                "regionId": "MH"
+            },
+            {
+                "regionName": "Nauru",
+                "regionType": "COUNTRY",
+                "regionId": "NR"
+            },
+            {
+                "regionName": "Wallis and Futuna",
+                "regionType": "COUNTRY",
+                "regionId": "WF"
+            },
+            {
+                "regionName": "Anguilla",
+                "regionType": "COUNTRY",
+                "regionId": "AI"
+            },
+            {
+                "regionName": "El Salvador",
+                "regionType": "COUNTRY",
+                "regionId": "SV"
+            },
+            {
+                "regionName": "Gambia",
+                "regionType": "COUNTRY",
+                "regionId": "GM"
+            },
+            {
+                "regionName": "Guam",
+                "regionType": "COUNTRY",
+                "regionId": "GU"
+            },
+            {
+                "regionName": "Micronesia",
+                "regionType": "COUNTRY",
+                "regionId": "FM"
+            },
+            {
+                "regionName": "Dominican Republic",
+                "regionType": "COUNTRY",
+                "regionId": "DO"
+            },
+            {
+                "regionName": "Malaysia",
+                "regionType": "COUNTRY",
+                "regionId": "MY"
+            },
+            {
+                "regionName": "Cameroon",
+                "regionType": "COUNTRY",
+                "regionId": "CM"
+            },
+            {
+                "regionName": "Guyana",
+                "regionType": "COUNTRY",
+                "regionId": "GY"
+            },
+            {
+                "regionName": "Poland",
+                "regionType": "COUNTRY",
+                "regionId": "PL"
+            },
+            {
+                "regionName": "Suriname",
+                "regionType": "COUNTRY",
+                "regionId": "SR"
+            },
+            {
+                "regionName": "Tonga",
+                "regionType": "COUNTRY",
+                "regionId": "TO"
+            },
+            {
+                "regionName": "Kenya",
+                "regionType": "COUNTRY",
+                "regionId": "KE"
+            },
+            {
+                "regionName": "Argentina",
+                "regionType": "COUNTRY",
+                "regionId": "AR"
+            },
+            {
+                "regionName": "San Marino",
+                "regionType": "COUNTRY",
+                "regionId": "SM"
+            },
+            {
+                "regionName": "Guinea-Bissau",
+                "regionType": "COUNTRY",
+                "regionId": "GW"
+            },
+            {
+                "regionName": "Senegal",
+                "regionType": "COUNTRY",
+                "regionId": "SN"
+            },
+            {
+                "regionName": "Togo",
+                "regionType": "COUNTRY",
+                "regionId": "TG"
+            },
+            {
+                "regionName": "Saint Kitts-Nevis",
+                "regionType": "COUNTRY",
+                "regionId": "KN"
+            },
+            {
+                "regionName": "Morocco",
+                "regionType": "COUNTRY",
+                "regionId": "MA"
+            },
+            {
+                "regionName": "Ireland",
+                "regionType": "COUNTRY",
+                "regionId": "IE"
+            },
+            {
+                "regionName": "Burundi",
+                "regionType": "COUNTRY",
+                "regionId": "BI"
+            },
+            {
+                "regionName": "Saint Vincent and the Grenadines",
+                "regionType": "COUNTRY",
+                "regionId": "VC"
+            },
+            {
+                "regionName": "Netherlands",
+                "regionType": "COUNTRY",
+                "regionId": "NL"
+            },
+            {
+                "regionName": "Slovakia",
+                "regionType": "COUNTRY",
+                "regionId": "SK"
+            },
+            {
+                "regionName": "Slovenia",
+                "regionType": "COUNTRY",
+                "regionId": "SI"
+            },
+            {
+                "regionName": "Equatorial Guinea",
+                "regionType": "COUNTRY",
+                "regionId": "GQ"
+            },
+            {
+                "regionName": "Thailand",
+                "regionType": "COUNTRY",
+                "regionId": "TH"
+            },
+            {
+                "regionName": "Mauritania",
+                "regionType": "COUNTRY",
+                "regionId": "MR"
+            },
+            {
+                "regionName": "Belize",
+                "regionType": "COUNTRY",
+                "regionId": "BZ"
+            },
+            {
+                "regionName": "Philippines",
+                "regionType": "COUNTRY",
+                "regionId": "PH"
+            },
+            {
+                "regionName": "Aruba",
+                "regionType": "COUNTRY",
+                "regionId": "AW"
+            },
+            {
+                "regionType": "COUNTRY",
+                "regionId": "UY"
+            },
+            {
+                "regionName": "Republic of the Congo",
+                "regionType": "COUNTRY",
+                "regionId": "CG"
+            },
+            {
+                "regionName": "American Samoa",
+                "regionType": "COUNTRY",
+                "regionId": "AS"
+            },
+            {
+                "regionName": "Sweden",
+                "regionType": "COUNTRY",
+                "regionId": "SE"
+            },
+            {
+                "regionName": "Colombia",
+                "regionType": "COUNTRY",
+                "regionId": "CO"
+            },
+            {
+                "regionName": "Spain",
+                "regionType": "COUNTRY",
+                "regionId": "ES"
+            },
+            {
+                "regionName": "Iceland",
+                "regionType": "COUNTRY",
+                "regionId": "IS"
+            },
+            {
+                "regionName": "Estonia",
+                "regionType": "COUNTRY",
+                "regionId": "EE"
+            },
+            {
+                "regionName": "Macedonia",
+                "regionType": "COUNTRY",
+                "regionId": "MK"
+            },
+            {
+                "regionName": "Belgium",
+                "regionType": "COUNTRY",
+                "regionId": "BE"
+            },
+            {
+                "regionName": "Liechtenstein",
+                "regionType": "COUNTRY",
+                "regionId": "LI"
+            },
+            {
+                "regionName": "Benin",
+                "regionType": "COUNTRY",
+                "regionId": "BJ"
+            },
+            {
+                "regionName": "Algeria",
+                "regionType": "COUNTRY",
+                "regionId": "DZ"
+            },
+            {
+                "regionName": "Bermuda",
+                "regionType": "COUNTRY",
+                "regionId": "BM"
+            },
+            {
+                "regionName": "Montserrat",
+                "regionType": "COUNTRY",
+                "regionId": "MS"
+            },
+            {
+                "regionName": "Zambia",
+                "regionType": "COUNTRY",
+                "regionId": "ZM"
+            },
+            {
+                "regionName": "South Korea",
+                "regionType": "COUNTRY",
+                "regionId": "KR"
+            },
+            {
+                "regionName": "Antigua and Barbuda",
+                "regionType": "COUNTRY",
+                "regionId": "AG"
+            },
+            {
+                "regionName": "Vanuatu",
+                "regionType": "COUNTRY",
+                "regionId": "VU"
+            },
+            {
+                "regionName": "Ecuador",
+                "regionType": "COUNTRY",
+                "regionId": "EC"
+            },
+            {
+                "regionName": "Italy",
+                "regionType": "COUNTRY",
+                "regionId": "IT"
+            },
+            {
+                "regionName": "Albania",
+                "regionType": "COUNTRY",
+                "regionId": "AL"
+            },
+            {
+                "regionName": "Swaziland",
+                "regionType": "COUNTRY",
+                "regionId": "SZ"
+            },
+            {
+                "regionName": "Ethiopia",
+                "regionType": "COUNTRY",
+                "regionId": "ET"
+            },
+            {
+                "regionName": "Monaco",
+                "regionType": "COUNTRY",
+                "regionId": "MC"
+            },
+            {
+                "regionName": "Niger",
+                "regionType": "COUNTRY",
+                "regionId": "NE"
+            },
+            {
+                "regionName": "Tanzania",
+                "regionType": "COUNTRY",
+                "regionId": "TZ"
+            },
+            {
+                "regionName": "Pakistan",
+                "regionType": "COUNTRY",
+                "regionId": "PK"
+            },
+            {
+                "regionName": "Burkina Faso",
+                "regionType": "COUNTRY",
+                "regionId": "BF"
+            },
+            {
+                "regionName": "Panama",
+                "regionType": "COUNTRY",
+                "regionId": "PA"
+            },
+            {
+                "regionName": "Singapore",
+                "regionType": "COUNTRY",
+                "regionId": "SG"
+            },
+            {
+                "regionName": "Switzerland",
+                "regionType": "COUNTRY",
+                "regionId": "CH"
+            },
+            {
+                "regionName": "Ghana",
+                "regionType": "COUNTRY",
+                "regionId": "GH"
+            },
+            {
+                "regionName": "Djibouti",
+                "regionType": "COUNTRY",
+                "regionId": "DJ"
+            },
+            {
+                "regionName": "Chile",
+                "regionType": "COUNTRY",
+                "regionId": "CL"
+            },
+            {
+                "regionName": "Puerto Rico",
+                "regionType": "COUNTRY",
+                "regionId": "PR"
+            },
+            {
+                "regionName": "Cape Verde Islands",
+                "regionType": "COUNTRY",
+                "regionId": "CV"
+            },
+            {
+                "regionName": "Mali",
+                "regionType": "COUNTRY",
+                "regionId": "ML"
+            },
+            {
+                "regionName": "Republic of Croatia",
+                "regionType": "COUNTRY",
+                "regionId": "HR"
+            },
+            {
+                "regionName": "Botswana",
+                "regionType": "COUNTRY",
+                "regionId": "BW"
+            },
+            {
+                "regionName": "Madagascar",
+                "regionType": "COUNTRY",
+                "regionId": "MG"
+            },
+            {
+                "regionName": "Indonesia",
+                "regionType": "COUNTRY",
+                "regionId": "ID"
+            },
+            {
+                "regionName": "Portugal",
+                "regionType": "COUNTRY",
+                "regionId": "PT"
+            },
+            {
+                "regionName": "Malta",
+                "regionType": "COUNTRY",
+                "regionId": "MT"
+            },
+            {
+                "regionName": "Cayman Islands",
+                "regionType": "COUNTRY",
+                "regionId": "KY"
+            },
+            {
+                "regionName": "Paraguay",
+                "regionType": "COUNTRY",
+                "regionId": "PY"
+            },
+            {
+                "regionName": "Cyprus",
+                "regionType": "COUNTRY",
+                "regionId": "CY"
+            },
+            {
+                "regionName": "Seychelles",
+                "regionType": "COUNTRY",
+                "regionId": "SC"
+            },
+            {
+                "regionName": "Liberia",
+                "regionType": "COUNTRY",
+                "regionId": "LR"
+            },
+            {
+                "regionName": "Rwanda",
+                "regionType": "COUNTRY",
+                "regionId": "RW"
+            },
+            {
+                "regionName": "Bangladesh",
+                "regionType": "COUNTRY",
+                "regionId": "BD"
+            },
+            {
+                "regionName": "Bolivia",
+                "regionType": "COUNTRY",
+                "regionId": "BO"
+            },
+            {
+                "regionName": "Maldives",
+                "regionType": "COUNTRY",
+                "regionId": "MV"
+            },
+            {
+                "regionName": "Australia",
+                "regionType": "COUNTRY",
+                "regionId": "AU"
+            },
+            {
+                "regionName": "Austria",
+                "regionType": "COUNTRY",
+                "regionId": "AT"
+            },
+            {
+                "regionName": "Gibraltar",
+                "regionType": "COUNTRY",
+                "regionId": "GI"
+            },
+            {
+                "regionName": "Sri Lanka",
+                "regionType": "COUNTRY",
+                "regionId": "LK"
+            },
+            {
+                "regionName": "Hong Kong",
+                "regionType": "COUNTRY",
+                "regionId": "HK"
+            },
+            {
+                "regionName": "Gabon Republic",
+                "regionType": "COUNTRY",
+                "regionId": "GA"
+            },
+            {
+                "regionName": "Lesotho",
+                "regionType": "COUNTRY",
+                "regionId": "LS"
+            },
+            {
+                "regionName": "Nigeria",
+                "regionType": "COUNTRY",
+                "regionId": "NG"
+            },
+            {
+                "regionName": "Mauritius",
+                "regionType": "COUNTRY",
+                "regionId": "MU"
+            },
+            {
+                "regionName": "Saint Lucia",
+                "regionType": "COUNTRY",
+                "regionId": "LC"
+            },
+            {
+                "regionName": "Bulgaria",
+                "regionType": "COUNTRY",
+                "regionId": "BG"
+            },
+            {
+                "regionName": "Guinea",
+                "regionType": "COUNTRY",
+                "regionId": "GN"
+            },
+            {
+                "regionName": "Czech Republic",
+                "regionType": "COUNTRY",
+                "regionId": "CZ"
+            },
+            {
+                "regionName": "Norway",
+                "regionType": "COUNTRY",
+                "regionId": "NO"
+            },
+            {
+                "regionName": "Canada",
+                "regionType": "COUNTRY",
+                "regionId": "CA"
+            },
+            {
+                "regionName": "C\u00f4te d'Ivoire (Ivory Coast)",
+                "regionType": "COUNTRY",
+                "regionId": "CI"
+            },
+            {
+                "regionName": "Turks and Caicos Islands",
+                "regionType": "COUNTRY",
+                "regionId": "TC"
+            },
+            {
+                "regionName": "Kiribati",
+                "regionType": "COUNTRY",
+                "regionId": "KI"
+            },
+            {
+                "regionName": "Andorra",
+                "regionType": "COUNTRY",
+                "regionId": "AD"
+            },
+            {
+                "regionName": "Grenada",
+                "regionType": "COUNTRY",
+                "regionId": "GD"
+            },
+            {
+                "regionName": "Greece",
+                "regionType": "COUNTRY",
+                "regionId": "GR"
+            },
+            {
+                "regionName": "Romania",
+                "regionType": "COUNTRY",
+                "regionId": "RO"
+            },
+            {
+                "regionName": "Costa Rica",
+                "regionType": "COUNTRY",
+                "regionId": "CR"
+            },
+            {
+                "regionName": "India",
+                "regionType": "COUNTRY",
+                "regionId": "IN"
+            },
+            {
+                "regionName": "Greenland",
+                "regionType": "COUNTRY",
+                "regionId": "GL"
+            },
+            {
+                "regionName": "Mexico",
+                "regionType": "COUNTRY",
+                "regionId": "MX"
+            },
+            {
+                "regionName": "Serbia",
+                "regionType": "COUNTRY",
+                "regionId": "RS"
+            },
+            {
+                "regionName": "Montenegro",
+                "regionType": "COUNTRY",
+                "regionId": "ME"
+            },
+            {
+                "regionName": "Japan",
+                "regionType": "COUNTRY",
+                "regionId": "JP"
+            },
+            {
+                "regionName": "Nepal",
+                "regionType": "COUNTRY",
+                "regionId": "NP"
+            },
+            {
+                "regionName": "Lithuania",
+                "regionType": "COUNTRY",
+                "regionId": "LT"
+            },
+            {
+                "regionName": "Bahamas",
+                "regionType": "COUNTRY",
+                "regionId": "BS"
+            },
+            {
+                "regionName": "Trinidad and Tobago",
+                "regionType": "COUNTRY",
+                "regionId": "TT"
+            },
+            {
+                "regionName": "United Kingdom",
+                "regionType": "COUNTRY",
+                "regionId": "GB"
+            },
+            {
+                "regionName": "Palau",
+                "regionType": "COUNTRY",
+                "regionId": "PW"
+            },
+            {
+                "regionName": "Malawi",
+                "regionType": "COUNTRY",
+                "regionId": "MW"
+            },
+            {
+                "regionName": "Hungary",
+                "regionType": "COUNTRY",
+                "regionId": "HU"
+            },
+            {
+                "regionName": "Bosnia and Herzegovina",
+                "regionType": "COUNTRY",
+                "regionId": "BA"
+            },
+            {
+                "regionName": "Angola",
+                "regionType": "COUNTRY",
+                "regionId": "AO"
+            },
+            {
+                "regionName": "Finland",
+                "regionType": "COUNTRY",
+                "regionId": "FI"
+            },
+            {
+                "regionName": "Tunisia",
+                "regionType": "COUNTRY",
+                "regionId": "TN"
+            },
+            {
+                "regionName": "Luxembourg",
+                "regionType": "COUNTRY",
+                "regionId": "LU"
+            },
+            {
+                "regionName": "Uganda",
+                "regionType": "COUNTRY",
+                "regionId": "UG"
+            },
+            {
+                "regionName": "Brazil",
+                "regionType": "COUNTRY",
+                "regionId": "BR"
+            },
+            {
+                "regionName": "Turkey",
+                "regionType": "COUNTRY",
+                "regionId": "TR"
+            },
+            {
+                "regionName": "Western Samoa",
+                "regionType": "COUNTRY",
+                "regionId": "WS"
+            },
+            {
+                "regionName": "France",
+                "regionType": "COUNTRY",
+                "regionId": "FR"
+            },
+            {
+                "regionName": "Germany",
+                "regionType": "COUNTRY",
+                "regionId": "DE"
+            },
+            {
+                "regionName": "Latvia",
+                "regionType": "COUNTRY",
+                "regionId": "LV"
+            },
+            {
+                "regionName": "Jamaica",
+                "regionType": "COUNTRY",
+                "regionId": "JM"
+            },
+            {
+                "regionName": "Mozambique",
+                "regionType": "COUNTRY",
+                "regionId": "MZ"
+            },
+            {
+                "regionName": "Namibia",
+                "regionType": "COUNTRY",
+                "regionId": "NA"
+            },
+            {
+                "regionName": "Peru",
+                "regionType": "COUNTRY",
+                "regionId": "PE"
+            },
+            {
+                "regionName": "Virgin Islands (U.S.)",
+                "regionType": "COUNTRY",
+                "regionId": "VI"
+            },
+            {
+                "regionName": "Honduras",
+                "regionType": "COUNTRY",
+                "regionId": "HN"
+            }
+        ],
+        "regionExcluded": [
+            {
+                "regionName": "French Polynesia",
+                "regionType": "COUNTRY",
+                "regionId": "PF"
+            },
+            {
+                "regionName": "Libya",
+                "regionType": "COUNTRY",
+                "regionId": "LY"
+            },
+            {
+                "regionName": "New Caledonia",
+                "regionType": "COUNTRY",
+                "regionId": "NC"
+            },
+            {
+                "regionName": "Guadeloupe",
+                "regionType": "COUNTRY",
+                "regionId": "GP"
+            },
+            {
+                "regionName": "Venezuela",
+                "regionType": "COUNTRY",
+                "regionId": "VE"
+            },
+            {
+                "regionName": "Reunion",
+                "regionType": "COUNTRY",
+                "regionId": "RE"
+            },
+            {
+                "regionName": "Barbados",
+                "regionType": "COUNTRY",
+                "regionId": "BB"
+            },
+            {
+                "regionName": "Martinique",
+                "regionType": "COUNTRY",
+                "regionId": "MQ"
+            },
+            {
+                "regionName": "French Guiana",
+                "regionType": "COUNTRY",
+                "regionId": "GF"
+            },
+            {
+                "regionName": "Ukraine",
+                "regionType": "COUNTRY",
+                "regionId": "UA"
+            },
+            {
+                "regionName": "Russian Federation",
+                "regionType": "COUNTRY",
+                "regionId": "RU"
+            }
+        ]
+    },
+    "returnTerms": {
+        "returnsAccepted": true,
+        "refundMethod": "MONEY_BACK",
+        "returnMethod": "REPLACEMENT",
+        "returnShippingCostPayer": "SELLER",
+        "returnPeriod": {
+            "value": 30,
+            "unit": "CALENDAR_DAY"
+        }
+    },
+    "taxes": [
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Alabama",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "AL"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Alaska",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "AK"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Arizona",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "AZ"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Arkansas",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "AR"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "California",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "CA"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Colorado",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "CO"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Connecticut",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "CT"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "District of Columbia",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "DC"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Florida",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "FL"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Georgia",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "GA"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Hawaii",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "HI"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Idaho",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "ID"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Illinois",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "IL"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Indiana",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "IN"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Iowa",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "IA"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Kansas",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "KS"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Kentucky",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "KY"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Louisiana",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "LA"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Maine",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "ME"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Maryland",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "MD"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Massachusetts",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "MA"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Michigan",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "MI"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Minnesota",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "MN"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Mississippi",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "MS"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Nebraska",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "NE"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Nevada",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "NV"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "New Jersey",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "NJ"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "New Mexico",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "NM"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "New York",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "NY"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "North Carolina",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "NC"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "North Dakota",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "ND"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Ohio",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "OH"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Oklahoma",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "OK"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Pennsylvania",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "PA"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Puerto Rico",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "PR"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Rhode Island",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "RI"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "South Carolina",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "SC"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "South Dakota",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "SD"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Tennessee",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "TN"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Texas",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "TX"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Utah",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "UT"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Vermont",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "VT"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Virginia",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "VA"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Washington",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "WA"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "West Virginia",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "WV"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Wisconsin",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "WI"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        },
+        {
+            "taxJurisdiction": {
+                "region": {
+                    "regionName": "Wyoming",
+                    "regionType": "STATE_OR_PROVINCE"
+                },
+                "taxJurisdictionId": "WY"
+            },
+            "taxType": "STATE_SALES_TAX",
+            "shippingAndHandlingTaxed": true,
+            "includedInPrice": false,
+            "ebayCollectAndRemitTax": true
+        }
+    ],
+    "localizedAspects": [
+        {
+            "type": "STRING",
+            "name": "Brand",
+            "value": "KidFun Products"
+        },
+        {
+            "type": "STRING",
+            "name": "Age Level",
+            "value": "3-4 Years, 4-7, 8-11 Years"
+        },
+        {
+            "type": "STRING",
+            "name": "Age Range",
+            "value": "3-4 years, 5-6 years, 7-8 years, 9-11 years"
+        },
+        {
+            "type": "STRING",
+            "name": "California Prop 65 Warning",
+            "value": "CALIFORNIA WARNING: This product can expose you to chemicals including bisphenol_a_(bpa), which is known to the State of California to cause cancer, birth defects or other reproductive harm. For more information, go to: www.P65Warnings.ca.gov"
+        },
+        {
+            "type": "STRING",
+            "name": "Character",
+            "value": "Dinosaur"
+        },
+        {
+            "type": "STRING",
+            "name": "Character Family",
+            "value": "Dinosaur"
+        },
+        {
+            "type": "STRING",
+            "name": "Color",
+            "value": "Brown"
+        },
+        {
+            "type": "STRING",
+            "name": "Country of Origin",
+            "value": "China"
+        },
+        {
+            "type": "STRING",
+            "name": "MPN",
+            "value": "KFP-RCDNO016"
+        },
+        {
+            "type": "STRING",
+            "name": "Model",
+            "value": "KFP-RCDNO016"
+        },
+        {
+            "type": "STRING",
+            "name": "Size",
+            "value": "Large"
+        },
+        {
+            "type": "STRING",
+            "name": "Toy Type",
+            "value": "Remote Control"
+        },
+        {
+            "type": "STRING",
+            "name": "UPC",
+            "value": "885189178449"
+        },
+        {
+            "type": "STRING",
+            "name": "Vintage",
+            "value": "No"
+        }
+    ],
+    "primaryProductReviewRating": {
+        "reviewCount": 0,
+        "averageRating": "0.0",
+        "ratingHistograms": [
+            {
+                "rating": "5",
+                "count": 0
+            },
+            {
+                "rating": "4",
+                "count": 0
+            },
+            {
+                "rating": "3",
+                "count": 0
+            },
+            {
+                "rating": "2",
+                "count": 0
+            },
+            {
+                "rating": "1",
+                "count": 0
+            }
+        ]
+    },
+    "topRatedBuyingExperience": true,
+    "buyingOptions": [
+        "FIXED_PRICE"
+    ],
+    "itemWebUrl": "https://www.ebay.com/itm/236345069178?amdata=enc%3AAQALAAAAoGfYFPkwiKCW4ZNSs2u11xCrxp0%2F7yYYsmBGq3e7Xd%2FIPKmGsDaigTeNIVGvk832SFKVMrcnQNbfbxz1CJWXveJGow1D%2FBIHRmNF01wZ97FNCRM77142JSu0%2FjnNAbpR275BnscYyn12qr4O6k10Zt7hZGuDpvkmEBE7u2EGIrcJy%2FOGmUUljcl8izwE2JwLXDFyR03C1HC%2BSsdFAZ%2B4xnY%3D",
+    "description": "<!-- MOBILE DESCRIPTION -->\n<div style=\"display:none\">\n<div vocab=\"https://schema.org/\" typeof=\"Product\">\n<span property=\"description\">Is your child a dinosaur fanatic? Then they need the TychoTyke Dancing Dino T-Rex Predator RC Toy! <BR><BR>This unique interactive toy is designed with education in mind. Children can travel back to the Mesozoic area with their very own T-Rex lookalike! It features the T-Rex's iconic spikes and has a roaring sound that will allow your child to pretend they are playing with the apex predator from millions of years ago. <BR><BR>The toy itself is constructed of high-quality durable plastic that can withstand hours of indoor or outdoor play. It also comes with a wireless remote control that will allow kids to make the dino walk and dance! The remote has 5 functions - forward movement, roar, dance, fast forward and stop</span>\n</div>\n</div>\n<!-- MAIN DESCRIPTION -->\n<html>\n<head>\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\t<style type=\"text/css\">\n\t\t/* FONTS AND COLORS */\n\t\tbody {\n\t\t\tfont-family: Arial,sans-serif;\n\t\t\tfont-size: 14px;\n\t\t\tline-height: 1.428571429;\n\t\t\tcolor: #333;\n\t\t\tbackground-color: white;\n\t\t}\n\t\th1, h2, h3, h4, h5, h6 {\n\t\t\tcolor: black;\n\t\t}\n\t\tp {\n\t\t\twhite-space: pre-line;\n\t\t}\n\t\t.navbar a, .navbar a:active, .navbar a:hover, .navbar a:visited {\n\t\t\tcolor: #333;\n\t\t}\n\n\t\t.product-specs {\n\t\t\tbackground-color: #f1f1f1;\n\t\t\tpadding: 1em;\n\t\t}\n\t\t.product-specs td {\n\t\t\tfont-size:12px;\n\t\t}\n\t\t.attr-left {\n\t\t\tmin-width:6em;\n\t\t\tfont-weight:bold;\n\t\t\tvertical-align:top;\n\t\t}\n\t\t.attr-right {\n\t\t\tvertical-align:top;\n\t\t}\n\n\t\tdiv.footer {\n\t\t\tborder-top: 1px solid #f1f1f1;\n\t\t}\n\n\t\t.navbar-default {\n\t\t\tbackground-image: -webkit-linear-gradient(top, #ffffff 0%, #f2f2f2 100%);\n\t\t\tbackground-image: linear-gradient(to bottom, #ffffff 0%, #f2f2f2 100%);\n\t\t\tbackground-repeat: repeat-x;\n\t\t\tborder-radius: 4px;\n\t\t\t-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 5px rgba(0, 0, 0, 0.075);\n\t\t\tbox-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 5px rgba(0, 0, 0, 0.075);\n\t\t}\n\n\t\t.navbar-default .navbar-nav > .active > a {\n\t\t\tbackground-image: -webkit-linear-gradient(top, #ebebeb 0%, #f3f3f3 100%);\n\t\t\tbackground-image: linear-gradient(to bottom, #ebebeb 0%, #f3f3f3 100%);\n\t\t\tbackground-repeat: repeat-x;\n\t\t\t-webkit-box-shadow: inset 0 3px 9px rgba(0, 0, 0, 0.075);\n\t\t\tbox-shadow: inset 0 3px 9px rgba(0, 0, 0, 0.075);\n\t\t}\n\n\t\t/* LAYOUT - CHANGING THESE WILL AFFECT THE SIZE AND LAYOUT OF YOUR AD TEMPLATE */\n\n\t\t/* Responsive Columns */\n\t\t.col-md-6{width:100%;}\n\t\t.col-md-12{width:100%;}\n\t\t.container{margin:auto;width:100%;}\n\n\t\t@media (min-width:768px){\n\t\t\t.container{width:750px;}\n\t\t\t.col-md-12, .col-md-6{float:left;}\n\t\t\t.col-md-6{width:48%; margin:1%;}\n\t\t}\n\t\t@media (min-width:992px){\n\t\t\t.container{width:970px;}\n\t\t\t.col-md-12,.col-md-6{float:left;}\n\t\t\t.col-md-6{width:48%; margin:1%;}\n\t\t}\n\t\t@media (min-width:1200px){\n\t\t\t.container{width:1170px;}\n\t\t\t.col-md-12,.col-md-6{float:left;}\n\t\t\t.col-md-6{width:48%; margin:1%;}\n\t\t}\n\t\t.img-responsive{display:block;height:auto;max-width:100%;}\n\n\t\t/* Responsive Navigation Bar */\n\t\t.nav{padding-left:0;margin-bottom:0;list-style:none;}\n\t\t.nav:before, .nav:after{display:table;content:\" \";}\n\t\t.nav:after{clear:both;}\n\t\t.nav:before, .nav:after{display:table;content:\" \";}\n\t\t.nav:after{clear:both;}\n\t\t.nav > li{position:relative;display:block;}\n\t\t.nav > li > a{position:relative;display:block;padding:10px 15px;}\n\t\t.nav > li > a:hover, .nav > li > a:focus{text-decoration:none;background-color:#eeeeee;}\n\t\t.nav > li > a > img{max-width:none;}\n\t\t.navbar{position:relative;min-height:50px;margin-bottom:20px;border:1px solid transparent;}\n\t\t@media (min-width:768px){\n\t\t\t.navbar{border-radius:4px;}\n\t\t}\n\t\t.navbar-header:before, .navbar-header:after{display:table;content:\" \";}\n\t\t.navbar-header:after{clear:both;}\n\t\t.navbar-header:before, .navbar-header:after{display:table;content:\" \";}\n\t\t.navbar-header:after{clear:both;}\n\t\t@media (min-width:768px){\n\t\t\t.navbar-header{float:left;}\n\t\t}\n\t\t.navbar-collapse{max-height:340px;padding-right:15px;padding-left:15px;overflow-x:visible;border-top:1px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,0.1);-webkit-overflow-scrolling:touch;}\n\t\t.navbar-collapse:before, .navbar-collapse:after{display:table;content:\" \";}\n\t\t.navbar-collapse:after{clear:both;}\n\t\t.navbar-collapse:before, .navbar-collapse:after{display:table;content:\" \";}\n\t\t.navbar-collapse:after{clear:both;}\n\t\t.navbar-collapse.in{overflow-y:auto;}\n\t\t@media (min-width:768px){\n\t\t\t.navbar-collapse{width:auto;border-top:0;box-shadow:none;}\n\t\t\t.navbar-collapse.collapse{display:block !important;height:auto !important;padding-bottom:0;overflow:visible !important;}\n\t\t\t.navbar-collapse.in{overflow-y:visible;}\n\t\t}\n\t\t@media (min-width:768px){\n\t\t\t.container > .navbar-header, container > .navbar-collapse{\n\t\t\t\tmargin-right:0;margin-left:0;\n\t\t\t}\n\t\t}\n\t\t.navbar-brand{float:left;padding:15px 15px;font-size:18px;line-height:20px;}\n\t\t.navbar-brand:hover, .navbar-brand:focus{text-decoration:none;}\n\t\t@media (min-width:768px){\n\t\t\t.navbar > .container .navbar-brand{\n\t\t\t\tmargin-left:-15px;\n\t\t\t}\n\t\t}\n\t\t.navbar-nav{margin:7.5px -15px;}\n\t\t.navbar-nav > li > a{padding-top:10px;padding-bottom:10px;line-height:20px;}\n\t\t@media (min-width:768px){\n\t\t\t.navbar-nav{\n\t\t\t\tfloat:left;margin:0;\n\t\t\t}\n\t\t\t.navbar-nav > li{float:left;}\n\t\t\t.navbar-nav > li > a{padding-top:15px;padding-bottom:15px;}\n\t\t\t.navbar-nav.navbar-right:last-child{margin-right:-15px;}\n\t\t}\n\t\t@media (min-width:768px){\n\t\t\t.navbar-left{\n\t\t\t\tfloat:left !important;\n\t\t\t}\n\t\t\t.navbar-right{float:right !important;}\n\t\t}\n\t\t.td-list-item {\n\t\t\tdisplay: list-item;\n\t\t\tlist-style-type: disc;\n\t\t\tlist-style-position: inside;\n\t\t}\n\t\t.msrp-strike {\n\t\t\ttext-decoration-line: line-through;\n\t\t\ttext-decoration-style: solid;\n\t\t\ttext-decoration-color: red;\n\t\t\ttext-decoration-thickness: 2px;\n\t\t}\n\t\t.grid-100, .full{ width : 100%; }\n\t\t.grid-95{ width         : 95%; }\n\t\t.grid-90{ width         : 90%; }\n\t\t.grid-85{ width         : 85%; }\n\t\t.grid-80{ width         : 80%; }\n\t\t.grid-75{ width         : 75%; }\n\t\t.grid-70{ width         : 70%; }\n\t\t.grid-65{ width         : 65%; }\n\t\t.grid-60{ width         : 60%; }\n\t\t.grid-55{ width         : 55%; }\n\t\t.grid-50, .half{ width  : 50%; }\n\t\t.grid-45{ width         : 45%; }\n\t\t.grid-40{ width         : 40%; }\n\t\t.grid-35{ width         : 35%; }\n\t\t.grid-30{ width         : 30%; }\n\t\t.grid-33, .third{ width : 33.33%; }\n\t\t.grid-25{ width         : 25%; }\n\t\t.grid-20{ width         : 20%; }\n\t\t.grid-15{ width         : 15%; }\n\t\t.grid-10{ width         : 10%; }\n\t\t.grid-5{ width          : 5%; }\n\t\t.d-flex {\n\t\t\tdisplay: flex;\n\t\t}\n\t\t.d-flex-col {\n\t\t\tflex-direction: column;\n\t\t}\n\t\t.left{\n\t\t\tfloat : left;\n\t\t}\n\t\t.right{\n\t\t\tfloat : right;\n\t\t}\n\t\t.center {\n\t\t\tmargin-left: auto;\n\t\t\tmargin-right: auto;\n\t\t}\n\t\t.all-caps {\n\t\t\ttext-transform : uppercase;\n\t\t}\n\t\t.bg-grey {\n\t\t\tbackground-color: #f1f1f1;\n\t\t}\n\t\t.text-center {\n\t\t\ttext-align: center;\n\t\t}\n\t\t.mx-1rem {\n\t\t\tmargin-right: 1rem;\n\t\t\tmargin-left: 1rem;\n\t\t}\n\t\t.my-1rem {\n\t\t\tmargin-top: 1rem;\n\t\t\tmargin-bottom: 1rem;\n\t\t}\n\t\t.m-all-1rem {\n\t\t\tmargin: 1rem;\n\t\t}\n\t\t.newsletter-header {\n\t\t\tfont-size: 1.5rem;\n\t\t\tfont-weight: bold;\n\t\t}\n\t\t.newsletter-link {\n\t\t\tmargin: 1rem;\n\t\t\ttext-decoration: none;\n\t\t\tcolor: white;\n\t\t}\n\t\t.newsletter-btn {\n\t\t\tborder : 2px solid #FFFFFD;\n\t\t\tpadding: 0.5em 0.5em;\n\t\t\tbackground-color: #add8e6;\n\t\t}\n\t\t.newsletter-btn:hover {\n\t\t\t/*background-color: #68828a;*/\n\t\t\tbackground-color: #8aadb8;\n\t\t}\n\t</style>\n</head>\n<body>\n\t<!-- Static navbar -->\n\t<div class=\"navbar navbar-default\" role=\"navigation\">\n\t\t<div class=\"container\">\n\t\t\t<div class=\"navbar-header\">\n\t\t\t\t<!-- ADD YOUR SELLER NAME OR LOGO HERE -->\n\t\t\t\t<a class=\"navbar-brand\" href=\"https://www.ebay.com/str/dealsonlywebstore\">Deals Only</a>\n\t\t\t</div>\n\t\t\t<div class=\"navbar-collapse collapse\">\n\t\t\t\t<ul class=\"nav navbar-nav navbar-right\">\n\t\t\t\t\t<!-- ADD MENU LINKS HERE. THESE ARE NON-FUNCTIONAL EXAMPLES. -->\n\t\t\t\t\t<li><a href=\"https://www.ebay.com/str/dealsonlywebstore\">Our Store</a></li>\n\t\t\t\t\t<li><a href=\"https://www.ebay.com/usr/dealsonlywebstore\">About Us</a></li>\n\t\t\t\t\t<li><a href=\"https://contact.ebay.com/ws/eBayISAPI.dll?ContactUserNextGen&recipient=dealsonlywebstore\">Contact Us</a></li>\n\t\t\t\t</ul>\n\t\t\t</div><!--/.nav-collapse -->\n\t\t</div>\n\t</div>\n\t<div class=\"container\">\n\t\t<div class=\"col-md-6\">\n\t\t\t<div>\n\t\t\t\t<div class=\"main-image\">\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/DOWS_products/1000x1000/toys/JQ2210_RC-dino_brown_action.jpg\" class=\"img-responsive\" alt=\"Responsive image\">\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<h3>Product Details</h3>\n\t\t\t<!-- ADD A NEW ROW FOR EACH PRODUCT ATTRIBUTE YOU WANT TO SHOW IN THE TABLE OR YOU CAN REMOVE THE TABLE COMPLETELY-->\n\t\t\t<div class=\"product-specs\">\n\t\t\t\t<table>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td class=\"attr-left\">MPN:</td>\n\t\t\t\t\t\t\t<td class=\"attr-right\">KFP-RCDNO016</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td class=\"attr-left\">UPC:</td>\n\t\t\t\t\t\t\t<td class=\"attr-right\">885189178449</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td class=\"attr-left\">Features:</td>\n\t\t\t\t\t\t\t<td class=\"attr-right td-list-item\">EDUCATIONAL TOY - Dinosaur T-Rex Predator Toy Teaches Kids About Mesozoic Era | Iconic Rex Spikes, Arms and Feet</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td class=\"attr-left\"></td>\n\t\t\t\t\t\t\t<td class=\"attr-right td-list-item\">INTERACTIVE RC DESIGN - Comes with Fossil Shaped Remote Control with 5 Functions | Dino Can Dance, Move Forward, Fast Forward, Roar and Stop for Ultimate Pretend Experience</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td class=\"attr-left\"></td>\n\t\t\t\t\t\t\t<td class=\"attr-right td-list-item\">HIGH-QUALITY MATERIAL - Made of Durable Plastic Ideal for Indoor or Outdoor Play | Requires 5 AA Batteries (Not Included)</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td class=\"attr-left\"></td>\n\t\t\t\t\t\t\t<td class=\"attr-right td-list-item\">CHILD SIZED - Dinosaur is 11\" Tall | Ideal Size for Young Kids | Safe for Children Ages 3 and Up</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td class=\"attr-left\"></td>\n\t\t\t\t\t\t\t<td class=\"attr-right td-list-item\">LIGHTS UP - T-Rex's Eyes and Back Light Up During Playtime | Great Gift to Keep Kids' Attention</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</div><!-- /product-specs -->\n\t\t</div>\n\t\t<div class=\"col-md-6\">\n\t\t\t<h1>Light Up Dancing Dino RC T-Rex Dinosaur Predator With Radio Control - Brown</h1>\n\t\t\t<h2>MSRP <span class=\"msrp-strike\">49.99</span></h2>\n\t\t\t<p>Is your child a dinosaur fanatic? Then they need the TychoTyke Dancing Dino T-Rex Predator RC Toy! \n\nThis unique interactive toy is designed with education in mind. Children can travel back to the Mesozoic area with their very own T-Rex lookalike! It features the T-Rex's iconic spikes and has a roaring sound that will allow your child to pretend they are playing with the apex predator from millions of years ago. \n\nThe toy itself is constructed of high-quality durable plastic that can withstand hours of indoor or outdoor play. It also comes with a wireless remote control that will allow kids to make the dino walk and dance! The remote has 5 functions - forward movement, roar, dance, fast forward and stop.\n\nIn addition to this dino's cool moves, it lights up with a press of the fossil footprint button! The combination of lifelike design and fun sounds, lights and movements make this a great gift idea for young kids and dinosaur enthusiasts. \n\nRequires 5 AA batteries (not included), ideal for ages 3 and up.</p>\n\t\t\t<div class=\"d-flex d-flex-col grid-60 center text-center bg-grey\">\n\t\t\t\t<div class=\"newsletter-header m-all-1rem all-caps\">Newsletter</div>\n\t\t\t\t<div class=\"grid-100\">\n\t\t\t\t\t<p>SUBSCRIBE for Early Access to Sales</p>\n\t\t\t\t\t<p>Up to 90% Off</p>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"grid-80 center\">\n\t\t\t\t\t<a class=\"newsletter-link\" href=\"https://my.ebay.com/ws/eBayISAPI.dll?AcceptSavedSeller&sellerid=dealsonlywebstore\" target=\"_blank\">\n\t\t\t\t\t\t<div class=\"newsletter-btn all-caps\">Sign Up</div>\n\t\t\t\t\t</a>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div><!-- /col-md-6 -->\n\t\t<div class=\"col-md-12 footer\">\n\t\t\t<p>&copy; 2024</p>\n\t\t</div> <!-- /footer -->\n\n\t</div> <!-- /container -->\n\t<div style=\"clear:both\">\n\t\t<table>&nbsp;</table>\n\t</div>\n</body>\n</html> <center><a href=\"https://pages.ebay.com/seller-center/listing/listing-advanced-sellers/third-party-listing-tools.html#third-party-listing-tools\" target=\"_blank\"><img border=0 width=88 height=33 src=\"https://secureimages.channeladvisor.com/images/channeladvisor/channeladvisor_poweredby-en.gif\"></a></center>",
+    "paymentMethods": [
+        {
+            "paymentMethodType": "OTHER"
+        },
+        {
+            "paymentMethodType": "WALLET",
+            "paymentMethodBrands": [
+                {
+                    "paymentMethodBrandType": "PAYPAL"
+                },
+                {
+                    "paymentMethodBrandType": "APPLE_PAY"
+                },
+                {
+                    "paymentMethodBrandType": "GOOGLE_PAY"
+                }
+            ]
+        },
+        {
+            "paymentMethodType": "CREDIT_CARD",
+            "paymentMethodBrands": [
+                {
+                    "paymentMethodBrandType": "VISA"
+                },
+                {
+                    "paymentMethodBrandType": "MASTERCARD"
+                },
+                {
+                    "paymentMethodBrandType": "DISCOVER"
+                },
+                {
+                    "paymentMethodBrandType": "DINERS_CLUB"
+                }
+            ]
+        }
+    ],
+    "immediatePay": true,
+    "enabledForGuestCheckout": false,
+    "eligibleForInlineCheckout": true,
+    "lotSize": 0,
+    "legacyItemId": "236345069178",
+    "priorityListing": true,
+    "adultOnly": false,
+    "categoryId": "84912",
+    "listingMarketplaceId": "EBAY_US"
+}
