@@ -47,12 +47,12 @@ use DTS\eBaySDK\Trading\Types\ItemType;
 use DTS\eBaySDK\Trading\Types\VariationsType;
 use DTS\eBaySDK\Trading\Types\VariationType;
 
-$opts    = getopt('', ['account:', 'item:', 'limit:', 'offset:', 'exclude:', 'verify', 'live', 'confirm:', 'help']);
+$opts    = getopt('', ['account:', 'item:', 'items:', 'limit:', 'offset:', 'exclude:', 'verify', 'live', 'confirm:', 'help']);
 $account = strtolower((string) ($opts['account'] ?? 'dows'));
 $dir     = ebay_dir($account, 'output');
 
 if (isset($opts['help'])) {
-    fwrite(STDOUT, "Usage: php apply_aspects.php --account=dows [--item=ID | --offset=N --limit=N] [--exclude=ID,ID] [--verify] [--live [--confirm=WRITE]]\n");
+    fwrite(STDOUT, "Usage: php apply_aspects.php --account=dows [--item=ID | --items=ID,ID,... | --offset=N --limit=N] [--exclude=ID,ID] [--verify] [--live [--confirm=WRITE]]\n");
     exit(0);
 }
 
@@ -71,6 +71,11 @@ if (isset($opts['item'])) {
     if (!isset($applySet[$itemId])) { fwrite(STDERR, "item {$itemId} not in apply_set.json\n"); exit(1); }
     if (isset($exclude[$itemId])) { fwrite(STDERR, "item {$itemId} is in --exclude\n"); exit(1); }
     $itemIds = [$itemId];
+} elseif (isset($opts['items'])) {
+    $wanted = array_filter(array_map('trim', explode(',', (string) $opts['items'])));
+    $unknown = array_diff($wanted, array_keys($applySet));
+    if ($unknown !== []) { fwrite(STDERR, "not in apply_set.json: " . implode(',', $unknown) . "\n"); exit(1); }
+    $itemIds = array_values(array_diff($wanted, array_keys($exclude)));
 } elseif (isset($opts['offset']) || isset($opts['limit'])) {
     $itemIds = array_slice($itemIds, (int) ($opts['offset'] ?? 0), isset($opts['limit']) ? (int) $opts['limit'] : null);
 }

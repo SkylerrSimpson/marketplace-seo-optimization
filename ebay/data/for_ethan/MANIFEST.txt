@@ -53,17 +53,33 @@ REVIEW SHEETS (fill the 'approved' / 'approved_value' + 'reviewer_notes' columns
      with Catalog data on 4+ listings, invisible as a plain success/fail count since it
      returns Warning not Failure).
 
-8) eBay_DOWS_current-live-attributes_REVIEW.csv (19744 rows) — NEW 2026-07-08
+8) eBay_DOWS_current-live-attributes_REVIEW_v3.csv (22149 rows) — NEW 2026-07-09
 9) eBay_IGE_current-live-attributes_REVIEW.csv  (3474 rows)  — NEW 2026-07-08
      Requested by Ethan: a fresh, read-only pull of every listing's CURRENT live
      attributes only — no proposed_value/approved_value/certainty/reviewer_notes,
      just item_id, sku, varied_by, name, category_id, aspect, mode, cardinality,
      current_value, allowed_values, title. One row per listing x aspect (parent rows),
-     plus one row per variation child x varied aspect. Pulled fresh via Browse API
-     right before this file was generated (DOWS reflects post-bulk-write live state as
-     of 2026-07-08; IGE reflects pre-write state since IGE hasn't been written yet).
-     Same row skeleton as sheet 1/2 above, just stripped down for a manual
-     current-vs-Ethan's-own-sheet comparison instead of an approval pass.
+     plus one row per variation child x varied aspect. Same row skeleton as sheet 1/2
+     above, just stripped down for a manual current-vs-Ethan's-own-sheet comparison
+     instead of an approval pass. IGE reflects pre-write state since IGE hasn't been
+     written yet.
+
+     DOWS history: v1 (19744 rows, 2026-07-08) and v2 (23005 rows, same day — a merge
+     that added back schema-defined blank rows a bug had dropped from v1) were both
+     pulled via the Browse API. v3 (current, 2026-07-09) supersedes both — pulled after
+     the UPC / Country-Region-of-Manufacture custom-attribute cleanup finished (874
+     listings), and switched to Trading API GetItem instead of Browse API, because
+     Browse API's localizedAspects auto-displays a buyer-facing "UPC" derived from the
+     item's gtin product-identifier field regardless of whether a redundant custom UPC
+     ItemSpecific still exists — it would have shown "UPC" on ~84% of the cleaned
+     listings as a false positive. Trading GetItem's raw ItemSpecifics list is the real
+     seller-side data and confirmed 0 UPC rows anywhere in the DOWS catalog.
+     Country/Region of Manufacture: 0 rows remain except 4 known cases — 236345137222
+     (auction ended, can't be revised, permanent), 364616077785 (transient "System
+     error" on the write, retriable), 364584755081 (blocked by a Duplicate Listing
+     policy conflict with item 364755157439, needs resolving before it can be revised),
+     and 364839375985 (was never on the 874-item cleanup list to begin with — out of
+     scope, not a gap).
 
 REFERENCE LISTS (context only — no action needed):
 

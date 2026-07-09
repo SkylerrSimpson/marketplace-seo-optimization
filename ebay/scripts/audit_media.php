@@ -191,8 +191,6 @@ foreach ($ids as $itemId) {
         'item_id'                => $itemId,
         'sku'                    => $skuOf[$itemId] ?? '',
         'title'                  => $snap['title'] ?? '',
-        'price'                  => $snap['price'] ?? '',
-        'currency'               => $snap['currency'] ?? '',
         'image_url'              => implode(", \n", $urls),
         'image_count'            => count($images),
         'eps_images'             => $epsCount,
@@ -209,7 +207,6 @@ foreach ($ids as $itemId) {
         'variation_count'        => count($children),
         'parent_image_count'     => $parentImageCount,
         'child_image_count_total' => $childImageCountTotal,
-        'status'                 => $snap['status'] ?? '?',
     ];
 
     if ($done % 50 === 0) { echo "  {$done}/" . count($ids) . " (fetched {$fetched}, skipped {$skipped}, err {$errors})\n"; }
