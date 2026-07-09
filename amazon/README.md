@@ -29,25 +29,36 @@ compliance attributes that are dangerous to write blindly.
 
 **Reference / deep dive**
 
-- [How the pipeline fits together](#how-the-pipeline-fits-together)
-- [The three data layers](#the-three-data-layers)
-- [Directory layout](#directory-layout)
-- [The pipeline, phase by phase](#the-pipeline-phase-by-phase)
-  - [Phase 0 — connectivity check](#phase-0--connectivity-check)
-  - [Phase 1 — catalog export (Reports API)](#phase-1--catalog-export-reports-api)
-  - [Phase 2 — per-SKU listings snapshot](#phase-2--per-sku-listings-snapshot)
-  - [Phase 3 — per-ASIN catalog snapshot](#phase-3--per-asin-catalog-snapshot)
-  - [Phase 4 — product-type schema cache](#phase-4--product-type-schema-cache)
-  - [Phase 5 — audit](#phase-5--audit)
-  - [Phase 6 — gap-fill analysis](#phase-6--gap-fill-analysis)
-  - [Phase 7 — AI-assisted draft generation](#phase-7--ai-assisted-draft-generation)
-  - [Phase 8 — write-back to Amazon (+ write-safety layer)](#phase-8--write-back-to-amazon)
-  - [Phase 9 — project drafts to Usurper](#phase-9--project-drafts-to-usurper)
-  - [Phase 10 — variation reconciliation](#variation-reconciliation-phase-10)
-  - [Phase 11 — catalog / listing drift snapshot](#catalog--listing-drift-snapshot-phase-11)
-- [Output formats reference](#output-formats-reference)
-- [Deferred / out of scope](#deferred--out-of-scope)
-- [Reference: patterns borrowed from Usurper](#reference-patterns-borrowed-from-usurper)
+- [Amazon — SP-API Catalog Pipeline](#amazon--sp-api-catalog-pipeline)
+  - [Table of contents](#table-of-contents)
+  - [What it does](#what-it-does)
+  - [Setup](#setup)
+  - [Usage](#usage)
+  - [How the pipeline fits together](#how-the-pipeline-fits-together)
+  - [The three data layers](#the-three-data-layers)
+  - [Directory layout](#directory-layout)
+  - [The pipeline, phase by phase](#the-pipeline-phase-by-phase)
+    - [Phase 0 — connectivity check](#phase-0--connectivity-check)
+    - [Phase 1 — catalog export (Reports API)](#phase-1--catalog-export-reports-api)
+    - [Phase 2 — per-SKU listings snapshot](#phase-2--per-sku-listings-snapshot)
+    - [Phase 3 — per-ASIN catalog snapshot](#phase-3--per-asin-catalog-snapshot)
+    - [Phase 4 — product-type schema cache](#phase-4--product-type-schema-cache)
+    - [Phase 5 — audit](#phase-5--audit)
+    - [Phase 6 — gap-fill analysis](#phase-6--gap-fill-analysis)
+    - [Phase 7 — AI-assisted draft generation](#phase-7--ai-assisted-draft-generation)
+    - [Phase 8 — write-back to Amazon](#phase-8--write-back-to-amazon)
+      - [Write-safety layer](#write-safety-layer)
+      - [8.1 Identifying-attribute guard](#81-identifying-attribute-guard)
+      - [8.2 Shrink-guard for multi-valued attributes](#82-shrink-guard-for-multi-valued-attributes)
+      - [8.3 Backup \& restore](#83-backup--restore)
+      - [8.4 `-NCX` / `-FBA` placeholder templating](#84--ncx---fba-placeholder-templating)
+      - [8.5 Always-present compliance attributes](#85-always-present-compliance-attributes)
+    - [Phase 9 — project drafts to Usurper](#phase-9--project-drafts-to-usurper)
+    - [Variation reconciliation (Phase 10)](#variation-reconciliation-phase-10)
+    - [Catalog / listing drift snapshot (Phase 11)](#catalog--listing-drift-snapshot-phase-11)
+  - [Output formats reference](#output-formats-reference)
+  - [Deferred / out of scope](#deferred--out-of-scope)
+  - [Reference: patterns borrowed from Usurper](#reference-patterns-borrowed-from-usurper)
 
 ---
 
@@ -139,17 +150,17 @@ php amazon/scripts/export_catalog_items.php  --account=IGE
 php amazon/scripts/fetch_product_type_schemas.php
 
 # 5–6 — audit + gap-fill (drop Usurper InventoryExport into usurper/ first)
-php amazon/scripts/audit_listings.php     --account=IGE
-php amazon/scripts/analyze_gap_fill.php   --account=IGE
+php amazon/scripts/audit_listings.php --account=IGE
+php amazon/scripts/analyze_gap_fill.php --account=IGE
 
 # 7 — draft (dry-run, then write)
-php amazon/scripts/draft_listings.php     --account=IGE --dry-run
-php amazon/scripts/draft_listings.php     --account=IGE
+php amazon/scripts/draft_listings.php --account=IGE --dry-run
+php amazon/scripts/draft_listings.php --account=IGE
 # → review the committed drafts/{sku}.json before writing anything to Amazon
 
 # 8 — write-back (dry-run, then apply)
-php amazon/scripts/patch_listings.php     --account=IGE            # dry-run
-php amazon/scripts/patch_listings.php     --account=IGE --apply
+php amazon/scripts/patch_listings.php --account=IGE            # dry-run
+php amazon/scripts/patch_listings.php --account=IGE --apply
 
 # 9 — project back to Usurper, then import the CSV into Usurper
 php amazon/scripts/project_to_usurper.php --account=IGE
@@ -158,7 +169,7 @@ php amazon/scripts/project_to_usurper.php --account=IGE
 php amazon/scripts/analyze_variations.php --account=IGE
 
 # 11 — drift snapshot (any time; read-only, commit to track catalog drift)
-php amazon/scripts/drift_snapshot.php     --account=IGE
+php amazon/scripts/drift_snapshot.php --account=IGE
 ```
 
 **Acceptance checks:**
@@ -184,7 +195,7 @@ php amazon/scripts/drift_snapshot.php     --account=IGE
 > **Everything below is reference / deep-dive material** — the architecture, the
 > data model, the per-phase detail, and the output formats. You don't need any
 > of it to run the tool; read on if you're extending the pipeline or want to
-> understand *why* it's shaped the way it is.
+> understand _why_ it's shaped the way it is.
 
 ## How the pipeline fits together
 
@@ -220,7 +231,7 @@ things Amazon exposes that are **not** interchangeable. Keeping them separate is
 what lets the audit compare against the right baseline and lets Phase 10 detect
 that "what we asserted" has drifted from "what Amazon realized."
 
-1. **Listing** (Listings Items API → Phase 2) — *what we submitted for our SKU*,
+1. **Listing** (Listings Items API → Phase 2) — _what we submitted for our SKU_,
    plus Amazon's validation verdict in the `issues[]` array. This is our model,
    and it can be non-compliant.
 2. **Schema** (Product Type Definitions API → Phase 4) — **Amazon's
@@ -234,8 +245,8 @@ that "what we asserted" has drifted from "what Amazon realized."
 
 The listing (what we assert) can diverge from the catalog (what Amazon
 realized) — that divergence is exactly the class of defect Phase 10 detects
-(confirmed live: a SKU whose *listing* asserts a `VARIATION` parent + `SIZE`
-theme while its *catalog* record shows no relationships at all).
+(confirmed live: a SKU whose _listing_ asserts a `VARIATION` parent + `SIZE`
+theme while its _catalog_ record shows no relationships at all).
 
 **Identifying vs non-identifying attributes** is the other cross-cutting
 distinction, and it governs the write path:
@@ -277,6 +288,7 @@ amazon/
 ├── scripts/              ← PHP entrypoints (run via `php amazon/scripts/<x>.php`)
 └── lib/ (repo root)     ← AmazonClient, AmazonPatch, IdentifyingAttributes,
                             ComplianceAttributes, ComplianceResolvers,
+                            DefaultAttributes, HighValueAttributes,
                             UsurperAttributeMap, AmazonRateLimits, …
 ```
 
@@ -285,7 +297,7 @@ tracked — `drafts/`, `backups/`, and `drift/` are committed; so is
 `data/schemas/` (small, high-value, reviewable, and protection against
 accidental re-downloads). Everything under `input/` and the `output/*.csv|*.txt`
 files are gitignored (regenerable, potentially large). `backups/` and `drift/`
-sit *outside* `input/` specifically so they stay tracked — `drift/` in
+sit _outside_ `input/` specifically so they stay tracked — `drift/` in
 particular is the committed digest of the gitignored `input/` snapshots.
 
 ---
@@ -373,7 +385,7 @@ aren't re-fetched. On `--force`, an ASIN that flips outcome
 
 ### Phase 4 — product-type schema cache
 
-**Use case:** to know what Amazon *requires* for a listing you need its
+**Use case:** to know what Amazon _requires_ for a listing you need its
 product-type schema. This discovers every product type in use across both
 accounts and caches each schema to disk as a reviewable, committed reference.
 
@@ -388,6 +400,13 @@ php amazon/scripts/fetch_product_type_schemas.php --force  # re-fetch cached typ
 ```
 
 No-op for already-cached types unless `--force`.
+
+> **Modular titles (effective 2026-07-27):** Amazon splits titles into
+> `item_name` (≤75 chars) + a new `title_differentiation` (≤125). Because
+> Phase 7's length caps and title handling are schema-driven, **re-fetch schemas
+> after that date** (`fetch_product_type_schemas.php --force`) to pick up the new
+> `title_differentiation` attribute and the `item_name` cap — no code change
+> needed, it activates from the refreshed schema.
 
 ### Phase 5 — audit
 
@@ -438,26 +457,76 @@ summary of SKUs affected and fillable-vs-authoring counts.
 
 **Use case:** produce a committed, human-reviewable draft per SKU. Fillable
 attributes are resolved directly from Usurper; `needs_authoring` attributes are
-authored by Claude with schema-constrained prompts (enum values are validated,
-so invalid values can't slip through).
+authored by Claude with schema-constrained prompts (enum **and `maxLength`**
+values are validated, so invalid values can't slip through).
 
 Reads the Phase 6 CSV grouped by SKU (highest-gap-score first), reloads the
 Usurper export for full untruncated values, and for each SKU batches its
-authoring attributes into one Anthropic call carrying product context + the
-per-attribute schema constraints. Default model is `auto` — haiku for
-enum-constrained fills (cheap, accurate), opus for open-ended prose; each
-AI-authored entry records its own `model` for traceability.
+authoring attributes into Anthropic calls carrying product context + the
+per-attribute schema constraints. Three cost/quality controls keep spend sane
+(Amazon schemas carry ~130 optional attributes per product type of which only
+~7 are required):
+
+- **Scope** — by default authors only **required + a curated high-value
+  allowlist** (`lib/HighValueAttributes.php`: title, bullets, description,
+  keywords, brand, key descriptors). The full optional tail is opt-in via
+  `--include-recommended`.
+- **Model tiering** (`--model=auto`, default) — **Haiku** for enum/short-string
+  fills, **Sonnet** for prose, **Opus** only for the marquee title/description
+  set. Each AI entry records its own `model`. `--model=X` forces one model.
+- **Data-gate** — a SKU with no title/description/features would make the model
+  invent everything from a SKU string. Such SKUs are skipped and flagged
+  `status: needs_human`, **except** `-FBA`/`-NCX` placeholders, which borrow
+  their base SKU's context (same-ASIN/product_type guarded). `--no-data-gate`
+  disables this.
+
+**Modular titles** (Amazon, effective 2026-07-27): `item_name` (≤75) plus a new
+`title_differentiation` (≤125), combined ≤200, with `title_differentiation`
+only valid when `item_name ≤ 75`. Handled **schema-driven** — length caps come
+straight from each attribute's schema `maxLength`, so this activates
+automatically once Phase 4 re-caches schemas after that date (see Phase 4).
+
+On top of that, the drafter always emits a **reviewable modular title
+suggestion** under a separate `item_name_ai_suggested` key (Opus-authored, ≤75
+chars, seeded from the existing listing → catalog → Usurper title so it condenses
+rather than invents). The live `item_name` is never overwritten. The suggestion
+carries `review_only: true`, so `patch_listings.php` shows it but **never sends
+it to Amazon** — a human picks whether to promote it.
+
+**Variation-member safety** (stakeholder rule): for an item that is part of a
+variation family, its actual variation-theme attributes (read from the item's
+own `relationships` — e.g. `material`, or `size`+`color`) are **excluded from AI
+authoring** so the model can't invent a value that splits/merges the family. The
+ASIN's own authoritative value may still come from its catalog snapshot (tagged
+`identifying` + `variation_member`), and stays held back at patch time behind
+`--include-identifying` (see 8.1).
+
+**Default attributes** (`lib/DefaultAttributes.php`): a hand-editable layer the
+drafter applies fill-missing only, in scope where the schema defines the
+attribute. Two kinds:
+- **null defaults** (`compliance_media`, `fcc_radio_frequency_emission_compliance`,
+  `government_contract_information`, `non_lithium_battery_*`, `fulfillment_availability`,
+  `supplemental_condition_information`, …) — recorded with `source: "default"`,
+  `value: null` for review, **never patched** (`patch_listings.php` skips null).
+- **value defaults** — `product_tax_code → A_GEN_TAX`; `unit_count → count/1`
+  **only when the SKU is not a variation member**. These patch through the
+  normal candidate path. Neither overwrites an existing listing/draft value.
 
 ```bash
 # Requires ANTHROPIC_API_KEY in .env
-php amazon/scripts/draft_listings.php --account=IGE --dry-run    # preview, no API calls
+php amazon/scripts/draft_listings.php --account=IGE --dry-run    # preview + cost estimate
 php amazon/scripts/draft_listings.php --account=IGE              # writes drafts/
 php amazon/scripts/draft_listings.php --account=DOWS --dry-run
 php amazon/scripts/draft_listings.php --account=DOWS
 
+# Author the full optional tail / bypass the data-gate:
+php amazon/scripts/draft_listings.php --account=IGE --include-recommended
+php amazon/scripts/draft_listings.php --account=IGE --no-data-gate
+php amazon/scripts/draft_listings.php --account=IGE --full            # both; the old exhaustive draft
+php amazon/scripts/draft_listings.php --account=IGE --full --model=opus
+
 # Force a single model (overrides auto):
-php amazon/scripts/draft_listings.php --account=IGE --model=claude-haiku-4-5
-php amazon/scripts/draft_listings.php --account=IGE --model=claude-opus-4-8
+php amazon/scripts/draft_listings.php --account=IGE --model=claude-sonnet-4-6
 
 # Single-SKU test:
 php amazon/scripts/draft_listings.php --account=IGE --sku=IGE-PENLIGHT
@@ -466,6 +535,7 @@ php amazon/scripts/draft_listings.php --account=IGE --sku=IGE-PENLIGHT
 php amazon/scripts/draft_listings.php --account=IGE --template-placeholders
 ```
 
+`--dry-run` prints a per-model cost estimate before you spend anything.
 Idempotent (skips existing drafts unless `--force`). Compliance-critical
 attributes are never AI-authored (see [Phase 8](#phase-8--write-back-to-amazon)).
 
@@ -478,7 +548,9 @@ attributes are never AI-authored (see [Phase 8](#phase-8--write-back-to-amazon))
   "product_type": "ART_CRAFT_KIT",
   "account": "DOWS",
   "generated_at": "2026-06-29T22:37:25+00:00",
-  "model": "claude-haiku-4-5",
+  "model": "auto",
+  "status": "ok",
+  "context_source": "self",
   "totals": { "fillable": 3, "ai_suggested": 2, "ai_null": 1 },
   "attributes": {
     "brand": {
@@ -547,35 +619,43 @@ auditable before committing.
 Phase 8 is hardened against a set of explicit stakeholder concerns about the
 write path. Each guard below traces back to one of them:
 
-| Concern | Guard | Where |
-|---|---|---|
-| "Must not lose a listing / must not impact sales." Identifying data is the danger. | Identifying-attribute guard — held back unless `--include-identifying`. | 8.1 |
-| "Be aware of partial vs full update; don't delete information." | PATCH `op: replace` per attribute (others untouched) + shrink-guard on multi-valued attributes. | 8.2 |
-| "Store current state; be able to restore a listing." | Pre-change live snapshots committed to git + `restore_listings.php`. | 8.3 |
-| `-NCX`/`-FBA` placeholders *do* need identifying data, sourced from their base SKU. | Union/fill-missing templating from the base's listing snapshot. | 8.4 |
-| An open-ended list of compliance attributes must *always* be filled. | Compliance list + resolvers; AI barred; unsourced no-resolver attr hard-blocks the SKU. | 8.5 |
-| `item_quantity` / `number_of_items` are identifying and shouldn't be written by default. | On the curated identifying list. | 8.1 |
+| Concern                                                                                  | Guard                                                                                           | Where |
+| ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----- |
+| "Must not lose a listing / must not impact sales." Identifying data is the danger.       | Identifying-attribute guard — held back unless `--include-identifying`.                         | 8.1   |
+| "Be aware of partial vs full update; don't delete information."                          | PATCH `op: replace` per attribute (others untouched) + shrink-guard on multi-valued attributes. | 8.2   |
+| "Store current state; be able to restore a listing."                                     | Pre-change live snapshots committed to git + `restore_listings.php`.                            | 8.3   |
+| `-NCX`/`-FBA` placeholders _do_ need identifying data, sourced from their base SKU.      | Union/fill-missing templating from the base's listing snapshot.                                 | 8.4   |
+| An open-ended list of compliance attributes must _always_ be filled.                     | Compliance list + resolvers; AI barred; unsourced no-resolver attr hard-blocks the SKU.         | 8.5   |
+| `item_quantity` / `number_of_items` are identifying and shouldn't be written by default. | On the curated identifying list.                                                                | 8.1   |
+| "Don't modify a variation member's theme attributes (`material`, `size`+`color`)."       | AI never authors them; the item's own `relationships` theme attrs join the identifying guard.   | 8.1   |
+| Sharpening stones need a Prop 65 **airborne-silica** warning, not lead.                   | `SILICA_PRODUCT_TYPES` in `ComplianceResolvers` (precedence over lead).                          | 8.5   |
+| A set of compliance/behavior attributes need explicit defaults (mostly null).            | `lib/DefaultAttributes.php` fill-missing layer; nulls document-only, `product_tax_code`/`unit_count` real. | Phase 7 |
+| Modular titles cap `item_name` at 75 chars; want a reviewable AI title.                  | `item_name_ai_suggested` (Opus, ≤75, `review_only` — never patched).                            | Phase 7 |
 
 These guards are always on in `patch_listings.php`; the flags below relax them.
 
 **Write-path decision matrix (`--apply`):**
 
-| Attribute class | Default | With `--include-identifying` |
-|---|---|---|
-| Non-identifying content | **written** | written |
-| Compliance | **written** (or SKU hard-blocked if unsourced) | same |
-| Multi-valued, shorter than live | **skipped + warned** (unless `--allow-shrink`) | same |
-| Identifying (`variation_theme`, product IDs, `product_type`, `item_type*`, `item_quantity`, `number_of_items`, schema variation attrs) | **skipped + logged** | written |
+| Attribute class                                                                                                                        | Default                                        | With `--include-identifying` |
+| -------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | ---------------------------- |
+| Non-identifying content                                                                                                                | **written**                                    | written                      |
+| Compliance                                                                                                                             | **written** (or SKU hard-blocked if unsourced) | same                         |
+| `review_only` suggestion (`item_name_ai_suggested`) / null default                                                                     | **never written**                              | never written                |
+| Multi-valued, shorter than live                                                                                                        | **skipped + warned** (unless `--allow-shrink`) | same                         |
+| Identifying (`variation_theme`, product IDs, `product_type`, `item_type*`, `item_quantity`, `number_of_items`, schema variation attrs) | **skipped + logged**                           | written                      |
 
 #### 8.1 Identifying-attribute guard
 
 Identifying attributes classify a listing or bind it into a variation family —
 a wrong value can suppress the listing or detach a variant. They are **held
 back by default**. `lib/IdentifyingAttributes.php` is a hybrid definition: a
-hand-maintained curated list *plus* the variation-defining attributes each
+hand-maintained curated list _plus_ the variation-defining attributes each
 product type's cached schema declares (so theme attributes like `color_name`/
-`size_name` are caught automatically). Opt in with `--include-identifying`
-(bare = all; `=a,b` = only the named attributes).
+`size_name` are caught automatically), _plus_ the theme attributes **this
+specific item** actually varies on, parsed from its own `relationships`
+(`itemVariationAttributes()`) — so a variation member's real `material` or
+`size`+`color` is caught even if the schema parse misses it. Opt in with
+`--include-identifying` (bare = all; `=a,b` = only the named attributes).
 
 #### 8.2 Shrink-guard for multi-valued attributes
 
@@ -602,7 +682,7 @@ php amazon/scripts/restore_listings.php --account=IGE
 php amazon/scripts/restore_listings.php --account=IGE --sku=IGE-PENLIGHT --timestamp=2026-07-02-12-00-00 --apply
 ```
 
-**Fidelity limits:** restore replays *attribute values only*. It does **not**
+**Fidelity limits:** restore replays _attribute values only_. It does **not**
 un-suppress a listing Amazon delisted, undo a catalog-level variation
 merge/split, or recover a deleted SKU/offer. SKU-specific commercial data
 (price, offer, fulfillment, procurement — the `NON_RESTORABLE` set) is never
@@ -625,19 +705,20 @@ before a patch (seed: `california_proposition_65`, `pesticide_marking`). **AI
 is barred** from authoring these. Resolution is per-attribute:
 
 - **`california_proposition_65`** → deterministic rule in
-  `lib/ComplianceResolvers.php`: product type in the maintained
-  `LEAD_PRODUCT_TYPES` list (32 edged-blade/metal-tool types) →
-  `chemical_names: ["lead"]`; otherwise → `["bisphenol_a_bpa"]`. Because the
-  rule always resolves, Prop 65 never blocks. *Keep the list current for
-  genuinely lead-bearing metal goods — under-listing lead is the compliance
-  miss.*
+  `lib/ComplianceResolvers.php`, evaluated in precedence order: product type in
+  `SILICA_PRODUCT_TYPES` (sharpening stones / `KNIFE_SHARPENER`) →
+  `chemical_names: ["silica_crystalline_airborne_particles_of"]`; else in the
+  maintained `LEAD_PRODUCT_TYPES` list (edged-blade/metal-tool types) →
+  `["lead"]`; otherwise → `["bisphenol_a_bpa"]`. Because the rule always
+  resolves, Prop 65 never blocks. _Keep both lists current — under-listing lead
+  or silica is the compliance miss._
 - **`pesticide_marking`** (and any attribute with no resolver) → sourced from
   Usurper (human-verified) only; if absent, the **entire SKU patch is
   hard-blocked** and reported. Override with `--skip-compliance-block`.
 
 "In scope" is refined per attribute type: the resolvable Prop 65 attr is in
-scope wherever a schema *defines* it (it self-resolves); a no-resolver attr is
-in scope only where a schema *requires* it (`schema.required[]`), so it blocks
+scope wherever a schema _defines_ it (it self-resolves); a no-resolver attr is
+in scope only where a schema _requires_ it (`schema.required[]`), so it blocks
 only products that genuinely need the marking.
 
 ### Phase 9 — project drafts to Usurper
@@ -679,11 +760,11 @@ exposes, which are **not** interchangeable:
 
 - **Intended (Usurper)** — `parent.sku`, `sku_type`, `attr.variation_theme_amazon`.
 - **Submitted (Listing)** — `relationships[]` → parent SKUs, `type: VARIATION`, theme.
-- **Realized (Catalog)** — read from the *parent* ASIN's `childAsins` (a
+- **Realized (Catalog)** — read from the _parent_ ASIN's `childAsins` (a
   child's own record often omits the parent pointer).
 
-Each SKU is tagged with zero or more discrepancy categories and *which layer
-disagrees*: `orphaned_child`, `wrong_parent`, `unexpected_child`,
+Each SKU is tagged with zero or more discrepancy categories and _which layer
+disagrees_: `orphaned_child`, `wrong_parent`, `unexpected_child`,
 `theme_mismatch`, `parent_without_theme`, `dangling_parent`, and
 `listing_catalog_divergence`. Each row also carries a summary of the listing's
 own `issues[]` (Amazon's compliance verdict). Theme comparison is
@@ -724,19 +805,19 @@ byte-identical file, so an empty `git diff` means zero meaningful drift. There
 is deliberately no timestamp inside the file; provenance is the git commit.
 
 **Full-fidelity detection in every mode:** each SKU carries a `listing_hash`
-computed over its *entire* normalized listing, so drift in any field is always
+computed over its _entire_ normalized listing, so drift in any field is always
 caught — at minimum as a changed hash line. An account-wide `digest` (one hash
 over every per-SKU hash pair) is the one-glance "did anything change." The mode
 only decides how much human-readable content sits next to the hash:
 
-| Mode | Flag | Shows | Size (IGE / DOWS) |
-|---|---|---|---|
-| curated (default) | — | Title, bullets, description, search terms, brand/color/size/material/style, parent_skus, issues — *what* changed | 540 KB / 12 MB |
-| full | `--full` | Every attribute inline | 3.6 MB / 88 MB |
-| hashes-only | `--hashes-only` | Which SKUs drifted (tripwire) | 76 KB / 1.6 MB |
+| Mode              | Flag            | Shows                                                                                                             | Size (IGE / DOWS) |
+| ----------------- | --------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------- |
+| curated (default) | —               | Title, bullets, description, search terms, brand/color/size/material/style, parent*skus, issues — \_what* changed | 540 KB / 12 MB    |
+| full              | `--full`        | Every attribute inline                                                                                            | 3.6 MB / 88 MB    |
+| hashes-only       | `--hashes-only` | Which SKUs drifted (tripwire)                                                                                     | 76 KB / 1.6 MB    |
 
 The `listing_hash` is identical across all three modes, so switching mode never
-changes drift *detection* — only how much context sits beside the hash.
+changes drift _detection_ — only how much context sits beside the hash.
 
 ```bash
 php amazon/scripts/drift_snapshot.php --account=IGE
@@ -758,24 +839,24 @@ it to record each drift checkpoint.
 
 ## Output formats reference
 
-| Path | Contents |
-|---|---|
-| `input/reports/listings_{ts}.{tsv,json}` | Raw TSV + normalized sidecar keyed by `seller-sku`; `asin1` is the SKU→ASIN map. |
-| `input/reports/suppressed_{ts}.{tsv,json}` | Same shape, suppressed listings. |
-| `input/listings/{sku}.json` | Raw `ListingsItemsV20210801` response, lossless. |
-| `input/catalog/{asin}.json` | Raw `CatalogItemsV20220401` response, lossless. |
-| `input/catalog/errors/{asin}.json` | `{error, http_status, asin, fetched_at, response}` envelope for non-200s. |
-| `input/usurper/*.csv` | Usurper InventoryExport dump (drop here; latest by mtime wins). |
-| `data/schemas/{PRODUCT_TYPE}.json` | Raw JSON Schema from Amazon. Committed. |
-| `data/schemas/_index.json` | `{productType: {fetched_at, version, locale, source_url}}`. |
-| `output/listings_audit.csv` | One row per SKU: missing counts, top missing attrs, priority. |
-| `output/listings_gap_fill.csv` | One row per SKU/attribute: `fillable`, `usurper_column`, `usurper_value`. |
-| `drafts/{sku}.json` | Authored draft; per-attribute `value`/`is_required`/`source`. Committed. |
-| `backups/{sku}/{ts}.json` | Pre-change live `getListingsItem` snapshot. Committed. |
-| `output/patch_results_{ts}.csv` | Per-SKU write result: status, submission id, issues. |
-| `output/usurper_update_{ts}.csv` | `sku` + one column per AI-authored attribute (`attr.*` / `attr.amazon_*`). |
-| `output/variation_analysis_{ts}.csv` + `_summary_{ts}.txt` | Per-SKU variation discrepancies + bucketed summary. |
-| `drift/snapshot.json` | Deterministic per-account drift digest: per-SKU `listing_hash`/`catalog_hash` + account-wide `digest`. Committed. |
+| Path                                                       | Contents                                                                                                          |
+| ---------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `input/reports/listings_{ts}.{tsv,json}`                   | Raw TSV + normalized sidecar keyed by `seller-sku`; `asin1` is the SKU→ASIN map.                                  |
+| `input/reports/suppressed_{ts}.{tsv,json}`                 | Same shape, suppressed listings.                                                                                  |
+| `input/listings/{sku}.json`                                | Raw `ListingsItemsV20210801` response, lossless.                                                                  |
+| `input/catalog/{asin}.json`                                | Raw `CatalogItemsV20220401` response, lossless.                                                                   |
+| `input/catalog/errors/{asin}.json`                         | `{error, http_status, asin, fetched_at, response}` envelope for non-200s.                                         |
+| `input/usurper/*.csv`                                      | Usurper InventoryExport dump (drop here; latest by mtime wins).                                                   |
+| `data/schemas/{PRODUCT_TYPE}.json`                         | Raw JSON Schema from Amazon. Committed.                                                                           |
+| `data/schemas/_index.json`                                 | `{productType: {fetched_at, version, locale, source_url}}`.                                                       |
+| `output/listings_audit.csv`                                | One row per SKU: missing counts, top missing attrs, priority.                                                     |
+| `output/listings_gap_fill.csv`                             | One row per SKU/attribute: `fillable`, `usurper_column`, `usurper_value`.                                         |
+| `drafts/{sku}.json`                                        | Authored draft; per-attribute `value`/`is_required`/`source`. Committed.                                          |
+| `backups/{sku}/{ts}.json`                                  | Pre-change live `getListingsItem` snapshot. Committed.                                                            |
+| `output/patch_results_{ts}.csv`                            | Per-SKU write result: status, submission id, issues.                                                              |
+| `output/usurper_update_{ts}.csv`                           | `sku` + one column per AI-authored attribute (`attr.*` / `attr.amazon_*`).                                        |
+| `output/variation_analysis_{ts}.csv` + `_summary_{ts}.txt` | Per-SKU variation discrepancies + bucketed summary.                                                               |
+| `drift/snapshot.json`                                      | Deterministic per-account drift digest: per-SKU `listing_hash`/`catalog_hash` + account-wide `digest`. Committed. |
 
 ---
 
@@ -786,7 +867,7 @@ it to record each drift checkpoint.
   auth-wise; the open design question is single multi-marketplace
   `getCatalogItem` calls vs parallel per-marketplace directories. Deferred
   until cross-marketplace gap analysis is shown to be worth the refactor.
-- **Variation relationship repair.** Phase 10 *diagnoses*; writing corrected
+- **Variation relationship repair.** Phase 10 _diagnoses_; writing corrected
   parentage/themes is the highest-risk write in the system and is designed
   separately once the diagnostic output is trusted.
 - **Usurper round-trip for non-`attr.*` fields.** `project_to_usurper.php`
@@ -812,4 +893,7 @@ patterns that translated directly into these standalone scripts:
   method signatures and DTO types; the scripts call the same connector methods.
 - **`CatalogItemListing.php`** — `parseCatalogItemData()` / `parseListingData()`
   as the reference for what to extract from each response.
+
+```
+
 ```

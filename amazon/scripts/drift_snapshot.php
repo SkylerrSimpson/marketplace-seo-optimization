@@ -83,6 +83,7 @@ const PROJECTED_ATTRS = [
     'product_description',
     'generic_keyword',
     'item_type_keyword',
+    'title_differentiation', // Amazon modular titles (effective 2026-07-27)
     'color',
     'size',
     'material',

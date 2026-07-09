@@ -339,6 +339,12 @@ foreach ($draftFiles as $draftFile) {
             $skippedAttrs[] = $attr . '(invalid)';
             continue;
         }
+        // review_only entries (e.g. item_name_ai_suggested) are human-review
+        // suggestions, not settable schema attributes — never sent to Amazon.
+        if (!empty($entry['review_only'])) {
+            $skippedAttrs[] = $attr . '(review-only)';
+            continue;
+        }
         $candidates[$attr] = $value;
     }
 
@@ -368,9 +374,19 @@ foreach ($draftFiles as $draftFile) {
     }
 
     // --- Guard 1: identifying ---
+    // Union the schema/curated identifying set with the theme attributes THIS
+    // item actually varies on (from its own relationships) — so a variation
+    // member's material / size+color are caught even if the schema parse misses
+    // them (stakeholder 4). Still flag-gated: --include-identifying lets them
+    // through exactly as before.
+    $itemVariationAttrs = IdentifyingAttributes::itemVariationAttributes(
+        $baseListing['relationships'] ?? [],
+    );
     $skippedIdentifying = [];
     foreach (array_keys($candidates) as $attr) {
-        if (!IdentifyingAttributes::isIdentifying($attr, $productType, $schemasDir)) {
+        $isIdentifying = IdentifyingAttributes::isIdentifying($attr, $productType, $schemasDir)
+            || in_array(strtolower($attr), $itemVariationAttrs, true);
+        if (!$isIdentifying) {
             continue;
         }
         $allow = $includeIdentifying === 'all'

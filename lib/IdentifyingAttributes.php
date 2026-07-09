@@ -108,6 +108,42 @@ final class IdentifyingAttributes
     }
 
     /**
+     * The variation-theme attributes THIS specific item participates in, parsed
+     * from its own relationships block (as returned by getListingsItem /
+     * getCatalogItem, or the on-disk snapshot). Unlike schemaVariationAttributes
+     * — which returns every theme attribute the product type COULD use — this is
+     * the exact set that defines this ASIN's place in its variation family, so
+     * touching them can split/merge the family. Returns lowercase token names.
+     *
+     * $relationships is the raw `relationships` node: a list of
+     * {marketplaceId, relationships: [{type, variationTheme: {attributes:[...]}}]}.
+     */
+    public static function itemVariationAttributes(array $relationships): array
+    {
+        $tokens = [];
+        foreach ($relationships as $group) {
+            foreach ($group['relationships'] ?? [] as $rel) {
+                if (($rel['type'] ?? '') !== 'VARIATION') {
+                    continue;
+                }
+                foreach ($rel['variationTheme']['attributes'] ?? [] as $attr) {
+                    $attr = strtolower(trim((string) $attr));
+                    if ($attr !== '') {
+                        $tokens[$attr] = true;
+                    }
+                }
+            }
+        }
+        return array_keys($tokens);
+    }
+
+    /** True if this item's relationships mark it as a member of a variation family. */
+    public static function isVariationMember(array $relationships): bool
+    {
+        return self::itemVariationAttributes($relationships) !== [];
+    }
+
+    /**
      * CURATED ∪ schemaVariationAttributes(productType).
      * $productType may be null (curated-only check).
      */

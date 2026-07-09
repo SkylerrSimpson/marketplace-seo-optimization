@@ -12,20 +12,31 @@ declare(strict_types=1);
  * Currently resolved:
  *   california_proposition_65 — chemical warning, keyed on product type.
  *
- * Legal note: LEAD_PRODUCT_TYPES is a maintained list. Keep it current for
- * genuinely lead-bearing metal goods. Everything not on the list defaults to
- * bisphenol_a_bpa (the plastics/packaging default the stakeholder chose).
+ * Legal note: LEAD_PRODUCT_TYPES / SILICA_PRODUCT_TYPES are maintained lists.
+ * Keep them current for genuinely lead-bearing metal goods and silica-bearing
+ * abrasives. Everything on neither list defaults to bisphenol_a_bpa (the
+ * plastics/packaging default the stakeholder chose).
  */
 final class ComplianceResolvers
 {
     /**
+     * Product types whose Prop 65 chemical is airborne crystalline silica —
+     * sharpening stones / whetstones and other abrasives that shed respirable
+     * silica dust in use. Takes precedence over LEAD_PRODUCT_TYPES (stakeholder:
+     * sharpening stones warn silica, not lead). Extend freely.
+     */
+    public const SILICA_PRODUCT_TYPES = [
+        'KNIFE_SHARPENER',
+    ];
+
+    /**
      * Product types whose Prop 65 chemical is "lead" — edged blades and metal
      * hand tools. Seeded from a catalog-type scan of the two seller accounts
      * plus the stakeholder's KNIFE/MULTITOOL/SWORD/SAW guidance; extend freely.
-     * Types NOT listed default to bisphenol_a_bpa.
+     * Types NOT listed (and not in SILICA_PRODUCT_TYPES) default to bisphenol_a_bpa.
      */
     public const LEAD_PRODUCT_TYPES = [
-        'KNIFE', 'KITCHEN_KNIFE', 'UTILITY_KNIFE', 'KNIFE_BLOCK_SET', 'KNIFE_SHARPENER',
+        'KNIFE', 'KITCHEN_KNIFE', 'UTILITY_KNIFE', 'KNIFE_BLOCK_SET',
         'PALETTE_PUTTY_KNIFE', 'BLADED_FOOD_PEELER', 'SWORD', 'AXE', 'SAW', 'SAW_BLADE',
         'MULTITOOL', 'TOOLS', 'KITCHEN_TOOLS', 'GARDEN_TOOL_SET', 'ROTARY_TOOL', 'CHISEL',
         'HAMMER_MALLET', 'SCREWDRIVER', 'WRENCH', 'PLIERS', 'CRIMPING_PLIERS', 'SHOVEL_SPADE',
@@ -36,12 +47,18 @@ final class ComplianceResolvers
     /**
      * california_proposition_65 value for a product type. Deterministic.
      * Returns the SP-API attribute value shape (array of one slot object).
+     * Precedence: silica → lead → bisphenol_a_bpa default.
      */
     public static function prop65(string $productType, string $marketplaceId): array
     {
-        $chemical = in_array(strtoupper(trim($productType)), self::LEAD_PRODUCT_TYPES, true)
-            ? 'lead'
-            : 'bisphenol_a_bpa';
+        $pt = strtoupper(trim($productType));
+        if (in_array($pt, self::SILICA_PRODUCT_TYPES, true)) {
+            $chemical = 'silica_crystalline_airborne_particles_of';
+        } elseif (in_array($pt, self::LEAD_PRODUCT_TYPES, true)) {
+            $chemical = 'lead';
+        } else {
+            $chemical = 'bisphenol_a_bpa';
+        }
 
         return [[
             'compliance_type' => 'chemical',
