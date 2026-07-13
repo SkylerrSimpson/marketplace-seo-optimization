@@ -52,13 +52,35 @@ $mediaDir = $outDir . '/media';
 $descDir  = $outDir . '/descriptions';
 if (!is_dir($descDir)) { mkdir($descDir, 0775, true); }
 
-// Store directory — drives the header brand + Our Store / Contact Us links and footer,
-// exactly like the generator's dropdown. Slugs verified from the live listing HTML.
+// Store directory — drives the header brand + Our Store link and footer, exactly
+// like the generator's dropdown. Slugs verified from the live listing HTML.
+// (Contact Us link removed 2026-07 per Ethan.)
 $STORES = [
     'dows' => ['brand' => 'Deals Only Webstore',  'slug' => 'dealsonlywebstore'],
     'ige'  => ['brand' => 'Irongate Enterprises', 'slug' => 'irongateamericansupply'],
 ];
 $store = $STORES[$account] ?? $STORES['dows'];
+
+// Prop65 policy change (2026-07): the warning no longer lives as an item specific
+// (see mark_prop65_delete.php / ebay/docs/review-rules.md §3) — it lives here
+// instead, as the same generic badge image ASRoutdoor.com already uses on its own
+// product descriptions (confirmed via a live product fetch: one image, no
+// per-chemical text). Alt text matches the existing convention for this exact image
+// in shopify/scripts/apply_product_desc_image_alts.php:27.
+//
+// EXCEPTION (Ethan, 2026-07-14): Gear Aid branded items get NO Prop65 label
+// anywhere — same exception the old item-specific rule had (apply_review_rules.php's
+// former rule #2). Detected by title, same isGearAid() logic/threshold as that rule
+// (52 DOWS / 86 IGE, confirmed against items/{id}.json titles). The manual generator
+// tool (ebay/tools/description-generator.html) has a matching checkbox, default on.
+const PROP65_BADGE_URL = 'https://cdn.shopify.com/s/files/1/0783/2056/6572/files/Shopify_Prop65graphic_480x480.jpg?v=1692130729';
+const PROP65_BADGE_ALT = 'California Proposition 65 warning';
+
+function isGearAid(string $title): bool
+{
+    $t = mb_strtolower($title);
+    return strpos($t, 'gear aid') !== false || strpos($t, 'gearaid') !== false;
+}
 
 $packPath = $outDir . '/desc_source_pack.jsonl';
 if (!is_file($packPath)) {
@@ -167,10 +189,13 @@ foreach (file($packPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line
         $fallbackCount++;
     }
 
+    $showProp65Badge = !isGearAid($title);
+    $change .= $showProp65Badge ? ' + Prop65 badge' : ' + Prop65 badge withheld (Gear Aid)';
+
     $mobile   = mobileSummary($mobile);
     $newTitleFinal = $newTitle !== '' ? $newTitle : $title;
     $altText  = imageAltText($factual, $newTitleFinal);
-    $proposed = renderFull($store, $newTitleFinal, $factual, $sales, $mobile, $bullets, $aspects, $imageUrl, $altText);
+    $proposed = renderFull($store, $newTitleFinal, $factual, $sales, $mobile, $bullets, $aspects, $imageUrl, $altText, $showProp65Badge);
     file_put_contents($descDir . "/{$id}.html", $proposed);
 
     $newKeyFeatures = implode(' | ', $bullets);
@@ -206,7 +231,7 @@ echo "  {$outDir}/description_review.csv\n  {$descDir}/{itemId}.html\n";
  * THE canonical description template — byte-for-byte what ebay/tools/description-
  * generator.html emits. One schema.org/Product block:
  *   hidden mobile description (eBay-required mobile summary, display:none)
- *   store header (brand + Our Store / Contact Us links)
+ *   store header (brand + Our Store link)
  *   keyword H2
  *   -> FIRST/factual intro <p>
  *   -> Key Features (Label: detail bolds the label)
@@ -216,7 +241,8 @@ echo "  {$outDir}/description_review.csv\n  {$descDir}/{itemId}.html\n";
  *   -> store footer.
  */
 function renderFull(array $store, string $title, string $factual, string $sales,
-    string $mobile, array $bullets, array $aspects, string $imageUrl, string $altText = ''): string
+    string $mobile, array $bullets, array $aspects, string $imageUrl, string $altText = '',
+    bool $showProp65Badge = true): string
 {
     $h      = esc($title);
     $alt    = esc($altText !== '' ? $altText : $title);
@@ -250,9 +276,12 @@ function renderFull(array $store, string $title, string $factual, string $sales,
             . '" alt="' . $alt . '" style="max-width:100%;width:600px;height:auto"></p>' . "\n"
         : '';
     $specs   = renderSpecs($aspects);
+    $badgeHtml = $showProp65Badge
+        ? '  <p style="text-align:center;margin:16px 0 0"><img src="' . esc(PROP65_BADGE_URL)
+            . '" alt="' . esc(PROP65_BADGE_ALT) . '" style="display:block;margin-left:auto;margin-right:auto" height="78" width="273"></p>' . "\n"
+        : '';
     $brand   = esc($store['brand']);
     $storeUrl   = esc('https://www.ebay.com/str/' . $store['slug']);
-    $contactUrl = esc('https://www.ebay.com/cnt/intermediatedFAQ?requested=' . $store['slug']);
     $year    = date('Y');
 
     return <<<HTML
@@ -261,12 +290,11 @@ function renderFull(array $store, string $title, string $factual, string $sales,
   <div style="background:#f5f5f5;padding:12px 15px;border:1px solid #e5e5e5;margin:0 0 16px">
     <div style="font-size:18px;font-weight:bold;margin-bottom:6px">{$brand}</div>
     <div style="font-size:13px">
-      <a href="{$storeUrl}" style="margin-right:15px;text-decoration:none;color:#333">Our Store</a>
-      <a href="{$contactUrl}" style="text-decoration:none;color:#333">Contact Us</a>
+      <a href="{$storeUrl}" style="text-decoration:none;color:#333">Our Store</a>
     </div>
   </div>
   <h2 style="font-size:22px;margin:0 0 12px">{$h}</h2>
-{$introP}{$features}{$imageHtml}{$specs}{$salesP}  <p style="margin:18px 0 0;padding-top:12px;border-top:1px solid #e5e5e5;font-size:13px;color:#777;text-align:center">&copy; {$year} {$brand}</p>
+{$introP}{$features}{$imageHtml}{$specs}{$salesP}{$badgeHtml}  <p style="margin:18px 0 0;padding-top:12px;border-top:1px solid #e5e5e5;font-size:13px;color:#777;text-align:center">&copy; {$year} {$brand}</p>
 </div>
 HTML;
 }

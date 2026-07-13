@@ -10,12 +10,29 @@ REVIEW SHEETS (fill the 'approved' / 'approved_value' + 'reviewer_notes' columns
      (source='child_rollup'); 'reviewer_notes' explains each. Country conflicts &
      per-variation cases are left blank with a FLAG note.
 
-3) eBay_DOWS_descriptions-standardized-v2_REVIEW.csv (1257 rows)
-4) eBay_IGE_descriptions-standardized-v2_REVIEW.csv  (370 rows)
-     CURRENT — supersedes the older eBay_{ACCT}_descriptions-standardized_REVIEW.csv
-     (v1, left in this folder for reference only, not for action). v2 was authored
-     after the item-specifics round 1 approvals were merged back in, so the AI writer
-     had full/current aspect data as grounding (v1 did not).
+3) eBay_DOWS_descriptions-standardized-v3_REVIEW.csv (1257 rows)
+4) eBay_IGE_descriptions-standardized-v3_REVIEW.csv  (370 rows)
+     CURRENT — supersedes v2 and the original v1 (both left in this folder for
+     reference only, not for action). v3 changes vs. v2, per Ethan's 2026-07-14
+     feedback:
+       - Removed the "Contact Us" link from the store header — "Our Store" only.
+       - Added the California Prop 65 warning as a badge IMAGE (with alt text) at
+         the bottom of every description, replacing the item-specific aspect of the
+         same name (which is being removed from eBay entirely — see the aspects
+         sheets above; no more per-chemical text). Matches how ASRoutdoor.com already
+         does it on its own product pages.
+       - EXCEPTION: Gear Aid branded items get NO badge (same exception the old
+         item-specific rule had) — 52 DOWS / 86 IGE rows, `what_changed` says
+         "Prop65 badge withheld (Gear Aid)" on those rows so they're easy to filter.
+     IMPORTANT: the aspect-side removal (deleting "California Prop 65 Warning" from
+     each listing's live item specifics) is being held until these descriptions are
+     actually pushed live — we don't want a window where neither the aspect nor the
+     description carries the warning. So don't action the Prop65 aspect rows in the
+     item-specifics sheets above as a DELETE until you hear these descriptions have
+     gone live.
+     v2 was authored after the item-specifics round 1 approvals were merged back in,
+     so the AI writer had full/current aspect data as grounding (v1 did not) — that
+     grounding carries through unchanged in v3.
      One row per listing: old_first_description/new_first_description (factual para),
      old_sales_description/new_sales_description (the SECOND/sales-pitch paragraph —
      added 2026-07-07; previously only visible buried inside new_description/new_html,

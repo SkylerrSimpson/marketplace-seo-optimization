@@ -21,11 +21,14 @@ declare(strict_types=1);
  *     CONSERVATIVE: snap only on a confident match (exact, or numeric->bucket);
  *     otherwise leave the value untouched and flag it (never force a wrong value,
  *     e.g. "Fabric, Sewing" must NOT be snapped to [Left-handed|Right-handed]).
- *  2. California Prop 65 Warning -> blanket standard text, with exceptions:
- *       - testing stones  -> chemical = silica
- *       - solder / metal  -> chemical = lead
- *       - Gear Aid brand  -> NO label (propose blank; if a value is live, suggest DELETE)
- *       - everything else -> chemical = bisphenol_a_(bpa)
+ *  2. California Prop 65 Warning -> POLICY CHANGE (2026-07): no longer proposed as an
+ *     item specific at all. The owner moved this language into the product
+ *     description as a generic badge image (see build_description_review.php's
+ *     PROP65_BADGE_URL) instead of an aspect, for every listing regardless of
+ *     chemical/brand. This rule now only leaves a reviewer_notes trail; actually
+ *     removing the already-live values is handled by the separate
+ *     mark_prop65_delete.php + delete_prop65_live.php pair (see
+ *     ebay/docs/review-rules.md §3 for the full writeup).
  *  3. Country of Origin -> when blank/unknown, default to China (blank rows only;
  *     never overwrite an existing country).
  *  4. Manufacturer Warranty -> standard WARRANTY_TEXT, unless the aspect is
@@ -56,15 +59,8 @@ $path    = $dir . '/review_sheet.csv';
 
 if (!is_file($path)) { fwrite(STDERR, "no review_sheet.csv for {$account}\n"); exit(1); }
 
-const P65_TPL = 'CALIFORNIA WARNING: This product can expose you to chemicals including %s, which is known to the State of California to cause cancer, birth defects or other reproductive harm. For more information, go to: www.P65Warnings.ca.gov';
+require __DIR__ . '/lib/prop65.php';
 
-function p65(string $chem): string { return sprintf(P65_TPL, $chem); }
-
-function isProp65(string $aspect): bool
-{
-    $a = mb_strtolower($aspect);
-    return strpos($a, 'prop 65') !== false || strpos($a, 'prop65') !== false || strpos($a, 'proposition 65') !== false;
-}
 function isCountry(string $aspect): bool
 {
     $a = mb_strtolower($aspect);
@@ -220,7 +216,7 @@ if (is_file($dir . '/blank_value_checks.csv')) {
     fclose($bf);
 }
 
-$stat = ['p65' => 0, 'p65_silica' => 0, 'p65_lead' => 0, 'p65_gearaid' => 0, 'country' => 0,
+$stat = ['p65' => 0, 'country' => 0,
          'warranty' => 0, 'warranty_flag' => 0, 'blank_value' => 0,
          'snap_exact' => 0, 'snap_bucket' => 0, 'snap_approx' => 0, 'snap_flag' => 0];
 
@@ -237,27 +233,13 @@ foreach ($rows as &$r) {
     $addNote = '';
 
     if (isProp65($aspect)) {
-        // ----- rule #2: California Prop 65 -----
-        $isGearAid = strpos($title, 'gear aid') !== false || strpos($title, 'gearaid') !== false;
-        $isStone   = strpos($title, 'testing stone') !== false || strpos($title, 'test stone') !== false || strpos($title, 'touchstone') !== false;
-        $isSolder  = strpos($title, 'solder') !== false;
-        if ($isGearAid) {
-            $newProp = '';
-            $addNote = $cur !== '' ? 'rule #2: Gear Aid — no Prop65 needed (DELETE live value)' : 'rule #2: Gear Aid — no Prop65 label';
-            $stat['p65_gearaid']++;
-        } else {
-            $chem = $isStone ? 'silica' : ($isSolder ? 'lead' : 'bisphenol_a_(bpa)');
-            $text = p65($chem);
-            if (mb_strtolower($cur) === mb_strtolower($text)) {
-                $newProp = ''; $addNote = 'rule #2: Prop65 already standard';
-            } else {
-                $newProp = $text;
-                $addNote = 'rule #2: Prop65 blanket' . ($chem !== 'bisphenol_a_(bpa)' ? " ({$chem})" : '');
-                if ($chem === 'silica') { $stat['p65_silica']++; }
-                elseif ($chem === 'lead') { $stat['p65_lead']++; }
-            }
-            $stat['p65']++;
-        }
+        // ----- rule #2: California Prop 65 — REMOVED FROM ITEM SPECIFICS (2026-07) -----
+        // No longer proposed as a value here; the warning now lives in the description
+        // as a badge (build_description_review.php). Already-live values are deleted by
+        // mark_prop65_delete.php + delete_prop65_live.php, not by this dry-run script.
+        $newProp = '';
+        $addNote = 'rule #2: Prop65 policy change — removed from item specifics, moved to description badge';
+        $stat['p65']++;
     } elseif (isCountry($aspect) && $cur === '' && $prop === '') {
         // ----- rule #3: Country of Origin default -----
         $newProp = 'China';
@@ -322,8 +304,8 @@ if ($dryRun) {
     echo "wrote {$path}\n";
 }
 
-printf("  Prop65: %d standardised (silica %d, lead %d) | Gear Aid no-label %d\n",
-    $stat['p65'], $stat['p65_silica'], $stat['p65_lead'], $stat['p65_gearaid']);
+printf("  Prop65: %d rows noted removed-from-specifics (see mark_prop65_delete.php for the live delete)\n",
+    $stat['p65']);
 printf("  Country default(China) on blanks: %d\n", $stat['country']);
 printf("  Manufacturer Warranty -> '%s': %d (SELECTION_ONLY flagged: %d)\n",
     WARRANTY_TEXT, $stat['warranty'], $stat['warranty_flag']);

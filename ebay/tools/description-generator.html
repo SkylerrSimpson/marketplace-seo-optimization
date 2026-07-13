@@ -24,8 +24,8 @@
 
 <h2>eBay Description Generator <span style="font-weight:normal;font-size:14px;color:#888">— Standard Template</span></h2>
 <p class="hint">Outputs the canonical schema.org/Product description. Includes the hidden mobile description
-eBay requires (800-char cap), a store header (Our Store / Contact Us links chosen by store), main image,
-Key Features, Product Specifications, and a store footer.</p>
+eBay requires (800-char cap), a store header (Our Store link, chosen by store), main image,
+Key Features, Product Specifications, the Prop65 warning badge, and a store footer.</p>
 
 <div class="cols">
 <div>
@@ -34,6 +34,11 @@ Key Features, Product Specifications, and a store footer.</p>
     <option value="dows">Deals Only Webstore</option>
     <option value="irongate">Irongate Enterprises</option>
   </select>
+
+  <label style="display:flex;align-items:center;gap:6px;font-size:14px;margin-bottom:10px">
+    <input type="checkbox" id="showProp65" checked onchange="refreshPreview()" style="width:auto;margin:0">
+    Show Prop65 Warning Badge
+  </label>
 
   <input id="title" placeholder="Title / Headline (becomes the H2)" maxlength="80" style="margin-bottom:0">
   <div class="counter" id="lenTitle">0/80</div>
@@ -81,13 +86,21 @@ Key Features, Product Specifications, and a store footer.</p>
 </div>
 
 <script>
-// ---- store directory (drives header brand + Our Store / Contact Us links) --
+// ---- store directory (drives header brand + Our Store link) ----------------
 const STORES = {
   dows:     { brand: "Deals Only Webstore",  slug: "dealsonlywebstore" },
   irongate: { brand: "Irongate Enterprises", slug: "irongateamericansupply" }
 };
 
-// ---- helpers ---------------------------------------------------------------
+// Prop65 badge (2026-07-13 change): same generic image ASRoutdoor.com uses on
+// its own product descriptions, embedded on every listing regardless of
+// brand/category, alt text required. 
+// *******
+// Might change the img src to AWS at a later date if needed??
+const PROP65_BADGE_HTML =
+  '  <p style="text-align:center;margin:16px 0 0"><img src="https://cdn.shopify.com/s/files/1/0783/2056/6572/files/Shopify_Prop65graphic_480x480.jpg?v=1692130729" alt="California Proposition 65 warning" style="display:block;margin-left:auto;margin-right:auto" height="78" width="273"></p>\n';
+
+// ---- js helper functions ---------------------------------------------------------------
 
 // Match PHP htmlspecialchars(ENT_QUOTES) so the output matches the builder.
 function esc(s) {
@@ -99,7 +112,7 @@ function esc(s) {
     .replace(/'/g, "&#039;");
 }
 
-// Collapse all whitespace to a single line (titles, mobile text — kept tag-free).
+// Collapse all whitespace to a single line
 function oneLine(s) { return String(s).replace(/\s+/g, " ").trim(); }
 
 // Escape, then keep author line breaks as <br/> (for the visible description bodies).
@@ -150,20 +163,20 @@ function addAttribute() {
 }
 
 function onLoad() {
-  for (let i = 0; i < 3; i++) addAttribute();   // a few blank spec rows by default
+  for (let i = 0; i < 3; i++) addAttribute();
   refreshPreview();
 }
 
-// ---- the canonical template ------------------------------------------------
+// ---- the template itself ------------------------------------------------
 
-function build() {
+function buildHTML() {
   const store = STORES[document.getElementById("store").value] || STORES.dows;
   const storeUrl = "https://www.ebay.com/str/" + store.slug;
-  const contactUrl = "https://www.ebay.com/cnt/intermediatedFAQ?requested=" + store.slug;
   const year = new Date().getFullYear();
+  const showProp65 = document.getElementById("showProp65").checked;
 
   const h = esc(oneLine(document.getElementById("title").value));
-  const mobile = capMobile(oneLine(document.getElementById("mobileDesc").value));  // tag-free, escaped <=800
+  const mobile = capMobile(oneLine(document.getElementById("mobileDesc").value));
   const intro = multiline(document.getElementById("shortDesc").value);
   const full = multiline(document.getElementById("fullDesc").value);
   const imageURL = oneLine(document.getElementById("imageURL").value);
@@ -225,19 +238,18 @@ function build() {
     '  <div style="background:#f5f5f5;padding:12px 15px;border:1px solid #e5e5e5;margin:0 0 16px">\n' +
     '    <div style="font-size:18px;font-weight:bold;margin-bottom:6px">' + esc(store.brand) + "</div>\n" +
     '    <div style="font-size:13px">\n' +
-    '      <a href="' + esc(storeUrl) + '" style="margin-right:15px;text-decoration:none;color:#333">Our Store</a>\n' +
-    '      <a href="' + esc(contactUrl) + '" style="text-decoration:none;color:#333">Contact Us</a>\n' +
+    '      <a href="' + esc(storeUrl) + '" style="text-decoration:none;color:#333">Our Store</a>\n' +
     "    </div>\n" +
     "  </div>\n" +
     '  <h2 style="font-size:22px;margin:0 0 12px">' + h + "</h2>\n" +
-    introP + featuresHTML + imageHTML + specsHTML + fullP +
+    introP + featuresHTML + imageHTML + specsHTML + fullP + (showProp65 ? PROP65_BADGE_HTML : "") +
     '  <p style="margin:18px 0 0;padding-top:12px;border-top:1px solid #e5e5e5;font-size:13px;color:#777;text-align:center">&copy; ' +
       year + " " + esc(store.brand) + "</p>\n" +
     "</div>";
 }
 
 function refreshPreview() {
-  const html = build();
+  const html = buildHTML();
   document.getElementById("preview").innerHTML = html;
   return html;
 }

@@ -104,6 +104,12 @@ php ebay/scripts/ai_review.php --mode=blanks  --account=dows --merge
 ```bash
 php ebay/scripts/apply_review_rules.php --account=dows
 ```
+> Note (2026-07): this worked example predates the Prop65 policy change — the
+> aspect is no longer proposed/snapped at all, it's removed from item specifics
+> entirely and moved into the description as a badge. See `docs/review-rules.md`
+> §3 for current guidance; kept below as-is since it's illustrating the general
+> snap-to-standard-value mechanism, not asserting current Prop65 policy.
+
 For this listing: `California Prop 65 Warning`'s `current_value` was the OLD wording
 ("WARNING: This product can expose...") — rule #2 snaps `proposed_value` to the current
 standard wording ("CALIFORNIA WARNING: This product can expose...").

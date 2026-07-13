@@ -47,6 +47,7 @@ declare(strict_types=1);
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';
+require __DIR__ . '/lib/prop65.php';
 
 $opts = getopt('', ['mode:', 'account:', 'tasks', 'merge', 'run', 'all', 'max-allowed:', 'limit:', 'help']);
 $mode = strtolower((string) ($opts['mode'] ?? ''));
@@ -221,6 +222,7 @@ if ($mode === 'current') {
             $sc = schemaFor($cat, $schemaCache);
             $cur = [];
             foreach ($aspects as $aname => $aval) {
+                if (isProp65((string) $aname)) { continue; }  // removed from item specifics, see review-rules.md §3
                 $an = normAspect(stripColon((string) $aname));
                 if ($isGroup && isset($variedNrm[$id][$an])) { continue; }
                 $meta = $sc[$an] ?? null;

@@ -90,16 +90,20 @@ byte-for-byte:
 ```
 <div … schema.org/Product … max-width:800px>
   <div style="display:none"><span property="description">MOBILE SUMMARY</span></div>
-  <div>STORE HEADER — brand name, Our Store / Contact Us links, per-account</div>
+  <div>STORE HEADER — brand name, Our Store link, per-account</div>
   <h2>TITLE</h2>
   <p>FACTUAL paragraph</p>
   [<h3>Key Features</h3><ul>…</ul>]           (only when bullets exist)
   [<p><img …></p>]                             (only when an image URL exists)
   [<h3>Product Specifications</h3><ul>…</ul>]  (auto, from aspects; MPN/UPC pinned first)
   <p>SALES paragraph</p>
+  <p><img … Prop65 badge …></p>                (2026-07: generic, every listing, alt text required)
   <p>FOOTER — &copy; year, brand name</p>
 </div>
 ```
+
+(Contact Us link removed 2026-07 per Ethan — "Our Store" only. Prop65 badge added the
+same round, see `ebay/docs/review-rules.md` §3.)
 
 Two structural bugs were found and fixed comparing against the reference tool: feature
 labels weren't trimmed before the `Label:` bold-split, and Product Specifications didn't

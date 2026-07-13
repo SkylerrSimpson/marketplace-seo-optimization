@@ -66,7 +66,6 @@ Flag a value when it is wrong, mismatched, junk, or a placeholder. Common cases:
 
 - Codes you can't verify: `MPN`, `UPC`, `Model`, `EAN`, SKU-like strings — leave ok.
 - Dimensions / weights (`Item Width`, `Thickness`, etc.) — leave ok unless absurd.
-- `California Prop 65 Warning` text — always leave ok.
 - A plausible value, even if you might phrase it differently — leave ok. Only flag
   when you genuinely think it's wrong. **A wrong suggestion is worse than leaving a
   fine value alone.**

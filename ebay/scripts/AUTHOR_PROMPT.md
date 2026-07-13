@@ -43,8 +43,8 @@ into `factual` or `bullets`.
 - **NEVER** put an MPN / UPC / EAN / GTIN / SKU / ISBN / part number / model code in
   `factual`, `sales`, `bullets`, `mobile`, or `new_title`. They are machine codes; they
   live only in the (auto-generated) specs. If the source copy contains one, strip it out.
-- Do **not** write the store name, brand footer, "Our Store", "Contact Us", shipping,
-  returns, MSRP, or "Up to X% Off" — the template adds chrome separately.
+- Do **not** write the store name, brand footer, "Our Store", shipping, returns, MSRP,
+  or "Up to X% Off" — the template adds chrome separately.
 - Plain text only (no HTML tags) in all fields.
 - `new_title` is **≤ 80 characters** — this is a hard eBay limit, not a suggestion.
 - Process **every** item in the input. Use the exact `item_id` given.
