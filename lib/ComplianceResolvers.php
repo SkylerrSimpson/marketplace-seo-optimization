@@ -11,6 +11,8 @@ declare(strict_types=1);
  *
  * Currently resolved:
  *   california_proposition_65 — chemical warning, keyed on product type.
+ *   pesticide_marking         — FIFRA status; defaults our goods to
+ *                               "not considered a pesticide" (see below).
  *
  * Legal note: LEAD_PRODUCT_TYPES / SILICA_PRODUCT_TYPES are maintained lists.
  * Keep them current for genuinely lead-bearing metal goods and silica-bearing
@@ -67,10 +69,28 @@ final class ComplianceResolvers
         ]];
     }
 
+    /**
+     * pesticide_marking value. Deterministic default for our catalog: none of
+     * the seller's goods are pesticides or pesticide devices under FIFRA, so the
+     * registration_status is fifra_not_considered_pesticide. The schema requires
+     * marking_type per item (registration_status is optional but we always set
+     * it); we use epa_registration_number, matching the dominant catalog shape.
+     * Returns the SP-API attribute value shape (array of one slot object).
+     */
+    public static function pesticideMarking(string $marketplaceId): array
+    {
+        return [[
+            'marking_type'        => 'epa_registration_number',
+            'registration_status' => 'fifra_not_considered_pesticide',
+            'marketplace_id'      => $marketplaceId,
+        ]];
+    }
+
     /** Does a deterministic resolver exist for this compliance attribute? */
     public static function has(string $attr): bool
     {
-        return $attr === 'california_proposition_65';
+        return $attr === 'california_proposition_65'
+            || $attr === 'pesticide_marking';
     }
 
     /**
@@ -81,6 +101,7 @@ final class ComplianceResolvers
     {
         return match ($attr) {
             'california_proposition_65' => self::prop65($productType, $marketplaceId),
+            'pesticide_marking'         => self::pesticideMarking($marketplaceId),
             default                     => null,
         };
     }

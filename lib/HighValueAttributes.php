@@ -40,6 +40,7 @@ final class HighValueAttributes
         'product_description',
         'generic_keyword',
         'brand',
+        'model_name', // buyers filter/search on it; keeps it out of the title as a repeated MPN
         'color',
         'material',
         'size',

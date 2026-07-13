@@ -26,9 +26,26 @@ declare(strict_types=1);
  * Hand-editable, array-return (matches lib/ComplianceAttributes.php /
  * lib/UsurperAttributeMap.php). Each entry:
  *   'value'     mixed   the default (null for document-only defaults).
+ *   'shape'     string  optional SP-API value shape the draft pass builds
+ *                       (marketplace_id injected at runtime):
+ *                         'value'        → [{value, marketplace_id}]  (bool/enum-string)
+ *                         'localized'    → [{value, language_tag:en_US, marketplace_id}]
+ *                         'gift_options' → [{can_be_messaged, can_be_wrapped, marketplace_id}]
+ *                       omit for a plain scalar (e.g. product_tax_code) that
+ *                       lib/AmazonPatch::formatPatchValue wraps on its own.
  *   'unit'      string  (unit_count only) the unit-count-type value, e.g. "count".
+ *   'can_be_messaged' bool  (gift_options only) gift-message availability.
+ *   'can_be_wrapped'  bool  (gift_options only) gift-wrap availability.
  *   'condition' string  optional gate: 'not_variation' skips variation members.
  *   'note'      string  optional provenance note stored on the draft entry.
+ *
+ * NOTE (2026-07-10): the boolean/enum defaults below encode stakeholder-mandated
+ * fixed values verified against the SP-API schema enums. "California Air
+ * Resources Board (CARB): Exempt" from the stakeholder list has NO attribute in
+ * this marketplace's schema corpus (it exists only on composite-wood/furniture
+ * product types Amazon does not expose here), so it is intentionally omitted.
+ * Prop 65 and pesticide_marking are NOT here — they hard-block when unresolved,
+ * so they live in lib/ComplianceAttributes.php + lib/ComplianceResolvers.php.
  */
 return [
     // --- NULL defaults (document-only; never patched) ------------------------
@@ -46,4 +63,22 @@ return [
     // --- VALUE defaults (real values; fill-missing, patched normally) --------
     'product_tax_code' => ['value' => 'A_GEN_TAX'],
     'unit_count'       => ['value' => 1, 'unit' => 'count', 'condition' => 'not_variation'],
+
+    // --- Stakeholder fixed regulatory/handling defaults (2026-07-10) ---------
+    // Dangerous Goods Regulation: NO → "not_applicable" (enum).
+    'supplier_declared_dg_hz_regulation' => ['value' => 'not_applicable', 'shape' => 'value'],
+    // Product Subject to Buyer's Age Restrictions: NO.
+    'is_this_product_subject_to_buyer_age_restrictions' => ['value' => false, 'shape' => 'value'],
+    // Safety attestation (GPSR): YES.
+    'gpsr_safety_attestation' => ['value' => true, 'shape' => 'value'],
+    // Ships Globally: YES (some fringe use cases).
+    'ships_globally' => ['value' => true, 'shape' => 'value'],
+    // Has Replaceable Battery: NO.
+    'has_replaceable_battery' => ['value' => false, 'shape' => 'value'],
+    // Contains Liquid Contents: NO.
+    'contains_liquid_contents' => ['value' => false, 'shape' => 'value'],
+    // Warranty Description (localized string; language_tag is schema-required).
+    'warranty_description' => ['value' => 'Limited Manufacturer Direct', 'shape' => 'localized'],
+    // Gift Message: NO, Gift Wrap: NO.
+    'gift_options' => ['shape' => 'gift_options', 'can_be_messaged' => false, 'can_be_wrapped' => false],
 ];

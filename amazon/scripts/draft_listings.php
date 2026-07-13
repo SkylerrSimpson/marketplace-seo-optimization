@@ -323,6 +323,30 @@ function listingAsin(array $listing): string
 }
 
 /**
+ * Chemicals a listing declares PRESENT via a California Proposition 65 chemical
+ * warning. Amazon treats an accepted Prop 65 entry as canon, so AI-authored
+ * substance-exclusion claims (e.g. material_type_free "BPA Free") must not
+ * contradict it. Returns the declared chemical name tokens, deduped, verbatim
+ * from the listing (e.g. "bisphenol_a_bpa"); the prompt tells the model to treat
+ * common abbreviations as covered too.
+ *
+ * @return list<string>
+ */
+function declaredProp65Chemicals(array $listing): array
+{
+    $out = [];
+    foreach ($listing['attributes']['california_proposition_65'] ?? [] as $entry) {
+        foreach ($entry['chemical_names'] ?? [] as $name) {
+            $name = trim((string) $name);
+            if ($name !== '') {
+                $out[$name] = true;
+            }
+        }
+    }
+    return array_keys($out);
+}
+
+/**
  * Resolve a fillable attribute from the Usurper row using the attribute map.
  *
  * bullet_point is multi-source: collect ALL non-empty feature columns so the
@@ -533,7 +557,8 @@ function buildPrompt(
     string $description,
     array  $features,
     array  $attrs,
-    array  $schemaProps
+    array  $schemaProps,
+    array  $prop65Chemicals = []
 ): string {
     $featuresText = '';
     foreach (array_filter($features) as $f) {
@@ -550,6 +575,24 @@ function buildPrompt(
     }
 
     $attrList = implode(', ', $attrs);
+
+    // Declared compliance state (Amazon-accepted, authoritative). When the
+    // listing carries a Prop 65 chemical warning, the product is CERTIFIED to
+    // contain those chemicals — so the model must not author a contradictory
+    // "free of X" claim (material_type_free's whole purpose is excluded
+    // substances, e.g. "BPA Free"). Only emitted when chemicals are declared,
+    // so the common case is unchanged.
+    $complianceBlock = '';
+    if ($prop65Chemicals !== []) {
+        $chemList = implode(', ', $prop65Chemicals);
+        $complianceBlock = "\n=== DECLARED COMPLIANCE STATE (authoritative — do not contradict) ==="
+            . "\nThis listing carries a California Proposition 65 chemical warning declaring the "
+            . "product CONTAINS: {$chemList}."
+            . "\nDo NOT state or imply the product is free of, excludes, or does not contain any of "
+            . "these substances — including their common abbreviations (e.g. \"BPA\" for "
+            . "bisphenol_a_bpa). For example, do not answer \"BPA Free\" for material_type_free; "
+            . "return null there instead of a contradictory claim.\n";
+    }
 
     // Amazon modular titles (effective 2026-07-27): item_name <= 75 chars and a
     // supplementary title_differentiation <= 125 chars, only usable when
@@ -581,7 +624,7 @@ Title: {$title}
 Brand: {$brand}
 Description: {$description}
 Features:
-{$featuresText}
+{$featuresText}{$complianceBlock}
 === MISSING ATTRIBUTES ==={$attrsBlock}
 === INSTRUCTIONS ===
 - Suggest one value per attribute based on the product context.
@@ -621,7 +664,8 @@ function buildItemNamePrompt(
     return <<<PROMPT
 You are an Amazon SP-API listing specialist. Amazon's modular titles (effective
 2026-07-27) require item_name to be 75 characters or fewer. Write ONE concise,
-keyword-rich item_name of AT MOST 75 characters for the product below.
+keyword-rich, SEO-optimized item_name of AT MOST 75 characters for the product
+below — a shopper-facing title, not a part number.
 
 Prefer condensing the existing title if one is provided; keep the brand and the
 most important product identity. Do not exceed 75 characters.
@@ -635,6 +679,11 @@ Description: {$description}
 Features:
 {$featuresText}
 === INSTRUCTIONS ===
+- Write a real, human-readable SEO title: brand + what the product IS + its most
+  searchable attributes (material, size, color, use). Lead with the brand.
+- Do NOT output the SKU, MPN, or a model/part number as the title, and do NOT
+  repeat any identifier. If the existing title is just a code or model number,
+  ignore it and describe the product from the type, brand, and features instead.
 - Return ONLY a valid JSON object: {"item_name": "<= 75 char title"}.
 - No markdown fences, no explanation.
 PROMPT;
@@ -765,6 +814,22 @@ foreach ($gaps as $sku => $rows) {
         fn($r) => !in_array($r['attribute'], $complianceAttrs, true),
     );
 
+    // Stakeholder fixed defaults (those with a concrete value/shape, not the
+    // null document-only ones) are NEVER AI-authored either — the defaults pass
+    // below fills them deterministically. Without this, a required attribute like
+    // supplier_declared_dg_hz_regulation (required on ~all product types) would be
+    // AI-authored first and the fill-missing default would never apply. Fillable
+    // values from Usurper/catalog still win (they populate $draftAttrs before the
+    // defaults pass); only AI invention is barred.
+    $deterministicDefaults = array_keys(array_filter(
+        $defaultAttrs,
+        fn($spec) => isset($spec['shape']) || ($spec['value'] ?? null) !== null,
+    ));
+    $authoringRows = array_filter(
+        $authoringRows,
+        fn($r) => !in_array($r['attribute'], $deterministicDefaults, true),
+    );
+
     // Variation identifiers (stakeholder 4): never AI-author a variation-theme
     // attribute for a variation member. Several of these (material, color, size)
     // live in the high-value allowlist, so without this a variation member would
@@ -791,6 +856,11 @@ foreach ($gaps as $sku => $rows) {
     }
 
     $draftAttrs = [];
+
+    // Declared Prop 65 chemicals for this SKU — fed to the AI prompt so it never
+    // authors a substance-exclusion claim that contradicts an Amazon-accepted
+    // (canonical) warning. Computed once; empty for the common non-warning case.
+    $prop65Chemicals = declaredProp65Chemicals($listing);
 
     // --- Resolve fillable attributes from Usurper ---
     foreach ($fillableRows as $row) {
@@ -948,7 +1018,7 @@ foreach ($gaps as $sku => $rows) {
                 // per-attribute heuristic for output tokens.
                 if (isset($costEst[$batchModel])) {
                     foreach ($chunks as $chunk) {
-                        $prompt = buildPrompt($sku, $productType, $title, $brand, $description, $features, $chunk, $schemaProps);
+                        $prompt = buildPrompt($sku, $productType, $title, $brand, $description, $features, $chunk, $schemaProps, $prop65Chemicals);
                         $costEst[$batchModel]['in'] += (int) ceil(strlen($prompt) / 4);
                         foreach ($chunk as $a) {
                             $costEst[$batchModel]['out'] += estOutputTokens($a, $schemaProps[$a] ?? []);
@@ -987,7 +1057,8 @@ foreach ($gaps as $sku => $rows) {
                         $description,
                         $features,
                         $chunk,
-                        $schemaProps
+                        $schemaProps,
+                        $prop65Chemicals
                     );
 
                     try {
@@ -1295,26 +1366,54 @@ foreach ($gaps as $sku => $rows) {
 
         $val   = $spec['value'] ?? null;
         $entry = ['is_required' => false, 'source' => 'default'];
+        $shape = $spec['shape'] ?? (isset($spec['unit']) ? 'unit' : null);
 
-        if (isset($spec['unit'])) {
-            // Shaped numeric+unit value (unit_count): pass through unchanged.
-            $entry['value'] = [[
-                'value'          => $val,
-                'type'           => ['language_tag' => 'en_US', 'value' => $spec['unit']],
-                'marketplace_id' => $marketplaceId,
-            ]];
-            $entry['raw_value'] = true;
-        } else {
-            $entry['value'] = $val; // scalar (e.g. A_GEN_TAX) or null
+        switch ($shape) {
+            case 'unit':
+                // Shaped numeric+unit value (unit_count): pass through unchanged.
+                $entry['value'] = [[
+                    'value'          => $val,
+                    'type'           => ['language_tag' => 'en_US', 'value' => $spec['unit']],
+                    'marketplace_id' => $marketplaceId,
+                ]];
+                $entry['raw_value'] = true;
+                break;
+            case 'value':
+                // Single-value slot (boolean or enum string), e.g. ships_globally.
+                $entry['value']     = [['value' => $val, 'marketplace_id' => $marketplaceId]];
+                $entry['raw_value'] = true;
+                break;
+            case 'localized':
+                // Localized string slot; language_tag is schema-required here.
+                $entry['value'] = [[
+                    'value'          => $val,
+                    'language_tag'   => 'en_US',
+                    'marketplace_id' => $marketplaceId,
+                ]];
+                $entry['raw_value'] = true;
+                break;
+            case 'gift_options':
+                // Two-boolean slot (gift message / gift wrap).
+                $entry['value'] = [[
+                    'can_be_messaged' => (bool) ($spec['can_be_messaged'] ?? false),
+                    'can_be_wrapped'  => (bool) ($spec['can_be_wrapped'] ?? false),
+                    'marketplace_id'  => $marketplaceId,
+                ]];
+                $entry['raw_value'] = true;
+                break;
+            default:
+                $entry['value'] = $val; // scalar (e.g. A_GEN_TAX) or null
         }
 
         $entry['note'] = $spec['note']
-            ?? ($val === null ? 'stakeholder default; not patched' : 'stakeholder default');
+            ?? ($val === null && $shape === null ? 'stakeholder default; not patched' : 'stakeholder default');
 
         $draftAttrs[$dAttr] = $entry;
-        echo '  default: ' . $dAttr . ' = '
-            . ($val === null ? 'null (document-only)' : (is_scalar($val) ? (string) $val : 'shaped'))
-            . PHP_EOL;
+        $shown = $shape === 'gift_options'
+            ? 'shaped (gift_options)'
+            : ($shape !== null ? 'shaped (' . var_export($val, true) . ')'
+                : ($val === null ? 'null (document-only)' : (is_scalar($val) ? (string) $val : 'shaped')));
+        echo '  default: ' . $dAttr . ' = ' . $shown . PHP_EOL;
     }
 
     // --- Modular-title coupling (Amazon 2026-07-27) -------------------------
