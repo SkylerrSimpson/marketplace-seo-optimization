@@ -53,3 +53,29 @@ function ebay_dir(string $account, string $subdir): string
     }
     return $path;
 }
+
+// --- Walmart data directories -----------------------------------------------
+// Walmart is PER-COUNTRY (US, CA — separate seller accounts/credentials), mirroring
+// the eBay per-account split. US is the higher-priority marketplace.
+define('WALMART_DATA', REPO_ROOT . '/walmart/data');
+
+/**
+ * Per-country Walmart data path. Subdir is one of input|drafts|output.
+ *   walmart_dir('us', 'input')  => REPO_ROOT/walmart/data/us/input
+ * Creates the directory if missing so scripts can write without pre-checks.
+ */
+function walmart_dir(string $country, string $subdir): string
+{
+    $country = strtolower(trim($country));
+    if (!in_array($country, ['us', 'ca'], true)) {
+        throw new InvalidArgumentException("walmart_dir country must be us|ca, got: {$country}");
+    }
+    if (!in_array($subdir, ['input', 'drafts', 'output'], true)) {
+        throw new InvalidArgumentException("walmart_dir subdir must be input|drafts|output, got: {$subdir}");
+    }
+    $path = WALMART_DATA . "/{$country}/{$subdir}";
+    if (!is_dir($path)) {
+        mkdir($path, 0775, true);
+    }
+    return $path;
+}

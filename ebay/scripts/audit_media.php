@@ -29,13 +29,21 @@ declare(strict_types=1);
  *   media/{itemId}.json   per-listing: price, images[], image_count, eps stats,
  *                         description (HTML), short_description, revision, status,
  *                         children[] (variation listings only -- see below)
- *   media_summary.csv     one row per listing (the eyeball/triage sheet), now
- *                         including parent_image_count / child_image_count_total
+ *   media_summary.csv     ONE merged sheet, one PARENT row per listing (the
+ *                         eyeball/triage columns: image_count, eps stats, zoom
+ *                         thresholds, desc presence, parent_image_count /
+ *                         child_image_count_total) immediately followed by one
+ *                         CHILD row per variation SKU (Patrick's ask, 2026-07-08:
+ *                         each child's own image count vs how many of those are
+ *                         shared with every other child ("parent" images) vs
+ *                         unique to that child). row_type distinguishes the two;
+ *                         parent-only columns are blank on child rows and vice
+ *                         versa -- same shape as gtin_report's parent+child rows.
+ *                         Was two separate files (media_summary.csv +
+ *                         media_variation_images.csv) until 2026-07-10; merged
+ *                         after Ethan was sent the parent-only file and couldn't
+ *                         see per-variation images at all.
  *   media_images.csv      one row per image (item_id, pos, url, w, h, host, is_eps)
- *   media_variation_images.csv  one row per variation child (Patrick's ask,
- *                         2026-07-08): its own image count vs how many of those
- *                         are shared with every other child ("parent" images)
- *                         vs unique to that child ("child SKU" images).
  *
  * Parent vs child SKU images: Browse API's get_items_by_item_group returns each
  * variation with its OWN primary image + additionalImages (no shared "parent
@@ -119,9 +127,18 @@ echo "=== media audit: {$account} (" . $client->env() . ") ===\n";
 echo "listings to audit: " . count($ids) . ($refresh ? " (refresh)" : " (resumable)") . "\n";
 
 $done = 0; $fetched = 0; $skipped = 0; $errors = 0;
-$rows = [];          // summary rows keyed by item_id
+$rows = [];          // summary rows keyed by item_id (used for the aggregate report)
 $imgRows = [];       // flat image rows
-$varRows = [];       // per-variation-child image rows
+$varRows = [];       // per-variation-child image rows (used for the aggregate report)
+$allRows = [];       // merged parent+child rows, in listing order -- what gets written to media_summary.csv
+
+const SUMMARY_COLUMNS = [
+    'item_id', 'row_type', 'sku', 'child_item_id', 'match_method', 'title',
+    'image_url', 'image_count', 'unique_images', 'shared_with_parent_images',
+    'eps_images', 'non_eps_images', 'all_eps', 'min_long_px', 'max_long_px',
+    'below_zoom_800', 'below_ideal', 'desc_html_len', 'desc_text_len', 'has_desc',
+    'is_group', 'variation_count', 'parent_image_count', 'child_image_count_total',
+];
 
 foreach ($ids as $itemId) {
     $itemId = (string) $itemId;
@@ -168,6 +185,7 @@ foreach ($ids as $itemId) {
     $children = $snap['children'] ?? [];
     $parentImageCount = count($images);   // default for solo listings: no split
     $childImageCountTotal = 0;
+    $childSummaryRows = [];
     if ($children !== []) {
         $commonUrls = null;
         foreach ($children as $c) {
@@ -183,6 +201,17 @@ foreach ($ids as $itemId) {
             $varRows[] = [
                 $itemId, $c['sku'], $c['child_item_id'], $c['match_method'],
                 $total, $unique, $total - $unique,
+            ];
+            $childSummaryRows[] = [
+                'item_id' => $itemId, 'row_type' => 'child', 'sku' => $c['sku'],
+                'child_item_id' => $c['child_item_id'], 'match_method' => $c['match_method'],
+                'title' => '', 'image_url' => '', 'image_count' => $total,
+                'unique_images' => $unique, 'shared_with_parent_images' => $total - $unique,
+                'eps_images' => '', 'non_eps_images' => '', 'all_eps' => '',
+                'min_long_px' => '', 'max_long_px' => '', 'below_zoom_800' => '',
+                'below_ideal' => '', 'desc_html_len' => '', 'desc_text_len' => '',
+                'has_desc' => '', 'is_group' => '', 'variation_count' => '',
+                'parent_image_count' => '', 'child_image_count_total' => '',
             ];
         }
     }
@@ -209,26 +238,44 @@ foreach ($ids as $itemId) {
         'child_image_count_total' => $childImageCountTotal,
     ];
 
+    // --- merged sheet: parent row immediately followed by its child rows ------
+    $r = $rows[$itemId];
+    $allRows[] = [
+        'item_id' => $itemId, 'row_type' => 'parent', 'sku' => $r['sku'],
+        'child_item_id' => '', 'match_method' => '', 'title' => $r['title'],
+        'image_url' => $r['image_url'], 'image_count' => $r['image_count'],
+        'unique_images' => '', 'shared_with_parent_images' => '',
+        'eps_images' => $r['eps_images'], 'non_eps_images' => $r['non_eps_images'],
+        'all_eps' => $r['all_eps'], 'min_long_px' => $r['min_long_px'],
+        'max_long_px' => $r['max_long_px'], 'below_zoom_800' => $r['below_zoom_800'],
+        'below_ideal' => $r['below_ideal'], 'desc_html_len' => $r['desc_html_len'],
+        'desc_text_len' => $r['desc_text_len'], 'has_desc' => $r['has_desc'],
+        'is_group' => $r['is_group'], 'variation_count' => $r['variation_count'],
+        'parent_image_count' => $r['parent_image_count'],
+        'child_image_count_total' => $r['child_image_count_total'],
+    ];
+    foreach ($childSummaryRows as $cr) {
+        $cr['title'] = $r['title']; // filled in now that the parent title is known
+        $allRows[] = $cr;
+    }
+
     if ($done % 50 === 0) { echo "  {$done}/" . count($ids) . " (fetched {$fetched}, skipped {$skipped}, err {$errors})\n"; }
 }
 
 // --- write roll-ups ------------------------------------------------------------
+// Merged sheet: one parent row per listing immediately followed by its child rows
+// (if any). row_type distinguishes the two; parent-only columns are blank on child
+// rows and vice versa. See SUMMARY_COLUMNS / the file header comment.
 $sumPath = $outDir . '/media_summary.csv';
 $fh = fopen($sumPath, 'w');
-fputcsv($fh, array_keys(reset($rows) ?: ['item_id' => '']));
-foreach ($rows as $r) { fputcsv($fh, $r); }
+fputcsv($fh, SUMMARY_COLUMNS);
+foreach ($allRows as $r) { fputcsv($fh, $r); }
 fclose($fh);
 
 $imgPath = $outDir . '/media_images.csv';
 $fh = fopen($imgPath, 'w');
 fputcsv($fh, ['item_id', 'position', 'url', 'width', 'height', 'host', 'is_eps']);
 foreach ($imgRows as $r) { fputcsv($fh, $r); }
-fclose($fh);
-
-$varPath = $outDir . '/media_variation_images.csv';
-$fh = fopen($varPath, 'w');
-fputcsv($fh, ['item_id', 'sku', 'child_item_id', 'match_method', 'total_images', 'unique_images', 'shared_with_parent_images']);
-foreach ($varRows as $r) { fputcsv($fh, $r); }
 fclose($fh);
 
 // --- aggregate report ----------------------------------------------------------
@@ -249,7 +296,7 @@ printf("  listings with a non-EPS image: %d\n", $anyNonEps);
 printf("  listings below 800px zoom min: %d\n", $belowZoom);
 printf("  listings with NO description:  %d\n", $noDesc);
 printf("  variation listings: %d | variation children: %d (%d unmatched to a SKU)\n", $totVarListings, count($varRows), $unmatchedSkus);
-echo "  {$sumPath}\n  {$imgPath}\n  {$varPath}\n  {$mediaDir}/{itemId}.json\n";
+echo "  {$sumPath}\n  {$imgPath}\n  {$mediaDir}/{itemId}.json\n";
 
 // --- helpers -------------------------------------------------------------------
 
