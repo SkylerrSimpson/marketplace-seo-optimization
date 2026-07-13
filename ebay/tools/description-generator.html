@@ -13,7 +13,7 @@
   .row { display: flex; gap: 10px; align-items: flex-start; }
   .row input { flex: 1; }
   .row button { flex: 0 0 auto; }
-  .counter { font-size: 10px; color: #888; margin: -8px 0 8px; }
+  .counter { font-size: 10px; color: #888; margin: 2px 0 10px; }
   .counter.over { color: #c00; font-weight: bold; }
   #preview { border: 1px solid #ddd; padding: 16px; background: #fafafa; }
   .cols { display: flex; gap: 24px; flex-wrap: wrap; }
@@ -31,7 +31,7 @@ Key Features, Product Specifications, the Prop65 warning badge, and a store foot
 <div>
   <h3>Store</h3>
   <select id="store" onchange="refreshPreview()">
-    <option value="dows">Deals Only Webstore</option>
+    <option value="dows">Deals Only Web Store</option>
     <option value="irongate">Irongate Enterprises</option>
   </select>
 
@@ -46,10 +46,13 @@ Key Features, Product Specifications, the Prop65 warning badge, and a store foot
   <textarea id="mobileDesc" placeholder="Mobile Description (required by eBay — short summary, 800 char cap incl. tags)" maxlength="800" rows="3" style="margin-bottom:0"></textarea>
   <div class="counter" id="lenMobile">0/800</div>
 
-  <textarea id="shortDesc" placeholder="Description (the intro paragraph — line breaks kept)" rows="5"></textarea>
-  <textarea id="fullDesc" placeholder="Second Description (optional, shown at the bottom — line breaks kept)" rows="4"></textarea>
+  <textarea id="shortDesc" placeholder="Description (the intro paragraph — line breaks kept)" rows="5" style="margin-bottom:0"></textarea>
+  <div class="counter" id="lenShortDesc">0 chars</div>
+  <textarea id="fullDesc" placeholder="Second Description (optional, shown at the bottom — line breaks kept)" rows="4" style="margin-bottom:0"></textarea>
+  <div class="counter" id="lenFullDesc">0 chars</div>
 
-  <input id="imageURL" placeholder="Main Image URL (optional)">
+  <input id="imageURL" placeholder="Main Image URL (optional)" style="margin-bottom:0">
+  <div class="counter" id="urlError"></div>
 
   <h3>Key Features</h3>
   <p class="hint" style="margin-bottom:6px">Tip: write <b>Label: detail</b> to bold the label (e.g. <i>Blade: full-tang stainless</i>).</p>
@@ -88,17 +91,17 @@ Key Features, Product Specifications, the Prop65 warning badge, and a store foot
 <script>
 // ---- store directory (drives header brand + Our Store link) ----------------
 const STORES = {
-  dows:     { brand: "Deals Only Webstore",  slug: "dealsonlywebstore" },
+  dows:     { brand: "Deals Only Web Store", slug: "dealsonlywebstore" },
   irongate: { brand: "Irongate Enterprises", slug: "irongateamericansupply" }
 };
 
-// Prop65 badge (2026-07-13 change): same generic image ASRoutdoor.com uses on
-// its own product descriptions, embedded on every listing regardless of
-// brand/category, alt text required. 
-// *******
-// Might change the img src to AWS at a later date if needed??
+// Prop65 badge. Rehosted 2026-07-14 off the Shopify CDN to an eBay/DOWS-controlled
+// S3 bucket (public object URL -- NOT a presigned URL; presigned URLs expire, e.g.
+// X-Amz-Expires=300 is only 5 minutes, which would break the image almost
+// immediately). Embedded on every listing regardless of brand/category (except
+// Gear Aid, see the showProp65 checkbox above), alt text required.
 const PROP65_BADGE_HTML =
-  '  <p style="text-align:center;margin:16px 0 0"><img src="https://cdn.shopify.com/s/files/1/0783/2056/6572/files/Shopify_Prop65graphic_480x480.jpg?v=1692130729" alt="California Proposition 65 warning" style="display:block;margin-left:auto;margin-right:auto" height="78" width="273"></p>\n';
+  '  <p style="text-align:center;margin:16px 0 0"><img src="https://s3.us-east-1.amazonaws.com/DOWS_photobucket/Shopify_Prop65graphic.jpg" alt="California Proposition 65 warning" style="display:block;margin-left:auto;margin-right:auto" height="78" width="273"></p>\n';
 
 // ---- js helper functions ---------------------------------------------------------------
 
@@ -133,6 +136,42 @@ mobileDesc.addEventListener("input", () => {
   const n = esc(oneLine(mobileDesc.value)).length;
   lenMobile.textContent = n + "/800 (eBay count, escaped)";
   lenMobile.classList.toggle("over", n > 800);
+});
+
+// eBay's Trading API ItemType.Description field has a documented 500,000-character limit
+const EBAY_DESCRIPTION_MAX = 500000;
+function wireLengthCounter(fieldId, counterId) {
+  const field = document.getElementById(fieldId);
+  const counter = document.getElementById(counterId);
+  field.addEventListener("input", () => {
+    const n = field.value.length;
+    counter.textContent = n.toLocaleString() + " chars"
+      + (n > EBAY_DESCRIPTION_MAX ? " (exceeds eBay's " + EBAY_DESCRIPTION_MAX.toLocaleString() + "-char Description limit)" : "");
+    counter.classList.toggle("over", n > EBAY_DESCRIPTION_MAX);
+  });
+}
+wireLengthCounter("shortDesc", "lenShortDesc"); //add the validation in the form of listners
+wireLengthCounter("fullDesc", "lenFullDesc");
+
+// Main Image URL: must be a syntactically valid http(s) URL when non-empty (it's an
+// optional field -- blank is fine, a malformed value is not, since eBay would just
+// show a broken image).
+function isValidImageUrl(s) {
+  if (!s) return true;
+  try {
+    const u = new URL(s);
+    return u.protocol === "http:" || u.protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+const imageURLField = document.getElementById("imageURL");
+const urlError = document.getElementById("urlError");
+imageURLField.addEventListener("input", () => {
+  const ok = isValidImageUrl(imageURLField.value.trim());
+  urlError.textContent = ok ? "" : "Not a valid http(s) URL";
+  urlError.classList.toggle("over", !ok);
+  imageURLField.style.borderColor = ok ? "" : "#c00";
 });
 
 // Escape, then drop whole trailing words until the escaped source fits eBay's 800 cap.
@@ -255,6 +294,11 @@ function refreshPreview() {
 }
 
 function generateHTML() {
+  if (!isValidImageUrl(imageURLField.value.trim())) {
+    alert("Main Image URL isn't a valid http(s) URL — fix it before generating.");
+    imageURLField.focus();
+    return;
+  }
   const html = refreshPreview();
   document.getElementById("output").value = html;
   navigator.clipboard.writeText(html).then(

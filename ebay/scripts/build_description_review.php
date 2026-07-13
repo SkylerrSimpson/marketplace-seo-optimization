@@ -56,24 +56,28 @@ if (!is_dir($descDir)) { mkdir($descDir, 0775, true); }
 // like the generator's dropdown. Slugs verified from the live listing HTML.
 // (Contact Us link removed 2026-07 per Ethan.)
 $STORES = [
-    'dows' => ['brand' => 'Deals Only Webstore',  'slug' => 'dealsonlywebstore'],
+    'dows' => ['brand' => 'Deals Only Web Store', 'slug' => 'dealsonlywebstore'],
     'ige'  => ['brand' => 'Irongate Enterprises', 'slug' => 'irongateamericansupply'],
 ];
 $store = $STORES[$account] ?? $STORES['dows'];
 
 // Prop65 policy change (2026-07): the warning no longer lives as an item specific
 // (see mark_prop65_delete.php / ebay/docs/review-rules.md §3) — it lives here
-// instead, as the same generic badge image ASRoutdoor.com already uses on its own
+// instead, as the same generic badge image ASRoutdoor.com originally used on its own
 // product descriptions (confirmed via a live product fetch: one image, no
 // per-chemical text). Alt text matches the existing convention for this exact image
 // in shopify/scripts/apply_product_desc_image_alts.php:27.
+//
+// Image rehosted 2026-07-14: moved off the Shopify CDN to an eBay/DOWS-controlled S3
+// bucket (per user request), removing the dependency on ASRoutdoor's Shopify store
+// staying up / that asset staying at that URL indefinitely.
 //
 // EXCEPTION (Ethan, 2026-07-14): Gear Aid branded items get NO Prop65 label
 // anywhere — same exception the old item-specific rule had (apply_review_rules.php's
 // former rule #2). Detected by title, same isGearAid() logic/threshold as that rule
 // (52 DOWS / 86 IGE, confirmed against items/{id}.json titles). The manual generator
 // tool (ebay/tools/description-generator.html) has a matching checkbox, default on.
-const PROP65_BADGE_URL = 'https://cdn.shopify.com/s/files/1/0783/2056/6572/files/Shopify_Prop65graphic_480x480.jpg?v=1692130729';
+const PROP65_BADGE_URL = 'https://s3.us-east-1.amazonaws.com/DOWS_photobucket/Shopify_Prop65graphic.jpg';
 const PROP65_BADGE_ALT = 'California Proposition 65 warning';
 
 function isGearAid(string $title): bool
