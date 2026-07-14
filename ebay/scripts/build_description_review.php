@@ -44,23 +44,6 @@ declare(strict_types=1);
 
 require __DIR__ . '/../../lib/bootstrap.php';
 
-$opts    = getopt('', ['account:', 'help']);
-if (isset($opts['help'])) { fwrite(STDOUT, "Usage: php build_description_review.php --account=dows|ige\n"); exit(0); }
-$account = strtolower((string) ($opts['account'] ?? 'dows'));
-$outDir  = ebay_dir($account, 'output');
-$mediaDir = $outDir . '/media';
-$descDir  = $outDir . '/descriptions';
-if (!is_dir($descDir)) { mkdir($descDir, 0775, true); }
-
-// Store directory — drives the header brand + Our Store link and footer, exactly
-// like the generator's dropdown. Slugs verified from the live listing HTML.
-// (Contact Us link removed 2026-07 per Ethan.)
-$STORES = [
-    'dows' => ['brand' => 'Deals Only Web Store', 'slug' => 'dealsonlywebstore'],
-    'ige'  => ['brand' => 'Irongate Enterprises', 'slug' => 'irongateamericansupply'],
-];
-$store = $STORES[$account] ?? $STORES['dows'];
-
 // Prop65 policy change (2026-07): the warning no longer lives as an item specific
 // (see mark_prop65_delete.php / ebay/docs/review-rules.md §3) — it lives here
 // instead, as the same generic badge image ASRoutdoor.com originally used on its own
@@ -77,6 +60,10 @@ $store = $STORES[$account] ?? $STORES['dows'];
 // former rule #2). Detected by title, same isGearAid() logic/threshold as that rule
 // (52 DOWS / 86 IGE, confirmed against items/{id}.json titles). The manual generator
 // tool (ebay/tools/description-generator.html) has a matching checkbox, default on.
+//
+// This block (consts + isGearAid()) is deliberately OUTSIDE the DESC_REVIEW_LIB_ONLY
+// guard below -- `const` can't be declared inside a conditional in PHP, and other
+// scripts that `require` this file as a library need these regardless.
 const PROP65_BADGE_URL = 'https://s3.us-east-1.amazonaws.com/DOWS_photobucket/Shopify_Prop65graphic.jpg';
 const PROP65_BADGE_ALT = 'California Proposition 65 warning';
 
@@ -85,6 +72,36 @@ function isGearAid(string $title): bool
     $t = mb_strtolower($title);
     return strpos($t, 'gear aid') !== false || strpos($t, 'gearaid') !== false;
 }
+
+/** Store directory — drives the header brand + Our Store link and footer, exactly
+ *  like the generator's dropdown. Slugs verified from the live listing HTML.
+ *  (Contact Us link removed 2026-07 per Ethan.) Outside the guard so any consumer
+ *  of this file as a library gets the same mapping — no separate copy to drift. */
+function storeForAccount(string $account): array
+{
+    $stores = [
+        'dows' => ['brand' => 'Deals Only Web Store', 'slug' => 'dealsonlywebstore'],
+        'ige'  => ['brand' => 'Irongate Enterprises', 'slug' => 'irongateamericansupply'],
+    ];
+    return $stores[$account] ?? $stores['dows'];
+}
+
+// Guard so other scripts can `define('DESC_REVIEW_LIB_ONLY', true); require` this
+// file to reuse renderFull()/renderSpecs()/esc()/mobileSummary()/imageAltText()/
+// stripIdentifiers() -- the exact same template code every listing goes through --
+// without re-running this file's own CLI pipeline (which would overwrite
+// description_review.csv wholesale). See merge_legacy_template.php for the consumer.
+if (!defined('DESC_REVIEW_LIB_ONLY')) {
+
+$opts    = getopt('', ['account:', 'help']);
+if (isset($opts['help'])) { fwrite(STDOUT, "Usage: php build_description_review.php --account=dows|ige\n"); exit(0); }
+$account = strtolower((string) ($opts['account'] ?? 'dows'));
+$outDir  = ebay_dir($account, 'output');
+$mediaDir = $outDir . '/media';
+$descDir  = $outDir . '/descriptions';
+if (!is_dir($descDir)) { mkdir($descDir, 0775, true); }
+
+$store = storeForAccount($account);
 
 $packPath = $outDir . '/desc_source_pack.jsonl';
 if (!is_file($packPath)) {
@@ -229,6 +246,8 @@ printf("total listings: %d  (authored %d, fallback %d)\n", $total, $authoredCoun
 printf("titles changed: %d  (rejected for >80 chars: %d)\n", $titleChanged, $titleRejected);
 echo "  {$outDir}/description_review.csv\n  {$descDir}/{itemId}.html\n";
 
+} // end DESC_REVIEW_LIB_ONLY guard
+
 // --- renderers -----------------------------------------------------------------
 
 /**
@@ -288,8 +307,14 @@ function renderFull(array $store, string $title, string $factual, string $sales,
     $storeUrl   = esc('https://www.ebay.com/str/' . $store['slug']);
     $year    = date('Y');
 
+    // margin:0 auto centers the 800px block on the page (reverted 2026-07-13 -- the
+    // margin:0 flush-left variant tried on 2026-07-14 per Ethan's "gray header bar
+    // looks off-center" complaint made the whole block stick to the left edge on wide
+    // pages instead, which read worse. Back to centered; if the header-bar box itself
+    // still looks inconsistent against the surrounding text, that's a narrower fix to
+    // the header box's own styling, not the outer wrapper's margin.
     return <<<HTML
-<div style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.6;color:#222;max-width:800px;margin:0 auto" vocab="https://schema.org/" typeof="Product">
+<div style="font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.6;color:#222;max-width:800px;margin:0 auto" vocab="https://schema.org/" typeof="Product">
   <div style="display:none"><span property="description">{$mob}</span></div>
   <div style="background:#f5f5f5;padding:12px 15px;border:1px solid #e5e5e5;margin:0 0 16px">
     <div style="font-size:18px;font-weight:bold;margin-bottom:6px">{$brand}</div>
