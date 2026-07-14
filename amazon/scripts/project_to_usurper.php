@@ -427,7 +427,12 @@ $ts      = date('Y-m-d-H-i-s');
 $outFile = $paths['output'] . '/usurper_update_' . $ts . '.csv';
 $fh      = fopen($outFile, 'w');
 
-fputcsv($fh, $allCols);
+// Write strict RFC-4180: enclosure '"', escape DISABLED. This must mirror how
+// UsurperExport.php READS (escape=''), or the round-trip desyncs: a value with a
+// backslash (e.g. a mangled inch mark `Size: 3\"`) written with PHP's default
+// backslash escape re-parses one field short. Empty escape doubles quotes and
+// leaves backslashes literal — the shape Usurper's import and our own reader expect.
+fputcsv($fh, $allCols, ',', '"', '');
 
 $backfilled    = 0;
 $blankRequired = []; // update rows missing a required header even after backfill
@@ -452,7 +457,7 @@ foreach ($backfillRows as $row) {
     foreach ($allCols as $col) {
         $line[] = $cells[$col];
     }
-    fputcsv($fh, $line);
+    fputcsv($fh, $line, ',', '"', '');
 
     // A required header still blank means Usurper already has it blank (no data
     // loss), but the row may be rejected on import — surface it.
@@ -490,13 +495,13 @@ if ($unresolved) {
 
     $unresolvedFile = $paths['output'] . '/usurper_new_or_unresolved_' . $ts . '.csv';
     $ufh            = fopen($unresolvedFile, 'w');
-    fputcsv($ufh, $uCols);
+    fputcsv($ufh, $uCols, ',', '"', '');
     foreach ($unresolved as $row) {
         $line = [];
         foreach ($uCols as $col) {
             $line[] = $row[$col] ?? '';
         }
-        fputcsv($ufh, $line);
+        fputcsv($ufh, $line, ',', '"', '');
     }
     fclose($ufh);
 }
