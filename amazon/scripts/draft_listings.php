@@ -29,6 +29,10 @@ use Anthropic\Client;
  *                             only required + the curated high-value allowlist.
  *   --no-data-gate            Author context-less SKUs instead of flagging them
  *                             needs_human (the old behavior).
+ *   --no-applicability        With --include-recommended, disable the per-product-
+ *                             type applicability filter (author the entire tail
+ *                             including attributes structurally impossible for the
+ *                             product type). No effect on the default scope.
  *   --full                    Umbrella: --include-recommended + --no-data-gate.
  *   --batch-size=N            Max attributes per API call. Default: 20.
  *   --sku=SKU                 Process a single SKU only (for testing).
@@ -50,6 +54,7 @@ use Anthropic\Client;
  *
  * Output:
  *   amazon/data/{account}/drafts/{sku}.json
+ *   amazon/data/schemas/applicability/{PRODUCT_TYPE}.json  (applicability cache)
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';
@@ -57,6 +62,7 @@ require __DIR__ . '/../../lib/UsurperExport.php';
 require __DIR__ . '/../../lib/ComplianceResolvers.php';
 require __DIR__ . '/../../lib/IdentifyingAttributes.php';
 require __DIR__ . '/../../lib/HighValueAttributes.php';
+require __DIR__ . '/../../lib/AttributeApplicability.php';
 
 // Compliance-critical attributes that must always be present (Phase 10, 4c).
 $complianceAttrs = require __DIR__ . '/../../lib/ComplianceAttributes.php';
@@ -76,12 +82,24 @@ $marketplaceId = $_ENV['AMAZON_SPAPI_MARKETPLACE_ID'] ?? 'ATVPDKIKX0DER';
 // base-context borrow: only these known-copy SKUs may inherit context.
 const PLACEHOLDER_SUFFIX_RE = '/-(NCX|FBA)$/';
 
+// Canonical model IDs. One place to bump a version; referenced everywhere else
+// by name so no bare model string is duplicated across the script.
+const MODEL_HAIKU  = 'claude-haiku-4-5';
+const MODEL_SONNET = 'claude-sonnet-4-6';
+const MODEL_OPUS   = 'claude-opus-4-8';
+
 // Model tiers for --model=auto and cost estimation. $ per 1M tokens.
 const MODEL_RATES = [
-    'claude-haiku-4-5'  => ['in' => 1.0, 'out' => 5.0],
-    'claude-sonnet-4-6' => ['in' => 3.0, 'out' => 15.0],
-    'claude-opus-4-8'   => ['in' => 5.0, 'out' => 25.0],
+    MODEL_HAIKU  => ['in' => 1.0, 'out' => 5.0],
+    MODEL_SONNET => ['in' => 3.0, 'out' => 15.0],
+    MODEL_OPUS   => ['in' => 5.0, 'out' => 25.0],
 ];
+
+// Model for the standalone modular item_name suggestion. Condensing an existing
+// title into a <=75-char shopper-facing string is mechanical text-shortening, not
+// marquee reasoning, so it runs on haiku rather than opus. Single knob: bump this
+// to sonnet/opus if condense quality regresses.
+const ITEM_NAME_MODEL = MODEL_HAIKU;
 
 // Never copied from a base into a placeholder: these are SKU-specific — the
 // whole point of an FBA/FBM split — so they must stay per-SKU. Mirrors the
@@ -115,6 +133,15 @@ Flags:
                             (lib/HighValueAttributes.php).
   --no-data-gate            Do not skip context-less SKUs to needs_human; author
                             from whatever context exists (the old behavior).
+  --no-applicability        Disable the per-product-type applicability filter.
+                            With --include-recommended, the drafter drops schema-
+                            tail attributes a cheap triage call has flagged as
+                            structurally impossible for the product type (e.g.
+                            hard_disk on a drinking cup), caching the verdict to
+                            data/schemas/applicability/{TYPE}.json. Required and
+                            high-value attributes are never dropped. Pass this to
+                            author the entire tail regardless. No effect without
+                            --include-recommended.
   --full                    Umbrella: --include-recommended + --no-data-gate.
                             Reproduces the original exhaustive draft. Pair with
                             --model=opus for the literal old Opus-on-everything.
@@ -149,6 +176,7 @@ $dryRun             = false;
 $templateMode       = false;
 $includeRecommended = false;
 $noDataGate         = false;
+$noApplicability    = false;
 
 foreach ($argv ?? [] as $arg) {
     if (preg_match('/^--account=(.+)$/i', $arg, $m)) {
@@ -165,6 +193,8 @@ foreach ($argv ?? [] as $arg) {
         $includeRecommended = true;
     } elseif ($arg === '--no-data-gate') {
         $noDataGate = true;
+    } elseif ($arg === '--no-applicability') {
+        $noApplicability = true;
     } elseif ($arg === '--full') {
         $includeRecommended = true;
         $noDataGate         = true;
@@ -185,6 +215,11 @@ echo 'Scope      : ' . ($includeRecommended
     ? 'required + all recommended (full tail)'
     : 'required + curated high-value allowlist') . PHP_EOL;
 echo 'Data-gate  : ' . ($noDataGate ? 'OFF (author context-less SKUs)' : 'ON (base-SKU borrow / needs_human)') . PHP_EOL;
+if ($includeRecommended) {
+    echo 'Applicability: ' . ($noApplicability
+        ? 'OFF (author full tail)'
+        : 'ON (drop product-type-inapplicable tail attrs)') . PHP_EOL;
+}
 echo 'Batch size : ' . $batchSize . ' attrs/call' . PHP_EOL;
 if ($templateMode) {
     echo 'Template   : -NCX/-FBA placeholder templating ON' . PHP_EOL;
@@ -496,16 +531,16 @@ function schemaMaxLength(array $prop): ?int
 function pickModel(string $attr, array $prop): string
 {
     if (schemaEnum($prop)) {
-        return 'claude-haiku-4-5';
+        return MODEL_HAIKU;
     }
     if (HighValueAttributes::isMarquee($attr)) {
-        return 'claude-opus-4-8';
+        return MODEL_OPUS;
     }
     $maxLen = schemaMaxLength($prop);
     if ($maxLen !== null && $maxLen <= 50) {
-        return 'claude-haiku-4-5';
+        return MODEL_HAIKU;
     }
-    return 'claude-sonnet-4-6';
+    return MODEL_SONNET;
 }
 
 /** Rough output-token estimate per attribute, for the dry-run cost projection. */
@@ -731,6 +766,8 @@ $stats = [
     'template_total'      => 0,
     'skipped_recommended' => 0,
     'needs_human'         => 0,
+    'applicability_dropped' => 0,
+    'triage_calls'        => 0,
     'errors'              => 0,
 ];
 
@@ -742,6 +779,94 @@ $costEst = [];
 foreach (array_keys(MODEL_RATES) as $mId) {
     $costEst[$mId] = ['in' => 0, 'out' => 0];
 }
+
+// Applicability filter is only meaningful for the full recommended tail; the
+// default curated scope is already tiny. Enabled unless explicitly disabled.
+$applicabilityEnabled = $includeRecommended && !$noApplicability;
+
+// Per-product-type dry-run notice memo, so the "cache not built" note prints once.
+$applicabilityDryNoted = [];
+
+/**
+ * Resolve (building + caching if needed) the NOT-applicable attribute set for a
+ * product type. Returns a lowercased name=>true map, or null when no verdict is
+ * available (dry-run with no cache, or triage failed) — null means "author the
+ * full tail". The one triage call per product type is cheap (haiku) and reused
+ * for every future SKU of that type.
+ *
+ * @return array<string, true>|null
+ */
+$resolveNotApplicable = function (
+    string $productType,
+    array  $schemaProps,
+    array  $schemaRequired
+) use ($anthropic, $dryRun, $paths, $complianceAttrs, &$stats, &$applicabilityDryNoted): ?array {
+    if ($productType === '' || !$schemaProps) {
+        return null;
+    }
+
+    // Fresh cache on disk (or in-process memo) — the common path after the first run.
+    $cached = AttributeApplicability::loadNotApplicable($productType, $paths['schemas']);
+    if ($cached !== null) {
+        return $cached;
+    }
+
+    // No verdict yet. In dry-run we cannot call the API, so author the full tail
+    // and note (once) that the first real run will build the cache.
+    if ($dryRun) {
+        if (!isset($applicabilityDryNoted[$productType])) {
+            echo "  applicability: no cache for {$productType} — full tail this dry-run "
+                . '(first real run builds it)' . PHP_EOL;
+            $applicabilityDryNoted[$productType] = true;
+        }
+        return null;
+    }
+
+    // Build the verdict with one triage call. Never triage the force-keep set
+    // (required / high-value / compliance) — those are authored regardless.
+    $forceKeep = array_map('strtolower', array_merge(
+        $schemaRequired,
+        HighValueAttributes::CURATED,
+        $complianceAttrs,
+    ));
+    $candidates = AttributeApplicability::triageCandidates($schemaProps, $forceKeep);
+    if (!$candidates) {
+        AttributeApplicability::save($productType, $paths['schemas'], [], [], MODEL_HAIKU);
+        return AttributeApplicability::loadNotApplicable($productType, $paths['schemas']);
+    }
+
+    $prompt = AttributeApplicability::buildTriagePrompt($productType, $candidates, $schemaProps);
+    try {
+        assert($anthropic !== null);
+        $msg = $anthropic->messages->create(
+            model: MODEL_HAIKU,
+            maxTokens: 2048,
+            messages: [['role' => 'user', 'content' => $prompt]],
+        );
+        $stats['triage_calls']++;
+        $stats['api_calls']++;
+
+        $text = '';
+        foreach ($msg->content as $block) {
+            if ($block->type === 'text') {
+                $text = $block->text;
+                break;
+            }
+        }
+
+        $notApplicable = AttributeApplicability::parseTriage($text, $candidates);
+        AttributeApplicability::save($productType, $paths['schemas'], $candidates, $notApplicable, MODEL_HAIKU);
+        echo "  applicability: triaged {$productType} — "
+            . count($notApplicable) . ' of ' . count($candidates)
+            . ' tail attr(s) flagged N/A (cached)' . PHP_EOL;
+
+        return AttributeApplicability::loadNotApplicable($productType, $paths['schemas']);
+    } catch (\Throwable $e) {
+        echo '  [WARN] applicability triage failed for ' . $productType . ': '
+            . $e->getMessage() . ' — authoring full tail' . PHP_EOL;
+        return null;
+    }
+};
 
 // Sort by priority desc so highest-value SKUs are drafted first
 uasort($gaps, fn($a, $b) => (int) ($b[0]['priority'] ?? 0) <=> (int) ($a[0]['priority'] ?? 0));
@@ -981,6 +1106,40 @@ foreach ($gaps as $sku => $rows) {
         }
     }
 
+    // --- Applicability filter (cost lever) ----------------------------------
+    // Under --include-recommended, drop schema-tail attributes the product type
+    // could never carry (e.g. hard_disk / athlete on a drinking cup) before they
+    // reach a prose model. Required and high-value attrs are force-kept. Verdict
+    // is cached per product type; skipped when there is no AI work or no context.
+    if ($applicabilityEnabled && !$needsHuman && $authoringRows) {
+        $notApplicable = $resolveNotApplicable($productType, $schemaProps, $schema['required'] ?? []);
+        if ($notApplicable !== null) {
+            $forceKeepSet = [];
+            foreach ($authoringRows as $r) {
+                if ($r['is_required'] === 'yes'
+                    || HighValueAttributes::isHighValue($r['attribute'], $productType)) {
+                    $forceKeepSet[strtolower($r['attribute'])] = true;
+                }
+            }
+            [$kept, $dropped] = AttributeApplicability::partition(
+                array_map(fn($r) => $r['attribute'], $authoringRows),
+                $notApplicable,
+                $forceKeepSet,
+            );
+            if ($dropped) {
+                $keptSet       = array_flip($kept);
+                $authoringRows = array_filter(
+                    $authoringRows,
+                    fn($r) => isset($keptSet[$r['attribute']]),
+                );
+                $stats['applicability_dropped'] += count($dropped);
+                $shown = array_slice($dropped, 0, 8);
+                echo '  applicability: dropped ' . count($dropped) . ' N/A attr(s) ['
+                    . implode(', ', $shown) . (count($dropped) > 8 ? ', …' : '') . ']' . PHP_EOL;
+            }
+        }
+    }
+
     // --- AI authoring ---
     $aiAttrs      = array_values(array_map(fn($r) => $r['attribute'], $authoringRows));
     $isReqMap     = [];
@@ -1000,15 +1159,15 @@ foreach ($gaps as $sku => $rows) {
         // auto: haiku for enum/short-string, sonnet for prose, opus for marquee.
         // explicit model: single batch with the override model.
         if ($model === 'auto') {
-            $byModel = ['claude-haiku-4-5' => [], 'claude-sonnet-4-6' => [], 'claude-opus-4-8' => []];
+            $byModel = [MODEL_HAIKU => [], MODEL_SONNET => [], MODEL_OPUS => []];
             foreach ($aiAttrs as $a) {
                 $byModel[pickModel($a, $schemaProps[$a] ?? [])][] = $a;
             }
             $batches    = array_filter($byModel); // drop empty tiers
             $batchLabel = 'auto ('
-                . count($byModel['claude-haiku-4-5'])  . ' haiku / '
-                . count($byModel['claude-sonnet-4-6']) . ' sonnet / '
-                . count($byModel['claude-opus-4-8'])   . ' opus)';
+                . count($byModel[MODEL_HAIKU])  . ' haiku / '
+                . count($byModel[MODEL_SONNET]) . ' sonnet / '
+                . count($byModel[MODEL_OPUS])   . ' opus)';
         } else {
             $batches    = [$model => $aiAttrs];
             $batchLabel = $model;
@@ -1181,16 +1340,17 @@ foreach ($gaps as $sku => $rows) {
     if ($canSuggestTitle) {
         $titlePrompt = buildItemNamePrompt($sku, $productType, $seedTitle, $brand, $description, $features);
         if ($dryRun) {
-            if (isset($costEst['claude-opus-4-8'])) {
-                $costEst['claude-opus-4-8']['in']  += (int) ceil(strlen($titlePrompt) / 4);
-                $costEst['claude-opus-4-8']['out'] += 30;
+            if (isset($costEst[ITEM_NAME_MODEL])) {
+                $costEst[ITEM_NAME_MODEL]['in']  += (int) ceil(strlen($titlePrompt) / 4);
+                $costEst[ITEM_NAME_MODEL]['out'] += 30;
             }
-            echo '  [DRY RUN] Would call opus for modular item_name suggestion' . PHP_EOL;
+            echo '  [DRY RUN] Would call ' . basename(str_replace('claude-', '', ITEM_NAME_MODEL))
+                . ' for modular item_name suggestion' . PHP_EOL;
         } else {
             try {
                 assert($anthropic !== null);
                 $titleMsg = $anthropic->messages->create(
-                    model: 'claude-opus-4-8',
+                    model: ITEM_NAME_MODEL,
                     maxTokens: 128,
                     messages: [['role' => 'user', 'content' => $titlePrompt]],
                 );
@@ -1214,7 +1374,7 @@ foreach ($gaps as $sku => $rows) {
                         'value'       => $suggested,
                         'is_required' => false,
                         'source'      => 'ai',
-                        'model'       => 'claude-opus-4-8',
+                        'model'       => ITEM_NAME_MODEL,
                         'review_only' => true, // never patched — for human review
                         'note'        => 'modular <=75 item_name for human review',
                     ];
@@ -1490,6 +1650,10 @@ if ($dryRun) {
     echo 'DRY RUN complete — no files written, no API calls made.' . PHP_EOL;
     echo 'Catalog resolved (free)    : ' . $stats['catalog_total'] . PHP_EOL;
     echo 'Skipped (recommended tail) : ' . $stats['skipped_recommended'] . PHP_EOL;
+    if ($applicabilityEnabled) {
+        echo 'Dropped (N/A applicability): ' . $stats['applicability_dropped']
+            . ' (cached verdicts only; uncached types show full tail here)' . PHP_EOL;
+    }
     echo 'needs_human (no context)   : ' . $stats['needs_human'] . PHP_EOL;
     echo PHP_EOL;
 
@@ -1518,6 +1682,10 @@ if ($dryRun) {
     echo 'Drafts written      : ' . $stats['written'] . PHP_EOL;
     echo 'Skipped (exist)     : ' . $stats['skipped'] . PHP_EOL;
     echo 'Skipped (rec. tail) : ' . $stats['skipped_recommended'] . PHP_EOL;
+    if ($applicabilityEnabled) {
+        echo 'Dropped (N/A)       : ' . $stats['applicability_dropped']
+            . ' via ' . $stats['triage_calls'] . ' triage call(s)' . PHP_EOL;
+    }
     echo 'needs_human         : ' . $stats['needs_human'] . PHP_EOL;
     echo 'API calls           : ' . $stats['api_calls'] . PHP_EOL;
     echo 'Fillable resolved   : ' . $stats['fillable_total'] . PHP_EOL;
