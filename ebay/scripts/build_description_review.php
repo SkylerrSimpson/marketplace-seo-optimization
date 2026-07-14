@@ -42,7 +42,7 @@ declare(strict_types=1);
  * Usage: php ebay/scripts/build_description_review.php --account=dows|ige
  */
 
-require __DIR__ . '/../../lib/bootstrap.php';
+require_once __DIR__ . '/../../lib/bootstrap.php';
 
 // Prop65 policy change (2026-07): the warning no longer lives as an item specific
 // (see mark_prop65_delete.php / ebay/docs/review-rules.md §3) — it lives here

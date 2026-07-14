@@ -91,8 +91,23 @@ function classifyDescriptionShape(string $raw): string
     return SHAPE_UNRECOGNIZED;
 }
 
+/**
+ * <br> tags are how this template represents whitespace (a paragraph-ish break
+ * inside the mobile span, sometimes elsewhere). strip_tags()/DOM textContent both
+ * just DELETE tags with no replacement -- "time.<br><br>Learning" strips to
+ * "time.Learning" with zero space between them, silently fusing two sentences.
+ * Converting <br> to an actual newline BEFORE any tag-stripping/DOM-text-extraction
+ * fixes this at the source instead of trying to patch it after the fact.
+ */
+function convertBreaksToNewlines(string $html): string
+{
+    return preg_replace('/<br\s*\/?>/i', "\n", $html);
+}
+
 function decomposeLegacy(string $raw): array
 {
+    $raw = convertBreaksToNewlines($raw);
+
     if (!preg_match('/property="description"[^>]*>(.*?)<\/span>/si', $raw, $m)) {
         throw new RuntimeException('no mobile span found');
     }
@@ -205,7 +220,7 @@ function nonLossyCheck(string $rawOriginal, string $finalHtml, array $chromeText
     // adjacent tags with no whitespace between them (e.g. "...fanatics!</p><p><strong>
     // WARNING:...") get fused into one unmatchable token ("fanatics!WARNING:"),
     // producing a false-positive "missing content" report.
-    $degap = fn(string $h): string => preg_replace('/>(?=<)/', '> ', $h);
+    $degap = fn(string $h): string => preg_replace('/>(?=<)/', '> ', convertBreaksToNewlines($h));
 
     $rawNoStyle = preg_replace('/<style\b[^>]*>.*?<\/style>/is', '', $rawOriginal);
     $origText = trim(preg_replace('/\s+/u', ' ', html_entity_decode(strip_tags($degap($rawNoStyle)), ENT_QUOTES | ENT_HTML5, 'UTF-8')));
