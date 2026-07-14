@@ -20,8 +20,20 @@ use Anthropic\Client;
  *
  * Flags:
  *   --account=IGE|DOWS        Seller account. Default: IGE.
- *   --model=MODEL             Anthropic model. Default: claude-haiku-4-5.
+ *   --model=auto|MODEL        Model selection. Default: auto (haiku for
+ *                             enum/short-string, sonnet for prose, opus for the
+ *                             marquee title/description set). Pass an explicit
+ *                             model (claude-haiku-4-5 / claude-sonnet-4-6 /
+ *                             claude-opus-4-8) to use it for all AI attributes.
+ *   --include-recommended     Author the full optional schema tail. Default authors
+ *                             only required + the curated high-value allowlist.
+ *   --no-data-gate            Author context-less SKUs instead of flagging them
+ *                             needs_human (the old behavior).
+ *   --full                    Umbrella: --include-recommended + --no-data-gate.
+ *   --batch-size=N            Max attributes per API call. Default: 20.
  *   --sku=SKU                 Process a single SKU only (for testing).
+ *   --template-placeholders   Enable -NCX/-FBA placeholder templating: union-fill
+ *                             each placeholder from its base SKU's listing snapshot.
  *   --force                   Overwrite existing drafts.
  *   --dry-run                 Show what would be done; no API calls or writes.
  *   --help                    Show this help message.

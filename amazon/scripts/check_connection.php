@@ -12,7 +12,8 @@ declare(strict_types=1);
  *   php amazon/scripts/check_connection.php [--account=IGE|DOWS]
  *
  * Flags:
- *   --account=   Seller account to test. Default: IGE.
+ *   --account=IGE|DOWS   Seller account to test. Default: IGE.
+ *   --help               Show this help message.
  *
  * .env keys (Amazon block):
  *   AMAZON_SPAPI_CLIENT_ID=

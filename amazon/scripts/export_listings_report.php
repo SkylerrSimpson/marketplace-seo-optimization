@@ -21,6 +21,7 @@ declare(strict_types=1);
  * Flags:
  *   --account=  Seller account to export. Default: IGE.
  *   --force     Re-run even if today's reports already exist on disk.
+ *   --help      Show this help message.
  *
  * .env keys (Amazon block):
  *   AMAZON_SPAPI_CLIENT_ID, AMAZON_SPAPI_CLIENT_SECRET,

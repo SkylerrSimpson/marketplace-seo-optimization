@@ -32,6 +32,7 @@ declare(strict_types=1);
  *   --account=  Seller account to export. Default: IGE.
  *   --force     Re-fetch and overwrite existing per-SKU files.
  *   --limit=N   Stop after writing N SKU files (canary mode).
+ *   --help      Show this help message.
  *
  * .env keys: same Amazon block as other scripts.
  */

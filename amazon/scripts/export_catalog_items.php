@@ -24,6 +24,7 @@ declare(strict_types=1);
  *   --account=  Seller account to export. Default: IGE.
  *   --force     Re-fetch and overwrite existing per-ASIN files.
  *   --limit=N   Stop after writing N ASIN files (canary mode).
+ *   --help      Show this help message.
  *
  * .env keys: same Amazon block as other scripts.
  */
