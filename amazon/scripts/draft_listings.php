@@ -697,7 +697,8 @@ function buildItemNamePrompt(
     string $existingTitle,
     string $brand,
     string $description,
-    array  $features
+    array  $features,
+    bool   $wantDifferentiation = false
 ): string {
     $featuresText = '';
     foreach (array_slice(array_filter($features), 0, 5) as $f) {
@@ -707,6 +708,18 @@ function buildItemNamePrompt(
         $featuresText = "(none)\n";
     }
     $existing = $existingTitle !== '' ? $existingTitle : '(none)';
+
+    // title_differentiation rides along on the same call (it shares all the same
+    // product context) so the short benefit phrase never costs a second request.
+    $diffInstruction = $wantDifferentiation
+        ? "- Also write \"title_differentiation\": a SHORT (<=125 char) benefit- or\n"
+        . "  feature-driven phrase for Amazon modular titles — NOT a full sentence, NOT\n"
+        . "  the brand, and NOT a repeat of the item_name. Think the differentiating\n"
+        . "  descriptor a shopper scans for (e.g. \"Set of 6, Dishwasher Safe, 8oz\").\n"
+        : '';
+    $returnShape = $wantDifferentiation
+        ? '{"item_name": "<= 75 char title", "title_differentiation": "<= 125 char benefit phrase"}'
+        : '{"item_name": "<= 75 char title"}';
 
     return <<<PROMPT
 You are an Amazon SP-API listing specialist. Amazon's modular titles (effective
@@ -731,7 +744,7 @@ Features:
 - Do NOT output the SKU, MPN, or a model/part number as the title, and do NOT
   repeat any identifier. If the existing title is just a code or model number,
   ignore it and describe the product from the type, brand, and features instead.
-- Return ONLY a valid JSON object: {"item_name": "<= 75 char title"}.
+{$diffInstruction}- Return ONLY a valid JSON object: {$returnShape}.
 - No markdown fences, no explanation.
 PROMPT;
 }
@@ -1140,6 +1153,28 @@ foreach ($gaps as $sku => $rows) {
         }
     }
 
+    // title_differentiation is a short benefit phrase, not marquee prose. It shares
+    // all of the modular item_name call's context, so we author it there (Haiku)
+    // instead of in the Opus/Sonnet batch — pull it out here to avoid a second,
+    // pricier authoring. Only when the schema carries it, the modular call will run
+    // (item_name schema present), and nothing already filled it (catalog/Usurper).
+    $titleDiffViaModular = !$needsHuman
+        && isset($schemaProps['title_differentiation'])
+        && isset($schemaProps['item_name'])
+        && !isset($draftAttrs['title_differentiation']);
+    $titleDiffRequired = false;
+    if ($titleDiffViaModular) {
+        foreach ($authoringRows as $r) {
+            if (strtolower($r['attribute']) === 'title_differentiation') {
+                $titleDiffRequired = $r['is_required'] === 'yes';
+            }
+        }
+        $authoringRows = array_filter(
+            $authoringRows,
+            fn($r) => strtolower($r['attribute']) !== 'title_differentiation',
+        );
+    }
+
     // --- AI authoring ---
     $aiAttrs      = array_values(array_map(fn($r) => $r['attribute'], $authoringRows));
     $isReqMap     = [];
@@ -1338,14 +1373,16 @@ foreach ($gaps as $sku => $rows) {
         && isset($schemaProps['item_name'])
         && ($seedTitle !== '' || $description !== '' || array_filter($features) !== []);
     if ($canSuggestTitle) {
-        $titlePrompt = buildItemNamePrompt($sku, $productType, $seedTitle, $brand, $description, $features);
+        $titlePrompt = buildItemNamePrompt($sku, $productType, $seedTitle, $brand, $description, $features, $titleDiffViaModular);
         if ($dryRun) {
             if (isset($costEst[ITEM_NAME_MODEL])) {
                 $costEst[ITEM_NAME_MODEL]['in']  += (int) ceil(strlen($titlePrompt) / 4);
-                $costEst[ITEM_NAME_MODEL]['out'] += 30;
+                // item_name (~30) plus title_differentiation (~35) when it rides along.
+                $costEst[ITEM_NAME_MODEL]['out'] += $titleDiffViaModular ? 65 : 30;
             }
             echo '  [DRY RUN] Would call ' . basename(str_replace('claude-', '', ITEM_NAME_MODEL))
-                . ' for modular item_name suggestion' . PHP_EOL;
+                . ' for modular item_name suggestion'
+                . ($titleDiffViaModular ? ' + title_differentiation' : '') . PHP_EOL;
         } else {
             try {
                 assert($anthropic !== null);
@@ -1385,6 +1422,31 @@ foreach ($gaps as $sku => $rows) {
                     }
                     $draftAttrs['item_name_ai_suggested'] = $entry;
                     echo '  item_name: AI modular suggestion (' . mb_strlen($suggested) . ' chars) [review]' . PHP_EOL;
+                }
+
+                // title_differentiation rode along on the same response — a real,
+                // patchable attribute (unlike the review-only item_name suggestion).
+                if ($titleDiffViaModular) {
+                    $diff = is_array($decoded) ? ($decoded['title_differentiation'] ?? null) : null;
+                    if (is_string($diff) && trim($diff) !== '') {
+                        $diff      = trim($diff);
+                        $diffEntry = [
+                            'value'       => $diff,
+                            'is_required' => $titleDiffRequired,
+                            'source'      => 'ai',
+                            'model'       => ITEM_NAME_MODEL,
+                        ];
+                        $diffMax = schemaMaxLength($schemaProps['title_differentiation'] ?? []);
+                        if ($diffMax !== null && mb_strlen($diff) > $diffMax) {
+                            $diffEntry['validation_error'] = "value exceeds maxLength {$diffMax} ("
+                                . mb_strlen($diff) . ' chars)';
+                            echo '  [WARN] title_differentiation exceeds maxLength ' . $diffMax
+                                . ' (' . mb_strlen($diff) . ')' . PHP_EOL;
+                        }
+                        $draftAttrs['title_differentiation'] = $diffEntry;
+                        $stats['ai_total']++;
+                        echo '  title_differentiation: AI (' . mb_strlen($diff) . ' chars) via modular call' . PHP_EOL;
+                    }
                 }
             } catch (\Throwable $e) {
                 echo '  [ERROR] item_name suggestion failed for ' . $sku . ': ' . $e->getMessage() . PHP_EOL;

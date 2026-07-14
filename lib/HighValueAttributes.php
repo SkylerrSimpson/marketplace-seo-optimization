@@ -57,10 +57,14 @@ final class HighValueAttributes
     /**
      * Narrow set worth Opus-grade prose — the customer-facing title/description
      * content. Everything else routes to Sonnet (prose) or Haiku (enum/short).
+     *
+     * NOTE: title_differentiation is deliberately NOT here. It is a short (<=125
+     * char) benefit phrase, not long-form prose, and it is produced by the modular
+     * item_name Haiku call (draft_listings.php) rather than the batch — pointing it
+     * at Opus authored a short string ~4.5k times per DOWS run for ~$33 of waste.
      */
     public const MARQUEE = [
         'item_name',
-        'title_differentiation',
         'bullet_point',
         'product_description',
     ];
