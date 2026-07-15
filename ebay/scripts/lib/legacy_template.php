@@ -107,6 +107,12 @@ function convertBreaksToNewlines(string $html): string
 function decomposeLegacy(string $raw): array
 {
     $raw = convertBreaksToNewlines($raw);
+    // Human-readable notes on anything unusual the decomposer had to work around --
+    // NOT just for needs_review items. Ethan's ask (2026-07-14): for the full-catalog
+    // pass, every listing's report row should say whether something suspicious was
+    // auto-handled (malformed HTML, a dropped duplicate, etc.), not just the ones that
+    // got flagged for manual review, so a clean "ok" row can still be spot-checked.
+    $flags = [];
 
     if (!preg_match('/property="description"[^>]*>(.*?)<\/span>/si', $raw, $m)) {
         throw new RuntimeException('no mobile span found');
@@ -142,36 +148,150 @@ function decomposeLegacy(string $raw): array
     // bullets + mpn/upc: every row in .product-specs -- MPN/UPC pulled out separately
     // (merged into $aspects as a fallback by the caller, NOT dropped -- a listing's
     // eBay item specifics don't always actually include mpn/upc even though the old
-    // description body showed them).
+    // description body showed them). A handful of source rows are malformed with a
+    // 3rd (or more) stray <td> tacked onto the row -- e.g. item 127082971121's "NO
+    // SPACE WASTED" row also has an un-labeled 3rd cell containing a whole 19-item
+    // accessories list. Cell 0 = label, cell 1 = its value (as before); any cell
+    // beyond that has no label of its own, so it's appended as a plain bullet rather
+    // than silently dropped.
     $bullets = [];
+    $extraCellBullets = []; // stray 3rd+ <td> cells -- checked for redundancy against
+                             // any <ul><li> list found below before being kept
     $mpn = ''; $upc = '';
     foreach ($xpath->query("//div[contains(concat(' ', normalize-space(@class), ' '), ' product-specs ')]//tr") as $tr) {
         $tds = $xpath->query('.//td', $tr);
         if ($tds->length < 2) { continue; }
         $label = $flatten($cellText($tds->item(0)));
         $value = $flatten($cellText($tds->item(1)));
-        if ($value === '') { continue; }
-        $labelLower = mb_strtolower(rtrim($label, ':'));
-        if ($labelLower === 'mpn') { $mpn = $value; continue; }
-        if ($labelLower === 'upc') { $upc = $value; continue; }
-        $bullets[] = $value; // "LABEL: detail" text, already colon-formatted for renderFull()'s bolding
+        if ($value !== '') {
+            $labelLower = mb_strtolower(rtrim($label, ':'));
+            if ($labelLower === 'mpn') { $mpn = $value; }
+            elseif ($labelLower === 'upc') { $upc = $value; }
+            else { $bullets[] = $value; } // "LABEL: detail" text, already colon-formatted for renderFull()'s bolding
+        }
+        for ($i = 2; $i < $tds->length; $i++) {
+            $extra = $flatten($cellText($tds->item($i)));
+            if ($extra !== '') { $extraCellBullets[] = $extra; $flags[] = 'malformed product-specs row (stray 3rd+ <td> cell)'; }
+        }
     }
 
-    // narrative: DIRECT-CHILD <p> elements of the col-md-6 that has the h1 -- NOT
-    // ./descendant <p>, which would also match <p> tags nested inside the Newsletter
-    // box (.d-flex.d-flex-col is itself a child of this same column). Raw text kept
-    // (not whitespace-collapsed yet) so blank-line paragraph breaks survive to split.
+    // narrative: DIRECT-CHILD <p> AND <ul>/<li> elements of the col-md-6 that has the
+    // h1 -- NOT ./descendant <p>, which would also match <p> tags nested inside the
+    // Newsletter box (.d-flex.d-flex-col is itself a child of this same column). Raw
+    // text kept (not whitespace-collapsed yet) so blank-line paragraph breaks survive
+    // to split. A few source pages (e.g. 127082971121) embed an actual <ul><li> item
+    // list in this column instead of/in addition to <p> paragraphs -- each <li>
+    // becomes its own bullet (same shape as a Key Feature) rather than being skipped
+    // since it was never a paragraph to begin with.
     $paras = [];
     $h1Text = '';
+    $primaryCol = null;
+    $droppedAsRedundant = [];
     foreach ($xpath->query("//div[contains(concat(' ', normalize-space(@class), ' '), ' col-md-6 ')]") as $col) {
         $h1s = $xpath->query('./h1', $col);
         if ($h1s->length === 0) { continue; }
         $h1Text = $flatten($cellText($h1s->item(0)));
-        foreach ($xpath->query('./p', $col) as $p) {
-            $text = $cellText($p);
-            if ($text !== '') { $paras[] = $text; }
-        }
+        $primaryCol = $col;
         break;
+    }
+    if ($primaryCol !== null) {
+        // A handful of source pages (e.g. 127082971121) have a stray extra
+        // </div><div class="col-md-6"> mid-narrative that splits what should be one
+        // continuous column into two -- walk immediate col-md-6 siblings that aren't
+        // a real second product column (no <h1> of their own) and aren't the
+        // Newsletter/footer chrome, so their content isn't silently skipped.
+        $cols = [$primaryCol];
+        foreach ($xpath->query("following-sibling::div[contains(concat(' ', normalize-space(@class), ' '), ' col-md-6 ')]", $primaryCol) as $sib) {
+            if ($xpath->query('./h1', $sib)->length > 0) { break; }
+            $sibClass = ' ' . $sib->getAttribute('class') . ' ';
+            if (str_contains($sibClass, ' d-flex ') || str_contains($sibClass, ' footer ')) { break; }
+            $cols[] = $sib;
+        }
+        if (count($cols) > 1) { $flags[] = 'malformed/split col-md-6 (' . (count($cols) - 1) . ' extra fragment(s) recovered)'; }
+        // walk each column's DIRECT children in document order -- <p> and bare text
+        // nodes both become narrative paragraphs. <ul>/<ol> items normally become
+        // bullets (same shape as a Key Feature bullet, since they were never a
+        // paragraph to begin with) -- UNLESS the list immediately follows a paragraph
+        // whose text ends in ":" (e.g. "The kit includes the following metal detector
+        // accessories:"), in which case the list is clearly introducing THAT sentence,
+        // not a standalone Key Feature -- keep it attached as a continuation of that
+        // same paragraph so it stays next to its own intro instead of landing in the
+        // unrelated Key Features bullet dump, separated from what introduces it
+        // (127082971121, per Ethan). A nested chrome element (e.g. the Newsletter
+        // d-flex box living INSIDE this same malformed column) is a <div>, which this
+        // walk's tag check already ignores -- only text/p/ul/ol are read, so it's
+        // naturally excluded without needing to throw out the whole column.
+        $liBullets = [];
+        $allLiItems = []; // every <li> found, regardless of where it ends up routed --
+                           // used below to check extra-<td>-cell bullets for redundancy
+        foreach ($cols as $col) {
+            foreach ($col->childNodes as $node) {
+                if ($node->nodeType === XML_TEXT_NODE) {
+                    $text = $cellText($node);
+                    if ($text !== '') { $paras[] = $text; }
+                    continue;
+                }
+                if ($node->nodeType !== XML_ELEMENT_NODE) { continue; }
+                $tag = strtolower($node->nodeName);
+                if ($tag === 'p') {
+                    $text = $cellText($node);
+                    if ($text !== '') { $paras[] = $text; }
+                } elseif ($tag === 'ul' || $tag === 'ol') {
+                    $items = [];
+                    foreach ($xpath->query('./li', $node) as $li) {
+                        $liText = $flatten($cellText($li));
+                        if ($liText !== '') { $items[] = $liText; }
+                    }
+                    if ($items === []) { continue; }
+                    $allLiItems = array_merge($allLiItems, $items);
+                    $lastIdx = count($paras) - 1;
+                    if ($lastIdx >= 0 && preg_match('/:\s*$/u', rtrim($paras[$lastIdx]))) {
+                        // strip each item's own trailing punctuation first -- some
+                        // source <li> items already end in ";"/"," (e.g. "gem
+                        // tweezers;"), which would otherwise show doubled up against
+                        // the separator. Join with \x02, a placeholder that survives
+                        // $flatten()'s whitespace collapse (unlike a real "\n" would)
+                        // and later gets turned into an actual <br> by renderFull() --
+                        // so each item still reads on its own line, not run together
+                        // in one comma-separated sentence (Ethan/2026-07-14: the list
+                        // needs to stay attached to its own intro line, but readable).
+                        $cleanItems = array_map(fn(string $it): string => rtrim($it, ' ,.;'), $items);
+                        $paras[$lastIdx] = rtrim($paras[$lastIdx]) . "\x02" . implode("\x02", $cleanItems) . '.';
+                        $flags[] = 'package-contents <ul><li> list attached to its intro sentence (' . count($items) . ' item(s))';
+                    } else {
+                        $liBullets = array_merge($liBullets, $items);
+                    }
+                }
+            }
+        }
+        // 127082971121 is the reason both $extraCellBullets and $allLiItems exist:
+        // its source restates the SAME 19-item accessory list twice, once crammed
+        // into a stray 3rd <td> and once as a proper <ul><li> list, worded slightly
+        // differently each time ("Premium tool bag" vs "Premium equipment tool bag").
+        // Keeping both produced a visibly duplicated list. If an extra-cell bullet's
+        // words are almost entirely covered by the <li> items combined (wherever they
+        // ended up), it's the same content restated worse -- drop it.
+        $wordSet = function (string $s): array {
+            $s = preg_replace('/[^a-z0-9 ]/u', ' ', mb_strtolower($s));
+            return array_values(array_unique(array_filter(explode(' ', $s), fn($w) => $w !== '')));
+        };
+        if ($allLiItems !== [] && $extraCellBullets !== []) {
+            $liWordPool = [];
+            foreach ($allLiItems as $li) { foreach ($wordSet($li) as $w) { $liWordPool[$w] = true; } }
+            $keptExtraCell = [];
+            foreach ($extraCellBullets as $b) {
+                $bw = $wordSet($b);
+                $covered = 0;
+                foreach ($bw as $w) { if (isset($liWordPool[$w])) { $covered++; } }
+                $isRedundant = $bw !== [] && ($covered / count($bw)) >= 0.7;
+                if ($isRedundant) { $droppedAsRedundant[] = $b; } else { $keptExtraCell[] = $b; }
+            }
+            $extraCellBullets = $keptExtraCell;
+        }
+        if ($droppedAsRedundant !== []) { $flags[] = 'dropped ' . count($droppedAsRedundant) . ' duplicate bullet(s) already covered by a <ul><li> list'; }
+        $bullets = array_merge($bullets, $extraCellBullets, $liBullets);
+    } else {
+        $bullets = array_merge($bullets, $extraCellBullets);
     }
     $flat = [];
     foreach ($paras as $p) {
@@ -180,13 +300,32 @@ function decomposeLegacy(string $raw): array
             if ($seg !== '') { $flat[] = $seg; }
         }
     }
-    $factual = $flat[0] ?? '';
-    $sales = trim(implode("\n\n", array_slice($flat, 1)));
+    // Ethan's rule (2026-07-14): first description = first paragraph, OR first two
+    // paragraphs if the old body has 5+ paragraphs total (a single opening paragraph
+    // reads too short/abrupt relative to a long five-plus-paragraph original).
+    $firstN = count($flat) >= 5 ? 2 : 1;
+    $factual = trim(implode("\n\n", array_slice($flat, 0, $firstN)));
+    $sales = trim(implode("\n\n", array_slice($flat, $firstN)));
 
     // chrome text -- everything we deliberately drop, tracked explicitly (not
     // inferred) so nonLossyCheck() can verify "kept + dropped-chrome" accounts for
     // ~100% of the original page's visible text without guessing.
-    $chrome = [];
+    //
+    // The RAW mobile span text goes in here too, in full. It's a second, independent
+    // copy of substantially the same content as the main body (by the template's own
+    // design -- <!-- MOBILE DESCRIPTION --> is a separate restatement of the listing,
+    // not unique content), and the new template's mobileSummary() deliberately
+    // truncates it to 800 chars in the output. For long old mobile spans (some
+    // effectively restate the ENTIRE main body, item lists included) that truncation
+    // cuts off real text -- but that text isn't actually lost from the page, since the
+    // main body already carries it in full and IS checked word-for-word on its own.
+    // Without this, nonLossyCheck flags the truncated tail as "missing" purely because
+    // the source happens to say the same thing twice and we only keep one full copy.
+    // $droppedAsRedundant: extra-<td>-cell bullets dropped because a cleaner <ul><li>
+    // list already restates the same content (see 127082971121 above) -- accounted
+    // for here the same way as the mobile span, so the audit doesn't flag the
+    // deliberately-not-duplicated copy as missing.
+    $chrome = array_merge([$mobile], $droppedAsRedundant);
     foreach ($xpath->query("//div[contains(concat(' ', normalize-space(@class), ' '), ' navbar ')]") as $n) { $chrome[] = $flatten($cellText($n)); }
     foreach ($xpath->query("//div[contains(concat(' ', normalize-space(@class), ' '), ' d-flex ')]") as $n) { $chrome[] = $flatten($cellText($n)); }
     foreach ($xpath->query("//div[contains(concat(' ', normalize-space(@class), ' '), ' footer ')]") as $n) { $chrome[] = $flatten($cellText($n)); }
@@ -202,7 +341,7 @@ function decomposeLegacy(string $raw): array
     return [
         'mobile' => $mobile, 'image' => $image, 'bullets' => $bullets,
         'factual' => $factual, 'sales' => $sales, 'mpn' => $mpn, 'upc' => $upc,
-        'chrome' => $chrome,
+        'chrome' => $chrome, 'flags' => $flags,
     ];
 }
 
@@ -222,10 +361,27 @@ function nonLossyCheck(string $rawOriginal, string $finalHtml, array $chromeText
     // producing a false-positive "missing content" report.
     $degap = fn(string $h): string => preg_replace('/>(?=<)/', '> ', convertBreaksToNewlines($h));
 
+    // renderFull()'s Key Features bolding rejoins "LABEL : detail" as "LABEL:" (no
+    // space before the colon) when it re-derives the bold label from a bullet's first
+    // colon -- a cosmetic one-character difference from source rows that happen to
+    // have a space before their colon, not a content loss. Normalize "word :" ->
+    // "word:" on both sides before tokenizing so this can't produce a false positive.
+    // Same idea for trailing sentence/list punctuation: decomposeLegacy() rejoins
+    // <li> items (which have no trailing punctuation of their own -- the boundary was
+    // a closing </li> tag) with ", " and a final "." when attaching them to their
+    // intro sentence, so the last word of each item -- and the very last item overall
+    // -- picks up punctuation that wasn't there in that exact spot in the source
+    // (which might instead have had the SAME word appear bare, e.g. from a
+    // differently-punctuated duplicate elsewhere). This check is fundamentally about
+    // whether WORDS survived, not exact end-of-item punctuation, so strip a trailing
+    // ,/./; before whitespace-or-end on all three pools before tokenizing -- "pick,"
+    // "pick." and "pick" all count as the same token.
+    $degapPunct = fn(string $s): string => preg_replace(['/\s+:/u', '/[,.;]+(?=\s|$)/u'], [':', ''], $s);
+
     $rawNoStyle = preg_replace('/<style\b[^>]*>.*?<\/style>/is', '', $rawOriginal);
-    $origText = trim(preg_replace('/\s+/u', ' ', html_entity_decode(strip_tags($degap($rawNoStyle)), ENT_QUOTES | ENT_HTML5, 'UTF-8')));
-    $keptText = trim(preg_replace('/\s+/u', ' ', html_entity_decode(strip_tags($degap($finalHtml)), ENT_QUOTES | ENT_HTML5, 'UTF-8')));
-    $chromeText = trim(preg_replace('/\s+/u', ' ', implode(' ', $chromeTexts)));
+    $origText = $degapPunct(trim(preg_replace('/\s+/u', ' ', html_entity_decode(strip_tags($degap($rawNoStyle)), ENT_QUOTES | ENT_HTML5, 'UTF-8'))));
+    $keptText = $degapPunct(trim(preg_replace('/\s+/u', ' ', html_entity_decode(strip_tags($degap($finalHtml)), ENT_QUOTES | ENT_HTML5, 'UTF-8'))));
+    $chromeText = $degapPunct(trim(preg_replace('/\s+/u', ' ', implode(' ', $chromeTexts))));
 
     $counts = array_count_values(preg_split('/\s+/', $keptText . ' ' . $chromeText));
     // small fixed allowlist: MSRP price number (any digits.digits after "MSRP"),

@@ -52,9 +52,9 @@ define('DESC_REVIEW_LIB_ONLY', true);
 require_once __DIR__ . '/build_description_review.php'; // renderFull(), storeForAccount(), isGearAid(), PROP65_*, stripIdentifiers(), mobileSummary(), imageAltText()
 require_once __DIR__ . '/lib/legacy_template.php';
 
-$opts = getopt('', ['account:', 'dry-run', 'exclude:', 'item:', 'mark-approved', 'help']);
+$opts = getopt('', ['account:', 'dry-run', 'exclude:', 'item:', 'items:', 'mark-approved', 'help']);
 if (isset($opts['help'])) {
-    fwrite(STDOUT, "Usage: php merge_legacy_template.php --account=dows|ige [--dry-run] [--exclude=file] [--item=ID] [--mark-approved]\n");
+    fwrite(STDOUT, "Usage: php merge_legacy_template.php --account=dows|ige [--dry-run] [--exclude=file] [--item=ID] [--items=ID1,ID2] [--mark-approved]\n");
     exit(0);
 }
 $account = strtolower((string) ($opts['account'] ?? 'dows'));
@@ -99,6 +99,26 @@ if (is_file($reviewPath)) {
     fclose($fh);
 }
 
+/**
+ * Ethan's rule (2026-07-14): "for now" limit the Product Specifications section to
+ * MPN, UPC, Size, Color -- only whichever of those actually exist -- and never show
+ * a Size of "Standard" (not a meaningful value to a buyer). This is scoped to the
+ * legacy-template merge only; it does not change renderFull()'s normal behavior for
+ * freshly-authored descriptions elsewhere in the pipeline.
+ */
+function filterSpecsForMerge(array $aspects): array
+{
+    $allowed = ['mpn', 'upc', 'size', 'color'];
+    $out = [];
+    foreach ($aspects as $k => $v) {
+        $kLower = mb_strtolower(trim((string) $k));
+        if (!in_array($kLower, $allowed, true)) { continue; }
+        if ($kLower === 'size' && mb_strtolower(trim((string) $v)) === 'standard') { continue; }
+        $out[$k] = $v;
+    }
+    return $out;
+}
+
 function buildRendered(string $id, string $account, array $store, array $titleByItem, array $aspectsByItem, string $mediaDir): array
 {
     $media = json_decode((string) file_get_contents("{$mediaDir}/{$id}.json"), true) ?: [];
@@ -106,11 +126,69 @@ function buildRendered(string $id, string $account, array $store, array $titleBy
     $title = $titleByItem[$id] ?? (string) ($media['title'] ?? '');
 
     $decomposed = decomposeLegacy($raw);
+    $chrome = $decomposed['chrome'];
+    $flags = $decomposed['flags'];
 
+    // MPN/UPC: eBay's current live aspect wins over whatever the old page's own
+    // table showed (same "prefer live data over what's baked into old HTML"
+    // principle as the image rule below) -- old listings sometimes had a since-
+    // superseded part number/UPC hand-typed into the description. When they
+    // conflict, the old value is deliberately dropped, so it's tracked as chrome
+    // (not silently ignored) -- otherwise the non-lossy audit would flag it as
+    // missing content, when it's actually an intentional, informed substitution.
     $aspects = $aspectsByItem[$id] ?? [];
-    $aspectKeysLower = array_map('mb_strtolower', array_keys($aspects));
-    if ($decomposed['mpn'] !== '' && !in_array('mpn', $aspectKeysLower, true)) { $aspects['MPN'] = $decomposed['mpn']; }
-    if ($decomposed['upc'] !== '' && !in_array('upc', $aspectKeysLower, true)) { $aspects['UPC'] = $decomposed['upc']; }
+    $currentMpn = null;
+    $currentUpc = null;
+    foreach ($aspects as $k => $v) {
+        $kLower = mb_strtolower(rtrim((string) $k, ':'));
+        if ($kLower === 'mpn') { $currentMpn = (string) $v; }
+        if ($kLower === 'upc') { $currentUpc = (string) $v; }
+    }
+    if ($decomposed['mpn'] !== '') {
+        if ($currentMpn === null) { $aspects['MPN'] = $decomposed['mpn']; }
+        elseif (mb_strtolower(trim($currentMpn)) !== mb_strtolower(trim($decomposed['mpn']))) {
+            $chrome[] = $decomposed['mpn'];
+            $flags[] = "MPN conflict: old page said \"{$decomposed['mpn']}\", kept current live value \"{$currentMpn}\"";
+        }
+    }
+    if ($decomposed['upc'] !== '') {
+        if ($currentUpc === null) { $aspects['UPC'] = $decomposed['upc']; }
+        elseif (mb_strtolower(trim($currentUpc)) !== mb_strtolower(trim($decomposed['upc']))) {
+            $chrome[] = $decomposed['upc'];
+            $flags[] = "UPC conflict: old page said \"{$decomposed['upc']}\", kept current live value \"{$currentUpc}\"";
+        }
+    }
+    $aspects = filterSpecsForMerge($aspects);
+
+    // Rule (2026-07-14, corrected same day per Ethan): "never change the main image"
+    // means never change it -- for a NON-variation listing that means keeping
+    // whatever image is CURRENTLY in the description (decomposed from the old HTML),
+    // not swapping in the live API's picture, which is usually but not always the
+    // same image. Only fall back to the live picture if the old description had no
+    // image at all to parse.
+    //
+    // Variation listings are the one case that motivated switching to a live source
+    // in the first place (365879935283 had a stale, wrong-variant photo baked into
+    // the shared description). But media/{id}.json's `images[0]` is NOT a reliable
+    // stand-in for "the listing's actual main/backend image" -- confirmed on
+    // 365816245798, where images[0] turned out to be literally the BLK child SKU's
+    // own picture (Browse API's get_items_by_item_group has no real parent-gallery
+    // concept; images[0] is just whichever child came back first), while the true
+    // backend default (per Ethan, visible in Seller Hub) is a neutral 3-colors-
+    // together shot we have no API access to (Trading GetItem is edge-blocked here;
+    // Sell Inventory API's inventory_item_group is reachable but has no data for
+    // these legacy Trading-API-created listings -- confirmed via a live 404 test).
+    // Until there's a real source for that, keep the same "never touch it" behavior
+    // for variation listings too, rather than substituting a guess that's already
+    // been shown to be wrong at least once.
+    $image = $decomposed['image'];
+    if ($image === '') {
+        $liveImages = $media['images'] ?? [];
+        if (is_array($liveImages) && isset($liveImages[0]['url']) && $liveImages[0]['url'] !== '') {
+            $image = (string) $liveImages[0]['url'];
+            $flags[] = 'old description had no <img> tag to parse; fell back to the live picture list';
+        }
+    }
 
     $factual = stripIdentifiers($decomposed['factual']);
     $sales   = stripIdentifiers($decomposed['sales']);
@@ -119,12 +197,12 @@ function buildRendered(string $id, string $account, array $store, array $titleBy
     $altText = imageAltText($factual, $title);
     $showBadge = !isGearAid($title);
 
-    $html = renderFull($store, $title, $factual, $sales, $mobile, $bullets, $aspects, $decomposed['image'], $altText, $showBadge);
+    $html = renderFull($store, $title, $factual, $sales, $mobile, $bullets, $aspects, $image, $altText, $showBadge);
 
     return [
         'raw' => $raw, 'html' => $html, 'title' => $title,
         'factual' => $factual, 'sales' => $sales, 'bullets' => $bullets,
-        'chrome' => $decomposed['chrome'],
+        'chrome' => $chrome, 'flags' => $flags,
     ];
 }
 
@@ -139,15 +217,27 @@ if (isset($opts['item'])) {
     echo "=== rendered html ===\n{$r['html']}\n\n";
     echo "=== non-lossy audit: " . (empty($missing) ? 'CLEAN' : 'MISSING WORDS FOUND') . " ===\n";
     echo implode(' ', $missing) . "\n";
+    echo "\n=== flags ===\n" . ($r['flags'] === [] ? '(none)' : implode("\n", $r['flags'])) . "\n";
     exit(0);
 }
 
-// --- full-catalog mode ----------------------------------------------------------
+// --- full-catalog mode (or --items=ID1,ID2 for a small named subset, e.g. pushing
+// a couple of test IDs through the same classify+audit+write path without touching
+// the rest of the catalog) --------------------------------------------------------
 $counts = ['legacy_ok' => 0, 'legacy_needs_review' => 0, 'already_new' => 0, 'unrecognized' => 0, 'excluded' => 0, 'error' => 0];
 $report = [];
 $toWrite = []; // item_id => html, for the CSV-patch pass at the end
 
-foreach (glob("{$mediaDir}/*.json") as $f) {
+if (isset($opts['items'])) {
+    $files = array_map(
+        fn(string $id) => "{$mediaDir}/{$id}.json",
+        array_filter(array_map('trim', explode(',', (string) $opts['items'])))
+    );
+} else {
+    $files = glob("{$mediaDir}/*.json");
+}
+
+foreach ($files as $f) {
     $id = basename($f, '.json');
     if (isset($exclude[$id])) { $counts['excluded']++; continue; }
 
@@ -158,30 +248,36 @@ foreach (glob("{$mediaDir}/*.json") as $f) {
     if ($shape === SHAPE_ALREADY_NEW) { $counts['already_new']++; continue; }
     if ($shape === SHAPE_UNRECOGNIZED) {
         $counts['unrecognized']++;
-        $report[] = [$id, 'unrecognized', '', ''];
+        $report[] = [$id, 'unrecognized', '', '', ''];
         continue;
     }
 
     try {
         $r = buildRendered($id, $account, $store, $titleByItem, $aspectsByItem, $mediaDir);
         $missing = nonLossyCheck($r['raw'], $r['html'], $r['chrome']);
+        $flagsStr = implode(' | ', $r['flags']);
         if (!empty($missing)) {
             $counts['legacy_needs_review']++;
-            $report[] = [$id, 'needs_review', implode(' ', $missing), ''];
+            $report[] = [$id, 'needs_review', implode(' ', $missing), '', $flagsStr];
             continue;
         }
         $counts['legacy_ok']++;
-        $report[] = [$id, 'ok', '', strlen($r['html'])];
+        // 'flags' here is the "what got auto-handled" QA column Ethan asked for
+        // (2026-07-14): non-empty even on an 'ok' row means something unusual was
+        // detected and worked around (malformed HTML, a dropped duplicate, an MPN/UPC
+        // conflict resolved in favor of live data, etc.) -- not a reason to distrust
+        // the row, just a pointer for spot-checking the full-catalog rollout.
+        $report[] = [$id, 'ok', '', strlen($r['html']), $flagsStr];
         $toWrite[$id] = $r['html'];
     } catch (\Throwable $e) {
         $counts['error']++;
-        $report[] = [$id, 'error', $e->getMessage(), ''];
+        $report[] = [$id, 'error', $e->getMessage(), '', ''];
     }
 }
 
 $reportPath = $outDir . '/merge_legacy_template_report.csv';
 $rh = fopen($reportPath, 'w');
-fputcsv($rh, ['item_id', 'status', 'notes', 'html_bytes']);
+fputcsv($rh, ['item_id', 'status', 'notes', 'html_bytes', 'flags']);
 foreach ($report as $row) { fputcsv($rh, $row); }
 fclose($rh);
 

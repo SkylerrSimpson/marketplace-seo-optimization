@@ -61,7 +61,7 @@ if (isset($opts['help'])) {
     exit(0);
 }
 
-[$varBaseline, , $multiAspectsOfItem] = loadVariationContext($dir . '/review_sheet.csv');
+[$varBaseline, $varyByOfItem, $multiAspectsOfItem] = loadVariationContext($dir . '/review_sheet.csv');
 
 // find every item with a live Prop65 aspect, from the item's own cached snapshot
 // (items/{id}.json), NOT from review_sheet.csv's pending approved_value state.
@@ -79,6 +79,19 @@ foreach (glob($itemsDir . '/*.json') ?: [] as $path) {
     $specifics = $snap['aspects'];
     $removedValue = $specifics[$prop65Key];
     unset($specifics[$prop65Key]);
+    // Multi-SKU listings: items/{id}.json's snapshot can carry a vary-by aspect (e.g.
+    // Color) at the top level too -- eBay's own flattened/default view, not a
+    // deliberate parent-level value. Resending it there duplicates what's correctly
+    // set per-SKU in VariationSpecifics below, and eBay rejects the whole call with
+    // "Requires Unique Variation Specifics and Item Specifics" (found on
+    // 365879908021, a Color-variant listing, 2026-07-14). apply_aspects.php never
+    // hit this because its source, apply_set.json, is pre-filtered upstream by
+    // build_apply_set.php; this script reads the raw snapshot directly instead (see
+    // docblock above for why), so it needs its own exclusion here.
+    $varyBy = $varyByOfItem[$itemId] ?? [];
+    foreach (array_keys($specifics) as $name) {
+        if (isset($varyBy[mb_strtolower($name)])) { unset($specifics[$name]); }
+    }
     $affected[$itemId] = [
         'sku'           => '', // parent sku not carried in items/*.json; not needed for ReviseItem by ItemID
         'category_id'   => (string) ($snap['category_id'] ?? ''),

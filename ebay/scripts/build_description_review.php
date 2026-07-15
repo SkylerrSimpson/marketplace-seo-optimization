@@ -270,8 +270,26 @@ function renderFull(array $store, string $title, string $factual, string $sales,
     $h      = esc($title);
     $alt    = esc($altText !== '' ? $altText : $title);
     $mob    = esc(trim(preg_replace('/\s+/u', ' ', $mobile)));
-    $introP = $factual !== '' ? '  <p>' . esc($factual) . "</p>\n" : '';
-    $salesP = $sales   !== '' ? '  <p>' . esc($sales)   . "</p>\n" : '';
+    // $factual/$sales may contain a blank-line-separated multi-paragraph string (e.g.
+    // the legacy-template merge's "first 2 paragraphs" rule) -- render each paragraph
+    // as its own <p> rather than collapsing them into one (HTML would otherwise
+    // whitespace-collapse the break away). A single-paragraph string is unaffected.
+    // \x02 is a placeholder the legacy-template merge (decomposeLegacy()) uses to mark
+    // "put a line break here" -- e.g. when a package-contents list gets attached to
+    // its own intro sentence ("The kit includes the following:") instead of the
+    // generic Key Features bullets, each item still needs to read on its own line.
+    // It's inserted AFTER esc() so it becomes a real <br>, not escaped text.
+    $toParas = function (string $s): string {
+        $out = '';
+        foreach (preg_split('/\n\s*\n/u', trim($s)) as $part) {
+            $part = trim($part);
+            if ($part === '') { continue; }
+            $out .= '  <p>' . str_replace("\x02", '<br>', esc($part)) . "</p>\n";
+        }
+        return $out;
+    };
+    $introP = $factual !== '' ? $toParas($factual) : '';
+    $salesP = $sales   !== '' ? $toParas($sales)   : '';
 
     // Key Features — "Label: detail" bolds the label (matches the generator).
     $features = '';
@@ -483,7 +501,16 @@ function stripIdentifiers(string $t): string
     $t = preg_replace(
         '/\b(MPN|UPC|EAN|GTIN|SKU|ISBN|Part\s*(?:No\.?|Number|#))\b\s*[:#]?\s*'
         . '[A-Za-z0-9][A-Za-z0-9._\/-]*\.?/i', ' ', $t);
-    return trim(preg_replace('/\s+/u', ' ', (string) $t));
+    // Collapse runs of spaces/tabs, but preserve blank-line paragraph breaks -- every
+    // OTHER caller already pre-flattens its input to one line via $oneLine()/inline
+    // '/\s+/' collapse before calling this, so this is a no-op for them. Only the
+    // legacy-template merge (merge_legacy_template.php) passes multi-paragraph text
+    // straight through, and needs the blank line preserved so renderFull() can still
+    // render it as separate <p> tags instead of one run-on paragraph.
+    $t = preg_replace('/[ \t]+/u', ' ', (string) $t);
+    $t = preg_replace('/[ \t]*\n[ \t]*/u', "\n", $t);
+    $t = preg_replace('/\n{3,}/u', "\n\n", $t);
+    return trim((string) $t);
 }
 
 function esc(string $s): string { return htmlspecialchars($s, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); }
