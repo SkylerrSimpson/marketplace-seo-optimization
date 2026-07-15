@@ -1,8 +1,8 @@
 # Marketplace SEO Optimization
 
-PHP (+ some Python) tooling to audit and improve product metadata (SEO titles/
-descriptions, product type/aspects, image alt text, structured-data attributes) across
-ASR Outdoor's sales channels, and to push the approved changes back to each marketplace.
+PHP tooling to audit and improve the shared product dataset owned by **Irongate Enterprises (IGE)** and **Deals Only Web Store (DOWS)** across all active sales channels, and to push approved changes back to each marketplace.
+
+Marketplaces (Amazon, eBay, Walmart, Shopify) continuously evolve their taxonomy trees. Each leaf node carries required and recommended attributes — descriptions, product type, image alt text, GTINs, structured-data fields, and category-specific properties — that directly affect search ranking, Buy Box eligibility, and AI-agent discoverability. This repo tracks those gaps and closes them through a reviewable, auditable pipeline.
 
 > **If you're new here:** each marketplace folder (`shopify/`, `ebay/`) has its own
 > `README.md` with the full script inventory and run order — start there, this file is
@@ -87,7 +87,7 @@ php ebay/scripts/<script>.php --account=dows
 |---|---|---|
 | **Shopify**  | ✅ Built — metadata pipeline + collections + GTIN/MPN + accessibility + video/YouTube SEO, all with working write steps | [Admin GraphQL](https://shopify.dev/docs/api/admin-graphql/latest/queries/products) · [productUpdate](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productUpdate?language=direct-api) |
 | **eBay**     | ✅ Built — item aspects (canary + one-item live write both confirmed correct; full-catalog write imminent) + descriptions (fully re-authored both accounts) pipelines; images audit-only, no write step yet | [Trading API](https://developer.ebay.com/devzone/xml/docs/reference/ebay/index.html) (ReviseItem) · [Taxonomy API](https://developer.ebay.com/develop/api/sell/taxonomy_api) |
-| **Amazon**   | ⏳ Planned — SP-API event-notification system (Slack or similar) is next up, needs a PM meeting to scope | [SP-API Listings Items](https://developer-docs.amazon.com/sp-api/reference/listings-items-v2020-09-01) |
+| **Amazon**   | ✅ Built — SP-API event-notification system (Slack or similar) is next up, needs a PM meeting to scope | [SP-API Listings Items](https://developer-docs.amazon.com/sp-api/reference/listings-items-v2020-09-01) |
 | **Walmart**  | ⏳ Planned — same shape of work as eBay (titles, descriptions, aspects, images, SEO), once eBay wraps | [Marketplace API](https://developer.walmart.com/us-marketplace/lang-es/docs/utilities-overview) |
 
 The Shopify pipeline is the original reference implementation; eBay mirrors its shape

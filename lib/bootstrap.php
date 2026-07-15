@@ -29,6 +29,47 @@ define('SHOPIFY_INPUT',  SHOPIFY_DATA . '/input');    // pulled-from-Shopify exp
 define('SHOPIFY_DRAFTS', SHOPIFY_DATA . '/drafts');   // authored content (descriptions, alts)
 define('SHOPIFY_OUTPUT', SHOPIFY_DATA . '/output');   // assembled review files + audits
 
+
+// --- Amazon directories ------------------------------------------------------
+define('AMAZON_ROOT',    REPO_ROOT . '/amazon');
+define('AMAZON_DATA',    AMAZON_ROOT . '/data');
+define('AMAZON_SCHEMAS', AMAZON_DATA . '/schemas'); // shared across all accounts
+
+/**
+ * Return account-scoped data paths and create directories on first use.
+ *
+ * Usage:  $paths = amazon_paths('IGE');
+ *         $paths = amazon_paths('DOWS');
+ *
+ * @return array{data:string, input:string, reports:string, listings:string, catalog:string, drafts:string, output:string, drift:string, schemas:string}
+ */
+function amazon_paths(string $account): array
+{
+    $base = AMAZON_DATA . '/' . strtolower($account);
+
+    $paths = [
+        'data'           => $base,
+        'input'          => $base . '/input',
+        'reports'        => $base . '/input/reports',
+        'listings'       => $base . '/input/listings',
+        'catalog'        => $base . '/input/catalog',
+        'catalog_errors' => $base . '/input/catalog/errors',
+        'usurper'        => $base . '/input/usurper',
+        'drafts'         => $base . '/drafts',
+        'output'         => $base . '/output',
+        'drift'          => $base . '/drift',    // committed drift snapshots (tracked over time)
+        'schemas'        => AMAZON_SCHEMAS,
+    ];
+
+    foreach ($paths as $key => $path) {
+        if ($key !== 'schemas' && !is_dir($path)) {
+            mkdir($path, 0755, true);
+        }
+    }
+
+    return $paths;
+}
+
 // --- eBay data directories -------------------------------------------------
 // eBay is PER-ACCOUNT (DOWS, IGE, ...), mirroring Scott's amazon/data/{account}.
 // The category-aspect schema cache is SHARED across accounts (committed, reviewable),
@@ -79,3 +120,4 @@ function walmart_dir(string $country, string $subdir): string
     }
     return $path;
 }
+

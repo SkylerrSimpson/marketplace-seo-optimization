@@ -16,8 +16,12 @@ __pycache__/
 .DS_Store
 *~
 
-# Note: generated data under */data/ (exports, drafts, output) IS committed so the
-# whole team can review results without re-pulling from each marketplace.
+# Amazon SP-API — regenerable per-account data (API-fetched snapshots + audit output)
+# Committed: amazon/data/schemas/, amazon/data/*/drafts/, amazon/data/*/drift/
+#   (drift/ = deterministic digest of input/ for tracking catalog drift over time)
+amazon/data/*/input/
+amazon/data/*/output/*.csv
+amazon/data/*/output/*.txt
 
-# Claude Code local (per-developer) settings
-.claude/settings.local.json
+# Claude Code — not project config, no need to share
+.claude/
