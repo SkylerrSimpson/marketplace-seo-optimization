@@ -1,0 +1,93 @@
+{%- comment -%}
+  ASR Outdoor — Product Trust Row
+  Reassurance icons placed directly under the Add to Cart button.
+  Also hides Dawn's broken "Couldn't load pickup availability" widget.
+
+  HOW TO INSTALL (theme customizer, no code editor needed):
+    1. Online Store -> Themes -> Customize.
+    2. In the top dropdown, choose "Products" -> "Default product".
+    3. In the left "Product information" section, click "Add block".
+    4. Choose "Custom liquid".
+    5. DRAG the new Custom liquid block so it sits RIGHT BELOW the
+       "Buy buttons" block (i.e. just under Add to cart / Buy it now).
+    6. Paste EVERYTHING in this file into the Custom liquid box.
+    7. Save. It now shows on every product automatically.
+
+  All facts here are confirmed true: ships from Bellingham WA warehouse,
+  30-day returns, secure Shopify checkout, US-based seller.
+{%- endcomment -%}
+
+<style>
+  /* Hide the broken local-pickup widget (we don't offer in-store pickup) */
+  .product__pickup-availabilities,
+  pickup-availability,
+  pickup-availability-preview { display: none !important; }
+
+  /* Hide the vague "Shipping calculated at checkout" caption under the price
+     (our trust row already states shipping clearly) */
+  .product__tax { display: none !important; }
+
+  .asr-trust-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem 1.6rem;
+    margin: 1.6rem 0 0.4rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
+  .asr-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    flex: 1 1 45%;
+    min-width: 0;
+    font-size: 1.3rem;
+    line-height: 1.25;
+    color: rgb(var(--color-foreground));
+  }
+  .asr-trust-item svg {
+    flex: 0 0 auto;
+    width: 2.2rem;
+    height: 2.2rem;
+    color: #275333; /* ASR brand green */
+  }
+  .asr-trust-item span { font-weight: 500; }
+  @media (min-width: 750px) {
+    .asr-trust-item { flex: 1 1 40%; font-size: 1.4rem; }
+  }
+</style>
+
+<div class="asr-trust-row" role="list" aria-label="Why buy from ASR Outdoor">
+  <div class="asr-trust-item" role="listitem">
+    {%- comment -%} truck {%- endcomment -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M1 3h13v11H1z"/><path d="M14 7h4l3 3v4h-7z"/><circle cx="5.5" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/>
+    </svg>
+    <span>Ships from Bellingham, WA</span>
+  </div>
+
+  <div class="asr-trust-item" role="listitem">
+    {%- comment -%} return arrow (rotate-ccw) {%- endcomment -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="1 4 1 10 7 10"/>
+      <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+    </svg>
+    <span>30-Day Returns</span>
+  </div>
+
+  <div class="asr-trust-item" role="listitem">
+    {%- comment -%} lock {%- endcomment -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+    </svg>
+    <span>Secure Checkout</span>
+  </div>
+
+  <div class="asr-trust-item" role="listitem">
+    {%- comment -%} shield/check {%- endcomment -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 2l8 3v6c0 5-3.4 8.5-8 11-4.6-2.5-8-6-8-11V5z"/><path d="M9 12l2 2 4-4"/>
+    </svg>
+    <span>Trusted U.S. Seller</span>
+  </div>
+</div>

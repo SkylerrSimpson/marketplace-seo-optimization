@@ -1,0 +1,93 @@
+{%- comment -%}
+  ============================================================================
+  HEADER — hover-to-open mega menu (desktop inline nav)
+  ----------------------------------------------------------------------------
+  Paste this ENTIRE file into layout/theme.liquid, immediately BEFORE the
+  closing </body> tag (Online Store -> Themes -> Edit code -> Layout ->
+  theme.liquid). It loads site-wide, which the header needs.
+
+  Behaviour (desktop, >=1457px = our nav breakpoint):
+    - Hover a top-level item that has a dropdown -> its panel opens. No click.
+    - The panel stays open while the cursor is ANYWHERE inside the header or
+      inside the panel itself (no dead zone between the text and the panel).
+    - It closes only when you: (1) move the cursor out of the header/panel
+      area (e.g. below the panel), or (2) hover a different top-level item,
+      which closes the others and opens that one.
+    - A mouse click on a dropdown's top item is suppressed on desktop so it
+      can't toggle the panel shut; keyboard Enter still works normally.
+    - Below 1457px the inline menu is hidden (hamburger takes over) -> no-op.
+
+  Why watch the whole header: Dawn's mega-menu panel renders at the BOTTOM of
+  the header, and the panel is a DOM child of the header. So treating the
+  header as one hover region means the empty space between the menu text and
+  the panel is still "inside" -> the menu no longer flickers shut there.
+  ============================================================================
+{%- endcomment -%}
+
+<script>
+  (function () {
+    var BP = '(min-width: 1457px)';
+    function desktop() { return window.matchMedia(BP).matches; }
+
+    var inlineMenu = document.querySelector('.header__inline-menu');
+    if (!inlineMenu) return;
+
+    var header = inlineMenu.closest('.header') || inlineMenu;
+
+    var detailsList = Array.prototype.slice.call(
+      inlineMenu.querySelectorAll('header-menu > details, details-disclosure > details')
+    );
+    if (!detailsList.length) return;
+
+    function setOpen(details, open) {
+      var summary = details.querySelector('summary');
+      if (open) {
+        if (!details.hasAttribute('open')) details.setAttribute('open', '');
+        if (summary) summary.setAttribute('aria-expanded', 'true');
+      } else {
+        details.removeAttribute('open');
+        if (summary) summary.setAttribute('aria-expanded', 'false');
+      }
+    }
+
+    function closeAll(except) {
+      detailsList.forEach(function (d) { if (d !== except) setOpen(d, false); });
+    }
+
+    // Open on hover of each top-level item; opening one closes the rest.
+    detailsList.forEach(function (details) {
+      var host = details.parentElement;            // <header-menu> / <details-disclosure>
+      var summary = details.querySelector('summary');
+
+      host.addEventListener('mouseenter', function () {
+        if (!desktop()) return;
+        closeAll(details);
+        setOpen(details, true);
+      });
+
+      if (summary) {
+        summary.addEventListener('click', function (e) {
+          // Click on the parent label link -> let it navigate to the aggregate
+          // collection page; don't suppress it and don't toggle the panel.
+          if (e.target.closest('a')) return;
+          // Click on the caret / blank summary area on desktop -> suppress the
+          // native toggle so it can't slam the hover-opened panel shut.
+          // e.detail === 0 is a keyboard activation -> let it toggle normally.
+          if (desktop() && e.detail !== 0) e.preventDefault();
+        });
+      }
+    });
+
+    // Close only when the cursor leaves the WHOLE header (incl. the panel,
+    // which is a child of the header). A tiny delay guards boundary flicker.
+    var closeTimer = null;
+    header.addEventListener('mouseenter', function () {
+      clearTimeout(closeTimer);
+    });
+    header.addEventListener('mouseleave', function () {
+      if (!desktop()) return;
+      clearTimeout(closeTimer);
+      closeTimer = setTimeout(function () { closeAll(null); }, 80);
+    });
+  })();
+</script>

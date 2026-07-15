@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>eBay Description Generator (Standard Template)</title>
+<style>
+  body { font-family: Arial; max-width: 1500px; margin: auto; padding: 0 16px 60px; }
+  h2 { margin-top: 18px; }
+  .hint { font-size: 13px; color: #666; margin: 0 0 16px; }
+  div { margin-bottom: 10px; }
+  input, textarea, select { font-family: Arial; font-size: 18px; line-height: 1.4; width: 100%; margin-bottom: 10px; padding: 6px; resize: vertical; box-sizing: border-box; }
+  button { margin: 5px 0; padding: 8px 12px; cursor: pointer; }
+  .row { display: flex; gap: 10px; align-items: flex-start; }
+  .row input { flex: 1; }
+  .row button { flex: 0 0 auto; }
+  .counter { font-size: 10px; color: #888; margin: 2px 0 10px; }
+  .counter.over { color: #c00; font-weight: bold; }
+  #preview { border: 1px solid #ddd; padding: 16px; background: #fafafa; }
+  .cols { display: flex; gap: 24px; flex-wrap: wrap; }
+  .cols > div { flex: 1 1 480px; }
+</style>
+</head>
+<body onload="onLoad()">
+
+<h2>eBay Description Generator <span style="font-weight:normal;font-size:14px;color:#888">— Standard Template</span></h2>
+<p class="hint">Outputs the canonical schema.org/Product description. Includes the hidden mobile description
+eBay requires (800-char cap), a store header (Our Store link, chosen by store), main image,
+Key Features, Product Specifications, the Prop65 warning badge, and a store footer.</p>
+
+<div class="cols">
+<div>
+  <h3>Store</h3>
+  <select id="store" onchange="refreshPreview()">
+    <option value="dows">Deals Only Web Store</option>
+    <option value="irongate">Irongate Enterprises</option>
+  </select>
+
+  <label style="display:flex;align-items:center;gap:6px;font-size:14px;margin-bottom:10px">
+    <input type="checkbox" id="showProp65" checked onchange="refreshPreview()" style="width:auto;margin:0">
+    Show Prop65 Warning Badge
+  </label>
+
+  <input id="title" placeholder="Title / Headline (becomes the H2)" maxlength="80" style="margin-bottom:0">
+  <div class="counter" id="lenTitle">0/80</div>
+
+  <textarea id="mobileDesc" placeholder="Mobile Description (required by eBay — short summary, 800 char cap incl. tags)" maxlength="800" rows="3" style="margin-bottom:0"></textarea>
+  <div class="counter" id="lenMobile">0/800</div>
+
+  <textarea id="shortDesc" placeholder="Description (the intro paragraph — line breaks kept)" rows="5" style="margin-bottom:0"></textarea>
+  <div class="counter" id="lenShortDesc">0 chars</div>
+  <textarea id="fullDesc" placeholder="Second Description (optional, shown at the bottom — line breaks kept)" rows="4" style="margin-bottom:0"></textarea>
+  <div class="counter" id="lenFullDesc">0 chars</div>
+
+  <input id="imageURL" placeholder="Main Image URL (optional)" style="margin-bottom:0">
+  <div class="counter" id="urlError"></div>
+
+  <h3>Key Features</h3>
+  <p class="hint" style="margin-bottom:6px">Tip: write <b>Label: detail</b> to bold the label (e.g. <i>Blade: full-tang stainless</i>).</p>
+  <div id="features">
+    <input class="feature" placeholder="Key Feature 1">
+    <input class="feature" placeholder="Key Feature 2">
+    <input class="feature" placeholder="Key Feature 3">
+    <input class="feature" placeholder="Key Feature 4">
+    <input class="feature" placeholder="Key Feature 5">
+  </div>
+  <button type="button" onclick="addFeature()">+ Add Feature</button>
+
+  <h3>Product Specifications</h3>
+  <div class="row">
+    <input id="mpn" placeholder="MPN">
+  </div>
+  <div class="row">
+    <input id="upc" placeholder="UPC">
+  </div>
+  <div id="customAttributes"></div>
+  <button type="button" onclick="addAttribute()">+ Add Specification</button>
+
+  <br/><br/>
+  <button type="button" onclick="generateHTML()" style="font-weight:bold">Generate &amp; Copy</button>
+
+  <h3>Output</h3>
+  <textarea id="output" rows="16"></textarea>
+</div>
+
+<div>
+  <h3>Live Preview</h3>
+  <div id="preview"></div>
+</div>
+</div>
+
+<script>
+// ---- store directory (drives header brand + Our Store link) ----------------
+const STORES = {
+  dows:     { brand: "Deals Only Web Store", slug: "dealsonlywebstore" },
+  irongate: { brand: "Irongate Enterprises", slug: "irongateamericansupply" }
+};
+
+// Prop65 badge. Rehosted 2026-07-14 off the Shopify CDN to an eBay/DOWS-controlled
+// S3 bucket (public object URL -- NOT a presigned URL; presigned URLs expire, e.g.
+// X-Amz-Expires=300 is only 5 minutes, which would break the image almost
+// immediately). Embedded on every listing regardless of brand/category (except
+// Gear Aid, see the showProp65 checkbox above), alt text required.
+const PROP65_BADGE_HTML =
+  '  <p style="text-align:center;margin:16px 0 0"><img src="https://s3.us-east-1.amazonaws.com/DOWS_photobucket/Shopify_Prop65graphic.jpg" alt="California Proposition 65 warning" style="display:block;margin-left:auto;margin-right:auto" height="78" width="273"></p>\n';
+
+// ---- js helper functions ---------------------------------------------------------------
+
+// Match PHP htmlspecialchars(ENT_QUOTES) so the output matches the builder.
+function esc(s) {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+// Collapse all whitespace to a single line
+function oneLine(s) { return String(s).replace(/\s+/g, " ").trim(); }
+
+// Escape, then keep author line breaks as <br/> (for the visible description bodies).
+function multiline(s) {
+  return esc(String(s).trim()).replace(/\r?\n/g, "<br/>");
+}
+
+// ---- counters / dynamic rows ----------------------------------------------
+
+const title = document.getElementById("title");
+const lenTitle = document.getElementById("lenTitle");
+title.addEventListener("input", () => { lenTitle.textContent = title.value.length + "/80"; });
+
+const mobileDesc = document.getElementById("mobileDesc");
+const lenMobile = document.getElementById("lenMobile");
+mobileDesc.addEventListener("input", () => {
+  // eBay counts the ESCAPED span source (e.g. &#039; is 6 chars), capped at 800.
+  const n = esc(oneLine(mobileDesc.value)).length;
+  lenMobile.textContent = n + "/800 (eBay count, escaped)";
+  lenMobile.classList.toggle("over", n > 800);
+});
+
+// eBay's Trading API ItemType.Description field has a documented 500,000-character limit
+const EBAY_DESCRIPTION_MAX = 500000;
+function wireLengthCounter(fieldId, counterId) {
+  const field = document.getElementById(fieldId);
+  const counter = document.getElementById(counterId);
+  field.addEventListener("input", () => {
+    const n = field.value.length;
+    counter.textContent = n.toLocaleString() + " chars"
+      + (n > EBAY_DESCRIPTION_MAX ? " (exceeds eBay's " + EBAY_DESCRIPTION_MAX.toLocaleString() + "-char Description limit)" : "");
+    counter.classList.toggle("over", n > EBAY_DESCRIPTION_MAX);
+  });
+}
+wireLengthCounter("shortDesc", "lenShortDesc"); //add the validation in the form of listners
+wireLengthCounter("fullDesc", "lenFullDesc");
+
+// Main Image URL: must be a syntactically valid http(s) URL when non-empty (it's an
+// optional field -- blank is fine, a malformed value is not, since eBay would just
+// show a broken image).
+function isValidImageUrl(s) {
+  if (!s) return true;
+  try {
+    const u = new URL(s);
+    return u.protocol === "http:" || u.protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+const imageURLField = document.getElementById("imageURL");
+const urlError = document.getElementById("urlError");
+imageURLField.addEventListener("input", () => {
+  const ok = isValidImageUrl(imageURLField.value.trim());
+  urlError.textContent = ok ? "" : "Not a valid http(s) URL";
+  urlError.classList.toggle("over", !ok);
+  imageURLField.style.borderColor = ok ? "" : "#c00";
+});
+
+// Escape, then drop whole trailing words until the escaped source fits eBay's 800 cap.
+function capMobile(s) {
+  let e = esc(s);
+  if (e.length <= 800) return e;
+  const words = s.split(" ");
+  while (words.length && esc(words.join(" ")).length > 800) words.pop();
+  return esc(words.join(" "));
+}
+
+function addFeature() {
+  const input = document.createElement("input");
+  input.className = "feature";
+  input.placeholder = "Key Feature " + (document.querySelectorAll(".feature").length + 1);
+  document.getElementById("features").appendChild(input);
+}
+
+function addAttribute() {
+  const container = document.getElementById("customAttributes");
+  const div = document.createElement("div");
+  div.className = "row";
+  div.innerHTML =
+    '<input placeholder="Specification">' +
+    '<input placeholder="Value">' +
+    '<button type="button" onclick="this.parentElement.remove()">&minus;</button>';
+  container.appendChild(div);
+}
+
+function onLoad() {
+  for (let i = 0; i < 3; i++) addAttribute();
+  refreshPreview();
+}
+
+// ---- the template itself ------------------------------------------------
+
+function buildHTML() {
+  const store = STORES[document.getElementById("store").value] || STORES.dows;
+  const storeUrl = "https://www.ebay.com/str/" + store.slug;
+  const year = new Date().getFullYear();
+  const showProp65 = document.getElementById("showProp65").checked;
+
+  const h = esc(oneLine(document.getElementById("title").value));
+  const mobile = capMobile(oneLine(document.getElementById("mobileDesc").value));
+  const intro = multiline(document.getElementById("shortDesc").value);
+  const full = multiline(document.getElementById("fullDesc").value);
+  const imageURL = oneLine(document.getElementById("imageURL").value);
+
+  // Key Features. "Label: detail" bolds the label (original behavior); else plain.
+  let featuresHTML = "";
+  let li = "";
+  document.querySelectorAll(".feature").forEach(f => {
+    const t = oneLine(f.value);
+    if (!t) return;
+    const idx = t.indexOf(":");
+    if (idx > 0) {
+      li += "    <li><strong>" + esc(t.slice(0, idx).trim()) + ":</strong> " + esc(t.slice(idx + 1).trim()) + "</li>\n";
+    } else {
+      li += "    <li>" + esc(t) + "</li>\n";
+    }
+  });
+  if (li) {
+    featuresHTML =
+      '  <h3 style="font-size:18px;margin:18px 0 8px">Key Features</h3>\n' +
+      '  <ul style="padding-left:20px;margin:0 0 16px">\n' + li + "  </ul>\n";
+  }
+
+  // Product Specifications (MPN, UPC, then custom rows). Empty rows auto-skip.
+  const specs = [];
+  const mpn = oneLine(document.getElementById("mpn").value);
+  const upc = oneLine(document.getElementById("upc").value);
+  if (mpn) specs.push(["MPN", mpn]);
+  if (upc) specs.push(["UPC", upc]);
+  document.querySelectorAll("#customAttributes .row").forEach(row => {
+    const ins = row.querySelectorAll("input");
+    const name = oneLine(ins[0].value);
+    const val = oneLine(ins[1].value);
+    if (name && val) specs.push([name, val]);
+  });
+  let specsHTML = "";
+  if (specs.length) {
+    let sli = "";
+    specs.forEach(([name, val]) => {
+      sli += "    <li><strong>" + esc(name) + ":</strong> " + esc(val) + "</li>\n";
+    });
+    specsHTML =
+      '  <h3 style="font-size:18px;margin:18px 0 8px">Product Specifications</h3>\n' +
+      '  <ul style="padding-left:20px;margin:0 0 16px">\n' + sli + "  </ul>\n";
+  }
+
+  const introP = intro ? '  <p>' + intro + "</p>\n" : "";
+  const fullP = full ? '  <p>' + full + "</p>\n" : "";
+  const imageHTML = imageURL
+    ? '  <p style="text-align:center;margin:0 0 16px"><img src="' + esc(imageURL) +
+        '" alt="' + h + '" style="max-width:100%;width:600px;height:auto"></p>\n'
+    : "";
+
+  // ONE schema.org/Product. The hidden mobile summary is its description property
+  // (eBay parses this from source for the mobile app; display:none only hides it on desktop).
+  // Layout order matches the original: intro -> features -> image -> specs -> second description.
+  return '<div style="font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.6;color:#222;max-width:800px;margin:0 auto" vocab="https://schema.org/" typeof="Product">\n' +
+    '  <div style="display:none"><span property="description">' + mobile + "</span></div>\n" +
+    '  <div style="background:#f5f5f5;padding:12px 15px;border:1px solid #e5e5e5;margin:0 0 16px">\n' +
+    '    <div style="font-size:18px;font-weight:bold;margin-bottom:6px">' + esc(store.brand) + "</div>\n" +
+    '    <div style="font-size:13px">\n' +
+    '      <a href="' + esc(storeUrl) + '" style="text-decoration:none;color:#333">Our Store</a>\n' +
+    "    </div>\n" +
+    "  </div>\n" +
+    '  <h2 style="font-size:22px;margin:0 0 12px">' + h + "</h2>\n" +
+    introP + featuresHTML + imageHTML + specsHTML + fullP + (showProp65 ? PROP65_BADGE_HTML : "") +
+    '  <p style="margin:18px 0 0;padding-top:12px;border-top:1px solid #e5e5e5;font-size:13px;color:#777;text-align:center">&copy; ' +
+      year + " " + esc(store.brand) + "</p>\n" +
+    "</div>";
+}
+
+function refreshPreview() {
+  const html = buildHTML();
+  document.getElementById("preview").innerHTML = html;
+  return html;
+}
+
+function generateHTML() {
+  if (!isValidImageUrl(imageURLField.value.trim())) {
+    alert("Main Image URL isn't a valid http(s) URL — fix it before generating.");
+    imageURLField.focus();
+    return;
+  }
+  const html = refreshPreview();
+  document.getElementById("output").value = html;
+  navigator.clipboard.writeText(html).then(
+    () => alert("Copied to clipboard!"),
+    () => alert("Generated below (clipboard blocked — copy manually).")
+  );
+}
+
+document.addEventListener("input", refreshPreview);
+</script>
+
+</body>
+</html>

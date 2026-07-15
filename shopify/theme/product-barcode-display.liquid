@@ -1,0 +1,46 @@
+{%- comment -%}
+  ASR Outdoor — Visible UPC/Barcode
+  Prints the selected variant's UPC/GTIN as real, crawlable page text (not just
+  inside the ld+json script tag). Google's classic web-search indexer weighs
+  visible text much more heavily than schema markup for exact-string queries
+  like "type a barcode into Google" — Amazon/eBay both print theirs visibly,
+  ASR's page currently doesn't. Updates automatically when the shopper changes
+  variant, same as price/availability, via Shopify's built-in variant JS.
+
+  HOW TO INSTALL (theme customizer, no code editor needed):
+    1. Online Store -> Themes -> Customize.
+    2. In the top dropdown, choose "Products" -> "Default product".
+    3. In the left "Product information" section, click "Add block".
+    4. Choose "Custom liquid".
+    5. DRAG the new Custom liquid block so it sits RIGHT BELOW the SKU/price
+       area (near where "product-trust-row.liquid" was installed is fine too —
+       either position works, this just needs to render on the page).
+    6. Paste EVERYTHING in this file into the Custom liquid box.
+    7. Save. It now shows on every product automatically.
+{%- endcomment -%}
+
+<style>
+  .asr-upc-line {
+    font-size: 1.2rem;
+    color: rgba(var(--color-foreground), 0.75);
+    margin: 0.4rem 0;
+  }
+</style>
+
+<p class="asr-upc-line" data-product-upc>
+  {%- if product.selected_or_first_available_variant.barcode != blank -%}
+    UPC: {{ product.selected_or_first_available_variant.barcode }}
+  {%- endif -%}
+</p>
+
+<script>
+  (function () {
+    var el = document.currentScript.previousElementSibling;
+    if (!el) return;
+    document.addEventListener('variant:change', function (evt) {
+      var variant = evt.detail && evt.detail.variant;
+      if (!variant) return;
+      el.textContent = variant.barcode ? ('UPC: ' + variant.barcode) : '';
+    });
+  })();
+</script>

@@ -1,0 +1,44 @@
+{%- comment -%}
+  ASR Outdoor — VideoObject schema for video "watch page" articles.
+
+  WHY: Shopify strips <script> JSON-LD from article bodies, so the VideoObject
+  structured data has to be emitted by the theme. The live YouTube player itself
+  goes in the article body (Claude inserts the <iframe> via the API); THIS block
+  only outputs the schema Google needs to treat the page as a watch page.
+
+  WHERE TO PASTE (one time):
+    Online Store -> Themes -> Edit code -> sections/main-article.liquid
+    Paste this whole block near the TOP of the file (just inside the section,
+    before the article content markup). The `article` object is in scope there.
+
+  It only fires when an article has a `custom.youtube_id` metafield, so it has
+  ZERO effect on your Journal blog posts.
+{%- endcomment -%}
+
+{%- assign yt = article.metafields.custom.youtube_id -%}
+{%- if yt != blank -%}
+  {%- assign vdesc = article.metafields.custom.video_description | default: article.excerpt | default: article.content | strip_html | truncate: 320 -%}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": {{ article.title | json }},
+    "description": {{ vdesc | json }},
+    "thumbnailUrl": [
+      "https://i.ytimg.com/vi/{{ yt }}/hqdefault.jpg",
+      "https://i.ytimg.com/vi/{{ yt }}/maxresdefault.jpg"
+    ],
+    "uploadDate": {{ article.metafields.custom.video_upload_date | json }},
+    {%- if article.metafields.custom.video_duration != blank %}
+    "duration": {{ article.metafields.custom.video_duration | json }},
+    {%- endif %}
+    "embedUrl": "https://www.youtube.com/embed/{{ yt }}",
+    "contentUrl": "https://www.youtube.com/watch?v={{ yt }}",
+    "publisher": {
+      "@type": "Organization",
+      "name": "ASR Outdoor",
+      "url": "https://asroutdoor.com"
+    }
+  }
+  </script>
+{%- endif -%}

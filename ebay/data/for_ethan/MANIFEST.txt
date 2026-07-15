@@ -1,0 +1,110 @@
+eBay REVIEW BUNDLE — for Ethan                        (all DRY-RUN; nothing is live on eBay)
+=========================================================================================
+
+REVIEW SHEETS (fill the 'approved' / 'approved_value' + 'reviewer_notes' columns):
+
+1) eBay_DOWS_item-specifics-aspects_REVIEW.csv   (23074 rows)
+2) eBay_IGE_item-specifics-aspects_REVIEW.csv    (6007 rows)
+     One row per listing x item-specific aspect. 'proposed_value' is our suggested value.
+     NEW: parent listings now have values rolled up from their child variations
+     (source='child_rollup'); 'reviewer_notes' explains each. Country conflicts &
+     per-variation cases are left blank with a FLAG note.
+
+3) eBay_DOWS_descriptions-standardized-v3_REVIEW.csv (1257 rows)
+4) eBay_IGE_descriptions-standardized-v3_REVIEW.csv  (370 rows)
+     CURRENT — supersedes v2 and the original v1 (both left in this folder for
+     reference only, not for action). v3 changes vs. v2, per Ethan's 2026-07-14
+     feedback:
+       - Removed the "Contact Us" link from the store header — "Our Store" only.
+       - Added the California Prop 65 warning as a badge IMAGE (with alt text) at
+         the bottom of every description, replacing the item-specific aspect of the
+         same name (which is being removed from eBay entirely — see the aspects
+         sheets above; no more per-chemical text). Matches how ASRoutdoor.com already
+         does it on its own product pages.
+       - EXCEPTION: Gear Aid branded items get NO badge (same exception the old
+         item-specific rule had) — 52 DOWS / 86 IGE rows, `what_changed` says
+         "Prop65 badge withheld (Gear Aid)" on those rows so they're easy to filter.
+     IMPORTANT: the aspect-side removal (deleting "California Prop 65 Warning" from
+     each listing's live item specifics) is being held until these descriptions are
+     actually pushed live — we don't want a window where neither the aspect nor the
+     description carries the warning. So don't action the Prop65 aspect rows in the
+     item-specifics sheets above as a DELETE until you hear these descriptions have
+     gone live.
+     v2 was authored after the item-specifics round 1 approvals were merged back in,
+     so the AI writer had full/current aspect data as grounding (v1 did not) — that
+     grounding carries through unchanged in v3.
+     One row per listing: old_first_description/new_first_description (factual para),
+     old_sales_description/new_sales_description (the SECOND/sales-pitch paragraph —
+     added 2026-07-07; previously only visible buried inside new_description/new_html,
+     with no way to compare old vs. new on its own),
+     old_title/new_title (title is ONLY changed when materially inaccurate or deficient
+     — missing a stated fact, wrong claim, poor keyword coverage; most titles are
+     untouched — 79/1257 changed for DOWS, 34/370 for IGE), old_key_features/
+     new_key_features, old_mobile_text/new_mobile_text (hidden mobile summary),
+     old_description/new_description (plain text), prev_html/new_html (full rendered
+     HTML), what_changed, approved + reviewer_notes (fill these), mpn/upc (reference
+     only, pulled from current aspects), specs/values (auto-rendered Product
+     Specifications block — reflects round-1 aspect approvals only, pending your
+     round-2 sign-off on the item-specifics sheets above).
+
+5) eBay_BOTH_mobile-vs-desktop-description-fixes_REVIEW.csv (305 rows)
+     Listings whose hidden MOBILE description didn't match the DESKTOP-visible text.
+     Top 168 rows = MISMATCH (selling copy was hidden from desktop); back 137 rows =
+     NO_MOBILE (no mobile block at all). before_* vs after_* columns; OK listings excluded.
+
+6) eBay_DOWS_invalid-approved-values_REVIEW.csv (28 rows) — RESOLVED 2026-07-07
+     Found while rebuilding apply_set.json from the "Update 1" round-2 approvals: 28
+     approved_value entries that didn't match eBay's real picklist for that listing's
+     category. Resolved via Slack with Ethan same day: 24 Age Level rows fixed by
+     dropping the invalid "8-11 Years" piece; Department/Franchise/Unit Type one-offs
+     fixed per his answers. All 28 included correctly in the write below.
+
+7) eBay_DOWS_post-write-live-comparison_REVIEW.csv (17972 rows) — NEW 2026-07-07
+     Requested by Ethan while reviewing the bulk-write failures: a fresh, read-only
+     pull of every DOWS listing's CURRENT live aspects (Browse API, right now — not the
+     stale cache), one row per listing x aspect, alongside our_proposed_value (what
+     apply_set.json intended to write) and match (yes/no). Use this to compare current
+     vs. proposed directly. write_ack/write_note carry the per-item write result where
+     available (see ebay/data/dows/output/bulk_write_2026-07-07_results.txt for the full
+     narrative — including a newly-found issue where eBay silently overrides our values
+     with Catalog data on 4+ listings, invisible as a plain success/fail count since it
+     returns Warning not Failure).
+
+8) eBay_DOWS_current-live-attributes_REVIEW_v3.csv (22149 rows) — NEW 2026-07-09
+9) eBay_IGE_current-live-attributes_REVIEW.csv  (3474 rows)  — NEW 2026-07-08
+     Requested by Ethan: a fresh, read-only pull of every listing's CURRENT live
+     attributes only — no proposed_value/approved_value/certainty/reviewer_notes,
+     just item_id, sku, varied_by, name, category_id, aspect, mode, cardinality,
+     current_value, allowed_values, title. One row per listing x aspect (parent rows),
+     plus one row per variation child x varied aspect. Same row skeleton as sheet 1/2
+     above, just stripped down for a manual current-vs-Ethan's-own-sheet comparison
+     instead of an approval pass. IGE reflects pre-write state since IGE hasn't been
+     written yet.
+
+     DOWS history: v1 (19744 rows, 2026-07-08) and v2 (23005 rows, same day — a merge
+     that added back schema-defined blank rows a bug had dropped from v1) were both
+     pulled via the Browse API. v3 (current, 2026-07-09) supersedes both — pulled after
+     the UPC / Country-Region-of-Manufacture custom-attribute cleanup finished (874
+     listings), and switched to Trading API GetItem instead of Browse API, because
+     Browse API's localizedAspects auto-displays a buyer-facing "UPC" derived from the
+     item's gtin product-identifier field regardless of whether a redundant custom UPC
+     ItemSpecific still exists — it would have shown "UPC" on ~84% of the cleaned
+     listings as a false positive. Trading GetItem's raw ItemSpecifics list is the real
+     seller-side data and confirmed 0 UPC rows anywhere in the DOWS catalog.
+     Country/Region of Manufacture: 0 rows remain except 4 known cases — 236345137222
+     (auction ended, can't be revised, permanent), 364616077785 (transient "System
+     error" on the write, retriable), 364584755081 (blocked by a Duplicate Listing
+     policy conflict with item 364755157439, needs resolving before it can be revised),
+     and 364839375985 (was never on the 874-item cleanup list to begin with — out of
+     scope, not a gap).
+
+REFERENCE LISTS (context only — no action needed):
+
+  eBay_BOTH_conflicting-country-of-origin_REFERENCE.csv
+     11 parents whose child variations list different countries; left blank in sheet 1/2
+     (set Country per variation; some are likely bad data).
+  eBay_IGE_parents-with-no-children_REFERENCE.txt
+     15 IGE parent listings that have NO child variations in Usurper, so their aspects
+     could NOT be auto-filled.
+
+NOT INCLUDED: the image-remediation sheet (image_review) — that workstream hasn't started.

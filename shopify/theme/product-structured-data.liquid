@@ -1,33 +1,9 @@
-{%- comment -%}
-  ============================================================================
-  FINAL Product structured data for ASR Outdoor (Dawn) — "safe" variant
-  ============================================================================
-  Replaces Shopify's built-in {{ product | structured_data }} (a ProductGroup +
-  hasVariant that OMITS the fields Google's reports want). Mirrors that exact
-  structure and ADDS, per variant + offer:
-    - description            (per variant)  -> fixes GSC "Missing field description" (hasVariant)
-    - offers.priceValidUntil                -> fixes GSC "Missing field priceValidUntil (hasVariant.offers)"
-    - offers.itemCondition  (NewCondition)
-    - offers.hasMerchantReturnPolicy         -> mirrors Merchant Center return policy
-  shippingDetails is intentionally NOT included — Merchant Center already
-  supplies verified shipping, and a hardcoded rate could mismatch it.
-
-  INSTALL (do on a DUPLICATED theme first, then publish or copy to live):
-  1. Save as snippets/product-structured-data.liquid
-  2. In sections/main-product.liquid replace:
-       <script type="application/ld+json">{{ product | structured_data }}</script>
-     with:
-       {% render 'product-structured-data', product: product %}
-  3. Preview -> view source -> validate the rendered JSON-LD (Rich Results "Code"
-     mode or paste to review) -> 0 errors.
-
-  CONFIRM before publishing (vars below mirror Merchant Center):
-    return: 30 days, ReturnByMail, customer pays return shipping (ReturnShippingFees), US.
-{%- endcomment -%}
 {% assign price_valid_until = 'now' | date: '%s' | plus: 31536000 | date: '%Y-%m-%d' %}
 {% assign clean_desc = product.description | strip_html | strip_newlines %}
 {% assign return_days = 30 %}
 {% assign return_country = 'US' %}
+{% assign jm_rating = product.metafields.reviews.rating.value %}
+{% assign jm_count = product.metafields.reviews.rating_count.value | plus: 0 %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
@@ -35,9 +11,11 @@
   "@id": "{{ shop.url }}{{ product.url }}#product",
   "name": {{ product.title | json }},
   "description": {{ clean_desc | json }},
+  {% if jm_count > 0 %}"aggregateRating": { "@type": "AggregateRating", "ratingValue": "{{ jm_rating.rating }}", "reviewCount": "{{ jm_count }}", "bestRating": "{{ jm_rating.scale_max }}", "worstRating": "{{ jm_rating.scale_min }}" },{% endif %}
   "brand": { "@type": "Brand", "name": {{ product.vendor | json }} },
   {% if product.type != blank %}"category": {{ product.type | json }},{% endif %}
   "productGroupID": {{ product.id | json }},
+  {% if product.options.size > 0 %}"variesBy": [{% for option in product.options %}{{ option | handleize | json }}{% unless forloop.last %},{% endunless %}{% endfor %}],{% endif %}
   "url": "{{ shop.url }}{{ product.url }}",
   {% if product.featured_image %}"image": "{{ product.featured_image | image_url: width: 1920 }}",{% endif %}
   "hasVariant": [
@@ -66,7 +44,7 @@
           "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
           "merchantReturnDays": {{ return_days }},
           "returnMethod": "https://schema.org/ReturnByMail",
-          "returnFees": "https://schema.org/ReturnShippingFees"
+          "returnFees": "https://schema.org/ReturnFeesCustomerResponsibility"
         }
       }
     }{% unless forloop.last %},{% endunless %}
@@ -74,3 +52,42 @@
   ]
 }
 </script>
+
+{%- for media in product.media -%}
+  {%- if media.media_type == 'external_video' and media.host == 'youtube' -%}
+    {%- assign vid = media.external_id -%}
+    {%- assign vid_upload = '' -%}
+    {%- assign vid_dur = '' -%}
+    {%- case vid -%}
+      {%- when 'Xepf8uTnR7w' -%}{%- assign vid_upload = '2023-09-21' -%}{%- assign vid_dur = 'PT1M34S' -%}
+      {%- when 'XdsMWcP7A0g' -%}{%- assign vid_upload = '2025-04-10' -%}{%- assign vid_dur = 'PT36S' -%}
+      {%- when 'I52rzwyfliE' -%}{%- assign vid_upload = '2022-06-15' -%}{%- assign vid_dur = 'PT1M45S' -%}
+      {%- when 'OdcvlszXOH0' -%}{%- assign vid_upload = '2022-06-21' -%}{%- assign vid_dur = 'PT4M25S' -%}
+      {%- when '3KRzsc-stEE' -%}{%- assign vid_upload = '2022-06-15' -%}{%- assign vid_dur = 'PT1M33S' -%}
+      {%- when 'vW6hZTmYAqc' -%}{%- assign vid_upload = '2022-06-22' -%}{%- assign vid_dur = 'PT2M57S' -%}
+      {%- when 'D0Sch7DMcHM' -%}{%- assign vid_upload = '2023-09-25' -%}{%- assign vid_dur = 'PT3M21S' -%}
+      {%- when '3N-gFD2G-jQ' -%}{%- assign vid_upload = '2025-09-26' -%}{%- assign vid_dur = 'PT25S' -%}
+      {%- when 'KLobXEEdf1Q' -%}{%- assign vid_upload = '2024-09-13' -%}{%- assign vid_dur = 'PT2M59S' -%}
+      {%- when 't9Fc9uBs24Y' -%}{%- assign vid_upload = '2024-09-24' -%}{%- assign vid_dur = 'PT1M30S' -%}
+      {%- when 'O_ithEcabnU' -%}{%- assign vid_upload = '2026-02-24' -%}{%- assign vid_dur = 'PT23S' -%}
+      {%- when 'BX_OnDzxXRA' -%}{%- assign vid_upload = '2022-06-16' -%}{%- assign vid_dur = 'PT3M16S' -%}
+      {%- when 'GRGKibzHhNQ' -%}{%- assign vid_upload = '2022-06-16' -%}{%- assign vid_dur = 'PT2M34S' -%}
+      {%- when 'o6ToaVuqtZk' -%}{%- assign vid_upload = '2022-06-24' -%}{%- assign vid_dur = 'PT49S' -%}
+      {%- when 'xCIlBiVK-hM' -%}{%- assign vid_upload = '2022-06-16' -%}{%- assign vid_dur = 'PT4M3S' -%}
+      {%- when 'F3nU7PYk2CU' -%}{%- assign vid_upload = '2022-06-28' -%}{%- assign vid_dur = 'PT2M33S' -%}
+    {%- endcase -%}
+    {%- if vid_upload == '' -%}{%- assign vid_upload = product.published_at | date: '%Y-%m-%d' -%}{%- endif -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "VideoObject",
+  "name": {{ product.title | json }},
+  "description": {{ clean_desc | json }},
+  "thumbnailUrl": "https://i.ytimg.com/vi/{{ vid }}/hqdefault.jpg",
+  "uploadDate": "{{ vid_upload }}",
+  {% if vid_dur != '' %}"duration": "{{ vid_dur }}",{% endif %}
+  "embedUrl": "https://www.youtube.com/embed/{{ vid }}"
+}
+</script>
+  {%- endif -%}
+{%- endfor -%}

@@ -1,0 +1,146 @@
+/* ============================================================================
+   ASR Outdoor — Header / nav bar tweaks (Dawn, header--middle-left layout)
+   ----------------------------------------------------------------------------
+   Where to paste: append this ENTIRE file to the BOTTOM of assets/base.css
+   (Online Store -> Themes -> ... -> Edit code -> Assets -> base.css).
+   base.css loads on every page, so the header is styled site-wide.
+
+   Two changes:
+     1) Keep the nav to ONE row: stay on the hamburger menu until 1457px,
+        instead of Dawn's default 990px.
+     2) Smooth left-to-right underline grow on hover for inline nav items.
+   ============================================================================ */
+
+/* ---------------------------------------------------------------------------
+   1) HAMBURGER UNTIL 1457px
+   Dawn reveals the inline menu and hides <header-drawer> at min-width:990px.
+   In the 990–1456.98px band we force the header back to its mobile single-row
+   grid so the menu collapses to the hamburger and never wraps to a 2nd row.
+   --------------------------------------------------------------------------- */
+@media screen and (min-width: 990px) and (max-width: 1456.98px) {
+  /* revert to the mobile single-row header grid (logo-left layout) */
+  .header.header--middle-left {
+    grid-template-areas: 'left-icons heading icons' !important;
+    grid-template-columns: auto 1fr auto !important;
+  }
+
+  /* hide the desktop inline menu */
+  .header__inline-menu {
+    display: none !important;
+  }
+
+  /* show the hamburger drawer + its trigger again */
+  header-drawer {
+    display: flex !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   2) LEFT-TO-RIGHT UNDERLINE ON HOVER
+   Only when the inline menu is actually visible (>=1457px, our new breakpoint).
+   Animates a bar under the label text via scaleX from the left edge.
+   --------------------------------------------------------------------------- */
+@media screen and (min-width: 1457px) {
+  /* the label text is the positioning context for the underline */
+  .header__inline-menu .header__menu-item span {
+    position: relative;
+  }
+
+  .header__inline-menu .header__menu-item span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 2px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.25s ease;
+    pointer-events: none;
+  }
+
+  .header__inline-menu .header__menu-item:hover span::after,
+  .header__inline-menu .header__menu-item:focus-visible span::after {
+    transform: scaleX(1);
+  }
+
+  /* remove EVERY default text underline from the main nav items, in all
+     states: normal, hover, current-page (.header__active-menu-item), and the
+     open-dropdown parent (details[open] > .header__menu-item). The only
+     underline on top-level items is our animated bar above. */
+  .header__inline-menu .header__menu-item,
+  .header__inline-menu .header__menu-item:hover span,
+  .header__inline-menu .header__menu-item:focus span,
+  .header__inline-menu .header__active-menu-item,
+  .header__inline-menu .header__menu-item:hover .header__active-menu-item,
+  .header__inline-menu details[open] > .header__menu-item,
+  .header__inline-menu details[open]:hover > .header__menu-item {
+    text-decoration: none;
+  }
+
+  /* DROPDOWN options (collection links): no animated bar, keep the normal
+     underline on hover -- this is the one place the default underline lives. */
+  .header__submenu .header__menu-item span::after {
+    display: none;
+  }
+
+  .header__submenu .header__menu-item:hover,
+  .header__submenu .header__menu-item:hover span {
+    text-decoration: underline;
+    text-underline-offset: 0.3rem;
+  }
+
+  /* The parent label is now a real <a> link (so clicking it navigates to the
+     aggregate collection page). Strip default link color/underline so it looks
+     exactly like the old <span> -- the animated bar still lives on the inner
+     <span>, and the caret stays outside the link as the hover toggle. */
+  .header__inline-menu .mega-menu summary a.header__mega-parent-link,
+  .header__inline-menu .mega-menu summary a.header__mega-parent-link:hover,
+  .header__inline-menu .mega-menu summary a.header__mega-parent-link:focus {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   3) SHORTER HEADER (desktop / tablet)
+   The bar's height floor is the tallest item in the header row: the icon
+   buttons (4.4rem), the logo link padding, and the menu-item padding.
+   Trimming these shrinks the bar without touching your section padding.
+   Tune the numbers to taste.
+   --------------------------------------------------------------------------- */
+@media screen and (min-width: 990px) {
+  /* force the header's own vertical padding small -- this overrides the
+     section padding setting, which usually won't go low enough on its own.
+     Raise/lower 0.8rem to taste. */
+  .header {
+    padding-top: 0.8rem !important;
+    padding-bottom: 0.8rem !important;
+  }
+
+  /* cap the logo height -- this is now the main lever for bar height.
+     Bigger number = bigger logo + slightly taller bar. Tune to taste. */
+  .header__heading-logo {
+    max-height: 5.5rem;
+    width: auto;
+  }
+
+  /* smaller icon buttons (mouse target, so safe to drop a little) */
+  .header__icon,
+  .header__icon--cart .icon {
+    height: 3.6rem;
+  }
+
+  /* tighter logo link */
+  .header__heading-link {
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+  }
+
+  /* tighter inline menu items */
+  .header__inline-menu .header__menu-item {
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+  }
+}
