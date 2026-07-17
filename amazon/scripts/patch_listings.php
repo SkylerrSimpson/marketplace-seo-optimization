@@ -559,9 +559,10 @@ if ($results) {
         AmazonPatch::RESULT_COLUMNS,
         ['skipped_identifying', 'skipped_shrink', 'compliance_block'],
     );
-    fputcsv($fh, $cols);
+    // Escape disabled ('') for strict RFC-4180 output.
+    fputcsv($fh, $cols, ',', '"', '');
     foreach ($results as $row) {
-        fputcsv($fh, array_map(fn($c) => $row[$c] ?? '', $cols));
+        fputcsv($fh, array_map(fn($c) => $row[$c] ?? '', $cols), ',', '"', '');
     }
 
     fclose($fh);

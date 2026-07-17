@@ -53,6 +53,7 @@ declare(strict_types=1);
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';
+require __DIR__ . '/../../lib/UsurperExport.php';
 
 // ---------------------------------------------------------------------------
 // Args
@@ -100,59 +101,45 @@ echo 'Account: ' . $account . PHP_EOL;
 // Step 1: Load Usurper catalog CSV (intended layer)
 // ---------------------------------------------------------------------------
 
-$usurperDir   = $paths['input'] . '/usurper';
-$usurperFiles = is_dir($usurperDir) ? (glob($usurperDir . '/*.csv') ?: []) : [];
+$usurperDir  = $paths['input'] . '/usurper';
+$usurperFile = is_dir($usurperDir) ? usurper_latest_export($usurperDir) : null;
 
-if (!$usurperFiles) {
+if ($usurperFile === null) {
     fwrite(STDERR, "No CSV found in {$usurperDir}.\n");
     fwrite(STDERR, "Drop the Usurper InventoryExport CSV there and re-run.\n");
     exit(1);
 }
 
-usort($usurperFiles, fn($a, $b) => filemtime($b) <=> filemtime($a));
-$usurperFile = $usurperFiles[0];
 echo 'Usurper file: ' . basename($usurperFile) . PHP_EOL;
 
-$probe     = fopen($usurperFile, 'r');
-$firstLine = fgets($probe);
-fclose($probe);
-$delimiter = substr_count((string) $firstLine, "\t") > substr_count((string) $firstLine, ',') ? "\t" : ',';
-
-$fhU    = fopen($usurperFile, 'r');
-$header = fgetcsv($fhU, 0, $delimiter);
-if (!$header) {
-    fwrite(STDERR, "Could not read headers from Usurper file.\n");
-    exit(1);
-}
-$header = array_map('trim', $header);
-
-// Keep only the columns this script needs (the export is ~1,000 columns wide).
-$wanted = ['sku', 'parent.sku', 'sku_type', 'attr.variation_theme_amazon'];
-$idx    = [];
-foreach ($wanted as $col) {
-    $pos = array_search($col, $header, true);
-    if ($pos !== false) {
-        $idx[$col] = $pos;
-    }
-}
+// Load via the shared reader (strict RFC-4180: escape disabled). The previous
+// hand-rolled fgetcsv used the default backslash escape, which desynced quote
+// state on rows containing backslashes and silently dropped them on the width
+// check. Keep only the columns this script needs (the export is ~1,000 wide).
+$wanted    = ['sku', 'parent.sku', 'sku_type', 'attr.variation_theme_amazon'];
+$loaded    = usurper_load_export($usurperFile, $wanted);
+$malformed = $loaded['malformed'];
 
 $usurper = []; // [sku => [parent_sku, sku_type, theme]]
-while (($row = fgetcsv($fhU, 0, $delimiter)) !== false) {
-    if (count($row) !== count($header)) {
-        continue;
-    }
-    $sku = trim($row[$idx['sku']] ?? '');
-    if ($sku === '') {
-        continue;
-    }
+foreach ($loaded['records'] as $sku => $rec) {
     $usurper[$sku] = [
-        'parent_sku' => trim($row[$idx['parent.sku']] ?? ''),
-        'sku_type'   => trim($row[$idx['sku_type']] ?? ''),
-        'theme'      => trim($row[$idx['attr.variation_theme_amazon']] ?? ''),
+        'parent_sku' => trim($rec['parent.sku'] ?? ''),
+        'sku_type'   => trim($rec['sku_type'] ?? ''),
+        'theme'      => trim($rec['attr.variation_theme_amazon'] ?? ''),
     ];
 }
-fclose($fhU);
+
 echo 'Usurper records loaded: ' . count($usurper) . PHP_EOL;
+
+if ($malformed) {
+    fwrite(STDERR, sprintf(
+        "WARNING: %d Usurper row(s) could not be parsed (field count != header) and were skipped.\n",
+        count($malformed),
+    ));
+    foreach ($malformed as $badSku => $count) {
+        fwrite(STDERR, "  - {$badSku} ({$count} fields)\n");
+    }
+}
 
 // ---------------------------------------------------------------------------
 // Step 2: Index all listing snapshots (SKU <-> ASIN maps + known-SKU set)
@@ -506,9 +493,9 @@ usort($rows, function ($a, $b) {
 $ts      = date('Y-m-d-H-i-s');
 $outFile = $paths['output'] . '/variation_analysis_' . $ts . '.csv';
 $fhOut   = fopen($outFile, 'w');
-fputcsv($fhOut, array_keys($rows[0]));
+fputcsv($fhOut, array_keys($rows[0]), ',', '"', '');
 foreach ($rows as $row) {
-    fputcsv($fhOut, $row);
+    fputcsv($fhOut, $row, ',', '"', '');
 }
 fclose($fhOut);
 

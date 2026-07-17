@@ -254,11 +254,14 @@ if (!file_exists($gapFile)) {
     exit(1);
 }
 
+// Escape disabled ('') to match how analyze_gap_fill.php writes this file
+// (strict RFC-4180). With the default backslash escape a usurper_value
+// containing a backslash would desync quote state and drop the row.
 $fhG    = fopen($gapFile, 'r');
-$header = fgetcsv($fhG);
+$header = fgetcsv($fhG, 0, ',', '"', '');
 $gaps   = []; // [sku => [rows]]
 
-while (($row = fgetcsv($fhG)) !== false) {
+while (($row = fgetcsv($fhG, 0, ',', '"', '')) !== false) {
     if (!$header || count($row) !== count($header)) {
         continue;
     }
