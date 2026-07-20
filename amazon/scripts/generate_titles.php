@@ -236,6 +236,8 @@ foreach ($skus as $sku => $meta) {
         continue;
     }
 
+    // The prompt is provider-agnostic (both providers receive the identical
+    // string from ModularTitleGenerator), so record it once for debugging.
     $compare = [
         'sku'                   => $sku,
         'asin'                  => $asin,
@@ -243,6 +245,7 @@ foreach ($skus as $sku => $meta) {
         'account'               => $account,
         'generated_at'          => gmdate('c'),
         'providers'             => $providerIds,
+        'prompt'                => ModularTitleGenerator::previewRequest($ctx)['prompt'],
         'item_name'             => [],
         'title_differentiation' => [],
     ];
@@ -251,6 +254,11 @@ foreach ($skus as $sku => $meta) {
         try {
             $out = $generators[$pid]->generate($ctx);
             $stats['api_calls']++;
+            $costEstimator->add(
+                $models[$pid],
+                (int) ($out['usage']['input'] ?? 0),
+                (int) ($out['usage']['output'] ?? 0),
+            );
 
             $compare['item_name'][$pid]             = $out['item_name'];
             $compare['title_differentiation'][$pid] = $out['title_differentiation'];
@@ -287,9 +295,14 @@ if (!$dryRun && $stats['written'] > 0) {
     echo 'Decisions  : ' . $decisions . ' (set *_pick per row, then patch/project)' . PHP_EOL;
 }
 
-if ($dryRun && !$costEstimator->isEmpty()) {
-    echo PHP_EOL . $costEstimator->report();
-    echo 'Remove --dry-run to generate titles.' . PHP_EOL;
+if (!$costEstimator->isEmpty()) {
+    $heading = $dryRun
+        ? 'Estimated cost (rough — heuristic output tokens):'
+        : 'Actual cost (from API token usage):';
+    echo PHP_EOL . $costEstimator->report($heading);
+    if ($dryRun) {
+        echo 'Remove --dry-run to generate titles.' . PHP_EOL;
+    }
 }
 
 echo PHP_EOL . 'Done. '

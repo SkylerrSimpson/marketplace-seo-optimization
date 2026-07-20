@@ -32,7 +32,7 @@ final class ModularTitleGenerator
     }
 
     /**
-     * @return array{provider:string,model:string,item_name:array<string,mixed>,title_differentiation:array<string,mixed>,raw:string}
+     * @return array{provider:string,model:string,item_name:array<string,mixed>,title_differentiation:array<string,mixed>,raw:string,usage:array<string,mixed>}
      */
     public function generate(ProductContext $ctx): array
     {
@@ -44,6 +44,7 @@ final class ModularTitleGenerator
             'item_name'             => ItemNameGenerator::generate($result, $ctx),
             'title_differentiation' => TitleDifferentiationGenerator::generate($result, $ctx),
             'raw'                   => $result->rawText,
+            'usage'                 => $result->usage,
         ];
     }
 

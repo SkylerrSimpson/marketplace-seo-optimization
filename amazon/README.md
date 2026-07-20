@@ -497,7 +497,8 @@ Flags: `--provider=both|anthropic|openai` (default both), `--anthropic-model=`
 (default `gpt-4o`), `--force` to overwrite, `--dry-run`.
 
 Output, three artifacts:
-- `compare/{sku}.json` — both providers' candidates side by side, per SKU (committed).
+- `compare/{sku}.json` — both providers' candidates side by side, plus the shared
+  `prompt` that produced them (for debugging), per SKU (committed).
 - `output/title_compare.csv` — read-only report, **fully rebuilt** every run.
 - `output/title_decisions.csv` — the **editable decision sheet** (Phase 6.6). Seeded
   from the compare files with both candidates plus an empty `*_pick` / `*_final`
@@ -508,19 +509,60 @@ This phase only emits artifacts — no drafts, no writes.
 
 ### Phase 6.6 — title review (manual)
 
-Open `output/title_decisions.csv` and, per row, set each `*_pick` to `anthropic`,
-`openai`, `custom` (then type the value into the matching `*_final` column), or
-`skip` / blank to leave that attribute alone:
+`output/title_decisions.csv` is a **review sheet**, one row per product (SKU). For
+each product, two AI models — Anthropic and OpenAI — proposed an **item_name** (the
+main Amazon title) and a **title_differentiation** (a short "why buy this" phrase
+Amazon appends after the title). The reviewer's job is to pick the better wording,
+or write their own. Nothing is sent to Amazon until these picks are made.
 
-| column | meaning |
-|---|---|
-| `item_name_anthropic` / `item_name_openai` | the two candidates (read-only) |
-| `item_name_pick` | `anthropic` \| `openai` \| `custom` \| `skip` |
-| `item_name_final` | your text, used only when `item_name_pick = custom` |
-| `td_*` | the same four columns for `title_differentiation` |
+**Columns** (edit only the **`_pick`** and **`_final`** columns; leave the rest and
+don't rename/reorder them):
 
-The chosen values feed both Phase 8 (`--include-titles`) and Phase 9. Nothing is
-patched or projected until you make picks here.
+| column | meaning | edit? |
+|---|---|---|
+| `item_name_anthropic` / `item_name_openai` | the two title candidates | read-only |
+| `item_name_pick` | your choice: `anthropic` \| `openai` \| `custom` \| `skip` | **yes** |
+| `item_name_final` | your own title — used **only** when pick is `custom` | custom only |
+| `td_anthropic` / `td_openai` | the two benefit-phrase candidates | read-only |
+| `td_pick` | your choice for the benefit phrase (same four options) | **yes** |
+| `td_final` | your own benefit phrase — used **only** when pick is `custom` | custom only |
+
+**How to pick** — in a `_pick` column type exactly one of:
+
+- `anthropic` → use the Anthropic candidate
+- `openai` → use the OpenAI candidate
+- `custom` → use your own wording (type it into the matching `_final` column)
+- `skip` (or leave **blank**) → don't change this one on Amazon
+
+The title and the benefit phrase are **two independent decisions** — you can take
+the title from `anthropic` and the phrase from `openai`. A blank row is safe: it
+simply changes nothing for that product.
+
+**Worked example** — for `26C-LBLH-ACACIAPASTASPOON-1PC`, to fix the spacing on
+the Anthropic title yourself but keep OpenAI's phrase as-is:
+
+| item_name_pick | item_name_final | td_pick | td_final |
+|---|---|---|---|
+| `custom` | `Labrea Life + Home 11" Acacia Wood Pasta Spoon` | `openai` | *(blank)* |
+
+**Two length rules the system enforces for you** (you don't count characters, but a
+downstream guard silently drops a choice that breaks them — see the coupling rule
+in Phase 8):
+
+1. `item_name` must be **≤ 75 characters** — a too-long custom title is dropped.
+2. `item_name` + `title_differentiation` together must be **≤ 200 characters** — if
+   the pair is too long, the *phrase* is dropped (the title still goes through).
+
+So when writing custom text, keep the title short and the phrase concise.
+
+**Editing tips** — open it in Excel / Google Sheets, save back as **CSV** (not
+`.xlsx`). Re-running Phase 6.5 refreshes the candidate columns but **preserves
+every pick and custom value you already entered** (`TitleDecisions::rebuildSheet`),
+so your work is never clobbered.
+
+The chosen values feed both Phase 8 (`--include-titles`) and Phase 9, resolved
+through `Ige\Amazon\Ai\TitleDecisions` so the two never drift. Nothing is patched
+or projected until you make picks here.
 
 ### Phase 7 — AI-assisted draft generation
 
@@ -938,7 +980,7 @@ it to record each drift checkpoint.
 | `data/schemas/_index.json`                                 | `{productType: {fetched_at, version, locale, source_url}}`.                                                       |
 | `output/listings_audit.csv`                                | One row per SKU: missing counts, top missing attrs, priority.                                                     |
 | `output/listings_gap_fill.csv`                             | One row per SKU/attribute: `fillable`, `usurper_column`, `usurper_value`.                                         |
-| `compare/{sku}.json`                                       | Anthropic vs OpenAI `item_name`/`title_differentiation` candidates (Phase 6.5). Committed.                        |
+| `compare/{sku}.json`                                       | Anthropic vs OpenAI `item_name`/`title_differentiation` candidates + the shared `prompt` (Phase 6.5). Committed.  |
 | `output/title_compare.csv`                                 | Flat side-by-side of both providers' title candidates, rebuilt from `compare/`.                                  |
 | `output/title_decisions.csv`                               | Editable decision sheet (Phase 6.6): set `*_pick` per row; read by patch (`--include-titles`) + project.         |
 | `drafts/{sku}.json`                                        | Authored draft; per-attribute `value`/`is_required`/`source`. Committed.                                          |

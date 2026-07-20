@@ -789,7 +789,7 @@ $resolveNotApplicable = function (
     string $productType,
     array  $schemaProps,
     array  $schemaRequired
-) use ($anthropic, $dryRun, $paths, $complianceAttrs, &$stats, &$applicabilityDryNoted): ?array {
+) use ($anthropic, $dryRun, $paths, $complianceAttrs, &$stats, &$applicabilityDryNoted, $costEstimator): ?array {
     if ($productType === '' || !$schemaProps) {
         return null;
     }
@@ -834,6 +834,11 @@ $resolveNotApplicable = function (
         );
         $stats['triage_calls']++;
         $stats['api_calls']++;
+        $costEstimator->add(
+            MODEL_HAIKU,
+            (int) ($msg->usage->inputTokens ?? 0),
+            (int) ($msg->usage->outputTokens ?? 0),
+        );
 
         $text = '';
         foreach ($msg->content as $block) {
@@ -1253,6 +1258,11 @@ foreach ($gaps as $sku => $rows) {
                         );
 
                         $stats['api_calls']++;
+                        $costEstimator->add(
+                            $batchModel,
+                            (int) ($message->usage->inputTokens ?? 0),
+                            (int) ($message->usage->outputTokens ?? 0),
+                        );
 
                         $rawText = '';
                         foreach ($message->content as $block) {
@@ -1670,6 +1680,9 @@ if ($dryRun) {
         if (count($needsHumanSkus) > 20) {
             echo '  … +' . (count($needsHumanSkus) - 20) . ' more' . PHP_EOL;
         }
+    }
+    if (!$costEstimator->isEmpty()) {
+        echo PHP_EOL . $costEstimator->report('Actual cost (from API token usage):');
     }
     echo PHP_EOL;
     echo 'Drafts dir: ' . $paths['drafts'] . PHP_EOL;
