@@ -21,8 +21,11 @@ final class TitleDifferentiationGenerator
 
         $phrase = null;
         if (is_array($decoded)) {
-            $value  = $decoded['title_differentiation'] ?? null;
-            $phrase = is_string($value) && trim($value) !== '' ? trim($value) : null;
+            $value = $decoded['title_differentiation'] ?? null;
+            if (is_string($value) && trim($value) !== '') {
+                $normalized = self::normalize($value);
+                $phrase     = $normalized !== '' ? $normalized : null;
+            }
         }
 
         $charCount = $phrase !== null ? mb_strlen($phrase) : null;
@@ -41,5 +44,39 @@ final class TitleDifferentiationGenerator
             'char_count'            => $charCount,
             'validation_error'      => $error,
         ];
+    }
+
+    /**
+     * Enforce the house format on a raw item-highlight phrase, independent of the
+     * provider that produced it:
+     *
+     *   1. Title-case — capitalize the first letter of every space-separated word
+     *      while leaving the rest untouched, so acronyms like "US" survive
+     *      ("natural wood grain" -> "Natural Wood Grain").
+     *   2. Strip disallowed special characters, keeping only letters, numbers,
+     *      whitespace, commas, and the allowed exceptions: hyphen, double quote,
+     *      and apostrophe/single quote (straight or curly).
+     *
+     * The prompt is responsible for turning "&"/"=" into the right word for the
+     * context; anything that still slips through is simply dropped here.
+     */
+    private static function normalize(string $phrase): string
+    {
+        $allowed = '\p{L}\p{N}\s,\-"\'\x{2018}\x{2019}\x{201C}\x{201D}';
+        $phrase  = (string) preg_replace('/[^' . $allowed . ']+/u', '', $phrase);
+
+        $phrase = (string) preg_replace('/\s+,/u', ',', $phrase);
+        $phrase = trim((string) preg_replace('/\s+/u', ' ', $phrase));
+
+        $words = array_map(static function (string $word): string {
+            return (string) preg_replace_callback(
+                '/\p{L}/u',
+                static fn (array $m): string => mb_strtoupper($m[0]),
+                $word,
+                1,
+            );
+        }, explode(' ', $phrase));
+
+        return implode(' ', $words);
     }
 }
