@@ -105,6 +105,11 @@ foreach ($argv ?? [] as $arg) {
 $paths   = amazon_paths($account);
 $attrMap = require __DIR__ . '/../../lib/UsurperAttributeMap.php';
 
+// Reviewed modular-title decisions (Phase 6.5 → review). The draft carries both
+// providers' candidates under review-only keys; the chosen final text comes from
+// output/title_decisions.csv and is projected to Usurper below (not the raw keys).
+$titleDecisions = \Ige\Amazon\Ai\TitleDecisions::load($paths['output'] . '/title_decisions.csv');
+
 echo 'Account         : ' . $account . PHP_EOL;
 echo 'Include usurper : ' . ($includeUsurper ? 'yes' : 'no (AI-authored only)') . PHP_EOL;
 echo PHP_EOL;
@@ -278,6 +283,12 @@ foreach ($draftFiles as $draftFile) {
         $source = $entry['source'] ?? '';
         $value  = $entry['value'] ?? null;
 
+        // review-only entries (the per-provider title candidates) are not final —
+        // the chosen title is injected from title_decisions.csv after this loop.
+        if (!empty($entry['review_only'])) {
+            continue;
+        }
+
         if ($source === 'usurper') {
             if (!$includeUsurper) {
                 continue;
@@ -330,6 +341,15 @@ foreach ($draftFiles as $draftFile) {
             } else {
                 setCol($row, $allCols, usurperColumnFor($attr, $attrMap), (string) $value);
             }
+        }
+    }
+
+    // Inject the reviewed modular titles (item_name → attr.title_amazon, etc.).
+    $decision = $titleDecisions[$sku] ?? [];
+    foreach (['item_name', 'title_differentiation'] as $titleAttr) {
+        $chosen = $decision[$titleAttr] ?? null;
+        if (is_string($chosen) && $chosen !== '') {
+            setCol($row, $allCols, usurperColumnFor($titleAttr, $attrMap), $chosen);
         }
     }
 

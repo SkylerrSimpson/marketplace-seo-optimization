@@ -35,6 +35,12 @@ declare(strict_types=1);
  * Attributes skipped automatically (unchanged from Phase 8):
  *   - value is null (Claude could not determine a value)
  *   - validation_error key is present (Phase 7 detected an invalid enum value)
+ *   - review_only is set (the per-provider modular-title candidates)
+ *
+ * Modular titles (item_name / title_differentiation) are never patched from the
+ * draft; with --include-titles the reviewer's chosen values are read from
+ * output/title_decisions.csv (Phase 6.5 review) and patched, subject to the
+ * coupling rule (item_name <= 75, pair <= 200).
  *
  * Usage:
  *   php amazon/scripts/patch_listings.php [--account=IGE|DOWS] [OPTIONS]
@@ -43,6 +49,8 @@ declare(strict_types=1);
  *   --account=IGE|DOWS          Seller account. Default: IGE.
  *   --sku=SKU                   Process a single SKU only.
  *   --apply                     Submit patches to Amazon. Required to write.
+ *   --include-titles            Patch the reviewed item_name / title_differentiation
+ *                               from output/title_decisions.csv. Default: off.
  *   --include-identifying[=a,b] Allow identifying attributes. Bare = allow all;
  *                               =list allows only the named attributes.
  *   --allow-shrink              Allow array attrs shorter than the baseline.
@@ -52,6 +60,7 @@ declare(strict_types=1);
  *
  * Inputs:
  *   amazon/data/{account}/drafts/{sku}.json
+ *   amazon/data/{account}/output/title_decisions.csv (with --include-titles)
  *   amazon/data/{account}/input/listings/{sku}.json  (dry-run baseline)
  *   amazon/data/schemas/{PRODUCT_TYPE}.json           (identifying + compliance scope)
  *
@@ -90,6 +99,8 @@ Flags:
   --apply                     Submit patches to Amazon. Without this flag,
                               dry-run mode shows what would be patched (and what
                               the guards would hold back) but makes no API calls.
+  --include-titles            Patch the reviewed item_name / title_differentiation
+                              from output/title_decisions.csv. Default: off.
   --include-identifying[=a,b] Allow identifying attributes through the guard.
                               Bare allows ALL; =list allows only those named.
   --allow-shrink              Allow array attributes shorter than the baseline.
@@ -100,6 +111,7 @@ Flags:
 Safety:
   --apply is required to write. Review the dry-run output first.
   Identifying data is held back unless --include-identifying is passed.
+  Modular titles are held back unless --include-titles is passed.
   Attributes with null values or validation_error flags are always skipped.
 
 Rate limits:
@@ -115,6 +127,7 @@ $apply              = false;
 $includeIdentifying = false;      // false | 'all' | array of allowed attr names
 $allowShrink        = false;
 $skipComplianceBlock = false;
+$includeTitles      = false;
 
 foreach ($argv ?? [] as $arg) {
     if (preg_match('/^--account=(.+)$/i', $arg, $m)) {
@@ -123,6 +136,8 @@ foreach ($argv ?? [] as $arg) {
         $singleSku = $m[1];
     } elseif ($arg === '--apply') {
         $apply = true;
+    } elseif ($arg === '--include-titles') {
+        $includeTitles = true;
     } elseif ($arg === '--include-identifying') {
         $includeIdentifying = 'all';
     } elseif (preg_match('/^--include-identifying=(.+)$/', $arg, $m)) {
@@ -319,6 +334,12 @@ $stats = [
 
 $results = []; // rows for the results CSV
 
+// Reviewed modular-title decisions (chosen item_name / title_differentiation).
+// Only consulted with --include-titles; empty when the reviewer hasn't decided.
+$titleDecisions = $includeTitles
+    ? \Ige\Amazon\Ai\TitleDecisions::load($paths['output'] . '/title_decisions.csv')
+    : [];
+
 foreach ($draftFiles as $draftFile) {
     $draft       = json_decode(file_get_contents($draftFile), true) ?? [];
     $sku         = $draft['sku']          ?? basename($draftFile, '.json');
@@ -348,6 +369,27 @@ foreach ($draftFiles as $draftFile) {
         $candidates[$attr] = $value;
     }
 
+    // Inject the reviewed modular titles (behind --include-titles). The draft only
+    // carries per-provider review-only candidates; the chosen final text lives in
+    // title_decisions.csv. item_name's 75-char cap is enforced here; the
+    // title_differentiation coupling (effective item_name <= 75, pair <= 200) is a
+    // guard below, once the live baseline item_name is known.
+    $titleSkipped = [];
+    if ($includeTitles) {
+        $decidedItemName = $titleDecisions[$sku]['item_name'] ?? null;
+        if (is_string($decidedItemName) && $decidedItemName !== '') {
+            if (mb_strlen($decidedItemName) > \Ige\Amazon\Ai\TitleDecisions::ITEM_NAME_MAX) {
+                $titleSkipped[] = 'item_name(>' . \Ige\Amazon\Ai\TitleDecisions::ITEM_NAME_MAX . ')';
+            } else {
+                $candidates['item_name'] = $decidedItemName;
+            }
+        }
+        $decidedTd = $titleDecisions[$sku]['title_differentiation'] ?? null;
+        if (is_string($decidedTd) && $decidedTd !== '') {
+            $candidates['title_differentiation'] = $decidedTd; // coupling guard below
+        }
+    }
+
     if (!$candidates) {
         echo '[SKIP] ' . $sku . ' — no patchable attributes (all null or invalid)' . PHP_EOL;
         $stats['skipped']++;
@@ -371,6 +413,26 @@ foreach ($draftFiles as $draftFile) {
         echo '  note: no on-disk baseline snapshot — shrink/compliance preview limited' . PHP_EOL;
     } elseif (!$apply) {
         echo '  note: shrink/compliance preview based on possibly-stale snapshot' . PHP_EOL;
+    }
+
+    // --- Guard 0: modular-title coupling ---
+    // title_differentiation is only valid when the effective item_name (the one
+    // being patched, else the live listing's) is <= 75 chars and the pair is
+    // <= 200. Drop title_differentiation (not the whole SKU) when it can't hold.
+    if ($includeTitles && isset($candidates['title_differentiation'])) {
+        $liveItemName = (string) ($baseListing['attributes']['item_name'][0]['value'] ?? '');
+        $couplingErr  = \Ige\Amazon\Ai\TitleDecisions::couplingError(
+            $candidates['item_name'] ?? null,
+            $candidates['title_differentiation'],
+            $liveItemName !== '' ? $liveItemName : null,
+        );
+        if ($couplingErr !== null) {
+            unset($candidates['title_differentiation']);
+            $titleSkipped[] = 'title_differentiation (' . $couplingErr . ')';
+        }
+    }
+    if ($titleSkipped) {
+        echo '  titles held back: ' . implode(', ', $titleSkipped) . PHP_EOL;
     }
 
     // --- Guard 1: identifying ---
