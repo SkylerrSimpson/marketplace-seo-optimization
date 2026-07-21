@@ -1,0 +1,60 @@
+{
+    "sku": "FLL-S30MMAAS-30MM-2",
+    "asin": "B004SREPRU",
+    "product_type": "AIMING_SCOPE_SIGHT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: FLL-S30MMAAS-30MM-2\nProduct Type: AIMING_SCOPE_SIGHT\nBrand (from catalog): Flatline-Ops\nExisting Title: Sniper 30mm Rifle Scope Mounting Articulating Dual Position Bubble Level Precision Shooting Optics\nDescription: LEVEL WHATEVER FIELD YOU'RE PLAYING ON<br/><br/>Flatline Ops Sniper series, fitting 30mm scope diameters, will keep you locked in and on target. A long-range shot has many factors to take into consideration to be sure you are on target, and our ACCU/LEVEL system aids in the correction of \"cant error,\" giving you dead-on true vertical hold. The level also features a dual-position detent locator to make sure you are locked into place before taking that critical shot.<br/><br/>SOLID, DURABLE CONSTRUCTION<br/><br/>Each level is machined from advanced 6061-T6 aircraft aluminum and then black hard anodized to protect it from the extremes of the outdoors. The level is also designed to fit right- or left-handed shooters.<br/><br/>HIGH VISIBILITY<br/><br/>High-visibility fluorescent fluid level is easy to visualize and locate before each shot. You also have the ability to make fine adjustments to the level in the open and closed positions.<br/><br/>Each ACCU/LEVEL comes complete with a Dovetail Accessory Lug for fast and easy addition of the Flatline Ops STRONG ARM. If you have different size levels on multiple firearms, the STRONG ARM and ADI accessories are interchangeable with every ACCU/LEVEL size.<br/><br/>Quick and easy installation<br/>Install without removing scope (in most cases)<br/>Ships with instructions and all installation tools\nSearch Terms: 30mm scope level 30 mm bubble level for rifle scope tube long range shooting competition precision shooting optics accessory hunting accessories\nFeatures:\n- SPECIFICATION: Universal Fit for 30MM Rifle Scope | Width: .625\" | Material: 6061-T6 Hi-Grade Aircraft Aluminum | Finish: Black Hard Anodized\n- ACCURATE: Flatline-Ops articulating rifle scope 30mm bubble level ensures proper rifle position and alignment at sight level which is critical to achieving long range accuracy\n- EFFORTLESS EASE OF USE: Rifle scope mount articulate in two positions for optimal line of sight while using high visibility fluorescent fluid\n- LOW-PROFILE DESIGN: Rifle scope tube mount bubble level is designed to flip open and be used when needed within eye sight, without adding weight or unintended bulk\n- MADE IN USA: Machined to the highest quality standards; Includes manufacturer warranty and all mounting hardware is included\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Flatline-Ops 30mm Rifle Scope Bubble Level Articulating",
+            "tokens": {
+                "brand": "Flatline-Ops",
+                "pack_size": "30",
+                "pack_size_unit": "mm",
+                "size": "",
+                "color": "Black",
+                "name": "Rifle Scope Bubble Level Articulating"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Flatline-Ops 30mm Black Rifle Scope Bubble Level",
+            "tokens": {
+                "brand": "Flatline-Ops",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "30mm",
+                "color": "Black",
+                "name": "Rifle Scope Bubble Level"
+            },
+            "char_count": 48,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Dual Position Detent, High-Visibility Fluorescent Fluid, Aircraft Aluminum, Made In USA, Includes All Hardware",
+            "char_count": 110,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Cant Error Correction, Dual Position Detent, High Visibility Fluorescent Fluid, 6061-T6 Aluminum, Made In USA",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

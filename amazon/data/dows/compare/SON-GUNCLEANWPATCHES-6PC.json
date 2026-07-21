@@ -1,0 +1,60 @@
+{
+    "sku": "SON-GUNCLEANWPATCHES-6PC",
+    "asin": "B083XC3YGC",
+    "product_type": "GUN_CLEANING_KIT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-GUNCLEANWPATCHES-6PC\nProduct Type: GUN_CLEANING_KIT\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 6 Piece Gun Cleaning Kit With Patches\nDescription: Every responsible firearm owner knows the importance of keeping your weapons clean. With the ASR Outdoor 6 Piece Multi Cal Gun Cleaning Kit, you can ensure that your firearms are clean, polished, rust-free and dependable.<br/><br/>This set comes with 6 gun cleaning tools to keep your firearms in top shape. Inside the kit, you'll find a brass rod with a comfort-grip handle, a nice wool blend mop, a multi-use nylon brush, and a phosphor bronze brush. These brushes have different levels of abrasiveness that will allow you to scrub parts clean without marring the surface. Nylon and phosphor brushes are ideal for removing rust, paint, debris and more from hard to reach places. Each brush has its own thread size: phosphor (11mm), nylon (11.8mm) and brass (10mm). <br/><br/>Also included are 10 gun cleaning patches, great for polishing, buffing, soaking up dirt, and so much more. <br/><br/>All of the accessories included fit neatly inside of a sturdy plastic carrying case, so you can easily bring your cleaning kit with you or add it to your range bag. They are designed to clean gun barrels for the following calibers: .357, .38 and .9. The case measures 11.5\" x 2.5\" x 1.5\" and snaps shut to keep pieces organized during transit. <br/><br/>In addition to cleaning, polishing, removing rust or removing paint from your firearms, these cleaning tools are also great for hobbies, crafting and automotive hardware purposes. Make sure to keep this cleaning kit on hand before your next hunting trip, range session or hobby project.\nSearch Terms: firearm gun cleaning maintenance hobby gear weapon care tool brush kit patches\nFeatures:\n- MULTI-CALIBER GUN CLEANING KIT - Comes with Cleaning Tools for .357, .38 and .9 Caliber Gun Barrels - 6 Piece Set\n- BRASS ROD - 3 Piece Rod Fully Extends to 34.75\" | Handle Features Ergonomic Grip for Comfort and Prevents Slippage\n- ASSORTED CLEANING BRUSHES - Nylon, Wool Blend Mop, and Phosphor Bronze Brushes Remove Rust, Paint, Residue and More from Your Firearm | Regular Cleaning Helps Ensure Weapon is Functioning Properly for Reliable Use\n- DURABLE STORAGE CASE - All Accessories Fit Neatly Inside 11.5\" Length Carry Case | Snap Closure to Keep Supplies Organized\n- CLEANING PATCHES: Includes 10 Gun Cleaning Patches | Great For Polishing, Buffing, Soaking Up Dirt, And More\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 6-Piece Gun Cleaning Kit with Patches",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "6",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "",
+                "name": "Gun Cleaning Kit with Patches"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 6-Piece Gun Cleaning Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "6",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Gun Cleaning Kit"
+            },
+            "char_count": 36,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Multi-Caliber 357 38 9, Brass Rod, Bronze And Nylon Brushes, 10 Patches, Carry Case",
+            "char_count": 83,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Multi Caliber 357 38 9, 6 Piece Tool Set, Brass Rod, Nylon And Bronze Brushes, 10 Patches, Storage Case",
+            "char_count": 103,
+            "validation_error": null
+        }
+    }
+}

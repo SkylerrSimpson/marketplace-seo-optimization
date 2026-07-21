@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ASRO-SSRECURVEHUNTINGKNIFE-STD-FBA",
+    "asin": "B0DZG8JP9P",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ASRO-SSRECURVEHUNTINGKNIFE-STD-FBA\nProduct Type: KNIFE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 9 Inch 440 Stainless Steel Recurve Blade Full Tang Fixed Knife with Sheath, 4.25 Inch Blade\nDescription: The nine inch Fixed Recurve Blade Full Tang Hunting Knife with wood handle from ASR Outdoor is engineered for precision and versatility in the field. For chopping, slashing, peeling and other base to point cutting tasks, this knife can do it all.\n<br/><br/>\nIf you’re not familiar with a recurve blade, it means that the knife blade itself is shaped like the letter ‘S’ with a concave edge. The fixed recurve blade lengthens the cutting edge without making the blade longer; it places the edge at multiples to the work being done, allowing it to easily handle different cutting angles.\n<br/><br/>\nWhy choose this style of knife? The design of the knife allows you to move mass out to the tip of your blade by adding width, instead of thickness, preserving cutting ability and adding chopping power at the same time. \n<br/><br/>\nThe full tang 440 stainless steel construction ensures that the blades weight is more evenly distributed throughout the knife, making it easier to control; full tang blade ensures structural integrity and strength when handling, one you’ll be able to notice in comparison to a partial tang. And, importantly, the 440 stainless steel material boasts excellent edge retention and corrosion resistance, while the wood handle ensures a natural and comfortable grip, offering reliable feedback during cutting task.\n<br/><br/>\nThe included sheath with a belt loop offers convenient and safe carrying, ensuring your knife is always within reach when you need it. Whether you’re hunting, camping, or exploring the wilderness, this hunting knife with fixed recurve blade is built to handle it all with confidence and precision.\nSearch Terms: Tactical hunting knife; outdoor gear; gifts for men; edc; emergency preparedness items; survival kit; bug out bag; full tang knife with sheath; knives; camping essentials; backpacking; self defense; wilderness first aid kit; bushcraft tools\nFeatures:\n- FULL TANG HUNTING KNIFE: Nine inch hunting knife features a full tang, fixed recurve blade with wood handle; engineered for precision, the knife can handle a variety of cutting tasks in the field\n- RECURVE FIXED BLADE: The recurve blade enhances cutting efficiency; the design lengthens the cutting edge, while the concave edge prompts the knife to be able to handle many different cutting angles\n- 440 STAINLESS STEEL: Features excellent edge retention and corrosion resistance, making it suitable for a variety of cutting applications in different environments\n- KNIFE SHEATH WITH BELT LOOP: Included sheath with belt loop offers convenient access and safe carrying, ensuring the knife is always within reach when needed\n- WOOD HANDLE: ASR Outdoor hunting knife features a wood handle for natural and comfortable grip, offering reliable feedback during cutting tasks\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 9 Inch Recurve Blade Fixed Hunting Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "9",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "",
+                "name": "Recurve Blade Fixed Hunting Knife"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 9-in Recurve Hunting Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "9",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Recurve Hunting Knife"
+            },
+            "char_count": 38,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Full Tang 440 Stainless Steel, Wood Handle, Included Sheath, Enhanced Cutting Efficiency",
+            "char_count": 88,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Full Tang Construction, 440 Stainless Steel Blade, Wood Handle, Sheath With Belt Loop, Recurve Edge",
+            "char_count": 99,
+            "validation_error": null
+        }
+    }
+}

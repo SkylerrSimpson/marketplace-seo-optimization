@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-BLE-BLUEDISHCLOTHSET-10PK-STD",
+    "asin": "B0H1YD7CN3",
+    "product_type": "TOWEL",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-BLE-BLUEDISHCLOTHSET-10PK-STD\nProduct Type: TOWEL\nBrand (from catalog): Beille\nExisting Title: Beille 100% Cotton Kitchen Dish Cloths, Machine Washable Reusable Towels, 10pk (Assorted Blue Colors and Patterns)\nDescription: Refresh your everyday kitchen routine with Beille’s 10 Pack 100% Cotton Kitchen Dish Cloth Set, a practical and stylish assortment designed for daily cleaning, drying, wiping and food or meal prep tasks. Made from 100% cotton, these reusable dish cloths offer a soft, absorbent feel that makes them a dependable kitchen essential for countertops, dishes, glassware, sinks, spills, and general household cleanup. The assorted blue color palette adds a clean, classic look that works beautifully in farmhouse, coastal, modern, traditional and everyday kitchen spaces.<br/><br/>This value set includes ten dish cloths total, with 2 of each style, giving you plenty of cloths to rotate throughout the week. Keep a few near the sink, store extras in a kitchen drawer, use them while cooking, or set them out for quick access during busy meal prep and cleanup sessions. The classic coordinated blue patterns make the set feel polished and decorative, while still being practical enough for everyday use.<br/><br/>Designed for convenience, these cotton dish cloths are machine washable, making them easy to clean and reuse again and again. Instead of relying on disposable paper towels for every spill or wipe down, this ten pack gives you a reusable option for daily kitchen chores. Whether you are drying dishes, wiping counters, cleaning up small spills, or adding a finished touch to your kitchen sink or countertop, these 100% cotton dish cloths are a simple, useful, and great value addition to your kitchen linen collection from Beille.\nSearch Terms: dish towel set; kitchen towel set; tea towels; kitchen essentials basics accessories; hostess gift; food meal prep; kitchen and table linens; housewarming gifts new home; farmhouse cottage core nautical decor; sourdough bread baking supplies; cooking\nFeatures:\n- 100% COTTON DISH CLOTHS; Made from soft, reusable cotton, these dish cloths are designed for everyday kitchen tasks such as drying dishes, wiping counters, cleaning glassware, handling small spills, and keeping your workspace tidy\n- 10 PACK VALUE SET: Includes ten cotton kitchen dish cloths with two of each assorted blue style, giving you a practical everyday set for dish drying, countertop wiping, kitchen cleanup, sink areas, meal prep and household use\n- ASSORTED BLUE DESIGNS: Coordinated blue colors and patterns add a clean, classic look to any kitchen, while blending easily with farmhouse, coastal, modern, traditional and neutral home decor styles\n- MACHINE WASHABLE: These reusable kitchen cloths are machine washable for easy care, making them a practical alternative to disposable paper towels for routine cleaning, drying and everyday kitchen maintenance\n- EVERYDAY KITCHEN ESSENTIAL: Great for use near the sink, on countertops, in kitchen drawers, or as part of a home cleaning routine, this ten pack dish cloth set from Beille is useful for busy kitchens and anywhere around the house\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 10-pk Assorted Blue Cotton Kitchen Dish Cloths",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "10",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Assorted Blue",
+                "name": "Kitchen Dish Cloths"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 10-Pk Blue Cotton Kitchen Dish Cloths",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "10",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Blue",
+                "name": "Dish Cloths"
+            },
+            "char_count": 44,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "100 Cotton, Machine Washable, Reusable, Two Of Each Style, Farmhouse And Coastal Decor",
+            "char_count": 86,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Machine Washable, Reusable, 100 Percent Cotton, Soft Absorbent, Assorted Blue Patterns, Great For Dishes And Counters",
+            "char_count": 117,
+            "validation_error": null
+        }
+    }
+}

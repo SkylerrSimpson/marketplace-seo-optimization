@@ -1,0 +1,60 @@
+{
+    "sku": "NPT-BEARKNIFE-BLACK-2",
+    "asin": "B07W5RQPX8",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: NPT-BEARKNIFE-BLACK-2\nProduct Type: KNIFE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 13\" Wildlife Collection Animal Head Fixed Blade Hunting Knife, Howling Bear\nDescription: Add some majestic wildlife to your blade collection with the ASR Outdoor Etched Knife Dagger. <br/><br/>This unique knife is constructed of durable 440 stainless steel that won't rust. It measures 12.5\" in length with an overall length of 14\", making it an ideal knife for display. The ergonomic handle features a majestic howling bear, and the blade comes with an etched sheath that displays a matching wildlife scene for an authentic look.<br/><br/>Although these knives are meant for display, the durable blade can be sharpened for use and the sheath will protect it during inclement weather. This is a must-have addition to any knife enthusiast's collection.\nSearch Terms: collectable authentic steel blade outdoorsman bear scabbard hunting dagger knife collectors ornate knives etched design with sheath\nFeatures:\n- BOWIE-STYLE FIXED BLADE HUNTING KNIFE: Large decorative sheathed knife with cross-guard featuring a clip point; excellent presentation gift for knife collectors and hunting enthusiasts\n- ORNAMENTAL POMMEL AND SHEATH: From tip to pommel a matching wild animal outdoor graphic adorns this stainless steel knife in full color that will surly impress one and all. Each fixed blade animal head knife has a 5.5\" handle with a solid ornamental animal head pommel full color graphic scabbard and handle\n- Inspired by outdoor wildlife and the spirit of America\n- DISPLAY SIZE: Sheathed length: 14 inches;  Knife length: 13.5 inches; Blade length: 8 inches; Ideal size for mantle display or behind glass in a showcase\n- MAKES A GREAT GIFT: Whether for a special occasion or just to show you care these collectible and functional knives are a wonderful present idea\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 13\" Black Bear Howling Fixed Blade Hunting Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Bear Howling Fixed Blade Hunting Knife"
+            },
+            "char_count": 60,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 13-in Black Fixed Blade Hunting Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Fixed Blade Hunting Knife"
+            },
+            "char_count": 49,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "440 Stainless Steel, Ornamental Bear Pommel, Etched Sheath, Display Ready, 14\" Sheathed Length",
+            "char_count": 94,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "440 Stainless Steel, Etched Wildlife Design, Matching Sheath, 14-Inch Display Size, Gift For Collectors",
+            "char_count": 103,
+            "validation_error": null
+        }
+    }
+}

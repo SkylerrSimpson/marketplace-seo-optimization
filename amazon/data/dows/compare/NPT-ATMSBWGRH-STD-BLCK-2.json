@@ -1,0 +1,60 @@
+{
+    "sku": "NPT-ATMSBWGRH-STD-BLCK-2",
+    "asin": "B010SJ3IGK",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: NPT-ATMSBWGRH-STD-BLCK-2\nProduct Type: KNIFE\nBrand (from catalog): Wartech\nExisting Title: ASR Tactical 440 Stainless Steel Stonewashed Hunting Knife Black G10 Ridged\nDescription: Be prepared while hunting or camping with the ASR Tactical 10.5\" Stonewashed Knife. <br/><br/>This blade is constructed of 440 stainless steel and comes with a sturdy nylon sheath. The knife features a black G10 ridged handle, and the blade itself is stonewashed to help hide scratches. The overall length is about 10.5\", and the length of the blade is 5.5\". Make sure to grab one of these to bring along on your next camping or hunting trip.\nSearch Terms: hunting knife survival tools emergency blade camping saw\nFeatures:\n- ASR Tactical Stonewashed Hunting Knife - Hides Scratches\n- Overall Length: 10.5\" | Blade Length: 5.5\"\n- Constructed of 440 Stainless Steel\n- Black G10 Ridged Handle\n- Durable Nylon Sheath\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Wartech 10.5\" Black Stonewashed Hunting Knife",
+            "tokens": {
+                "brand": "Wartech",
+                "pack_size": "10.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Stonewashed Hunting Knife"
+            },
+            "char_count": 45,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Wartech 10.5 in Black Stonewashed Hunting Knife",
+            "tokens": {
+                "brand": "Wartech",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "10.5 in",
+                "color": "Black",
+                "name": "Hunting Knife"
+            },
+            "char_count": 47,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "440 Stainless Steel, 55In Blade, G10 Ridged Handle, Includes Nylon Sheath, Hides Scratches",
+            "char_count": 90,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "440 Stainless Steel, 55\" Blade, Black G10 Ridged Handle, Nylon Sheath, Stonewashed Finish",
+            "char_count": 89,
+            "validation_error": null
+        }
+    }
+}

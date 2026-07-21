@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-KOTU-TANTOKNIFE-BRWN-HPNR",
+    "asin": "B07GPFY68R",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-KOTU-TANTOKNIFE-BRWN-HPNR\nProduct Type: KNIFE\nBrand (from catalog): GEAR AID\nExisting Title: Gear Aid Kotu Tanto Fixed Blade Knife, Sheath, 3\"\nDescription: The Kotu Tanto Knife features a fixed blade with sheath that is small enough to be an everyday carry knife. Inspired by the Japanese wakizashi sword and designed with a stainless steel finish, this multifunctional dagger is useful at home or during an expedition. Whether it's the backyard or backcountry, be ready for the unexpected with the easily mountable Kotu Tanto Knife by GEAR AID.<br/><br/>With its quick release sheath, attach this knife on a lanyard, backpack, belt or boot. Weighing less than 6 ounces, the Kotu has an ergonomic handle and thumb grip for comfort and control. With its short serrated 3\" titanium-coated blade, the Kotu is made for the outdoors. Included with the Kotu is a sheath, removable belt clip and handle.\nSearch Terms: fixed blade knives knife with sheath cold steel tactical camp\nFeatures:\n- Titanium-coated 3\" tango-style blade has both straight and serrated edges with a sturdy glass breaker at the other end for getting out of a bind\n- Made of 420-stainless steel, this 8\" fixed blade dagger weighs only 5.6 oz. making it an ideal every day carry knife\n- Quick release sheath with removable belt clip attaches to backpacks, belts, boots, and MOLLE systems\n- Use a lanyard to tie the knife around your wrist or neck to get fast access when you need it\n- Includes a Para cord slot and bottle opener on the handle for both serious and fun tasks\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Gear Aid Kotu Tanto Fixed Blade Knife with Sheath, 3in",
+            "tokens": {
+                "brand": "Gear Aid",
+                "pack_size": "3",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Kotu Tanto Fixed Blade Knife with Sheath"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID 3 in Kotu Tanto Fixed Blade Knife",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "3",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Kotu Tanto Fixed Blade Knife"
+            },
+            "char_count": 42,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Titanium-Coated Blade, Quick Release Sheath, Removable Belt Clip, Glass Breaker, Under 6Oz, Everyday Carry",
+            "char_count": 106,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Titanium-Coated 3\" Blade, Straight And Serrated Edges, Quick Release Sheath, Glass Breaker, MOLLE Mount, EDC",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

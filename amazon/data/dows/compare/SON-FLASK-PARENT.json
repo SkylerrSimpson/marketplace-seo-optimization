@@ -1,0 +1,60 @@
+{
+    "sku": "SON-FLASK-PARENT",
+    "asin": "B07DLKKVDH",
+    "product_type": "HIP_FLASK",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-FLASK-PARENT\nProduct Type: HIP_FLASK\nBrand (from catalog): ASR Outdoor\nExisting Title: Mini Key Chain Stainless Steel Flask Screw On Cap (2 Sizes)\nDescription: Keep your spirits up with the ASR Outdoor 1oz Mini Key Chain Flask. This awesome mini flask can be transported anywhere so pouring is easy no matter where the party is.<br/><br/>The ASR Outdoor 1oz Mini Key Chain Flask is a great way to bring the fun along wherever you go. Each flask will hold up to 1oz of liquid, and comes with a screw on cap. This flask is constructed of 201 stainless steel and comes with a handy key chain so you can easily attach it to your keys, backpack or purse.<br/><br/>Make sure to bring one of these along for your next camping or hiking trip.\nSearch Terms: hip flask stainless steel silver trekking hiking snowboarding skiing backpacking camping gear RV camp kitchen beverage tailgating ASR Outdoor whiskey water alcohol gifts wilderness adventure groomsmen boating drinking cups campfire BBQ\nFeatures:\n- Mini Key Chain Flask Stainless Steel Screw On Cap 1 oz for Portable Drinking and Alcoholic Beverage Storage\n- Capacity: 1oz\n- Material: 201 Stainless Steel\n- Dimensions: 1-5/8\" x 13/16\" x 2-5/16\"\n- Screw-on Cap\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 1oz Mini Stainless Steel Key Chain Flask",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1",
+                "pack_size_unit": "oz",
+                "size": "Mini",
+                "color": "Stainless Steel",
+                "name": "Key Chain Flask"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Mini Key Chain Stainless Steel Flask",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Mini",
+                "color": "",
+                "name": "Key Chain Stainless Steel Flask"
+            },
+            "char_count": 48,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Portable Drinking Flask, Screw-On Cap, 201 Stainless Steel, Hiking And Camping Gear, Keychain Attachment",
+            "char_count": 104,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "1 Oz Capacity, Screw-On Cap, Key Chain Attachment, Compact Travel Size, Camping Hiking Ready",
+            "char_count": 92,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-HDSCISSORS-SC20509-FBA",
+    "asin": "B0GZRDJRKK",
+    "product_type": "SCISSORS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-HDSCISSORS-SC20509-FBA\nProduct Type: SCISSORS\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux 8.5 Inch Heavy Duty Scissors, Stainless Steel Utility Shears with Rubberized Orange Black Grip Grip Handles for Home, Garden, Office or Workshop\nDescription: Built for tough cutting jobs around the home, garage, workshop, garden, craft room, or shipping station, these heavy duty scissors deliver the strength, control, and versatility needed for everyday utility tasks. The durable stainless steel blades are designed to cut with precision through a wide variety of materials, making these multipurpose scissors a practical choice for cardboard, rope, twine, plastic strapping, packaging materials, fabric, burlap, leather, light mesh, and more.<br/><br/>The 3.5mm thick blade construction gives these utility scissors a sturdy, reliable feel during demanding cutting tasks, while the stainless steel material offers lasting performance for repeated use. Measuring 8.5 inches in total length, the scissors are compact enough for easy handling and storage, yet strong enough for heavier duty projects that ordinary household scissors may struggle with. The sharp blade profile helps deliver clean, controlled cuts whether you are opening boxes, trimming garden ties, cutting craft materials, preparing shipping supplies, or keeping a pair of reliable shop scissors close at hand.<br/><br/>Designed with comfort and control in mind, the orange and black handle features rubberized grips that help provide a secure hold during use. The ergonomic handle shape supports confident handling while cutting thicker or more resistant materials, making these scissors useful for both quick household jobs and longer project sessions. From packaging and DIY repairs to gardening, crafting, warehouse prep, and general utility cutting, these stainless steel heavy duty scissors are a dependable addition to any tool drawer, workbench, supply station, or home organization setup.\nSearch Terms: heavy duty scissors; stainless steel utility shears; kitchen scissors for food; meal prep; hobby tools; gardening essentials; shipping scrapbooking office craft supplies; kitchen shears; hand tools; diy; box cutter; workshop accessories\nFeatures:\n- THICK 3.5MM STAINLESS STEEL BLADES - Built for durability and consistent cutting performance across a range of materials\n- MULTI-PURPOSE USE - Suitable for paper, fabric, cardboard, light plastic, and general household or craft tasks\n- COMFORTABLE NON-SLIP GRIP - Rubberized orange and black handles provide added control and reduce hand strain\n- BALANCED 8.5” DESIGN - Offers improved leverage and precision for both detailed and general cutting\n- EVERYDAY RELIABILITY - Designed for repeated use in home, office, or workshop environments\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 8.5 Inch Heavy Duty Stainless Steel Scissors",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "8.5",
+                "pack_size_unit": "Inch",
+                "size": "8.5 Inch",
+                "color": "Orange Black",
+                "name": "Heavy Duty Scissors"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 8.5-in Orange Black Heavy Duty Scissors",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "8.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Orange Black",
+                "name": "Heavy Duty Scissors"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "35Mm Stainless Steel Blades, Rubberized Grip, Multi-Purpose Cutting, Cardboard, Fabric, Rope, Workshop And Garden Use",
+            "char_count": 117,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "35Mm Thick Stainless Steel Blades, Non-Slip Rubberized Grip, Cuts Cardboard Rope Twine, Home Office Workshop",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

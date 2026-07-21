@@ -1,0 +1,60 @@
+{
+    "sku": "LST-KARAOKESTAND2017-PINK1",
+    "asin": "B07KNHCNNN",
+    "product_type": "KARAOKE_MACHINE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-KARAOKESTAND2017-PINK1\nProduct Type: KARAOKE_MACHINE\nBrand (from catalog): KidPlay Products\nExisting Title: KidPlay Kids Karaoke Microphone Singing Music Machine with Adjustable Stand, Pop Star Musical Toy Pink\nDescription: Channel your inner pop star with the Kids Karaoke Microphone with Adjustable Stand.<br/><br/> This musical set allows you to plug in your MP3 device to the built-in jack to sing along with your favorite songs. Young kids will love building their confidence and self esteem while flexing their musical skills. The microphone stand lights up during use and with a press of a button they'll be able to fill the room with applause and cheers.<br/><br/> The stand adjusts from 15.75\" to 32.25\" so kids will be able to perfect their rock star pose. Musical toys are perfect for allowing kids to use their imagination and entertain family and friends. Each set comes with an auxiliary cord for connecting MP3 devices to the built-in audio jack. It requires (3) 1.5V AA batteries (not included).<br/><br/> This is a great gift idea for young kids and aspiring musicians.\nSearch Terms: karaoke machine singing girls toys light up pretend play for playing toy machine instrument singing\nFeatures:\n- COMPATIBILITY: Able to Connect with Apple IPhone, Android Phones, and Any MP3 Device with Audio Jack; Built in Speaker\n- ENDLESS ENTERTAINMENT: Enjoy Hours of Fun with your Own in Home Karaoke Machine with Dazzling Lights and Sounds that will Entertain any Sleep Over or Birthday Party.\n- LIGHTS AND SOUNDS: Flashing Lights, Crowd Applause, and Built-in Songs all with a Push of a Button\n- FUN FOR ALL AGES: This Superstar Karaoke Machine is the Ideal Present for your Budding Superstar no Matter what Age Since the Unit Features an Adjustable Height Microphone Stand Allowing Easy Use for Everyone. Fun and Interactive Enjoyment for the Entire Family on Game Nights\n- SPECIFICATIONS: Operates on 3 AA Batteries Not Included; Adjustable Volume Control; Available in Pink and Blue; Adjustable Stand (15.75\" - 32.25\"); Auxiliary Cord and Built-In MP3 Jack Included\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "KidPlay Kids Karaoke Microphone with Adjustable Stand Pink",
+            "tokens": {
+                "brand": "KidPlay",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Pink",
+                "name": "Kids Karaoke Microphone with Adjustable Stand"
+            },
+            "char_count": 58,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "KidPlay Products Pink Kids Karaoke Machine with Adjustable Stand",
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Pink",
+                "name": "Kids Karaoke Machine with Adjustable Stand"
+            },
+            "char_count": 64,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Adjustable Stand 1575-3225 Inch, LED Lights, Built-in Speaker, MP3 Compatible, Crowd Applause Sound Effects",
+            "char_count": 107,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Lights And Sounds, Flashing Applause, Aux Input For MP3 And Phones, Adjustable 1575-3225 Inch Stand",
+            "char_count": 99,
+            "validation_error": null
+        }
+    }
+}

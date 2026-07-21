@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-BEAUTYTOOLKIT-9PC-BUN",
+    "asin": "B0B9VJY9VM",
+    "product_type": "BEAUTY",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-BEAUTYTOOLKIT-9PC-BUN\nProduct Type: BEAUTY\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Beauty Tool Kit Nail Clipper Brush Eyelash Curler Pore Cleaner - 9pc\nDescription: Keep your nails, lashes, eyebrows, and face looking clean, fresh, and groomed on the go with the ToolTreaux 9pc Deluxe Beauty Tool Kit. Our set comes with 9 basic tools every woman needs to be ready for any occasion on the go in one convenient set - an eyelash curler, eyebrow tweezer, nail brush, nail clippers, emery boards, and blackhead remover tools. <br/><br/>Our beauty scrub brush features a wooden ergonomic handle so you can comfortably and easily grip it while scrubbing. The natural wood is an ideal material for use with warm, soapy water and is easy to clean after use - just rinse it and leave it out to dry between uses.<br/><br/>Each brush features short bristles on one side and longer bristles on the other. Short bristles are ideal for scrubbing dirt from underneath your nails while the longer bristles will gently clean and massage your fingers to keep your skin soft and supple. <br/><br/>Although they may look intimidating, our blackhead removal tools are easy to use. Before you begin, make sure to clean your face with warm water to open pores and dry thoroughly. Sterilize your tools with hot soapy water or a preferred disinfectant before every use to ensure there is no bacteria or dirt. Proceed to pierce mature pimples and then choose the appropriate-sized loop to squeeze the acne out. Make sure to disinfect and dry your tools immediately after each use.<br/><br/>The nail clippers are made of durable, corrosion-resistant stainless steel that won't rust so you can count on them for many uses. Each of the nail files is made of flexible emery that is essentially sandpaper designed to be safe for use on your body.<br/><br/>The included nail clippers feature an ergonomic handle to provide comfort and prevent slippage during use. They feature a chrome-polished sleek surface that is both simple yet fashionable, so they'll easily fit with any of your other manicure tools\nSearch Terms: nail brush acrylic nail brush nail brush for cleaning fingernails blackhead remover blackhead remover tools nail clipper nail kit travel nail scrubber nail care nail care kit manicure tools eyelash curlers eyelash brush eyelash extension supplies\nFeatures:\n- DUAL-SIDED NAIL BRUSH - Nail scrub brush features 2 different scrub sides, effective for removing dirt and particulates from hands and fingernails; Short bristles are ideal for scrubbing grime from underneath nails while longer bristles will gently massage and clean your fingers to keep your skin soft and supple; Safe for use on acrylic nails\n- DUAL-TIPPED EXTRACTOR TOOLS - Pore cleaner tool kit comes with 2 basic tools designed to remove blackheads easily; 1 tool includes a piercing needle and loop for safely puncturing and removing pimples & 1 tool is designed for blemish and blackhead squeezing\n- 3PC NAIL CLIPPER SET - Nail kit comes with a basic nail clipper and 2 emery board nail files to keep nails trimmed and groomed at home or on the go. Clipper features ultra-sharp blades to safely and easily cut nails without damaging your skin\n- 2PC BASIC EYELASH TOOL KIT - ToolTreaux makeup tool kit comes with 2 professional tools for creating a natural, beautiful look; 1 premium eyelash curler and a set of eyebrow tweezers; Eyelash curler and tweezer are made of durable, high-quality corrosion-resistant stainless steel that won't rust so you can count on them to last\n- PREMIUM DESIGN - Beauty tools are made of high-quality corrosion-resistant stainless steel that won't rust so you can count on them to last; Nail files are made of flexible emery, essentially sandpaper that is safe for use on your body\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 9-Piece Beauty Tool Kit Nail Clipper Eyelash",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "9",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "",
+                "name": "Beauty Tool Kit"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 9-Pc Beauty Tool Kit",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "9",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Beauty Tool Kit"
+            },
+            "char_count": 31,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Dual-Sided Nail Brush, Blackhead Remover, Eyelash Curler, Stainless Steel, Travel Kit",
+            "char_count": 85,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Dual-Sided Nail Brush, Blackhead Extractors, Eyelash Curler, Tweezers, Nail Clipper, Emery Boards, Stainless Steel",
+            "char_count": 114,
+            "validation_error": null
+        }
+    }
+}

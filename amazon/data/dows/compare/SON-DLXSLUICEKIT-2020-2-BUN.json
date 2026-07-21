@@ -1,0 +1,60 @@
+{
+    "sku": "SON-DLXSLUICEKIT-2020-2-BUN",
+    "asin": "B08CS4C48D",
+    "product_type": "OUTDOOR_LIVING",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-DLXSLUICEKIT-2020-2-BUN\nProduct Type: OUTDOOR_LIVING\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 21PC Deluxe Sluice Box Gold Panning Kit with 1/2 and 1/8 Classifier Screens\nDescription: The ASR Outdoor 21pc gold panning kit features essential gold prospecting equipment to set you up for success in the field! Filled with tried and true gold claim site tools you can count on to strike it rich! <br/><br/>This complete folding sluice box gold prospecting kit from ASR Outdoor is an excellent choice for intermediate to experienced prospectors. It also makes a great beginner kit for novices who are looking to experiment with both gold panning and sluicing. Either way, the high quality materials and thoughtful curation of tools included, ensure durability, ease of use and reliable performance for many seasons to come. <br/><br/>This gold panning kit includes the following components: 50 inch folding aluminum sluice box, single and dual riffle gold pans, prospectors scoop and 3 in 1 shovel, 8lb magnetic pick up tool, assorted find gold recovery tools and classifier screens.<br/><br/>The MVP of this deluxe gold panning kit is the 50 inch folding sluice box. Extremely portable, folding down in size simply by loosening the connecting wing nuts, the sluice box will pack right up into a backpack or 5 gallon bucket. You're ready to prospect for gold right out of the package with woven vinyl miners moss already preinstalled. The sluice box riffles feature unibody construction, the riffles are precision laser cut from a single piece of 18 gauge steel and then formed into ultralight, sturdy steel riffles. These are then zinc plated for long, rust free performance.<br/><br/>In addition to the sluice box, this gold panning kit comes with two coarse sifting screens for material classification, specifically designed to fit on top of a 5 gallon bucket (not included). The sifting screens are essential for classifying down a material deposit to something fine enough for gold panning or running through a sluice box, removing large rocks, gravels and other unwanted organic material, making your gold recovery efforts more efficient. And, don’t forget about the small but mighty 8lb magnetic pick up tool, used to rid deposits of heavy black sands, making gold easier to find when panning.<br/><br/>Lastly, this gold panning kit includes a scoop, 3 in 1 one shovel and pick hand tool, as well as an assortment of fine gold recovery tools. These recovery, inspection and storage items will come in handy if you’re lucky enough to find gold. Good luck!\nSearch Terms: adult gold panning kits; gold panning pans; gold prospecting equipment; gold mining equipment; paydirt; sluice box; gold cllssifier kit; gold rush\nFeatures:\n- CATCH GOLD WITH THE RIGHT EQUIPMENT: Gold panning sluice box kit contains tried and true gold prospecting equipment proven to maximize your recovery efforts\n- FOLDING SLUICE BOX: Ready to use out of the box, the 50 inch folding sluice box will allow you to process and sift through silt and identify more materials than a gold pan; constructed of durable aluminum that won't rust so you can count on it even in the harshest of environments\n- 5 GALLON BUCKET SIFTING SCREENS: Stackable 1/2 and 1/8 inch classifier screens are designed to fit on a standard 5 gallon bucket; compact, durable and made with 304 stainless steel wire that will stand up to the elements; Classifiers are essential to speeding up the efficiency of the panning process by separating out larger rocks and overburden material\n- GOLD PROSPECTING TOOLS: Expandable folding steel shovel wtih pick and 3 different gold panning pans along with a highly durable prospecting pay dirt scoop to feed your sluice clasified material. These heavy-duty gold prospecting tools will ensure that you stay up and running in the field without breaking down and can gain access to hard-to-reach areas to locate gold\n- FINE GOLD RECOVERY TOOLS: An assortment of essential gold panning collection tools so you can grab, sort, and store valuable materials out in the field: two 3oz gold snifter bottles for grabbing gold flakes, magnifying glass tweezers, black sand separator magnet, small glass collection vials for storing the gold flake and gold nuggets you find\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 21PC Deluxe Sluice Box Gold Panning Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "21",
+                "pack_size_unit": "PC",
+                "size": "",
+                "color": "",
+                "name": "Deluxe Sluice Box Gold Panning Kit"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 21-Pc 50 In Folding Sluice Box Gold Panning Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "21",
+                "pack_size_unit": "pc",
+                "size": "50 in",
+                "color": "",
+                "name": "Folding Sluice Box Gold Panning Kit"
+            },
+            "char_count": 59,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "50In Folding Sluice Box, 12 And 18 Classifier Screens, Gold Recovery Tools, Prospecting Pans",
+            "char_count": 92,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Aluminum Folding Sluice Box, 12 And 18 Classifiers, Pans, Shovel, Pick, Magnet, Snifter Bottles",
+            "char_count": 95,
+            "validation_error": null
+        }
+    }
+}

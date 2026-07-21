@@ -1,0 +1,60 @@
+{
+    "sku": "KOL-PETBOWL-DI153-FBA",
+    "asin": "B08G628432",
+    "product_type": "PET_FEEDER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: KOL-PETBOWL-DI153-FBA\nProduct Type: PET_FEEDER\nBrand (from catalog): ASR Outdoor\nExisting Title: Packable Folding Collapsible Pet Travel Food Bowl Dish (4 Cups\nDescription: The ASR Outdoor Folding Collapsible Dog Cat Pet Travel Food Water Bowl is the perfect pet bowl for when you and your pets are on the move. Compact, lightweight, collapsible and easily foldable, the pet bowl is a must-have if you’re traveling, walking, running, camping or trekking with your furry friends.<br/><br/>The collapsible dog bowl is small and easy to pack with your dog toys, dog bed, dog food, dog treats, dog harness, dog collar, dog leash, dog crate and when you’re away from home. It features a convenient plastic latch for clipping on to king rings as an additional carrying option when hiking, walking or trekking. <br/><br/>What also makes this pet food and water bowl so great for traveling, is its low maintenance fabrication. The interior fabric of the pet bowl is made from a waterproof and leak proof plastic (exterior is 100% durable polyester), making it fast-drying very easy to wipe clean. Because of its durable fabrication, the dog bowl or cat bowl will stand up to lots of wear and tear and will hold pets water or food for long periods of time.<br/><br/>For folding the pet bowl when not in use, simply follow the included instructions for easy flat folding, storage and carrying. The collapsible pet bowl is suitable for either water or dog food and can hold up to approximately four (4) cups of water or pet food depending on the size of your pet.<br/><br/>The ASR Outdoor Folding Collapsible Dog Cat Pet Travel Food Water Bowl is suitable for any outdoor and wilderness adventure, road trip, camping trip or hiking your local trails. It will soon become a staple in your arsenal of travel pet supplies and pet accessories.\nSearch Terms: outdoor hiking pack light pet bowl water food carrier storage container supplies toys dog for dogs feeder cats small puppy\nFeatures:\n- DESIGNED FOR TRAVEL: The ASR Outdoor Folding Collapsible Travel Water and Food Bowl is compact, portable, lightweight and won’t weigh you down when traveling, camping or away from home; the bowl features a convenient plastic latch for clipping on to king rings as another carry option\n- DURABLE LEAK PROOF MATERIAL: The interior fabric of the pet bowl is waterproof and leak proof plastic; made from 100% durable polyester, the dog bowl or cat bowl will stand up to lots of wear and tear and can hold your furry friends water or food for long periods of time\n- QUICK FOLDING AND EASY TO CLEAN: With a waterproof and leak proof interior, the pet bowl dries quickly and wipes clean once your dog or pet finishes eating or drinking; simply follow the included instructions for easy flat folding, storage and carrying\n- HOLDS FOOD AND WATER: The collapsible pet bowl is suitable for either water or dog food; the dog bowl or cat bowl can hold up to approximately four (4) cups of water or pet food\n- SPECIFICATIONS: Weight: 0.05lbs; Diameter: 6.5 inches; Depth: 2.5 inches; Exterior Material: 100% polyester; Interior Material: Waterproof and leak proof plastic; Purchase includes with folding directions\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Folding Collapsible Pet Travel Food Water Bowl",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Folding Collapsible Pet Travel Food Water Bowl"
+            },
+            "char_count": 58,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 4-Cup Folding Collapsible Pet Travel Bowl",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "cups",
+                "size": "",
+                "color": "",
+                "name": "Folding Collapsible Pet Travel Bowl"
+            },
+            "char_count": 53,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Waterproof Leak Proof, 4-Cup Capacity, Portable Hiking Camping, Dogs Cats, Lightweight Durable Polyester",
+            "char_count": 104,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Waterproof Leak Proof Interior, Lightweight Packable Design, Clip On Latch, Easy Clean, Holds Food And Water",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

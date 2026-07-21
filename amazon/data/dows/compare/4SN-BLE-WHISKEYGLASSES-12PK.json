@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-BLE-WHISKEYGLASSES-12PK",
+    "asin": "B0FTTDFQ4J",
+    "product_type": "DRINKING_CUP",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-BLE-WHISKEYGLASSES-12PK\nProduct Type: DRINKING_CUP\nBrand (from catalog): Beille\nExisting Title: Beille 10.82oz Whiskey Glasses Old Fashioned Glass Barware Kitchen Essentials Home Décor (Assorted Pack Sizes) (12)\nDescription: Elevate your drinking experience with these classic whiskey glasses, beautifully crafted for both form and function.<br/><br/> With its timeless cut glass design and clear brilliance, this lowball tumbler brings a touch of old school sophistication to modern mixology. Whether you're enjoying a fine bourbon, a smoky scotch, or crafting the perfect Old Fashioned, these whiskey glass deliver the perfect balance of elegance, weight and comfort in hand. The thick, heavy base ensures stability when mixing and crafting, while enhancing the overall drinking ritual from first to final sip.<br/><br/>Holding up to 10 ounces, these whiskey glasses are the ideal companion for neat pours, whiskey on the rocks, or a wide variety of stirred cocktails. Durable, dishwasher safe, and a fantastic gift idea for any cocktail enthusiast, these whiskey glasses are a must have addition to any home bar or as an exceptional gift for the whiskey, scotch or bourbon connoisseur.<br/><br/>Dishwasher safe.<br/><br/>Sold in 2, 4, 6 or 12 packs.\nSearch Terms: (none)\nFeatures:\n- WHISKEY GLASSES: Inspired by vintage glassware, these classic whiskey glasses add elegance and sophistication to any barware collection; perfect for sipping bourbon, scotch or classic cocktails like an Old Fashioned or Negroni\n- HEAVY BASE FOR STABILITY: Built with a solid, weighted base to prevent tipping and enhance durability; ideal for muddling ingredients directly in the glass for cocktails that demand precision and presentation\n- VERSATILE 10OZ CAPACITY: The perfect size for serving whiskey neat, on the rocks, or with mixers; also great for rum, vodka, gin or whiskey and bourbon cocktails, or even non alcoholic beverages\n- GIFTS FOR MEN: A set of whiskey glasses makes a timeless gift that’s both practical and thoughtful; ideal for birthdays, holidays, anniversaries, Father’s Day, or groomsmen and more; these glasses let him enjoy his favorite bourbon, scotch, or whiskey in style\n- DISHWASHER SAFE: Designed for everyday convenience, these whiskey glasses are dishwasher safe for quick and effortless cleanup, so you can spend more time enjoying your drink and less time hand washing\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 12-pk 10.82oz Clear Whiskey Glasses",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "12",
+                "pack_size_unit": "pk",
+                "size": "10.82oz",
+                "color": "Clear",
+                "name": "Whiskey Glasses"
+            },
+            "char_count": 42,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 12-pk 10.82oz Clear Whiskey Glasses",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "12",
+                "pack_size_unit": "pk",
+                "size": "10.82oz",
+                "color": "Clear",
+                "name": "Whiskey Glasses"
+            },
+            "char_count": 42,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Heavy Base, Dishwasher Safe, Old Fashioned Lowball Tumbler, Perfect For Bourbon And Scotch, Gifts For Men",
+            "char_count": 105,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Vintage Cut Glass, Heavy Weighted Base, 1082 Oz Lowball Tumbler, Dishwasher Safe, Gift For Men And Home Bar",
+            "char_count": 107,
+            "validation_error": null
+        }
+    }
+}

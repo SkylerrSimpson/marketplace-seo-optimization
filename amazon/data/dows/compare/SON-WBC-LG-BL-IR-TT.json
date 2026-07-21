@@ -1,0 +1,60 @@
+{
+    "sku": "SON-WBC-LG-BL-IR-TT",
+    "asin": "B0B846BG3S",
+    "product_type": "SPORTING_GOODS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-WBC-LG-BL-IR-TT\nProduct Type: SPORTING_GOODS\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Waterproof Backpack Cover Adjustable Fit Camping Essentials - Blue\nDescription: The ASR Outdoor backpack cover was designed to protect your backpack from inclement weather, making it ideal for camping, hiking, traveling or getting to and from school. It's made of high-quality, durable waterproof polyester to keep your bag dry even during a storm.<br/><br/>The backpack rain cover comes with an adjustable drawstring closure for a custom and snug fit that will work with most standard sized travel bags and backpacks. It will easily adjust to completely cover your backpack, making it a great option for both adults and children.<br/><br/>Designed to be lightweight and compact when not in use, this backpack cover weighs just .2lbs so it won't add too much weight to your backpack. It can be spot cleaned with soap and water - just weipe it down after use and hand it to dry before you need it next. <br/><br/>Our bag cover expands up to 28\" x 7\" x 17.5\" and comes in a high-visilbity bright blue color that is easy to spot in a crowd, ideal for keeping an eye on kids during large gatherings like parades and school trips. Make sure to grab one of these before your next camping or hiking trip, or keep it in your travel gear in case of a rainy day.\nSearch Terms: water proof backpack waterproof backpack for women backpack cover backpack rain cover waterproof backpack cover beach backpack camping backpack camping backpack for men waterproof bag waterproof beach bag waterproof backpack for kayaking dry bag\nFeatures:\n- PROTECT YOUR BACKPACK - ASR Outdoor backpack rain cover is made of durable, high-quality polyester waterproof materials to protect your bag from inclement weather. Ideal for traveling, camping, hiking and getting to and from school\n- ADJUSTABLE DRAWSTRING CLOSURE - Backpack cover comes with an adjustable drawstring closure for a snug, custom fit for any standard travel bag or backpack. Easily adjusts to completely cover your backpack, ideal for adults and children\n- LIGHTWEIGHT AND EASY TO CLEAN - Rain gear bag cover weighs just .2lbs and can be spot cleaned with soap and water. Just wipe it down after use and hang it to dry before next use. Easily fold it and store it with your other rain gear when not in use once dry\n- FITS MOST BACKPACKS - Rain cover expands up to 28\" x 7\" x 17.5\" that will fit most backpacks and travel bags. High-visibility blue rain cover is easy to spot in a crowd, great for keeping an eye on kids during large gatherings and parades\n- SPECIFICATIONS - Color: blue; Material: waterproof polyester; Dimensions: 28\" x 7\" x 17.5\"; Weight: .2lbs (3.2oz); Cleaning: spot clean with soap and water, hang to dry; Adjustable fit; Closure type: drawstring\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Waterproof Backpack Cover Blue Adjustable",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "28",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Blue",
+                "name": "Waterproof Backpack Cover Adjustable"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Blue Waterproof Backpack Cover",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Blue",
+                "name": "Waterproof Backpack Cover"
+            },
+            "char_count": 42,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Adjustable Drawstring Closure, Lightweight And Compact, Fits Most Backpacks, Easy To Clean, High-Visibility",
+            "char_count": 107,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Waterproof Polyester, Adjustable Drawstring Fit, Lightweight, Fits Most Backpacks, High-Visibility Blue",
+            "char_count": 103,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-BLE-RIBBEDGLASSJARS-COF-STD",
+    "asin": "B0GVVVLF5J",
+    "product_type": "FOOD_STORAGE_CONTAINER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-BLE-RIBBEDGLASSJARS-COF-STD\nProduct Type: FOOD_STORAGE_CONTAINER\nBrand (from catalog): Beille\nExisting Title: Beille 43.9oz Glass Storage Jars Airtight Kitchen Canisters for Coffee Tea Sugar, Ribbed Clear Pantry Containers, Coffee\nDescription: Bring clean organization and modern style into any kitchen with Beille’s ribbed glass storage jars, designed for everyday storage of coffee, tea and sugar. Combining function with a classic look, these airtight kitchen canisters offer a simple and easy to use solution for countertop and pantry storage.<br/><br/>Each jar is crafted from durable, food safe clear glass with a subtle ribbed texture that adds visual interest, while easily allowing you to identify contents at a glance. The airtight screw top lid helps preserve freshness, making these glass storage jars ideal for coffee beans, loose leaf tea, and sugar by protecting against air and moisture.<br/><br/>With a generous 43.9-ounce capacity, these pantry containers provide ample space for your most-used kitchen essentials while maintaining a compact footprint. Whether displayed on the counter or organized neatly on a shelf, these kitchen canisters help create a clutter free, cohesive space.<br/><br/>Designed to complement a variety of interiors, the neutral clear glass and clean lines fit seamlessly into modern farmhouse, contemporary, or minimalist kitchens. These versatile storage containers are perfect for everyday kitchen organization, while elevating the overall look of your pantry or countertop.<br/><br/>For added convenience, these glass jars are dishwasher safe for easy cleaning and safe for use in the fridge or freezer, making them as practical as they are stylish.\nSearch Terms: airtight glass jar kitchen storage container pantry canister set coffee bean tea sugar holder ribbed glass jars food storage containers dry goods organizer modern kitchen canisters clear glass storage coffee container tea jar sugar canister\nFeatures:\n- VERSATILE KITCHEN CANISTERS: Designed for coffee, tea and sugar storage, these glass storage jars are perfect for countertop use or pantry organization, offering a functional and modern storage solution for dry goods\n- RIBBED CLEAR GLASS DESIGN: Featuring a ribbed texture and clear, food safe glass construction, these storage containers allow easy identification of contents, while adding a clean, classic and modern touch to any kitchen\n- PANTRY STORAGE CONTAINERS: Use these jars as pantry containers for dry goods like coffee beans or ground coffee, loose leaf tea or tea bags and sugars, helping to keeping kitchens organized and clutter free\n- GLASS STORAGE JARS: Designed with secure screw-top lids, these airtight glass storage jars help keep coffee beans, tea, and sugar fresh while protecting contents from exposure to moisture and air; dishwasher, freezer and fridge safe\n- SPECIFICATIONS: Dimensions: 7.25 x 4.0 inches; Capacity: 43.9 ounces; Weight: 1.62lbs; Each style sold separately\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 43.9oz Ribbed Clear Glass Storage Jars",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "43.9",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "Clear",
+                "name": "Ribbed Glass Storage Jars"
+            },
+            "char_count": 45,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 43.9oz Clear Ribbed Glass Storage Jar",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "43.9oz",
+                "color": "Clear",
+                "name": "Glass Storage Jar"
+            },
+            "char_count": 44,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Airtight Lids, Pantry Organizer, Coffee Tea Sugar, Dishwasher Safe, Modern Kitchen Canisters",
+            "char_count": 92,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Airtight Screw Top Lid, Dishwasher Safe, Fridge And Freezer Safe, Food Safe Glass, Coffee Tea Sugar Organizer",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-COMPANIONWHISTLES-ORG",
+    "asin": "B07BN2LRSF",
+    "product_type": "SPORTING_GOODS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-COMPANIONWHISTLES-ORG\nProduct Type: SPORTING_GOODS\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Companion Whistles Set 105 dB Rating Emergency Safety Camping Tools\nDescription: Keep yourself safe using the buddy system out in the wilderness with the ASR Outdoor Companion Whistle Set.<br/><br/>This set of 2 whistles come in a pair so that you and your buddy can make sure you're within ear's reach. The whistles have a 105 decible rating, so they can be heard with a single blow. They are constructed of durable plastic and come with a 16\" lanyard so you can wear them around your neck. This is a must-have set of safety whistles for all hikers, campers and outdoor adventure enthusiasts.\nSearch Terms: camping hiking outdoors safety whistles\nFeatures:\n- ASR Outdoor Companion Whistle Set - 1 Pair for Wilderness Safety\n- 105 dB Rating - Can Be Heard with Single Blow\n- Durable Plastic Body with 16\" Lanyard\n- Dimensions: 2\" x 1.25\"\n- Color: Bright Orange\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 2-Pack Bright Orange Safety Whistles",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "Bright Orange",
+                "name": "Safety Whistles"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 2-pk Bright Orange Companion Whistle Set",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Bright Orange",
+                "name": "Companion Whistle Set"
+            },
+            "char_count": 52,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "105 DB Rating, Durable Plastic, 16 Inch Lanyard, Camping Hiking Emergency, Single Blow Heard",
+            "char_count": 92,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Outdoor Emergency Safety, 105 DB Loud Signal, Durable Plastic, 16\" Lanyard, Compact 2\" X 125\", Set Of 2",
+            "char_count": 103,
+            "validation_error": null
+        }
+    }
+}

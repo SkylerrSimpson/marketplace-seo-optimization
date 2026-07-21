@@ -1,0 +1,60 @@
+{
+    "sku": "TWL-TECHNRA-2500LB-50FT-TAN",
+    "asin": "B0CM2VSPKX",
+    "product_type": "CORD_ROPE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: TWL-TECHNRA-2500LB-50FT-TAN\nProduct Type: CORD_ROPE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 50 Feet Technora 2500LB Utility Survival Cord, Tan\nDescription: The Technora 2500lb Survival Cord by ASR Outdoor is a well suited item to pack with for EDC, emergency preparedness, and ultralight backpacking. It is strong and compact while being 8x stronger than steel by weight, with a thermal decomposition threshold of 930 degrees Fahrenheit, and is totally resistant to acids, alkalis, and seawater. <br/><br/>While Technora Survival Cord is abrasion resistant, has a low creep and low thermal shrinkage with excellent dimensional stability; the main benefit of ASR Outdoor Technora 2500lb Survival Cord is that it is stronger and more durable than standard 550lb paracord, at less than half the diameter. <br/><br/>Technora line features a Polytetrafluoroethylene (PTFE) coating, This coating protects the Technora from UV damage, increases abrasion resistance and flexibility, giving better knot strength, and chemical resistance. It weighs almost nothing and takes up little space, so it is a must-have for your survival kit.<br/><br/>Other applications for Technora Survival Cord include aerial surveillance balloons, motion picture gimbaled lines for remote video cameras, recreation Applications, heavy duty fishing assist cords and leaders.\nSearch Terms: strong breaking strength rope survival cord sport kite line spear fishing line emergency edc everyday trip line technora cord perimeter alarm\nFeatures:\n- HIGH TENSILE STRENGTH: Rated for 2500lb tensile strength; weight to weight ratio, Technora cord is 8 times stronger than steel and 3 times stronger than fiberglass, polyester or nylon yarns\n- FATIGUE RESISTANCE: Shows little loss of strength even during repeated abrasion, flexing and stretching\n- CHEMICAL RESISTANCE: Highly resistant to acids, alkalis and organic solvents; not vulnerable to damage caused by steam or sea water; PTFE protective coating\n- DIMENSIONAL STABILITY: Low elongation rated at 4.00 percent; stiff and highly oriented molecular structure leads to a high modulus of elasticity; low creep and low stress relaxation; low thermal shrinkage\n- MADE IN JAPAN: Braided and dyed from 100% genuine technora fiber yarn; not to be confused with other brands\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 50ft Tan Technora 2500LB Survival Cord",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "50",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Tan",
+                "name": "Technora 2500LB Survival Cord"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 50-ft 2500lb Tan Survival Cord",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "50",
+                "pack_size_unit": "ft",
+                "size": "2500lb",
+                "color": "Tan",
+                "name": "Survival Cord"
+            },
+            "char_count": 42,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "2500LB Breaking Strength, 8X Stronger Than Steel, UV And Chemical Resistant, Low Stretch, PTFE Coated",
+            "char_count": 101,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "2500 Lb Tensile Strength, 8X Stronger Than Steel, PTFE Coated, Abrasion Resistant, Made In Japan",
+            "char_count": 96,
+            "validation_error": null
+        }
+    }
+}

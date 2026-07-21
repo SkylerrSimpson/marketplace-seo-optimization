@@ -1,0 +1,60 @@
+{
+    "sku": "DLX-WORKGLOVES-ORG",
+    "asin": "B087NC93DZ",
+    "product_type": "PROTECTIVE_GLOVE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DLX-WORKGLOVES-ORG\nProduct Type: PROTECTIVE_GLOVE\nBrand (from catalog): Universal Tool\nExisting Title: Universal Tool 1 Pair Unisex One Size Hi-Vis Dot Knit Grip Garden Gloves, Orange\nDescription: If you're someone who works with their hands, whether on home projects or renovations or at work, you understand the importance of a good pair of work gloves to protect your hands and nails. And, besides avoiding cuts, scrapes or unwanted chemical burns, these safety glove takes hand protection to the next level, both enhancing your visibility and ensuring thorough hand protection when and where needed.<br/><br/>Featuring a comfortable, stretch-knit fabric, seamless construction and a PVC dot design for extra grip, these high visibility safety gloves or all-purpose, general utility work gloves assure that if you're at work on a construction site, working roadside, at an airport or the like, you remain protected and easily visible. The hi-vis neon orange coloring allows your coworkers or those in your surrounding area help to greatly improve the recognition of your movements and whereabouts.<br/><br/>Read on for some of the great benefits of this multi-functional safety and work gloves.<br/><br/>- PVC DOT DESIGN FOR SOLID GRIP: These work gloves feature a dotted PVC synthetic silicone design on the palm for excellent grip, adding an additional layer of protection, dexterity, and strength when moving, lifting or reorganizing items, materials or tools<br/><br/>- COMFORTABLE STRETCH FIT: The seamless knit fabric construction of these work gloves or safety gloves are easy to take on and off; due to the stretch knit material, these work gloves provide the maximum amount of comfort and dexterity when working with your hands on the job or on projects around the house<br/><br/>- MACHINE WASHABLE: To keep gloves clean, launder them on a cool, delicate wash cycle and air dry; use a leather protective agent or leather oil to maintain and extend the life of the inner leather palm<br/><br/>While these knit PVC dot grip work gloves are intended for workplace safety in commercial settings, they really are an all-purpose, general utility work glove for men and women alike\nSearch Terms: work gloves mens for men gardening womens cleaning safety high visibility landscaping welding painting lifting tools toolbox accessories home improvement personal protection\nFeatures:\n- HI VIS KNIT SAFETY AND WORK GLOVES: One size fits all, seamless knit construction safety work gloves in hi vis neon orange color are perfect for working on construction sites, in poorly lit areas or on road construction projects during the daytime or nighttime where hand protection and high visibility are a necessity\n- PVC DOT DESIGN FOR SOLID GRIP: These work gloves feature a dotted PVC synthetic silicone design on the palm for excellent grip, adding an additional layer of protection, dexterity and strength when moving, lifting or reorganizing items, materials or tools\n- COMFORTABLE STRETCH FIT: The seamless knit fabric construction of these work gloves or safety gloves are easy to take on and off; due to the stretch knit material, these work gloves provide the maximum amount of comfort and dexterity when working with your hands on the job or on projects around the house\n- MULTIPURPOSE WORK GLOVES: Aside from making great safety gloves or utility work gloves, they are also be used for a multitude of other tasks: fishing, gardening, painting, welding, cleaning and landscaping to name a just a few, protecting your hands and nails from slivers, blisters, chemical spills, burns, abrasions, allergic reactions, bites, cuts and scrapes\n- MACHINE WASHABLE: To keep work gloves clean, turn them inside out, launder on a cool wash cycle and air dry\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 1 Pair Orange Hi-Vis Knit Grip Work Gloves",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "1",
+                "pack_size_unit": "Pair",
+                "size": "One Size",
+                "color": "Orange",
+                "name": "Hi-Vis Knit Grip Work Gloves"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 1-Pair One Size Orange Hi-Vis Dot Knit Grip Garden Gloves",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "1",
+                "pack_size_unit": "Pair",
+                "size": "One Size",
+                "color": "Orange",
+                "name": "Hi-Vis Dot Knit Grip Garden Gloves"
+            },
+            "char_count": 72,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "PVC Dot Grip, Seamless Knit, High Visibility, Machine Washable, One Size Fits All",
+            "char_count": 81,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "PVC Dot Grip, Stretch Knit Comfort, Hi-Vis Orange, One Size Fits All, Machine Washable, Multi Purpose Safety Gloves",
+            "char_count": 115,
+            "validation_error": null
+        }
+    }
+}

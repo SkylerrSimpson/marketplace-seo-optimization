@@ -1,0 +1,60 @@
+{
+    "sku": "NPT-EMSPOCKETKNIFE-ORG-HPNR",
+    "asin": "B01MYHESBX",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: NPT-EMSPOCKETKNIFE-ORG-HPNR\nProduct Type: KNIFE\nBrand (from catalog): Wartech\nExisting Title: Wartech Folding Pocket Knife with Serrated Tanto Blade EMS Emblem Handle\nDescription: Be ready for everyday tasks and emergency situations with the Wartech PWT229 Folding Pocket Knife. Built with a durable 3CR13 stainless steel tanto blade, this knife provides reliable cutting performance with a combination straight and serrated edge for versatility.<br/><br/>The aluminum handle features a bold EMS emblem and offers a comfortable, secure grip. The knife opens smoothly using a manual thumb-open design, giving you controlled, dependable blade deployment.<br/><br/>For added utility and preparedness, the knife includes a cord cutter, glass breaker, and a sturdy belt clip for convenient carry. With its rugged build and practical safety tools, this is a dependable option for outdoor use, work environments, or emergency response needs.\nSearch Terms: tanto folding knife; EMS pocket knife; thumb open blade; serrated utility knife; aluminum handle knife; emergency rescue tool; glass breaker knife; cord cutter tool; EDC folding knife; stainless steel tanto blade; work knife; outdoor gear\nFeatures:\n- DURABLE STAINLESS STEEL BLADE - Features a strong serrated tanto blade ideal for cutting, slicing, and utility tasks.\n- MANUAL OPEN OPERATION - Designed for smooth, controlled blade opening using the built-in thumb stud.\n- ALUMINUM HANDLE WITH EMS EMBLEM - Lightweight, colorful handle provides a secure grip with an eye-catching EMS-themed design.\n- BUILT-IN SAFETY TOOLS - Includes an integrated cord cutter and glass breaker for emergency situations.\n- CONVENIENT TO CARRY - Equipped with a sturdy belt clip for easy access during work, travel, or outdoor activities.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Wartech EMS Orange Folding Pocket Knife Tanto Blade",
+            "tokens": {
+                "brand": "Wartech",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Orange",
+                "name": "EMS Folding Pocket Knife Tanto Blade"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Wartech Orange Serrated Tanto Folding Pocket Knife",
+            "tokens": {
+                "brand": "Wartech",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Orange",
+                "name": "Serrated Tanto Folding Pocket Knife"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Serrated Tanto Blade, Thumb Open, Glass Breaker, Cord Cutter, Belt Clip, Emergency Rescue Tool, Aluminum Handle",
+            "char_count": 111,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "3CR13 Stainless Steel Blade, EMS Emblem Handle, Thumb Stud Open, Cord Cutter, Glass Breaker, Belt Clip",
+            "char_count": 102,
+            "validation_error": null
+        }
+    }
+}

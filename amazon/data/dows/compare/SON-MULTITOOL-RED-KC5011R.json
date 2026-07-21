@@ -1,0 +1,60 @@
+{
+    "sku": "SON-MULTITOOL-RED-KC5011R",
+    "asin": "B08VFBWTPW",
+    "product_type": "UTILITY_KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-MULTITOOL-RED-KC5011R\nProduct Type: UTILITY_KNIFE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Red EDC Compact 16 in 1 Folding Pocket Utility Knife Multi Tool, 3.5 Inch\nDescription: Featuring a nail file, nail cleaner, knife blade, tweezers, scissors, toothpick, a wood and rope saw, a hook disgorger, a fish scaler, a can opener, a bottle opener, a slotted screwdriver, tent reamer, cork screw, sturdy reamer and a Philips screwdriver, this ASR Outdoor pocket knife multi tool has you covered. <br/><br/>Compact and lightweight, the multi tool pocket knife weights under a pound and measures just 3.5 inches when closed. Whether you're fishing, hunting, backpacking, camping or prepping gear for an outdoor survival or emergency preparedness kit, include this ASR Outdoor pocket knife to have alongside with you on your next outdoor adventure; each tool looks in place for consistent, efficient and reliable performance and it will never ask you to sacrifice on weight or space.<br/><br/>And lastly, with an included keychain ring incorporated into the design, you can attach the pocket knife multi tool to just about anything you need: backpack, wallet, belt loop, camping gear and much more depending on where work or your next outdoor excursion takes you. <br/><br/>Stay safe and happy adventuring.\nSearch Terms: pocket knife folding army survival kit tools camping gear backpacking trekking hunting fishing EDC emergency supplies scissors tweezers multi tool first aid nail file prepper hiking keychain gadgets equipment blade bug out ba\nFeatures:\n- 16-in-1 EDC POCKET KNIFE: Featuring a nail file, nail cleaner, knife blade, tweezers, scissors, toothpick, a wood and rope saw, a hook disgorger, a fish scaler, a can opener, a bottle opener, a slotted screwdriver, tent reamer, cork screw, sturdy reamer and a Philips screwdriver, this ASR Outdoor pocket knife multi tool has you covered\n- LIGHTWEIGHT COMPACT DESIGN: Compact and lightweight, the multi tool pocket knife measures just 3.5 inches when closed and weighs just 0.25 pounds, never requiring you to sacrifice or compromise on space or weight; easy to pack and travel with\n- TASK READY: Whether you're fishing, hunting, backpacking, camping or prepping gear for an outdoor survival or emergency preparedness kit, include this EDC ASR Outdoor folding utility knife multi tool to have alongside with you on your next outdoor excursion and road trip; each individual tool locks in place for consistent, efficient and reliable performance\n- KEYCHAIN RING INCLUDED: With an included keychain ring incorporated into the design, you can attach the pocket knife multitool to just about anything you need when you're on the go or traveling: backpack, wallet, belt loop, camping gear and much more\n- SPECIFICATIONS: Length: 3.5 inches; Color: Red, Silver; Material: Plastic, Metal; Product Weight: 0.25LBS\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Red 3.5 Inch 16-in-1 Folding Pocket Utility Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "16",
+                "pack_size_unit": "in-1",
+                "size": "3.5 Inch",
+                "color": "Red",
+                "name": "Folding Pocket Utility Knife"
+            },
+            "char_count": 61,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 3.5 in Red Folding Pocket Utility Knife Multi Tool",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "3.5 in",
+                "color": "Red",
+                "name": "Folding Pocket Utility Knife Multi Tool"
+            },
+            "char_count": 62,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "16 Tools, Lightweight Compact EDC, Keychain Ring, Camping Hunting Fishing Survival",
+            "char_count": 82,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "16-In-1 EDC Toolset, Keychain Ring, Compact 3-5 In Foldout, Lightweight, Fishing Camping Hiking Survival",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

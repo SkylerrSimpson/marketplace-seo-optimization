@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-MOMECALWB-2O-CLR-1",
+    "asin": "B00HATSKPG",
+    "product_type": "ZIPPER_FASTENER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-MOMECALWB-2O-CLR-1\nProduct Type: ZIPPER_FASTENER\nBrand (from catalog): GEAR AID\nExisting Title: GEAR AID Zipper Cleaner and Lubricant for Wetsuits, Tents and Bags, 2 fl oz\nDescription: The Zip Care Zipper Cleaner and Lubricant is the ideal zipper care for metal, nylon or plastic zippers. It features a pull-push brush top that enables the cleaner to be easily distributed between the zipper teeth and will physically remove harmful dirt and other debris that can jam your zipper. <br/><br/>Designed for use on wet and dry suits, gear bags, clothing and environmental suits, you'll be able to prolong the life of your zippers with Zip Care. <br/><br/>The lubricating system is specifically formulated to lubricate and clean zippers. It will rinse away after submerged in water, leaving a unique protective film that will continue to lubricate without collecting unsightly residue.<br/><br/>Make sure to keep Zip Care around to ensure that your zippers and gear are usable at all times.\nSearch Terms: diving diver gear neoprene lubricant\nFeatures:\n- Release stuck zippers on wetsuits, tents, jackets, sleeping bags and luggage with this multipurpose 2-in-1 formula\n- Prolong zipper life by protecting against UV, salt, chlorine, rust and corrosion, which can jam the zipper; available in 2 fl oz bottle\n- Remove dirt and salt deposits from zipper teeth with included brush-top; formula repels dirt and debris from the zipper\n- Use this non-toxic lubricant on plastic, nylon or metal zippers; contains no silicone or paraffin wax (formerly Zip Care)\n- Packaging may vary\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "GEAR AID Zipper Cleaner and Lubricant, 2 fl oz",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "fl oz",
+                "size": "",
+                "color": "",
+                "name": "Zipper Cleaner and Lubricant"
+            },
+            "char_count": 46,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID 2-fl oz Zipper Cleaner and Lubricant",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "fl oz",
+                "size": "",
+                "color": "",
+                "name": "Zipper Cleaner and Lubricant"
+            },
+            "char_count": 45,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "2-In-1 Clean And Lubricate, Brush-Top Applicator, Protects Metal And Nylon Zippers, UV And Salt Resistant",
+            "char_count": 105,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Stuck Zipper Release, Removes Dirt And Salt, Protects Against UV Salt Chlorine Rust, Brush-Top Applicator",
+            "char_count": 105,
+            "validation_error": null
+        }
+    }
+}

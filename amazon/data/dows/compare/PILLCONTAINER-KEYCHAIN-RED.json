@@ -1,0 +1,60 @@
+{
+    "sku": "PILLCONTAINER-KEYCHAIN-RED",
+    "asin": "B074KN51CB",
+    "product_type": "PRODUCT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: PILLCONTAINER-KEYCHAIN-RED\nProduct Type: PRODUCT\nBrand (from catalog): ASR Outdoor\nExisting Title: Micro Key Chain Waterproof Compartment Portable Storage Container (6 Colors) (Red)\nDescription: Keep your important valuables safe, and concealed with the ASR Outdoor Storage Container.<br/><br/>The ASR Outdoor Micro Storage Container is great for a wide range of multi-purpose use, ranging in use for kids, adults and elderly to carry personal and emergency information as well as medicine pills or whatever may be of essential use. These micro key chain containers can be attached to just about any key chain, handbag, jacket or backpack. Each unit is Waterproof with an o-ring seal and have plastic slip container which is removable from within the metal canister itself.<br/><br/>The aluminum body and o-ring cap will ensure that contents stay dry during any weather. The plastic coated interior will keep items from degrading or touching the aluminum body. Make sure to keep a few of these around to organize pills, IDs and other important tiny items.<br/><br/>Colors Available: Blue, Red, Black, Green, Silver or Purple\nSearch Terms: storage container food storage container pet food storage container small storage container clear storage container water storage container storage container with lanyard camping supplies portable storage container camping equipment hiking supplies\nFeatures:\n- Colors Available: Red, Blue, Black, Purple, Silver or Green\n- Length: 2.75\"\n- Diameter: .5\"\n- Aluminium Body\n- Flat Bottom\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Red Micro Waterproof Keychain Storage Container",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Micro",
+                "color": "Red",
+                "name": "Waterproof Keychain Storage Container"
+            },
+            "char_count": 59,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Micro Red Waterproof Key Chain Storage Container",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Micro",
+                "color": "Red",
+                "name": "Waterproof Key Chain Storage Container"
+            },
+            "char_count": 60,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Waterproof O-Ring Seal, Aluminum Body, Portable Keychain, Pills And Emergency Info Storage, 275 Inches",
+            "char_count": 102,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Aluminum Body, O-Ring Seal, Removable Plastic Insert, Waterproof, Portable, Key Chain Clip, For Pills And IDs",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

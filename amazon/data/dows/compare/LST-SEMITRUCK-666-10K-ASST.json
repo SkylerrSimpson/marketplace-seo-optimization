@@ -1,0 +1,60 @@
+{
+    "sku": "LST-SEMITRUCK-666-10K-ASST",
+    "asin": "B08PW5W1RY",
+    "product_type": "NON_RIDING_TOY_VEHICLE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-SEMITRUCK-666-10K-ASST\nProduct Type: NON_RIDING_TOY_VEHICLE\nBrand (from catalog): Kidplokio\nExisting Title: Kidplokio 1:24 Scale Diecast Hot Rod Car Carrier for Toy Race Cars, Boys Ages 3-8\nDescription: Haul them, race them and launch them, the Kidplokio 11pc Mighty Diecast Transporter Semi Truck Toy Car Carrier Set with Car Launch Action does it all! If you have kids who spend hours playing with toy cars or toy trucks, they’ll have a blast playing with the semi toy truck cargo carrier play set in either red or blue.\n\nYoungsters will LOVE loading up diecast play cars semi toy truck carrier with the included toy cards and launching them across the room! The 11pc toy car set includes five different toy cars, a helicopter, as well as traffic signs that kids can with lots of their other toys; the pretend play possibilities are endless! No batteries or assembly required so parents, you’ve been warned, the car launching and car chases start right out of the box!\n\nA great gift for busy kids with lots of energy! As they set up for launch and chase cars around the house, little ones will work on their fine motor skills, improving their dexterity and eye-hand coordination; in addition, kids will also develop their gross motor skills, as they drive and haul the toy semi truck cargo carrier with them and chase launched cars around the house, working on their balance and strength. This 11pc toy truck set is also a great way to get kids off the couch and away from their cell phones, laptops, computers, tablets and more for some guaranteed screen-free fun times! Launching and chasing the cars, as well as playing with the set in conjunction with their other toys, will get kids using their imagination, moving, thinking, competing and having fun with (or against!) friends and family!\n\nThe large Mighty Transporter semi toy truck cargo carrier from Kidplokio is incredibly travel friendly, perfectly storing all the aforementioned toy cars and traffic signs when playtime wraps up, so the components never get lost! And, with a sturdy plastic handle and snap closure, the semi toy truck cargo carrier with car launch is a great toy to pack for play dates, sleepovers or family road trips or vacations, as everything will remain safe, secure and organized.\n\nWARNING: Choking Hazard (small parts)\n\nAGE: 3+ (edited)\nSearch Terms: Toy Truck\nFeatures:\n- TOY CAR CARRIER DIECAST VEHICLE SET: Includes five different diescast toy cars, a helicopter, as well as traffic signs that kids can use alongside lots of their other toys. The pretend play possibilities are endless. No batteries or assembly required so parents, you’ve been warned, the car launching and car chases start right out of the box!\n- 1:24 SCALE DIECAST CARS: The semi truck diecast car carrier perfectly stores and houses all the toy cars and traffic signs when playtime wraps up, so the components never get lost. A sturdy plastic handle and snap closure, the semi toy truck cargo carrier with car launch is a great toy to pack for playdates, sleepovers or family road trips or vacations, as everything will remain safe, secure and organized\n- MULTIPLAYER TODDLER ACTIVITY: A great gift for busy kids with lots of energy! As they set up for launch and chase cars around the house, little ones will work on their fine motor skills, improving their dexterity and eye-hand coordination; in addition, kids will also develop their gross motor skills as they haul the toy semi truck cargo carrier with them and chase launched cars around the house, working on their balance and strength\n- HOUSE OF ENTERTAINMENT: This 11pc toy truck set is a great way to get kids off the couch and away from their cell phones, laptops, computers, tablets and more for some guaranteed screen-free fun times! Launching and chasing the cars, as well as playing with the set in conjunction with their other toys, will get kids using their imagination, moving, thinking, competing and having fun with (or against!) friends and family\n- SPECIFICATIONS: Dimensions: 18\" x 6.5\" x 5\"; Material: Plastic; Color: Red or Yellow; Warning: Choking Hazard (small parts); Age: 3+\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Kidplokio 11pc Diecast Semi Truck Toy Car Carrier Set",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "11",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Diecast Semi Truck Toy Car Carrier Set"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Kidplokio 1:24 Scale Diecast Semi Truck Car Carrier Set",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "1:24 Scale",
+                "color": "",
+                "name": "Diecast Semi Truck Car Carrier Set"
+            },
+            "char_count": 55,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "11-Piece Set, Car Launch Action, 5 Diecast Cars And Helicopter, Traffic Signs, No Batteries Or Assembly, Ages 3",
+            "char_count": 111,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "11 Piece Play Set, Launch Action, Includes 5 Diecast Cars, Helicopter And Signs, Storage Handle, No Assembly",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

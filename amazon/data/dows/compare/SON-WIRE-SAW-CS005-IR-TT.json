@@ -1,0 +1,60 @@
+{
+    "sku": "SON-WIRE-SAW-CS005-IR-TT",
+    "asin": "B0B57QCMY5",
+    "product_type": "SAW",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-WIRE-SAW-CS005-IR-TT\nProduct Type: SAW\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Stainless Steel Wire Hand Saw Camping Gear Hiking Blade - 24 Inch\nDescription: The ASR Outdoor hand saw wire tool was designed with compact size in mind. It weighs just .12lbs and will easily fit inside just about any pocket, backpack or camping gear bag, making it easier to carry than other standard chainsaws. <br/><br/>Made of 304 stainless steel with plastic handles, the hand saw is corrosion resistant so you can count on it in inclement weather. It features super sharp blades that will not dull even after many uses, making it the ideal portable cutting tool while camping and hiking.<br/><br/>The hand tool saw comes with grooved, ergonomic plastic handles that provide rigidity and comfortable grip to help prevent slippage during use. The wide handles will help protect your hands when pulling to cut wood efficiently and safely. <br/><br/>In addition to camping and outdoor uses, these tools are great for cutting other materials like plastic, rubber and soft metal. Use it while hunting, fishing and basic home improvement projects.\nSearch Terms: hand saw wire saw chain saw mini chain saw chainsaw mini chainsaw cordless camping accessories gear essentials tools supplies backpack hunting knife gear accessories blade multitool blades backpacking gear prepper supplies emergency supplies\nFeatures:\n- LIGHTWEIGHT & COMPACT - ASR Outdoor hand saw wire tool was designed to be easier to carry than other standard chainsaws. Wire saw fits easily inside your pocket, backpack or camping gear bag for use during outdoor activities like hiking and backpacking.\n- DURABLE CONSTRUCTION - Made of 304 stainless steel, hand saw is corrosion-resistant; count on it in unfavorable weather. Super sharp blades that will not dull after many uses, ideal for cutting through wood and other outdoor materials in an emergency.\n- COMFORTABLE GRIP HANDLE - Hand tool comes with grooved plastic handles for rigidity and comfortable grip to help prevent slippage during use. 2.75” wide handle will effectively protect your hands when pulling to cut wood efficiently.\n- VERSATILE CUTTING TOOL - In addition to camping, wire saws are great practical cutting tools for rubber, plastic, soft metal and wood. Use it for fishing, hunting, outdoor adventures and basic home improvement.\n- SPECIFICATIONS - Length: 24”; Thickness: 1/16”; Handle width: 2.75”; Material: 304 stainless steel: Colors: chrome, orange; Weight: .12lbs (1.92oz)\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 24 in Stainless Steel Wire Hand Saw",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "24",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Stainless Steel Wire Hand Saw"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 24-in Stainless Steel Wire Hand Saw",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "24",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Stainless Steel Wire Hand Saw"
+            },
+            "char_count": 47,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Lightweight Compact Design, 304 Stainless Steel, Sharp Durable Blades, Ergonomic Grip, Camping Hiking Hunting",
+            "char_count": 109,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "304 Stainless Steel, Compact 012 Lb Design, Grooved Grip Handles, Cuts Wood, Plastic, Soft Metal, Camping Hiking",
+            "char_count": 112,
+            "validation_error": null
+        }
+    }
+}

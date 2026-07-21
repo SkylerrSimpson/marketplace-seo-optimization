@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-GARVXPCW-BNDL-AMZ",
+    "asin": "B082TF2PDS",
+    "product_type": "CLEANING_AGENT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-GARVXPCW-BNDL-AMZ\nProduct Type: CLEANING_AGENT\nBrand (from catalog): GEAR AID\nExisting Title: GEAR AID Care Kit with Revivex Pro Cleaner and Revivex Wash-In Water Repellent\nDescription: The Revivex Wash and DWR Care Kit for GORE-TEX fabrics includes everything you need to keep high-tech gear looking good. Select the appropriate kit, all of which include Revivex Pro Cleaner, a tech wash that effectively removes dirt, grime and stains without stripping off gear’s durable water repellent (DWR) coating. Afterwards, add or restore water repellency on jackets, waders, gloves, and other waterproof breathable fabrics using Revivex Wash-In or Durable. Choose a kit with Tenacious Tape Mini Patches so when holes and rips make an appearance, just peel-and-stick for a repair that lasts. Keep gear in tip-top shape with the Revivex Wash and DWR Care Kit.\nSearch Terms: pro cleaner jacket for clothes washer revivex por sleeping bag rain and down concentrate comforter coat\nFeatures:\n- Clean, restore breathability, and protect GORE-TEX fabric/outerwear from water, dirt and stains to keep it looking and performing like new with this easy to use care system\n- Pick the care kit that fits your needs; all kits include 10 fl oz of Revivex Pro Cleaner and 10 fl oz of Wash-In Water Repellent or 10.5 oz of Durable Water Repellent (DWR) spray, with Tenacious Tape Mini Patches optional\n- Use the concentrated Pro Cleaner to wash up to 20 jackets or 10 sleeping bags; restores breathability and removes dirt and grime from GORE-TEX fabric, eVent, NeoShell, Omni-Tech, and more waterproof breathable materials\n- Restore waterproofing with our Wash-In Water Repellent, a concentrated, fluorocarbon-free formula that treats up to 10 jackets, or use our breathable, washable DWR, a high-performance spray for insulated and non-insulated outerwear\n- Fix tears instantly on GORE-TEX fabric, nylon, polyester and vinyl with peel-and-stick Tenacious Tape Mini Patches; kit includes 3 black nylon and 3 clear 1.5” x 2.5” patches\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "GEAR AID Revivex Pro Cleaner and Wash-In Water Repellent",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Revivex Pro Cleaner and Wash-In Water Repellent"
+            },
+            "char_count": 56,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID Revivex Pro Cleaner And Wash-In Water Repellent Care Kit",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Care Kit"
+            },
+            "char_count": 65,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "GORE-TEX Care Kit, Removes Dirt And Stains, Restores DWR Coating, Cleans Up To 20 Jackets, Includes Tenacious Tape Patches",
+            "char_count": 122,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Cleans Dirt And Grime, Restores Water Repellency, Breathable DWR For Jackets, Waders, Gloves, Outdoor Gear",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

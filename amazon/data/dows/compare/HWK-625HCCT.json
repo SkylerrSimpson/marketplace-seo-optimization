@@ -1,0 +1,60 @@
+{
+    "sku": "HWK-625HCCT",
+    "asin": "B00IKVFD3K",
+    "product_type": "CHISEL",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWK-625HCCT\nProduct Type: CHISEL\nBrand (from catalog): Universal Tool\nExisting Title: Pottery Carving Tool 6.25 Inch Craft Hobby Pick Curved Wax Carver Ceramics Clay Rasp\nDescription: Carve with precision with the Universal 6\" Carving Tool.<br/><br/>The double ended spatula carving tool is made from durable stainless steel and makes a great addition to your collection of pottery and hobby tools! At just 6.5 inches in length, these tools are the perfect size for precision work on tiny objects, particularly when working with soft mediums.<br/><br/>Great for sculpting and working with clay, wax, candles, mold, ceramics, jewelry, electronics, small parts, paint, and other detailed projects. They can repair, probe, clean, scrape, apply, move, carve, scratch, and more for hobby, crafts, home, laboratory, scientific work, office, work, and more.<br/><br/>This carving spatula tool comes with a durable PVC pouch for protection and easy storage while not in use. Each tool features a grip so you'll be able to hold on to it with ease. Make sure to grab this spatula before your next craft or hobby precision project!\nSearch Terms: spatula stainless steel wax carving spatula arts and crafts double ended spatula candle making spatula jewelry making spatula paint spatula clay designing spatula hobby tools hobby\nFeatures:\n- DOUBLE-ENDED SPATULA: wax carver features a different double-sided spatula tool for a variety of crafting uses like carving, picking, sculpting, jewelry making, make up and special effects\n- DURABLE CONSTRUCTION: Made from 4mm knurled stainless steel that won’t rust, making it ideal for use with both wet and dry mediums. Corrosion-resistant material ensures a long life for your tools\n- VERSATILE CRAFTING TOOLS: Originally designed for precision work, these craft-specific pick tools are great for carving wax, cleaning small parts, creating designs, molding, modeling, and smoothing. Ideal mediums: ceramics, jewelry, clay and electronics\n- ERGONOMIC HANDLES: Featuring gripped handles, these tools are shaped for balance and comfort to prevent slippage during use. Measuring 6.75” in length, entire set will easily fit inside most standard tool boxes and craft storage containers\n- SPECIFICATIONS: 1pc set; (double-ended); Material: stainless steel: Handle style: ergonomic grip: Dimensions: 6.25” x .6” x .6”; Color: chrome; PVC storage pouch included\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 6.25in Chrome Double-Ended Carving Spatula",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "6.25",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Chrome",
+                "name": "Double-Ended Carving Spatula"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 6.25 in Chrome Pottery Carving Tool",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "6.25 in",
+                "color": "Chrome",
+                "name": "Pottery Carving Tool"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Stainless Steel, Double-Ended, Ergonomic Grip, Wax And Clay Carving, Includes PVC Pouch",
+            "char_count": 87,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Double Ended Spatula, 4Mm Stainless Steel, Ergonomic Grip Handles, PVC Storage Pouch, Wax Clay Ceramics Jewelry Tool",
+            "char_count": 116,
+            "validation_error": null
+        }
+    }
+}

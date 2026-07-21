@@ -1,0 +1,60 @@
+{
+    "sku": "ASR-BLACKSLEEVEDSURVIVALKEVLAR-6",
+    "asin": "B00HLO3N9I",
+    "product_type": "CORD_ROPE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: ASR-BLACKSLEEVEDSURVIVALKEVLAR-6\nProduct Type: CORD_ROPE\nBrand (from catalog): ASR Tactical\nExisting Title: Sleeved Spectra Kevlar Cord Black 500ft 325lbs Strength Line\nDescription: ASR Tactical Sleeved Spectra Utility Cord is rated with a 325lbs tensile strength and a breaking strength of 200lbs. It is constructed of a Spectra base with a polyester braided outer sleeve for UV and abrasion resistance. <br/><br/>Spectra rope is a ultra high molecular weight polyethylene which means thermoplastic polyethylene. This thermoplastic has the highest impact strength presently made and available for consumer applications. <br/><br/>Great for sports and outdoors applications; often used for specialty sport fishing line use.<br/><br/>Weighing in at less than an ounce per 25\", this cord is perfect for survival kits, bug out bags, or outdoor recreation.\nSearch Terms: every day carry edc kevlar trip line booby trap signaling device tactical bug out bag survival cord kite braided spear fishing\nFeatures:\n- HIGH YIELD STRENGTH - Utility cord has tensile strength of 325 pounds; Breaking strength: 200 pounds\n- CUT RESISTANT - Sleeved spectra is highly resistant to cutting, friction, and high temperatures\n- BRAIDED OUTER SLEEVE- Braided polyester sleeve adds extra durability and helps to prevent unraveling\n- VERSATILE APPLICATION - High yield strength, cut resistant core, heat resistance, and braided exterior make this an ideal product for sports, camping, and survival application\n- SPECIFICATIONS - Length: up to 500 Feet, Diameter: 0.075 Inches, MADE IN THE USA\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 500ft Black Sleeved Spectra Kevlar Cord",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "500",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Black",
+                "name": "Sleeved Spectra Kevlar Cord"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 500-ft Black Sleeved Spectra Cord",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "500",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Black",
+                "name": "Sleeved Spectra Cord"
+            },
+            "char_count": 46,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "325Lbs Tensile Strength, Cut And Heat Resistant, Braided Polyester Sleeve, Survival And Tactical",
+            "char_count": 96,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "325 Lb Tensile Strength, Cut Resistant UHMWPE Core, Braided Polyester Sleeve, UV And Heat Resistant, Made In USA",
+            "char_count": 112,
+            "validation_error": null
+        }
+    }
+}

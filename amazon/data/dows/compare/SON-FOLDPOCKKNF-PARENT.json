@@ -1,0 +1,60 @@
+{
+    "sku": "SON-FOLDPOCKKNF-PARENT",
+    "asin": "B0BGQQRRHQ",
+    "product_type": "MULTITOOL",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-FOLDPOCKKNF-PARENT\nProduct Type: MULTITOOL\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor NO-KNIFE Multitool 3-in-1 Multi Function Small Pocket Knife, Scissor, FIle, Bottle Opener\nDescription: The ASR Outdoor mini-folding pocket tool is also kniwn as a no-knife, knife because it does not have a knife blade.  Its great for travel as well as kids wanting to grow up too fast! It is must-have everyday carry tool. It sports a classic style that looks great and will keep you prepared for anything on the go without taking up too much space.<br/><br/>These utility tools feature 3 essential functions you can utilize throughout the day - mini scissors, a bottle opener, and a nail cleaner which should cover all the basics of your multi-tool needs. Measuring just 2.5\" in length, it will easily fit in just about any pocket and comes with a practical key ring for multiple storage and carry capabilities.<br/><br/>Made of durable, corrosion-resistant 420 stainless steel, you can count on this pocket multi-tool for everyday use and even during inclement weather. Make sure to grab one of these to keep on you whether you're camping, hiking, or just going about your day in case you need it.\nSearch Terms: kids knife without blade\nFeatures:\n- CLASSIC UTILITY STARTER - Folding pocket multi-tool sports a classic style that looks great and keeps you prepared on the go; keep a handy tool on you at all times without too much bulk\n- MULTI-FUNCTION TOOL - 3 essential tool functions include: mini scissors, bottle opener, nail file; covering all the basics of your multi-tool pocket needs\n- COMPACT DESIGN - Measuring just 2.5\" long, the pocket tool fits anywhere and comes with a practical key ring for multiple storage and carry capabilities; hang from a keychain or belt loop for quick and easy access\n- DURABLE CONSTRUCTION - Made of corrosion-resistant 420 stainless steel that won't rust; Count on this compact multi-tool for everyday use and during inclement weather\n- SPECIFICATIONS - Material: 420 stainless steel; Open length: 3.58\"; Closed length: 2.28\"; Weight: .045lbs (.72oz); Colors: orange, blue, gray, chrome; 3 functions: bottle opener, scissors, nail cleaner\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor No-Knife Multitool 3-in-1 Pocket Tool",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "No-Knife Multitool 3-in-1 Pocket Tool"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Mini No-Knife 3-In-1 Pocket Multitool",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Mini",
+                "color": "",
+                "name": "No-Knife Pocket Multitool"
+            },
+            "char_count": 49,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Scissors, Bottle Opener, Nail File, 25 Inch Compact, 420 Stainless Steel, Key Ring",
+            "char_count": 82,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Mini Scissors, Bottle Opener, Nail Cleaner, 420 Stainless Steel, Key Ring, Travel EDC, Corrosion Resistant",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

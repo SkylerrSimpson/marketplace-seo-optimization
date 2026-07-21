@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-BLE-4PKCOFFEEMUGSTANDSET-AMZ",
+    "asin": "B0D32BWB7B",
+    "product_type": "DRINKING_CUP",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-BLE-4PKCOFFEEMUGSTANDSET-AMZ\nProduct Type: DRINKING_CUP\nBrand (from catalog): Beille\nExisting Title: Beille 4pc Ceramic Coffee Cups Latte Mugs with Hanging Stand Kitchen Essentials Home Decor, Multicolor\nDescription: Calling all coffee drinkers! This charming four piece coffee cup set with a metal stand holds a generous 11 ounces of your favorite hot beverage, and features a sturdy handle for comfortable gripping when sipping. Made from durable and quality stoneware, the coffee mugs will stand up to lots of wear and tear and are dishwasher safe too!<br/><br/>The design of the coffee cups is fresh and modern! The coffee mugs come in fun but not overpowering colors of soft red, pastel aqua, muted blue and light pink with cute coffee lettering down the side of the cup, plus a very useful metal hanging stand, sure to quickly brighten any countertop at home, the office, the cabin or cottage and more.<br/><br/>Looking to save space in your office kitchen? A set or two of these coffee cups with a stand would make a great addition to any office kitchen space! Easy to keep organized and together, the coffee cup set features an appropriately modern and neutral color palette that saves on countertop space by stacking upwards instead of out.<br/><br/> The coffee cup set would also make a great gift for kids heading off to college or university; whether students are bunking solo or with roommates, the coffee cups are easy to clean and the set is easy to systematize by color for different housemates if needed.<br/><br/>Overall Product Dimensions: 10.5 x 6 x 6 inches<br/><br/>Product Weight: 3.80lbs<br/><br/>Material: Ceramic Stoneware<br/><br/>Dishwasher Safe: Yes\nSearch Terms: coffee cups latte mugs drinkware set kitchen essentials wedding gifts home staging decor farmhouse cabin cottage home decor office supplies barware stoneware dinner sets wedding gifts airbnb tea cup house warming gifts new home\nFeatures:\n- MUGS SET OF 4:  This charming 4pc coffee cup set with a metal stand holds a generous 11 ounces of your favorite hot beverage and features a sturdy handle for comfortable gripping when sipping; made from durable stoneware the coffee mugs will stand up to lots of wear and tear and are dishwasher safe\n- CUTE COFFEE CUPS: The design of the coffee cups features fun colors of soft red, pastel aqua, muted blue and light pink, cute coffee lettering down the side of the coffee mug, sure to quickly brighten any countertop at home, at the office, at the cabin or cottage and more\n- SPACE SAVING DESIGN: A set or two of these coffee cups with stand are a great addition to any office kitchen space; easy to keep organized and together, the coffee cups set feature an appropriately modern and neutral color palette that save on space by stacking upwards\n- DORM ROOM ESSENTIALS: A great gift for kids heading off to college or university; Whether students are bunking solo or with roommates, the coffee cups are easy to clean and the set is easy to systematize by color for different housemates if needed\n- SPECIFICATIONS: Dimensions: 10.5 x 6 x 6 inches; Product Weight: 3.80lbs; Coffee Cups Colors: Aqua, Blue, Red, Pink; Material: Ceramic; Dishwasher Safe: Yes\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 4-pc Ceramic Coffee Mugs with Hanging Stand",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Multicolor",
+                "name": "Ceramic Coffee Mugs with Hanging Stand"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 4-pk 11 oz Multicolor Ceramic Coffee Mugs With Stand",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "11 oz",
+                "color": "Multicolor",
+                "name": "Ceramic Coffee Mugs With Stand"
+            },
+            "char_count": 59,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "11Oz Stoneware, Multicolor, Dishwasher Safe, Space-Saving Stackable Design, Dorm And Office Essentials",
+            "char_count": 102,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Hanging Metal Stand, Dishwasher Safe, Stoneware, Space Saving, Dorm Room Gift, Countertop Decor, Color Coded Set",
+            "char_count": 112,
+            "validation_error": null
+        }
+    }
+}

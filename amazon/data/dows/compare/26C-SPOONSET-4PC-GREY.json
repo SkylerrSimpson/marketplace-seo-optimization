@@ -1,0 +1,60 @@
+{
+    "sku": "26C-SPOONSET-4PC-GREY",
+    "asin": "B0B9HX26L3",
+    "product_type": "SPOON",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 26C-SPOONSET-4PC-GREY\nProduct Type: SPOON\nBrand (from catalog): Beille\nExisting Title: Beille Grey Nylon Spoons Spatula Kitchen Utensils Set with Wooden Handles High Heat Resistance, 4pc\nDescription: Want to step up your cooking, baking and meal prep game? Then you need the 4pc Beille nylon kitchen utensils set that comes with x2 spoons, sold and slotted, as well as x2 spatulas, also solid and slotted, that feature a stylish wood and charcoal grey finish. These kitchen utensils are made with high heat resistant nylon that will stand up to all the wear and tear your kitchen dishes out.<br/><br/>The spatulas and spoons feature sturdy handles made of durable wood so you can count on them to last, and the ergonomic handle design with top soft grip will provide comfort and help prevent slippage during use. The handle features a slot for easy hanging storage if preferred to drawer.<br/><br/>Every kitchen needs a kitchen utensils set of reliable, durable, spoons and spatulas for baking and cooking. With the Beille high heat resistance nylon kitchen utensils set, you can cook, bake, serve and food prep in comfort and style for many meals to come.\nSearch Terms: kitchen utensils set cooking baking supplies tools food meal prep slotted spoons kitchen starter set scoop serveware wedding house warming gifts new home college dorm room essentials chef restaurant equipment server nylon\nFeatures:\n- 4PC KITCHEN UTENSILS SET: Beille's 4pc kitchen utensils spoons and spatula set are a must have kitchen starter set for cooking, baking, serving and food prep; Comfortable wooden handles and top soft grip will allow you to quickly and safely cook food while keeping your hands safe from heat\n- HIGH HEAT RESISTANT NYLON: Kitchen utensils set is made of durable nylon which does not cause harmful chemical contamination of food; the kitchen utensils can withstand very high cooking temperatures and are food safe\n- ERGONOMIC WOODEN HANDLE: Sturdy handle made of durable wood so you can count on it to last and ergonomic handle provides comfort during use; Comes with handy slot in handle for easy hang storage if preferred; Trendy grey color will fit nicely with any kitchen decor\n- DISHWASHER SAFE: All tools included are dishwasher safe and safe for use with both hot and cold foods\n- SPECIFICATIONS: Colors: grey, wood; Material: nylon, wood; Dimensions: 13 x 2.4-3 inches for each individual kitchen utensil\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 4-pc Grey Nylon Spoons and Spatulas with Wooden Handles",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Grey",
+                "name": "Nylon Spoons and Spatulas with Wooden Handles"
+            },
+            "char_count": 62,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 4-pk Grey Nylon Spoon And Spatula Kitchen Utensils Set",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Grey",
+                "name": "Nylon Spoon And Spatula Kitchen Utensils Set"
+            },
+            "char_count": 61,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "High Heat Resistant Nylon, Ergonomic Wooden Handles, Soft Grip, Dishwasher Safe, Kitchen Starter Set",
+            "char_count": 100,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "High Heat Resistant Nylon, Wooden Handles, Soft Grip, Dishwasher Safe, Hanging Storage, Solid And Slotted Tools",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

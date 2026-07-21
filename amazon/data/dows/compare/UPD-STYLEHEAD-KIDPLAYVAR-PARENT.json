@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-STYLEHEAD-KIDPLAYVAR-PARENT",
+    "asin": "B095GS6G7T",
+    "product_type": "TOY_FIGURE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-STYLEHEAD-KIDPLAYVAR-PARENT\nProduct Type: TOY_FIGURE\nBrand (from catalog): KidPlay Products\nExisting Title: KidPlay Girls Styling Head Doll With Hair Accessories (Multiple Characters)\nDescription: Your little one can learn to style hair with this officially licensed animated character pretend play and dress up kids styling head bundle set that includes fun wear and share hair accessories.<br/><br/>Braid, curl, twirl and style your doll's hair however you want. Practice and perfect cute hair styles on her with her long silky hair that is made especially for styling. This deluxe set includes 4 elastic hair bands, 4 barrettes, 3 hair twists, 1 hair brush, 1 headband, and of course, Ariel, Elena, Rapunzel, or Barbie herself.<br/><br/>Help your little girl learn fun techniques and see her confidence grow. The Disney Princess Styling Head is the perfect gift for little girls who love pretend play and dress up.<br/><br/>Ages: 3+<br/><br/>Please Note: All merchandise listed for sale is officially licensed, 100% authentic for worldwide distribution\nSearch Terms: styling head styling head doll for girls doll head for hair styling doll head for hair styling kids doll styling head styling head for girls girls styling head doll styling head for girls head styling doll styling hair doll head disney\nFeatures:\n- Officially Licensed girls dress-up Hair Styling Doll\n- All Sets Includes Hair Comb, Hair Clips, Barrettes, Hair Bands, and Other Excellent Accessories that are fun to wear and share with your favorite animated character\n- Hair Accessories Can Be Used For Personal Style with Kids using the Clips and Ribbons in their own Hair as Well\n- Great Tool For Teaching Hair Grooming and Styling, Creativity, and Originality!\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "KidPlay Girls Styling Head Doll with Hair Accessories",
+            "tokens": {
+                "brand": "KidPlay",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Girls Styling Head Doll with Hair Accessories"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "KidPlay Products Girls Styling Head Doll With Hair Accessories",
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Girls Styling Head Doll With Hair Accessories"
+            },
+            "char_count": 62,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Officially Licensed, Includes Brush And Clips, Teaches Hair Grooming, Perfect Gift For Pretend Play",
+            "char_count": 99,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Officially Licensed Character Pretend Play, Long Silky Hair, Brush, Clips, Bands, Barrettes, Great For Ages 3 And Up",
+            "char_count": 116,
+            "validation_error": null
+        }
+    }
+}

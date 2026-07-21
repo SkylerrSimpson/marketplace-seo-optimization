@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-BLE-COLLAPSIBLECOLANDER-STD",
+    "asin": "B0H42LSYWL",
+    "product_type": "FOOD_STRAINER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-BLE-COLLAPSIBLECOLANDER-STD\nProduct Type: FOOD_STRAINER\nBrand (from catalog): Beille\nExisting Title: Beille 1pc Compact Collapsible Colander, Polypropylene Small Kitchen Pasta Strainer with Side Handles for Small Portions, 9.75 x 7.75 Inches (Dark Grey and Blue)\nDescription: Make everyday rinsing, draining and small portion meal prep easier with the Beille Collapsible Colander, a compact kitchen strainer designed for practical use in smaller spaces. Measuring 9.75 x 7.5 inches with an approximate 5 to 6 cup capacity (fluid ounces), this small colander is ideal for berries, fruit, vegetables, pasta and quick kitchen food prep tasks when a full size strainer feels too large.<br/><br/>The space saving design expands to 3.0 inches high for use, then collapses down to just 1.0 inch high for easy storage in drawers, cabinets, RV kitchens, boats and compact cooking spaces. Weighing in at only 0.24lbs, the collapsible colander is lightweight enough for everyday handling, while still offering a structured polypropylene build that helps maintain better shape and integrity than other floppy strainers.<br/><br/>Made from BPA free, food safe polypropylene plastic, this colander is designed for everyday kitchen use, including straining hot foods like pasta. A perforated draining base helps water pass through while rinsing produce or draining cooked food, and the gray side handles with oval cutouts make it easy to lift, hold and move from sink to counter.<br/><br/>The dark navy blue collapsible body and gray rim create a clean, modern look that fits easily into everyday kitchen routines. This compact colander is top rack dishwasher safe for convenience, although hand washing with warm, soapy water is recommended to help preserve the flexible joints and overall structural integrity.\nSearch Terms: Collapsible colander; pasta strainer; kitchen sink strainer basket; housewarming gifts new home; berry basket; fruit washer; rv boat accessories; kitchen gadgets; colander for kitchen; apartment essentials; apartment must haves; mini colander\nFeatures:\n- COMPACT COLLAPSIBLE COLANDER: Beille collapsible colander measures 9.75 x 7.5 inches and holds approximately 5 to 6 cups (fluid ounces) for smaller portions; handy kitchen gadget for rinsing berries, small portions of pasta and more\n- COLLAPSES TO 1 INCH HIGH: Expands to 3.0 inches high for rinsing and draining, then collapses to just 1.0 inch high for compact storage; ideal for kitchen spaces that are tight on storage\n- STURDY POLYPROPYLENE BUILD: Made from food safe polypropylene plastic for a structured, lightweight feel; designed with better shape retention than other floppy strainers while still offering collapsible convenience\n- EASY DRAINING DESIGN: Perforated bottom helps water pass through quickly when rinsing berries, fruits, vegetables or draining cooked pasta; side handles with oval cutouts offer a comfortable grip from sink to counter\n- SIMPLE CARE AND STORAGE: Top rack dishwasher safe for convenience, though hand washing with warm, soapy water is recommended to help preserve the flexible joints and overall structural integrity\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille Collapsible Colander, Small Kitchen Pasta Strainer",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Small",
+                "color": "Dark Grey and Blue",
+                "name": "Collapsible Colander"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 1-pc Compact Dark Grey And Blue Collapsible Colander",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "1",
+                "pack_size_unit": "pc",
+                "size": "Compact",
+                "color": "Dark Grey And Blue",
+                "name": "Collapsible Colander"
+            },
+            "char_count": 59,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Collapses To 1 Inch, 5-6 Cup Capacity, BPA-Free, Dishwasher Safe, Compact Storage",
+            "char_count": 81,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "BPA-Free Polypropylene, Collapsible To 1 Inch, Space Saving Storage, Side Handles, Dishwasher Safe, Perforated Drain Holes",
+            "char_count": 122,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-9IX75ISSHDSTCBM-9X75-GRN",
+    "asin": "B00GEKIPMA",
+    "product_type": "CUTTING_BOARD",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-9IX75ISSHDSTCBM-9X75-GRN\nProduct Type: CUTTING_BOARD\nBrand (from catalog): Universal Tool\nExisting Title: Industrial Design Self Healing Double Sided Cutting Board Mat, 9 x 7.5 Inches\nDescription: The Small Self Healing Cutting Mat is a great addition to any hobbyist's supplies collection. This mat is constructed of a special PVC material that will heal cuts as you make them. This will extend the lifetime of the board, and will last much longer than your average kitchen cutting mat. <br/><br/>The small size of this mat (9 inch x 5 inch) is perfect for those precision projects, and the non-slip material will ensure you have a safe work surface. Each mat is double sided, with basic measurements, rulers and a grid. <br/><br/>Make sure to grab one of these before your next craft project, or gift one to your favorite hobbyist.\nSearch Terms: craft mat arts and crafts scrapbooking hobby tools crafting supplies self healing mat cutting board cutting mat craft and hobby stationery art creative design\nFeatures:\n- Self Healing PVC Material | Small Cuts in Material, Heal Them Self\n- Ideal for Precision Cutting Projects, Hobby and Craft DIY, Quilting and more\n- Non-Slip Material Ensures Safe Work Surface\n- Double Sided with Basic Measurements, Rulers & Grids\n- Dimensions: 9 inch x 5 Inches\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 9 x 7.5 Double Sided Self Healing Cutting Mat",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "9 x 7.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Double Sided Self Healing Cutting Mat"
+            },
+            "char_count": 60,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 9-in 9 x 7.5 in Green Self Healing Cutting Mat",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "9",
+                "pack_size_unit": "in",
+                "size": "9 x 7.5 in",
+                "color": "Green",
+                "name": "Self Healing Cutting Mat"
+            },
+            "char_count": 61,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Self Healing PVC Material, Non-Slip Surface, Double Sided With Measurements And Grid, Ideal For Crafts And Quilting",
+            "char_count": 115,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Double Sided Grid And Ruler, Non-Slip Surface, Self Healing PVC, Precision Craft And Quilting Projects",
+            "char_count": 102,
+            "validation_error": null
+        }
+    }
+}

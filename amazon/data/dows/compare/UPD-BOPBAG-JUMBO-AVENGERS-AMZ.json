@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-BOPBAG-JUMBO-AVENGERS-AMZ",
+    "asin": "B0CMVQV293",
+    "product_type": "PUNCHING_BAG",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-BOPBAG-JUMBO-AVENGERS-AMZ\nProduct Type: PUNCHING_BAG\nBrand (from catalog): What Kids Want!\nExisting Title: Avengers Jumbo Bop Bag Kids Super Size Punching Bag 5ft Tall Boys Age 3 and Up\nDescription: Avengers Jumbo Bop Bag Kids Super Size Punching Bag 5ft Tall Boys Age 3 and Up\nSearch Terms: boys punching bag kids punching bag toy kids bop bag for 3 to 8 years avengers toys marvel toys freestanding punch bag for boys interactive toys indoor toys for toddlers sports and outdoor play toys toddler sports toys for boys 3 to 5 active toys\nFeatures:\n- AVENGERS PUNCHING BAG - Officially licensed Marvel bop bag is a great exercise toy for young boys; featuring superheroes from the hit movie franchise\n- XXL SUPER-SIZED - Jumbo bop bag inflates to 5 feet tall (taller than other similar bop bags); ideal size for growing kids\n- ENCOURAGES ACTIVITY - Kids’ punching bags are great for encouraging exercise and can be used both indoors and outdoors for active fun; Safe for kids ages 3 and up with adult supervision\n- REPAIR KIT INCLUDED - Just in case of damage, jumbo bop bag comes with a repair kit to keep the fun going; Freestanding bag (just fill bottom with water or sand to ensure it works correctly)\n- SPECIFICATIONS - Officially licensed Avengers; Size: Inflates to 5 feet tall (60 inches); Fill type: Water or sand; Reusable: yes; Repair kit included: Yes; Recommended age: 3+ years\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "What Kids Want! Avengers Jumbo 5ft Bop Bag",
+            "tokens": {
+                "brand": "What Kids Want!",
+                "pack_size": "5",
+                "pack_size_unit": "ft",
+                "size": "Jumbo",
+                "color": "",
+                "name": "Avengers Bop Bag"
+            },
+            "char_count": 42,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "What Kids Want! Avengers Jumbo Punching Bag",
+            "tokens": {
+                "brand": "What Kids Want!",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Jumbo",
+                "color": "",
+                "name": "Avengers Punching Bag"
+            },
+            "char_count": 43,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Officially Licensed Marvel, XXL Super-Sized, Freestanding Punching Bag, Ages 3 And Up, Repair Kit Included",
+            "char_count": 106,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Officially Licensed Marvel, 5 Foot Tall Freestanding Water Or Sand Base, Repair Kit Included, Ages 3 Plus",
+            "char_count": 105,
+            "validation_error": null
+        }
+    }
+}

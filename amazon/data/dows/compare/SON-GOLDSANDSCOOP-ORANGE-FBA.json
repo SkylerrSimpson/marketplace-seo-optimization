@@ -1,0 +1,60 @@
+{
+    "sku": "SON-GOLDSANDSCOOP-ORANGE-FBA",
+    "asin": "B07L9H2T23",
+    "product_type": "OUTDOOR_LIVING",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-GOLDSANDSCOOP-ORANGE-FBA\nProduct Type: OUTDOOR_LIVING\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Metal Detector 8.5 Inch Heavy Duty Plastic Orange Sand Scoop for Metal Detecting\nDescription: Going treasure hunting? Then you need the ASR Outdoor 8.5\" Orange Sand Scooper.<br/><br/>This sand scooper is super lightweight, making it ideal for scooping up sand to shake out treasures on dry, sandy beaches. Since it's constructed of durable plastic, it wont interfere with your metal detector making it easier to find treasure. <br/><br/>Simply use your metal detector to locate the target area, scoop up some sand in the target area and run the metal detector over the scoop. Then, gently shake the scoop side to side, allowing the sand to fall out of the holes and uncover the treasure. Make sure you have one of these before your next treasure hunt.\nSearch Terms: sand scoop metal detector tools gold prospecting tools gold prospecting equipment gold rush accessories gold rush tools metal detecting tools metal detecting shovels metal detecting probe beach digger gold panning scooper mining tool beachcomber tool\nFeatures:\n- METAL DETECTING SCOOP - The ASR Outdoor orange scoop digger is an essential accessory for metal detection. It measures 9\" in length and has a 6\" wide mouth so you can easily remove rocks and sand while searching for treasure on the beach.\n- 78 HOLES PER SCOOP - The scoop features 78 holes, each with a diameter of .5\". The holes will assist you with removing dirt and sand while locating your treasure on the beach or river bed.\n- HEAVY-DUTY PLASTIC - Constructed from reinforced, heavy-duty single-piece plastic, the scoop is durable and will not rust or corrode so you can use it in any weather. Since it's made of plastic, you won't have to worry about any false positives while metal detecting.\n- ULTRA-LIGHTWEIGHT DESIGN - The scoop weighs just .5 pounds (8 ounces) making it easy to use for both kids and adults. It will fit inside most standard-sized backpacks and won't add too much to your carry weight.\n- SPECIFICATIONS - Dimensions: 9\" x 6\" x 5.5\"; Capacity: 3 Quarts; Material: Single Construction Durable Plastic; Color: Orange; Holes per Scoop: 78, Hole Diameter: .5\"\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 8.5\" Orange Heavy Duty Sand Scoop",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Orange",
+                "name": "Sand Scoop"
+            },
+            "char_count": 45,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 8.5-in Orange Sand Scoop",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Orange",
+                "name": "Sand Scoop"
+            },
+            "char_count": 36,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "78 Holes, Metal Detector Compatible, Lightweight Plastic, Beach And Riverbed Digging, Rust-Proof",
+            "char_count": 96,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Heavy Duty Plastic, 78 Holes, Ultra Lightweight, Rustproof, Beach And River Bed Treasure Hunting Tool",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

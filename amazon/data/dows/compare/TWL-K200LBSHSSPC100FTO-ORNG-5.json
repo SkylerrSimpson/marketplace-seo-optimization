@@ -1,0 +1,60 @@
+{
+    "sku": "TWL-K200LBSHSSPC100FTO-ORNG-5",
+    "asin": "B00QL4BHDS",
+    "product_type": "CORD_ROPE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: TWL-K200LBSHSSPC100FTO-ORNG-5\nProduct Type: CORD_ROPE\nBrand (from catalog): ASR Tactical\nExisting Title: ASR Tactical Braided Kevlar 200lb Strength Survival Cord Rope - 100ft Red\nDescription: The ASR Tactical Survival Kevlar Cord is widely used for military, marine, sporting goods and aerospace applications. It has a high tensile working load and is rated at a 200lbs breaking strength.<br/><br/>ASR Tactical Kevlar Line is made from 100% Dupont Kevlar Fiber, is a very durable cord for use in extreme conditions. It is lightweight, low-stretch and UV resistant making it ideal for survival kits, bug out bags, emergency use and everyday edc situations. ASR Tactical Survival Cord can be rapidly deployed when compared to tradition 550 paracord and is significantly smaller and lighter - while still being strong enough to count on in an emergency.<br/><br/>The ASR Tactical Triple Strand Kevlar Cord is made in the USA; constructed from 3 strands of Kevlar thread braided together and coated in a polyurethane protective coating giving added abrasion and UV resistance. ASR Tactical Kevlar Cord is flame-resistant and also heat-resistant, allowing it to be used as a cutting tool for sawing wood, ropes, flex-cuffs while functioning as a snare wire, escape tool, fishing line, tie-down line,<br/><br/>Weighing less than a few ounces, the Kevlar Survival Cord is optimal for building emergency shelters, repairing your gear, trip wire, traps, bows, and snares. This cord is the perfect companion to every emergency kit and ideal for every day carry, edc.<br/><br/>Other uses or general applications for Kevlar paracord rope include strain relief in optical cables recreation applications, military uses in ocean environment, single string kite flying, sewing thread, model rocket shock cords,wildfowl mitigation grid applications, tower and antenna guy lines and tow lines.<br/><br/>Available in multiple lengths. Colors Available: Black | Blue | Natural | Orange\nSearch Terms: every day carry edc kevlar trip line booby trap signaling device tactical bug out bag survival cord kite braided spear fishing\nFeatures:\n- WORKING LOAD: Constructed from 3 Strands of Braided Kevlar Line, Made of Dupont Kelvar Fiber, has a High Tensile Working Load. Is High Strength, Excellent Abrasion Resistance, UV Resistant, and High Heat Resistance\n- HIGHLY RELIABLE: Adopted by US Navy Seals and US Army SERE Specialists. Kevlar Cord has Amazing Strength Capabilities when Compared to Traditional 550 Paracord Pound for Pound. Kevlar Cord is Compact and Rapidly Deployable\n- BENEFITS: Cut Resistant, Low Stretch, Resists Raveling, Will not Burn or Decompose with Exposure to Sunlight. UV Resistant, High Thermal Heat Resistance, Flame Resistant and Abrasion Resistant\n- SPECIFICATIONS: Breaking Strength: 200lbs | Tensile Strength: 188lbs | Diameter: 0.03\" (0.82mm)\n- MADE IN THE USA: Lengths Available: 25' | 50' | 100' | 500' | 1000' Colors Available: Black | Blue | Natural | Red\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 100ft Orange Braided Kevlar Survival Cord",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "100",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Orange",
+                "name": "Braided Kevlar Survival Cord"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 100-ft Red Kevlar Survival Cord Rope",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "100",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Red",
+                "name": "Kevlar Survival Cord Rope"
+            },
+            "char_count": 49,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "200Lb Breaking Strength, UV And Flame Resistant, Lightweight, Made In USA, Military Grade",
+            "char_count": 89,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "200 Lb Break Strength, 3 Strand Braided, UV And Heat Resistant, Cut Resistant, Low Stretch, Made In USA",
+            "char_count": 103,
+            "validation_error": null
+        }
+    }
+}

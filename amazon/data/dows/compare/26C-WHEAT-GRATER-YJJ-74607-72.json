@@ -1,0 +1,60 @@
+{
+    "sku": "26C-WHEAT-GRATER-YJJ-74607-72",
+    "asin": "B0BZ5VKQMT",
+    "product_type": "FOOD_GRATER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 26C-WHEAT-GRATER-YJJ-74607-72\nProduct Type: FOOD_GRATER\nBrand (from catalog): Beille\nExisting Title: Beille Cream Stainless Steel Wheat Straw Handheld Cheese Grater Kitchen Utensils\nDescription: Whether for homemade nachos, lasagna, pizza, or a delicious dessert with flakey chocolate garnish, freshly grated is always best. <br/><br/>Beille’s wheat straw handheld cheese grater features a thick, rounded handle with a speckled matte finish, ensuring a safe and secure grip when cooking and baking, or for food and meal prep too. This particular handheld grater features a larger grate plain, resulting in a coarser shred; this makes the handheld cheese grater kitchen utensil more suitable for shredding food items like cheese, cabbage, lettuce, onions, hardened butter or to achieve flake chocolate for garnishing. This cheese grater also features a built-in handle hole, allowing for hanging over the drawer or cupboard storage if preferred. <br/><br/>As mentioned, Beille’s cheese grater with handle is made from wheat straw, an eco-friendly bioplastic. An alternative plant-based material to other less forgiving solid plastics, the material, and therefore the grater, is renewable and sustainable, and of course, food safe and certified BPA Free. Dishwasher safe but it is recommended to use a kitchen sink brush to remove large chunks of food before running it through your preferred dishwasher cycle.<br/>No kitchen is complete without a handheld cheese grater. <br/><br/>A must-have kitchen tool, upgrade your current grater to a sustainable one, or gift one as a hostess or housewarming gift with other items from Beille’s wheat straw kitchen collection.\nSearch Terms: cheese grater wheat straw utensils baking supplies tools cooking chef restaurant equipment sustainable products bake food meal prep kitchen starter set wedding house warming gifts new home college dorm room essentials food prep hand grater nacho\nFeatures:\n- CHEESE GRATER WITH HANDLE - Whether for homemade nachos, lasagna, or dessert with chocolate garnish, freshly grated is always best! Beille’s wheat straw handheld cheese grater features a thick, rounded handle with a speckled matte finish, ensuring a safe and secure grip when cooking, baking, or for meal prep\n- WHEAT STRAW - Beille’s cheese grater is made of bioplastic wheat straw, an alternative plant-based material to other less forgiving solid plastics; renewable and sustainable, Beille’s cheese grater is food safe, certified BPA Free; it also features a built-in handle hole for hanging storage if that is preferred\n- KITCHEN GADGETS - No kitchen is complete without a cheese grater! A must-have kitchen tool for any home cook or chef, upgrade your current cheese grater to a sustainable one, or gift one as a hostess or housewarming gift with other items from Beille’s wheat straw kitchen collection\n- DISHWASHER SAFE - Beille wheat straw handheld cheese graters mimic traditional plastic measuring tools without harmful byproducts, which makes them top rack dishwasher safe for a quick and easy cleanup!\n- SPECIFICATIONS - Material: plant-based wheat straw, stainless steel; Colors: beige/cream, black; BPA free: yes; Dimensions:\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille Cream Wheat Straw Handheld Cheese Grater",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Cream",
+                "name": "Wheat Straw Handheld Cheese Grater"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille Cream Handheld Cheese Grater",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Cream",
+                "name": "Handheld Cheese Grater"
+            },
+            "char_count": 35,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Eco-Friendly Wheat Straw, Dishwasher Safe, BPA-Free, Coarse Shred, Hanging Storage",
+            "char_count": 82,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Wheat Straw Bioplastic, Stainless Steel Blade, BPA Free, Dishwasher Safe, Hanging Hole, Coarse Shred",
+            "char_count": 100,
+            "validation_error": null
+        }
+    }
+}

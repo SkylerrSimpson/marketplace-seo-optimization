@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-DUALNAILBRUSH-70066",
+    "asin": "B0B9V9F36Y",
+    "product_type": "BEAUTY",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-DUALNAILBRUSH-70066\nProduct Type: BEAUTY\nBrand (from catalog): Beille\nExisting Title: Beille Nail Brush for Cleaning Fingernails Dual-Sided Nail Scrub Beauty Tool\nDescription: The Beille nail scrub brush features 2 different scrubbing sides to safely remove dirt, grime, and particulates from your hands and fingernails. Keep it in your nail care products for before and after manicures, or in your kitchen so you can scrub your nails clean after preparing food.<br/><br/>Our beauty scrub brush features a wooden ergonomic handle so you can comfortably and easily grip it while scrubbing. The natural wood is an ideal material for use with warm, soapy water and is easy to clean after use - just rinse it and leave it out to dry between uses.<br/><br/>Each brush features short bristles on one side and longer bristles on the other. Short bristles are ideal for scrubbing dirt from underneath your nails while the longer bristles will gently clean and massage your fingers to keep your skin soft and supple. <br/><br/>This nail brush weighs just .08 pounds and will easily fit inside most beauty tool kits, manicure/pedicure sets, and soap dishes. Keep one with you in your purse or travel bag for on-the-go cleaning if needed.\nSearch Terms: nail brush acrylic nail brush nail brush for cleaning fingernails nail art brush nail cleansing brush nail dust brush nail scrub brush nail scrubber nail care nail care kit nail care kit for women nail care products scrub brush kitchen scrub brush\nFeatures:\n- DUAL-SIDED NAIL BRUSH - Beille nail scrub brush features 2 different scrub sides, effective for removing dirt and particulates from hands and fingernails; Keep in your nail care products or in the kitchen to scrub your nails clean before manicures, pedicures, or after preparing food\n- ERGONOMIC WOODEN HANDLE - Beauty scrub nail brush features wooden ergonomic handle for easy gripping and comfort while scrubbing; Natural wood ideal for use with warm and soapy water and is easy to clean after use; Just leave out to dry between uses\n- SHORT AND LONG BRISTLES - Short bristles are ideal for scrubbing grime from underneath nails while longer bristles will gently massage and clean your fingers to keep your skin soft and supple; Safe for use on acrylic nails\n- LIGHTWEIGHT AND COMPACT - Nail brush weighs just .08 pounds and will easily fit inside most beauty tool kits, manicure sets, or soap dishes; Keep it in your travel bag for on-the-go use if needed\n- SPECIFICATIONS - Materials: wood (handle), bristles: Colors: brown, tan; Weight: .08 pounds (1.28 ounces); Ergonomic handle; Bristle lengths: short and long; Safe for use on acrylic nails\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille Dual-Sided Nail Brush for Cleaning Fingernails",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Dual-Sided Nail Brush for Cleaning Fingernails"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille Dual-Sided Nail Brush for Cleaning Fingernails",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Dual-Sided Nail Brush"
+            },
+            "char_count": 53,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Dual-Sided Bristles, Wooden Handle, Short And Long Bristles, Lightweight And Compact, Safe For Acrylic Nails",
+            "char_count": 108,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Dual Bristles, Ergonomic Wooden Handle, Short And Long Bristles, Safe On Acrylic Nails, Compact Travel Size",
+            "char_count": 107,
+            "validation_error": null
+        }
+    }
+}

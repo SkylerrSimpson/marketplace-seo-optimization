@@ -1,0 +1,60 @@
+{
+    "sku": "SON-KNIFE-16IN1",
+    "asin": "B07SNGVP74",
+    "product_type": "MULTITOOL",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-KNIFE-16IN1\nProduct Type: MULTITOOL\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Folding Pocket Knife 16 in 1 Adventure Tool, 4 Inch - Black\nDescription: This 16-in-1 tool is perfect for outdoor adventures. Whether you're camping, hunting, or hiking, this pocket knife has you covered.<br/><br/>Made of stainless steel, this multi-functional tool is durable and reliable. This tool is 3.5 inches in length and can easily be tucked away in your pocket or bag. <br/><br/>The knife blade, fish scaler, hook dislodger, and rope saw can be used while hunting and fishing. Utilize the corkscrew, bottle opener, and can opener for food and beverage consumption. <br/><br/>If you're in need of hygiene-focused instruments, the toothpick, tweezers, nail cleaner, and file will come in handy. For repairs and general outdoor gear maintenance, this pocket tool has a Phillips bit, reamer, tent reamer, slotted bit, and scissors for your use. <br/><br/>Featuring a key ring, attach this tool to your keys or lanyard for carrying convenience and easy access. Created to be versatile, you'll enjoy the many uses of these tools.\nSearch Terms: pocket knife folding multi tool set multipurpose toothpick tweezers phillips bit reamer corkscrew nail cleaner file tent slotted bottle opener scissors can This 16-in-1 multi-functional is made of stainless steel and used for outdoor activities\nFeatures:\n- 16 IN 1 MULTI FUNCTION - Tools for every situation | Toothpick, tweezers, Phillips bit, reamer, corkscrew, nail cleaner, file, tent reamer, slotted bit, bottle opener, scissors, can opener, fish scaler, fish hook dislodger, rope saw, & knife blade\n- POCKET SIZED - 3.5\" L x 1\" W | Easy to pack for outdoor adventures\n- STAINLESS STEEL - Durable material | Quality tools in times of need\n- KEY RING - Can be attached to keys or lanyard | Convenient for travel and access\n- VERSATILE TOOL - Easy to switch between use of tools\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 16-in-1 Black Folding Pocket Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "16",
+                "pack_size_unit": "in-1",
+                "size": "3.5 inch",
+                "color": "Black",
+                "name": "Folding Pocket Knife"
+            },
+            "char_count": 46,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 4 In Black Folding Pocket Knife 16 In 1 Adventure Tool",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "4 In",
+                "color": "Black",
+                "name": "Folding Pocket Knife 16 In 1 Adventure Tool"
+            },
+            "char_count": 66,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Stainless Steel, Camping And Fishing, Scissors, Corkscrew, Bottle Opener, Can Opener, Key Ring",
+            "char_count": 94,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "16 In 1 Multi Tool, Stainless Steel, Pocket Sized 35 Inch, Key Ring, Camping Fishing Hiking, Durable, Travel Ready",
+            "char_count": 114,
+            "validation_error": null
+        }
+    }
+}

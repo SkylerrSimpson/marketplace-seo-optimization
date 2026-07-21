@@ -1,0 +1,60 @@
+{
+    "sku": "SON-AO5I1CSMT-6125-GLD",
+    "asin": "B01COB9UNA",
+    "product_type": "SURVIVAL_KIT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-AO5I1CSMT-6125-GLD\nProduct Type: SURVIVAL_KIT\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 5 in 1 Compact Survival Multi Tool\nDescription: Be prepared for an emergency situation with the ASR Outdoor 5 in 1 Compact Survival Tool.<br/><br/>This tool features 5 essential survival functions: a compass, flint, striker, window punch and whistle in case you find yourself stranded.<br/><br/>The tool itself breaks down into 5 separate pieces, and can be screwed together to create one self-contained pen-shaped tool. It even comes with a removable pen clip so you can slip it in your pocket or backpack easily.<br/><br/>Don't get caught in the elements without this handy survival tool.\nSearch Terms: hiking gear backpacking accesories camping supplies emergency survival kit\nFeatures:\n- 5 in 1 Tool: Compass, Punch, Striker, Flint, Whistle\n- Overall Length: 6.125\"\n- Material: Gold Colored Stainless Steel\n- Removable Pen Pocket Clip\n- Striker: 1.5\" L | Flint: .25\" Diameter\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 5-in-1 Compact Survival Multi Tool Gold",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "in-1",
+                "size": "Compact",
+                "color": "Gold",
+                "name": "Survival Multi Tool"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Compact Gold Survival Multi Tool",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Compact",
+                "color": "Gold",
+                "name": "Survival Multi Tool"
+            },
+            "char_count": 44,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Compass, Window Punch, Striker, Flint, Whistle, Stainless Steel, Pocket Clip, Emergency Survival Kit",
+            "char_count": 100,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Compass, Flint Striker, Window Punch, Whistle, Gold Stainless Steel, Removable Pocket Clip",
+            "char_count": 90,
+            "validation_error": null
+        }
+    }
+}

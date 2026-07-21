@@ -1,0 +1,60 @@
+{
+    "sku": "HWC-DLXMEMOCOVER-BLK",
+    "asin": "B09T26L3B5",
+    "product_type": "OFFICE_PRODUCTS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWC-DLXMEMOCOVER-BLK\nProduct Type: OFFICE_PRODUCTS\nBrand (from catalog): ASR Federal\nExisting Title: ASR Federal Deluxe Nylon Memo Book Cover with Belt Clip Spiral Notebook Holder, Black\nDescription: The ASR Federal deluxe memo book cover will hold a notepad up to 3\" x 5\", making this a great option for law enforcement officers and those who need to carry a memo pad for work. The memo pad holder features a metal spring belt clip that will fit belts up to 2\" for quick deployment, ensuring that you have access to your memo pad on the go. <br/><br/>In addition to the memo pad, this deluxe spiral notebook cover will also hold a AA light, a pen, and business cards so you can keep all of your necessary tools and accessories on hand in a convenient place. The memo book carry pouch is made of sturdy black nylon that is weather-resistant so you can count on it rain or shine. The front of the pouch features a metal snap button to keep your memo book and accessories secured while on the go.<br/><br/>The ASR Federal memo pad holder is proudly made in the USA so you can trust the quality to last for years to come. This is a must-have accessory for law enforcement officers and also makes a great gift for a loved one who works in law enforcement.\nSearch Terms: memo pad pen holder for notebook duty belts law enforcement handcuffs law enforcement law enforcement gear belt keepers journal notebook leather journal journal for men memo book small notepad mini notepad notepad holder memo board for men\nFeatures:\n- LARGE MEMO BOOK HOLDER - The ASR Federal deluxe memo book cover will hold a notepad up to 3\" x 5\", making this a great option for law enforcement officers and those who need to carry a memo pad for work.\n- METAL SPRING BELT CLIP - The memo pad holder features a metal spring belt clip that will fit belts up to 2\" for quick deployment, ensuring that you have access to your memo pad on the go.\n- VERSATILE UTILITY POUCH - In addition to the memo pad, this deluxe spiral notebook cover will also hold a AA light, a pen and business cards so you can keep all of your necessary tools and accessories on hand in a convenient place.\n- DURABLE CONSTRUCTION - The memo book carry pouch is made of sturdy black nylon that is weather resistant so you can count on it rain or shine. The front of the pouch features a metal snap button to keep your memo book and accessories secured while on the go.\n- SPECIFICATIONS - Proudly made in the USA; Material: nylon and metal; Color: black; Overall dimensions: 6.25\" x 4.25\"; Holds notebooks up to 3\" x 5\"; 3 additional carry pockets; Fits on belts up to 2\"\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Federal Black Deluxe Memo Book Cover Belt Clip",
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "3x5",
+                "color": "Black",
+                "name": "Deluxe Memo Book Cover Belt Clip"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Federal 3x5 in Black Memo Book Cover Belt Clip",
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "3x5 in",
+                "color": "Black",
+                "name": "Memo Book Cover"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Metal Spring Belt Clip, Holds 3X5 Notebook, Weather Resistant Nylon, Pen And Business Card Slots, Made In USA",
+            "char_count": 109,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Weather Resistant Nylon, Metal Spring Belt Clip, Fits 2\" Belts, Pen And AA Light Pockets, Business Card Slot, Made In USA",
+            "char_count": 121,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "DOY-CAMPWBKIT-23PC-BUN",
+    "asin": "B09FRNL9LF",
+    "product_type": "SURVIVAL_KIT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DOY-CAMPWBKIT-23PC-BUN\nProduct Type: SURVIVAL_KIT\nBrand (from catalog): ASR Outdoor\nExisting Title: Survival Essentials Water Bottle Kit Camping Supplies 23 Pieces\nDescription: The ASR Outdoor survival essentials kit comes with 23 emergency supplies that are great for both intermediate and experienced campers. Everything included will help outdoor adventurers stay safe while exploring in case of an emergency.<br/><br/>Inside the kit we've included one of the most handy tools you could have on you while camping and hiking - a 7\" full tang serrated hunting blade that comes with a magnesium fire starter. These tools will ensure that you can both start a fire and procure food if you have to. The knife and fire starter come with a sheath that can be attached to a belt for easy access. We've also included a couple of tools that will help you navigate to safety in the event of an emergency - a super bright head lamp (with included AAA batteries) and a 5 in 1 multi-tool with a compass, whistle, additional fire starter, striker and window punch in case of an auto-emergency.<br/><br/>In addition to the above items, you'll find a set of 10 heavy-duty zip ties that can be used to hang food packs to keep them away from animals and to attach extra items to your backpack for transport, as well as 25 feet of Kevlar cord with a breaking strength of 200lbs that can be used to create a fishing line or animal trap to procure food. Some other useful items we've added in are a couple of yards of stretch wrap that can be used to wrap wounds.<br/><br/>All of the items fit neatly inside of a 25oz water bottle made of BPA free plastic so it's safe for drinking out of daily. The bottle comes with a flip top straw and will help keep you hydrated while camping or hiking. This is a great survival kit to keep in your camping gear, bug out bag, car, trunk or boat in case of an emergency.\nSearch Terms: bug out bag survival gear emergency kit camping supplies tools water bottles fire starter earthquake set box equipment pack prep prepper gear survivalist natural disaster boy scout starter med first aid hiking wilderness edc travel accessories car\nFeatures:\n- EMERGENCY PREP SUPPLIES - The ASR Outdoor survival essentials kit comes with 23 emergency supplies that are great for both intermediate and experienced campers. Everything included will help outdoor adventurers stay safe while exploring in case of an emergency.\n- HUNTING KNIFE WITH FIRE STARTER - Inside the kit, we've included one of the handiest tools you could have on you while camping and hiking - a 7\" full-tang serrated hunting blade that comes with a magnesium fire starter. These tools will ensure that you can both start a fire and procure food if you have to. The knife and fire starter come with a sheath that can be attached to a belt for easy access.\n- NAVIGATION TOOLS - We've also included a couple of tools that will help you navigate to safety in the event of an emergency - a super bright headlamp (with included AAA batteries) and a 5 in 1 multi-tool with a compass, whistle, additional fire starter, striker and window punch in case of an auto-emergency.\n- SURVIVAL CORD AND ZIP TIES - In addition to the above items, you'll find a set of 10 heavy-duty zip ties that can be used to hang food packs to keep them away from animals and to attach extra items to your backpack for transport, as well as 25 feet of Kevlar cord with a breaking strength of 200lbs that can be used to create a fishing line or animal trap to procure food.\n- BPA FREE WATER BOTTLE - All of the items fit neatly inside of a 25oz water bottle made of BPA-free plastic so it's safe for drinking out of daily. The bottle comes with a flip-top straw and will help keep you hydrated while camping or hiking.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 23-Piece Survival Essentials Water Bottle Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "23",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "",
+                "name": "Survival Essentials Water Bottle Kit"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 23-Piece Survival Essentials Water Bottle Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "23",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Survival Essentials Water Bottle Kit"
+            },
+            "char_count": 57,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Hunting Knife, Fire Starter, Headlamp, Multi-tool, Kevlar Cord, Camping Gear, Emergency Prep, BPA-Free Water Bottle",
+            "char_count": 115,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "7\" Serrated Knife, Magnesium Fire Starter, Headlamp, Compass Whistle, Kevlar Cord, BPA Free Water Bottle",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

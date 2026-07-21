@@ -1,0 +1,60 @@
+{
+    "sku": "MET-GEARAIDREVIVEXSPRAY-AMZN",
+    "asin": "B01MR5ZCJD",
+    "product_type": "FOOTWEAR_CARE_KIT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MET-GEARAIDREVIVEXSPRAY-AMZN\nProduct Type: FOOTWEAR_CARE_KIT\nBrand (from catalog): GEAR AID\nExisting Title: GEAR AID Revivex Suede Protector and Fabric Water Repellent for Shoes and Boots, 4 fl oz, 2-pk\nDescription: When you need to waterproof hiking boots and suede shoes, use a protector like Revivex Suede and Fabric Water Repellent. This water repellent treatment will safely protect nubuck, suede and waterproof-breathable footwear to keep your shoes looking good and your feet feeling dry. The spray on formula is easy to apply and also prevents your favorite hiking shoes and boots from getting dirty or stained. With Revivex Suede and Fabric Water Repellent your kicks will be shedding water in no time flat.\nSearch Terms: Revivex Nubuck Suede Waterproof Gear Aid\nFeatures:\n- Protect shoes and boots from the elements and keep them looking good as new with this suede and fabric water repellent\n- Reduce wear by using this suede shoe protector and extend the life of nubuck; leather, canvas and GORE-TEX® footwear\n- Maximize breathability of waterproof-breathable shoes to keep your feet feeling cool and dry; available in 4 fl oz bottle\n- Enhance the performance of various footwear with natural and technical fabrics on hiking boots, UGGS®, and sneakers\n- Packaging may vary\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 80 characters.  Please include the size and color of the item in the Product Name, if available.\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "GEAR AID Revivex Suede Protector Water Repellent 4 fl oz 2-pk",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "4 fl oz",
+                "color": "",
+                "name": "Revivex Suede Protector Water Repellent"
+            },
+            "char_count": 61,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID 2-Pk 4 Fl Oz Suede Protector and Fabric Water Repellent",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "4 fl oz",
+                "color": "",
+                "name": "Suede Protector and Fabric Water Repellent"
+            },
+            "char_count": 64,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Waterproof Suede, Nubuck And Fabric, Protects Hiking Boots And Shoes, Spray-On Formula, Extends Footwear Life",
+            "char_count": 109,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Protects Suede Nubuck And Fabric, Repels Water And Stains, Preserves Breathability, For Boots And Shoes",
+            "char_count": 103,
+            "validation_error": null
+        }
+    }
+}

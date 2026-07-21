@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-MINIPATCH-CLR-AMZN-2PK-FBA",
+    "asin": "B09GWF4LS8",
+    "product_type": "ADHESIVE_TAPES",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-MINIPATCH-CLR-AMZN-2PK-FBA\nProduct Type: ADHESIVE_TAPES\nBrand (from catalog): GEAR AID\nExisting Title: GEAR AID Tenacious Tape Mini Patches with Peel-and-Stick Adhesive to Fix Holes and Tears in Winter Gear, Down Puffer Jackets, Sleeping Bags, Tents, and Rain Gear, Clear, 2 Pack\nDescription: Use Tenacious Tape Mini Patches for fixing a rip or tear on down jackets, rain gear and outdoor gear. Apply it on a puffy coat to stop feathers from leaking or quickly fix holes in sleeping bags, ski pants and gloves made of synthetic fabrics (not cotton or natural fibers). The mini patches come in a lightweight and convenient pocket pack and includes six easy-to-use 1.5\" x 2.5\" patches (clear and/or black nylon). With no heat or cutting required, simply peel and stick for quick, on-the-go repairs. Throw some Tenacious Tape Mini Patches in your pocket and you'll never have to worry about ripped or damaged gear again.\nSearch Terms: tenacious tape; gear aid; mini; patches; repair; rain gear; down; coat; puffy; kit; black; nylon; fix; clear; hole; tear; pants; backpack; gloves; rainwear; outerwear; peel and stick; fabric; air mattress; ski pants; easy to apply\nFeatures:\n- Repair holes and tears in down jackets, tents, rain gear and other outdoor gear with this fabric, peel-and-stick patch kit\n- Use this ultra-strong adhesive tape that permanently bonds to nylon, polyester, GORE-TEX fabric, and vinyl (not for cotton, denim or natural fabrics)\n- Apply the six 1.5\" x 2.5\" patches on puffy coats, backpacks, ski pants, or gloves; sealed with a waterproof coating for full weather protection\n- Choose from all black nylon, all clear, or a combination of black and clear patches; nearly invisible repairs that won't peel off during a wash\n- Packaging may vary\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "GEAR AID Tenacious Tape Mini Patches Clear 2-Pack",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "Pack",
+                "size": "Mini",
+                "color": "Clear",
+                "name": "Tenacious Tape Patches"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID 2-Pk Clear Tenacious Tape Mini Patches",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "Mini",
+                "color": "Clear",
+                "name": "Tenacious Tape Mini Patches"
+            },
+            "char_count": 47,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Six 15X25 Inch Peel And Stick Patches, Waterproof, Repair Down Jackets And Gear, Works On Nylon And Polyester",
+            "char_count": 109,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Peel-And-Stick Repair Patches, Waterproof Nylon Adhesive, Fixes Holes And Tears, Down Jackets, Tents, Rain Gear",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

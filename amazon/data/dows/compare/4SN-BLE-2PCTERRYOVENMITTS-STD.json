@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-BLE-2PCTERRYOVENMITTS-STD",
+    "asin": "B0FLFQVK1V",
+    "product_type": "POT_HOLDER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-BLE-2PCTERRYOVENMITTS-STD\nProduct Type: POT_HOLDER\nBrand (from catalog): Beille\nExisting Title: Beille 2pc Cream Terry Quilted Oven Mitts Set Baking Supplies, 14 Inch Length (One Size Fits All)\nDescription: A kitchen staple, elevated. The Beille 2pc Terry Oven Mitts Set in off white, cream color bring everyday function and soft, neutral style to any kitchen. Made with a plush terry cloth quilted interior and exterior for added structure and comfort, these long oven mitts offer reliable protection whether you’re pulling out a hot casserole or lifting a fresh pie from the oven.<br/><br/>Each quilted oven mitt measures 14 inches in length, offering extended coverage to shield your hands and lower arms from heat. The soft yet durable design fits most hands comfortably and securely, making the oven mitts a must have tool for cooking, baking, and hosting alike!<br/><br/>Beautifully simple and thoughtfully designed, these oven mitts blend seamlessly into any kitchen. Pair them with your favorite Beille kitchen tools for a cohesive, consciously curated space. Machine washable and made to withstand repeated use, this terry oven mitt set combines practicality with an inviting kitchen aesthetic. Reliable, stylish, and always ready to handle the heat.\nSearch Terms: quilted oven mitts; kitchen mitts for oven; long oven mitts; kitchen accessories; food meal prep; sourdough bread baking supplies; hostess gift; home essentials; bakeware; farmhouse decor; cooking gloves; pot holders for kitchen; oven mitts set\nFeatures:\n- 2PC QUILTED OVEN MITTS: Whether you're baking, roasting or cooking on the stovetop, these long quilted oven mitts are a must have for any home kitchen! Made from soft yet thick terry cloth, they provide a comfortable grip while helping to shield hands and forearms from heat\n- 14 INCH EXTENDED LENGTH: Longer arm coverage helps protect wrists and forearms from heat and splatter, perfect for reaching into deep ovens or over hot cookware or bakeware; these oven mitts are one size fits all, designed with a universal fit that’s comfortable for hands of all sizes\n- FARMHOUSE DECOR: Creamy, off white color complements any kitchen aesthetic: minimal, modern, or rustic; textured exterior and interior woven terry cloth material provides a cozy, flexible grip while adding a warm and cozy touch to any kitchen\n- HANGING LOOP: Built in hanging loop adds a thoughtful touch of convenience; easily hang the oven mitts on a hook to keep them within arm ’s reach, no drawer digging required! The loop also makes them perfect for open display, adding a cozy, functional accent to kitchen décor\n- EASY CARE: Machine wash cold on gentle cycle with like colors; lay flat to air dry; Do not machine dry, bleach or iron\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 2pc Cream Terry Quilted Oven Mitts, 14 Inch",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "pc",
+                "size": "14 Inch",
+                "color": "Cream",
+                "name": "Terry Quilted Oven Mitts"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 2-pk 14 in Cream Terry Oven Mitts",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "14 in",
+                "color": "Cream",
+                "name": "Terry Oven Mitts"
+            },
+            "char_count": 40,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Extended Arm Coverage, Plush Quilted Terry Cloth, Machine Washable, Hanging Loop, One Size Fits All",
+            "char_count": 99,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Quilted Terry Cloth, 14 Inch Extended Coverage, Heat And Splash Protection, Hanging Loop, Machine Washable",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

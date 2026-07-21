@@ -1,0 +1,60 @@
+{
+    "sku": "SON-TTX-4OZBALLPEENHAMMER-STD",
+    "asin": "B0H1KJ54Y7",
+    "product_type": "HAMMER_MALLET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-TTX-4OZBALLPEENHAMMER-STD\nProduct Type: HAMMER_MALLET\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux 4oz Ball Peen Hammer with Hardwood Handle, Small Engineers Hammer for Metalworking, Riveting, Jewelry Making, Copper Shaping and Bench Work (10 Inch)\nDescription: Designed for precision, balance and control, this 4oz ball peen hammer is a compact metalworking tool made for detailed bench work, light duty shaping and small project applications. Also known as a ball pein hammer, engineer’s hammer or machinist hammer, this style of hammer is commonly used for forming metal, setting rivets, shaping copper, working with gaskets and handling a variety of craft, hobby and workshop tasks, where a larger hammer may feel too heavy or difficult to control.<br/><br/>The dual head design gives this small ball peen hammer added versatility for different types of metalworking and repair projects. One side features a flat striking face that can be used for light hammering, flattening, controlled impact work and striking small punches or light duty chisels. The opposite side features the traditional rounded ball peen end, which is useful for shaping, doming, curving, peening and texturing soft metals. This makes it a practical choice for jewelry making, riveting, copper forming small machinist work and general detail focused applications.<br/><br/>With its lightweight 4oz design and 10 inch overall length, this hammer is easy to maneuver and well suited for precision tasks that require a careful hand. The smaller size helps provide better control during repetitive work and allows users to apply targeted force without the bulk of a full size hammer. Whether you are setting small rivets, forming soft metal, shaping copper, making jewelry, working on gaskets or completing detailed repairs at the bench, this compact engineer’s hammer offers the control needed for accurate results.<br/><br/>The hardwood handle provides a classic feel with a comfortable grip, making it suitable for use at a craft table, jewelry making station, machinist bench, garage workspace or home workshop. Durable, simple and versatile, this 4oz ball peen hammer is a useful addition to any tool kit for makers, hobbyists, jewelers, machinists, metalworkers and DIY users who need a smaller hammer for controlled striking and detailed metal shaping projects.\nSearch Terms: Small ball peen hammer 4oz engineer machinist mini ball pein jewelry making riveting metal forming copper shaping gasket tool craft repair punch chisel soft metal hammer hobby workshop hand tools\nFeatures:\n- 4OZ BALL PEEN HAMMER: Lightweight engineer’s hammer designed for precision metalworking, jewelry making, riveting, copper shaping, small repairs and more; also referred to as a machinists or engineers hammer\n- FLAT FACE AND ROUNDED PEEN END: Flat striking face is ideal for light hammering, flattening and striking small punches, while the rounded ball peen end helps shape, dome, curve and texture soft metals\n- IDEAL FOR RIVETS GASKETS AND METAL FORMING: Use for setting rivets, shaping copper, working with gaskets, forming soft metal, crafting hobby repairs and light machinist applications\n- COMPACT SIZE FOR CONTROL: 10 inch ball peen hammer design is easier to maneuver than larger hammers, making it a practical choice for delicate tasks and detailed projects\n- HARDWOOD HANDLE: Classic wood handle offers a comfortable grip and balanced feel, while the compact size makes this ball pein hammer easy to store in a toolbox, workbench drawer or craft kit\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 4oz Ball Peen Hammer, 10 Inch Hardwood Handle",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "4",
+                "pack_size_unit": "oz",
+                "size": "10 Inch",
+                "color": "",
+                "name": "Ball Peen Hammer"
+            },
+            "char_count": 56,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 4-oz 10 in Ball Peen Hammer",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "4",
+                "pack_size_unit": "oz",
+                "size": "10",
+                "color": "",
+                "name": "Ball Peen Hammer"
+            },
+            "char_count": 38,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Engineer's Hammer, Flat Face And Rounded Peen End, Jewelry Making, Riveting, Metal Forming, Compact Control",
+            "char_count": 107,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "4 Oz, 10 Inch Compact Design, Flat Face And Ball Peen End, Hardwood Handle, Precision Metalworking Control",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-BFTOUMT-MED-BLCK",
+    "asin": "B071177QMK",
+    "product_type": "FORK",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-BFTOUMT-MED-BLCK\nProduct Type: FORK\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Marshmallow Toaster Telescoping BBQ Fork Extendable Campfire Utensil - 35.5\"\nDescription: Toast marshmallows easily with the ASR Outdoor Telescoping BBQ Fork.<br/><br/>The fork features 2 prongs for skewering meat, veggies and just about anything else you want to grill. Each fork extends to 35.5\", making it the perfect length for keeping you away from the heat. Since marshmallows are notoriously hard to cook, the fork will help you keep your hands mess-free. It's perfect for children and adults alike. Make sure to grab a few of these before your next camping trip.\nSearch Terms: camping utensil outdoor accessories gear stove cookware eating open fire cooking camp light portable table campng flatware eatting plates backpacking spoon knife spork survival roasting marshmello set\nFeatures:\n- Extendable Length: 35.5\" | Collapsed Length: 11\" | Fork Length: 5\"\n- Constructed of Stainless Steel\n- Rubber Dipped Handles\n- Protective Covers for Prongs\n- Great for Kitchen, BBQ, Camping & Parties\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 35.5\" Black Telescoping Marshmallow Toaster Fork",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "35.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Telescoping Marshmallow Toaster Fork"
+            },
+            "char_count": 60,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 35.5-in Black Marshmallow Toaster BBQ Fork",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "35.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Marshmallow Toaster BBQ Fork"
+            },
+            "char_count": 54,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Extendable To 355 Inches, Stainless Steel Construction, Rubber Dipped Handles, Protective Prong Covers, Perfect For Camping And BBQ",
+            "char_count": 131,
+            "validation_error": "value exceeds maxLength 125 (131 chars)"
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Telescoping 355-In Reach, Stainless Steel, Rubber Dipped Handles, Protective Prong Covers, Camping And BBQ Use",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}

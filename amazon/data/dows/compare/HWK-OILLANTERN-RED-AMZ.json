@@ -1,0 +1,60 @@
+{
+    "sku": "HWK-OILLANTERN-RED-AMZ",
+    "asin": "B096L9189W",
+    "product_type": "FUEL_LAMP",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWK-OILLANTERN-RED-AMZ\nProduct Type: FUEL_LAMP\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Vintage Style Hanging Hurricane Camping Kerosene Oil Lantern Red\nDescription: Keep your camping area or garden lit with ASR Outdoor's Kerosene Oil Hurricane Lantern. The Kerosene Oil Hurricane Lantern is a great light to bring along while camping, hiking or to keep at your house for emergencies. Each lantern has a dimmer switch so you can adjust the light.<br/><br/>This lantern is 9\" tall, the perfect size for carrying around or storing when not in use. It comes with a hook so you can easily hang it in your tent, a garden hook on your patio or from the ceiling in an emergency if you've lost power. This lantern is constructed of heavy-duty plastic and metal so you don't need to worry about the typical breakage that can occur easily with traditional glass hurricane lanterns. <br/><br/>The ASR Outdoor Kerosene lantern can be freestanding, handheld, or hung in place with the attached hook at the top of the lantern. With a convenient dimmer switch to adjust the brightness and an upgrade on a classic design, this lantern is a must-have item for blackouts, camping, emergency weather conditions, hiking, or for everyday use as decor, nightlight, outdoor lighting, and more. Make sure to keep one of these around during outdoor activities or for emergencies.\nSearch Terms: ASR Outdoor Vintage Style Hurricane Camping Kerosene Oil Lantern Adjustable Wick Hiking Hunting Boating\nFeatures:\n- CLASSIC KEROSENE LANTERN - The ASR Outdoor Hurricane Lantern runs on kerosene oil so you don't need to worry about using batteries or electricity in the event of an emergency.\n- HEAVY-DUTY DESIGN - Constructed of quality, heavy-duty metal and plastic, this lantern will stand up to indoor or outdoor use and you can avoid the typical breakage that may occur with traditional glass hurricane lanterns.\n- COMPACT SIZE - The lantern stands 9.25\" tall, so it's a great size for bringing camping, hiking or backpacking. Keep one in your emergency gear, car trunk or bug out bag for instant and reliable light in the event you lose power.\n- DIMMER SWITCH - The lantern features and adjustable dimmer switch so you can decide how much light you need depending on your situation. Set it to as bright as possible in an emergency, or dim it down for a comfortable, mood-setting look for a patio or garden party!\n- ADJUSTABLE WICK - Each lantern comes with a wick that you can adjust based on your use and how much light you need. This is a great lantern for parties, camping, hiking, emergencies and more!\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 9\" Red Vintage Kerosene Oil Hurricane Lantern",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "9",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Red",
+                "name": "Vintage Kerosene Oil Hurricane Lantern"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Red Hanging Kerosene Hurricane Lantern",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Red",
+                "name": "Hanging Kerosene Hurricane Lantern"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Adjustable Wick And Dimmer Switch, Heavy-Duty Metal And Plastic, Hangable With Hook, Compact Camping And Emergency Light",
+            "char_count": 120,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Adjustable Wick, Dimmer Switch, Heavy-Duty Metal And Plastic, Hang Or Freestanding, Camping Emergency Light",
+            "char_count": 107,
+            "validation_error": null
+        }
+    }
+}

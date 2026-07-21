@@ -1,0 +1,60 @@
+{
+    "sku": "TWL-TCSR600LBSB-50FT-BLCK",
+    "asin": "B0742LG28V",
+    "product_type": "CORD_ROPE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: TWL-TCSR600LBSB-50FT-BLCK\nProduct Type: CORD_ROPE\nBrand (from catalog): ASR Outdoor\nExisting Title: Technora Composite Survival Rope 600lb Breaking Strength (50ft) - Black\nDescription: The 50ft Technora Survival Cord by ASR Outdoor is an essential item to bring with you on any outdoor trip. <br/><br/>It is essentially the same as the Technora Survival Cord, but woven thicker to make it even stronger. While it is quite thin with a diameter of only .08\", it has a breaking strength of 600 lbs. This cord is made of Technora, which is an abrasion-resistant, low stretch, high strength material. <br/><br/>It also has a PTFE (Teflon) coating, which increases the abrasion resistance and adds UV protection. It weighs less than 2 ounces and takes up little space, so it is a must-have for your survival kit.\nSearch Terms: every day carry edc kevlar trip line booby trap signaling device tactical bug out bag survival cord kite braided spear fishing\nFeatures:\n- HIGH TENSILE STRENGTH: 600lb Strong and light: weight for weight, Technora is 8 times stronger than steel and 3 times stronger than fiberglass, polyester or nylon yarns.\n- FATIGUE RESISTANCE: Shows little loss of strength even during repeated abrasion, flexing and stretching\n- DIMENSIONAL STABILITY: Stiff and highly oriented molecular structure leads to a high modulus of elasticity, low creep and low stress relaxation. Low thermal shrinkage\n- HEAT RESISTANCE: Thermal decomposition threshold of 930F, so Technora can be used at 392F for long periods. At 482F, it maintains more than half of its room-temperature tensile strength\n- CHEMICAL RESISTANCE: Highly resistant to acids, alkalis and organic solvents; not vulnerable to damage caused by steam or sea water\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 50ft Black Technora Composite Survival Rope",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "50",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Black",
+                "name": "Technora Composite Survival Rope"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 50-ft Black Technora Survival Cord",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "50",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Black",
+                "name": "Technora Survival Cord"
+            },
+            "char_count": 46,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "600Lb Breaking Strength, Abrasion Resistant, Low Stretch, PTFE Coated, UV Protected",
+            "char_count": 83,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "600 Lb Breaking Strength, Ultra Thin Point 08 Inch Diameter, PTFE Coated, UV Resistant, Abrasion Resistant, 50 Ft",
+            "char_count": 113,
+            "validation_error": null
+        }
+    }
+}

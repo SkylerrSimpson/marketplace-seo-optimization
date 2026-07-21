@@ -1,0 +1,60 @@
+{
+    "sku": "ASR-BIVVY-SACK-2PK",
+    "asin": "B0GLFP2HC2",
+    "product_type": "SPORTING_GOODS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: ASR-BIVVY-SACK-2PK\nProduct Type: SPORTING_GOODS\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 2-Pack Emergency Shelter Human Bivvy Sack, Lost in the Woods Survival Kit, Emergency, Wilderness Safety\nDescription: Be Prepared For Any Situation<br/><br/>Our Emergency Bivy Sack is a must-have for any outdoor adventure or bug-out bag. Keep it handy in case of emergencies or even pair it with your standard sleeping bag to increase insulation and warmth. The heavy duty, tear resistant material makes this bag perfect for any situation.<br/><br/>The most exceptional and noteworthy quality of the ASR Outdoor reusable thermal mylar bivvy sack is it’s extra thickness. At 40um’s, it’s almost double the thickness of most competitors, allowing it to prolong warmth, dryness to help your body maintain a normal body temperature. In addition, the emergency blanket sleeping bag will reflect back and retain 95% of your body heat, helping to regulate the circulatory system and to assist in preventing the body from entering a state of shock or hypothermia when caught in extreme weather conditions. <br/><br/>The ASR Outdoor Reusable Thermal Mylar Emergency Blanket Sleeping Bag is compact, lightweight and minimal in its design. Weighing just 5 ounces, the emergency blanket sleeping bag while designed to comfortably fit one single adult, rolls up to measure just six by six by three inches, making it easy to store, pack and travel with; a reusable drawstring storage travel bag is also included so you can neatly store it away when not in use.\nSearch Terms: lost in the woods campers mylar sleeping bag wilderness preparation survial guides outdoors camping hiking emergency bug out bag\nFeatures:\n- OUTDOOR SURVIVAL GEAR: Designed to comfortably fit a single adult, easily rolls up to measure just six by six by three inches making it easy to store and travel with when not in use; reusable drawstring storage travel bag is included\n- LIGHTWEIGHT AND COMPACT: Pack it away and not know you have it near in case of emergency; incredibly light weight at just 5.8 ounces and packing down to the size of a large fist\n- RELIABLE FIELD GEAR: Made from heavy duty tear and puncture resistant aluminized mylar material making it extremely reliable, durable and long last survival or emergency product; withstand the elements while surviving the unknown\n- RETAIN HEAT: The double sided interior of our mylar bivvy sack will reflect back up to 95% of your body heat for prolonged warmth and dryness, acts to help regulate the circulatory system and to assist in preventing the body from entering a state of shock or hypothermia\n- SPECIFICATIONS: Single person mylar bivvy sack is 84 x 36 inches; Weight: 5oz; Color: Orange; Thickness: 40um; Reusable drawstring storage travel bag included\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 2-Pack Orange Emergency Bivvy Sack",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "Orange",
+                "name": "Emergency Bivvy Sack"
+            },
+            "char_count": 46,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 2-Pk Emergency Bivvy Sack",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "Pk",
+                "size": "",
+                "color": "",
+                "name": "Emergency Bivvy Sack"
+            },
+            "char_count": 37,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Retains 95 Body Heat, 40Um Mylar, Tear Resistant, Lightweight 5Oz, Compact Storage Bag Included",
+            "char_count": 95,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "40Um Thick, Reflects 95 Percent Body Heat, Tear Resistant, Fits One Adult, Compact 5 Oz, Reusable Drawstring Bag",
+            "char_count": 112,
+            "validation_error": null
+        }
+    }
+}

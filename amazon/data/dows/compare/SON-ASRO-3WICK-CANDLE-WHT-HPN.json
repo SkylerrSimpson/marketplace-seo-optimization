@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ASRO-3WICK-CANDLE-WHT-HPN",
+    "asin": "B088PB6S74",
+    "product_type": "CANDLE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ASRO-3WICK-CANDLE-WHT-HPN\nProduct Type: CANDLE\nBrand (from catalog): TG,LLC\nExisting Title: TG,LLC Treasure Gurus 36 Hour Soy Camping Outdoor Survival Candle Emergency Rescue Gear Prepper Supplies\nDescription: Add this 36-hour candle to your survival supply and be ready for an emergency. Featuring 3 12-hour wicks, this camping candle features a palm wax bottom layer and a soy wax top layer that keeps this candle burning bright for up to three days. Make this survival candle part of your hiking, camping, doomsday prepper gear and use it in an emergency or use it for search and rescue. Give this survival candle as a gift to outdoor enthusiast friends and family members and get one for yourself to be prepared. 36-hour candle measures 3 1/4: in diameter, 2 3/8: tall, and ships brand new with our 100% customer satisfaction guarantee.\nSearch Terms: (none)\nFeatures:\n- Add this 36-hour candle to your survival supply and be ready for an emergency\n- Camping candle features 3 12-hour wicks, a palm wax bottom layer and a soy wax top layer\n- Make this survival candle part of your hiking, camping, doomsday prepper gear and use it for rescue\n- Give this survival candle as a gift to outdoor enthusiast friends and family members\n- 36-hour candle measures 3 1/4: in diameter, 2 3/8: tall, and ships brand new\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "TG,LLC 36-Hour White Survival Candle 3-Wick",
+            "tokens": {
+                "brand": "TG,LLC",
+                "pack_size": "36",
+                "pack_size_unit": "Hour",
+                "size": "",
+                "color": "White",
+                "name": "Survival Candle 3-Wick"
+            },
+            "char_count": 43,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "TG,LLC 36 Hour White Soy Survival Candle",
+            "tokens": {
+                "brand": "TG,LLC",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "36 Hour",
+                "color": "White",
+                "name": "Soy Survival Candle"
+            },
+            "char_count": 40,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "3 12-Hour Wicks, Soy And Palm Wax, Emergency Camping Gear, Hiking, Prepper Supplies, Search And Rescue",
+            "char_count": 102,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "3 Wicks, Palm Wax Base, Soy Wax Top, 36 Hour Burn Time, Emergency And Camping Use, Search And Rescue Ready",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

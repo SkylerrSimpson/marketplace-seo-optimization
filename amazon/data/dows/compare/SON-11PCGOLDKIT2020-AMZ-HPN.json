@@ -1,0 +1,60 @@
+{
+    "sku": "SON-11PCGOLDKIT2020-AMZ-HPN",
+    "asin": "B01CHB1Z6M",
+    "product_type": "MESS_KIT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-11PCGOLDKIT2020-AMZ-HPN\nProduct Type: MESS_KIT\nBrand (from catalog): Morocca\nExisting Title: 11 pc Prospecting-Mining-Panning Kit- 2- Classifiers 3 Gold Pans,+ MORE!!\nDescription: This Great 11 pc Mining Kit includes<br/><br/>. 1Pc Sifting Pan (Mesh Size: 1/2\", Wire Thickness: 1.4mm) Fits on a 5 Gallon Bucket<br/><br/>. 1Pc Sifting Pan (Mesh Size: 1/8\", Wire Thickness: 0.6mm) Fits on a 5 Gallon Bucket<br/><br/>. 1Pc 8\" Green Gold Pan, Dual Riffles<br/><br/>. 1Pc 10\" Green Gold Pan, Dual Riffles<br/>. 1Pc 14\" Green Gold Pan ,Dual Riffles<br/><br/>. 1Pc Tweezer With Magnifier w/Glass Lens, Stainless Steel<br/><br/>. 1Pc 5\" Plastic Snifter Bottle<br/><br/>. 1Pc Magnetic Separator Pick Up with Quick Release<br/><br/>. 1Pc 12\" Heavy Duty Plastic Body Prospector's Sand Scoop- Green Color<br/><br/>. 2 Pc Glass Vials\nSearch Terms: (none)\nFeatures:\n- Big 11 pc Mining Kit - Ready to help you get the GOLD!!!\n- 2 Large Screens 1/2\" & 1/8\" Stackable on a 5 Gallon Bucket\n- Large 14\", 10\" & 8\" Green Gold Pans\n- Gold Vial, Tweezers, Snuffer Bottle, Loupe & 12\" Scoop\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Morocca 11-pc Gold Panning Mining Kit",
+            "tokens": {
+                "brand": "Morocca",
+                "pack_size": "11",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Green",
+                "name": "Gold Panning Mining Kit"
+            },
+            "char_count": 37,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Morocca 11-pc Mining Panning Kit",
+            "tokens": {
+                "brand": "Morocca",
+                "pack_size": "11",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Mining Panning Kit"
+            },
+            "char_count": 32,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "2 Classifiers, 3 Gold Pans 8-14In, Tweezers, Magnetic Separator, Sand Scoop, Vials",
+            "char_count": 82,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "2 Stackable Classifiers For 5 Gallon Bucket, 3 Green Gold Pans 8-14 Inch, Vials, Tweezers, Snuffer Bottle, Magnetic Picker",
+            "char_count": 122,
+            "validation_error": null
+        }
+    }
+}

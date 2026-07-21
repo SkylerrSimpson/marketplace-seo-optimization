@@ -1,0 +1,60 @@
+{
+    "sku": "DOY-ASRT-TTNMKEYRING-10PK",
+    "asin": "B09HLG5211",
+    "product_type": "KEYCHAIN",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DOY-ASRT-TTNMKEYRING-10PK\nProduct Type: KEYCHAIN\nBrand (from catalog): ASR Tactical\nExisting Title: ASR Tactical 10 Pack Titanium Key Ring Ultralight Non-Metallic Keychain EDC Gear\nDescription: This set of 1 inch titanium split rings from ASR Tactical are inspired by the every day carry syndicate that like lightweight, durable and ever lasting quality in a low profile, fashionable design, and these Titanium Key Rings do just that. <br/><br/>Milled from solid grade 5 titanium and left as a unpolished matte finish. The fabrication of these 10 pack split rings in titanium will stand up to years of extensive wear and tear; naturally resistant to rust and corrosion, making them ideal for camping, hiking, hunting and other outdoor excursions and increasing their overall resilience. <br/><br/>Incredibly durable and strong, our titanium split rings will ensure keys, EDC gear and other important items remain organized, secure and all in one place. The split key ring is notably rigid, ensuring keys or other items will not slide off or become separated. <br/><br/>The key rings are incredibly light with one key ring weighing in at just 0.01 ounces. Slim and compact, the titanium split rings haven an outer diameter of 1 inch or 25mm<br/><br/>Never worry about losing your keys again with the ASR Tactical titanium key rings.\nSearch Terms: titanium split key ring handcuff keys carabiner camping hiking backpacking outdoors sports tactical gear EDC compact design keychain silver car accessories office supplies accessory organization multitools cat dog collar handbag organizer holder\nFeatures:\n- 10 PACK TITANIUM KEY RINGS: This set of ten flat titanium split rings is versatile and ultra lightweight, one single titanium key ring weighs just 0.01 ounces\n- QUALITY TITANIUM FABRICATION: Milled from grade 5 solid titanium, the split key rings are incredibly strong standing up to years of wear and tear; titanium is also naturally resistant to rust and corrosion, increasing its resilience\n- COMPACT KEY RING DESIGN: Slim and compact, the titanium split rings feature a outer diameter of 1 inch (25mm)\n- VERSATILE SPLIT RING USES: Great for pet collars, interior or exterior bag attachments, EDC gear, tactical gear, membership cards, multi-tools, belt loop attachments and more\n- SPECIFICATIONS: Color: Silver; Finish: Matte; Weight: 0.01 ounces; Dimensions: 1 inch; Sold as a pack of ten (10)\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 80 characters.  Please include the size and color of the item in the Product Name, if available.\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 10-pk Silver Titanium Split Key Ring",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "10",
+                "pack_size_unit": "pk",
+                "size": "1 inch",
+                "color": "Silver",
+                "name": "Titanium Split Key Ring"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 10-Pk 1 In Silver Titanium Key Rings",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "10",
+                "pack_size_unit": "pk",
+                "size": "1 In",
+                "color": "Silver",
+                "name": "Titanium Key Rings"
+            },
+            "char_count": 49,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Grade 5 Titanium, Ultralight EDC, Rust Resistant, Compact 1 Inch Design, Durable Outdoor Gear",
+            "char_count": 93,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Grade 5 Solid Titanium, Rust And Corrosion Resistant, Matte Finish, Ultra Lightweight, Split Ring Security",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

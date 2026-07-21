@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ROTARY-TOOL-KIT-RA9276",
+    "asin": "B07KPW5N9L",
+    "product_type": "ROTARY_TOOL",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ROTARY-TOOL-KIT-RA9276\nProduct Type: ROTARY_TOOL\nBrand (from catalog): Universal Tool\nExisting Title: Universal Tool 276 Pc Rotary Tool Accessories Kit with Revolving Stand\nDescription: The Universal Tool 276 Pc Rotary Tool Accessories Kit on Revolving Stand is ideal for a variety of uses, including cutting, grinding, polishing, drilling, carving, sanding, and more on different surfaces. The accessories are great for detailed work, such as shaping and cleaning. You can keep these accessories stored and organized in the revolving stand. There is a variety of diamond burrs, grindstones, grinding wheels, and more.<br/><br/>This Rotary Tool Accessories Kit (276 PC.) includes:<br/>-52 PC. Sand belts<br/>-8 PC. Felt wheels<br/>-1 PC. Felt bullet<br/>-2 PC. Rubber polishing wheels<br/>-3 PC. Sand Drums<br/>-3 PC. Cylindrical diamond burrs<br/>-1 PC. Knob cylindrical diamond burr<br/>-2 PC. Ball diamond burr<br/>-1 PC. Flame diamond burr<br/>-1 PC. Cone diamond burr<br/>-1 PC. Inverted Cone diamond burr<br/>-1 PC. Flathead diamond burr<br/>-1 PC. Pointed diamond burr<br/>-1 PC. Wire loop diamond burr<br/>-2 PC. Diamond cutting disc<br/>-9 PC. Precision drills<br/>-3 PC. Collets<br/>-6 PC. Aluminum Oxide grindstones<br/>-4 PC. Silicon carbide grindstones<br/>-3 PC. Pp brushes<br/>-3 PC. Steel brushes<br/>-1 PC. Brass Brush<br/>-12 PC. Aluminum Oxide grinding wheels<br/>-6 PC. Silicon carbide grinding wheels<br/>-6 PC. Rubber polishing tips<br/>-80 PC. Sandpaper<br/>-36 PC. Resin cutting disc<br/>-1 PC. Polishing Paste<br/>-1 PC. Grindstone<br/>-2 PC. Mandrel<br/>-1 PC. Expanding Mandrel<br/>-1 PC. Wrench<br/>-16 PC. Fiberglass reinforced cutting disc<br/>-4 PC. Flap wheel<br/>-1 PC. Adhesive sandpaper fixture\nSearch Terms: Accessory kit sand belts felt wheels bullet diamond burr\nFeatures:\n- KIT - This kit includes 276 assorted accessories\n- EASY TO STORE - The accessories come in a convenient revolving stand for storage\n- DIAMETER - The shank has a 1/8\" diameter.\n- STACKABLE - The pieces in the kit are stackable\n- MANY USES - This item is great for home improvement, hobby, craft, and more.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 276-Pc Rotary Tool Accessories Kit",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "276",
+                "pack_size_unit": "Pc",
+                "size": "",
+                "color": "",
+                "name": "Rotary Tool Accessories Kit"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 276-Pc Rotary Tool Accessories Kit",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "276",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Rotary Tool Accessories Kit"
+            },
+            "char_count": 49,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "276 Pieces, Diamond Burrs, Grinding Wheels, Sand Belts, Revolving Stand, 18 Inch Shank",
+            "char_count": 86,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "276 Pc Assorted Accessories, Revolving Storage Stand, 18\" Shank, Cutting Grinding Sanding Polishing Drilling",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

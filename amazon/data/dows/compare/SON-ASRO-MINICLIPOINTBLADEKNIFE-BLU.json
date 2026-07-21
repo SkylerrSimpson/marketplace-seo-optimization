@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ASRO-MINICLIPOINTBLADEKNIFE-BLU",
+    "asin": "B0F2BD18NQ",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ASRO-MINICLIPOINTBLADEKNIFE-BLU\nProduct Type: KNIFE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 6.25 Inch 440 Stainless Steel Mini Clip Point Fixed Blade Pocket Knife (2 Colors) (Blue)\nDescription: Compact yet durable, this 6.25 inch Mini Clip Point Fixed Blade Pocket Knife from ASR Outdoor is the perfect on the go companion for every day carry or outdoor excursions. Whether you're camping, hiking, hunting, or just need a dependable EDC gear knife, this mini fixed blade pocket knife delivers high performance in a compact form.<br/><br/>Mini pocket knife features a three inch partial tang blade, a short quillon and plastic handle. The pocket knife boasts a classic clip point design, where fixed blade leads to a thin and sharp tip. And, crafted from 440 stainless steel, the blade boasts excellent sharpness and corrosion resistance. The clip point design offers precision control and versatility, making it ideal for tasks like slicing, cutting, and piercing, even through tough materials.<br/><br/>Available in two handle colors, blue or brown, the ergonomically designed handle provides a secure grip, enhancing comfort during use, while the small size ensures it fits easily into your pocket or gear without weighing you down.<br/><br/>For convenience, the mini fixed blade knife comes with faux leather sheath with snap closure, to keep blade secure and out of harm’s way when not in use.<br/><br/> Weight: 0.06lbs<br/><br/>Blade Length: 3.0 inches<br/><br/>Full Length: 6.25 inches\nSearch Terms: Pocket knife; every day carry for men; utility knife; edc camping hiking outdoor gear; gifts for men; camping essentials; survival kit; knife with sheath; mini pocket knife; fixed blade knife; self defense; emergency supplies\nFeatures:\n- MINI FIXED BLADE KNIFE: Mini pocket knife features a three inch partial tang blade, a short quillon and plastic handle; ideal to include with general outdoor, hunting, camping or hiking gear where piercing, cutting tasks and smaller detail work are involved\n- CLIP POINT BLADE: Features classic clip point design, where fixed blade leads to a thin and sharp tip; mini pocket knife fixed blade is made from reliable 440 stainless steel, designed to be rust and corrosion resistant with excellent edge retention\n- KNIFE WITH SHEATH: For convenience, the mini fixed blade knife comes with faux leather sheath with snap closure, to keep blade secure and out of harms way when not in use\n- LIGHTWEIGHT DESIGN: Mini pocket knife is very lightweight, weighing in at just 0.06lbs, making for easy handling and weightless carrying, adding virtually no weight or bulk to gear or if carried on person\n- SPECIFICATIONS: 6.5 x 1.5 x 0.25 inches; Weight: 0.06lb; Available in two colors (brown or blue)\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 6.25 Inch Blue Mini Clip Point Fixed Blade Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "6.25",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "Blue",
+                "name": "Mini Clip Point Fixed Blade Knife"
+            },
+            "char_count": 60,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 6.25-in Blue Mini Clip Point Fixed Blade Pocket Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "6.25",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Blue",
+                "name": "Mini Clip Point Fixed Blade Pocket Knife"
+            },
+            "char_count": 65,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "440 Stainless Steel, 3 Inch Blade, Lightweight EDC, Includes Leather Sheath, Camping And Hiking Gear",
+            "char_count": 100,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "440 Stainless Steel, Clip Point Tip, Faux Leather Sheath, Lightweight 006 Lbs, Compact EDC Carry, Camping And Hiking",
+            "char_count": 116,
+            "validation_error": null
+        }
+    }
+}

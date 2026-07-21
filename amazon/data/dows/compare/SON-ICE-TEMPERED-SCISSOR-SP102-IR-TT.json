@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ICE-TEMPERED-SCISSOR-SP102-IR-TT",
+    "asin": "B0B57MV8SW",
+    "product_type": "SCISSORS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ICE-TEMPERED-SCISSOR-SP102-IR-TT\nProduct Type: SCISSORS\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Tempered Stainless Steel Barber Scissors Hair Cut Shears - 5.5 Inch\nDescription: The ToolTreaux barber's scissors are designed for both professional and personal use. They feature precision blades that will provide a long-lasting cutting edge that will not damage or cause split ends if used properly.<br/><br/>These shears are made of ice-tempered stainless steel that is corrosion resistant so you can count on them to work whether cutting wet or dry hair. Both lightweight and compact, they will easily fit in your pocket, apron, or backpack. They come with a convenient PVC storage pouch to protect them when not in use.<br/><br/>Our scissors feature an ergonomic finger rest to protect your hand during hair cutting. Measuring 5.5\" in length, these scissors are the ideal size for use in barber shops, hair salons, and at-home hair trimming.<br/><br/>Although these scissors were designed for cutting and trimming hair, they can also be used for pet grooming, trimming mustaches and beards, and even pet fur. To keep the blades sharp, we suggest you don't use them with paper, fabric, or other crafting materials.\nSearch Terms: barber scissors barber supplies clippers accessories shears razor shaver hair cutting scissors clippers for hair cutting shears thinning shears hair scissors professional salon hair scissors dog grooming scissors for hair grooming scissors for dogs\nFeatures:\n- PROFESSIONAL BARBER'S SCISSORS - ToolTreaux hairdressing scissors are designed for both professional and personal use. Precision blades provide a long-lasting cutting edge that will not damage hair or cause split ends.\n- DURABLE CONSTRUCTION - Shears are ice-tempered stainless steel that won't rust. Lightweight and compact, they fit easily in your backpack, pocket, or apron. Comes with a PVC carry pouch for convenient storage when not in use.\n- COMFORTABLE DESIGN - Scissors come with an ergonomic finger rest to protect your hand during cutting. Measures 5.5\" in length, ideal size for barber shops, salons, and home bathroom storage.\n- VERSATILE SHEARS - Although designed for cutting and trimming hair, professional hair cutting scissors can also be used for pet grooming, trimming beards, mustaches, and fur. To keep the blades sharp, not suggested for use with paper, fabric, or other crafting materials.\n- SPECIFICATIONS - Material: ice-tempered stainless steel, corrosion-resistant; Dimensions: 5.5\" x 2.07\" x .3\"; Finger rest included; Color: chrome; For professional and personal use\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 5.5 Inch Chrome Tempered Stainless Steel Barber Scissors",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "5.5 Inch",
+                "color": "Chrome",
+                "name": "Tempered Stainless Steel Barber Scissors"
+            },
+            "char_count": 67,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 5.5 in Chrome Hair Cutting Scissors",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "5.5 in",
+                "color": "Chrome",
+                "name": "Hair Cutting Scissors"
+            },
+            "char_count": 46,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Ice-Tempered Stainless Steel, Professional Precision Blades, Ergonomic Finger Rest, Includes PVC Pouch",
+            "char_count": 102,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Ice-Tempered Stainless Steel, Ergonomic Finger Rest, PVC Pouch, Rust Resistant, Wet And Dry Hair, Salon And Pet Use",
+            "char_count": 115,
+            "validation_error": null
+        }
+    }
+}

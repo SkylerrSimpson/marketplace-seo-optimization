@@ -1,0 +1,60 @@
+{
+    "sku": "SHM-ATNMCRB-SML-BLCK-2PK-FBA",
+    "asin": "B09H6PT6R8",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SHM-ATNMCRB-SML-BLCK-2PK-FBA\nProduct Type: KNIFE\nBrand (from catalog): ASR Tactical\nExisting Title: ASR Tactical 2 Pack Non-Metallic Ceramic Razor Blade (Wear-Resistant Non-Dulling)\nDescription: The ASR Tactical Non-Metallic Zirconia Ceramic Razor Blade was designed as a low profile, tactical knife that has been adopted for every day carry as it is easily carried without any added bulk. There have been many versions of this ceramic razor blade over time but this latest version, the ASRT-CRB is to date the one you want. It is constructed from zirconia ceramic, which is very sharp, wear resistant and non-dulling; this non-metallic knife will continue to stay sharp and cut well with continued use. It has a lifespan that is greatly increased over older versions due to advances in ceramic materials technologies.  <br/><br/> The main cutting surface of the razor blade features a chisel-grind edge that gives you a much more acute angle than a double-sided grind. It will cut better and hold its edge longer, which is what you want a knife to do when cutting rope, zip ties or duct tape.  <br/><br/> A built in lanyard hole provides a means for this micro escape knife to be sewn into clothing, attached to your belt, waistline, tactical gear or shirt using natural kevlar thread. In total, this non metal knife is smaller than a American quarter and can prove to be life saving when needed in emergency survival situations. Widely used as a component to edc tactical gear and SERE kits this ceramic razor blade is a must.  <br/><br/> Overall size 1.25\" x 0.4\" (30mm x 10mm); Thickness: 0.028\" (0.7mm); Weight: 0.017 oz.\nSearch Terms: prepper survivalist minimal edc inch blade knife razor's cutter multipurpose multitool rasor scalpel shavers sharpest little small non metal cutting handle handcuffs safety scraping hide out urban bug out bag tactical gear\nFeatures:\n- CERAMIC RAZOR BLADE: Totally non-metallic, made from Zirconia ceramic, a super hard material that is extremely wear-resistant and non dulling\n- ENHANCED ESCAPE KNIFE: The fixed blade ceramic razor features a chisel-grind edge with a small lanyard hole allowing it to be sewn into clothing or attached via kevlar thread to your belt or gear\n- SERE AND SURVIVAL KIT: The Ceramic Razor Blade is made small enough to be discreetly secured on your person; ideal for tactical escape and evasion edc gear\n- SURVIVAL KNIFE: Created for rapid removal of ropes, tape, flex-cuffs\n- SPECIFICATIONS: Overall Size 1.25\" x 0.4\" (30mm x 10mm); Thickness: 0.028\" (0.7mm); Weight: 0.017 oz.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 2-Pack Black Non-Metallic Ceramic Razor Blade",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "2",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "Black",
+                "name": "Non-Metallic Ceramic Razor Blade"
+            },
+            "char_count": 58,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 2-Pk Non-Metallic Ceramic Razor Blade",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "2",
+                "pack_size_unit": "Pk",
+                "size": "",
+                "color": "Black",
+                "name": "Ceramic Razor Blade"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Zirconia Ceramic, Wear-Resistant Non-Dulling, Chisel-Grind Edge, Tactical EDC, Survival Knife, Lanyard Hole",
+            "char_count": 107,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Zirconia Ceramic, Non-Dulling Edge, Chisel Grind, Lanyard Hole, EDC Escape Knife, Cuts Rope And Tape",
+            "char_count": 100,
+            "validation_error": null
+        }
+    }
+}

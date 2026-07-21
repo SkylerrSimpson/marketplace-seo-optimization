@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-FROZEN-STATIONERY-710331FZ2-HPNR",
+    "asin": "B09CF3P49J",
+    "product_type": "OUTDOOR_RECREATION_PRODUCT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-FROZEN-STATIONERY-710331FZ2-HPNR\nProduct Type: OUTDOOR_RECREATION_PRODUCT\nBrand (from catalog): Innovative Designs\nExisting Title: Innovative Designs, LLC Frozen School Supplies Set - Back To School Bundle Pack with Notebook, Folders, Pad, Pouch, Marker, Pencil, Eraser, Ruler and Sharpener, 11 Piece Disney Princess Stationary Set\nDescription: Start their first day of school enthusiastic with Frozen's set of school supplies. Attractive prints of the beloved movie's characters such as Elsa, Anna, and Olaf are featured in the Disney stationary set to get kids excited to study and write. These favorite characters would inspire them to write, study, or draw. Princess art supplies and writing supplies for girls inspire them and takes off some items from the list of things they need for school. The Frozen stationery set is for all little kids who love watching Frozen and especially loves Princess Anna and Queen Elsa. This school stationery set will make your little one happy and excited as each piece features Disney frozen artwork characters like Anna, Elsa, and Olaf. A boys and girls school supply set to add to their Disney-themed school stuff. Your little princess would be thrilled to get back to school with the Frozen School Supply Set. The Disney princess school supplies bundle pack has all they need for their first day of school and also can be gifted as an attractive stationery gift set for kids to motivate them to be creative and study. Girls and boys school supplies like Disney's Frozen school stationery set are made with durable, excellent quality materials for your little one's first day of school. Great quality school supplies add on to gift to children as awesome party goody bags pencil set favors on kids events, holiday gifts, and special occasions. The Disney stationary set includes 2 Portfolio folders, 1 Frozen notebook, 2 Mini Markers, 1 Memo Pad, 1 Eraser, 1 Disney Pencil Sharpener, 1 Ruler (6-inch), 1 Disney Frozen Pencil Case, 1 Mechanical Pencil. All basic items any kindergartner, preschooler, or elementary level kid might need is in this stationary set Disney. The 2 portfolio folders measure 12Lx9W inches while the 40-sheet notebook measures 10.5Lx8W inches—handy sizes for kids. Recommended for kids age 3 and above.\nSearch Terms: stationery notes spiral writing learning school supplies accessories disney anna else ana ruler\nFeatures:\n- THE FROZEN DISNEY SCHOOL SUPPLIES COMES WITH A UNIQUE DESIGN YOU WILL LOVE – Your little princess would be thrilled to get back to school with the Frozen School Supply Set! The Disney princess school supplies bundle pack has all they need for their first day of school and also can be a great gift and cool stationery gift set for kids to motivate them to be creative and study.\n- THE FROZEN SCHOOL SUPPLIES FOR GIRLS IS FOR LITTLE FROZEN AND DISNEY PRINCESS FANS – The Frozen stationery set is for all little kids who love watching Frozen and especially loves Princess Anna and Queen Elsa. This school stationery set will make your little one happy and excited as each piece features Disney frozen artwork characters like Anna, Elsa, and Olaf. A boys and girls school supply set to add to their Disney-themed school collection.\n- INCLUDED WITH THE PURCHASE OF FROZEN SCHOOL SUPPLY SET FOR GIRLS AND BOYS - The Disney stationary set includes 2 Portfolio folders, 1 Frozen notebook, 2 Mini Markers, 1 Memo Pad, 1 Eraser, 1 Disney Pencil Sharpener, 1 Ruler (6-inch), 1 Disney Frozen Pencil Case, 1 Mechanical Pencil. The 2 portfolio folders measure 12Lx9W inches while the 40-sheet notebook measures 10.5Lx8W inches—handy sizes for kids. Recommended for kids age 3 and above.\n- HIGH-QUALITY FROZEN STATIONERY SET – Disney Frozen school stationery set are made with durable, excellent quality materials for your little one's first day of school. Premium quality school supplies add on gift to children as awesome party favors goody bags pencil set for kids events, holiday gifts, and special occasions. All basic items any kindergartner, preschooler, or elementary level kid might need is in this Disney stationary set.\n- IDEAL USE FOR DISNEY FROZEN 11-PIECE SCHOOL STATIONARY SET – Start their first day of school enthusiastic with Frozen set of school supplies. Attractive prints of the beloved movie's characters such as Elsa, Anna, and Olaf are featured in the Disney stationary set to get kids excited to study and write. Princess art supplies and writing supplies for girls inspire kids and get them excited about doing their homework and school activities.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Innovative Designs Frozen 11-Piece School Supplies Set",
+            "tokens": {
+                "brand": "Innovative Designs",
+                "pack_size": "11",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "",
+                "name": "Frozen School Supplies Set"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Innovative Designs 11-Piece Frozen School Supply Set",
+            "tokens": {
+                "brand": "Innovative Designs",
+                "pack_size": "11",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "",
+                "name": "Frozen School Supply Set"
+            },
+            "char_count": 52,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Disney Princess Stationery Bundle, Notebook, Folders, Pencil Case, Markers, Ruler, Back To School",
+            "char_count": 97,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Disney Frozen Character Art, 11 Piece School Kit, Notebook Folders Pouch, Markers Pencil Ruler Sharpener",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

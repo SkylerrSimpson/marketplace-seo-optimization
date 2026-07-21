@@ -1,0 +1,60 @@
+{
+    "sku": "NPT-ATP30AWHAPBF-XL-PARENT",
+    "asin": "B087M6DVQ2",
+    "product_type": "AXE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: NPT-ATP30AWHAPBF-XL-PARENT\nProduct Type: AXE\nBrand (from catalog): ASR Tactical\nExisting Title: ASR Tactical Axe Hammer G10 Handle Pry Bar 30 Inch Length Combo Tool (2 Colors)\nDescription: Be unstoppable whether you're camping, cutting wood or hammering with the ASR Tactical Deluxe Hammer Axe Pry Bar Multi-tool. This beast of a combo tool is double-sided with an axe on one side of the head and a hammer on the other so you can count on it to get the job done. Also known as an axe/hatchet, these multi-function tools are great for driving nails, splitting wood for a fire, pushing in tent stakes or just about any campground chore. In addition to these essential outdoor tools, the axe also features a pry bar that is ideal for removing nails or forcing two objects apart as well as acting as a strong lever in a pinch. <br/><br/>What sets this Axe Hammer apart is its gargantuan size - it measures 30\" in length so it will split the toughest of wood or pound the largest of nails. It weighs just under 6 pounds so although we can't recommend it for backpacking, this is a great tool to bring with you when car-camping. It can even double as a self-defense tool in an emergency.<br/><br/>Constructed of durable, high-quality black stainless steel that won't rust, the Axe Hammer can be used rain or shine. It features a G10 handle that is built using high-pressure on layers of fiberglass mesh cloth that are combined with an epoxy resin binder to ensure durability. G10 is a favorite thermoset plastic laminate among knife and gun handle manufacturers due to its aforementioned properties.<br/><br/>Lastly this mammoth of a tool comes with a sturdy nylon sheath to protect the axe blade when not in use. The blade itself measures about 9\" and the hammer head is about 2\" in length. Due to its size and quality construction, this tool also makes for a great addition to any blade collector's display. This is a must-have multi-tool for campers and blade enthusiasts alike.<br/><br/>Colors Available: Black or Grey\nSearch Terms: hammer axe camping and nail puller tool hardcore hatchet hammeraxe war multitool hiking multi-tool wood chopping\nFeatures:\n- MULTI-FUNCTION TOOL - ASR Tactical Dual-head Tool Comes with Axe and Hammer for Camping, Cutting Wood, Driving Tent Stakes and Nails | Pry Bar Removes Nails, Forces Objects Apart and Acts as Lever\n- GARGANTUAN SIZE - Axe Hammer Measures 30\" in length with 9\" Axe Blade and 2\" Hammer Head | Weighs 5.9lbs | Great for Camping or Display in Blade Collection\n- G10 HANDLE - Handle Made of G10 Thermoset Plastic Laminate with Epoxy Resin Binder to Ensure Durability | Preferred Material of KNife and Gun Handle Manufacturers\n- STAINLESS STEEL CONSTRUCTION - Full Tang Hammer Head and Axe Made of High-quality Black Stainless Steel that won't Rust | Ideal for Use Rain or Shine\n- NYLON SHEATH - Comes with Sturdy Black Nylong Sheath with Snap Buckles to Protect Blade When Not in Use | Easily Store in Car, Trunk, Garage or Workshop\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 30in Axe Hammer Pry Bar Multi-Tool",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "30",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Axe Hammer Pry Bar Multi-Tool"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 30-in Axe Hammer Pry Bar Combo Tool",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "30",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Axe Hammer Pry Bar Combo Tool"
+            },
+            "char_count": 48,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Dual-Head Axe And Hammer, G10 Handle, Stainless Steel, Pry Bar, Nylon Sheath, Camping And Wood Splitting",
+            "char_count": 104,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "G10 Handle, Stainless Steel Construction, 9\" Axe Blade, 2\" Hammer Face, Nylon Sheath, Rust Resistant, 59 Lb",
+            "char_count": 107,
+            "validation_error": null
+        }
+    }
+}

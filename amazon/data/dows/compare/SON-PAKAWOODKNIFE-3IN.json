@@ -1,0 +1,60 @@
+{
+    "sku": "SON-PAKAWOODKNIFE-3IN",
+    "asin": "B078T4C36X",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-PAKAWOODKNIFE-3IN\nProduct Type: KNIFE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Classic Camping Folding Pocket Knife Paka Wood Inlay, 7.5 inches\nDescription: Be prepared on the go with the ASR Outdoor Paka Wood Pocket Knife. Don't get caught at your campsite without a sturdy blade to whittle a stick.<br/><br/>This beautiful paka wood inlay pocket knife is 4.25\" in length folded, and once unfolded it measures 7.5\" in length. The drop point blade itself is constructed of durable 440 stainless steel and is 3\" in overall length long. The handle features a deep paka wood inlay that gives this folding pocket knife a classic look, while easily folding closed for safety when not in use simply by pressing down on the lock back safety mechanism. <br/><br/>Simple, reliable nad always handy when you need it. The ASR Outdoor Folding Pocket Knife is a true outdoors men's knfie.\nSearch Terms: folding camping knives gift for men traditional first boy scout knife for him durable lightweight carrying compact convenient easy carry gift fold away store hunting hiking pocket knives tools\nFeatures:\n- WOOD INLAY FOLDING POCKET KNIFE: ASR Outdoor Wood Inlay Classic Folding Pocket Knife with Paka Wood\n- POCKET KNIFE SPECIFICATIONS: Overall Length: 7.5 inches; Folded Length: 4.25 inches; Blade Length: 3 inches\n- DURABLE AND RELIABLE: Made from 440 stainless steel with a 3 inch clip point blade this is a true campers pocket knife; great gift for young, beginner family camping\n- SAFETY LOCK BACK MECHANISM: Pocket knife folds closed for safety when not in use simply by pressing down on the lock back safety mechanism\n- PACKAGE INCLUDES: Nylon Storage Pouch with Belt Loop\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 7.5in Paka Wood Folding Pocket Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "7.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Paka Wood",
+                "name": "Folding Pocket Knife"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Paka Wood Folding Pocket Knife 7.5 In",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "7.5 In",
+                "color": "Paka Wood",
+                "name": "Folding Pocket Knife"
+            },
+            "char_count": 49,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "3In 440 Stainless Steel Blade, Lock Back Safety, Compact 425In Folded, Includes Nylon Pouch",
+            "char_count": 91,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "440 Stainless Steel, 3 Inch Drop Point Blade, Lock Back Safety, Nylon Pouch, Belt Loop, Compact 425 Inch Folded",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

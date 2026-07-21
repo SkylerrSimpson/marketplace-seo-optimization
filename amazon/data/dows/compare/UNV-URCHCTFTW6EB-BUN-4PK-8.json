@@ -1,0 +1,60 @@
+{
+    "sku": "UNV-URCHCTFTW6EB-BUN-4PK-8",
+    "asin": "B0731K6Y17",
+    "product_type": "HAIR_COMB",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UNV-URCHCTFTW6EB-BUN-4PK-8\nProduct Type: HAIR_COMB\nBrand (from catalog): Universal Tool\nExisting Title: (4 Pack) Unisex Razor Comb Home Hair Cut Scissor with 6 Bonus Replacement Razors\nDescription: Save time and money with the double-sided Unisex Razor Comb Hair Cutting and Trimming Tool. No trip to the barber or hairstylist is needed for the best hair style and great appearances when you have this handy comb around your house. Help your hair breath with healthier hair locks and split ends. You'll enjoy healthy hair with the dual function razor comb for thin and thick hair cutting, trimming and styling.<br/><br/>If you're looking for a razor that specializes in cutting angles or very specialized fringes, this is the razor for you. The double-sided Razor Comb will allow you to cut your hair as you comb it. It can be used to shape, style, shave, trim, thin and taper your hair. The razor comb is ideal for unwanted facial hair and is a great option for both men and women, alike. It can be used to thin beards and mustaches and can reach places that are hard to reach. And if your thinking about using this for a Pet comb it can work great for thinning long matted dog and cat hair.<br/><br/>Easy and convenient to use at home, the razor comb features 2 edges and a regular comb on the other end. If the blades begin to dull, the included bonus razors will come in handy to replace and reuse with the razor comb. The replacement blades are standard double-sided razor blades so there is no worry to pay for expensive name brand replacement cartridges. Always use a fresh razor blade for best results.<br/><br/>If you have thin hair, use the fine teeth side. If you have thick hair, use the wide teeth side. Each side of the double sided razor comb can be used for different lengths of hair including medium hair, light hair, short hair, and extra short hair.<br/><br/>Tips on the back of the packaging: Razor comb works best when hair is lightly wet. Once wet, comb first before using the cutting razor side. Use proper side of razor comb for your desired hair length, proceed to comb hair with razor, going slow to start\nSearch Terms: Hair Finishing Trimmers cutting combs hair razor clippers home cut pet cutting razor comb thin trimming shears short hairstyle coat matting removal tool professional supply barber beauty personal care styling matted pet remover\nFeatures:\n- 4 Cutting Lengths: Extra Short Hair, Short Hair, Medium Hair, Light Hair\n- Color: Red or Blue (Shipped at Random)\n- Each of the 4 units include 6 Bonus Replacement Razors\n- Size: 8\"\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 4-Pack 8\" Razor Comb Hair Cutting Tool",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "4",
+                "pack_size_unit": "Pack",
+                "size": "8\"",
+                "color": "",
+                "name": "Razor Comb Hair Cutting Tool"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 4-pk 8in Razor Comb",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "8in",
+                "color": "",
+                "name": "Razor Comb"
+            },
+            "char_count": 34,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Double-Sided Blades, 6 Bonus Replacement Razors, Thin And Thick Hair, Home Haircut, Barber Quality",
+            "char_count": 98,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "4 Pack, 6 Bonus Blades Each, Double Sided, Fine And Wide Teeth, Home Hair Cutting, Beard And Pet Grooming",
+            "char_count": 105,
+            "validation_error": null
+        }
+    }
+}

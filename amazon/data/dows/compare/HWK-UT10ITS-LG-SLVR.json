@@ -1,0 +1,60 @@
+{
+    "sku": "HWK-UT10ITS-LG-SLVR",
+    "asin": "B00G07OEIQ",
+    "product_type": "SCISSORS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWK-UT10ITS-LG-SLVR\nProduct Type: SCISSORS\nBrand (from catalog): Universal Tool\nExisting Title: Universal Tool 10 Inch Tailors Shears Stainless Steel Heavy Duty Craft Fabric Scissors\nDescription: The Universal Tool 10 inch Tailor's Shears are a great addition to any craft supply collection. Each shear is constructed of durable stainless steel, and feature molded handles for added comfort.<br/><br/>These tailor's shears have straight blades, which will ensure your cuts are as accurate as possible. Since these scissors are heavy duty stainless steel, they will ensure that you wont end up undoing all of your hard work with inferior equipment. <br/><br/>The 10\" shears come in a plastic carrying case, which will allow you to protect them in between uses. Other uses include cutting solid, rigid fabrics like wool and denim. Grab a pair of these before your next sewing project, or gift them to your favorite crafter.\nSearch Terms: crafting sewing cutting fabric tailors seamstress shears tools stainless steel arts and crafts dress making art projects hobby heavy duty sewing supplies fabric cutting sharp scissors\nFeatures:\n- Overall Length: 10\"; Length of Shears: 6\"\n- Made in Pakistan\n- Heavy Duty Stainless Steel\n- Molded Handles for Ergonomic Grip\n- Super Sharp Straight Blades for Accurate Cuts\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 10 inch Tailor's Shears Stainless Steel",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "10",
+                "pack_size_unit": "inch",
+                "size": "",
+                "color": "",
+                "name": "Tailor's Shears Stainless Steel"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 10-in Tailors Shears Stainless Steel Scissors",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "10",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Tailors Shears Stainless Steel Scissors"
+            },
+            "char_count": 60,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Heavy Duty Stainless Steel, Ergonomic Molded Handles, Sharp Straight Blades, Fabric Cutting, Includes Carrying Case",
+            "char_count": 115,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Heavy Duty Construction, Molded Ergonomic Handles, Super Sharp Straight Blades, Protective Carry Case",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

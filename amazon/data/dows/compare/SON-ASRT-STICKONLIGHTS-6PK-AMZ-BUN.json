@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ASRT-STICKONLIGHTS-6PK-AMZ-BUN",
+    "asin": "B0FS87ZDFL",
+    "product_type": "FLASHLIGHT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ASRT-STICKONLIGHTS-6PK-AMZ-BUN\nProduct Type: FLASHLIGHT\nBrand (from catalog): ASR Tactical\nExisting Title: ASR Tactical 6pk Mini LED Stick On Lights with Magnetic or Adhesive Mount (0.5 x 1.0 inches)\nDescription: Mini Stick On LED Lights with Magnetic and Adhesive Backing: 50 Lumens Each, Compact Push Lights for Tactical Gear, Tool Boxes, Closets, RVs, Camping, and Emergency Lighting by ASR Tactical<br/><br/>Bring bright, versatile lighting to any dark space with our Mini LED Stick On Lights. Designed for ultimate convenience, each blister pack includes 6 compact LED lights using energy-efficient SMD LED technology, delivering a 50-lumen output per light for clear and reliable illumination.<br/><br/>Built to perform in rugged environments, these lights offer hassle-free operation with no wiring required. The magnetic base securely attaches to any metal surface, while the included adhesive backing lets you mount them to virtually any non-magnetic surface. Whether you're lighting up a glove box, toolbox, RV, boat, closet, or campsite, these lights provide practical illumination in tight or dark spaces where traditional lighting can't reach.<br/><br/>With a sleek black design that blends seamlessly into any setting, these Stick On Lights are a great addition to tactical gear, survival kits, emergency preparedness supplies, or everyday carry setups. Compact, efficient, and easy to install and use, these mini LED puck lights ensure you’ll always have light when and where you need it.\nSearch Terms: mini LED stick on lights, magnetic LED lights, adhesive LED lights, closet light, toolbox light, RV light, camping light, emergency light, LED puck lights, push lights, compact LED light, portable light, ASR Tactical lights\nFeatures:\n- COMPACT & POWERFUL - Each mini LED light delivers 50 lumens of bright, reliable illumination in a small 0.5 x 1.0 inch form factor.\n- VERSATILE MOUNTING OPTIONS - Includes both magnetic backing for metal surfaces and adhesive pads for mounting on non-metallic surfaces.\n- NO WIRING REQUIRED - Hassle-free, portable lighting solution ideal for use anywhere without the need for electrical installation.\n- MULTI-PURPOSE USE - Perfect for toolboxes, closets, glove compartments, RVs, boats, camping gear, and emergency kits.\n- DURABLE & LOW PROFILE DESIGN - Rugged black casing blends into any environment; built to perform in both indoor and outdoor settings.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 6-pk Mini LED Stick On Lights Black",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "6",
+                "pack_size_unit": "pk",
+                "size": "0.5 x 1.0 inches",
+                "color": "Black",
+                "name": "Mini LED Stick On Lights"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 6-pk Mini Black LED Stick On Lights",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "6",
+                "pack_size_unit": "pk",
+                "size": "Mini",
+                "color": "Black",
+                "name": "LED Stick On Lights"
+            },
+            "char_count": 48,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "50 Lumens Each, Magnetic And Adhesive Mount, No Wiring, Compact Push Lights, Tactical Gear And Emergency Use",
+            "char_count": 108,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "50 Lumen Each, Magnetic And Adhesive Mounts, No Wiring Required, Toolbox RV Closet Camping Emergency Use",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-AO20GPP-FBA",
+    "asin": "B00TRAC54S",
+    "product_type": "SHOVEL_SPADE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-AO20GPP-FBA\nProduct Type: SHOVEL_SPADE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Gold Panning Prospector’s Pick Axe Compact Folding Hand Shovel Tool\nDescription: The ASR Outdoor collapsible prospecting pick was designed to assist you while gold panning and mining. It conveniently collapses into 2 pieces for simple storage and packing when not in use. It comes with a sturdy black nylon carry pouch to protect the pick and handle in your backpack or travel bag.<br/><br/>This prospector’s pick is made of durable, high-quality 45HRC heat-treated steel that is corrosion resistant so you can count on it in unfavorable weather conditions. In addition to gold prospecting, this pick shovel is great for tough jobs like gardening, camping, beach combing, and treasure hunting.<br/><br/>The pick handle features a rubberized grip to ensure comfort and prevent slippage during use. The ergonomic handle will help protect your hands while digging and rockhounding.<br/><br/>This 2-in-1 shovel pick tool is a versatile outdoor and camping essential, featuring both a pick head and a shovel on the same headpiece. It features a locking collar and threaded shaft to ensure that the head is secured during use, and can be easily assembled or disassembled. <br/><br/>Gold prospecting is a great outdoor and camping activity for adults and kids alike. Make sure to take this handy multitool on your next gold panning or beach combing adventure and maybe you’ll strike it rich.\nSearch Terms: gold panning kit equipment pick camping ax shovel beach camping spade folding survival hand tactical gold rush metal detecting shovel accessories metal detector for adults camping accessories gear must haves essentials camping stuff outdoor\nFeatures:\n- COLLAPSIBLE PROSPECTOR’S PICK: ASR Outdoor gold prospecting pick conveniently collapses into 2 pieces for easy packing and storage when not in use. Comes with a sturdy nylon storage pouch to protect the pick in your backpack or travel bag\n- DURABLE CONSTRUCTION: Made of 45HRC heat-treated steel, the pick is corrosion-resistant and won’t rust; count on it out in the field rain or shine. Use it for tough jobs while gold panning, camping, gardening, or treasure hunting\n- RUBBERIZED HANDLE: Handle of the pick features a rubber grip to add comfort and help prevent slippage. Protect your hands while digging and rockhounding with an ergonomic rubberized grip handle\n- 2 IN 1 SHOVEL PICK TOOL: Versatile outdoor tool is a camping and hiking essential, featuring both a pick head and a shovel on the same head. The gold panning tool features a locking collar and threaded shaft to ensure the head is secured during use; easily assembled\n- SPECIFICATIONS: Shovel dimensions; 3.25” length, 2.5” wide; Overall assembled length: 17.5”; Collapsed length: 8.5”; Pick length: 5.5”; Material: Heat treated 45HRC; Handle material: rubber; Color; Black; Nylon storage pouch included\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Compact Folding Gold Panning Prospector Pick",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Compact",
+                "color": "Black",
+                "name": "Folding Gold Panning Prospector Pick"
+            },
+            "char_count": 56,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Folding Prospector's Pick Axe Shovel Tool",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Folding Prospector's Pick Axe Shovel Tool"
+            },
+            "char_count": 53,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "2-In-1 Pick And Shovel, Collapsible Design, Heat-Treated Steel, Rubberized Grip, Nylon Carry Pouch",
+            "char_count": 98,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Collapsible 2-In-1 Pick And Shovel, 45HRC Heat-Treated Steel, Rubber Grip, Nylon Pouch, Locking Collar",
+            "char_count": 102,
+            "validation_error": null
+        }
+    }
+}

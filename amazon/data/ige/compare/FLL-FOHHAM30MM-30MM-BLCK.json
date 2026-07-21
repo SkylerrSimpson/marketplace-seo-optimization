@@ -1,0 +1,60 @@
+{
+    "sku": "FLL-FOHHAM30MM-30MM-BLCK",
+    "asin": "B0916D5HL2",
+    "product_type": "AIMING_SCOPE_SIGHT",
+    "account": "IGE",
+    "generated_at": "2026-07-21T17:20:41+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: FLL-FOHHAM30MM-30MM-BLCK\nProduct Type: AIMING_SCOPE_SIGHT\nBrand (from catalog): Flatline-Ops\nExisting Title: Flatline-Ops 30mm Rifle Scope Mount ADI/ACI Ring System for Scopes\nDescription: Flatline-Ops 30mm Rifle Scope Mount ADI/ACI Ring System for Scopes Flatline Ops Scope Ring Accessory is a durable rugged mount that attaches an ADI/ACI to your scope. Easily attaching to your scope the Hitch Hiker will give the advantages of the ADI or ACI, taking the guessing out of uphill or downhill precision for long-range shooting. <br/><br/>This is a simple tool for hunters to use in mountainous terrain to obtain their distance to target, corrected for gravity. Make sure to grab one of these before your next hunting trip. <br/><br/>PLEASE NOTE: ACI/ADI is not included.\nSearch Terms: 30mm scope level 30 mm bubble level for rifle scope tube long range shooting competition precision shooting optics accessory hunting accessories\nFeatures:\n- Hitch-Hiker Mounting System Fits 30mm\n- Material: 6061-T6 Aircraft Aluminum\n- Finish: Black Hard Anodized\n- Hardware: Stainless Steel (Included)\n- Easily Attaches an ADI/ACI to Your Scope\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Flatline-Ops 30mm Black Rifle Scope Mount Ring System",
+            "tokens": {
+                "brand": "Flatline-Ops",
+                "pack_size": "30",
+                "pack_size_unit": "mm",
+                "size": "",
+                "color": "Black",
+                "name": "Rifle Scope Mount Ring System"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Flatline-Ops 30mm Black Rifle Scope Mount",
+            "tokens": {
+                "brand": "Flatline-Ops",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "30mm",
+                "color": "Black",
+                "name": "Rifle Scope Mount"
+            },
+            "char_count": 41,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Hitch-Hiker Mounting System, 6061-T6 Aircraft Aluminum, Hard Anodized, ADIACI Compatible, Long-Range Shooting",
+            "char_count": 109,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Fits 30Mm Scope Tubes - 6061-T6 Aircraft Aluminum - Hard Anodized Black - Stainless Steel Hardware - ADI-ACI Compatible",
+            "char_count": 119,
+            "validation_error": null
+        }
+    }
+}

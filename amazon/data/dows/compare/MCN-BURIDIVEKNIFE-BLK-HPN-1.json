@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-BURIDIVEKNIFE-BLK-HPN-1",
+    "asin": "B074YB4DP4",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-BURIDIVEKNIFE-BLK-HPN-1\nProduct Type: KNIFE\nBrand (from catalog): GEAR AID\nExisting Title: Gear Aid 62050 Buri Camp and Utility Knife with Drop Point Blade, Black\nDescription: Designed for avid outdoorsmen and women, the Buri delivers big cutting power in a compact form. Use this well-balanced utility knife to cut line, slice food, break glass, and open bottles. The full tang blade is ultra-strong and will not break under pressure. With multiple retention points, you can attach this knife and sheath virtually anywhere. Whether it’s your first camping trip or your annual hunting expedition, be ready with a camp knife at your fingertips.<br/><br/>Weighing less than 6 ounces, the Buri is a lightweight and versatile survival tool and camp knife. With its compact, razor-sharp and tough 3” titanium-coated blade the Buri can take on multiple jobs during one backcountry trip. Knife includes an acetal sheath and handle that comes in black or a high-vis orange, making it easily visible even in low light environments.<br/><br/>Gear Aid makes hard-working products that go the distance – glue that outlasts your boots, patches that never peel away, water repellents that work all-season, and portable electronics that give light and power for days. Gear Aid knives are built to last and designed to withstand the toughest outdoor adventures be it on land or in water.\nSearch Terms: camp knife gear aid fixed blade with sheath best camping buri\nFeatures:\n- TI-coated 3” blade with straight and serrated edges for cutting through multiple types of jobs\n- The full tang blade is made with 420 stainless steel to resist corrosion, and equipped with a bottle opener at the end\n- Quick-release sheath with removable belt clip attaches to backpacks, belts, and boots\n- Use a lanyard to tie the knife around your wrist, or the sheath around your neck to get fast access when you need it\n- 8” full tang knife weighs 5.2 oz and has a butt end glass breaker and MOLLE compatible sheath make it a great survival knife\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Gear Aid Buri Black Drop Point Camp Utility Knife",
+            "tokens": {
+                "brand": "Gear Aid",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "3 inch",
+                "color": "Black",
+                "name": "Buri Drop Point Camp Utility Knife"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Gear Aid Buri Camp And Utility Knife Black",
+            "tokens": {
+                "brand": "Gear Aid",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Buri Camp And Utility Knife"
+            },
+            "char_count": 42,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Full Tang 420 Stainless Steel, Titanium Coated, Glass Breaker, Bottle Opener, MOLLE Sheath, 52Oz",
+            "char_count": 96,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Ti-Coated 3\" Full Tang Blade, Straight And Serrated Edges, Bottle Opener, Glass Breaker, MOLLE Sheath",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

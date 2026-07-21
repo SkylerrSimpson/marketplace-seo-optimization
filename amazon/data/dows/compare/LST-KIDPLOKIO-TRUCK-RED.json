@@ -1,0 +1,60 @@
+{
+    "sku": "LST-KIDPLOKIO-TRUCK-RED",
+    "asin": "B09MGD25C2",
+    "product_type": "TOY_VEHICLE_SET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-KIDPLOKIO-TRUCK-RED\nProduct Type: TOY_VEHICLE_SET\nBrand (from catalog): Kidplokio\nExisting Title: Kidplokio Create and Play Rescue Truck Toy Play Set for Kids - 14pc\nDescription: Cat stuck in a tree? Neighborhood fire? Whatever the emergency, toddlers, small children and kids will have a blast building and saving the day with the Kidplokio Red Rescue Building Truck Toy Play Set. <br/><br/>This 14-piece fun and hands-on learning truck rescue play set includes two play trucks and twelve truck traffic control and tool accessories. If your little one loves helping people and animals, loves the rush of the rescue or is an engineer in training (or perhaps all of the above), this rescue truck play set let's kids do all of the aforementioned play tasks. The set encourages your little one to partially assemble the rescue trucks, make necessary vehicle adjustments, set up traffic control and move the rescue ladder for an always engaging and interactive playtime adventure.<br/><br/>Promoting learning and physical development, the rescue truck building play set encourages parent-child interaction, creative and imaginative skills and also the development of gross motor skills as they rush to the rescue. It also helps little ones with developing their problem-solving skills and concentration skills too.<br/><br/>Lastly, the Kidplokio Red Rescue Building Truck Toy Play Set comes packed in a convenient plastic storage tote. Keeping all the truck pieces and accessories together, the truck building play set is a great toy to bring on playdates or family vacations, as it's lightweight, easy to pack and you won't lose any pieces along the way with the snap-close lid.<br/><br/>WARNING: Choking Hazard (small parts)<br/><br/>AGES: 3+\nSearch Terms: tool box kids educational creative rescue rescue special ops the rescue rescue heroes truck truck accessories kids toddlers small children set box bundle play red tools deep learning learning toys learning toys for 3 year olds\nFeatures:\n- TRUCKS TO THE RESCUE: Whatever the emergency, toddlers, small children and kids will have a blast building and saving the day\n- HANDS ON LEARNING: Build 3 different models in one set\n- LEARNING & PHYSICAL DEVELOPMENT: The set encourages parent-child interaction, creative and imaginative skills\n- CONVENIENT STORAGE TOTE: Keep all the truck pieces and accessories together with the handy storage tote\n- SPECIFICATIONS: 14 pieces; Color: Multi; Materials: Plastic; Warning: Choking Hazard, small parts; Ages: 3+\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Kidplokio 14-pc Red Rescue Truck Building Toy Set",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "14",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Red",
+                "name": "Rescue Truck Building Toy Set"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Kidplokio 14-pc Red Rescue Truck Toy Play Set",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "14",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Red",
+                "name": "Rescue Truck Toy Play Set"
+            },
+            "char_count": 45,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "14 Pieces, 2 Trucks, Traffic Control Accessories, Interactive Building, Ages 3, Storage Tote, Educational Play",
+            "char_count": 110,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "14 Piece Build Set, 3 Models In One, Includes Trucks And Accessories, Storage Tote, Problem Solving Skills",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

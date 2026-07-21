@@ -1,0 +1,60 @@
+{
+    "sku": "SHM-CFRTBATNM-SML-BLCK-2PK-FBA",
+    "asin": "B09HDRBNG8",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SHM-CFRTBATNM-SML-BLCK-2PK-FBA\nProduct Type: KNIFE\nBrand (from catalog): ASR Tactical\nExisting Title: ASR Tactical 2 Pack Folding Ceramic Razor Blade, Micro EDC Escape Knife Survival Tool\nDescription: The ASR Tactical Folding Razor Blade Knife, CFRK, has the intended purpose of cutting rope, zip ties and duct tape in counter-custody situations. It will stand the test of time due to the amazing edge-holding capability of the zirconia ceramic material the micro escape blade is made from. The edge of the ceramic razor blade will hold up to repeated cuttings of super-tough fibers like Kevlar and paracord, which can ruin a steel edge. A brass rivet provides both a pivot and a lanyard hole for easy attachment and carrying. <br/><br/>The CFRK is made small enough to be discreetly carried in pocket, ideal for SERE and survival kits. Can be used for EDC as it will fit nicely on a keychain. The escape razor blade makes a great addition to any bug out bag. Collapsible, light construction is ideal for long term use, every day carry, and storage. Easy to use flip out design makes it perfect for use in outdoor, survival, and emergency situations. Non-metallic materials also make this lightweight and easy to maintain. This top-quality lightweight blade is hygienic and rustproof, the handle is constructed of an injection-molded plastic.<br/><br/>Make sure you don't get caught in an emergency without one of these.\nSearch Terms: small non metal knife every day carry little cutting handle handcuffs safety scraping hide edc escape knives sere kit inch blade survivalist saw emergency self defense tool pocket essential minimalist bug out\nFeatures:\n- CERAMIC RAZOR BLADE - The ceramic blade is lightweight and very sharp; easy to use flip out design makes it perfect for survival and escape needs\n- SERE AND SURVIVAL KIT - The Folding Ceramic Razor Blade is made small enough to be carried in pocket, ideal for SERE and survival kits\n- DURABLE LONG LASTING EDGE - Zirconia ceramic razor blade will hold up to repeated cuttings of super-tough fibers like Kevlar cord and paracord, which can ruin a steel edge\n- SURVIVAL KNIFE - Made from lightweight materials and features a rivet punch-hole for hanging on a lanyard or key chain. Created for rapid removal of ropes, tape, flex-cuffs\n- DIMENSIONS - Length: 1.7 Inches Closed; 2.8 Inches Overall; Blade Thickness: .0275 inches, Weight: 0.1oz\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 2-Pack Small Black Folding Ceramic Razor Blade",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "2",
+                "pack_size_unit": "Pack",
+                "size": "Small",
+                "color": "Black",
+                "name": "Folding Ceramic Razor Blade"
+            },
+            "char_count": 59,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 2-Pk Folding Ceramic Razor Blade Knife",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "2",
+                "pack_size_unit": "Pk",
+                "size": "",
+                "color": "",
+                "name": "Folding Ceramic Razor Blade Knife"
+            },
+            "char_count": 51,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Ceramic Blade, EDC Escape Knife, Pocket Survival Tool, Rustproof, Keychain Ready, SERE Kit Essential",
+            "char_count": 100,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Zirconia Ceramic Edge, Cuts Kevlar And Paracord, Pocket EDC, Non-Metallic, Rustproof, Lanyard Hole, Keychain Ready",
+            "char_count": 114,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-TTAPE-HEXPATCH-BLK-2PK",
+    "asin": "B09V3BPKW2",
+    "product_type": "ADHESIVE_TAPES",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-TTAPE-HEXPATCH-BLK-2PK\nProduct Type: ADHESIVE_TAPES\nBrand (from catalog): GEAR AID\nExisting Title: GEAR AID Tenacious Tape Repair Patches for Jackets, Tents, and Outdoor Gear, Black, 2.5” and 1.5” Hex Shape, 8 Patches, 2 Pack\nDescription: Tenacious Tape Repair Patches in round and hex shapes fix rips and holes on outdoor gear instantly. Simply peel-and-stick to patch up a tent, jacket or sleeping bag without sewing or ironing. Available as a black and clear 3\" round or a hexagon patch (1.5\" or 2.5\" tall). The hex patches come in various colors including black, clear, coyote, and OD Green to match almost any fabric. Each 3\" round pack contains two black nylon and two clear patches. There are also four hex patches in each pack, with all the same colors or a combination of different colors and sizes. Tenacious Tape Patches have an ultra-aggressive adhesive backing that will stick to nylon, vinyl, and polyester. Once applied, it won't peel or come off even after a wash. Stick it on puffy coats, backpacks, sleeping pads, and more without the sticky residue. For easy and lasting gear repairs, use Tenacious Tape Repair Patches.\nSearch Terms: fix hole waterproof seal gor tex nylon rip stop burn scorch clothes patch tear waterproof gear repair tech jacket tent tape seal outdoor\nFeatures:\n- Patch a hole or fix tears quickly on tents, jackets, and outdoor gear with a peel-and-stick repair that requires no sewing or ironing\n- Use the pre-cut 3\" round patches or hex shapes (1.5\" and 2.5\" tall) for a barely noticeable repair that stays on gear even after a wash\n- Choose from multi-packs (round patches) or assorted packs that includes a total of four Hex patches in black, clear, coyote, and OD green\n- Repair camping gear with this durable patch and save puffy jackets, backpacks, sleeping bags/pads without the sticky residue\n- Stick on to almost any surface including nylon, polyester, GORE-TEX fabric, vinyl, and rubber (not for cotton, denim, or natural fabrics)\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "GEAR AID Tenacious Tape Hex Patches Black 2-Pack",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "Pack",
+                "size": "Hex",
+                "color": "Black",
+                "name": "Tenacious Tape Patches"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID 2-pk 1.5in 2.5in Black Tenacious Tape Hex Repair Patches",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "1.5in 2.5in",
+                "color": "Black",
+                "name": "Tenacious Tape Hex Repair Patches"
+            },
+            "char_count": 65,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Peel And Stick Repair, No Sewing Or Ironing, Works On Nylon And GORE-TEX, Waterproof Seal, Durable Adhesive",
+            "char_count": 107,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Peel And Stick, No Sew Or Iron, Wash Resistant, For Nylon Polyester And GORE-TEX, Durable Waterproof Adhesive",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

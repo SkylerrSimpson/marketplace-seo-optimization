@@ -1,0 +1,60 @@
+{
+    "sku": "HWK-MAGNIFIER-MG9009",
+    "asin": "B07SG7XJMY",
+    "product_type": "FLASHLIGHT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWK-MAGNIFIER-MG9009\nProduct Type: FLASHLIGHT\nBrand (from catalog): Universal Tool\nExisting Title: Universal Tool LED Headlamp with Magnifying Glasses\nDescription: Common head-wearing magnifier adopts front-back tension regulating mode. Longtime wear of magnifier may cause certain pressure upon ears and make them feel painful. This headband adopts a two-way regulating to solve the problem.<br/><br/>Other headband magnifiers are made of PVC artificial leather, which easily hardens in cold winter and is airproof in hot summer, thus bringing about uncomfortableness. The headband sheath of this product is formed of environment-friendly PPR, and semi-sphere design on its surface is air-permeable and comfortable. Headband sheath has no cutting edge as well.<br/><br/>Other Common head wearing magnifier is only furnished with four interchangeable lens. Ours has five lenses each with a different magnification. This ensures 11 kings of different magnifications and a more extensive range of application.\nSearch Terms: Universal Tool LED Headlamp with Magnifying Glasses 5 Interchangeable Lenses Magnification\nFeatures:\n- LED LIGHTS - 2 ultra bright energy efficient led lights designed to last 10,000+ hours, the head lamp unit can be completely taken out to change batteries or used as flashlight.\n- DIFFERENT LENSES - 5 Professional Interchangeable Magnifying Lenses, 11 Levels of Magnification, Magnify up to 6X Single plate magnification 1.0x, 1.5x, 2.0x, 2.5x, 3.5x; Bi-plate Lens Magnification: 3.0X, 4.0X, 4.5X, 5.0X, 5.5X, 6.0X.\n- LENS SHAPE - Lenses are Shaped Like Spectacles. Made of shatterproof crystal clear magnifying acrylic lens designed for people with low vision, hobbyists and professionals.\n- ADJUSTABLE - 2 Way Adjustable Straps with Non-Slip Padding Two directional straps(vertical & horizontal) securely and comfortably position the magnifier on your head\n- VERSATILE - The Versatile Set for Your Home, Office or Workshop Portable and tough enough to take with you wherever you go. The durable construction of our lens and sturdy ABS frame means even kids can use it safely for science experiments.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool LED Headlamp with Magnifying Glasses",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "LED Headlamp with Magnifying Glasses"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool LED Headlamp with Magnifying Glasses",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "LED Headlamp with Magnifying Glasses"
+            },
+            "char_count": 51,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "5 Interchangeable Lenses, 11 Magnification Levels Up To 6X, Dual LED Lights, Adjustable Headband, Shatterproof Acrylic",
+            "char_count": 118,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "5 Interchangeable Lenses, 11 Magnification Levels, 2 LED Lights, Adjustable Two Way Straps, Flashlight Use",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

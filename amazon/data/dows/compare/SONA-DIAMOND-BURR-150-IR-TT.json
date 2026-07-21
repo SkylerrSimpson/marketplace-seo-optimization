@@ -1,0 +1,60 @@
+{
+    "sku": "SONA-DIAMOND-BURR-150-IR-TT",
+    "asin": "B0BBSQCY13",
+    "product_type": "TOOLS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SONA-DIAMOND-BURR-150-IR-TT\nProduct Type: TOOLS\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Diamond Coated Cutting Burrs Set Assorted Rotary Tools 30pc 150 Grit\nDescription: The ToolTreaux 12pc diamond burrs feature round ball-shaped heads that are ideal for engraving, making concave cuts and hollowing out materials when working on crafting and hobby projects. The round-bottom tips will ensure that you’re making clean and rounded side cuts on your crafting materials.<br/><br/>This set comes with 12 different assorted head sizes, all of which are designed to be compatible with a myriad of materials including glass, tile, wood, ceramics, fiberglass, stone and other all natural materials. Some common uses for these diamond burrs include jewelry making, pottery, home improvement and metalworking.<br/><br/>Each diamond burr has a fine 150 grit that is designed to achieve a higher finish and polish that standard coarse grits that are generally more suited for heavy material removal. Our burrs are made of high-quality stainless steel that won’t rust, so you can count on them to stand the test of time.<br/><br/>We’ve also included a convenient storage case that comes with slots for each burr to keep them stable and organized when not in use. The heavy-duty plastic carrying case will easily fit inside most standard tool belts, bags, boxes and craft storage organizers.\nSearch Terms: rotary tool cordless rotary tool rotary tool kit accessories diamond drill bit drill bit set step drill bit drill bit extension sharpener holder engraving machine engraving tool jewelry making kit jewelry making supplies glass beads\nFeatures:\n- ROUND BALL HEADS - ToolTreaux 30pc diamond burr set features round ball-shaped heads ideal for making concave cuts, engraving and hollowing out materials. The round-bottom tip slots and grooves make clean and rounded side cuts service life\n- ASSORTED SIZES - Set comes with 30 different assorted head sizes. All burrs are designed to be compatible with stone, glass, tile, wood, plastic, fiberglass, ceramics and all-natural materials; great for hobby and crafting projects\n- 150 GRIT (FINE) - Each diamond burr has a fine 150 grit to achieve a higher polish and finish than coarser grits more suited for heavy material removal. Burrs are made of high-quality stainless steel that won’t rust\n- STORAGE CASE INCLUDED - Burr set comes with heavy duty plastic carrying case with slots for each burr to keep them organized and stable when not in use. Small case easily fits inside most tool bags, boxes, pockets or craft storage organizers.\n- SPECIFICATIONS - 30pc set; Materials: stainless steel, plastic; Color: chrome; Grit: 150 (fine); Ball head shape: round; Sizes included: Assorted; Compatible with these materials: glass, tile, wood, fiberglass, ceramics and stone\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 30pc Diamond Burr Set 150 Grit Chrome",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "30",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Chrome",
+                "name": "Diamond Burr Set"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 30-pc Diamond Coated Cutting Burr Set",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "30",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Diamond Coated Cutting Burr Set"
+            },
+            "char_count": 48,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "30 Assorted Sizes, Round Ball Heads, Fine 150 Grit, Stainless Steel, Storage Case Included",
+            "char_count": 90,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "150 Grit Fine Finish, Assorted Ball Heads, Stainless Steel, For Glass Tile Wood Ceramics Stone And Fiberglass",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

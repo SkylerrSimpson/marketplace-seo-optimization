@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-SANDMAKER-46782",
+    "asin": "B092CGM3KB",
+    "product_type": "COUNTERTOP_GRIDDLE_APPLIANCE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-SANDMAKER-46782\nProduct Type: COUNTERTOP_GRIDDLE_APPLIANCE\nBrand (from catalog): Beille\nExisting Title: Beille Panini Press Sandwich Maker Toaster Kitchen Appliances with Nonstick Grill Plates, Black\nDescription: Make your favorite sandwiches even more exciting and delicious with the Beille Sandwich Maker Panini Press. Featuring two nonstick grilling plates, anti skid feet for stability and grip, pilot and ready light, easy cleaning, a thermal safety cut out and cool touch handles, sandwiches, pizza pockets, waffles and more are just a few minutes away from warm, toasted and golden perfection. Put away that heavy frying pan and switch to this fast and efficient sandwich press for the best results.<br/><br/>Easy to clean, simply use a damp cloth once the sandwich maker has cooled off completely. When done cooking in your kitchen, the sandwich maker folds closed, so it can easily be stored in a drawer, cabinet or in a pantry; it can also be left to stand upright on your kitchen counter or kitchen island if desired, just remember to clip the plastic snap closed when you're done. <br/><br/>Perfectly cooked, warm, golden toasted sandwiches and more are just a few minutes away with the Beille Sandwich Maker Panini Press. The sandwich press also makes a great wedding gift, housewarming gift, college student gift or gift for any at home cooking enthusiast.\nSearch Terms: grilled cheese maker kitchen accessories home appliances wedding gift college essentials decor house warming gifts breakfast sandwich maker tostadora de sandwich snacks food\nFeatures:\n- COMPACT SANDWICH MAKER: Featuring two nonstick grilling plates, anti skid feet for stability, a pilot and ready light, easy cleaning, a thermal safety cut out and cool touch handles, sandwiches, pizza pockets, waffles and more are just a few minutes away from warm, toasted, golden perfection\n- NON STICK GRILL PLATES: Quality nonstick steel grill plates that ensure your food is cooked evenly and thoroughly with no sticking or mess; the food safe nonstick plates allow you to easily remove toasted food from the sandwich press when finished with ease\n- EASY TO CLEAN SANDWICH PRESS: The steel grill plates feature a food safe nonstick finish, making clean up easy and hassle free; simply wipe the inserts down with a damp cloth once the plates have completely cooled and you're done!\n- SANDWICH MAKER STORAGE: The compact size of this breakfast sandwich maker or panini press makes it easy to store away in pantry, large drawer, cupboards or vertically on kitchen countertops after use\n- SPECIFICATIONS: Product Dimensions: 10 x 10 x 4.25 inches; Power Supply: 750W 120V; Color: Black; Body Material: Plastic; Plate Insert Material: Plastic, Steel; Food Safe: Yes\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille Black Panini Press Sandwich Maker with Nonstick Grill",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Panini Press Sandwich Maker with Nonstick Grill"
+            },
+            "char_count": 60,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille Panini Press Sandwich Maker Toaster Black",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Panini Press Sandwich Maker Toaster"
+            },
+            "char_count": 48,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Nonstick Grill Plates, Easy Clean, Compact Storage, Cool Touch Handles, 750W Power",
+            "char_count": 82,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Nonstick Grill Plates, Cool Touch Handles, Ready Light, Compact Storage, Thermal Safety Cut Out, Anti Skid Feet",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

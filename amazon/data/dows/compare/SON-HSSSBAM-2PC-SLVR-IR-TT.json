@@ -1,0 +1,60 @@
+{
+    "sku": "SON-HSSSBAM-2PC-SLVR-IR-TT",
+    "asin": "B0B57P116C",
+    "product_type": "SAW_BLADE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-HSSSBAM-2PC-SLVR-IR-TT\nProduct Type: SAW_BLADE\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux High Speed Alloy Steel Circular Saw Blade Woodcutting Hobby Tool\nDescription: The ToolTreaux high-speed circular saw blade was designed to provide clean and sharp cuts without breakage. It features an angular edge that will ensure reliable and easy cutting durrying woodworking hobby projects.<br/><br/>The saw blade is made of durable, high-quality alloy steel that won't rust. It's corrosion-resistant so you can count on it to protect your blade whether you use it frequently or infrequently. <br/><br/>Each blade weighs just .1lbs (1.6oz) and comes with a convenient plastic carry pouch to protect the blade when not in use. The circular saw blade and pouch will fit easily inside just about any toolbox or hobby craft storage container.<br/><br/>In addition to general hobby projects, circular saw blades are great for cross-cutting many different types of materials including hardwood, softwood, plywood, chipboard, multi-board, laminated and bi-laminated plastic. Use these blades with confidence for your next hardware or woodworking project.\nSearch Terms: circular saw guide blade woodworking tools planers sanders band saws for woodworking wood cutting wood carving tools wood working tools and equipment hardware hobby knife craft supplies and materials DIY kits for adults home improvement\nFeatures:\n- CIRCULAR SAW BLADE - ToolTreaux high-speed circular saw blade provides sharp, clean cuts without breakage. It features an angular edge to ensure easy and reliable cutting during hobby projects like woodworking.\n- DURABLE MATERIAL - Saw blade made with high-quality alloy steel that won't rust. Alloy steel is sturdy, durable, and corrosion-resistant that will protect your blade from rust during regular or infrequent use.\n- LIGHTWEIGHT DESIGN - The blade weighs just .1 pounds and fits neatly inside of a plastic sleeve pouch (included) for easy storage when not in use. Pouch will protect the blade further from rust. Fits inside just about any toolbox or hobby craft storage organizer.\n- VERSATILE HOBBY TOOL - Circular saw blades are ideal for cross-cutting softwood, hardwood, chipboard, plywood, multi-board, laminated and bi-laminated plastic and FRP. Use them for a myriad of woodworking and hardware projects.\n- SPECIFICATIONS - Arbor size: .25\"; Shank size: 1/8\", Diameter: 1.25\"; Material: alloy steel, corrosion-resistant; Weight: .1lbs (1.6oz); Plastic storage pouch included; Edge type: angular\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux Circular Saw Blade High Speed Alloy Steel",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Circular Saw Blade High Speed Alloy Steel"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux Alloy Steel Circular Saw Blade",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Circular Saw Blade"
+            },
+            "char_count": 41,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Sharp Clean Cuts, Corrosion-Resistant Alloy Steel, Lightweight Design, Includes Storage Pouch, Versatile Woodworking",
+            "char_count": 116,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Angular Edge, Rust-Resistant Alloy Steel, Clean Wood Cuts, Includes Storage Pouch, Lightweight, For Hobby Projects",
+            "char_count": 114,
+            "validation_error": null
+        }
+    }
+}

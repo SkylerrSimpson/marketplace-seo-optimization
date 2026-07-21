@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-SGFRKFGA-SML-2PK",
+    "asin": "B08D1K38WF",
+    "product_type": "SEALANT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-SGFRKFGA-SML-2PK\nProduct Type: SEALANT\nBrand (from catalog): GEAR AID\nExisting Title: GEAR AID Nylon Tent and Sleeping Pad Repair Kit, includes repair patches and Seam Grip WP glue, 2-pk\nDescription: Seal seams and patch holes during any adventure with the Seam Grip WP Field Repair Kit. Seam Grip WP permanently bonds to fabrics including nylon and canvas, so it's ideal for repairing tents, tarps, awnings and other outdoor gear. More than a tent seam sealer, this flexible adhesive cures to a waterproof seal that won't peel or crack. This compact kit also includes two round 3\" Tenacious Tape Repair Patches. Just peel-and-stick patches for a faster repair for sleeping pads, backpacks and more. Keep gear failures under control with the Seam Grip WP Field Repair Kit.\nSearch Terms: Gear Repair Camping Hunting Hiking\nFeatures:\n- Seal seams and repair holes permanently in nylon tents, tarps, awnings and outdoor gear like sleeping pads and inflatables; use at home or in the field\n- Use Seam Grip WP to make seals waterproof, which cures to a flexible rubber seal that won't peel or crack over time\n- Patch pinhole leaks with peel-and-stick patches and an adhesive that bonds to outdoor fabrics including nylon, polyester, canvas and vinyl\n- Bring this handy kit on any adventure; includes Seam Grip WP sealant and adhesive (0.25 oz), two 3\" Tenacious Tape Patches (clear and black nylon) and applicator brush\n- Packaging may vary\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "GEAR AID Nylon Tent and Sleeping Pad Repair Kit, 2-pk",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Nylon Tent and Sleeping Pad Repair Kit"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID 2-pk Nylon Tent and Sleeping Pad Repair Kit",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Nylon Tent and Sleeping Pad Repair Kit"
+            },
+            "char_count": 52,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Seam Grip WP Sealant, Tenacious Tape Patches, Waterproof Flexible Seal, Nylon Canvas Vinyl",
+            "char_count": 90,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Waterproof Seam Sealant, Flexible Rubber Cure, Peel-And-Stick Patches, Nylon Canvas Vinyl, Field Repair",
+            "char_count": 103,
+            "validation_error": null
+        }
+    }
+}

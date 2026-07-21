@@ -1,0 +1,60 @@
+{
+    "sku": "LKY-KYBRD-PNK",
+    "asin": "B077ZH8SV6",
+    "product_type": "MUSICAL_INSTRUMENT_TOY",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LKY-KYBRD-PNK\nProduct Type: MUSICAL_INSTRUMENT_TOY\nBrand (from catalog): KidPlay Products\nExisting Title: My Little Musician Pink Playtime Keyboard Electronic Musical 16\" Kids Piano Set\nDescription: My Little Musician Pink Electronic Musical 16\" Kids Piano Playtime Keyboard Set is the perfect musical instrument to let your kids inner rock star shine. This keyboard is not only super fun with an endless amount of creative ways to make sounds and songs but is also an educational way to develop learning skills, making this item a great addition to any child's toy collection. <br/><br/>With 24 keys, 8 timbres, 8 rhythms, 4 animal sounds, 4 drum demos and 8 song demos this is sure to entertain for years to come. Get your kid ready to make their own soundtracks for their next movie or theatrical play in no time. Whether your little rock star likes rock n' roll, disco or funny sounds there's a million songs and sounds that your little one can record. <br/><br/>This keyboard is ready to go whenever and wherever. It is battery operated, made out of durable plastic and even comes with a top carry handle to take on the go. This is a great Christmas present, stocking stuffer or gift for any occasion.\nSearch Terms: childrens keyboards musical toys little musicians pretend play indoor toys\nFeatures:\n- 24 keys, 8 timbres, 8 rhythms, 4 animal sounds, 4 drum demos and 8 song demos\n- Battery operated (batteries not included)\n- Lights and sounds!\n- Top handle for carrying with easy transportation\n- Variety of animal noises, different musical genres and instruments so your little musician won't run out of song ideas!\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "KidPlay Products 16\" Pink Electronic Kids Piano Keyboard",
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "16",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Pink",
+                "name": "Electronic Kids Piano Keyboard"
+            },
+            "char_count": 56,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "KidPlay Products 16-in Pink Electronic Musical Keyboard",
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "16",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Pink",
+                "name": "Keyboard"
+            },
+            "char_count": 55,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "24 Keys, 8 Timbres, 8 Rhythms, 4 Animal Sounds, 4 Drum Demos, 8 Song Demos, Battery Operated, Carry Handle",
+            "char_count": 106,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "24 Keys, 8 Timbres, 8 Rhythms, Animal Sounds, Drum Demos, Song Demos, Carry Handle, Battery Operated, Lights And Sounds",
+            "char_count": 119,
+            "validation_error": null
+        }
+    }
+}

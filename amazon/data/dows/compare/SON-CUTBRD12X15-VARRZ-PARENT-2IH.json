@@ -1,0 +1,60 @@
+{
+    "sku": "SON-CUTBRD12X15-VARRZ-PARENT-2IH",
+    "asin": "B07NZ28H4N",
+    "product_type": "CUTTING_BOARD",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-CUTBRD12X15-VARRZ-PARENT-2IH\nProduct Type: CUTTING_BOARD\nBrand (from catalog): ASR Outdoor\nExisting Title: Multi-Pack Thin Clear Flexible Plastic Cutting Board Mat 12\" x 15\"\nDescription: Tired of your old useless cutting boards? Try these new thin clear flexible plastic kitchen cutting boards. <br/><br/>Safe, hygienic and easy to clean, these flexible kitchen cutting boards provide a great surface for cutting and preparing fish, carving meat, slicing fruits and vegetables. They will protect your counter tops during food preparation and best of all, they're dishwasher safe.<br/><br/>They also roll up quickly for easy storage when not in use, each featuring a hole for convenient hanging storage. These plastic cutting mats are also great for cutting and prepping foods that would normally stain wood chopping boards easily. They are extremely low maintenance in comparison to wood cutting boards, glass cutting boards or other types of traditional kitchen cutting boards.<br/><br/>They measure 12 x 15 inches, perfect for any kitchen or crafting area. They are lightly frosted, not completely clear. when placed on a surface you can see right through them.\nSearch Terms: best cutting board kitchen chopping mats dishwasher safe thin flexible clear placemats home kitchen placemats\nFeatures:\n- DISHWASHER SAFE CUTTING BOARD: Simple, reliable and hassle free, these flexible kitchen cutting boards are a time saver all around; cutting boards will not retain any odor or dull any of your knives; surface will not crack or chip\n- BPA FREE KITCHEN CUTTING BOARDS: Safe for all food prep; non-porous flexible plastic cutting boards protect counter tops and helps prevent cross-contamination for safe food handling; highly resistant to heat\n- EASY TO CLEAN AND STORE: These kitchen flexible clear chopping board mats are dishwasher safe; chopping boards can be rolled up, laid flat or hung on a hook inside a cabinet for quick and efficient storage\n- MULTI-PURPOSE: In addition to kitchen food prep, flexible plastic cutting boards can be used as dining room place mats, a protective surface for arts and crafts projects, as a refrigerator shelf liner or as a writing, drawing or art board\n- SPECIFICATIONS: Flexible cutting mats overall size: 12 x 15 inch; made from polypropylene plastic; 0.5mm thick; dishwasher safe; available in multi-packs\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 12\" x 15\" Clear Flexible Plastic Cutting Board",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "12\" x 15\"",
+                "color": "Clear",
+                "name": "Flexible Plastic Cutting Board"
+            },
+            "char_count": 58,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 12\"x15\" Clear Flexible Plastic Cutting Board Mat",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "12\"x15\"",
+                "color": "Clear",
+                "name": "Flexible Plastic Cutting Board Mat"
+            },
+            "char_count": 60,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Dishwasher Safe, BPA-Free, Hygienic Non-Porous, Rollup Storage, Multi-Purpose",
+            "char_count": 77,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "BPA-Free, Dishwasher Safe, Thin Flexible Polypropylene, Non-Porous, Rolled Storage, Hanging Hole, Multi-Purpose",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

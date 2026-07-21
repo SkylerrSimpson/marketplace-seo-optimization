@@ -1,0 +1,60 @@
+{
+    "sku": "LST-PWLUSRAFR-RD-3",
+    "asin": "B0BJ5T5M6K",
+    "product_type": "PRETEND_PLAY_TOY",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-PWLUSRAFR-RD-3\nProduct Type: PRETEND_PLAY_TOY\nBrand (from catalog): Kidplokio\nExisting Title: Power Warrior LED Light Up and Walking Super Robot Action Figure - Red\nDescription: Have robot battles and fight crime with the ultimate robot action figure. The Power Warrior Super Robot has several fun features that your child will love including lights, robot sounds, articulating head and arms or the ability to walk on its own, and a flashy and fun exterior design.<br/><br/>The Power Warrior Super Robot Android is prepped and armed to take on the galaxy. Your child will create endless imaginative games around this awesome robot. Not only does the robot light up with sounds and shout combat commands, but it also can walk and raise his arms up and down. <br/><br/>In one hand it has a light-up space gun ready, and in the other it has an adjustable claw that can be easily opened or closed with the press of a button. The robot is made of durable plastic so it can withstand the toughest clashes with its opponents. Standing at approximately ten inches tall, this robot is the perfect size for ruling the galaxy at home or on the go.<br/><br/>No matter what danger awaits, your Power Warrior Super Robot is ready to protect the galaxy with your little one.<br/><br/>Operates on 3 AA batteries.\nSearch Terms: transformer light up toy robot toys shooting robot walking robot\nFeatures:\n- Robot walks, talks, moves their arms and has flashing bright lights; This is a awesome robot kids toy\n- Super robot toy wields a mighty space blaster that lights up and moves with him; Working claw hand that grips other robots in battle\n- Working arms and legs with rotating head colorful lights and robot sounds\n- Fun power warrior super robot battle bot android toy action figure\n- Operates on 3 AA Batteries to run (not Included)\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Kidplokio Power Warrior LED Light Up Walking Robot Red",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Red",
+                "name": "Power Warrior LED Light Up Walking Robot"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Kidplokio Red Light Up Walking Super Robot Action Figure",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Red",
+                "name": "Light Up Walking Super Robot Action Figure"
+            },
+            "char_count": 56,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Walking, Lights And Sounds, Light-Up Space Blaster, Working Claw Hand, Articulating Arms And Legs, 10 Inches",
+            "char_count": 108,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Flash Lights And Robot Sounds, Walks And Raises Arms, Light Up Space Gun, Working Claw Hand, Durable Plastic",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

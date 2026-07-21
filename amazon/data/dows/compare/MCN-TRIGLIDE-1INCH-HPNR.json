@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-TRIGLIDE-1INCH-HPNR",
+    "asin": "B00MC9O4AY",
+    "product_type": "BUCKLE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-TRIGLIDE-1INCH-HPNR\nProduct Type: BUCKLE\nBrand (from catalog): GEAR AID\nExisting Title: Gear Aid Replacement Triglide Buckle Kit\nDescription: Part of GEAR AID’s complete line of replacement parts, these Tri-Glides offer a no-sew option to fix gear. Use it to quickly lengthen or shorten straps and webbing on backpacks and more. Made with durable plastic materials, it’s a replacement part that secures buckles on webbing and prevents loose straps. With two sizes available that fit 1” and 1.5” webbing, a pair of these Tri-Glides are an essential part of any gear repair kit.\nSearch Terms: buckle plastic belt replacement strap straps with kit pack set of 6 lightweight snap on part repair black\nFeatures:\n- Replace missing or broken tri-glides on backpacks and other gear without sewing\n- Lengthen or shorten straps and webbing with ease; available in two sizes that fit 1” or 1.5” webbing\n- Attach to gear to ensure buckle stays on webbing, eliminate loose straps, and add usability; made of durable plastic\n- Slide quickly in place to allow for immediate strap adjustment; add a pair of tri-glides to every repair kit\n- Packaging may vary\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 80 characters.  Please include the size and color of the item in the Product Name, if available.\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Gear Aid Triglide Buckle Replacement Kit 1 Inch",
+            "tokens": {
+                "brand": "Gear Aid",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "1 Inch",
+                "color": "",
+                "name": "Triglide Buckle Replacement Kit"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID 1 in Black Replacement Tri-Glide Buckle Kit",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "1 in",
+                "color": "Black",
+                "name": "Replacement Tri-Glide Buckle Kit"
+            },
+            "char_count": 52,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "No-Sew Strap Repair, Adjustable Webbing, Durable Plastic, Lengthen Or Shorten, Prevents Loose Straps",
+            "char_count": 100,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "No Sew Strap Repair, Adjust Backpack Webbing, Durable Plastic, Prevents Loose Straps, Fits 1\" Webbing",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

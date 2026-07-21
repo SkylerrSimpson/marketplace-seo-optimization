@@ -1,0 +1,60 @@
+{
+    "sku": "26C-WHTCOOKTOOLS-19PC-BUN",
+    "asin": "B0BZFF1N8N",
+    "product_type": "SPOON",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 26C-WHTCOOKTOOLS-19PC-BUN\nProduct Type: SPOON\nBrand (from catalog): Beille\nExisting Title: Beille 19pc Wheat Straw Kitchen Utensil Set Peeler Cutter Grater Spoons and Cups\nDescription: Is your kitchen utensil drawer in need of an overhaul or upgrade? Why not make it a sustainable one? <br/>Look no further than Beille’s wheat straw kitchen gadgets 19pc set, all made from bioplastic wheat straw:<br/><br/>-5-piece measuring spoon set<br/>-5-piece measuring cup set<br/>-5-piece assorted serving toolset<br/>-Ice cream scooper<br/>-Y peeler<br/>-Pizza cutter<br/>-Cheese grater<br/><br/>The kitchen utensils all feature thick, rounded handles with a speckled matte finish, ensuring a comfortable and controlled grip for all your meal prep tasks. And, notably, the pizza cutter wheel, vegetable peeler or Y peeler, and cheese grater all feature a built-in handle hole, allowing for hanging over the drawer or cupboard storage if preferred.<br/><br/>As mentioned, all the kitchen utensils included in this bundle are made from bioplastic wheat straw, an alternative plant-based material to other less forgiving solid plastics; renewable and sustainable, the kitchen utensils are food safe and certified BPA Free. Beille’s wheat straw kitchen tools mimic traditional plastic kitchen utensils' functionality without harmful byproducts. These kitchen gadgets are dishwasher safe, making for a quick and easy clean-up.<br/><br/>No kitchen is complete without these kitchen utensils. Must have kitchen tools, upgrade your current knives to a sustainable one, or gift them as a hostess or housewarming gift alongside other items from Beille’s wheat straw kitchen collection.\nSearch Terms: wheat straw baking supplies tools cooking chef sustainable products meal prep kitchen starter set wedding house warming gifts new home kitchen gadgets vegetable peeler pizza cutter ice cream scoop cheese grater measuring cups spoons home goods\nFeatures:\n- 19PC KITCHEN UTENSILS SET - Do some of your old kitchen utensils need an upgrade? Why not make it a sustainable one? 19pc set comes with an ice cream scoop, cheese grater, vegetable peeler, pizza cutter, measuring cup, and spoons, all made from wheat straw in a modern and fresh cream-speckled matte finish\n- WHEAT STRAW - The kitchen utensils included in this bundle are made from bioplastic wheat straw, an alternative plant-based material to other less forgiving solid plastics; renewable and sustainable, the kitchen utensils are food-safe and certified BPA Free\n- KITCHEN GADGETS - No kitchen is complete without these kitchen utensils! Must have kitchen tools, upgrade your current utensils to a sustainable one, or gift them as a hostess or housewarming gift alongside other items from Beille’s wheat straw kitchen collection\n- DISHWASHER SAFE - Beille’s wheat straw kitchen tools mimic traditional plastic kitchen utensils functionality but without harmful byproducts; these kitchen gadgets are dishwasher safe, making for a quick and easy clean up\n- SPECIFICATIONS - Materials: food-safe bioplastic (wheat straw), stainless steel; Set size: 19 pieces; Colors: cream/wheat; Size: standard kitchen utensils\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 19-pc Wheat Straw Kitchen Utensil Set",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "19",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Cream",
+                "name": "Wheat Straw Kitchen Utensil Set"
+            },
+            "char_count": 44,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 19-pc Cream Wheat Straw Kitchen Utensil Set",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "19",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Cream",
+                "name": "Wheat Straw Kitchen Utensil Set"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "19 Pieces, Sustainable Wheat Straw, BPA-Free, Dishwasher Safe, Includes Peeler, Grater, Pizza Cutter, Ice Cream Scoop, Measuring Cups And Spoons",
+            "char_count": 144,
+            "validation_error": "value exceeds maxLength 125 (144 chars)"
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "BPA-Free, Dishwasher Safe, Measuring Cups And Spoons, Peeler, Pizza Cutter, Grater, Ice Cream Scoop",
+            "char_count": 99,
+            "validation_error": null
+        }
+    }
+}

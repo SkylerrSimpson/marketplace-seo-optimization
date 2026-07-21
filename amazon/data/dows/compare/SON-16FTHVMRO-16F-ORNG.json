@@ -1,0 +1,60 @@
+{
+    "sku": "SON-16FTHVMRO-16F-ORNG",
+    "asin": "B00ZO64W0Y",
+    "product_type": "OUTDOOR_RECREATION_PRODUCT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-16FTHVMRO-16F-ORNG\nProduct Type: OUTDOOR_RECREATION_PRODUCT\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 200ft Hiking Gear High Visibility Marking Ribbon, Orange\nDescription: Mark your camp ground, construction site, or hiking path easily with the ASR Outdoor High Visibility Marking Ribbon.<br/><br/>The ASR Outdoor High Visibility Marking Ribbon is great for sectioning off or marking sites. Each roll of ribbon features a super bright color and has 200 feet.<br/><br/>This ribbon is constructed of durable, weather-proof PVC so you can count on it rain or shine. The ribbon is just .06mm thick, and comes in 6 bright colors: orange, neon green, yellow, neon yellow, pink or red.<br/><br/>Make sure to grab a roll or 2 of this tape before your next camping trip, construction job or team sport event.\nSearch Terms: marking hunter flag non adhesive boundary marker ribbon nylon bright high visibility tree line tagging tape surveyor land trust trail search rescue vinyl film roll\nFeatures:\n- Roll Width: 1\"\n- Ribbon Length: 200 feet\n- Ribbon Thickness: .06mm\n- Colors Available: Orange, Neon Green, Neon Yellow, Yellow, Red or Pink\n- Material: PVC\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 200ft Orange High Visibility Marking Ribbon",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "200",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Orange",
+                "name": "High Visibility Marking Ribbon"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 200-ft Orange High Visibility Marking Ribbon",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "200",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Orange",
+                "name": "High Visibility Marking Ribbon"
+            },
+            "char_count": 56,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "1 Inch Wide, Weather-Proof PVC, Durable Non-Adhesive, Hiking And Construction Site Marking",
+            "char_count": 90,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Weatherproof PVC, 1\" Wide, 200 Ft Roll, Bright Orange, Boundary Marker, Camp And Trail Flagging, Survey Use",
+            "char_count": 107,
+            "validation_error": null
+        }
+    }
+}

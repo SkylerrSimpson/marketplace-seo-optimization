@@ -1,0 +1,60 @@
+{
+    "sku": "SON-WATPROOF-STORAGECASE-IR-TT",
+    "asin": "B0BKXBVFKH",
+    "product_type": "STORAGE_BOX",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-WATPROOF-STORAGECASE-IR-TT\nProduct Type: STORAGE_BOX\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Waterproof Storage Container Lanyard Translucent Durable Plastic\nDescription: The ToolTreaux waterproof storage container is a great option for keeping valuables and small items safe and secure. It features a fitted O-ring lid that will ensure your items won’t be affected by poor weather conditions or leaks.<br/><br/>The storage container itself is made of durable, high-quality translucent plastic so you can easily identify your important items like credit cards, money, keys, and medicine. The plastic is both waterproof and dustproof which will protect your valuables and keep them dry.<br/><br/>Each waterproof storage container comes with a sturdy nylon lanyard with a stopper so you can adjust the length for custom comfort and fit. Hang it around your neck, from your tool belt or from a travel bag for easy access on the go. Make sure you have your credit cards, ID, money, and medicine ready at hand when needed.\nSearch Terms: waterproof case id card badge holder floating sports locker hanging ring rope portable dry small box lanyard credit drivers licenses money water storage container sport carabiner hard crush proof plastic supplies cover bottle latch stopper\nFeatures:\n- WATERPROOF STORAGE CONTAINER: ToolTreaux waterproof container is a great option for keeping small items and valuables safe and secure. Features O-ring lid to ensure items aren't affected by leaks or poor weather condition\n- TRANSLUCENT PLASTIC: Storage container is made of translucent plastic so you can easily identify your valuables; Great for storing credit cards, money, keys, medicine, and IDs\n- STURDY HANG LANYARD: Each waterproof container comes with a sturdy nylon black lanyard that can be used to hang around your neck, from your belt or backpack for convenience; Easily access your items while on the go\n- COMPACT DESIGN: Storage container measures 5.25” x 3” x 1.25” and weighs 3.52oz so it won’t add a bunch of bulk; Easily fits inside most pockets, backpacks, and travel bags\n- SPECIFICATIONS: Material: waterproof and dustproof plastic; nylon lanyard; Colors: translucent, black; Dimensions: 5.25” x 3” x 1.25”; Fitted O-ring lid; Weight: 3.52oz (.22lbs)\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux Waterproof Storage Container with Lanyard",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Translucent",
+                "name": "Waterproof Storage Container with Lanyard"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux Translucent Waterproof Storage Container",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Translucent",
+                "name": "Waterproof Storage Container"
+            },
+            "char_count": 51,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "O-ring Lid, Translucent Plastic, Dustproof, Compact 525In, Nylon Lanyard, ID And Credit Card",
+            "char_count": 92,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "O-Ring Lid, Dustproof Protection, Translucent Plastic, Nylon Lanyard, Compact 525\" X 3\" X 125\" Design",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

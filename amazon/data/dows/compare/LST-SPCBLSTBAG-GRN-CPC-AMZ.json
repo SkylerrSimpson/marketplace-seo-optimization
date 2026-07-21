@@ -1,0 +1,60 @@
+{
+    "sku": "LST-SPCBLSTBAG-GRN-CPC-AMZ",
+    "asin": "B0CL8T5213",
+    "product_type": "TOY_GUN",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-SPCBLSTBAG-GRN-CPC-AMZ\nProduct Type: TOY_GUN\nBrand (from catalog): Kidplokio\nExisting Title: Kidplokio 2pc Space Blaster Toy Gun and Stocking Stuffer Licensed Superhero Drawstring Bag, Boys 3 Up\nDescription: Does your child love all things space and superheroes? This Kidplokio Space Blaster and Cinch Bag Bundle set is a great gift idea this holiday season. The space blaster toy features flashing colorful lights and fantastic blasting sound effects, and the superhero-themed cinch bag comes with an easy-to-use drawstring cinch closure for on-the-go fun. <br/><br/>As defenders of our solar system and unknown galaxies beyond, kids will need the Kidplokio Sonic Space Blaster to keep pretend play space missions running at top speed. Aliens and evil galactic villains won't stand a chance.<br/><br/>Each drawstring tote bag measures 18\" by 13\" and can easily hold your child's school supplies and sporting gear like binders, school books, notebooks, accessories, and a water bottle. The bag features an easy-to-use cinch closure to ensure supplies stay secured in the bag when not in use.<br/><br/>The adjustable cinch strap design provides customizable comfort that will fit most kids. The bag itself is made of durable water-resistant polyester to protect your child's school materials and supplies rain or shine.\nSearch Terms: toys for boys stocking stuffers birthday present for boys gifts for boys robot toys superheros space toys cosplay interactive light up toys holiday toy list 2023 playroom playset toy gifts for kids toddlers pretend play sets kids backpacks\nFeatures:\n- TOY SPACE GUN AND BACKPACK BUNDLE - Kidplokio Space Blaster and Backpack bundle comes with a cool light-up space blaster toy and a superhero-themed cinch bag for boys; Blaster fits inside a travel bag for on-the-go adventures\n- SONIC SPACE BLASTER TOY - As defenders of our solar system and unknown galaxies beyond, kids will need the Kidplokio Sonic Space Blaster to keep pretend play space missions running at top speed! Featuring flashing colorful lights and fantastic blasting sound effects, aliens and evil galactic villains won't stand a chance\n- LARGE CAPACITY BAG - Drawstring bag measures 18\" and can easily hold children's school supplies and sporting gear. Kids can securely carry their binders, notebooks, school books, and water bottles to and from school, sports practice, and play dates\n- DURABLE MATERIAL - Cinch backpacks are made of durable, water-resistant polyester to protect your child's back-to-school materials and supplies even in inclement weather; Robot toy is made of plastic that can be easily wiped down and air-dried in between uses to keep it clean\n- SPECIFICATIONS - 2pc bundle gift set (space blaster and cinch bag); Colors: assorted; Recommended age: 3+ years; No assembly required (space blaster); Batteries included\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Kidplokio 2pc Space Blaster Toy Gun and Drawstring Bag",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "2",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Space Blaster Toy Gun and Drawstring Bag"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Kidplokio 2-Pc Space Blaster and Cinch Bag Set",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "2",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Green",
+                "name": "Space Blaster and Cinch Bag Set"
+            },
+            "char_count": 46,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Light-Up Blaster With Sound Effects, Water-Resistant Cinch Bag, 18In X 13In, Ages 3 Plus, Batteries Included",
+            "char_count": 108,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Light Up Blaster With Sound, 18\" Water-Resistant Cinch Bag, Drawstring Closure, Batteries Included, Age 3 And Up",
+            "char_count": 112,
+            "validation_error": null
+        }
+    }
+}

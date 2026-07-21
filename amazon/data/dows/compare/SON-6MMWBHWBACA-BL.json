@@ -1,0 +1,60 @@
+{
+    "sku": "SON-6MMWBHWBACA-BL",
+    "asin": "B017IGEDXI",
+    "product_type": "CUP_HOLDER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-6MMWBHWBACA-BL\nProduct Type: CUP_HOLDER\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Universal Water Bottle Carrying Ring Attachment Clip Holder with Carabiner for Backpacks and Hiking\nDescription: Now you can conveniently attach your water bottle to your bike, backpack or camping gear with the Water Bottle Holder With Blue Carabiner Clip. A hands free water bottle attachment makes it easier to be mobile on the go with all hands free!<br/><br/>The water bottle holder is made out of durable silicon and can attach easily to most water bottles. This water bottle holder is attached to the aluminum carabiner by a durable nylon strap. The carabiner can be attached to any outdoor gear for easy convenience. It also can be used to carry a set of keys.<br/><br/>Never worry about how to carry your water bottle wherever you go again with this Water Bottle Holder with Blue Carabiner Clip.\nSearch Terms: nylon strap water bottle hanger holder aluminum carabiner water bottle clip water bottle attachment\nFeatures:\n- Conveniently attach your water bottle to your bike, backpack or camping gear\n- Universal Fit hands free water bottle attachment\n- Heavy Duty Rubber Slip-On Water Bottle Holder\n- Durable nylon strap wtih silicon ring attachment that fits snuggly around all size water bottle necks\n- Aluminum Carabiner with Key Ring\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Blue Water Bottle Holder Carabiner Clip",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Blue",
+                "name": "Water Bottle Holder Carabiner Clip"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Blue Water Bottle Holder With Carabiner",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Blue",
+                "name": "Water Bottle Holder"
+            },
+            "char_count": 51,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Universal Fit, Aluminum Carabiner, Durable Nylon Strap, Silicon Ring, Hands Free, Backpack And Bike Attachment",
+            "char_count": 110,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Universal Fit, Silicone Ring Attachment, Nylon Strap, Aluminum Carabiner, Key Ring, Hands-Free Carry",
+            "char_count": 100,
+            "validation_error": null
+        }
+    }
+}

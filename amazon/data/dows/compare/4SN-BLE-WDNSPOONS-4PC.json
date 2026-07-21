@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-BLE-WDNSPOONS-4PC",
+    "asin": "B09V6ML1XS",
+    "product_type": "SPOON",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-BLE-WDNSPOONS-4PC\nProduct Type: SPOON\nBrand (from catalog): Beille\nExisting Title: Beille 4pc Small Bamboo Wooden Spoons Kitchen Utensils Cooking Baking Supplies 7.5 Inches\nDescription: Set of four bamboo wooden spoons from Beille are smaller in scale, measuring 7.5 inches in length, making them excellent complementary kitchen utensils to the standard larger cooking spoons we’re all used to using. We love them for tasting, serving and finishing in the kitchen whether for cooking, baking or food and meal prep.<br/><br/> These 4pc bamboo utensils wooden spoons from Beille will stand up to lots of wear and tear in your kitchen! The smaller length of 7.5 inches of the bamboo spoons, makes them easy to handle, quick to wash, useful for hard to reach spots, and are also great for little helping hands in the kitchen too!<br/><br/>Bamboo is a natural, biodegradable and more renewable resource, making it an environmentally responsible material choice for your kitchen. In addition, these Beille bamboo cooking utensils wooden spoons are manufactured from a single piece of bamboo wood, not constructed of laminated pieces, making them free of harmful glues or other chemicals. The finished bamboo wooden spoons will not scratch cookware and are great for cooking with non stick pots and pans.<br/><br/>The bamboo utensils wooden spoons are top rack dishwasher safe BUT, handwashing is recommended to increase longevity; wash wooden spoons with warm water and gentle dish soap and air dry for best results.\nSearch Terms: bamboo wooden spoons restaurant cooking baking supplies meal food prep serving coffee tasting spoon kitchen utensils gadgets home decor pantry house warming gifts new home chef cookware bakeware mothers day gifts sustainable products wedding gifts\nFeatures:\n- 4PC BAMBOO WOODEN SPOONS: Set of four bamboo wooden spoons from Beille are smaller in scale, measuring 7.5 inches in length; We love them for tasting, serving and finishing in the kitchen whether for cooking, baking or food and meal prep\n- FOOD SAFE COOKING SPOONS: Manufactured from a single piece of bamboo wood, not constructed of laminated pieces, making these wooden spoons free of harmful glues or other chemicals; finished bamboo wooden spoons will not scratch cookware and are great for cooking with non stick pans\n- DURABLE BAMBOO MATERIAL: Lightweight but incredibly strong and durable, these Beille bamboo wooden spoons will stand up to all the wear and tear in your kitchen\n- DISHWASHER SAFE SPOONS: These spoons are top rack dishwasher safe but handwashing is recommended to increase longevity; wash wooden spoons with warm water and gentle dish soap and air dry\n- SPECIFICATIONS: Dimensions: 7.5 x 3 x 0.25 inches; Product Weight: 0.15lbs\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 4-pc Small Bamboo Wooden Spoons 7.5 Inches",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "pc",
+                "size": "7.5 Inches",
+                "color": "",
+                "name": "Bamboo Wooden Spoons"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 4-Pk 7.5 In Small Bamboo Wooden Spoons",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "7.5 In",
+                "color": "",
+                "name": "Wooden Spoons"
+            },
+            "char_count": 45,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Set Of 4, Food Safe, Dishwasher Safe, Non-Scratch, Eco-Friendly, Single Piece Bamboo, Cooking Baking",
+            "char_count": 100,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Single Piece Bamboo, Food Safe And Non Scratch, Dishwasher Safe, Lightweight 75 Inch Tasting Spoons",
+            "char_count": 99,
+            "validation_error": null
+        }
+    }
+}

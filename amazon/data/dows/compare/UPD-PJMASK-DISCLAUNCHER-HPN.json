@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-PJMASK-DISCLAUNCHER-HPN",
+    "asin": "B0732FCLQ7",
+    "product_type": "TOY_GUN",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-PJMASK-DISCLAUNCHER-HPN\nProduct Type: TOY_GUN\nBrand (from catalog): PJ Masks\nExisting Title: PJ Masks Kids Foam Disc Shooter Boys Pretend Play Stocking Stuffer\nDescription: Its time to be a hero. Help save the world with the PJ Masks Foam Disc Launcher. This blue blaster comes equipped with 6 multi-colored soft foam discs that are and is suitable for both indoor and outdoor fun. Setup and reloading the launcher is a breeze, so the fun can go on for hours and hours. Kids will help refine their reflexes and motor skills as they play with their favorite PJ Masks superheros, Catboy, Owlette, and Gekko. This launcher is a great stocking stuffer and makes a fantastic gift for your favorite PJ Masks fan.\nSearch Terms: foam disc shooter disc shooter disc shooter toy disc shooter flying disc flying shooter gun disc shooter foam flying disc shooter toddler disc shooter foam disc shooter gun disc shooter gun foam disk shooter toy foam disk shooter\nFeatures:\n- Includes 6 multi-colored soft foam discs\n- Discs are safe and not harmful on contact\n- Launcher is easy to set up and reload\n- Features popular Disney Junior PJ Masks superheros\n- Makes for a great gift or stocking stuffer\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "PJ Masks Blue Foam Disc Launcher with 6 Soft Discs",
+            "tokens": {
+                "brand": "PJ Masks",
+                "pack_size": "6",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Blue",
+                "name": "Foam Disc Launcher"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "PJ Masks Blue Foam Disc Launcher",
+            "tokens": {
+                "brand": "PJ Masks",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Blue",
+                "name": "Foam Disc Launcher"
+            },
+            "char_count": 32,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Includes 6 Multi-Colored Soft Foam Discs, Easy Setup And Reload, Safe For Indoor And Outdoor Play, Develops Motor Skills",
+            "char_count": 120,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "6 Multi-Colored Soft Foam Discs, Indoor And Outdoor Fun, Easy To Reload, Safe On Contact, Builds Reflexes And Motor Skills",
+            "char_count": 122,
+            "validation_error": null
+        }
+    }
+}

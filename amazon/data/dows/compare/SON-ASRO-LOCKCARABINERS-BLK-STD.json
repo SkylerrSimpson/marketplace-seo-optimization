@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ASRO-LOCKCARABINERS-BLK-STD",
+    "asin": "B0FNGBGKTH",
+    "product_type": "CARABINER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ASRO-LOCKCARABINERS-BLK-STD\nProduct Type: CARABINER\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 3 Inch Locking Aluminum Carabiner Clip EDC Camping Hiking Gear (Assorted Colors) (Black)\nDescription: Keep personal belongings or outdoor essentials secure and within reach, using ASR Outdoors locking carabiners, designed specifically for hiking, camping, fishing, and everyday outdoor adventures. The locking carabiners are made from lightweight, durable aluminum, and feature a screw-locking mechanism to ensure gear stays safely attached to bags, backpacks, jackets, belt loops and more.<br/><br/>Each carabiner boasts an 8mm thick aluminum body, and weighs in at just 0.04lbs, meaning they’ll barely add any additional bulk or heaviness to gear, which can mean a lot when you’re backpacking, hiking or hauling gear from one spot to the next!<br/><br/>The trio of assorted colors (matte black, green or silver), allow you to easily color code items or match to existing outdoor gear. Each carabiner is compact enough to carry just about anywhere, yet tough enough to handle any daily routine. So, whether you're attaching keys to your belt loop, securing a water bottle to your backpack, or hanging a lantern in your tent, these ASR Outdoor locking carabiners deliver lightweight durability and dependable functionality. Their compact size and easy twist lock design make them reliable and convenient for both quick day or weekend trips and extended adventures alike.<br/><br/> PLEASE NOTE: These carabiners are NOT designed for climbing or heavy load-bearing applications\nSearch Terms: Carabiner clip; locking carabiners; carabiner for keys; fishing hunting survival tactical hiking camping EDC backpacking gear; keychain carabiner; backpack accessories; screwgate carabiners; camping essentials; water bottle; garage organization\nFeatures:\n- LOCKING CARABINERS: Carabiners keep personal belongings or other outdoor gear secure and safely clipped to bags, backpacks, belt loops, jackets or wherever you need to stash your stuff\n- ALUMINUM CONSTRUCTION: Lightweight and rust resistant for long term use when camping, hiking, backpacking, to carry EDC gear and more\n- MATTE FINISH: Choose from three colors, silver, black or olive green in modern and sleek matte finish\n- KEYRING INCLUDED: Ready to deploy for keys, mini survival gadgets, lightweight tools and more\n- SPECIFICATIONS: Dimensions: 3.0 x 1.5 inches; Thickness: 8mm; Weight: 0.04lbs\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 3 Inch Black Locking Aluminum Carabiner",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "Inch",
+                "size": "3 Inch",
+                "color": "Black",
+                "name": "Locking Aluminum Carabiner"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 3-in Black Locking Aluminum Carabiner Clip",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Locking Aluminum Carabiner Clip"
+            },
+            "char_count": 54,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Screw-Lock Mechanism, Lightweight Aluminum, EDC Hiking Camping Fishing, Keychain Ready, Rust Resistant",
+            "char_count": 102,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Screw Lock Gate, Keyring Included, Lightweight Rust Resistant Aluminum, Matte Finish, EDC Camping Hiking",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

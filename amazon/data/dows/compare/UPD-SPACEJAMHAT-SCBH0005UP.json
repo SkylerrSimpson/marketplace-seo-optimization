@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-SPACEJAMHAT-SCBH0005UP",
+    "asin": "B09CRH1473",
+    "product_type": "HAT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-SPACEJAMHAT-SCBH0005UP\nProduct Type: HAT\nBrand (from catalog): Concept One\nExisting Title: Space Jam 2 A New Legacy Hat Adjustable Baseball Cap for Kids and Adults\nDescription: Add this baseball cap to your collection for original Space Jam fans who are looking to jump on the Space Jam 2 A New Legacy bandwagon. The Space Jam 2 baseball hat features bold colors, comfortable netting for ventilation, and adjustable snap-back closure, perfect for casual wear, sporting events, and more.<br/><br/>The Space Jam 2 baseball cap features an easy to maneuver snapback closure, making adjustments to different sizes a breeze; one size fits most. The A New Legacy-themed baseball cap is made from a lightweight polyester and cotton blend fabrication, making it comfortable to wear throughout the day without irritation; the adjustable strap allows the wearer to loosen to tighten as needed for optimum comfort.<br/><br/>Officially licensed by Warner Bros. Studios, the Space Jam 2 A New Legacy baseball cap is great for all Space Jam fans, kids, women, and men alike. Hand washing and air dry recommended.\nSearch Terms: boys lebron james tune squad basketball cap kids back to school outdoor accessories sports bill fashion baseball adjustable girls blue orange movie bugs bunny popular licensed official mesh lid hair monstars one size fits all snapback classic curved\nFeatures:\n- SPACE JAM 2 A NEW LEGACY BASEBALL CAP: For original Space Jam fans who are looking to jump on the Space Jam 2 A New Legacy band wagon, add this baseball cap to your collection! The Space Jam 2 baseball hat features bold colors, comfortable netting for ventilation and an adjustable snap back closure, perfect for casual wear, sporting events and more\n- ONE SIZE FITS MOST: The Space Jam 2 baseball cap features an easy to maneuver snap back closure, making adjustments to different sizes a breeze; one size fits most\n- COMFORTABLE AND LIGHTWEIGHT: This Space Jam 2 baseball cap is lightweight polyester and cotton material, making it comfortable to wear throughout the day; the adjustable strap allows the wearer to loosen to tighten as needed for optimum comfort\n- OFFICIALLY LICENSED SPACE JAM 2 MERCHANDISE: Officially licensed by Warner Bros. Studios, the Space Jam 2 A New Legacy baseball cap is great for all Space Jam fans, kids, women and men alike! Hand washing and air dry recommended\n- SPECIFICATIONS: 6 x 4 x 10 inches; Colors: Blue, Orange, White; Material: Polyester\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters.  Please include the size and color of the item in the Product Name, if available.\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Concept One Space Jam 2 A New Legacy Adjustable Baseball Cap",
+            "tokens": {
+                "brand": "Concept One",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "One Size Fits Most",
+                "color": "Blue, Orange, White",
+                "name": "Space Jam 2 A New Legacy Adjustable Baseball Cap"
+            },
+            "char_count": 60,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Concept One Blue Orange White Space Jam 2 A New Legacy Baseball Cap",
+            "tokens": {
+                "brand": "Concept One",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Blue Orange White",
+                "name": "Baseball Cap"
+            },
+            "char_count": 67,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Official Warner Bros Licensed, Snapback Closure, Polyester Cotton Blend, Mesh Ventilation, Kids And Adults",
+            "char_count": 106,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "One Size Fits Most, Snapback Closure, Mesh Ventilation, Lightweight Polyester Cotton, Official Warner Bros License",
+            "char_count": 114,
+            "validation_error": null
+        }
+    }
+}

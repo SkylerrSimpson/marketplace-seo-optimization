@@ -1,0 +1,60 @@
+{
+    "sku": "SON-COLLETSET-4PC",
+    "asin": "B078PRC6N2",
+    "product_type": "TOOLS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-COLLETSET-4PC\nProduct Type: TOOLS\nBrand (from catalog): Universal Tool\nExisting Title: Universal Tool 4pc Small Shank Brass Bit Holder Collet Set for Rotary Tools (1/32, 1/16, 3/32, 1/8 Shank) Compatible with Dremel Rotary Tools\nDescription: Keep your drill bits clamped tight with the 4pc Universal Tool Brass Collet Set. <br/><br/>These collets are sized 1/32\", 1/16\", 3/32\" and 1/8\" shanks respectively, and are compatible with most rotary tools. Collets are ideal for exerting a strong clamping force on your work-piece tool. They are constructed of durable brass so they will stand the test of time through regular use. Make sure you grab a set of these before your next rotary tool project.\nSearch Terms: dremel compatible accessory micro drill holder engraving adapter precision chuck mini drill adapter carving accessories jewelry making model building hobby repair tool parts rotary bit adapter engraving tools craft accessories\nFeatures:\n- PRECISION ROTARY TOOL COLLET SET: This 4pc brass collet set allows rotary tools to securely hold small shank bits for engraving, carving, drilling, and detail work. Ideal replacement collets for worn or missing rotary tool parts, helping improve accuracy and stability during delicate hobby or craft projects\n- FOUR PIECE SHANK SIZES INCLUDED: Set includes 1/32, 1/16, 3/32, and 1/8 inch collets to fit a wide range of rotary tool accessories and micro drill bits. Perfect for engraving bits, carving tools, polishing accessories, and precision rotary attachments used in woodworking and crafting\n- COMPATIBLE WITH DREMEL ROTARY TOOLS: Designed to work universaly with Dremel brand rotary tools and other rotary tool models that use interchangeable collets. A convenient replacement accessory for rotary tool users who need multiple bit sizes for engraving, carving, hobby work, and DIY repairs\n- DURABLE BRASS CONSTRUCTION – Made from solid brass for strength, corrosion resistance, and long lasting performance. Brass collets provide a secure grip on rotary tool bits while reducing slippage, allowing smoother and more controlled operation during precision work\n- IDEAL FOR HOBBY, CRAFT, AND WOODWORK PROJECTS – Great for engraving, jewelry making, model building, miniature carving, woodworking detail work, and other precision DIY applications. A useful rotary tool accessory set for hobbyists, craftsmen, woodworkers, and home improvement enthusiasts\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 4-pc Brass Collet Set for Rotary Tools",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "4",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Brass",
+                "name": "Collet Set for Rotary Tools"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 4-pk Small Shank Brass Rotary Tool Collet Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "Small Shank",
+                "color": "Brass",
+                "name": "Rotary Tool Collet Set"
+            },
+            "char_count": 60,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "132, 116, 332, 18 Inch Shanks, Dremel Compatible, Precision Engraving And Carving",
+            "char_count": 81,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "132 To 18 Inch Sizes, Durable Brass Grip, Dremel Compatible, Secure Bit Hold, Engraving Carving Drilling",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

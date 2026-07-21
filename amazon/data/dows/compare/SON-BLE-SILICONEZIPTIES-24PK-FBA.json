@@ -1,0 +1,60 @@
+{
+    "sku": "SON-BLE-SILICONEZIPTIES-24PK-FBA",
+    "asin": "B09TV4ZQQJ",
+    "product_type": "KITCHEN_TOOLS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-BLE-SILICONEZIPTIES-24PK-FBA\nProduct Type: KITCHEN_TOOLS\nBrand (from catalog): Beille\nExisting Title: Beille Multicolored Pantry Kitchen Organization Silicone Zip Ties, 24pk\nDescription: For food storage and pantry organization, Beille’s 24 pack of food grade silicone zip ties or twist ties can do it all and will prove to be a handy organizational tool to have around the house, especially in the kitchen.<br/><br/>Whether closing a chip bag, keeping cereal fresh or looking to better seal a reusable produce bag in your fridge, these flexible and stretchy silicone zip ties are easy to use, easy to keep clean and can be put to use many times over in your kitchen or pantry. The twist ties, zip ties or straps are made of high-temperature resistant silicone, which means that they are completely safe to use when preparing food in the kitchen. Even better, the multipurpose cable ties are reusable so you can use them to keep coffee fresh, blanch vegetables or better organize drawers, snack cupboards and more.<br/><br/>Our 24 pack tool set of reusable silicone zip ties will last long in to the future and make life more convenient and organized. However small or large your organizational project may be, be sure to have a pack of these twist ties on hand and you’ll be well on your way to a neat, tidy, clutter-free and organized kitchen, pantry and beyond.\nSearch Terms: cable management twist ties tools tool set extension cord office supplies desk school organization and storage garage playroom decor food containers straps\nFeatures:\n- KITCHEN ORGANIZATION TOOLS: Beille's 24pk of silicone zip ties will come in handy for kitchen organization and pantry storage and organization too! Whether closing a chip bag or keeping cereal fresh, these flexible but durable silicone zip ties are easy to use, keep clean and can be reused many times over\n- REUSABLE ZIP TIES: These silicone twist ties or straps can be put to use many times over in your kitchen or pantry, kids playroom, garage or home office for cable management! The zip ties are flexible and stretchy but also very durable, meaning they won't lose their elasticity or integrity\n- FOOD PREP AND COOKING: A unique aspect of these silicone twist ties is that they are completely food safe, meaning you can use these zip ties when cooking like when blanching vegetables or washing fresh produce and more\n- PANTRY ORGANIZATION AND STORAGE: These zip ties ensure you get the most out of pantry items keeping them fresher for longer! Look forward to a neat and tidy, organized kitchen and pantry, fridge, freezer and more utilizing these zip ties!\n- SPECIFICATIONS: Dimensions: 4.25 x 0.5 x 0.5 inches; Weight: 0.1lbs; Color: Assorted Multicolor; Material: Silicone\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 24-pk Multicolored Silicone Zip Ties",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "24",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Multicolored",
+                "name": "Silicone Zip Ties"
+            },
+            "char_count": 43,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 24-pk Multicolored Reusable Silicone Zip Ties",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "24",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Multicolored",
+                "name": "Reusable Silicone Zip Ties"
+            },
+            "char_count": 52,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Reusable Food Grade Silicone, Kitchen And Pantry Organization, Cable Management, Dishwasher Safe",
+            "char_count": 96,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Food Grade Silicone, Reusable And Flexible, Heat Resistant, Pantry Storage, Cable Management, 24 Pack",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

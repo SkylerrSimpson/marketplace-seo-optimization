@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ACIDBRUSHSET-12PC-FBA",
+    "asin": "B079PQZNS9",
+    "product_type": "PAINT_BRUSH",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ACIDBRUSHSET-12PC-FBA\nProduct Type: PAINT_BRUSH\nBrand (from catalog): Universal Tool\nExisting Title: Universal Tool Acid Brush Set 6 Inch Metal Handle Apply Glues Hard Bristle 12pc\nDescription: Repair items safely with the Universal Tool Acid Brush Set.<br/><br/>This set comes with 12 brushes that are ideal for cleaning parts, applying glue or acid that may ruin other types of brushes. The bristles were designed to apply acidic flux during soldering, but they can be useful for use in your workshop, home or office as well. Each brush is just 6\" in length, so they'll work even for small, precision jobs. Make sure you keep a set of these around for when you have to deal with harsh chemicals.\nSearch Terms: small modeling hobby set glue brush for crafting painting soldering tools hobbies\nFeatures:\n- Acid Brush Set - 12 Pieces\n- Overall Length: 6\" ; Bristle Length: 0.75\"\n- Designed for Use with Acid, Glues, Pastes & More that May Damage Other Brushes\n- Ideal for Cleaning Parts, Applying Glue, Painting, Etc.\n- Material: Metal Handle\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 12-pc 6 Inch Acid Brush Set Metal Handle",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "12",
+                "pack_size_unit": "pc",
+                "size": "6 Inch",
+                "color": "",
+                "name": "Acid Brush Set Metal Handle"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 12-pc 6 in Acid Brush Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "12",
+                "pack_size_unit": "pc",
+                "size": "6 in",
+                "color": "",
+                "name": "Acid Brush Set"
+            },
+            "char_count": 40,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "12 Brushes, 6 Inch Length, Hard Bristles, Acid And Glue Application, Soldering Flux, Precision Work",
+            "char_count": 99,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Metal Handle, Hard Bristles, For Acid, Glue And Flux, Soldering Use, Cleaning Parts, Precision Work",
+            "char_count": 99,
+            "validation_error": null
+        }
+    }
+}

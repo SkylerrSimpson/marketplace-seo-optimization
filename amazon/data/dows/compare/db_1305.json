@@ -1,0 +1,60 @@
+{
+    "sku": "db_1305",
+    "asin": "B00KAKONXK",
+    "product_type": "HEALTH_PERSONAL_CARE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: db_1305\nProduct Type: HEALTH_PERSONAL_CARE\nBrand (from catalog): Universal Tool\nExisting Title: 11pc Universal Compact Eye Glasses Repair Kit Case For Fixing All Kinds Of Broken Glasses\nDescription: This Universal Tool Compact Eyeglass Repair Kit has everything you need to repair your reading eye glasses at home or on the go.<br/><br/>This eyeglasses repair kit comes with screws and contains a mini flat head screwdriver, hinge rings, and eye glass frame nose pads. All you need to fix your readers, cheaters and spectacles with ease. The screwdriver can also be used for repairing watches and small precision electronic components. <br/><br/>Eye glass frames can vary in price so why not just fix the ones you have without hassle.\nSearch Terms: eyeglass repair kit eyeglasses repairing set with screwdriver eyeglass repair kit with screws magnetic eyeglass repair kit with screws eyeglass repair screws reading eyeglass repair tools eyeglass repair tools kit\nFeatures:\n- Compact Eyeglass Repair Kit with Screws and Screwdriver (Flathead)\n- Fix your broken eye glasses in a hurry. Glasses repair kit is universal eyeglasses repair kit for all broken eyeglasses frames\n- (4) Micro Screws (1) Flathead Eye Glass Screwdriver (2) Hinge Rings (2) Nose Pads\n- Eyeglass repair kt with screws and nose pads to fix you eye glasses your self with ease\n- Includes everything you need to repair or replace your eyeglass frame screws, hinges and fit is here, keep this set in your glove box, purse or bag\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 11pc Compact Eyeglass Repair Kit",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "11",
+                "pack_size_unit": "pc",
+                "size": "Compact",
+                "color": "",
+                "name": "Eyeglass Repair Kit"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 11-pk Compact Eyeglass Repair Kit with Screws",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "11",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Compact Eyeglass Repair Kit"
+            },
+            "char_count": 60,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Includes Screws, Screwdriver, Hinge Rings, Nose Pads, Universal For All Frames, Portable",
+            "char_count": 88,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Micro Screws, Flathead Screwdriver, Hinge Rings, Nose Pads, Fits Readers And Spectacles, Compact Travel Case",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

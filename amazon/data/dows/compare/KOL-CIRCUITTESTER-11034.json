@@ -1,0 +1,60 @@
+{
+    "sku": "KOL-CIRCUITTESTER-11034",
+    "asin": "B0C5JZRV9R",
+    "product_type": "ELECTRIC_CIRCUIT_TESTING_DEVICE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: KOL-CIRCUITTESTER-11034\nProduct Type: ELECTRIC_CIRCUIT_TESTING_DEVICE\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux 6 and 12 Volt Circuit Tester with Fuse Clip Automotive Voltage Tester\nDescription: Whether you’re a seasoned automotive repairman or looking to repair your vehicle at home, you need a safe and reliable circuit tester. The ToolTreaux circuit tester will allow you to test the DC voltage in your automotive applications from 6 to 12 volts. Our circuit tester is safe and easy to use to test fuses in the junction block, automotive circuits for voltage, and probe connectors and sockets. It comes with a convenient fuse clip and features a sharp tip for piercing wire installation if needed. This circuit tester features a series of lights that will show the state of the wiring and voltage, and is a must-have tool for any vehicle owner or auto-repair technician.\nSearch Terms: circuit testers circuit tester electrical tools electrical testing volt tester 6 volt tester 12 volt tester electronics multi tool wire tester wire testing circuit testing automotive tester voltage tester auto tools auto electronics tools\nFeatures:\n- 6V AND 12V CIRCUIT TESTER - ToolTreaux circuit tester is used to test DC voltage in automotive applications; Test your DC voltage from 6-12 Volts\n- EASY TO USE - Safe circuit tester tests fuses in the junction block, automotive circuits for voltage and probe connectors and sockets; Easy and safe voltage testing tool for home auto-testing\n- FUSE CLIP - Comes with a convenient fuse clip and sharp tip for piercing wire installation if needed; Features a series of lights that show the state of the wiring and voltage\n- VERSATILE TOOL - Automotive voltage testers are a must-have tool for any vehicle owner or auto-repair enthusiast; Make sure your DC voltage is at the correct level with this simple tool\n- SPECIFICATIONS - Volt sizes: 6 and 12; Fuse clip included; yes; Power source: wired; Materials: plastic, metal; Colors: black, yellow\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 6 and 12 Volt Circuit Tester with Fuse Clip",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "6 and 12 Volt",
+                "color": "",
+                "name": "Circuit Tester with Fuse Clip"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 6-12 Volt Automotive Circuit Tester",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "6-12 Volt",
+                "color": "",
+                "name": "Automotive Circuit Tester"
+            },
+            "char_count": 46,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "DC Voltage Testing, Fuse Clip And Sharp Tip, LED Lights, Automotive Applications, Easy To Use, Vehicle Repair",
+            "char_count": 109,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Fuse Clip Included, Piercing Tip, Tests 6V And 12V DC Circuits, Light Indicator, Probe Connectors, Junction Blocks",
+            "char_count": 114,
+            "validation_error": null
+        }
+    }
+}

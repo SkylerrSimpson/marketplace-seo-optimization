@@ -1,0 +1,60 @@
+{
+    "sku": "SON-DUKCS-52PC-A-3",
+    "asin": "B000J6DE08",
+    "product_type": "UTILITY_KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-DUKCS-52PC-A-3\nProduct Type: UTILITY_KNIFE\nBrand (from catalog): Manufactured in China\nExisting Title: 52pc Deluxe Utility Knife Complete Hobby / Modeling / Scrapbooking Set\nDescription: Hobby knives are great, but the biggest pain in the butt is not having that perfect blade for whatever it is you need it for. Well, never again- with this robust 52 piece set, you'll never need to go searching for more blades. These knives are sharp, and are great for pruning models, slicing paper, or anything else you may need them for. Includes: 7 Knife handles 37 Unique blades 5 Prove blades 1 Sharpening stone 1 Glue 1 Carrying case.\nSearch Terms: utility knives utility knife blades folding razor blades edc retractable box cutter blades knives safety hobby knife set blades precision tools knives blades set clay modeling tools plastic fixed blade knife cutting tools mats set arts and crafts\nFeatures:\n- A blade for every task\n- Hard shell case for storage\n- Each piece has its own location for easy organization\n- Great for craft starters or experienced hobbyists!\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "52-Piece Deluxe Utility Knife Hobby Modeling Scrapbooking Set",
+            "tokens": {
+                "brand": "",
+                "pack_size": "52",
+                "pack_size_unit": "Piece",
+                "size": "Deluxe",
+                "color": "",
+                "name": "Utility Knife Hobby Modeling Scrapbooking Set"
+            },
+            "char_count": 61,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Manufactured in China 52-Pc Deluxe Utility Knife Hobby Modeling Set",
+            "tokens": {
+                "brand": "Manufactured in China",
+                "pack_size": "52",
+                "pack_size_unit": "Pc",
+                "size": "",
+                "color": "",
+                "name": "Utility Knife Set"
+            },
+            "char_count": 67,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "7 Knife Handles, 37 Unique Blades, Sharpening Stone, Hard Shell Case, Precision Cutting Tools",
+            "char_count": 93,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "7 Knife Handles, 37 Unique Blades, Hard Shell Case, Sharpening Stone, Glue, Organized Storage, Easy Access",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

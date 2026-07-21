@@ -1,0 +1,60 @@
+{
+    "sku": "NPT-HDCAHWSB-2PC-STD-BLCK-2",
+    "asin": "B00BIPFQO6",
+    "product_type": "AXE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: NPT-HDCAHWSB-2PC-STD-BLCK-2\nProduct Type: AXE\nBrand (from catalog): Wartech\nExisting Title: ASR Outdoor Handheld Hatchet Heavy Duty Camp Axe with Hard Sheath\nDescription: This Camping Hatchet is perfect for the campsite, hiking, or the backyard.<br/><br/>This Hatchet has a 3-1/2\" blade face and a 11\" Full Tang steel body. Its textured rubber handle give it a good feel in your hand. The resin dipped body adds extra durability and feel. Includes protective plastic snap sheath.<br/><br/>This axe is great for cutting branches and chopping or splitting wood for campfires. The flattened butt can also be used as a hammer if necessary. <br/><br/>Specifications: Blade Face: 3-1/2\", Height: 11\", Blade to Butt: 4-1/2\"\nSearch Terms: gift for boy scout young camper outdoor hand held camping axe for dad survial hatchet Heavy Duty Camp Axe Hatchet w Sheath pretty hatchet\nFeatures:\n- Heavy duty camping axe with full tang handle from solid one piece forged stainless steel\n- Exceptional power to weight ratio at 1.62 pounds; Sharp and durable 4 inch blade with large hammer face pommel on the back\n- Cleave through wood easily with the partially curved, ergonomic handle fitting well in your hand\n- Easily make a camp fire and perform general camp ground duties with this item added to your camping gear\n- Hard plastic button snap sheath is designed to allow you to quickly access and use of your hatchet for camping and survival. The straps on the back of the sheath allow you to hang and secure it\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Wartech Heavy Duty Camp Axe with Hard Sheath Black",
+            "tokens": {
+                "brand": "Wartech",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Heavy Duty Camp Axe with Hard Sheath"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Wartech 11in Black Camping Hatchet",
+            "tokens": {
+                "brand": "Wartech",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "11in",
+                "color": "Black",
+                "name": "Camping Hatchet"
+            },
+            "char_count": 34,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "11 Inch Full Tang Steel, 35 Inch Blade, Ergonomic Handle, Hammer Pommel, 162 Lbs, Snap Sheath",
+            "char_count": 93,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Full Tang Stainless Steel, 4\" Blade, Hammer Pommel, Ergonomic Grip, Hard Snap Sheath, Camp And Survival Use",
+            "char_count": 107,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "KOL-BIKE-LOCK-GR242",
+    "asin": "B07KQQF99M",
+    "product_type": "LOCK",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: KOL-BIKE-LOCK-GR242\nProduct Type: LOCK\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Heavy Duty 6-Foot Self Coiling Cable Bike Lock with 2 Keys\nDescription: Secure your bike when not in use with the ASR Outdoor Bike Lock! This cable bike lock is designed to prevent your bike from being stolen if you need to lock it up outside. It’s super easy to use and comes with 2 identical keys as well as a holder to attach to your bike for convenience.<br/><br/>Our bike cable lock is made of plastic-covered heavy-duty braided metal cable that will keep your bike secured even with the toughest bike-cutting tools. It features a useful self-coiling design so the cable doesn’t get in your way once locked. It can also help prevent tripping when locking and unlocking your bike.<br/><br/>The bike lock features 6 feet of cable so you can lock your bike up with leeway if necessary, making this a great cable option for any level of cyclist.\nSearch Terms: biking cycling biking accessories bike cable lock cycling locks metal locks self coiling lock 6 foot lock for biking metal cable lock cycling\nFeatures:\n- SECURE YOUR BIKE - ASR Outdoor bike lock is designed to secure your bicycle when not in use; Super easy to use and comes with 2 identical keys and a holder to attach to your bike for convenience\n- DURABLE AND WEATHERPROOF- The vinyl rubber covering protects the 16 gauge braided metal cable from every day elements\n- EASY USE AND STRONG - Compact and light this commuter bike lock combines function and portability; easy to store when not in use, folds up to just 6 inches coiled\n- CONVENIENCE - It's easily attachable to your bike and has two keys in case one is lost\n- GREAT GIFT - Give as a party favor, gift, stocking stuffer, swag bag, conference bag, goodie bag, Easter basket filler, Christmas gift, convention bag, or Holiday gift\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 6-Foot Heavy Duty Self Coiling Cable Bike Lock",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "6",
+                "pack_size_unit": "Foot",
+                "size": "",
+                "color": "",
+                "name": "Heavy Duty Self Coiling Cable Bike Lock"
+            },
+            "char_count": 58,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 6-Foot Cable Bike Lock",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "6-Foot",
+                "color": "",
+                "name": "Cable Bike Lock"
+            },
+            "char_count": 34,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Braided Metal Cable, Plastic Covered, 2 Keys Included, Self Coiling Design, Weatherproof, Compact Storage",
+            "char_count": 105,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "16 Gauge Braided Steel, Self Coiling Design, Vinyl Weatherproof Cover, Includes 2 Keys And Mount Holder",
+            "char_count": 103,
+            "validation_error": null
+        }
+    }
+}

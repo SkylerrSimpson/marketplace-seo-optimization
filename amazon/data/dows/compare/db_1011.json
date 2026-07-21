@@ -1,0 +1,60 @@
+{
+    "sku": "db_1011",
+    "asin": "B00HNVCS7C",
+    "product_type": "PAINT_BRUSH",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: db_1011\nProduct Type: PAINT_BRUSH\nBrand (from catalog): Universal Tool\nExisting Title: 15pc Artists Brushes Assorted Sizes Crafts Hobby Painting Natural Hair Bristles\nDescription: The 15pc Artist Brush Set is a great addition to any artist's or hobbyist's supply collection. Each set comes with 15 brushes, all featuring natural hair bristles. This set comes with 15 assorted sizes that are numbered for easy identification and organization. The brushes range from 7\" to 10\" in length. <br><br>Natural hair bristle brushes are ideal for use with paint, glues, adhesives and more. Make sure to grab a set of these before your next art project, or gift them to your favorite artist!<br><br><b>Package Includes:</b><br>-(15) Assorted Artist Brushes\nSearch Terms: paint\nFeatures:\n- 15 Piece Set\n- Total Length: 7\" to 10\"\n- Assorted Sizes\n- Natural Hair Bristles\n- Ideal for Painting, Crafts, Hobbies, Art Projects & More\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 15-pc Artist Brushes Natural Hair Bristles",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "15",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Artist Brushes Natural Hair Bristles"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 15-pk Assorted Artist Paint Brushes",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "15",
+                "pack_size_unit": "pk",
+                "size": "Assorted",
+                "color": "",
+                "name": "Artist Paint Brushes"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Assorted Sizes, 7 To 10 Inch Length, Numbered For Organization, Ideal For Painting And Crafts",
+            "char_count": 93,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Natural Hair Bristles, Assorted Sizes, Numbered Brushes, 7\"-10\" Lengths, Ideal For Paint, Glue, Crafts",
+            "char_count": 102,
+            "validation_error": null
+        }
+    }
+}

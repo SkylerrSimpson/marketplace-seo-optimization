@@ -1,0 +1,60 @@
+{
+    "sku": "HWC-AFLDIH-STD-BLCK-FBA",
+    "asin": "B01M1UOG1U",
+    "product_type": "WALLET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWC-AFLDIH-STD-BLCK-FBA\nProduct Type: WALLET\nBrand (from catalog): ASR Federal\nExisting Title: ASR Federal Minimalist Leather Bifold Double ID Card Credential Holder, Black\nDescription: Need a little help keeping your ID, credit cards or business cards organized, separated and protected? Look no further than the ASR Federal Black Leather Bi-fold Minimalist Double ID Card Holder. Although this type of bi-fold card holder is traditionally used as an ID card holder, it can be used for a variety of different card holder needs: business card holder, credit card holder, metro pass holder, student ID holder or international travelers ID card holder. The leather card holder can also function as a slim, minimalist bi-fold wallet if you're looking to reduce the number of cards you carry on a daily basis. <br/><br/>The ASR Federal black leather bi-fold minimalist wallet card holder is also a great piece to have when you're traveling and want to avoid the extra bulk of your regular wallet. Its slim, compact design, measuring just one inch in depth, is perfect for slipping into a purse, suitcase, backpack, jacket pocket or briefcase without taking up too much room, keeping your valuable ID cards safe and secure but still easily accessible. And notably, the bi-fold minimalist wallet card holder is a reliable and convenient carrying option for police or professionals in the private or public safety or security industries, as the card holder makes it fast and easy to display your ID when needed.<br/><br/>Made from 100% genuine, heavy gauge leather, this bi-fold minimalist wallet card holder features turned edges and rounded corners. Heavy gauge leather, while at first use might seem stiff, will soften and mold to your preferred carrying method with a little bit of time. The bi-fold minimalist wallet card holder also features two clear windows, so that ID or personal cards are easily visible but protected from scuffs and scratches when in use\nSearch Terms: police gear card holder wallet police equipment id police id holder id card holder FBI CIA security credential holder federal tactical gear police law enforcement gear law enforcement accessories black leather card wallet identification card holder\nFeatures:\n- ID CARD HOLDER: The ASR Federal black leather double sided ID credential card holder can be used for a variety of card holder needs: business card holder, credit card holder, ID card holder, metro pass holder or international travelers ID card holder. The double sided leather card holder can also function as a minimalist bifold wallet\n- SECURITY CREDENTIAL CARD HOLDER: This ID card holder is especially useful with two clear windows for easy visibility, the bifold credentials holder discreetly and securely stows ID while still remaining accessible\n- COMPACT DESIGN: Measuring just one inch in depth, the lightweight ID card holder easily slips into any pocket, backpack, suitcase or briefcase for convenient location and transport. The leather ID credential holder is also great for traveling whilst abroad\n- GENUINE LEATHER MATERIAL: ID card holder is constructed from 100% heavy gauge premium leather, making it a durable and long lasting product. Over time and with use, the ID card holder will relax and mold to your preferred carrying method without losing its structure\n- SPECIFICATIONS: Dimensions: 4.75 inches x 3.25 inches x 0.20 inch; Color: Black; Weight: 1.92 ounces; Material: 100% genuine leather; Each ID slot fits cards up to 2.75 inches x 4.375 inches\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Federal Black Leather Minimalist Bifold ID Card Holder",
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Minimalist Bifold ID Card Holder"
+            },
+            "char_count": 58,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Federal Black Leather Bi-Fold Double ID Card Holder",
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Leather Bi-Fold Double ID Card Holder"
+            },
+            "char_count": 55,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "100 Genuine Leather, Double ID Windows, Compact 1 Inch Depth, Police And Security Credential Holder",
+            "char_count": 99,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Two Clear Windows, Genuine Heavy Gauge Leather, Slim 1 Inch Profile, Protects ID And Credentials, Ideal For Travel",
+            "char_count": 114,
+            "validation_error": null
+        }
+    }
+}

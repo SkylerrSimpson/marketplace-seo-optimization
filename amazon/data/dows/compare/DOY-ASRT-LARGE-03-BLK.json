@@ -1,0 +1,60 @@
+{
+    "sku": "DOY-ASRT-LARGE-03-BLK",
+    "asin": "B0FX7W6LDL",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DOY-ASRT-LARGE-03-BLK\nProduct Type: KNIFE\nBrand (from catalog): ASR Tactical\nExisting Title: ASR Tactical Micro Zipper Folding Pocket Knife EDC Escape Survival Tool, Matte Black\nDescription: Small in size but big on performance, the ASR Tactical Folding EDC Zipper Pocket Knife is designed for those who value preparedness and efficiency in every situation. This compact utility knife is crafted from durable stainless steel and built for everyday carry, making it the the perfect addition to your EDC gear, backpacks, bags, jackets, keyrings and more.<br/><br/>Designed for functionality without added bulk, this lightweight pocket knife features a sharp stainless steel blade that folds securely into itself for safe, convenient storage. Whether you’re opening packages, cutting rope, or tackling small utility tasks, these folding pocket knives deliver dependable performance when you need it most. Lightweight construction makes the pocket knives effortless to carry without adding extra bulk or weight.<br/><br/>Available in both sleek titanium silver and matte black finishes, each folding pocket knife includes a sturdy keychain attachment for easy on person carry or quick connection to your backpack, belt loop, key ring and more.<br/><br/>Combining precision design, high quality materials and portability all in one, the ASR Tactical Mini Folding EDC Knife is a go anywhere essential that’s as practical as it is compact. Engineered for durability, safety, and performance in a compact, minimalist form factor, ready when you are.<br/><br/>Small Weight: 0.04lbs<br/><br/>Large Weight: 0.06lbs<br/><br/>Small Dimensions (Open): 2.25 x 0.75 x 0.25 inches<br/><br/>Large Dimensions (Open): 2.62 x 0.75 x 0.25 inches<br/><br/>Thickness: 2.5mm\nSearch Terms: hidden knife; Edc survival camping hiking tactical gear; survival tools; pocket knife; mini keychain knife; folding knife; utility knife; camping essentials; everyday carry pocket knives; folding knife for men; gifts for men; box cutter; bug out bag; survival kit\nFeatures:\n- EDC GEAR FOLDING POCKET KNIFE: Engineered for portability without sacrificing on strength or reliability; folding pocket knives are small enough for keychains, pockets, zippers or backpacks, while still offering reliable cutting power\n- STAINLESS STEEL BLADE: Sharp, corrosion resistant blades designed for daily cutting or slicing, lightweight utility tasks and general everyday carry; pocket features a milled grooved on the blade for easy opening\n- KEYCHAIN ATTACHMENT: Includes metal bead keychain (small) or metal and rope ring keychain (large) for easy attachment to tactical gear, other key rings, backpacks, bags, jackets and more\n- VERSATILE UTILITY KNIFE: Perfect to include with tactical gear, camping essentials, hiking gear, EDC gear and more without adding an extra bulk or additional weight\n- SPECIFICATIONS: Colors: Matte Black or Titanium Gray; Small Weight: 0.04lbs; Large Weight: 0.06lbs; Small Dimensions (Open): 2.25 x 0.75 x 0.25 inches; Large Dimensions (Open): 2.62 x 0.75 x 0.25 inches; Thickness: 2.5mm\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical Micro Folding Pocket Knife EDC Matte Black",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Micro",
+                "color": "Matte Black",
+                "name": "Folding Pocket Knife EDC"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical Micro Matte Black Folding Pocket Knife",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Micro",
+                "color": "Matte Black",
+                "name": "Folding Pocket Knife"
+            },
+            "char_count": 51,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Stainless Steel Blade, Keychain Attachment, Lightweight EDC Gear, Camping And Hiking Essential, Tactical Survival Tool",
+            "char_count": 118,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Stainless Steel Blade, Keychain Attachment, Compact EDC Tool, Lightweight Carry, Camping And Survival Ready",
+            "char_count": 107,
+            "validation_error": null
+        }
+    }
+}

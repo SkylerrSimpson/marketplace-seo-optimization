@@ -1,0 +1,60 @@
+{
+    "sku": "DOY-TTX-TESTINGNEEDLES-5PC",
+    "asin": "B0C95XQGFB",
+    "product_type": "ART_AND_CRAFT_SUPPLY",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DOY-TTX-TESTINGNEEDLES-5PC\nProduct Type: ART_AND_CRAFT_SUPPLY\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux 999 Silver and 10k 14k 18k Gold Testing Kit Precious Metal Purity Tester Jewelry Tools\nDescription: Scratch testing is one of the oldest and most reliable karat and purity tests available for testing precious metal quality and content, and is ideal when used in conjunction with testing stones and testing solutions. ToolTreaux’s 5pc Silver and Gold Testing Kit includes 10k, 14k, 18k and 999S needles, conveniently held together for organization and safekeeping on a brass key ring. <br/><br/>See below for silver and gold testing instructions! <br/><br/>How to Test (Gold): Scratch the metal in question onto testing stone; be sure the testing stone is clean and free of any other materials. Then, scratch the estimate gold karat content needle next to the original sample. Once you have visible samples to work with, place a small drop of the closest testing solution to the karat you estimate the metal might be. If the solution dissolves the metal, the metal is LESS than the karat that is displayed on the testing solution bottle. If the metal sample stays and does not dissolve, it is at least the karat of the testing solution used or possibly higher.<br/><br/>How to Test (Silver): Scratch the metal in question onto the testing stone; be sure the testing stone is clean and free of any other materials. Then, scratch the 999S needle next to the original sample. Once you have visible lines to work with, place a small drop of the silver testing solution and look for one of the following results: Dark Red = 90-100% Purity; Light Red or Brown = 80%-90% Purity; Light Green = 65%-75% Purity; Creamy white results can indicate that the item is sterling silver; lastly, green results can indicate that the item is silver plated. <br/><br/>Incredibly lightweight and compact, the ToolTreaux 5pc silver and gold testing kit needles are great for on the go testing or travel if needed. Suitable for those in jewelry sales and appraisal, jewelry making and design, to include with gold prospecting equipment and gold panning kits and more!\nSearch Terms: gold purity scratch testing kit 18k test needle jewelry making tools sterling silver craft supplies adult hobby cleaner arts crafts making precious metal verifier 10k 14k 18k 999S hallmark scratch\nFeatures:\n- GOLD TESTING KIT: Four sided precious metal tester includes testing for 999 silver, as well as 10k gold, 14k gold and 18k gold; Quickly compare metal sample streaks using marked tester points to help identify gold purity and distinguish between different karats and alloys\n- DURABLE PRECISION TESTING POINTS: Solid metal construction with clearly stamped markings ensures consistent contact and repeatable testing performance over time\n- GOLD AND SILVER JEWLERY TESTING: Designed for evaluating rings, coins, scrap metal, and other items using a traditional touchstone testing approach (testing stone not included)\n- PORTABLE AND RELIABLE: Compact, lightweight design makes this precious metal tester ideal for jewelers, collectors, gold prospectors and hobbyists working in a shop or on the go environment\n- SPECIFICATIONS: Material: brass, gold, silver; Weight: 0.10lbs; Product Dimensions: 1.5 x 1.0 x 0.25 inches; Color: Gold/Brass\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 5-Pc Gold and Silver Testing Kit Jewelry Needles",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "5",
+                "pack_size_unit": "Pc",
+                "size": "",
+                "color": "Gold",
+                "name": "Silver Testing Kit Jewelry Needles"
+            },
+            "char_count": 59,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux Silver and Gold Testing Kit Precious Metal Tester",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Silver and Gold Testing Kit Precious Metal Tester"
+            },
+            "char_count": 60,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "10K, 14K, 18K, 999 Silver Purity Tester, Scratch Testing Needles, Portable Precious Metal Verifier, Jewelers And Prospectors",
+            "char_count": 124,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Touchstone Scratch Testing, 999 Silver And 10K 14K 18K Gold, Brass Key Ring, Portable, Durable, For Jewelry And Scrap",
+            "char_count": 117,
+            "validation_error": null
+        }
+    }
+}

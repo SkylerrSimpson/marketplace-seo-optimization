@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-DIARYSET-ENCANTO-713292EN",
+    "asin": "B0BSGQXKJ3",
+    "product_type": "BLANK_BOOK",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-DIARYSET-ENCANTO-713292EN\nProduct Type: BLANK_BOOK\nBrand (from catalog): Disney\nExisting Title: Disney Encanto Journal Diary with Lock Keys Pom Pom Pen Girls Ages 3 and Up\nDescription: This adorable hardcover Disney Encanto journal locking diary journal features vibrant colors and some of your little one's favorite members of the gifted family, The Madrigals, like Mirabel, Luisa, and Antonio. The easy-to-use secret journal is perfect for keeping any young child's secrets, memories, daily journals, drawings, and doodles safe under lock and key. Along with the 60-sheet diary, lock, and two keys, this diary also comes with a pink pom-pom writing pen, making it a complete diary set. Your budding artist or little poet can discover their own gifts through art and writing while being sure no brother or sister sibling will catch a glimpse of his or her creative work with this Encanto diary.<br/><br/>The Disney Encanto diary for girls is lightweight and great for travel. One of the best parts about the hardcover journal is that little ones can immediately document family memories while on the go, helping to boost writing and communication skills. Are you traveling to a Disney Park in the near future? Kids can easily take this lightweight travel journal with them to collect autographs and signatures from all their favorite Disney characters on their next Disneyland or DisneyWorld adventure, making the diary a treasured keepsake for years to come.<br/><br/>A great educational learning tool to encourage toddlers and kids to write, doodle, draw and be creative, but with privacy, if they are not ready to share their ideas with the world. This Encanto locking notebook is an ideal gift for any child to pass the time and practice drawing, writing down their thoughts or a favorite song, journaling, and more; the Encanto diary with lock makes a perfect stocking stuffer, Christmas gift, birthday gift, or party favor.\nSearch Terms: Toys for girls birthday present Hanukkah sister Christmas gift preschool learning activities stocking stuffers diary with lock for girls Disney Encanto Disneyworld trip essentials Disneyland accessories for trip toddler travel toys journals\nFeatures:\n- DIARY FOR GIRLS: Disney Encanto 60 sheet locking hardcover journal diary with pom-pom pen is a safe spot little girls can keep their secrets, memories, drawings, and doodles and practice writing too; The diary features favorite characters from Encanto like Mirabel, Luisa, Isabella, and Antonio and comes with a lock and two keys\n- TRAVEL FRIENDLY: Little Disney Encanto fans can easily take all their thoughts on the go! This lightweight travel journal is also ideal for trips to Disneyland or Disneyworld to collect autographs and signatures from all their favorite Disney characters!\n- DIARY WITH LOCK: Your budding artist or little poet can be assured no brother or sister sibling will catch a glimpse of his or her colorings, drawings, notes, or secrets with the included lock and two silver keys\n- STOCKING STUFFERS: This Encanto locking notebook is an ideal gift for girls to pass the time and practice drawing, writing down their thoughts or a favorite song, journaling, doodling, and more; the vibrant Encanto secret diary makes a perfect stocking stuffer, birthday or Christmas gift or party favor\n- SPECIFICATIONS: Dimensions: 6.75 x .75 x 10.5 inches; Weight: .4lbs; Color: Multi; Ages: 3+\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Disney Encanto Locking Diary Journal with Pen Girls",
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Encanto Locking Diary Journal with Pen Girls"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Disney Encanto Locking Journal with Pom Pom Pen",
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Encanto Locking Journal"
+            },
+            "char_count": 47,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "60-Sheet Hardcover, Lock And 2 Keys, Pom-Pom Pen, Travel-Friendly, Ages 3 Plus",
+            "char_count": 78,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Secret Diary, Lock And Two Keys, 60-Sheet Hardcover, Pom Pom Pen, Travel Friendly, Ages 3 And Up",
+            "char_count": 96,
+            "validation_error": null
+        }
+    }
+}

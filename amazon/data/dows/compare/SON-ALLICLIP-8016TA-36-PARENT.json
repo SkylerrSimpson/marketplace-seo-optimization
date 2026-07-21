@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ALLICLIP-8016TA-36-PARENT",
+    "asin": "B0CLTGFCSB",
+    "product_type": "AUTO_ACCESSORY",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ALLICLIP-8016TA-36-PARENT\nProduct Type: AUTO_ACCESSORY\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Telescoping Alligator Clip Long Reach Electric Repair (Pack Sizes)\nDescription: Alligator clips are versatile tools that are designed for making temporary electrical connections, but they are also great for use in labs, dentistry, arts and crafts, and more. The ToolTreaux alligator clips feature a telescoping body that extends up to 35” so you can access hard-to-reach places during difficult repairs and projects. They collapse down to just 8.25” so you can store them in just about any toolbox, drawer, or bag when not in use.<br/><br/>These alligator clips are constructed of durable stainless steel that won’t rust, so you can count on them through many uses and repairs. They each feature a slim neck that allows for easy unscrewing of the alligator clip for a variety of repair jobs.<br/><br/>The ToolTreaux alligator clips come with a sturdy metal pocket clip so you can place it inside your pocket and bring it with you on the go. They can also easily be stored in a tool belt or bag for easy access.<br/><br/>Available in pack sizes: 1 pack, 2 pack, 4 pack or 8 pack\nSearch Terms: alligator clips clamps c clamp hose clamp crocodile clips wood clamps hobby tools repair tools telescoping tools cable clamp beam clamp stainless steel clip collapsible clip metal pocket clip pocket clip tools hobby crafts crafting tools\nFeatures:\n- SPRING LOADED CLIP – The ToolTreaux alligator clip is ideal for making temporary electrical connections. Since it functions similarly to a clothespin, it’s a great option for establishing between electrical components.\n- TELESCOPING DESIGN – Our alligator clip opens up to .5” and has a telescoping body that extends to 35” so you can access hard-to-reach places. It collapses down to just 8.25” so you can store it in just about any tool box, drawer or bag when not in use.\n- DURABLE CONSTRUCTION – This alligator clip is constructed of durable stainless steel that won’t rust, so you can count on it through many uses and repairs. It features a slim neck that allows for easy unscrewing of the alligator clip for a variety of repair jobs.\n- DURABLE CONSTRUCTION – This alligator clip is constructed of durable stainless steel that won’t rust, so you can count on it through many uses and repairs. It features a slim neck that allows for easy unscrewing of the alligator clip for a variety of repair jobs.\n- VERSATILE TOOL - In addition to assisting in electrical repairs, alligator clips are also great tools for use in a laboratory, dentistry, arts and crafts, holding ID badges and more.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux Telescoping Alligator Clip Long Reach Electric",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Long Reach",
+                "color": "",
+                "name": "Telescoping Alligator Clip Electric Repair"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux Telescoping Alligator Clip",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Telescoping Alligator Clip"
+            },
+            "char_count": 37,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Extends To 35 Inches, Stainless Steel, Spring Loaded, Pocket Clip, Collapses To 825 Inches",
+            "char_count": 90,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "35-Inch Reach, Stainless Steel, Spring Loaded Clip, Pocket Clip, Rust Resistant, Versatile For Labs Crafts Repairs",
+            "char_count": 114,
+            "validation_error": null
+        }
+    }
+}

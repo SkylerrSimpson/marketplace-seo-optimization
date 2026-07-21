@@ -1,0 +1,60 @@
+{
+    "sku": "SON-JEWELLOUPE-10XP-TT",
+    "asin": "B0B5BDYRVP",
+    "product_type": "MAGNIFIER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-JEWELLOUPE-10XP-TT\nProduct Type: MAGNIFIER\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux 10x Jewelers Loupe 25mm Diameter Glass Lens Magnifier for Jewelry, Gems, Rocks, Coins, Stamps Hobby Tool\nDescription: The ToolTreaux 10X Magnification Jewelers Loupe in plastic provides simple yet effective magnification designed to help you see small details more closely. Unlike a magnifying glass, loupes have a focusing lens that is contained in housing that protects the lens when not in use. Our loupe features a black plastic body that will ensure that your lens is safe from scratches and fingerprints that may obstruct the view of the small items you're working with.<br/><br/>This loupe features a 10X magnification power and provides jewelers, watch makers or photographers the ability to pinpoint areas that need extra attention. The lens has an extra large diameter of 25mm making it an ideal size for small items like beads, jewels, rhinestones, sequins and other items that require precision. <br/><br/>This loupe is housed inside of a durable yet lightweight plastic body, and measures just 1\" tall so it can easily fit inside any craft box, hobby tool kit or supply drawer. This is a must-have magnifying tool for anyone who needs a better look at small items and details.\nSearch Terms: jewelers loupe 10x magnification eye led illuminated magnifying magnifier aluminum scale watch making tools precision magnifiers metal hobby tool crafting arts 25mm 25 mm optical glass jewelry gems coins rocks stamps\nFeatures:\n- 10X MAGNIFICATION POWER - Loupe magnifies small objects by 10 | Ideal for jewelry makers, watch repairs and hobby crafters placing, setting and identifying tiny materials\n- PLASTIC BODY - Durable yet lightweight plastic body protects lens from scratches and fingerprints when not in use\n- 25MM DIAMETER LENS - Extra large lens is perfect size for viewing beads, gems, rhinestones, jewels, sequins and other materials requiring precision\n- COMPACT DESIGN - Loupe measures just 1\" tall and 1.25\" wide | Easily fits inside craft boxes, hobby tool kits, supply drawers or workshop storage\n- VERSATILE MAGNIFIER - Designed for for jewelry making but great for watchmaking and repair, photography, printing, dentistry, tattooing, biology/geology, coin collecting and more\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 10X Jewelers Loupe 25mm Magnifier",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "25mm",
+                "color": "",
+                "name": "10X Jewelers Loupe Magnifier"
+            },
+            "char_count": 44,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 10X Jewelers Loupe 25mm Glass Lens Magnifier",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "10X",
+                "color": "",
+                "name": "Jewelers Loupe 25mm Glass Lens Magnifier"
+            },
+            "char_count": 55,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "10X Magnification, 25Mm Lens, Plastic Body, Compact 1 Inch Design, Jewelry Gems Coins Stamps Viewing",
+            "char_count": 100,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Scratch Resistant Plastic Body, 25Mm Wide Lens, Compact 1\" Size, Ideal For Jewelry, Watches, Coins And Hobbies",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}

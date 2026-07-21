@@ -1,0 +1,60 @@
+{
+    "sku": "DLT-JOT-MINICOLORPENCIL-307605-AMZ",
+    "asin": "B08QCLX4FX",
+    "product_type": "WRITING_INSTRUMENT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DLT-JOT-MINICOLORPENCIL-307605-AMZ\nProduct Type: WRITING_INSTRUMENT\nBrand (from catalog): Jot\nExisting Title: Jot 24 Piece Mini Colored Pencils Arts Craft School Supplies Kids 3 and Up\nDescription: Is your child a budding artist? This set of colored pencils from Jot comes with 24 different bright and vibrant colors so your child can add fun colors to their drawings and artwork.<br/><br/>These mini pencils are the perfect size for little hands, making them a great option for kids just learning how to draw and write. The set comes with 24 non-repeating colors that will help encourage your child to explore their imagination and creativity while working on art projects and doodling. <br/><br/>The box is made of durable cardboard that will keep the pencils organized when not in use, and the box measures just 4.5 b 3.5 inches so they can easily be stored in a backpack or travel bag for on-the-go coloring fun. All pencils included are safe for children ages 3 and up with adult supervision. This set of pencils is a great gift, party favor, or stocking stuff idea for your little artist.\nSearch Terms: childrens colored pencils kids colored pencils girls colored pencils boys colored pencils coloring pencils for kids coloring pencils for girls coloring pencils for boys mini colored pencils travel colored pencils assorted colored pencils s\nFeatures:\n- 24 PIECE COLORED PENCILS - Jot set of colored pencils comes with 24 non-repeating vibrant colors for children to practice drawing and doodling skills; Coloring can help improve hand-eye coordination and reduce anxiety in stressful situations\n- MINI SIZE - These pencils are mini-sized, ideal for small hands; Great option for kids who are just learning how to draw and write; Kids can explore creativity and imagination while working on art projects\n- STORAGE BOX INCLUDED - All 24 colored pencils fit neatly inside a compact storage box to keep pencils neat and organized when not in use; Box will easily fit inside most backpacks and travel bags for on-the-go coloring fun\n- SAFE FOR KIDS - Mini colored pencils are safe for children ages 3 and up with adult supervision; Great option for beginners and travel\n- SPECIFICATIONS - Number of pencils included: 24; Dimensions of box: 4.5\" x 3.5\" x .74\"; Age recommendation: 3+ years\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Jot 24-Piece Mini Colored Pencils for Kids",
+            "tokens": {
+                "brand": "Jot",
+                "pack_size": "24",
+                "pack_size_unit": "Piece",
+                "size": "Mini",
+                "color": "",
+                "name": "Colored Pencils"
+            },
+            "char_count": 42,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Jot 24-Pk Mini Colored Pencils",
+            "tokens": {
+                "brand": "Jot",
+                "pack_size": "24",
+                "pack_size_unit": "pk",
+                "size": "Mini",
+                "color": "",
+                "name": "Colored Pencils"
+            },
+            "char_count": 30,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "24 Vibrant Colors, Perfect For Small Hands, Storage Box Included, Ages 3 And Up, Travel-Friendly",
+            "char_count": 96,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "24 Vibrant Non-Repeating Colors, Mini Size For Little Hands, Storage Box Included, Ages 3 And Up, Travel Friendly",
+            "char_count": 113,
+            "validation_error": null
+        }
+    }
+}

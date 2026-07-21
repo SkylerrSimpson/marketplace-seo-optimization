@@ -1,0 +1,60 @@
+{
+    "sku": "SON-7INFISHINGKNIFE-BLK-PK-FISH-7SH",
+    "asin": "B08VNH25WL",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-7INFISHINGKNIFE-BLK-PK-FISH-7SH\nProduct Type: KNIFE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Sport Fishing Filet Fixed Blade Utility Knife\nDescription: You won't waste time processing your latest catch, using the ASR Outdoor Fixed Blade Fishing Knife with Ergonomic Black Rubber Handle and Plastic Sheath. An excellent knife choice for filleting larger fresh and salt-water fish alike, including tilapia, salmon, snapper, tuna, snapper, carp, eel, bass, catfish and cod.<br/><br/>High quality and durable, the ASR Outdoor Fixed Blade Fishing Knife with Ergonomic Handle and Plastic Sheath will make fast work of messy tasks and is suitable to use for skinning, filleting, cleaning, boning or as a bait knife. Whether you're bank fishing, kayak fishing, fly fishing or working on a commercial fishing boat, this utility fishing knife will always be up for the task at hand.<br/><br/>Cooking, hunting, camping, fishing, baking and more, the ASR Outdoor fishing knife is an excellent companion for all the aforementioned, as the thin blade allows for effortless maneuvering to easily remove meat without loss. And, as any fishermen knows, handling sharp blades in wet conditions is less than ideal but, with a comfortable rubber handle with ergonomic grip grooves that fits in either hand, plus a pronounced trigger grip built right into the handle, you'll be cutting smoothly and safely with each and every catch.<br/><br/>Lastly, to protect the knife when not employed, the ASR Outdoor fixed blade fishing knife comes with a heavy-duty plastic sheath to keep it safe and to avoid injuries; the sheath also features a convenient hanging hook or additional holding handle if needed.\nSearch Terms: tackle box tool fishing bait knife raw meat home kitchen fish tapered blade 11 inch salmon fillet utility knives for Alaska fishermen crab long fixed gift men\nFeatures:\n- CUT AND CLEAN LIKE A PRO: High quality and durable, the ASR Outdoor fishing knife will make fast work of messy tasks and is suitable to use for skinning, filleting, cleaning, boning or as a bait knife; whether you're bank fishing, kayak fishing, fly fishing or working on a commercial fishing boat, this utility fishing knife will always be up for the task at hand\n- MULTIPURPOSE KNIFE: Cooking, hunting, camping, fishing, baking and more, the ASR Outdoor Fixed Blade Fishing Knife with Ergonomic Black Rubber Handle is an excellent companion for all the aforementioned, the thin blade allows for effortless maneuvering to easily remove meat without loss\n- ERGONOMIC SLIP RESISTANT GRIP: Handling sharp blades in wet conditions is less than ideal but, with a comfortable rubber handle with ergonomic grip grooves that fits in either hand, plus a pronounced trigger grip built right into the handle, you'll be cutting smoothly and safely with each and every catch\n- DURABLE PROTECTIVE SHEATH: To protect the knife when not employed, the ASR Outdoor fixed blade fishing knife comes with a heavy-duty plastic sheath to keep it safe and to avoid injuries; the sheath also features a convenient hanging hook or additional holding handle if needed\n- SPECIFICATIONS: Knife Dimensions: 11 inches long; Blade Dimensions: 6 inches long; Blade Thickness: 1.5mm; Handle Length: 5\"; Material: Steel Blade, Plastic Sheath\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 7in Fishing Filet Fixed Blade Knife Black",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "7",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Fishing Filet Fixed Blade Knife"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Sport Fishing Filet Fixed Blade Utility Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Sport Fishing Filet Fixed Blade Utility Knife"
+            },
+            "char_count": 57,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "11 Inch Fixed Blade, Ergonomic Rubber Handle, Filleting And Boning, Slip Resistant Grip, Plastic Sheath Included",
+            "char_count": 112,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "11 Inch Knife, 6 Inch Blade, Ergonomic Rubber Grip, Slip Resistant, Plastic Sheath, Filleting Cleaning Boning, Bait Knife",
+            "char_count": 121,
+            "validation_error": null
+        }
+    }
+}

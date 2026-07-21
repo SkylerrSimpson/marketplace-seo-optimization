@@ -1,0 +1,60 @@
+{
+    "sku": "SON-AOWRBD500DT-64X12-CLR",
+    "asin": "B01COB9RPG",
+    "product_type": "WEAPON_CASE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-AOWRBD500DT-64X12-CLR\nProduct Type: WEAPON_CASE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Waterproof Rifle Bag Durable 500D Tarpaulin Transparent 64 x 12 Inch\nDescription: Keep your refile protected from the elements with the ASR Outdoor Waterproof Rifle Bag.<br/><br/>This bag is constructed of heavy duty 500D PVC tarpaulin, making it completely waterproof. It features a transparent body and creates a convenient carry handle when properly sealed.<br/><br/>The overall size of the bag is 64\" x 12\", and the in use size is 60\" x 12\". It also has a nylon strap with a secure buckle at the opening, ensuring your rifle is tightly sealed. Make sure to grab a few of these to keep your firearms safe.<br/><br/>Directions for sealing the bag:<br/><br/>1) Grip and roll down the nylon strap 4 times or until the placed item is properly sealed. <br/><br/>2) Firmly hold down the rolled strap and buckle.\nSearch Terms: rifle bag range bag gun range bag shooting bag gun case gun case rifles rifle case air rifle rifle sling shooting accessories gun range accessories long gun safe hunting gear hunting gifts for men hunting accessories hunting equipment kit\nFeatures:\n- DURABLE WATERPROOF MATERIAL - Made of heavy duty 500D PVC tarpaulin that will protect your firearm from moisture. Use it to safely carry and store your rifle indoors or outdoors\n- Overall Size: 64\" x 12\" Usable Size: 60\" x 12\"\n- Nylon Strap with Secure Buckle\n- TRANSPARENT BODY - Transparent rifle bag is ideal for easily identifying your firearms. Comes with convenient carry handle for easy transportation between your vehicle and the field or shooting range\n- EASY TO USE - Grip and roll down the nylon strap 4 times or until the firearm is properly sealed, then firmly hold down the rolled strap and buckle to secure\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 64x12 Transparent Waterproof Rifle Bag",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "64x12",
+                "pack_size_unit": "in",
+                "size": "64x12",
+                "color": "Transparent",
+                "name": "Waterproof Rifle Bag"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 64-Inch Transparent Waterproof Rifle Bag",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "64-Inch",
+                "color": "Transparent",
+                "name": "Waterproof Rifle Bag"
+            },
+            "char_count": 52,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "500D Tarpaulin, Heavy Duty Waterproof, Transparent Body, Secure Buckle Strap, Carry Handle",
+            "char_count": 90,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Heavy Duty 500D PVC Tarpaulin, 60 X 12 Usable Size, Nylon Strap Buckle, Transparent Body, Carry Handle",
+            "char_count": 102,
+            "validation_error": null
+        }
+    }
+}

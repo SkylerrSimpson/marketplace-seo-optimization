@@ -1,0 +1,60 @@
+{
+    "sku": "SON-FFKWSAFH6I-2PC-6-2",
+    "asin": "B001N0SBBG",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-FFKWSAFH6I-2PC-6-2\nProduct Type: KNIFE\nBrand (from catalog): ASR Outdoor\nExisting Title: Fishing Fillet Knife with Sheath and Floating Handle 6 Inch\nDescription: This 6\" Fillet Knife is a great accessory for any fishing trip. It is designed to be a useful and portable tackle box knife.<br/><br/>One of the worst things possible on a fishing trip is losing a tool in the water, never to be seen again. The specially designed handle prevents that by acting as a flotation device for the knife. Never again will you lose your knife to depths of the river, lake or ocean you're fishing on. <br/><br/>The ergonomic handle is tailored to fit in either hand with such ease that makes cutting, even in wet situations, easier than other knives. <br/><br/>The black sheath will keep it safe when stored away. Don't leave home without the right tools.\nSearch Terms: tackle box tool fishing bait knife raw meat home kitchen fish tapered blade 11 inch salmon fillet utility knives for Alaska fishermen crab long fixed gift men\nFeatures:\n- 6\" blade\n- 11\" full size\n- Floating plastic handle (will not sink)\n- Ergonomic grip\n- Includes black sheath\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 6 Inch Fishing Fillet Knife with Floating Handle",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "6",
+                "pack_size_unit": "Inch",
+                "size": "6 Inch",
+                "color": "Black",
+                "name": "Fishing Fillet Knife with Floating Handle"
+            },
+            "char_count": 60,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 6-in Fishing Fillet Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "6",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Fishing Fillet Knife"
+            },
+            "char_count": 37,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Floating Handle Prevents Loss, 11 Inch Full Size, Ergonomic Grip, Black Sheath Included, Wet Hand Safe",
+            "char_count": 102,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Floating Handle, Will Not Sink, Black Sheath, Ergonomic Grip, 6\" Tapered Blade, Wet-Use Control",
+            "char_count": 95,
+            "validation_error": null
+        }
+    }
+}

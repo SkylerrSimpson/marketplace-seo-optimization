@@ -1,0 +1,60 @@
+{
+    "sku": "SON-WRRFSDE175MM-10PC-SML-SLVR",
+    "asin": "B00DE8JNVC",
+    "product_type": "TOOLS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-WRRFSDE175MM-10PC-SML-SLVR\nProduct Type: TOOLS\nBrand (from catalog): UTOPIA TOOLS\nExisting Title: ToolTreaux 10pc Double Ended Fine Cut Riffler File Set for Metal Jewelry Work\nDescription: Achieve precision and detail with the ToolTreaux 10pc Double Ended Fine Cut Riffler File Set, designed specifically for detailed metal shaping and finishing. This versatile set includes 10 files made from durable bearing hardened steel, providing the strength and durability needed for working with metals and other hard materials.<br/><br/>Ideal for jewelers, metalworkers, machinists, sculptors, model makers, and hobbyists, these riffler files are perfect for shaping, smoothing, and refining metal surfaces, contours, and tight spaces where standard files cannot reach. The fine Italian-style cut allows for controlled material removal and detailed finishing on metals such as gold, silver, brass, copper, aluminum, and other non-ferrous metals.<br/><br/>Each file features a double-ended design with precision-cut teeth, allowing access to difficult angles and intricate areas when working on metal components, jewelry, castings, or detailed mechanical parts. The hardened steel construction ensures long-lasting performance and consistent results during detailed metalworking tasks.<br/><br/>Note: These riffler files are designed for use with metal and hard materials. They are not intended for wood or soft carving applications.<br/><br/>The set includes the following shapes:<br/><br/>-Curved<br/><br/>-Tapered<br/><br/>-Angled<br/><br/>-Round<br/><br/>-Half Round<br/><br/>-Equaling<br/><br/>-Knife<br/><br/>-Square<br/><br/>SPECIFICATIONS<br/><br/>-Length: 7 inches<br/><br/>-Diameter: 3mm<br/><br/>-Material: Bearing hardened steel<br/><br/>-Cut: Fine (Italian style)<br/><br/>-Design: Double-ended<br/><br/>-Storage: Comes organized in a durable PVC pouch\nSearch Terms: riffler file set, metal riffler files, jewelry making files, metal shaping files, jewelers hand files, double ended riffler files, fine cut metal files, precision metal file set, metalworking tools, machinist files, jewelry repair tools, detail filing tools, metal finishing files\nFeatures:\n- PRECISION METALWORKING FILE SET - Designed specifically for shaping, smoothing, and refining metal surfaces. Ideal for jewelry making, metalworking, machining, model making, and detailed finishing on small metal components.\n- DURABLE HARDENED STEEL CONSTRUCTION - Made from bearing hardened steel for strength and long-lasting performance. The fine cut teeth allow controlled material removal and detailed finishing on metals.\n- 10 DOUBLE-ENDED FILES (20 WORKING ENDS) - Each riffler features two uniquely shaped filing ends to access tight spaces, curves, contours, and intricate areas that standard files cannot reach.\n- VERSATILE SHAPE SELECTION - Includes curved, tapered, angled, round, half round, equaling, knife, and square profiles for a wide variety of metal shaping, deburring, and finishing tasks.\n- ORGANIZED STORAGE POUCH INCLUDED - Files measure 7 inches long with a 3mm diameter and come neatly organized in a durable PVC pouch for convenient storage and easy transport.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "UTOPIA TOOLS 10-pc Double Ended Riffler File Set",
+            "tokens": {
+                "brand": "UTOPIA TOOLS",
+                "pack_size": "10",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Double Ended Riffler File Set"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "UTOPIA TOOLS 10-pk 7in Silver Double Ended Fine Cut Riffler File Set",
+            "tokens": {
+                "brand": "UTOPIA TOOLS",
+                "pack_size": "10",
+                "pack_size_unit": "pk",
+                "size": "7in",
+                "color": "Silver",
+                "name": "Double Ended Fine Cut Riffler File Set"
+            },
+            "char_count": 68,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Fine Cut Metal Files, 20 Working Ends, Hardened Steel, Jewelry And Metalworking, Organized Storage Pouch",
+            "char_count": 104,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Bearing Hardened Steel, 20 Working Ends, Precision Fine Cut, Tight Space Shaping, PVC Storage Pouch",
+            "char_count": 99,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-HVUMOSV-ONE-LMGRN-UT",
+    "asin": "B07RCCJCLM",
+    "product_type": "APPAREL",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-HVUMOSV-ONE-LMGRN-UT\nProduct Type: APPAREL\nBrand (from catalog): Universal Tool\nExisting Title: High Visibility Universal FIt Unisex Lime Green Mesh Safety Vest - One Size Fits All\nDescription: A Safety Vest is a necessity on many job sites or other activities like hunting or riding your bike at night. <br><br>It is important to be visible and this is the ideal product to draw attention to yourself.<br><br>Constructed from 100% polyester mesh, this item is lightweight and breathable. It's bright lime green color will attract anyone's attention to keep you safe and out of harms way.<br><br>Made to be worn by any gender and most body sizes, this safety vest is a smart investment if you are involved in any activity where visibility is important. Pick one up today, it might save your life!\nSearch Terms: pull over safety vest neighborhood safety securty vestconstruction bikers dog walkers hikers crossing guards\nFeatures:\n- Universal Safety Vest - High Visibility Lime Green\n- Size: 25\" x 25\" | One Size Fits Most\n- Lightweight & Easy to Carry and Store When Not In Use; Weight: 2oz.\n- Breathable Mesh Material for Comfort\n- Hook & Loop Closures\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool Lime Green High Visibility Safety Vest",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "One Size Fits All",
+                "color": "Lime Green",
+                "name": "Safety Vest"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool One Size Lime Green Mesh Safety Vest",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "One Size",
+                "color": "Lime Green",
+                "name": "Mesh Safety Vest"
+            },
+            "char_count": 51,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "High Visibility, Breathable Mesh, Universal Fit, Lightweight, Hook And Loop Closures",
+            "char_count": 84,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "High Visibility Lime Green Breathable Mesh Hook And Loop Closure Lightweight 2Oz One Size Fits Most Daily Use",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

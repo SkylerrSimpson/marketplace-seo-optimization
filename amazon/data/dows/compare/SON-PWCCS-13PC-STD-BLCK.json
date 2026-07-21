@@ -1,0 +1,60 @@
+{
+    "sku": "SON-PWCCS-13PC-STD-BLCK",
+    "asin": "B00QL4BNHS",
+    "product_type": "CHISEL",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-PWCCS-13PC-STD-BLCK\nProduct Type: CHISEL\nBrand (from catalog): Universal Tool\nExisting Title: 12pc Professional Wood Carving Chisel Set Various Blades Woodworking Clay and Wax\nDescription: Whether you've just started dabbling in wood hobby projects or are already an expert, our Universal Tool Wood Carving Chisel Set is a must-have set of essentials for your workshop or crafting area.<br/><br/>This professional quality set comes with 12 chisels, each featuring assorted tip shapes and sizes ideal for carving figures, details and designs into a variety of wood projects. Some of our favorite projects to create with these chisels are whittling whistles, crafting kitchen spoons, making letter openers and making ornaments.<br/><br/>Each chisel has an overall length of 7.75\" and comes with a tip protector sleeve. The chisels themselves are constructed of high-quality carbon steel and have wooden handles that will help prevent slippage during use. All of the chisels fit neatly inside of a PVC pouch that we've included so you can keep your tools organized when not in use. Make sure to grab a set of these for yourself whether you're a beginner or a seasoned wood crafter, or gift them to a friend who's a crafting enthusiast.\nSearch Terms: wood working carving tools chiseling hobby\nFeatures:\n- Gold and Silver Marking Stamps: 10K Gold, 18K Gold, 22K Gold, 958 Silver\n- Color: Black\n- Length: 3 5/8\"\n- Material: Hardened Stainless Steel\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 12-pc Wood Carving Chisel Set Black",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "12",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Black",
+                "name": "Wood Carving Chisel Set"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 12-pk Wood Carving Chisel Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "12",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Wood Carving Chisel Set"
+            },
+            "char_count": 44,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Professional Quality, Carbon Steel Blades, Wooden Handles, Multiple Tip Shapes, Includes PVC Pouch",
+            "char_count": 98,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Assorted Blade Shapes, Carbon Steel, Wooden Handles, Tip Protectors, PVC Storage Pouch, Professional Quality",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

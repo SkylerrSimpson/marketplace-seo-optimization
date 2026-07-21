@@ -1,0 +1,60 @@
+{
+    "sku": "DOY-TACPENLIGHT-PLBLK1",
+    "asin": "B09TS2BQDZ",
+    "product_type": "FLASHLIGHT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DOY-TACPENLIGHT-PLBLK1\nProduct Type: FLASHLIGHT\nBrand (from catalog): ASR Federal\nExisting Title: ASR Federal LED Pen Light for Law Enforcement Medical Pupil Gauge Flashlight\nDescription: The ASR Federal penlight comes with a super-bright white LED bulb that is great for law enforcement officers, nurses, and medical staff. You can use it as a pupil gauge while out in the field or examining patients. This portable penlight flashlight is convenient to use - it features a push-on/off button and will fit in just about any uniform pocket, duty belt or shirt pocket.<br/><br/>The flashlight pen measures just 5.5\" in length and weighs only .05 pounds (.8 ounces) so it won't add any bulk to your uniform or work clothes. The pen body is made of durable aluminum that won't rust or scratch, and it is powered by 2 AAA batteries (included). This is a great gift idea for nurses, medical staff, and law enforcement officers.\nSearch Terms: pen light flashlight pen with light penlight penlight medical pupil penlight penlight flashlights medical penlight pupil penlight medical supplies medical assistant accessories nurse accessories for work nurse gifts law enforcement gear police pen\nFeatures:\n- LED BULB PEN LIGHT - The ASR Federal pen light comes with a super-bright white LED bulb that is great for law enforcement officers, nurses and medical staff. You can use it as a pupil gauge while out in the field or examining patients.\n- PORTABLE FLASHLIGHT - This portable penlight flashlight is convenient to use - it features a push on/off button and will fit in just about any uniform pocket, duty belt or shirt pocket.\n- LIGHTWEIGHT AND COMPACT - The flashlight pen measures just 5.5\" in length and weighs only .05 pounds (.8 ounces) so it won't add any bulk to your uniform or work clothes.\n- DURABLE CONSTRUCTION - The pen body is made of durable aluminum that won't rust or scratch, and it is powered by 2 AAA batteries (included).\n- SPECIFICATIONS - Material: Aluminum, Colors: Black and silver; Length: 5.5\"; Powered by: (2) AAA batteries; Weight: .8oz/.05lbs\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Federal LED Pen Light Flashlight Black",
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "LED Pen Light Flashlight"
+            },
+            "char_count": 42,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Federal 5.5 in Black LED Pen Light Flashlight",
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "5.5 in",
+                "color": "Black",
+                "name": "LED Pen Light Flashlight"
+            },
+            "char_count": 49,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Super-Bright White LED, Pupil Gauge, Law Enforcement, Medical, 55 Inch, Aluminum, Includes 2 AAA Batteries",
+            "char_count": 106,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Super Bright White LED, Pupil Gauge Use, Push On Off Button, Aluminum Body, 2 AAA Batteries Included, Lightweight Compact",
+            "char_count": 121,
+            "validation_error": null
+        }
+    }
+}

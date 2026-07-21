@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-BARBIESTYLINGHEAD-20PC-BLA",
+    "asin": "B07BC987GK",
+    "product_type": "TOY_FIGURE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-BARBIESTYLINGHEAD-20PC-BLA\nProduct Type: TOY_FIGURE\nBrand (from catalog): Barbie\nExisting Title: Barbie Small Styling Head, Blonde Hair, Kids Toys for Ages 3 Up by Just Play\nDescription: The Barbie Fab Friends Styling head is full of styling fun. Barbie's thick flowing hair is perfect for brushing, twisting, and pinning into trendy designs. Use the cute barrettes and hair ties to give Barbie a fancy up-do. For a more polished look, brush Barbie's hair back with the cute pink brush and use the hair twists to fashion her locks into a sleek top bun. You can even customize the hair barrettes with a variety of pop-in gems. With your help, Barbie will be the most stylish girl in town. Full set includes: One Barbie Styling Head, three customizable barrettes, seven pop-in gems, three hair twists, hair bands, and one brush. Ages 3+\nSearch Terms: styling head role play pretend hair dresser toys brown hair hispanic mexican south american spanish pretend stylist toys wear and share accessories kids toys hairdresser toys social and learning development toys girls role play\nFeatures:\n- The Barbie Fab Friends Styling head is full of styling fun! Barbie's thick flowing hair is perfect for brushing, twisting, and pinning into trendy designs! Use the cute barrettes and hair ties to give Barbie a fancy up-do.\n- Brush Barbie's hair with the cute pink brush!\n- Give Barbie fashionable up-dos with the hair ties and brush her hair with the included brush\n- Customize the barrettes with the fun pop-in charms!\n- Includes: one Barbie Styling Head,  three hair twists, hair band and one brush\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Barbie Small Styling Head Blonde Hair Kids Toy",
+            "tokens": {
+                "brand": "Barbie",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Small",
+                "color": "Blonde",
+                "name": "Styling Head"
+            },
+            "char_count": 46,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Barbie Small Blonde Styling Head",
+            "tokens": {
+                "brand": "Barbie",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Small",
+                "color": "Blonde",
+                "name": "Styling Head"
+            },
+            "char_count": 32,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Includes Brush, Barrettes, Hair Twists And Pop-In Gems, Ages 3 Plus, Role Play Hair Styling",
+            "char_count": 91,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Thick Flowing Hair, Customizable Barrettes, Pop-In Gems, Hair Ties, Brush, Pretend Styling Play, Ages 3 Plus",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

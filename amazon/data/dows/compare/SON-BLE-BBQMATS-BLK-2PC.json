@@ -1,0 +1,60 @@
+{
+    "sku": "SON-BLE-BBQMATS-BLK-2PC",
+    "asin": "B09WTG8XSR",
+    "product_type": "BARBECUE_TOOL_SET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-BLE-BBQMATS-BLK-2PC\nProduct Type: BARBECUE_TOOL_SET\nBrand (from catalog): Beille\nExisting Title: Beille Black BBQ Grill Accessories Reusable Non Stick Grilling Mats 13x15 Inch, 2pk\nDescription: This Beille 2pk of BBQ Grill Accessories Reusable Non Stick Grilling Mats are perfect for indirect gas, electric or charcoal barbecuing or outdoor cooking of meat, seafood, veggies and even pizza. The grill mats have a 100% non-stick surface, can withstand head up to 500F, a PTFE fiberglass coating and a PFOA free coated surface, making grilling easy, clean up a cinch and keeps your BBQ looking like new for longer.<br/><br/>- 2pk Reusable BBQ Grill Mat Set<br/>- 100% Non Stick Surface<br/>- Thickness: 0.2mm<br/>- Dimensions: 13 x 15.75 inches<br/>- Max Cooking Temp: 500 F or 260 C<br/>- PTOA Free Coated Non Stick Surface<br/>- PTFE Fiberglass Coating for high heat resistance<br/>- Indirect Cooking with Gas, Charcoal or Electric Grills<br/><br/>Let the grilling and outdoor cooking begin.\nSearch Terms: gifts for dad fathers day gifts smoker grill charcoal grill outdoor barbecue accessories house warming gifts new home meat pizza seafood steak wedding gifts tools cooking utensils set summer chef camp kitchen camping\nFeatures:\n- BBQ GRILL ACCESSORIES: This Beille 2pk of BBQ Grill Accessories Reusable Non Stick Grilling Mats are perfect for indirect gas or charcoal barbecuing of meat, seafood, veggies and even pizza! The grill mats have a 100% non-stick surface and can withstand head up to 500F\n- QUALITY FABRICATION: The grill mats have a 100% non stick surface, can withstand head up to 500F, a PTFE fiberglass coating and a PFOA free coated surface, making grilling easy each and every time you BBQ\n- EASY CLEAN UP: Keep your grill looking newer for longer with Beille's BBQ grilling mats! BBQ just about anything and everything with these non stick grill mats that make clean up a cinch; handwashing recommended\n- AWESOME GIFTS FOR DAD: Our BBQ mats for grilling are a great gift for Dad for birthdays, Father's Day or just because! The grill accessories reusable BBQ mats also make a great housewarming gift too!\n- SPECIFICATIONS: Dimensions: 13 x 15.75 inches; Color: Black; Thickness: 0.2mm; Set of 2\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 2-pk 13x15 Black BBQ Grill Mats",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "13x15",
+                "color": "Black",
+                "name": "BBQ Grill Mats"
+            },
+            "char_count": 38,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 2-pk 13x15 in Black Reusable Non Stick Grill Mats",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "13x15 in",
+                "color": "Black",
+                "name": "Reusable Non Stick Grill Mats"
+            },
+            "char_count": 56,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Reusable Non-Stick, 500F Heat Resistant, PFOA Free, Easy Cleanup, Gas Charcoal Electric Compatible",
+            "char_count": 98,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "500F Heat Resistant, PTFE Fiberglass Coating, PFOA Free, Fits Gas Charcoal Electric, Easy Cleanup",
+            "char_count": 97,
+            "validation_error": null
+        }
+    }
+}

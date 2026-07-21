@@ -1,0 +1,60 @@
+{
+    "sku": "SON-AOCPCK-8PC-SML-GRN-FBA",
+    "asin": "B0056C4EI6",
+    "product_type": "GUN_CLEANING_KIT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-AOCPCK-8PC-SML-GRN-FBA\nProduct Type: GUN_CLEANING_KIT\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 8pc Compact Mini Universal Pistol Hand Gun Cleaning Kit with Brass Rod (.357, .38, 9mm)\nDescription: The ASR Outdoor pistol cleaning kit comes with everything you’ll need to keep your pistol clean and ensure optimal performance. Included in this lightweight, packable gun cleaning kit is 2 bronze brushes, 2 wool brushes, 2 brass rods, a plastic handle, and microfiber absorbent patches. It is compatible with many differnt calibers, including .357, 38 and 9mm pistols. The kit comes with a durable plastic carry case that measures just 5” x 3.5” and weighs .25lbs (4oz) so it will easily fit inside most range bags. All of the pieces fit inside, ensuring that your gun cleaning tools stay organized when not in use. <br/><br/>Our kit comes with 2 different types of gun cleaning brushes; phosphor bronze and wool. Bronze brushes are great for a superior clean, and wool brushes can easily sweep out loose carbon. We’ve also included 15 microfiber absorbent patches to help absorb dust and debris, and they are great for applying cleaning solvents without damaging your pistol. Make sure to grab this pistol cleaning kit before your next trip to the range!\nSearch Terms: gun cleaning kit gun cleaning mat gun cleaning patches gun cleaning supplies gun cleaning kits hand gun cleaning kits hand gun cases shooting range gear shooting rifle cleaning kit 9mm cleaning kit small caliber cleaning kit shooting range tools\nFeatures:\n- 8 PIECE PISTOL CLEANING KIT - The ASR Outdoor pistol cleaning kit comes with everything you'll need to keep your pistol clean and ensure optimal performance - 2 bronze brushes, 2 wool brushes, 2 brass rods, a plastic handle, and microfiber absorbent patches\n- MULTI-CALIBER COMPATIBILITY - This pistol hand gun cleaning kit is suitable for .357, 38 and 9mm pistols. With this kit, you'll be able to keep your pistols clean and ready for your next trip to the range\n- COMPACT DESIGN - The kit comes with a durable plastic carry case that measures just 5\" x 3.5\" and weighs .25lbs (4oz) so it will easily fit inside most range bags. All of the pieces fit inside, ensuring that your gun cleaning tools stay organized when not in use\n- 2 TYPES OF BRUSHES - Our kit comes with 2 different types of gun cleaning brushes - phosphor bronze wire brush and wool bristle brush. Bronze brushes are great for a superior clean, and wool brushes can easily sweep out loose carbon\n- ABSORBENT PATCHES - The kit comes with microfiber absorbent patches to help absorb dust and debris, and they are great for applying cleaning solvents without damaging your pistol\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 8pc Compact Pistol Hand Gun Cleaning Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8",
+                "pack_size_unit": "pc",
+                "size": "Compact",
+                "color": "",
+                "name": "Pistol Hand Gun Cleaning Kit"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 8-Pc Compact Mini Pistol Cleaning Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8",
+                "pack_size_unit": "Pc",
+                "size": "Compact Mini",
+                "color": "",
+                "name": "Pistol Cleaning Kit"
+            },
+            "char_count": 49,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Multi-Caliber 357 38 9Mm, Bronze And Wool Brushes, Microfiber Patches, Portable Carry Case",
+            "char_count": 90,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Fits 357 38 And 9Mm Pistols, Bronze And Wool Brushes, Brass Rods, Microfiber Patches, Compact Case",
+            "char_count": 98,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "UNV-FINEPOINTPRECISIONTWEEZERS-NCX",
+    "asin": "B072N8WJGF",
+    "product_type": "TWEEZER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UNV-FINEPOINTPRECISIONTWEEZERS-NCX\nProduct Type: TWEEZER\nBrand (from catalog): ASR Outdoor\nExisting Title: 2pk ASR Outdoor Gold Panning Precision Non-Magnetic Stainless Steel Tweezers - 5 inch\nDescription: Upgrade your toolkit with the 2-pack ASR Outdoor Gold Panning Precision Non-Magnetic Stainless Steel Tweezers (5 inch) - a must-have for any hobbyist, prospector, or precision craftsperson.<br/><br/>Crafted from non-magnetic stainless steel, these tweezers are perfect for handling sensitive materials like gold flakes, electronic components, or small screws without any magnetic interference. The rust and corrosion resistant design ensures durability and reliable performance, even in damp or rugged environments.<br/><br/>Each tweezer features a sharp precision tip, allowing you to pick up tiny objects with accuracy - whether you're panning for gold, working on a watch, or assembling intricate models and miniatures.<br/><br/>The compact 5-inch length makes it easy to access cramped or hard-to-reach spaces, giving you better control for detailed tasks.<br/><br/>Whether you're into gold panning, electronics repair, crafting, or science experiments, these tweezers are a versatile and dependable tool to keep in your collection.\nSearch Terms: tweezer set precision hobbytool set stainless steel jewelry basic gem diamond inspection identification hobbyist stone watch making fine jewelry eye loupe rock hounding facial hair removal beauty fine point\nFeatures:\n- NON-MAGNETIC STAINLESS STEEL - Ideal for handling delicate materials like gold flakes or small electronic parts without magnetic interference.\n- RUST & CORROSION RESISTANT - Durable stainless steel construction ensures long-lasting performance, even in wet or outdoor environments.\n- PRECISION SHARP TIP - Perfect for fine detail work such as picking up tiny screws, assembling miniatures, or handling small craft materials.\n- COMPACT 5 INCH LENGTH - Easily reaches into tight or hard-to-access spaces for improved control during precision tasks.\n- VERSATILE USE - Great for gold panning, watch and electronics repair, model building, science experiments, and more.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 2-pk 5in Gold Panning Precision Tweezers",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "5in",
+                "color": "",
+                "name": "Gold Panning Precision Tweezers"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 2-Pk 5-In Precision Non-Magnetic Stainless Steel Tweezers",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "Pk",
+                "size": "5",
+                "color": "",
+                "name": "Precision Non-Magnetic Stainless Steel Tweezers"
+            },
+            "char_count": 69,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Non-Magnetic Stainless Steel, Rust Resistant, Sharp Precision Tip, Compact 5 Inch Length",
+            "char_count": 88,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Sharp Fine Point, Rust Resistant, Non-Magnetic, Gold Panning, Electronics Repair, Model Building",
+            "char_count": 96,
+            "validation_error": null
+        }
+    }
+}

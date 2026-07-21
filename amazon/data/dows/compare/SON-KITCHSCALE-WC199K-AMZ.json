@@ -1,0 +1,60 @@
+{
+    "sku": "SON-KITCHSCALE-WC199K-AMZ",
+    "asin": "B09MZX5QPN",
+    "product_type": "WEIGH_SCALE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-KITCHSCALE-WC199K-AMZ\nProduct Type: WEIGH_SCALE\nBrand (from catalog): Beille\nExisting Title: Beille Electronic Kitchen Cooking Baking Digital Food Scale 22lbs Capacity\nDescription: Minimal design, high precision accuracy and functionality, the Beille White Electronic Weighing Kitchen Cooking Baking Digital Food Scale with LCD Display Screen is a great addition to your kitchen, whether you're cooking, baking or meal portioning for the week ahead. It's minimalist, white and compact design won't take up any room on your kitchen counter or kitchen island, and will easy tuck away into any of your kitchen cabinetry or pantry.<br/><br/>So, whether you're perfecting your favorite cake recipe or weighing food for your dog, the digital food scale features high precision sensors to accurately and consistently weigh your food and ingredients up to a 22 pound capacity. Measuring units in both ounces (oz) and grams (g), the digital food scale with LCD screen is a multipurpose tool that can also be used outside of residential kitchens: grocery stores, farmer's markets, small scale postage, commercial restaurant kitchens, for jewelers or for production purposes like candle making or perfume making.<br/><br/>The white digital food scale comes with a backlit, high contrast digital LCD display screen, you can immediately and clearly see the weight of your food, ingredients or other items. The digital food scale also features an easy to use tare or zero out button, as well as a one-minute automatic shut off function in order to prolong the battery life, conveniently saving you from having to change the batteries frequently if you, friends, family or colleagues forget to push the on/off button.<br/><br/>Easy to use, keep clean and an essential household tool to have at home, the Beille White Electronic Weighing Kitchen Cooking Baking Digital Food Scale with LCD Display Screen will soon become a cooking and baking staple in your kitchen. Great design, functionality, easy usage and no-fuss cleaning, make this digital food scale a must-have for the home or commercial businesses who need and rely on accurate weight measurements. <br/><br/>Dimensions: 9.5 inches x 6\nSearch Terms: electronic scale kitchen gadgets kitchen appliances kitchen accessories countertop accessories kitchen scales kitchen weighing scales baking scales food scales portioning food food prep meal prep food warmer cooking supplies\nFeatures:\n- MULTIFUNCTION FOOD SCALE: An essential kitchen tool for baking, cooking and weighing food and ingredient items, this digital food scale combines lightweight, compact and minimal design with high precision accuracy and functionality that won't take up room on your kitchen counter or island counter; easy to stow away in kitchen cabinetry or pantry when not in use as it measures 9.5 inches x 6.75 inches x 1.5 inches overall\n- PRECISE MEASURMENTS: Measuring units in both ounces and grams, the Beille White Electronic Weighing Kitchen Cooking Baking Digital Food Scale with LCD Display Screen has high precision sensors to give you accurate measurement readings, whether you're perfecting your favorite cake recipe or meal portioning for the week ahead; also great for grocery stores, farmers markets, jewelers or for other types of production like candle making, perfume making and more\n- DIGITAL LCD DISPLAY SCREEN: Featuring a backlit, high contrast digital LCD display screen, you can immediately and clearly see the weight of your food, ingredients or other items; the digital food scale also features an easy to use tare or zero out button to clear the screen when needed\n- AUTOMATIC SHUT OFF: The digital food scale features a one (1) minute auto shut off to prolong the battery life, conveniently saving you from having to change the batteries frequently if you, friends, family or colleagues forget to push the on/off button\n- SPECIFICATIONS: Dimensions: 9.5 inches x 6.75 inches x 1.5 inches; Capacity: 22LBS/10KG; Measurement Units: Grams (g), Ounces (oz); LCD Display; Battery Operated: Two (2) AA batteries included; Weighing Base Diameter: 5.75 inches; Weight: 0.70lbs\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille White Digital Kitchen Food Scale 22lbs",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "22",
+                "pack_size_unit": "lbs",
+                "size": "",
+                "color": "White",
+                "name": "Digital Kitchen Food Scale"
+            },
+            "char_count": 45,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 22 lb White Digital Kitchen Food Scale",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "22 lb",
+                "color": "White",
+                "name": "Digital Kitchen Food Scale"
+            },
+            "char_count": 45,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "High Precision Sensors, LCD Display, Grams And Ounces, Auto Shut Off, Compact Design",
+            "char_count": 84,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "High Precision Sensors, Backlit LCD Display, Tare Function, 22 Lb Capacity, Auto Shut Off, Ounces And Grams",
+            "char_count": 107,
+            "validation_error": null
+        }
+    }
+}

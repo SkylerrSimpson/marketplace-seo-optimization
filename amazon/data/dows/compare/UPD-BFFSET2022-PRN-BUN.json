@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-BFFSET2022-PRN-BUN",
+    "asin": "B0BSGKY8B4",
+    "product_type": "LIP_BALM",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-BFFSET2022-PRN-BUN\nProduct Type: LIP_BALM\nBrand (from catalog): Disney\nExisting Title: Disney Princess 3pc BFF Hair Accessory Bundle Gifts Sisters Girls Ages 3 and Up\nDescription: Are you looking for a fun and shareable gift set for your little one and her best friend or sister? This officially licensed Disney Princess BFF accessory set comes with matching dress-up accessories for your child to share: a BFF jewelry set and 2 lip balm sets with collectible tin carrying cases.<br/><br/>The Disney Princess lip balm sets will give little ones the most hydrating and majestical lip coverage at any royal ball. Featuring some of their favorite Disney princesses, the lip balm sets each include flavors like royal raspberry, gleeful grape, perfectly pink cotton candy, and whimsical watermelon. Kids can easily keep their lip balms with them on the go with the portable metal carrying case.<br/><br/>The water-based, nontoxic formula of these Disney Princess lip balms keeps your little one's lips well moisturized throughout changing seasons and is safe to use every day, whether to pack with their school supplies, for travel, sleepovers with friends, or dress up playdates. Plus, the cute tin storage box keeps lip balm safe and secure when not in use, so no lip balms are lost along the way.<br/><br/>We've also included a 6pc BFF jewelry set that comes with matching accessories including 2 bracelets, 2 rings, and 2 hair clips. BFF jewelry can help encourage sharing and friendship among young girls and sisters during playtime. All accessories included in the set are safe for children ages 3 and up with adult supervision.\nSearch Terms: stocking stuffers for girls stocking stuffers for kids stocking stuffer ideas girls dress up pretend play hair accessories kids holiday stockings christmas gifts for kids gift sets for kids holiday gift sets for kids christmas stockings for kids\nFeatures:\n- LICENSED BFF GIFT SET BUNDLE - Officially licensed Disney Princess gift set bundle comes with matching dress-up accessories for girls to share with their sister or best friend - a BFF jewelry set and 2 lip balm sets with collectible tin carry cases\n- NON-TOXIC LIP BALM: The water-based, nontoxic formula makes this lip balm set safe for little Disney Princess fans to use, whether to pack every day with their school backpack, for travel, sleepovers with friends, and more; cute tin storage box keeps lip balm safe and secure when not in use\n- PRINCESS STOCKING STUFFERS: This Disney Princess Lip Balm kit is ideal for any princess in training and makes a great stocking stuffer or party favor!\n- BEST FRIEND ACCESSORIES - 6pc best friend set comes with matching jewelry and accessories for girls to share: bracelets, hair clips, and rings; Encourages sharing and friendship among young girls and sisters during playtime\n- SAFE FOR KIDS - All accessories in set are safe for children ages 3 and up with adult supervision; Made of durable, high-quality materials that will last through many hours of dress-up playtime\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Disney Princess BFF Lip Balm and Jewelry Gift Set Bundle",
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Princess BFF Lip Balm and Jewelry Gift Set Bundle"
+            },
+            "char_count": 56,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Disney 3-Pc Princess BFF Lip Balm Bundle",
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Princess BFF Lip Balm Bundle"
+            },
+            "char_count": 40,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "2 Lip Balm Sets With Tin Cases, 6Pc Jewelry Set, Non-Toxic Formula, Stocking Stuffer, Ages 3 And Up",
+            "char_count": 99,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Officially Licensed, Water-Based Nontoxic Formula, 2 Tin Carry Cases, 6-Pc Jewelry Set, Ages 3 And Up",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-BLE-GLASSSTORAGEJARS-PARENT",
+    "asin": "B0H3QQT8J1",
+    "product_type": "FOOD_STORAGE_CONTAINER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-BLE-GLASSSTORAGEJARS-PARENT\nProduct Type: FOOD_STORAGE_CONTAINER\nBrand (from catalog): Beille\nExisting Title: Beille 1pc Small Ribbed Glass Food Storage Containers with Bamboo Lids, Airtight Pantry Jars for Countertops Cupboards Bathroom and Home Organization (20.96oz)\nDescription: Clean, modern and contemporary organization awaits, with Beille’s ribbed glass storage jars. Available in three separately sold size options: 9.47oz, 16.23oz and 20.96oz, each jar is designed for organizing compact everyday essentials; please note these jars are smaller in scale and are suitable for kitchen countertops, pantry shelves, cupboard interiors, bathroom vanities and open display areas (not intended for large bulk pantry items).<br/><br/>Made from food safe glass, the clear ribbed design makes contents easy to see, while adding a stylish look to any space. The bamboo lid features an airtight seal to help keep items neatly contained, making this jar a great choice for loose leaf tea, coffee, sugar, spices, candy, honey sticks and other small household items. Use one size on its own or choose multiple sizes separately to create a coordinated storage display that fits your specific space and storage needs.<br/><br/>Sized for smaller volume storage, these jars are best used for countertop, cupboard, vanity, and pantry organization rather than large bulk foods like pasta, rice, flour, or grains. Whether styled in a modern farmhouse kitchen or a bright natural bathroom, this ribbed glass canister offers a simple way to keep small essentials organized, visible and beautifully displayed.\nSearch Terms: Glass jar with lid; food storage containers with lids; bathroom organizers and storage; vanity organizer; sugar canister; airtight food storage containers; pantry storage; small food containers; kitchen countertop organizer; tea bags; loose leaf tea\nFeatures:\n- SMALL GLASS FOOD STORAGE JARS: Ribbed glass storage jars are available in three separate size options: 9.47oz, 16.23oz and 20.96oz\n- BAMBOO LID WITH AIRTIGHT SEAL: Each jar includes a natural bamboo lid with a secure sealing design to help keep contents neatly stored; great for loose leaf tea, coffee, sugar, spices, candy, snacks and more\n- FOOD SAFE RIBBED GLASS: Made from food safe glass with a clear ribbed design that lets you easily view contents inside; the decorative texture adds a clean, elevated look to kitchen countertops, pantry shelves, bathroom vanities and open storage displays\n- SMALL SPACE STORAGE SOLUTION: Designed for smaller volume goods rather than bulk pantry staples; best suited for tea, coffee, sugar cubes, toppings, spice blends, honey sticks and other compact everyday items\n- VERSATILE HOME ORGANIZATION: Use these glass jars in the kitchen, pantry, bathroom, powder room or laundry room; a practical storage choice for keeping small household essentials visible, accessible and beautifully arranged\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille Small Ribbed Glass Food Storage Jar Bamboo Lid",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "1",
+                "pack_size_unit": "pc",
+                "size": "Small",
+                "color": "",
+                "name": "Ribbed Glass Food Storage Jar with Bamboo Lid"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 1pc 20.96oz Small Ribbed Glass Storage Jar with Bamboo Lid",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "1",
+                "pack_size_unit": "pc",
+                "size": "20.96oz",
+                "color": "",
+                "name": "Small Ribbed Glass Storage Jar with Bamboo Lid"
+            },
+            "char_count": 65,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Airtight Bamboo Lid, Food Safe Glass, 2096Oz, Pantry And Bathroom Organization, Tea And Spice Storage",
+            "char_count": 101,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Airtight Bamboo Lid, Food Safe Ribbed Glass, Clear Visibility, Small Space Storage, Pantry Bathroom Vanity Use",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}

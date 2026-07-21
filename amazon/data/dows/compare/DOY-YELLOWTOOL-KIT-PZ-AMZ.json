@@ -1,0 +1,60 @@
+{
+    "sku": "DOY-YELLOWTOOL-KIT-PZ-AMZ",
+    "asin": "B0CLKZHL15",
+    "product_type": "ART_SUPPLIES",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DOY-YELLOWTOOL-KIT-PZ-AMZ\nProduct Type: ART_SUPPLIES\nBrand (from catalog): ToolTreaux\nExisting Title: 34pc Universal Hobby Complete Pottery Tool Craft Kit for Sculpting Molding\nDescription: The 34pc Complete Pottery Tool Kit is a great addition to any craft or hobby collection, whether you're just beginning or already know the ropes.<br/>Inside of the tool box you'll find a collection of essential tools you'll need while creating pottery. Included are all of the tools needed for slicing clay, removing clay from your wheel, modeling tools, detail and piercing tools as well as shaving tools. These tools will help you define details and feature knurled handles for a better grip. All of these tools fit nicely inside of a canvas travel pouch.<br/>This complete set makes a great gift for hobbyists and crafters alike. Make sure to grab one and be prepared for any art project.\nSearch Terms: clay sculpting art creation hobby\nFeatures:\n(none)\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 34pc Pottery Tool Craft Kit for Sculpting",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "34",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Pottery Tool Craft Kit for Sculpting"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 34-Pc Clay Sculpting Tool Kit",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "34",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Clay Sculpting Tool Kit"
+            },
+            "char_count": 40,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Complete Set, Clay Modeling And Detail Tools, Knurled Handles, Canvas Travel Pouch, Beginner To Advanced",
+            "char_count": 104,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Knurled Grip Handles, Slicing, Modeling And Detail Tools, Shaving Tools, Canvas Travel Pouch, For Clay Projects",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

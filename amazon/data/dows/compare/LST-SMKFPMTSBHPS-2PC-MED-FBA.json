@@ -1,0 +1,56 @@
+{
+    "sku": "LST-SMKFPMTSBHPS-2PC-MED-FBA",
+    "asin": "B01M24QG1S",
+    "product_type": "NON_RIDING_TOY_VEHICLE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-SMKFPMTSBHPS-2PC-MED-FBA\nProduct Type: NON_RIDING_TOY_VEHICLE\nBrand (from catalog): Kid Fun\nExisting Title: Speed Max King Friction Power Monster Truck Speed Boat Hauler Play Set by Kid Fun\nDescription: The Speed Max Friction Power Monster Truck Speed Boat Hauler by Kid Fun is a toy truck vehicle play set that belongs in every child's room. Combining the fun of a 10 inch friction propelled monster truck, and the cool factor of a sporty 10 inch speed boat, this toyis a gift that will be used for endless hours of fun. The detachable trailer allows your child's creativity to run wild. Unhitch the trailer and start blazing trails with the oversize large, realistic truck, or hook it back up and help your child learn the mechanics of hauling a trailer. The easy gliding pull back friction power means the fun doesn't stop because of batteries. Does not require batteries. Great for boys ages 3 and up.\nSearch Terms: monster truck toys blaze monster truck toys monster truck toys for boys kids monster truck toys large monster truck toys monster jam truck toys big wheelers 1.64 scale ramp toys for 4 year old boys monster truck toys full size\nFeatures:\n- FRICTION POWERED BOAT HAULER - Cool toy monster truck and detachable trailer with speed boat; no batteries needed, just pull back and watch the endless hours of fun be had by young boys\n- OVERSIZE XL TRUCK WITH DETACHABLE TRAILER - Larger than life it self for these excitable young boys is this great gift; Monster truck measures 9 x 8 x 8 inches; Speed boat measures 10 x 6 x 4 inches\n- PROMOTES CREATIVITY - Children playing with this toy truck vehicle and toy speed boat learn about the basics of mechanics and promotes creativity and imagination during pretend play; toy can be used indoor and outdoor play\n- MONSTER TRUCK THEME - Perfect toy for kids who love big trucks, big wheelers, semi-trucks, and speed boats; 1:64 Scale, realistic and intricate details for the ultimate playtime experience\n- SAFE FOR KIDS - Built for kids ages 3 and up; boys can take their monster truck boat hauler with them to the park, the beach and on play dates\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Kid Fun Monster Truck Speed Boat Hauler Play Set",
+            "tokens": {
+                "brand": "Kid Fun",
+                "pack_size": "2",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Monster Truck Speed Boat Hauler Play Set"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": null,
+            "tokens": null,
+            "char_count": null,
+            "validation_error": "no item_name returned"
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Friction Powered, Detachable Trailer, No Batteries, 10 Inch Boat And Truck, Ages 3 And Up",
+            "char_count": 89,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": null,
+            "char_count": null,
+            "validation_error": "no title_differentiation returned"
+        }
+    },
+    "raw": {
+        "openai": "Client error: `POST https://api.openai.com/v1/chat/completions` resulted in a `429 Too Many Requests` response:\n{\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-5.4-mini in organization org-el3QE531uTdEpv2furRUAnXD on (truncated...)\n"
+    }
+}

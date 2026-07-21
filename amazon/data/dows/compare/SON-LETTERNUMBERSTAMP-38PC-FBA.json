@@ -1,0 +1,60 @@
+{
+    "sku": "SON-LETTERNUMBERSTAMP-38PC-FBA",
+    "asin": "B0CDMDGNHQ",
+    "product_type": "HOME",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-LETTERNUMBERSTAMP-38PC-FBA\nProduct Type: HOME\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Metal Number and Letter Stamping Set Auto Punch Storage Case - 38pc\nDescription: The ToolTreaux metal stamping set comes with 38 numbers, letters, and punctuation marks as well as an automated spring-loaded punch so you can begin stamping right out of the box. The kit has 26 upper case letters, number 0-9, an ampersand, and a period.<br/><br/>The metal stamps feature a 1/8 inch face and measure 1” in length. Just press and create permanent marks on soft metals, plastic, wood, and leather materials. These tools are great for crafting, hobbies, jewelry making, and metalworking for both professionals and beginners alike.<br/><br/>Our letter and number stamps come with a durable, molded plastic storage case to keep your tools organized and secured when not in use. Keep it inside of your toolbox, tool belt, or crafting storage organizer.\nSearch Terms: automated spring loaded punch characters uppercase letters period ampersand perfect marking metals plastics number letter stamp set lightweight compact permanently molded storage case carry accessories soft metal plastic leather wooden\nFeatures:\n- 38PC ASSORTED METAL STAMPING SET - ToolTreaux metal stamping set comes with 38 numbers and letters with an automated spring-loaded punch; kit includes 26 uppercase letters, numbers from 0-9, a period and an ampersand for metalworking\n- EASY TO USE - Metal stamps feature an 1/8 inch face and easily fit inside of the included automated spring-loaded punch so you can begin stamping right out of the box. Press and create permanent marks on soft metal, plastic, leather and wood materials\n- STORAGE CASE INCLUDED - Letters and numbers stamps come with a molded durable plastic storage case to keep your tools organized and secured when not in use\n- VERSATILE CRAFTING TOOLS - Number and letter stamps are must-have marking tools for crafters, hobbyists, jewelry makers and metalworkers for creating artisan craft projects; Great gift idea for professionals and beginners alike\n- SPECIFICATIONS - Materials: metal, plastic; Stamp head size: 1/8“; Stamp length: 1”; Automated spring-loaded punch length: 6.75”; Colors, gold, chrome, red\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 38pc Metal Letter Number Stamping Set",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "38",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Metal Letter Number Stamping Set"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 38-Pc Metal Number And Letter Stamping Set",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "38",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Metal Number And Letter Stamping Set"
+            },
+            "char_count": 53,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "38 Stamps, Spring-Loaded Punch, Storage Case, Marks Metal, Plastic, Leather, Wood",
+            "char_count": 81,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "38 Piece Set, Spring Loaded Punch, 18 Inch Stamps, Marks Metal Plastic Wood Leather, Storage Case",
+            "char_count": 97,
+            "validation_error": null
+        }
+    }
+}

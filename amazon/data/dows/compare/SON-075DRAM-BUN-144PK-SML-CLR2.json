@@ -1,0 +1,60 @@
+{
+    "sku": "SON-075DRAM-BUN-144PK-SML-CLR2",
+    "asin": "B078942L7D",
+    "product_type": "SCIENTIFIC_SUPPLIES",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-075DRAM-BUN-144PK-SML-CLR2\nProduct Type: SCIENTIFIC_SUPPLIES\nBrand (from catalog): JSP\nExisting Title: 144pk Hobby Craft Air Tight Glass Storage Vial (3/4 Dram)\nDescription: The .75 Dram Vial is a great addition to any crafter or hobbyist's work area. Each vial is perfect for storing small items like beads, glitter, dust and other essential crafts.<br/><br/>In addition, these vials come in handy for gold prospectors and mineral collectors. They feature a water-tight screw top cap, as well as a durable glass see-through body so you'll be able to identify items easily. These vials will ensure that your craft supplies, gems and other tiny valuables are safe and contained.\nSearch Terms: glass vialair tight vialstoragegold vial lab\nFeatures:\n- Water-tight Plastic Screw Top\n- Durable Glass Transparent Body\n- Perfect for Storing Small Items Like Glitter, Dust, Gems, Beads, Small Parts, etc.\n- Great Gift Idea for Crafters & Hobbyists Alike\n- Size: .75 Dram\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "JSP 144-pk 3/4 Dram Glass Air Tight Storage Vials",
+            "tokens": {
+                "brand": "JSP",
+                "pack_size": "144",
+                "pack_size_unit": "pk",
+                "size": "3/4 Dram",
+                "color": "",
+                "name": "Glass Air Tight Storage Vials"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "JSP 144-pk 3/4 Dram Clear Glass Storage Vial",
+            "tokens": {
+                "brand": "JSP",
+                "pack_size": "144",
+                "pack_size_unit": "pk",
+                "size": "3/4 Dram",
+                "color": "Clear",
+                "name": "Glass Storage Vial"
+            },
+            "char_count": 44,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Water-Tight Screw Cap, Durable Glass Body, Beads, Glitter, Gems, Gold Prospecting, Lab And Craft Storage",
+            "char_count": 104,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Water-Tight Screw Top, Durable Clear Glass Body, Stores Glitter Beads Gems, Great For Crafters And Hobbyists",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

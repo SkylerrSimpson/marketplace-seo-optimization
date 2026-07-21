@@ -1,0 +1,60 @@
+{
+    "sku": "HWK-CAMPINGVEST-8PKTS",
+    "asin": "B09WXQ7HYR",
+    "product_type": "COAT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWK-CAMPINGVEST-8PKTS\nProduct Type: COAT\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Mens Camping Vest, Adjustable Hunting Fishing Jacket, Size Large\nDescription: The ASR Outdoor universal sporting vest is constructed of durable nylon material that is weather-resistant, so you can count on it to hold up rain or shine. It's a great clothing accessory for outdoor activities like hunting, fishing, and gold panning. <br/><br/>The hunting and fishing vest features 9\" adjustable side straps, and measures 23.5\" x 20\" but adjusts larger for a custom fit. This vest is designed to fit most adults, making it a great option for both men and women outdoor enthusiasts. <br/><br/>The ASR Outdoor nylon was designed with reinforced shoulder areas which will allow the wearer extra comfort. The durable construction ensures that all of your hunting and fishing equipment is easily accessible and safely stored during outdoor activities. <br/><br/>The vest features 8 different pockets and 2 metal clips that will hold your camping and hiking gear like fishing lines, tackles, whistle, compass, pocket knife, and matches. You can fill it up with everything you'll need while you're out in the field whether you're hunting, fishing, or gold prospecting.\nSearch Terms: tactical safety vest for men fishing accessories gear shirts for men equipment fly fishing accessories hunting vest gear accessories camping accessories gear essentials supplies equipment knives and tools metal detecting tools accessories bag\nFeatures:\n- DURABLE NYLON CAMPING VEST - The ASR Outdoor camping vest is constructed of durable nylon material that is weather-resistant, so you can count on it to hold up rain or shine. It's a great clothing accessory for outdoor activities like hunting, fishing, and gold panning.\n- ADJUSTABLE DESIGN - The hunting and fishing vest features 9\" adjustable side straps, and measures 23.5\" x 20\" but adjusts larger for a custom fit. This vest is designed to fit most adults, making it a great option for both men and women outdoor enthusiasts.\n- REINFORCED SHOULDERS - The ASR Outdoor nylon was designed with reinforced shoulder areas which will allow the wearer extra comfort. The durable construction ensures that all of your hunting and fishing equipment is easily accessible and safely stored during outdoor activities.\n- VERSATILE MULTI-USE VEST - The vest features 8 different pockets and 2 metal clips that will hold your camping and hiking gear like fishing lines, tackles, whistle, compass, pocket knife and matches. You can fill it up with everything you'll need while you're out in the field whether you're hunting, fishing or gold prospecting.\n- SPECIFICATIONS - Dimensions: 23.5\" x 20\" (L x W), adjusts larger (one size fits most); Pockets: 8; Metal clips: 2; Adjustable side straps for a custom fit; Reinforced shoulder areas; Colors: Brown and green; Material: weather-resistant nylon\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Men's Camping Vest, Large",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Large",
+                "color": "",
+                "name": "Camping Vest"
+            },
+            "char_count": 37,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Large Camping Vest Hunting Fishing Jacket",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Large",
+                "color": "",
+                "name": "Camping Vest"
+            },
+            "char_count": 53,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "8 Pockets, 2 Metal Clips, Adjustable Side Straps, Weather-Resistant Nylon, Reinforced Shoulders",
+            "char_count": 95,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Weather-Resistant Nylon, 8 Pockets, 2 Metal Clips, Adjustable Side Straps, Reinforced Shoulders, One Size Fits Most",
+            "char_count": 115,
+            "validation_error": null
+        }
+    }
+}

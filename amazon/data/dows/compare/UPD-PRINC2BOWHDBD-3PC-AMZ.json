@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-PRINC2BOWHDBD-3PC-AMZ",
+    "asin": "B0CN1SPHQ7",
+    "product_type": "CHILDRENS_COSTUME",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-PRINC2BOWHDBD-3PC-AMZ\nProduct Type: CHILDRENS_COSTUME\nBrand (from catalog): Disney\nExisting Title: Disney Princess 3pc Headband Clip On Bows Hair Accessory Toy Set Girls 3 and Up\nDescription: Does your child love the Disney Princesses? This fun dress up set comes with a blue sequined headband with a pink Ariel bow and two sparkly Belle and Cinderella hair bows. This is a perfect gift idea for any fans of Cinderella, Beauty And The Beast, or The Little Mermaid.<br/><br/>The headband set is super easy for little girls to put on and accessorize for themselves. The sparkly headband and clip on bows will be sure to turn heads whether your child is at school, at a playdate or at a Disney-themed birthday party. <br/><br/>All of the items included in this pretend play dress up set are safe for children ages 3 and up with adult supervision. They also make great party favor and stocking stuffer gift ideas for little Disney Princess fanatics.\nSearch Terms: girls fashion accessories girls costume jewelry girls headbands childrens pretend play sets princess party favors disney stocking stuffers for girls bff jewelry girls clip on bows heart shaped hair bows toys dress up pretend play sparkly bows\nFeatures:\n- DISNEY PRINCESS HAIR ACCESSORIES - Officially licensed Disney Princess hair accessory set comes with a sparkle headband and 2 sparkly clip-on bows for girls to accessorize with; Features Cinderella, Belle, and Ariel from the Little Mermaid\n- BLUE SEQUIN HEADBAND - Blue headband comes with a pink Ariel bow and will fit most little kids; Super easy for kids to put on and wear for everyday use\n- CLIP-ON BOWS - Set also comes with 2 sparkle clip-on bows; Easy snap closures will keep hair neat and in place all day\n- SAFE FOR KIDS - All pieces included are safe for children ages 3 and up with adult supervision; Choking hazard (small parts)\n- SPECIFICATIONS - Officially licensed (Disney Princesses); Pieces included: 3 (headband and 2 bows); Colors: blue, pink; Age recommendation: 3+ years\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Disney Princess 3-pc Headband Clip On Bows Hair Accessory",
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Blue, Pink",
+                "name": "Princess Headband Clip On Bows Hair Accessory"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Disney 3-pc Blue Headband Hair Accessory Set",
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Blue",
+                "name": "Headband Hair Accessory Set"
+            },
+            "char_count": 44,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Sequin Headband With Ariel, Belle And Cinderella Bows, Easy Clip-On Closure, Ages 3 And Up, Official Disney Licensed",
+            "char_count": 116,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Officially Licensed Disney Princess, Ariel Belle And Cinderella, Sparkle Clip-On Bows, Ages 3 Plus",
+            "char_count": 98,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "ASR-HWW8HPS-BUN-100PK-SML",
+    "asin": "B0BVTRHQQQ",
+    "product_type": "APPENDAGE_WARMER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: ASR-HWW8HPS-BUN-100PK-SML\nProduct Type: APPENDAGE_WARMER\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 100 Pack Hand Warmers Heat Pads 10 Hour Protection for Camping, Hiking, Outdoors\nDescription: Stay warm and comfortable on your outdoor adventures with ASR Outdoor hand warmers. These air-activated warmers are perfect for keeping your hands toasty in cold weather without the need for external power or electricity. With a working temperature range of 124-155°F, these hand warmers provide just the right amount of warmth without getting too hot. They're also safe, odorless, and non-toxic, so you can use them without any worries.<br/><br/>Each hand warmer lasts up to 10 hours, making them ideal for outdoor activities like hiking, camping, skiing, and more. They come in convenient pack sizes of 10, 25, 50, and 100, so you can choose the perfect amount for your needs. To use, simply open the package and expose the warmer to air. The hand warmer will heat up on its own and provide gentle warmth for hours.<br/><br/>Don't let the cold weather keep you from enjoying your favorite outdoor activities. Stay warm and comfortable with ASR Outdoor hand warmers.\nSearch Terms: Disposable hand warmers pocket instant portable packs stick chemical outdoor winter camping skiing hiking warmth heat outdoors sport activities cozy cold climate travel safety emergency hand pocket-sized air-activated small warm cozy snow\nFeatures:\n- LONG LASTING HAND WARMER - Stay warm for up to 10 hours with these hand warmers. Perfect for outdoor activities in cold weather\n- MAINTAINS A COMFORTABLE TEMPERATURE - These hand warmers keep your hands warm without getting too hot. They maintain a temperature range of 124-155F, perfect for cold weather and outdoor sports\n- EASY TO ACTIVATE - Simply expose the warmer to air and it will start to heat up. No need for any external power source or electricity. Convenient and easy to use\n- SAFE AND ODORLESS - These hand warmers are made of safe, odorless, and non-toxic materials. Use them without worrying about any harmful chemicals or strong smells. Great for all ages\n- VARIOUS PACK SIZES - Choose from pack sizes of 10, 25, 50, or 100 hand warmers. Perfect for short trips or extended stays, there's a size for every need\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 100-pk Hand Warmers 10 Hour Heat Pads",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "100",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Hand Warmers Heat Pads"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 100-Pk Hand Warmers Heat Pads",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "100",
+                "pack_size_unit": "Pk",
+                "size": "",
+                "color": "",
+                "name": "Hand Warmers Heat Pads"
+            },
+            "char_count": 41,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Air-Activated, 10 Hour Duration, 124-155F, Safe And Odorless, Camping And Hiking",
+            "char_count": 80,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "10 Hour Heat, Air Activated, 124-155F Comfort Range, Safe And Odorless, Bulk 100 Pack, Camping Hiking",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

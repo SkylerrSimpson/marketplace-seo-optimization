@@ -1,0 +1,60 @@
+{
+    "sku": "LST-KPL-KIDSGOLFCADDYSET-PARENT",
+    "asin": "B0BMX8FBPN",
+    "product_type": "TOYS_AND_GAMES",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-KPL-KIDSGOLFCADDYSET-PARENT\nProduct Type: TOYS_AND_GAMES\nBrand (from catalog): Kidplokio\nExisting Title: Kidplokio Kids Sports 9pc Toy Golf Clubs with Golf Balls Putter Iron Wedge (2 Colors)\nDescription: Introduce toddlers and young kids to golf with this fun 9-piece golf club playset from Kidplokio. The toy set includes x3 lightweight plastic golf clubs, including iron, wedge and putter, three golf balls and two golf holes, making it a great toy that little ones can play solo or with siblings and friends.<br/><br/>The gold clubs measure 18 inches in length, and have been specifically designed with little hands in mind. The smaller scale and lightweight design makes them easy for toddlers or young kids to hold, swing and putt when playing. In addition, the kids toy golf clubs set comes with a plastic golf bag or golf caddy that conveniently fits all the playset component, keeping all the golf accessories organized and together.<br/><br/>An awesome way to get toddlers and kids moving, exercising and learning a new sport, golf is a fantastic sport for kids eye hand coordination; And not only is golf great for exercise, it also teaches patience, concentration, finesse and skill that kids can apply to other sports and activities as they grow and develop.<br/><br/>The Kidplokio Kids Sports 9pc Toy Golf Clubs with golf accessories makes a great addition to any sports and outdoor play toys collection or kids exercise equipment. It's is easy to pack and travel with, and most importantly, keeps little ones busy, active and making friends.<br/><br/>Recommended Ages: 3+<br/><br/>Colors Available: Blue or Red\nSearch Terms: toys toy golf kids sports child set\nFeatures:\n- GREAT PLAYTIME GAME FOR KIDS - This golf caddy play set is perfect for your little ones when spending quality time with you or with their friends. It allows your kids to learn and have fun doing a pretend play with these golf tools and accessories.\n- GET READY FOR AN EDUCATIONAL FUN PLAY - Fun toy-set that promotes interest about the functionality of tools when playing golf. Non-toxic toys that are safe to use and these are perfect add ons for kids workshop, pretend play, and party decorations.Golf Club Holder has Wheels for Easy Transportation\n- Comes with 3 Different Types of Golf Clubs\n- Includes 3 Golf Balls & 2 Practice Holes\n- Promotes Development of Hand-eye Coordination & Fine Motor Skills\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Kidplokio Kids 9pc Toy Golf Clubs Set with Caddy Bag",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "9",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Toy Golf Clubs Set with Caddy Bag"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Kidplokio 9-pc Kids Sports Toy Golf Clubs Set",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "9",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Kids Sports Toy Golf Clubs Set"
+            },
+            "char_count": 45,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "3 Golf Clubs, 3 Balls, 2 Practice Holes, Wheeled Caddy, Hand-Eye Coordination, Ages 3 Plus",
+            "char_count": 90,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Lightweight Plastic Clubs, Wheeled Golf Caddy, 3 Balls, 2 Practice Holes, Hand-Eye Coordination, Ages 3 And Up",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}

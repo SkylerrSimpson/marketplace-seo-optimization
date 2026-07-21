@@ -1,0 +1,60 @@
+{
+    "sku": "FLL-FOBBRSSALBR-STD-GRY",
+    "asin": "B08KR9MSZZ",
+    "product_type": "WEAPON_CASE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: FLL-FOBBRSSALBR-STD-GRY\nProduct Type: WEAPON_CASE\nBrand (from catalog): Flatline-Ops\nExisting Title: Flatline Ops Body Bag Rear Shooting System Adjustable Lightweight - Wolf Gray\nDescription: The BODY BAG is the latest in our product line to improve accuracy. We have combined over 30 different shooting bags and heights into one lightweight, adjustable, and multifunctional shooting bag. Simply rest the butt of your rifle on the BODY BAG and roll or unroll for your desired height. Add the BOOSTER BAG core for more unlimited heights. The center-lock recoil support channel keeps the stock centered and stable before and after recoil, eliminating side-to-side movement. For micro-height adjustments, simply slide the BODY BAG forward or backward on the stock.<br/><br/>DURABLE CONSTRUCTION<br/>Made with highly durable, water-resistant Cordura and filled with polypropylene micro-pellets, the BODY BAG is ultra-lightweight and won't hold water and weigh you down. The BODY BAG BELT allows you to choose to wear the bag as a belt or sling for quick retrieval and access.<br/><br/>The basics are simple. Place the BODY BAG under the rear of the firearm resting it on the center-lock recoil channel. Roll or unroll the bag to the desired height. For micro-adjustments, simply slide the bag forward or back on the butt.<br/><br/>Open the BodyBag flat and it's a great place to rest your rifle on its side to keep it out of harsh terrain.<br/><br/>Dimensions: 34\" x 5.5\" (unrolled), 4.5\" x 5.5\" (rolled)<br/>Weight: 16oz<br/>Material: 500 Din Cordura, Nylon<br/>Core: Sealed Poly Micro-Pellets\nSearch Terms: shooting bag range bag rest rear shooting bag firearms gear equipment shooting accessories essentials supplies hunting gear equipment gun gear bags sniper rifle scope for rifles night vision\nFeatures:\n- THE FUTURE OF SHOOTING BAGS - The Body Bag was designed to improve accuracy. We've combined over 30 different shooting bags and heights into one lightweight, adjustable, and multifunctional shooting bag.\n- DURABLE CONSTRUCTION - Made with highly durable, water-resistant Cordura and filled with micro-pellets, the Body Bag is ultra-lightweight and won't hold water and weigh you down.\n- EASY TO USE - Just place the Body Bag under the rear of the firearm resting it onto the center-lock recoil channel and roll or unroll the bag to the desired height.\n- PROUDLY MADE IN USA - The Body Bag is hand sewn in the USA, ensuring premium quality, authenticity, and high performance\n- TECH SPECS - DImensions: 34\" x 5.5\" unrolled/4.5\" x 5.5\" rolled | Weight: 16oz | Material: 500 Din Cordura, Nylon | Core: Sealed Poly Micro-Pellets\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Flatline Ops Body Bag Rear Shooting Rest Wolf Gray",
+            "tokens": {
+                "brand": "Flatline Ops",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Wolf Gray",
+                "name": "Body Bag Rear Shooting Rest"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Flatline Ops Wolf Gray Body Bag Rear Shooting System",
+            "tokens": {
+                "brand": "Flatline Ops",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Wolf Gray",
+                "name": "Body Bag Rear Shooting System"
+            },
+            "char_count": 52,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Adjustable Height, Lightweight, Water-Resistant Cordura, Center-Lock Recoil Support, Made In USA",
+            "char_count": 96,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Adjustable Rear Rifle Support, Center-Lock Recoil Channel, Water-Resistant Cordura, Micro-Pellet Fill, USA Made",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

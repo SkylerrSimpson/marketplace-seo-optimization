@@ -1,0 +1,60 @@
+{
+    "sku": "LST-KIDSGOLFCADDYSET-2PK-BUNDLE",
+    "asin": "B073VZNLWF",
+    "product_type": "TOYS_AND_GAMES",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-KIDSGOLFCADDYSET-2PK-BUNDLE\nProduct Type: TOYS_AND_GAMES\nBrand (from catalog): KidPlay Products\nExisting Title: (2 Pack) Kids Indoor Golf Club Toddler Activity Pretend Play Set, Ages 3-8\nDescription: Learn to play golf just like Dad with the Kidplay Products Kids 2pk Golf Caddy Set. <br/><br/> These children's golf sets are a great way to get your child outside for some fun playtime. With the golf clubs and putting cups, your children will learn fine motor skills and hand eye coordination. Watch as they develop new skills while having fun with these golf-themed pretend play sets.<br/><br/> Each set comes with 2 practice golf holes, 3 golf balls and 3 different types of clubs.\nSearch Terms: boys toddler golf 3 years old gift for grandson just like dad indoor golf kids sports child set\nFeatures:\n- KidPlay Products Pretend Play Golf Caddy Set - 2 Pack (BOTH SETS COLOR RED)\n- Golf Club Holder has Wheels for Easy Transportation\n- Each Set Comes with 3 Different Types of Golf Clubs\n- Each Set Includes 3 Golf Balls & 2 Practice Holes\n- Promotes Development of Hand-eye Coordination & Fine Motor Skills\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "KidPlay Products 2-pk Red Kids Golf Caddy Set",
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Red",
+                "name": "Kids Golf Caddy Set"
+            },
+            "char_count": 45,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "KidPlay Products 2-pk Kids Indoor Golf Club Pretend Play Set",
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Kids Indoor Golf Club Pretend Play Set"
+            },
+            "char_count": 60,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "2 Complete Sets, 6 Golf Clubs, 6 Golf Balls, 4 Practice Holes, Wheeled Caddy, Hand-Eye Coordination",
+            "char_count": 99,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Wheeled Caddy, 3 Clubs, 3 Balls, 2 Practice Holes, Builds Hand-Eye Coordination, Ages 3-8, Indoor Fun",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

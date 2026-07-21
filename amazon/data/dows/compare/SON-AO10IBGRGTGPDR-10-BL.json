@@ -1,0 +1,60 @@
+{
+    "sku": "SON-AO10IBGRGTGPDR-10-BL",
+    "asin": "B06XHFKJG6",
+    "product_type": "OUTDOOR_LIVING",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-AO10IBGRGTGPDR-10-BL\nProduct Type: OUTDOOR_LIVING\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 10 inch Gold Pan with Dual Riffles for Gold Prospecting, Blue\nDescription: Trap gold while gold prospecting with the ASR Outdoor Dual Riffle Gold Pan for Gold Prospecting Gravity Trap. <br/><br/> This lightweight but super tough pan is a top quality gold-getter and will hold up to years of gold prospecting! <br/><br/> Featuring two riffle types cut into the sidewalls of the pan helping to catch more fine gold and taking the hard work out of the panning process. These deep and shallow riffles make it possible to run more gold paydirt and gold rich concentrate effectively through the prospecting gold pan. This high-impact plastic gold pan is lightweight, easy to use and the most efficient gold panning tool to use today over traditional steel gold pans. It is molded from durable ABS plastic that is UV resistant, rust-proof, and available in multiple sizes. Use the deep riffles to rough out the raw material, finishing with the shallow riffles to make short work of your final heavy gold concentrates. The ASR Outdoor Dual riffle gold pan is the ideal gold prospectors mining tool to have with you in the field whether you're a season miner 49'er or a new comer to the hobby.\nSearch Terms: fine gold flake nugget plastic washing pan black sand clean out recovery mining equipment prospector mine claim bulk sluice box tools classifier screen camping hobby sluice box metal detector accessories miners moss alaskian paydirt paydirt\nFeatures:\n- DUAL RIFFLE GOLD PAN: Gold panning pan incorporates both deep and shallow riffle side wall, allowing better separation of gold from other heavy minerals\n- HIGH QUALITY FABRICATION: Molded from one piece high impact ABS plastic, this gold pan is light weight, rust-free, UV resistant and floats\n- MAXIMUM GOLD RECOVERY: Dual riffle gold pan technology allows for all sizes of alluvial gold particles to be efficiently collected without missing any fine gold specs\n- PAY DIRT GOLD NUGGETS: Large riffles trap the gold much like the riffles in a sluice box, leading to a faster panning process letting you process more pay dirt\n- BEFORE USE: Gold pan should be seasoned before use by washing off all factory production oils\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 10 inch Blue Gold Pan with Dual Riffles",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "inch",
+                "size": "",
+                "color": "Blue",
+                "name": "Gold Pan with Dual Riffles"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 10-in Blue Gold Pan",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Blue",
+                "name": "Gold Pan"
+            },
+            "char_count": 31,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Dual Riffle Technology, High Impact ABS Plastic, UV Resistant, Rust-Proof, Maximum Gold Recovery, Fine Gold Flake Separation",
+            "char_count": 124,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Dual Riffle Sidewalls, High Impact ABS Plastic, Rust Free UV Resistant, Traps Fine Gold And Black Sand, Lightweight Floats",
+            "char_count": 122,
+            "validation_error": null
+        }
+    }
+}

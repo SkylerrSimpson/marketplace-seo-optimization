@@ -1,0 +1,60 @@
+{
+    "sku": "SON-GSC112MSSPPWFP-2PC-SML-GRN-Z",
+    "asin": "B074TSKFZF",
+    "product_type": "SPORTING_GOODS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-GSC112MSSPPWFP-2PC-SML-GRN-Z\nProduct Type: SPORTING_GOODS\nBrand (from catalog): ASR Outdoor\nExisting Title: Gold Sifting Classifier 1/12 inch Mesh Screen Sieve Prospect Pan\nDescription: A must-have item for gold panning and mineral recovery, this classification screen will aid your efforts by sorting your raw materials based on size. <br/><br/>This extra small particle screen is made of tough, high-impact plastic and 0.1mm stainless steel wire. This design is made to fit easily into a 5 gallon bucket and it matches the size of our 14\" gold pans to allow easy transfer of materials from one to the other.<br/><br/>Although gold is heavy, small flakes will not be able to displace larger rocks from your initial sample. Screening or \"classifying\" material into groups based on size will ensure that any gold, whether nuggets or flakes, will not get lost. In addition, looking through similar sized materials is a faster and more effective way to sort and will speed up the panning process, resulting in more gold.<br/><br/>This classifier screen sifting pan is perfect for fine clean up of material for use in a gravity concentrator bowl.\nSearch Terms: gold panning prospecting rush\nFeatures:\n- 304 Stainless Steel Wire\n- Wire Thickness - 0.1mm\n- Mesh Size - 1/12\"- 144 Holes per Square Inch\n- Fits on a 5 Gallon Bucket\n- Compact and Stackable\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Gold Sifting Classifier 1/12 Mesh Screen",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Extra Small",
+                "color": "",
+                "name": "Gold Sifting Classifier Mesh Screen Sieve"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 1/12 In Gold Sifting Classifier Screen Sieve",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "1/12 In",
+                "color": "",
+                "name": "Gold Sifting Classifier Screen Sieve"
+            },
+            "char_count": 56,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "112 Inch Mesh, 304 Stainless Steel, 01Mm Wire, Fits 5 Gallon Bucket, Compact And Stackable",
+            "char_count": 90,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "304 Stainless Steel Wire, 144 Holes Per Square Inch, Fits 5 Gallon Bucket, Compact, Stackable, Mineral Recovery",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

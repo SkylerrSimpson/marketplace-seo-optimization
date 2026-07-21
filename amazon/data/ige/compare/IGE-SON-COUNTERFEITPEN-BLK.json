@@ -1,0 +1,60 @@
+{
+    "sku": "IGE-SON-COUNTERFEITPEN-BLK",
+    "asin": "B084BTK3DY",
+    "product_type": "OFFICE_PRODUCTS",
+    "account": "IGE",
+    "generated_at": "2026-07-21T17:20:41+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: IGE-SON-COUNTERFEITPEN-BLK\nProduct Type: OFFICE_PRODUCTS\nBrand (from catalog): ASR Federal\nExisting Title: ASR Federal Counterfeit Bill Detector Pen US and International Currency Marker\nDescription: Are you looking to detect counterfeit currency without bearing the cost of expensive gadgets? Then the ASR Federal Counterfeit Banknote Detection Pen is the perfect tool for you. <br><br>This detector pen is filled with an iodine-based ink designed to be applied to banknotes in an attempt to determine authenticity. Most genuine banknotes are printed on paper made with cotton fibers and do not contain the starches that are reactive with iodine, so when the pen is used to mark genuine bills the mark will be yellowish or colorless. Counterfeit bills, however, are typically printed on photocopier paper or standard printer paper, so the ink from this pen will change to black if the bill is counterfeit. If the bill you test has a yellow/colorless mark, it is real. If the mark is black, it is fake. <br><br>Our counterfeit currency detector pen will provide results within seconds, and the mark will fade completely within a few hours.\nSearch Terms: counterfeit pen counterfeit detector pen counterfeit bill detector pen counterfeit money pen counterfeit bill pen money counterfeit pen dri mark counterfeit bill detector pen counterfeit pen detector pen to check for counterfeit bills marking pen\nFeatures:\n- COUNTERFEIT DETECTION INK - Filled with Iodine-based Ink Designed to Determine Currency Authenticity | Yellow Mark = Real, Black Mark = Counterfeit\n- RESULTS WITHIN SECONDS - Fast-acting Detection Ink Determines Authenticity Immediately | Catch Crooks Quickly without Inconveniencing Honest Customers\n- INK FADES QUICKLY - Ink Fades within Hours of Being Marked | Wont Ruin Genuine Currency or Prevent it From Being Used Later\n- WORKS ON US AND INTERNATIONAL CURRENCY: Compatible with Bill Currencies in Argentina, Brazil, Britain, Euro Countries, Hong Kong, Japan, Korea, Macao, Malaysia, New Zealand, Russia, South Africa, Taiwan, Thailand and USA\n- PROTECT YOUR BUSINESS - Inexpensive Way to Determine Authenticity at Point of Sale | Must-have Anti-counterfeit Detection Device for Business Owners, Entrepreneurs, Bank Tellers and Law Enforcement Officers\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Federal Counterfeit Bill Detector Pen Black",
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Counterfeit Bill Detector Pen"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Federal Counterfeit Bill Detector Pen",
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Counterfeit Bill Detector Pen"
+            },
+            "char_count": 41,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Iodine-Based Ink, Results In Seconds, US And International Currency, Fades Quickly, Business Protection",
+            "char_count": 103,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Yellow Is Real, Black Is Counterfeit, Works On US And International Currency, Ink Fades In Hours, Fast Results",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}

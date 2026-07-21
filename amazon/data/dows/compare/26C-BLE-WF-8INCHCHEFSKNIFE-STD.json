@@ -1,0 +1,60 @@
+{
+    "sku": "26C-BLE-WF-8INCHCHEFSKNIFE-STD",
+    "asin": "B0FN6M364M",
+    "product_type": "KITCHEN_KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 26C-BLE-WF-8INCHCHEFSKNIFE-STD\nProduct Type: KITCHEN_KNIFE\nBrand (from catalog): Beille\nExisting Title: Beille 1pc Stainless Steel and Wheat Fiber Handle Chefs Knife Kitchen Essentials, 13 Inch\nDescription: Every kitchen needs a reliable 8 inch chef knife, and this one from Beille delivers function, style and form with an eco-conscious edge, making it a cornerstone of your culinary toolkit.<br/><br/>This chef knife features a stainless steel blade that delivers effortless slicing, chopping, dicing, and mincing across a wide range of ingredients. Whether you're prepping hearty vegetables, carving boneless meats, or finely chopping herbs, the sharp edge and full 8 inch length offer the control and power you need for both everyday meals and special occasions.<br/><br/>Crafted with both functionality and sustainability in mind, the handle is made from ecofriendly wheat fiber, offering a lightweight yet sturdy grip that fits naturally in your hand. This plant-based alternative to plastic not only reduces environmental impact but also adds a warm, modern aesthetic to your kitchen collection. Its ergonomic design ensures comfort during extended use, helping reduce hand fatigue and improving your overall cooking experience.<br/><br/>The stainless steel blade is corrosion-resistant, easy to maintain, and built to retain its sharp edge through repeated use. From quick weeknight dinners to weekend meal prep, this chef knife delivers reliable, clean cuts with minimal effort. And when the work is done, you can simply place it in the dishwasher for easy, hassle-free cleanup—perfect for busy cooks and modern kitchens alike.<br/><br/>From weeknight dinners to weekend meal prep, this chef knife does it all, beautifully, comfortably and responsibly.\nSearch Terms: chef knife; stainless steel knife; meal food prep; eco friendly cutlery; knife set; wheat straw utensils; multipurpose kitchen knife; eco conscious kitchen essentials; sustainable products; all purpose kitchen knife; high carbon stainless steel knife\nFeatures:\n- 8 INCH CHEF KNIFE: Meet your everyday workhorse, this 8 inch chef knife from Beille is ideal for slicing meats, chopping vegetables and handling bulk prep with ease; designed to balance function and form, this chef knife combines long lasting sharpness with a clean, modern aesthetic\n- WHEAT FIBER HANDLE: Crafted from a blend of sustainable wheat fiber and polypropylene, the lightweight handle offers a natural, textured grip that’s comfortable, ergonomic and better for the environment, eliminating the use of traditional plastics\n- STAINLESS STEEL BLADE: Built to last with a durable, corrosion resistant stainless steel blade that maintains its edge; designed for long lasting sharpness and performance, the chef knife’s blade measures 8 inches in length\n- STYLISH AND MODERN DESIGN: Style and sustainability meet here! Sleek, sharp and stylish, this 8 inch chef knife adds a clean, natural look to any kitchen; balanced and easy to handle, reducing hand fatigue and improving control during detailed prep work\n- DISHWASHER SAFE: Designed for convenience, this chef knife is safe to clean in the dishwasher, making post meal clean up quick and hassle free\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 8 Inch Stainless Steel Chef Knife Wheat Fiber",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "8",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "",
+                "name": "Stainless Steel Chef Knife Wheat Fiber"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 8-Inch Chef Knife Stainless Steel Wheat Fiber Handle",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "8-Inch",
+                "color": "",
+                "name": "Chef Knife"
+            },
+            "char_count": 59,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Eco-Friendly Wheat Fiber Handle, Corrosion-Resistant Stainless Steel Blade, Ergonomic Design, Dishwasher Safe, All-Purpose Prep",
+            "char_count": 127,
+            "validation_error": "value exceeds maxLength 125 (127 chars)"
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Stainless Steel Blade, Wheat Fiber Ergonomic Handle, Dishwasher Safe, Corrosion Resistant, Eco Friendly Grip",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

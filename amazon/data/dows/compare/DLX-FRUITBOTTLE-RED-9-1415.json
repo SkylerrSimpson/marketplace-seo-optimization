@@ -1,0 +1,60 @@
+{
+    "sku": "DLX-FRUITBOTTLE-RED-9-1415",
+    "asin": "B08DF4GLGY",
+    "product_type": "BOTTLE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DLX-FRUITBOTTLE-RED-9-1415\nProduct Type: BOTTLE\nBrand (from catalog): Beille\nExisting Title: Beille Fruit Infuser Water Bottle 20 Ounce Capacity with Handle Cap, Red\nDescription: Has your doctor ever recommended that you increase your daily water intake? Unfortunately, most Americans are considered dehydrated, which is where our unique water bottle comes in.<br/><br/>The Beille Fruit Infuser Water Bottle is designed to help you increase daily hydration by giving you a healthy and fun way to make drinking water exciting. It comes with a plastic fruit infuser basket that can be filled with slices of fruit or berries to add a yummy flavor to water without adding unnatural sugars. With this bottle, you can enjoy hydrating without experiencing the guilt that soda and sugary juices can cause.<br/><br/>Our water bottles are made with 100% BPA free, durable plastic that can be easily washed and reused by adults or children. There are no metal or chemically unsafe components with these bottles, so you can rest assured your bottle isn't getting in the way of improving your health. We've also included a convenient twist-cap that doubles as a carry handle so you can bring your bottle with you everywhere from the office, to the gym, at home, or while traveling. Studies have shown that keeping a water bottle with you throughout the day can help promote daily hydration which assists with increasing energy levels, facilitating weight loss, and even improving the look and feel of skin.<br/><br/>With a 20 fluid ounce capacity, you will only have to fill your water bottle up 4 times daily to hit the recommended 10 cups a day for most adults. By adding fruit and experimenting with different flavors, you'll have fun while hydrating - win-win. The bottle is designed to fit most cup holders, backpack pockets or gym bags. This is a great water bottle option for anyone looking to increase daily water intake.\nSearch Terms: fruit tea infused sport gym girls women hydration fitness daily screw-top hydrate personal health clip cap wide-mouth leak proof shatter easy clean durable detox infusion stylish aqua simple grip sweat vitamin affordable cheap light travel\nFeatures:\n- DRINK HEALTHY WITH FLAVORED WATER - The Beille water bottle comes with a plastic fruit infuser basket that can be filled with slices of fruit to add a yummy flavor to drinking water without adding sugar!\n- BPA FREE MATERIAL FOR SAFE DRINKING - These water bottles are made with 100% BPA Free durable plastic that can be easily washed and reused by adults or children. There are no metal or unsafe components with these bottles!\n- PROMOTES DAILY HYDRATION - Our bottles come with a convenient carry-handle twist-cap so you can easily bring your bottle with you everywhere to stay hydrated throughout the day. Adding fruit to your water will keep it tasting great!\n- 20 OUNCE WATER CAPACITY - Each bottle holds about 20 fluid ounces of water, with room left to add the fruit infuser basket. Drinking water daily helps increase energy levels, facilitate weight loss and even improve the look and feel of skin!\n- SLEEK AND COLORFUL DESIGN - The 10\" tall water bottle has a diameter of about 2.75\", so it will easily fit in most cup holders, backpack pockets or gym bags.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 20 Ounce Fruit Infuser Water Bottle, Red",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "20",
+                "pack_size_unit": "Ounce",
+                "size": "",
+                "color": "Red",
+                "name": "Fruit Infuser Water Bottle"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 20-Ounce Red Fruit Infuser Water Bottle",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "20-Ounce",
+                "color": "Red",
+                "name": "Fruit Infuser Water Bottle"
+            },
+            "char_count": 46,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "BPA-Free, Fruit Infuser Basket, Twist-Cap With Handle, Leak Proof, Fits Cup Holders, Promotes Daily Hydration",
+            "char_count": 109,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "BPA Free Plastic, Fruit Infuser Basket, Carry Handle Twist Cap, Reusable, Fits Most Cup Holders, 10 Inch Tall",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-FROZEN2-LIPBALM-MIRROR",
+    "asin": "B08L6YCKCF",
+    "product_type": "TOYS_AND_GAMES",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-FROZEN2-LIPBALM-MIRROR\nProduct Type: TOYS_AND_GAMES\nBrand (from catalog): Townley Girl\nExisting Title: Frozen 2 Lip Balm Set with Mirror and Sticker Pad\nDescription: This set comes complete with a Frozen 2 mirror, 2 lip balms, and one sticker sheet. Your little one will absolutely love this Frozen 2 Gift set.\nSearch Terms: lip balms mirror stickers balm for kids disney frozen girls chapstick gift set\nFeatures:\n- PRETEND PLAY FOR GIRLS OF MOST AGES - Big fun for slumber parties or any pretend cosmetic play date with kids 3 and up. With lots to choose from, there's fun for everyone\n- ASSORTED FLAVORED - Set comes with 2 different Lip balm flavors\n- GREAT BIRTHDAY OR HOLIDAY GIFT IDEA - Each Gift in this set is decorated with charecters from Disney's Frozen 2. Multiple colors will spark creativity and appeal to any personality!\n- OFFICIALLY LICENSED - Officially Licensed Frozen 2 Gift set\n- AGES 3+\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Townley Girl Frozen 2 Lip Balm Set with Mirror",
+            "tokens": {
+                "brand": "Townley Girl",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Frozen 2 Lip Balm Set with Mirror"
+            },
+            "char_count": 46,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Townley Girl Frozen 2 Lip Balm Set With Mirror",
+            "tokens": {
+                "brand": "Townley Girl",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Frozen 2 Lip Balm Set With Mirror"
+            },
+            "char_count": 46,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "2 Flavored Lip Balms, Mirror, Sticker Sheet, Disney Frozen 2, Ages 3, Perfect Gift",
+            "char_count": 82,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Officially Licensed Disney Design, 2 Assorted Flavored Lip Balms, Sticker Sheet, Mirror, Ages 3 And Up",
+            "char_count": 102,
+            "validation_error": null
+        }
+    }
+}

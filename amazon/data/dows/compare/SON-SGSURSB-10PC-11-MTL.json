@@ -1,0 +1,60 @@
+{
+    "sku": "SON-SGSURSB-10PC-11-MTL",
+    "asin": "B006M6G4YW",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-SGSURSB-10PC-11-MTL\nProduct Type: KNIFE\nBrand (from catalog): World Hobbies\nExisting Title: 10pc Sterile Surgical Grade Replacement Scalpel Blades Universal Fit - Size 11\nDescription: For precision cutting, nothing beats a scalpel. Made from a single piece of metal, these sturdy scalpel blades will ensure you get a good cut when you can't afford to slip. <br/><br/>An excellent tool for an X-acto knife job. Cuts great though mats,fabric, cardboard, and gloss paper. Never run out of blades.<br/><br/>Take your craft to the next level with these great scalpel blades.\nSearch Terms: crafting hobby knife replacement art bladee tools leather working garage accessories surgical replacement scalpel blades\nFeatures:\n- Great For all Precision Cutting Applications\n- Material: Carbon Steel | Blade Size: #11\n- Includes 10 Individually Sealed, Sterile Blades\n- Excellent for X-acto Knife Tool Blades\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "World Hobbies 10-pc Size #11 Surgical Scalpel Blades",
+            "tokens": {
+                "brand": "World Hobbies",
+                "pack_size": "10",
+                "pack_size_unit": "pc",
+                "size": "#11",
+                "color": "",
+                "name": "Surgical Scalpel Blades"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "World Hobbies 10-pk Size 11 Sterile Surgical Grade Scalpel Blades",
+            "tokens": {
+                "brand": "World Hobbies",
+                "pack_size": "10",
+                "pack_size_unit": "pk",
+                "size": "11",
+                "color": "",
+                "name": "Sterile Surgical Grade Scalpel Blades"
+            },
+            "char_count": 65,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Sterile Carbon Steel, Universal X-acto Fit, Precision Cutting, Craft And Art, Individually Sealed",
+            "char_count": 97,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Individually Sealed, Carbon Steel, Universal Fit, Precision Cutting, Ideal For Craft, Leather And Hobby Use",
+            "char_count": 107,
+            "validation_error": null
+        }
+    }
+}

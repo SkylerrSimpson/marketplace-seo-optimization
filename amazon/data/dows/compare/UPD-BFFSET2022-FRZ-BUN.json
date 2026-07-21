@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-BFFSET2022-FRZ-BUN",
+    "asin": "B0BSG8CFJH",
+    "product_type": "TOYS_AND_GAMES",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-BFFSET2022-FRZ-BUN\nProduct Type: TOYS_AND_GAMES\nBrand (from catalog): Disney\nExisting Title: Disney Frozen II 4pc BFF Hair Accessory Bundle Gifts Sisters Girls Ages 3 and Up\nDescription: Are you looking for a fun and shareable gift set for your little one and her best friend or sister? This officially licensed Disney Frozen II BFF accessory set comes with matching dress-up accessories for your child to share: a BFF jewelry set, 2 sister hair brushes, and a set of faux hair braids.<br/><br/>The matching sister hair brushes feature Anna and Elsa from the hit Frozen movie franchise. These square-style paddle brushes have soft, nylon bristles for pain-free brushing and can help girls practice proper hair grooming while developing fine motor skills.<br/><br/>We've also included a 6pc BFF jewelry set that comes with matching accessories including 2 bracelets, 2 rings, and 2 hair clips. BFF jewelry can help encourage sharing and friendship among young girls and sisters during playtime.<br/><br/>Lastly, we've added a 2 piece faux hair braid set including one of Anna's hair color braids and one of Elsa's hair color braids. Girls can dress up together like their favorite princess and snow queen from the Frozen movies. All accessories included in the set are safe for children ages 3 and up with adult supervision.\nSearch Terms: stocking stuffers for girls stocking stuffers for kids stocking stuffer ideas girls dress up pretend play hair accessories kids holiday stockings christmas gifts for kids gift sets for kids holiday gift sets for kids christmas stockings for kids\nFeatures:\n- LICENSED BFF GIFT SET BUNDLE - Officially licensed Disney Frozen II gift set bundle comes with matching dress-up accessories for girls to share with their sister or best friend - a BFF jewelry set, 2 hair brushes, and a set of faux hair braids\n- MATCHING HAIR BRUSHES - Set features 2 sister hair brushes featuring Anna and Elsa from the hit Disney Frozen movie franchise; Square-style paddle brushes have soft nylon bristles for pain-free brushing; Helps girls practice proper hair grooming and develop fine motor skills\n- BEST FRIEND ACCESSORIES - 6pc best friend set comes with matching jewelry and accessories for girls to share: bracelets, hair clips, and rings; Encourages sharing and friendship among young girls and sisters during playtime\n- FAUX HAIR BRAIDS - 2pc faux hair braid set includes one of Anna's hair color braids and one of Elsa's hair color braids; Girls can dress up together like their favorite princess and snow queen from the Frozen movies\n- SAFE FOR KIDS - All accessories in set are safe for children ages 3 and up with adult supervision; Made of durable, high-quality materials that will last through many hours of dress-up playtime\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Disney Frozen II 4pc BFF Hair Accessory Bundle",
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "4",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Frozen II BFF Hair Accessory Bundle"
+            },
+            "char_count": 46,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Disney 4-Pc BFF Hair Accessory Bundle",
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "4",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "BFF Hair Accessory Bundle"
+            },
+            "char_count": 37,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Hair Brushes, Jewelry Set, Faux Braids, Ages 3 And Up, Sister Gifts",
+            "char_count": 67,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Licensed Frozen II Gift Set, Matching Anna And Elsa Brushes, Jewelry Set, Faux Hair Braids, Ages 3 Plus",
+            "char_count": 103,
+            "validation_error": null
+        }
+    }
+}

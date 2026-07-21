@@ -1,0 +1,60 @@
+{
+    "sku": "UNV-DWBKATSAT-BUN-12X6X6-BLCK-BNDL",
+    "asin": "B01COB9STG",
+    "product_type": "ART_AND_CRAFT_SUPPLY",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UNV-DWBKATSAT-BUN-12X6X6-BLCK-BNDL\nProduct Type: ART_AND_CRAFT_SUPPLY\nBrand (from catalog): Universal Tool\nExisting Title: 56pc Wood Burning Pen Hobby Set with Stencils Assorted Brass Tips and Tweezers\nDescription: Create amazing wood craft art with this 56pc Complete Wood Burning Pen and Stencil Arts and Craft Hobby Tool Kit.<br/><br/>This kit comes with a wood burning pen, (9) assorted brass tips and accessories, 28 stencils for burning intricate and unique designs into unfinished wood and a top close hobby and craft tool box to organize and keep tiddy all the tools used to create your intricate art. <br/><br/>We've also included some extra items to help you complete your project with precision - a \"helping hand\" station to hold your work in place as you use the pen, 5 assorted tip tweezers, and a microfiber towel to keep your work-space clean. <br/><br/>Everything fits neatly inside of a handy black tool box. This is a great gift idea for beginners and seasoned veterans alike.\nSearch Terms: wood working carving tools chiseling hobby DIY art craft wood working carving tools chiseling hobby chisel tips burning tool razertip burner pyrography kit woodburning craft supplies pens interchangeable burners\nFeatures:\n- TOTAL PIECES: (56) Total pieces in the Wood Burning Pen Kit and Assorted Interchangeable Tips\n- Number & Letter Stencils for Unique Wood Projects\n- Assorted Tip Tweezers for Intricate Projects\n- \"Helping Hands\" Station to Hold Your Work in Place\n- Microfiber Towel Keeps Works-space Clean\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 56pc Wood Burning Pen Set Black",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "56",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Black",
+                "name": "Wood Burning Pen Set"
+            },
+            "char_count": 46,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 56-pc Wood Burning Pen Hobby Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "56",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Wood Burning Pen Hobby Set"
+            },
+            "char_count": 47,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "9 Brass Tips, 28 Stencils, Helping Hands Station, Tweezers, Microfiber Towel",
+            "char_count": 76,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "28 Stencils, 9 Brass Tips, Tweezers, Helping Hands Station, Microfiber Towel, Black Storage Case, For Wood Crafts",
+            "char_count": 113,
+            "validation_error": null
+        }
+    }
+}

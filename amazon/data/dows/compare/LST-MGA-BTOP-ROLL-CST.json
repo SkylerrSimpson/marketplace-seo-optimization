@@ -1,0 +1,60 @@
+{
+    "sku": "LST-MGA-BTOP-ROLL-CST",
+    "asin": "B077QT1SXQ",
+    "product_type": "TOY_VEHICLE_SET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-MGA-BTOP-ROLL-CST\nProduct Type: TOY_VEHICLE_SET\nBrand (from catalog): KidPlay Products\nExisting Title: 1:48 Deluxe Futuron Space Monorail with Big Loop Toy Train Set for Kids\nDescription: Construct a roller coaster with the Space HyperLoop Bullet Train Coaster Set.<br/><br/>Fasten those seat belts, because this roller coaster is on a straight track to fun. With 3 trains, a docking station, and a full loop, kids of all ages will be entertained for hours on end. The 49 piece set is easy to assemble, and the included sticker set provides for loads of customization. <br/><br/>This set comes with everything for a kid to make a grand futuristic space themed roller coaster. It features side locks to prevent the coaster from falling off and is easy to assemble.<br/><br/>This play set is packed with all you need to experience a wild ride right in your living room. Have hours of fun with this train set and your little one.\nSearch Terms: kids mini car set car set toys for kids car table set for kids car set for kids car play set for kids mini car set for kids car set kids toy 50 piece set kids car set kids car toy set kids car toy set mini vehicle play set vehicle play set for kids\nFeatures:\n- Easy to Assemble | Comes with 3 trains | Ideal for Kids 5-12 years old | Scale 1:48\n- 49 piece track allows endless customization options | Includes a full loop | Train Station\n- Endless fun to build around and add to your diecast toy cityscape\n- Customize the graphics how you want with the included logo decal sticker sheet\n- Perfect gift for boys for all ages this Christmas\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "KidPlay Products 49-Piece Space Monorail Roller Coaster Toy Train Set",
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "49",
+                "pack_size_unit": "piece",
+                "size": "",
+                "color": "",
+                "name": "Space Monorail Roller Coaster Toy Train Set"
+            },
+            "char_count": 69,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "KidPlay Products 1:48 Space Monorail Bullet Train Set",
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "1:48",
+                "color": "",
+                "name": "Space Monorail Bullet Train Set"
+            },
+            "char_count": 53,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "3 Trains, Full Loop, Docking Station, Easy Assembly, Ages 5-12, Customizable Stickers, 148 Scale",
+            "char_count": 96,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "49 Piece Track, 3 Trains, Full Loop, Easy Assembly, Sticker Customization, Side Locks, Train Station, Ages 5-12",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-GOLDMAT-GP-SB35-MAT-FBA",
+    "asin": "B07NFBDDKY",
+    "product_type": "OUTDOOR_LIVING",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-GOLDMAT-GP-SB35-MAT-FBA\nProduct Type: OUTDOOR_LIVING\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Rubber Riffled Gold Sluice Box Matting for Gold Recovery, 27x10 inch\nDescription: The ASR Outdoor Rubber Riffle Sluice Box Mat is made from highly durable, one-piece flexible rubber that will never harden or crack in cold weather and is designed with 3 traditional, tried and true gold collecting riffle patterns. These gold recovery riffle traps are designed to maximize the amount of gold nuggets and gold flake that is trapped when separated from your raw screened material. This Rubber Riffled Sluice Box Matting is manufactured from green thermoplastic rubber (TPR) allowing for optimal clarity and easy spotting and identifying of gold flake, gold nuggets, gems, or your choice rock hounding mineral. It is also a Trimmable Riffle Sluice Box Matting which is pre-scored so it can easily be cut down to only 8 inches wide using the guide line on the back of the matting. Overall dimensions of the matting are 10 inches wide by 27 inches in length; with riffle traps running the entire length.<br><br>This is the perfect sluice box mat for superb fine gold recovery with fast or slow water which will enhance your gold prospecting and recovery efforts.<br><br>The different pattern gold collection riffle traps allow for various sizes of material to be trapped while each serving a different purpose to help aid in the gold prospecting recovery process; they are; Hungarian, V-shape, and Square riffle patterns;<br><br>Hungarian Riffle Trap: Increases the turbulence behind the riffle, which agitates the sand bed, improving gold deposits within the recovery traps<br>V Shape Riffle Trap: V-shaped groves work very well for catching fine gold<br>Square Riffle Trap: The large groves allow for catching small finds, pickers, and small nuggets<br><br>Once your material is run through the mat it can easily be rolled up to let you rinse out the concentrate that you have trapped. The concentrate rinsed from the matting will contain most of the gold accumulated during the run and is now ready to be panned and separated.\nSearch Terms: miners moss mining sluece gold prospector equipment mat paydirt matting prospecting fine nugget pay dirt flake gold recovery\nFeatures:\n- FLEXIBLE RUBBER SLUICE MAT: Once your pay dirt material is run through the mat it can easily be rolled up letting you rinse out the concentrate that you have trapped; Made from TPR rubber that will not stiffen in cold weather\n- 3 RIFFLE TRAP PATTERNS: There are 3 different pattern gold collection riffle traps allow for various sizes of gold material to be trapped while each serving a different purpose to help aid in the gold prospecting recovery process\n- HUNGARIAN: Increases the turbulence behind the riffle, which agitates the sand bed, improving gold deposits; V-SHAPE: These groves work very well for catching fine gold flake; SQUARE RIFFLE: The large groves allow for catching small finds, pickers, and small gold nuggets\n- CUT TO FIT: The sluice box matting is pre-scored so it can easily be cut down to only 8 inches wide using the guide line on the back of the matting. Overall dimensions of the matting are 10 inches wide by 27 inches in length\n- MAXIMIZE GOLD RECOVERY EFFORTS: This is the perfect sluice mat for superb fine gold recovery with fast or slow water and will enhance your gold prospecting and recovery efforts\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 27x10 Rubber Gold Sluice Box Matting",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "27x10",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Rubber",
+                "name": "Gold Sluice Box Matting"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 27x10 in Rubber Riffled Gold Sluice Box Mat",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "27x10 in",
+                "color": "",
+                "name": "Rubber Riffled Gold Sluice Box Mat"
+            },
+            "char_count": 55,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "3 Riffle Trap Patterns, Fine Gold Recovery, Flexible TPR Rubber, Trimmable, Cold Weather Resistant",
+            "char_count": 98,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Flexible TPR Rubber, 3 Riffle Patterns, Fine Gold Recovery, Cut To 8 Inch Width, Cold Weather Durable",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

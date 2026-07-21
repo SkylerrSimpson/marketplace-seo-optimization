@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-MEMNORABC-2OZ-CLR-2",
+    "asin": "B0009RRTO4",
+    "product_type": "TEXTILE_DEODORIZER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-MEMNORABC-2OZ-CLR-2\nProduct Type: TEXTILE_DEODORIZER\nBrand (from catalog): GEAR AID\nExisting Title: GEAR AID Revivex Odor Eliminator, All-Natural Formula for Tents, Footwear and Sports Gear, 2 fl oz\nDescription: Use Revivex Odor Eliminator to get rid of bad smells, not just mask it. Previously known as Mirazyme, this concentrated blend of water-activated microbes removes the odor. Apply as spray or soak to treat hard to wash items like tents and wetsuits. Or add it to a machine wash to keep gear fresh each season. Use formula within 72 hours of adding water. This gentle formula can be used on a variety of fabrics including neoprene, fleece, spandex, Lycra and cotton. Remove bad odors from all types of outdoor fabrics naturally with Revivex Odor Eliminator.\nSearch Terms: scuba odor remover after season cleaner sleeping bag fresh scent outdoor sports wetsuit stain wash in solution\nFeatures:\n- All-natural odor eliminator\n- Use the concentrated formula with water-activated enzymes that penetrate fabric pores to remove odor; treat multiple garments with just half an ounce in 20 gallons of water\n- Soak outerwear, tents, athletic clothes, shoes, and pet gear with this gentle solution; also effective on neoprene, nylon, polyester, and GORE-TEX fabrics\n- Spray or soak for hard to wash gear; compatible with washing machines and available in 2 fl oz and 10 fl oz\n- Packaging may vary\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "GEAR AID Revivex Odor Eliminator, 2 fl oz",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "fl oz",
+                "size": "",
+                "color": "",
+                "name": "Revivex Odor Eliminator"
+            },
+            "char_count": 41,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID 2-fl oz Revivex Odor Eliminator",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "fl oz",
+                "size": "",
+                "color": "",
+                "name": "Revivex Odor Eliminator"
+            },
+            "char_count": 40,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "All-Natural Water-Activated Enzymes, Removes Odor From Tents And Gear, Spray Or Soak, Machine Washable",
+            "char_count": 102,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Water Activated Microbes - Removes Odors Not Masks Them - Spray Or Soak - Safe On Neoprene Nylon Polyester",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

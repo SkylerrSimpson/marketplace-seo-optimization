@@ -1,0 +1,60 @@
+{
+    "sku": "SON-DUKCS-52PC-A-2",
+    "asin": "B01FOQK1VW",
+    "product_type": "UTILITY_KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-DUKCS-52PC-A-2\nProduct Type: UTILITY_KNIFE\nBrand (from catalog): vector tools\nExisting Title: Mini Hobby Knife Set With Case AND Blades For Carving And Whittling\nDescription: MINI HOBBY KNIFE SET WITH CASE BLADES KIT FOR CARVING AND WHITTLING<br/><br/>Includes: 41 Blades; 7 Metal Handles; 1 PVC Handle; 6 Scribes And 1 Stone<br/>Precision Knife Set Comes Organized In A Molded PVC Case<br/>Cut; Scratch; Etch And Scrape With Supreme Accuracy<br/>Blades Will Come With Oil Preservative On Them To Protect Them From The Elements\nSearch Terms: utility knives utility knife blades folding razor blades edc retractable box cutter blades knives safety hobby knife set blades precision tools knives blades set clay modeling tools plastic fixed blade knife cutting tools mats set arts and crafts\nFeatures:\n- MINI HOBBY KNIFE SET WITH CASE AND BLADES FOR CARVING AND WHITTLING\n- Includes: 41 Blades; 7 Metal Handles; 1 PVC Handle; 6 Scribes And 1 Stone\n- Precision Knife Set Comes Organized In A Molded PVC Case Cut; Scratch; Etch And\n- Scrape With Supreme Accuracy Blades Will Come With Oil Preservative On Them To\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Vector Tools Mini Hobby Knife Set with Case and 41 Blades",
+            "tokens": {
+                "brand": "Vector Tools",
+                "pack_size": "41",
+                "pack_size_unit": "Blades",
+                "size": "Mini",
+                "color": "",
+                "name": "Hobby Knife Set with Case"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "vector tools Mini Hobby Knife Set With Case And Blades",
+            "tokens": {
+                "brand": "vector tools",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Mini",
+                "color": "",
+                "name": "Hobby Knife Set With Case And Blades"
+            },
+            "char_count": 54,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "41 Blades, 7 Metal Handles, 6 Scribes, Stone, Molded PVC Case, Carving And Whittling",
+            "char_count": 84,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "41 Blades, 7 Metal Handles, 1 PVC Handle, 6 Scribes, 1 Stone, Molded PVC Case, Precision Carving And Whittling",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}

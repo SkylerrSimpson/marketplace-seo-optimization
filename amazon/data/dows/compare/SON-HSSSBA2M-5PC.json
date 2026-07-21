@@ -1,0 +1,60 @@
+{
+    "sku": "SON-HSSSBA2M-5PC",
+    "asin": "B00QL0RFS8",
+    "product_type": "SAW_BLADE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-HSSSBA2M-5PC\nProduct Type: SAW_BLADE\nBrand (from catalog): Universal Tool\nExisting Title: ToolTreaux 5pc High Speed Steel Saw Blades 1/4 Inch Arbor Size .8mm Assorted\nDescription: Take on precision cutting tasks with the ToolTreaux 5pc High Speed Steel Mini Saw Blade Set. Designed for hobbyists, crafters, and detail work, this versatile set features five different blade sizes and tooth counts to handle a variety of materials and cutting needs.<br/><br/>Made from durable 4241 high-speed steel with a hardness rating of 54–60 HRC, these blades deliver clean, efficient cuts in wood, plastic, and other light materials. The 1/4-inch arbor ensures compatibility with most rotary tools and mandrels, making this set a reliable addition to any workshop or DIY kit.<br/><br/>Specifications:<br/>- Quantity: 5 Pieces<br/>- Material: 4241 High-Speed Steel (HSS)<br/>- Hardness: 54–60 HRC<br/>- Thickness: 0.8mm<br/>- Arbor Size: 1/4 inch<br/><br/>Blade Sizes & Teeth:<br/>- 1” — 36T<br/>- 1-1/4” — 56T<br/>- 1-1/2” — 36T<br/>- 1-1/3/4” — 74T<br/>- 2” — 48T\nSearch Terms: mini circular saw blades, HSS cutting disc set, rotary tool saw blades, hobby cutting blades, precision wood cutting, plastic cutting discs, 1/4 arbor saw blades, high speed steel blades, craft cutting tools, model making tools\nFeatures:\n- 5 ASSORTED BLADE SIZES - Includes 1” to 2” blades with varied tooth counts for versatile cutting performance across different projects\n- DURABLE 4241 HSS CONSTRUCTION - High-speed steel with 54–60 HRC hardness for long-lasting sharpness and strength\n- PRECISION CUTTING PERFORMANCE - Ideal for detailed work in crafts, hobbies, model making, and light-duty cutting tasks\n- UNIVERSAL 1/4\" ARBOR FIT - Compatible with most rotary tools, mandrels, and mini cutting setups\n- OPTIMIZED TOOTH CONFIGURATIONS - Multiple tooth counts (36–74T) provide smoother, cleaner cuts depending on material and application\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 5pc High Speed Steel Saw Blades 1/4 Arbor",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "5",
+                "pack_size_unit": "pc",
+                "size": "1/4 Arbor",
+                "color": "",
+                "name": "High Speed Steel Saw Blades"
+            },
+            "char_count": 56,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 5-pk 1/4 in HSS Mini Saw Blade Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "5",
+                "pack_size_unit": "pk",
+                "size": "1/4 in",
+                "color": "",
+                "name": "HSS Mini Saw Blade Set"
+            },
+            "char_count": 49,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "4241 HSS Construction, 54-60 HRC Hardness, Five Assorted Blade Sizes, Precision Cutting, Compatible With Rotary Tools",
+            "char_count": 117,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "5 Assorted Blades, 4241 HSS, 54-60 HRC, Quarter Inch Arbor Fit, Wood, Plastic, Hobby Craft, Model Making",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

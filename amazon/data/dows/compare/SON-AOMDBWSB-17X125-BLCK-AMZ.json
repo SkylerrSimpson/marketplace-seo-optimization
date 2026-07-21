@@ -1,0 +1,60 @@
+{
+    "sku": "SON-AOMDBWSB-17X125-BLCK-AMZ",
+    "asin": "B0CHN4JWKY",
+    "product_type": "BACKPACK",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-AOMDBWSB-17X125-BLCK-AMZ\nProduct Type: BACKPACK\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Black Drawstring Backpack Bag Hiking Gear Gold Prospecting Equipment, 20 x 16 Inches\nDescription: Looking for a lightweight option to carry your gear? ASR Outdoors black drawstring backpack or cinch bag is an ideal alternative to larger tote bags or heavier backpacks.<br/><br/>The cinch bag is great for hiking, backpacking, to pack with camping gear, to use as a travel bag, carry on bag, gym bag, or just for general daily activities and outings. With a top loading compartment, spacious design and large carrying capacity, this drawstring backpack will keep you mobile and on the move without weighing you down.<br/><br/>Measuring 20 x 16 inches, this roomy string backpack can hold lots of athletic gear, a water bottle, personal belongings and more. The shoulder straps act as draw cord to cinch down the top closure, keeping items in tow securely packed via the stopper, but also quickly and easily accessible when needed. The drawstring backpack also features reinforced corners and metal grommets, ensuring that it will be able to stand up to lots of wear and tear while you're on the go. Made of high quality polyester nylon, the cinch bag has a minor sheen making it easy to spot clean (do not put in dryer). <br/><br/>Summer adventure, beach day, gym session or for a small carry on bag when flying, grab your gear and go with this packable, convenient, portable and lightweight drawstring backpack from ASR Outdoor.\nSearch Terms: travel essentials drawstring backpack gym bag gold prospecting equipment hiking backpack camping gear backpacking string backpack carry on bag sports and outdoors gold panning kits cinch bag\nFeatures:\n- DRAWSTRING BACKPACK TOTE BAG: ASR Outdoor branded backpack is great for hiking or taking to the gym; versatile, lightweight, portable and great as a travel bag\n- STRING BACKPACK: Drawstring closure keeps items secure but easily accessible and features metal grommets and reinforced PU leather corners for durability\n- LIGHTWEIGHT AND PORTABLE: Hiking or camping, backpacking, gym, yoga, outdoor recreation, gold panning, picnics and more, ASR Outdoors drawstring backpack can go just about anywhere\n- LARGE CAPACITY: Measuring 20 x 16 inches this drawstring backpack can easily fit all kinds of personal and athletic gear no matter what activity or trip you have planned\n- SPECIFICATIONS: Dimensions: 20 x 16 inches; Color: Black; Material: Nylon; Weight: 0.10lbs\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters.  Please include the size and color of the item in the Product Name, if available.\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 20x16 Black Drawstring Backpack",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "20x16",
+                "pack_size_unit": "in",
+                "size": "20x16",
+                "color": "Black",
+                "name": "Drawstring Backpack"
+            },
+            "char_count": 43,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 20 x 16 in Black Drawstring Backpack",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "20 x 16 in",
+                "color": "Black",
+                "name": "Drawstring Backpack"
+            },
+            "char_count": 48,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Lightweight Cinch Bag, Metal Grommets, Reinforced Corners, Hiking Gym Travel, Large Capacity",
+            "char_count": 92,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Lightweight Portable - Reinforced Corners - Metal Grommets - Large Capacity - Top Loading - Spot Clean",
+            "char_count": 102,
+            "validation_error": null
+        }
+    }
+}

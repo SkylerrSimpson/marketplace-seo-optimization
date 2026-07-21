@@ -1,0 +1,60 @@
+{
+    "sku": "ASR-MESHPANNINGMINERALMATERIALS-3",
+    "asin": "B00FPUVJ7S",
+    "product_type": "OUTDOOR_RECREATION_PRODUCT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: ASR-MESHPANNINGMINERALMATERIALS-3\nProduct Type: OUTDOOR_RECREATION_PRODUCT\nBrand (from catalog): ASR Outdoor\nExisting Title: (8 Piece) ASR Outdoor Complete Gold Rush Prospecting Dirt Sifting Classifier Screen Set\nDescription: A must-have for gold panning and mineral recovery, this Gold Rush Classifier Sifting Set from ASR Outdoor will aid your efforts by sorting your raw materials based on size. It comes with 8 different sifting pans, ensuring you'll be able to properly sift any size material.<br/><br/>These sand and gravel screens are made of tough, high-impact plastic and 304 stainless steel wire mesh. Each screen will fit on a standard 5 gallon bucket, and they are stackable.<br/><br/>Although gold is heavy, small flakes will not be able to displace larger rocks from your initial sample. Screening or \"classifying\" material into groups based on size will ensure that any gold, whether nuggets or flakes, will not get lost. <br/><br/>In addition, looking through similar sized materials is a faster and more effective way to sort and will speed up the panning process, resulting in more gold. Make sure to grab this set of classifiers before your next gold sifting adventure.\nSearch Terms: meal worm sifting garden sieves diamond classifier dirt screens gold prospecting gold sifting mineral collection outdoor hobbies gold sifting tools\nFeatures:\n- Mesh Sizes: 1/100\", 1/50\", 1/30\", 1/20\", 1/12\", 1/8\", 1/4\", 1/2\"\n- Wire Thickness (mm): 0.10, 0.14, 0.17, 0.30, 0.35, 0.45, 0.60, 0.95, 1.40\n- Stackable Design; Fits On 5-gallon Bucket\n- Color: Green\n- Material: Durable ABS plastic body with 304 stainless steel wire mesh\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 8-pc Green Gold Rush Classifier Screen Set",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Green",
+                "name": "Gold Rush Classifier Screen Set"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 8-Piece Gold Rush Prospecting Classifier Screen Set",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "",
+                "name": "Gold Rush Prospecting Classifier Screen Set"
+            },
+            "char_count": 63,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "8 Mesh Sizes, Stackable Design, Fits 5-Gallon Bucket, Stainless Steel Wire Mesh, Gold Panning Sifter",
+            "char_count": 100,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "8 Mesh Sizes, Stackable 5-Gallon Bucket Fit, Durable ABS Frames, 304 Stainless Steel Mesh, Gold Recovery Sifting",
+            "char_count": 112,
+            "validation_error": null
+        }
+    }
+}

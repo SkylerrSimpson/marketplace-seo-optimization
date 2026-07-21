@@ -1,0 +1,60 @@
+{
+    "sku": "NPT-FOLDINGBOWIE",
+    "asin": "B074JZSSY2",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: NPT-FOLDINGBOWIE\nProduct Type: KNIFE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 13\" Folding Bowie Hunting Knife, Long Blade with Leather Sheath\nDescription: The ASR Outdoor Folding Long Blade Hunting Knife with Leather Sheath is a very unique bowie knife, originally used at the turn of the century as a hunting knife for exotic game as well as fox and wild boar along the country side. Preferred by hunters who needed the long blade of a bowie knife with the portability of a pocket knife; being able to easily move about without a big knife slowing them down. <br/><br/>This folding knife is constructed from high grade steel and comes with a fully sharpened blade and protective leather sheath. When opened the knife is 13 inches in total length, and requires two hands to open as the blade is much longer than its handle while it extends out further than the handle, The blade itself is fixed in place by a strong steel spring latch, when depressed, the blade folds into the the handle, leaving approximately 6 inches of open blade exposed. The thick leather sheath is a must for safe carry and features a attachment loop so it can easily be adorned to a belt. The handle of the blade features a smooth wood grain that feels nice in the hand.<br/><br/>This is a very unique and cool knife, something that you do not see often, an idea addition to any knife collection. An excellent outdoorsman gift for the person that has it all; because surely they do not have this in their collection.\nSearch Terms: hunting knives for men bushcraft outdoorsmen boyfriend dad gift dagger outdoors gear camping kife cool knife sharpening pocket knivves survival fire starter collectible vintage steel piece wooden handle native american classic style\nFeatures:\n- UNIQUE HUNTING KNIFE - When unfolded the blade of the bowie knife locks in place with a secure, steel spring latch. Once depressed the 13 inch blade folds into the ergonomic wooden handle, leaving 6 inches exposed\n- 440 CARBON STAINLESS STEEL - Crafted for true every day carry and durable use, the blade is rugged featuring a clip point edge\n- PRECISION FIT FOLDING KNIFE - Everything about this knife exudes excellence. The form fitting ergonomic wooden handle, provides a stiff grip and the way the blade effortlessly folds into it provides a true sense of quality craftsmanship\n- GENUINE LEATHER SHEATH - Not to be overlooked. the included sheath is made from thick grain leather to protect not just the blade, but your skin while in use and in travel\n- SPECIFICATIONS - Overall Length: 13 inches; Folded Length: 7 inches; Weight: 8 ounces\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 13\" Folding Bowie Hunting Knife Leather Sheath",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Folding Bowie Hunting Knife"
+            },
+            "char_count": 58,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 13-in Folding Bowie Hunting Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Folding Bowie Hunting Knife"
+            },
+            "char_count": 45,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "440 Carbon Stainless Steel, Wooden Handle, Genuine Leather Sheath, Spring Latch Lock, Portable Survival Gear",
+            "char_count": 108,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "440 Carbon Stainless Steel, Clip Point Blade, Wooden Handle, Genuine Leather Sheath, Two Hand Opening",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

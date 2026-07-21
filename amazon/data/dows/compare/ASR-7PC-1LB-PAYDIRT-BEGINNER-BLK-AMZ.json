@@ -1,0 +1,60 @@
+{
+    "sku": "ASR-7PC-1LB-PAYDIRT-BEGINNER-BLK-AMZ",
+    "asin": "B0CB9BBYYJ",
+    "product_type": "OUTDOOR_LIVING",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: ASR-7PC-1LB-PAYDIRT-BEGINNER-BLK-AMZ\nProduct Type: OUTDOOR_LIVING\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 7pc Beginner Level 1lb Paydirt Gold Panning Kit, Prospecting Equipment Tools, Black\nDescription: If you're looking to progress your gold panning skills, look no further than the ASR Outdoor x Bobby Bo Beginner Paydirt Gold Panning Kits. <br/><br/>With the included beginner level paydirt from ASR Outdoor brand ambassador Bobby Bo, you never have to travel to a claim site. From the comfort of your home, develop and advance your gold panning skills and techniques with just the few pieces of gold prospecting equipment included in this great beginner gold panning kit.<br/><br/>The one pound bag of beginner paydirt is pre-classified and includes lightweight materials like blond sands and fine gravels that are easy to pan; you won't find any black sand or other heavy minerals here. This paydirt features coarse gold that will sit heavier in the pan, making it easier for those who might be new to the hobby to see and extract.<br/><br/>In addition to the 1lbs beginner concentrate paydirt bag, this ASR Outdoor gold panning kit includes x1 10 inch dual riffle gold pan, x1 3oz snifter bottle, x1 glass storage vial and x1 pipette, as well as a handy carabiner clip. The carabiner clips on to the edge of the dual riffle gold pan (your choice of green or black), which can then easily attach to a bag or backpack, saving you space and trips back to the car or campsite. <br/><br/>A great gold panning kit for any level of gold prospector looking to advance or keep their gold panning skills and techniques sharp. <br/><br/>NOTE: Gold pan must be seasoned before use\nSearch Terms: gold rush panning pan kit paydirt pay dirt mining tools sluice box equipment rock hounding adult hobby him outdoor activities kids camping gear travel sports and outdoors rush fathers day gifts\nFeatures:\n- PAYDIRT GOLD PANNING KIT: Enhance your gold panning skills at home with these 1LB unclassified beginner level paydirt and 7 piece essential gold prospecting equipment tools before going out in the field\n- BEGINNER LEVEL GOLD PAYDIRT: 1LB bag of paydirt is engineered by prospector Bobby Bo; made up of pre-classified paydirt loaded with lightweight blonde sand and fine gravel materials that are easy to pan; beginner gold paydirt features coarse gold that sits heavier in the gold pan and will be easier to extract\n- DUAL RIFFLE GOLD PAN: A lightweight 10 inch dual riffle gold pan for effortless gold panning; Carabiner hole to clip onto the outside of your backpack, bag or other gold mining tools to save on space\n- GOLD PROSPECTING EQUIPMENT: This gold panning kit includes 1lbs paydirt bag, 10 inch dual riffle gold pan, 3oz snifter bottle, glass vial, carabiner, pipette and carabiner clip\n- SPECIFICATIONS: Weight: 1.40lbs; Colors: Black or Green; Dimensions: 10 x 10 inches: Note: Gold Pan should be seasoned before use\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 1lb Beginner Black Gold Panning Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1",
+                "pack_size_unit": "lb",
+                "size": "Beginner",
+                "color": "Black",
+                "name": "Gold Panning Kit"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 7pc 1lb Black Gold Panning Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "7",
+                "pack_size_unit": "pc",
+                "size": "1lb",
+                "color": "Black",
+                "name": "Gold Panning Kit"
+            },
+            "char_count": 42,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "7-Piece Set, 10 Inch Dual Riffle Pan, Paydirt, Snifter Bottle, Glass Vial, Pipette, Carabiner",
+            "char_count": 93,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Beginner Level Paydirt, Pre-Classified Blond Sands, Coarse Gold, 10-Inch Dual Riffle Pan, Carabiner Clip",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

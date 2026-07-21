@@ -1,0 +1,60 @@
+{
+    "sku": "LST-PIRATESHIP-BLK",
+    "asin": "B07KRMK8SL",
+    "product_type": "NON_RIDING_TOY_VEHICLE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-PIRATESHIP-BLK\nProduct Type: NON_RIDING_TOY_VEHICLE\nBrand (from catalog): KidPlay Products\nExisting Title: KidPlay Products Kids Light Up Pirate Ship Adventure Toy Real Sounds, Black\nDescription: Ahoy Mateys. Go on an adventure with the KidPlay Products Boys Pirate Ship Toy Play Set.<br/><br/>Learn how to be a pirate while you play with your kids;<br/><br/>This fun pirate ship toy for boys comes with 3 pirate action figures for young kids to play with. The toy pirate ship lights up and makes real pirate sounds when the anchor button is pressed. The pirate ship uses (3) \"AA\" 1.5 volt batteries (included) for hours of fun. Young kids will love sailing the pretend seas with their very own pirate ship and pirates. This is a great gift idea this holiday season.<br/><br/>Suitable pirate toys for kids 3-5 and up.\nSearch Terms: role playing bath tub toys for boys pretend play indoor action figure outdoor play christmas gift holiday toy list 2024 hanukkah gifts stocking stuffer sailor learning and educational toys light up\nFeatures:\n- TOY PIRATE SHIP ADVENTURE PLAY SET: Seek out a pirates treasure and explore the ocean with this adventure ready pirate toy boat and action figure set. Kids will have a blast sailing, looting, commandeering as they sail the high seas\n- HOURS OF ENTERTAINMENT: Real working lights and sounds effects, kids will love how these features make playtime more fun, interactive and realistic. With the push of a button, sounds roar from the deck\n- TOY PIRATE ACTION FIGURES: The toy pirate ship play set includes (3) pirate action figures perfect for manning the pirate ship boat; one captain and two pirates will have little hands busy with lots of imaginative pretend play adventure\n- IMAGINATIVE PRETEND PLAY: The possibilities are endless with this toy pirate ship play set! Seeking sunken gold or caught in a high sea's pirate's war, kids will love creating stories and using their imagination for hours of exciting pirate pretend play!\n- SPECIFICATIONS: Dimensions: 12 x 6 x 9 inches; Material: Plastic; Power: 1.5 volt batteries (included); Color: Red; Warning: Choking Hazard, small parts; Ages: 3+\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "KidPlay Products Black Pirate Ship Adventure Toy",
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Pirate Ship Adventure Toy"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "KidPlay Products Black Light Up Pirate Ship Adventure Toy",
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Light Up Pirate Ship Adventure Toy"
+            },
+            "char_count": 57,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Lights And Sounds, Includes 3 Action Figures, Interactive Play Set, Ages 3 Plus",
+            "char_count": 79,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Real Sounds, Includes 3 Pirate Figures, Battery Powered, Imaginative Pretend Play, Ages 3 And Up, Gift Idea",
+            "char_count": 107,
+            "validation_error": null
+        }
+    }
+}

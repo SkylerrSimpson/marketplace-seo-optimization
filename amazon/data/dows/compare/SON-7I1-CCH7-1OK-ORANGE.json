@@ -1,0 +1,60 @@
+{
+    "sku": "SON-7I1-CCH7-1OK-ORANGE",
+    "asin": "B074JXT2SF",
+    "product_type": "OUTDOOR_RECREATION_PRODUCT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-7I1-CCH7-1OK-ORANGE\nProduct Type: OUTDOOR_RECREATION_PRODUCT\nBrand (from catalog): ASR Outdoor\nExisting Title: 7 in 1 Survival Whistle Multi-Case with LED Flashlight Compass Mirror, Orange\nDescription: This is a simple to use 7 in 1 waterproof survival multi-purpose whistle.<br/><br/>With camping season just around the corner, it's a great time to teach your children the basic camping and survival skills that have been handed down to you by your parents, their parents, and of course the Boy Scouts. <br/><br/>This multi-use whistle is the start to good preparation and essential outdoor safety. Each whistle features 7 functions - whistle, magnifier, flashlight, storage container, compass, thermometer and a signaling mirror. The plastic body is a bright orange color to improve visibility and it comes with a lanyard so you can easily hang it around your neck, on your belt or your backpack. Make sure to grab a few of these before your next camping trip.\nSearch Terms: compass whistle combo kids survival tool with flashlight kids beginner camping hiking gear backpacking accessories supplies emergency gear survival kit\nFeatures:\n- 7 IN 1 SURVIVAL KIT: Survival tools include thermometer (Celsius and Fahrenheit), signal mirror, compass, short range safety whistle, LED flashlight, 5x magnifier and small storage compartment\n- Use the built in whistle to signal your location to friends and search and rescue when in need; the built-in storage compartment is excellent for storing waterproof matches or medication\n- Durable ABS plastic body comes in a bright orange or forest green color which improves visibility or helps blend with your existing gear depending on your color choice\n- Includes lanyard strap so you can easily hang it around your neck, on your belt or your backpack\n- Teach kids about outdoor camping and hiking safety; This multi-use whistle is the start to good preparation and essential outdoor safety\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 7 in 1 Survival Whistle Orange",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "7",
+                "pack_size_unit": "in 1",
+                "size": "",
+                "color": "Orange",
+                "name": "Survival Whistle"
+            },
+            "char_count": 42,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 7-in-1 Survival Whistle Orange",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "7",
+                "pack_size_unit": "in 1",
+                "size": "",
+                "color": "Orange",
+                "name": "Survival Whistle"
+            },
+            "char_count": 42,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "LED Flashlight, Compass, Signal Mirror, Thermometer, Magnifier, Storage, Waterproof, Lanyard",
+            "char_count": 92,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "LED Flashlight, Compass, Signal Mirror, 5X Magnifier, Thermometer, Storage Compartment, Lanyard Strap",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

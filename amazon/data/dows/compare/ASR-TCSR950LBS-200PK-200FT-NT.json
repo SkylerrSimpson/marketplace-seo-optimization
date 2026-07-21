@@ -1,0 +1,60 @@
+{
+    "sku": "ASR-TCSR950LBS-200PK-200FT-NT",
+    "asin": "B01CPWPDNE",
+    "product_type": "CORD_ROPE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: ASR-TCSR950LBS-200PK-200FT-NT\nProduct Type: CORD_ROPE\nBrand (from catalog): ASR Tactical\nExisting Title: ASR Tactical Technora Composite Survival Rope 950lb Breaking Strength (200ft) - Natural\nDescription: The Technora 950lb Survival Cord by ASR Tactical is well suited item to pack for EDC, emergency preparedness, and ultralight backpacking.<br/><br/> It is strong and compact while being 8x stronger than steel by weight, with a thermal decomposition threshold of 930 degrees Fahrenheit, and is totally resistant to acids, alkalis, and seawater. While Technora Survival Cord is abrasion resistant, has a low creep and low thermal shrinkage with excellent dimensional stability; the main benefit of ASR Tactical Terchnora 950lb Survival Cord is that it is stronger and more durable than standard 550lb paracord, at less than half the diameter. Technora line features a Polytetrafluoroethylene (PTFE) coating. This coating protects the Technora from UV damage, increases abrasion resistance and flexibility, giving better knot strength, and chemical resistance. It weighs almost nothing and takes up little space, so it is a must-have for your survival kit. Being that it is extremely heat resistant, it can be used as a friction saw for cutting through flex cuff handcuffs and PVC pipe.<br/><br/> Other applications for Technora Survival Cord include aerial surveillance balloons, motion picture gimbaled lines for remote video cameras, recreation Applications, heavy duty fishing assist cords and leaders.\nSearch Terms: every day carry edc kevlar trip line booby trap signaling device tactical bug out bag survival cord kite braided spear fishing\nFeatures:\n- HIGH TENSILE STRENGTH: Rated in lab conditions at over 950 pounds of pull force; Technora cord is strong and light, weight for weight; Technora cord is 8 times stronger than steel and 3 times stronger than fiberglass, polyester or nylon yarns\n- EXCELLENT FATIGUE RESISTANCE: Shows little loss of strength even during repeated abrasion, flexing and stretching\n- DIMENSIONAL STABILITY: Stiff and highly oriented molecular structure leads to a high modulus of elasticity, low creep and low stress relaxation; Low thermal shrinkage\n- HEAT RESISTANCE: Thermal decomposition threshold of 930F, so Technora can be used at 392F for long periods of time; At 482F, it maintains more than half of its room-temperature tensile strength\n- CHEMICAL RESISTANCE: Highly resistant to acids, alkalis and organic solvents; not vulnerable to damage caused by steam or sea water\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical Technora 950lb Survival Rope 200ft Natural",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "200",
+                "pack_size_unit": "ft",
+                "size": "950lb",
+                "color": "Natural",
+                "name": "Survival Rope"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 200ft Natural Technora Survival Cord",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "200",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Natural",
+                "name": "Technora Survival Cord"
+            },
+            "char_count": 49,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "950Lb Breaking Strength, Heat Resistant To 930F, Chemical Resistant, 8X Stronger Than Steel, Compact Design",
+            "char_count": 107,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "950 Lb Breaking Strength, Heat Resistant To 930F, UV And Chemical Resistant, Low Creep, Abrasion Resistant",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

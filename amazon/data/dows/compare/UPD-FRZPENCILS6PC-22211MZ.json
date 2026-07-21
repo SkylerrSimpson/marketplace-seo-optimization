@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-FRZPENCILS6PC-22211MZ",
+    "asin": "B0BXYQQ3WF",
+    "product_type": "WRITING_INSTRUMENT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-FRZPENCILS6PC-22211MZ\nProduct Type: WRITING_INSTRUMENT\nBrand (from catalog): Disney\nExisting Title: Frozen 2 Kids Wooden Pencils with Erasers Childrens School Supplies 6pk\nDescription: This officially licensed by Disney set of Frozen 2-themed pencils are a great stocking stuffer idea for kids this holiday season. The pencils feature fun graphics with your child’s favorite characters from the hit movie franchise –Anna, Elsa, Kristoff, and Olaf. Pencils are must-have writing utensils for any kids enrolled in school. They’ll love practicing their penmanship and using their imagination to create fun artwork with their favorite Disney characters at school.<br/><br/>These classic style pencils are made of durable wood and pencil lead that is safe for children age 4 and up to use. Each pencil comes with a white eraser and is compatible with most standard pencil sharpeners. Each set comes with 6 standard-sized pencils, all featuring fun graphics from Disney’s Frozen movie franchise. A pack of 6 pencils will ensure that your child always has a writing utensil with them to complete homework, draw and create unique artwork.\nSearch Terms: childrens pencils pens kids school supplies girls writing utensils office back to school crafts stocking stuffers hand grip ball point ink fine tip smooth flowy disney elsa anna olaf movie cartoon show coloring activity learning development artsy\nFeatures:\n- FROZEN 2 THEMED PENCIL SET – This officially licensed by Disney set of Frozen 2-themed pencils are a great stocking stuffer idea for kids this holiday season. The pencils feature fun graphics with your child’s favorite characters from the hit movie franchise –Anna, Elsa, Kristoff and Olaf!\n- ESSENTIAL SCHOOL SUPPLIES –Pencils are must-have writing utensils for any kids enrolled in school. They’ll love practicing their penmanship and using their imagination to create fun artwork with their favorite Disney characters at school.\n- DURABLE CONSTRUCTION – These classic style pencils are made of durable wood and pencil lead that are safe for children age 4 and up to use. Each pencil comes with a white eraser and is compatible with most standard pencil sharpeners.\n- 6 PACK SET – Each set comes with 6 standard-sized pencils, all featuring fun graphics from Disney’s Frozen movie franchise. A pack of 6 pencils will ensure that your child always has a writing utensil with them to complete homework, draw and create unique artwork.\n- SPECIFICATIONS – Officially licensed Disney Frozen 2 pencil set; Colors: Assorted; Pack of 6; Material: Wood; Safe for children ages 4 and up; Size: standard #2 pencils\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Disney Frozen 2 Wooden Pencils 6-pk with Erasers",
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "6",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Frozen 2 Wooden Pencils with Erasers"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Disney 6-pk Standard Assorted Frozen 2 Wooden Pencils With Erasers",
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "6",
+                "pack_size_unit": "pk",
+                "size": "Standard",
+                "color": "Assorted",
+                "name": "Frozen 2 Wooden Pencils With Erasers"
+            },
+            "char_count": 66,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Official Disney Licensed, Frozen Characters, Set Of 6, White Erasers, Durable Wood, Ages 4 And Up, School Supplies",
+            "char_count": 114,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Officially Licensed, 6-Pack Standard Number 2 Wood Pencils, White Erasers, Safe For Ages 4 And Up, Sharpenable",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}

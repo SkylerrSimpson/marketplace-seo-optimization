@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-STYLINGHEAD-JASMINE-LFG",
+    "asin": "B0CQ3PMK4V",
+    "product_type": "TOY_FIGURE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-STYLINGHEAD-JASMINE-LFG\nProduct Type: TOY_FIGURE\nBrand (from catalog): Disney\nExisting Title: Disney Princess Jasmine Styling Head Doll with Hair Accessories 14pc\nDescription: The Disney Princess Jasmine Styling Head holds endless hair play possibilities! Jasmine features beautiful, shiny hair that is perfect for brushing and styling. This adventurous princess comes with 13 fun wear and share accessories including: 1 magic lamp hair brush, 3 flower barrettes, 2 glitter hair ties, 2 hair ribbons, and 5 elastic bands. Kids can use Jasmine’s magic lamp brush to brush her hair and create lots of fun hair styles! Your little one will love using the adorable hair clips to style and decorate Jasmine’s hair and kids can even use the barrettes and ribbons in their own hair for even more fashion fun! Ages 3+\nSearch Terms: girls dress up styling head doll aladdin disney princess jasmine hair stylist pretend play salon toy accessories brush comb hair clips kids\nFeatures:\n- ENDLESS HAIR PLAY POSSIBILITIES: It’s a whole new world of fun and creative hair styling hair play possibilities with the Disney Princess Jasmine Styling Head for girls! Jasmine, a classic Disney princess, features beautiful, shiny hair that is perfect for brushing and styling with the magic lamp hair brush; this adventurous princess comes with 13 fun hair accessories that open up a whole new world of exciting hairdressing creations\n- 14PC SET INCLUDES: The Disney Princess Jasmine hair styling head includes one (1) magic lamp hair brush, three (3) flower barrettes, two (2) glitter hair ties, two (2) hair ribbons and five (5) elastic bands to create both simple and elaborate hair styles each and every time your little one sits down to style\n- FUN WEAR AND SHARE ACCESSORIES: The best part about the Disney Princess Jasmine styling head is the fun wear and share hair accessories, like the hair elastics or elastic bands, the glitter hair ties and cute flower barrettes! Your little hair stylist in training can interchangeably use the hair accessories in her own hair, in Jasmine’s hair or in a friend’s hair too if she’s creating a new look for even more fashion styling fun!\n- EXPRESS THEIR CREATIVITY: The Jasmine styling head is a great educational learning tool for little ones to play with that will help them to express their creativity and love of hair and styling\n- SPECIFICATIONS: Dimensions: 10.5 x 4.5 x 10.2 inches; Color: Multi; Material: Plastic; Warning: Choking Hazard (small parts); Age: 3+\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Disney Princess Jasmine Styling Head Doll 14pc",
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "14",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Princess Jasmine Styling Head Doll"
+            },
+            "char_count": 46,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Disney 14-pc Jasmine Styling Head Doll",
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "14",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Jasmine Styling Head Doll"
+            },
+            "char_count": 38,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Magic Lamp Brush, Hair Accessories, Flower Barrettes, Glitter Hair Ties, Wear And Share, Ages 3 Plus",
+            "char_count": 100,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "13 Accessories, Magic Lamp Brush, Wear And Share Barrettes, Ribbons, Elastic Bands, Creative Hair Play",
+            "char_count": 102,
+            "validation_error": null
+        }
+    }
+}

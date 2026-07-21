@@ -1,0 +1,60 @@
+{
+    "sku": "SON-UJPM5X10X25XELS-35X2X3E-BLCK-IR-TT",
+    "asin": "B0CLBGPF74",
+    "product_type": "MAGNIFIER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-UJPM5X10X25XELS-35X2X3E-BLCK-IR-TT\nProduct Type: MAGNIFIER\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux 3pc Jewelers Eye Loupe Set 2.5x 5x 10x Mag Power Storage Container\nDescription: Whether you're a seasoned jewelry maker or just getting started with this hobby, a set of quality eye loupes can make all the difference when it comes to making sure your jewelry looks professional. The ToolTreaux 3pc Eye Loupe set comes with 3 different eye loupes with varying magnification power so you can ensure you have the correct magnification power based on your jewelry piece: 2.5x, 5x, and 10x power. <br/><br/>The loupe bodies are made of durable black plastic that will ensure a long service life, and each loupe measures just 1.5\" x 1.5\" and weighs .14lbs. The lightweight material makes these loupes ideal for traveling to trade shows and events.<br/><br/>The loupes also feature strong glass lenses that can help reduce strain on your eyes. Glass can also often better grasp small and fine objects than other loupe lens materials. Each glass lens has a diameter of .8\".<br/><br/>For your convenience, we've also included a durable plastic storage container so you can safely store your loupes when not in use. The storage case is also great for storing in craft and hobby toolboxes to keep your workspace organized.\nSearch Terms: jewelers loupe loupe magnifier gold cleaner arts and crafts crafts for adults metalworking tools craft room organizers\nFeatures:\n- 3PC LOUPE SET - ToolTreaux jeweler's eye loupe set comes with 3 different magnification power sizes for a variety of jewelry-making uses: 2.5x, 5x, and 10x magnification; Each loupe is labeled for easy identification\n- DURABLE CONSTRUCTION - Loupe bodies are made of high-quality black plastic that will ensure a long service life; Each loupe measures 1.5\" x 1.5\" and weighs .14lbs; Lightweight material ideal for traveling to trade shows and events\n- STRONG GLASS LENS - Loupes feature strong glass lenses that can help reduce strain on the eyes; Glass can better grasp fine objects than other standard loupe materials; Glass lens diameter is .8\"\n- STORAGE CONTAINER INCLUDED - Set comes with durable translucent plastic storage container so you can safely store your loupes when not in use; Great for storing in craft and hobby toolboxes\n- VERSATILE MAGNIFYING TOOLS - Originally designed for jewelry making and inspection, loupes are also ideal for coin and stamp collectors, lab workers, watchmakers and other precision professions\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 3pc Jewelers Eye Loupe Set 2.5x 5x 10x",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Black",
+                "name": "Jewelers Eye Loupe Set"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 3-pk 2.5x 5x 10x Eye Loupe Set",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "2.5x 5x 10x",
+                "color": "Black",
+                "name": "Eye Loupe Set"
+            },
+            "char_count": 41,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "3 Magnification Powers, Glass Lenses, Storage Container Included, Jewelry Making And Inspection",
+            "char_count": 95,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "3 Magnifications, Glass Lenses, Lightweight Black Plastic, Storage Case Included, Ideal For Jewelry, Coins, Stamps",
+            "char_count": 114,
+            "validation_error": null
+        }
+    }
+}

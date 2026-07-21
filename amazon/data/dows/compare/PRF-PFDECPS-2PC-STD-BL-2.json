@@ -1,0 +1,60 @@
+{
+    "sku": "PRF-PFDECPS-2PC-STD-BL-2",
+    "asin": "1926534832",
+    "product_type": "ABIS_BOOK",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: PRF-PFDECPS-2PC-STD-BL-2\nProduct Type: ABIS_BOOK\nBrand (from catalog): Productive Fitness\nExisting Title: Productive Fitness Dumbbell Exercises Chart Poster 2pc Set\nDescription: This Dumbbell Training Workout Set of posters is a great addition to any home gym or fitness facility. Make your strength training routine simple. Just follow one of the 5 given routines for 4-6 weeks and then move on to the next. Cycle through them to keep your workouts fresh. The set includes two laminated, 24 x 36 inch posters.<br/><br/>Dumbbell Exercises: Workout Chart 1<br/>- 16 different dumbbell exercises - Anterior and Posterior Muscle diagrams that show most of the major muscles in your body. - Quickly reference the muscles you are working for any given exercise. - A full Anterior diagram gives a better visual reference when locating muscle groups. <br/><br/>Dumbbell Exercises: Workout Chart 2<br/>- 16 different dumbbell exercises - Step-by-step instructions on how to stabilize your torso (critical for safe and effective exercise) - Three 1 day full body exercise routines that are simple to follow. - Two 2 day split routine programs that amp up your workouts by spending a little more time on specific areas. These laminated, big, beautifully colored posters are organized to make working out quick and easy.\nSearch Terms: home gym exercise home workout exercise basics\nFeatures:\n- Laminated\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Productive Fitness Dumbbell Exercises Chart 2-Pc Poster Set",
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "2",
+                "pack_size_unit": "Pc",
+                "size": "",
+                "color": "",
+                "name": "Dumbbell Exercises Chart Poster Set"
+            },
+            "char_count": 59,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Productive Fitness 2-pk 24x36 in Dumbbell Exercises Chart Poster",
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "24x36 in",
+                "color": "",
+                "name": "Dumbbell Exercises Chart Poster"
+            },
+            "char_count": 64,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Two 24X36 Laminated Posters, 16 Exercises Each, Muscle Diagrams, 5 Workout Routines, Full Body And Split Programs",
+            "char_count": 113,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Laminated Posters, 16 Dumbbell Exercises Each, Muscle Diagrams, Step-By-Step Instructions, 5 Workout Routines",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

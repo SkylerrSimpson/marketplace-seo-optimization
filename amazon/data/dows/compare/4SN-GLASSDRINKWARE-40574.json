@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-GLASSDRINKWARE-40574",
+    "asin": "B098KMTK6J",
+    "product_type": "BOTTLE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-GLASSDRINKWARE-40574\nProduct Type: BOTTLE\nBrand (from catalog): Beille\nExisting Title: Beille 34oz Glass Bottle and 10oz Drinking Glass Set Kitchen Barware 5 Pieces\nDescription: Enjoy your iced tea on a hot summer day or maybe a nightcap of whiskey or scotch with this 34oz Glass Bottle and 10oz Drinking Glass set from Beille. Our complete beverage set will meet all of your drinkware needs, while also making an environmentally-friendly choice. Glassware is a healthier choice than plastic because glass does not discolor, retain smells or leach chemicals into drinks. By using this reusable 1-liter glass bottle along with your glassware, you can cut down on your use of plastic.<br/><br/>This barware collection is perfect for various cocktails, mixed drinks, soft drinks, iced beverages and even beer. The classic hobnail design adds an eye-catching element as the light refracts off the charming glassware and bottle set. The versatility of this beverage set allows it to be combined with various interior styles, table spaces and table settings.<br/><br/>The flip-top bottle features a stopper with an airtight seal to help preserve its contents and reduces leaks and spills. The textured exterior of both the bottle and glassware ensure an easier grip once either get wet from condensation, making this a great barware set.<br/><br/>Our drinkware set is ideal for both casual gatherings and formal dinner parties. It also makes for a great gift idea for Bridal Showers, Wedding Gifts, Groomsman Gifts, Father's Day, Mother's Day, Housewarming or Host Gifts for any dinner party or barbecue.\nSearch Terms: glass bottle glassware complete beverage set drinking glasses entertaining hosting hobnail design dispenser barware drinkware flip top serving bottles oil beer for dining room\nFeatures:\n- VERSATILE SERVING BOTTLE AND GLASSES: Perfect for entertaining or for everyday use, this 5 piece set of hobnail drinking glasses and matching 34oz. swing top bottle is a great addition to any barware set! The flip-top serving bottle is perfect for serving wine, water, beer, juice or for storing homemade drinks\n- CLASSIC AND FUNCTIONAL DESIGN: Bring everyday luxury into your life and enjoy these gorgeous hobnail textured drinking glasses and glass bottle set that can be used seamlessly with a multitude of different design and decor; a great housewarming gift idea!\n- LEAKPROOF & AIRTIGHT CAP: The carafe's resealable cap ensures the contents inside stay sealed and fresh; The leakproof lid keeps the beverages sealed making this set a great option to take on a picnic or out on the patio\n- ENVIRONMENT FRIENDLY: Swing top bottles are BPA-free and do not contain any toxins, chemicals, phthalates or lead, making them a sound option over plastic bottles; by using this reusable glass bottle set at your next dinner party or picnic, you can easily cut down on your use of plastic\n- SPECIFICATIONS: Set of 4 Hobnail design 4\" tall 10 oz drinking glasses and one 12.5\" tall 34oz hobnail beverage holder with swing-top; Dishwasher safe for efficient and effortless cleaning\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 5-Piece Glass Bottle and Drinking Glass Set Hobnail",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "5",
+                "pack_size_unit": "Piece",
+                "size": "34oz Bottle, 10oz Glasses",
+                "color": "",
+                "name": "Glass Bottle and Drinking Glass Set"
+            },
+            "char_count": 58,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 5-Pk 34oz Glass Bottle and Drinking Glass Set",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "5",
+                "pack_size_unit": "Pk",
+                "size": "34oz",
+                "color": "",
+                "name": "Glass Bottle and Drinking Glass Set"
+            },
+            "char_count": 52,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Hobnail Design, Flip-Top Airtight Seal, Leakproof, BPA-Free, Dishwasher Safe, Entertaining And Serving",
+            "char_count": 102,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Hobnail Texture, Airtight Swing Top, Dishwasher Safe, BPA-Free Glass, Leakproof, Eco-Friendly, 4 Glasses And Bottle",
+            "char_count": 115,
+            "validation_error": null
+        }
+    }
+}

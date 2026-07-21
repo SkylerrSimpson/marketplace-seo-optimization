@@ -1,0 +1,60 @@
+{
+    "sku": "HGR-HMSTABLZBAR-SML-HPNR",
+    "asin": "B000FOL08M",
+    "product_type": "TRANSPORT_RACK",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HGR-HMSTABLZBAR-SML-HPNR\nProduct Type: TRANSPORT_RACK\nBrand (from catalog): Heininger\nExisting Title: Heininger 4015 HitchMate Cargo Stabilizer Bar for Compact Trucks\nDescription: Strong enough to handle any load, the HitchMate Cargo Stabilizer Bar can be deployed and adjusted quickly without tools. Adaptable design allows mounting at multiple points, at any height, within the bed to secure any load: boxes, tools, garbage cans, garden supplies-any odd-shaped object. The Cargo Stabilizer bar is a heavy-duty, commercial grade solution that will provide years of trouble-free service. Heavy-Duty Ratcheting system adjusts and expands from 50\"-65\" Can be deployed singly or in multiples for the ultimate in cargo-stabilization. For a fully customized bed-organization system for worry-free transport, pair the Cargo Stabilizer Bar with StabiLoad Divider Bar Item #4017, NetWerks Cargo Bag Item #4021 or NetWerks BedBag Item #4022.\nSearch Terms: stabiload divider bar truck bed stabilizer organizer for pickup load\nFeatures:\n- Fits compact pickup trucks (expandable from 50\" to 65\")\n- Simple, commercial-grade solution to containing your loose cargo\n- Heavy-Duty ratcheting system adjusts easily\n- Cargo Stabilizer bar is built strong for tough loads\n- Rubber feet prevents slippage on and scratching of truck beds\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Heininger HitchMate Cargo Stabilizer Bar for Trucks",
+            "tokens": {
+                "brand": "Heininger",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "HitchMate Cargo Stabilizer Bar for Trucks"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Heininger Compact Truck Cargo Stabilizer Bar",
+            "tokens": {
+                "brand": "Heininger",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Compact",
+                "color": "",
+                "name": "Cargo Stabilizer Bar"
+            },
+            "char_count": 44,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Expandable 50-65 Inches, Heavy-Duty Ratcheting, Compact Pickup Trucks, Commercial Grade, Prevents Slippage",
+            "char_count": 106,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Adjustable 50\"-65\", Tool-Free Deployment, Multiple Mounting Points, Heavy-Duty Ratcheting, Rubber Feet",
+            "char_count": 102,
+            "validation_error": null
+        }
+    }
+}

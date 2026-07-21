@@ -1,0 +1,60 @@
+{
+    "sku": "26C-BLE-WHEAT-SPOONLADLESET-3PC-BUN",
+    "asin": "B0CVR4R6JB",
+    "product_type": "SPOON",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 26C-BLE-WHEAT-SPOONLADLESET-3PC-BUN\nProduct Type: SPOON\nBrand (from catalog): Beille\nExisting Title: Beille 3pc Wheat Straw Spoons and Ladle Set Cooking Baking Kitchen Utensils, Cream\nDescription: Want to step up your cooking and meal prep game? Then you need the Beille 3pc Spoons and Ladle Set, made with sustainable wheat straw! These serving spoons are made with an innovative plant based bioplastic material called wheat straw, that mimics classic kitchen utensils without the harmful byproducts of traditional plastic. Stylish and sustainable, who says you can’t have both!\n</br></br>\nWheat straw is a bioplastic that is not made from fossil fuels, making them more sustainable and a great zero waste option. The spoons and ladle are of course certified BPA free and food safe for all your cooking, baking and food prep needs; importantly, the set is also dishwasher safe, making for quick and easy clean up!\n</br></br>\nThe kitchen utensils feature sturdy handles made of corrosion resistant stainless steel for durability and longevity in the kitchen. The handles comes with a built in slot for easy hanging storage if desired. The kitchen utensils are finished in a trendy and warm speckled cream color with matte finish, that make them an easy addition to any and all kitchens or food prep stations. \n</br></br>\nEvery kitchen needs a reliable and durable set of kitchen utensils! With the Beille wheat straw plant based spoons and ladle, you can cook and meal prep with peace of mind, knowing you’re doing your part to protect yourself, your family, and the planet from harmful materials! Happy cooking!\nSearch Terms: kitchen utensils set cooking baking supplies tools food meal prep soup ladle spoons punch bowl kitchen starter set serveware wedding house warming gifts new home college dorm room essentials chef restaurant equipment wheat straw sustainable products\nFeatures:\n- WHEAT STRAW KITCHEN UTENSILS SET: Upgrade your kitchen with these sustainable and stylish wheat straw kitchen utensils from Beille; a must have set for all your cooking, baking and food prep needs\n- PLANT BASED MATERIAL: Unique kitchen ladle is made of bioplastic wheat straw, a plant based material not made from fossil fuels making it a more sustainable choice; Innovative material is a great zero waste option and is Certified BPA Free\n- SOLID AND DURABLE: Beille wheat straw spoons and ladles mimic traditional plastic cooking spoons and utensils without harmful byproducts; all kitchen utensils included in this set are dishwasher safe and can be used with both hot and cold food ingredients\n- STAINLESS STEEL HANDLE: Sturdy handle made of durable, corrosion resistant stainless steel that won’t rust; Comes with handy slot in handle for easy hang storage if preferred; Trendy speckled cream color will fit nicely with any and all kitchens\n- SPECIFICATIONS: Spoon Dimensions: 13 x 3 x 1 inches; Ladle Dimensions: 11.5 x 3.5 x 3 inches; Color: Speckled cream; Material: Bioplastic Wheat Straw, Stainless Steel; Set Weight: 0.42lbs\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 3pc Wheat Straw Spoons and Ladle Set Cream",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Cream",
+                "name": "Wheat Straw Spoons and Ladle Set"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 3-pc Cream Spoons and Ladle Set",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Cream",
+                "name": "Spoons and Ladle Set"
+            },
+            "char_count": 38,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Sustainable Bioplastic, Stainless Steel Handles, Dishwasher Safe, BPA-Free, Hang Storage Slot",
+            "char_count": 93,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Wheat Straw Bioplastic, BPA Free, Dishwasher Safe, Stainless Steel Handles, Hot And Cold Food Safe, Hanging Slot",
+            "char_count": 112,
+            "validation_error": null
+        }
+    }
+}

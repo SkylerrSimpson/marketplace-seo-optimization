@@ -1,0 +1,60 @@
+{
+    "sku": "SON-DAMAGEDSCREWEXTRACTOR-4PC",
+    "asin": "B071G9R5JF",
+    "product_type": "FASTENER_DRIVE_BIT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-DAMAGEDSCREWEXTRACTOR-4PC\nProduct Type: FASTENER_DRIVE_BIT\nBrand (from catalog): Universal Tool\nExisting Title: Universal Tool Damaged Screw Extractor Set - 4 Pieces Assorted Sizes\nDescription: Extract damaged screws easily with the Universal Tool Damaged Screw Extractor Set.<br/><br/>This set comes with 4 drill bits, each with a shank size of 3/8\" that can be used with a reverse driver variable speed drill to extract damaged screws. They are constructed of stainless steel and have 63-65 bit hardness. They come in 4 assorted sizes - 1 through 4. <br/><br/>These are very simple to use. First you need to locate a threaded or damaged crew head, and then with the drill in reverse drive, use side 1 to create a smooth cavity within the damaged head. With the drill still in reverse drive, insert side 2 into the cavity and begin to extract the screw. Make sure to grab a set of these to keep in your toolbox, workshop or shed.\nSearch Terms: screw extractor stripped screw extractor screw extractor set screw extractor kit damaged screw extractor screw remover and extractor precision screw extractor set broken screw extractor small screw extractor damaged screw extractor set\nFeatures:\n- 4 Piece Damaged Screw Extractor Set - HSS Bit Material\n- Shank Size: 3/8\"\n- 63-65 Bit Hardness\n- Assorted Sizes: 1-4\n- Use with A Reverse Drive 3/8\" Chuck Variable Speed Drill\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 4-Pc Damaged Screw Extractor Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "4",
+                "pack_size_unit": "Pc",
+                "size": "",
+                "color": "",
+                "name": "Damaged Screw Extractor Set"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 4-Pk Damaged Screw Extractor Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "4",
+                "pack_size_unit": "Pk",
+                "size": "",
+                "color": "",
+                "name": "Damaged Screw Extractor Set"
+            },
+            "char_count": 47,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "4 Assorted Sizes, HSS Stainless Steel, 38 Inch Shank, Reverse Drive, Stripped Screw Removal",
+            "char_count": 91,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "HSS Steel, 63-65 Hardness, 38\" Shank, Reverse Drill Use, Assorted Sizes 1-4, Extracts Stripped Screws",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

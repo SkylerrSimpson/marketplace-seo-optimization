@@ -1,0 +1,60 @@
+{
+    "sku": "SON-COLLAPBACKPACK-BLK",
+    "asin": "B0DMGS8LDG",
+    "product_type": "BACKPACK",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-COLLAPBACKPACK-BLK\nProduct Type: BACKPACK\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Black Water Resistant Collapsible Backpack Camping Hiking Travel Bag\nDescription: Whether you’re camping, hiking, or simply traveling, you need a durable, weather-resistant backpack to secure your essential items. The ASR Outdoor Black Travel Backpack comes with 2 side mesh pockets and 2 zippered compartments that will store and organize everything you need access to while traveling or adventuring. <br/><br/> This backpack is made of durable, high-quality 420D diamond lattice material that is water-resistant, making this an ideal travel backpack for use in any weather. You’ll be able to count on it to protect your supplies even if you’re traveling outdoor in the rain. It features a unique collapsible design, too: it folds down into one of its zipper compartments to measure just 5 x 7 inches and comes with a handy hang loop for attaching to your belt or other bag while not in use. <br/><br/> Our water-resistant outdoor backpack supports up to 10 pounds of weight and measures 15.75 x 11 x 5.5 inches while opened and will easily hold all of your gear like a water bottle, change of clothes, camping tools, and more. Make sure to grab one of these backpacks before your next camping trip, hike or travel adventure!\nSearch Terms: camping backpack hiking backpack travel bag outdoor essentials camping essentials waterproof bags waterproof backpack water resistant bag mens backpacks womens backpacks backpacking tools camping tools hiking travel accessories hunting bag\nFeatures:\n- BLACK TRAVEL BACKPACK: The ASR Outdoor travel backpack is the perfect camping or hiking companion; Comes with 2 side mesh pockets and 2 zipper compartments to store and organize your essential items while traveling\n- WATER-RESISTANT: The backpack is made of durable, high-quality 420D diamond lattice material that is water-resistant, making it the ideal travel back for any weather; Use this backpack while camping, hiking, or traveling outdoors rain or shine\n- COLLAPSIBLE DESIGN: Backpack folds down into one of its zipper compartments for the ultimate compact travel bag; Easily store in your luggage, pocket, or other bag when not in use; Comes with hang loop for attaching to belt or hook\n- LARGE CAPACITY: Water-resistant backpack supports up to 10 pounds of weight and measures 15.75” x 11” x 5.5” when opened; Measures just 5” x 7” collapsed; Will hold all of your outdoor supplies like a water bottle, change of clothes, camping tools and more\n- SPECIFICATIONS: Color: black; Material: 420D diamond lattice (water-resistant); Collapsible design; Dimensions: 15.75” x 11” x 5.5” (opened), 5” x 7” (closed); Weight capacity: 10lbs (160 oz)\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters.  Please include the size and color of the item in the Product Name, if available.\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Black Collapsible Water-Resistant Travel Backpack",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Collapsible Water-Resistant Travel Backpack"
+            },
+            "char_count": 61,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Black Collapsible Travel Backpack",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Collapsible Travel Backpack"
+            },
+            "char_count": 45,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Water-Resistant, Collapsible Design, 10Lb Capacity, Compact Storage, Mesh Pockets, Hiking Camping",
+            "char_count": 97,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Water-Resistant 420D Diamond Lattice, Folds Into Pocket-Size Pouch, 2 Zipper Pockets, 2 Mesh Pockets, 10 Lb Capacity",
+            "char_count": 116,
+            "validation_error": null
+        }
+    }
+}

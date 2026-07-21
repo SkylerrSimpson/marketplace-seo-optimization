@@ -1,0 +1,60 @@
+{
+    "sku": "SON-CRAFTTOOLBOX-MULT",
+    "asin": "B0843L4PW6",
+    "product_type": "TOOLS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-CRAFTTOOLBOX-MULT\nProduct Type: TOOLS\nBrand (from catalog): Universal Tool\nExisting Title: Hobby Craft Storage Toolbox Multi-section Tool Organizer\nDescription: Are you tired of misplacing your small tools, craft supplies or hobby essentials? Then you need the Universal Tool Multi-Section Storage ToolBox. <br/><br/>This compact-sized toolbox comes with a removable tray and divider, so you can create custom-sized storage spaces to fit your different sized tools and supplies. Measuring 8.5\" x 6\" x 2.25\", this box is the perfect size for tholding all of your small essentials and compact enough to store flat inside a drawer, underneath furniture or in your closet for quick cleanup and storage. It comes with a heavy-duty latch so you can travel with your tools without worry, all while keeping everything organized and in it's designated compartment.<br/><br/>The box itself comes in a black base color with bright orange accents and features a translucent lid so you can see your supplies without opening the box. It weighs just under .5 pounds (empty) so the box is also a great option for storing children's arts and crafts supplies for quick and easy cleanup after playtime. Additionally, this hobby toolbox can be used for storing hardware tools, auto repair tools, small electronics repair tools, tackle, first aid supplies and sporting good accessories. This is a must-have storage toolbox for any crafter, hobbyist or home improvement enthusiast.\nSearch Terms: hobby toolbox crafting adjustable section art supplies storage craft tool tackle box gun cleaning plastic toolboxes room organization fishing hardware\nFeatures:\n- ADJUSTABLE COMPARTMENTS - Comes with Removable Tray and Divider for Creating Custom-sized Compartments to Fit Your Needs\n- COMPACT SIZE TOOLBOX - Measures 8.5\" x 6\" x 2.25\" for Organizing Small Hobby Tools, Crafting Supplies, Workshop Essentials First Aid and More | Lays Flat for Easy Storage When Not In Use\n- HEAVY-DUTY LATCH - Durable Snap Lid Closure Ensures Tools Stay Organized During Travel | Translucent Lid Allows for Quick Identification of Tools Needed\n- HIGH-QUALITY CONSTRUCTION - Made of Durable Lightweight (.5lbs) High-quality Black Plastic with Orange Accents | Will Stand Up to Years of Storage Use in Home, Workshop or Office\n- MULTI-PURPOSE STORAGE BOX | Ideal for Storing Craft and Hobby Supplies, Sporting Goods, Automotive Tools, Home Improvement Tools, Tackle Box and Art Supplies\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool Multi-Section Storage Toolbox Organizer",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Multi-Section Storage Toolbox Organizer"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool Black Multi-Section Storage Toolbox",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Multi-Section Storage Toolbox"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Adjustable Compartments, Removable Tray And Divider, Translucent Lid, Heavy-Duty Latch, Compact 85X6x225 Inch",
+            "char_count": 109,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Adjustable Compartments, Removable Tray And Divider, Heavy-Duty Latch, Translucent Lid, Compact 85 In Design",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

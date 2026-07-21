@@ -1,0 +1,60 @@
+{
+    "sku": "SON-UFDSVHVO-29-ORNG-AMZ",
+    "asin": "B0GNL4YK4J",
+    "product_type": "APPAREL",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-UFDSVHVO-29-ORNG-AMZ\nProduct Type: APPAREL\nBrand (from catalog): Universal Tool\nExisting Title: Universal Fit Unisex High Visibility Safety Vest Orange Lightweight Pull Over Style\nDescription: Stay visible and prepared in any situation with the Universal Fit Disposable Safety Vest, a high visibility orange safety vest designed for roadside emergency kits, auto safety supplies, biking gear, hiking equipment, camping essentials and outdoor survival preparedness. This bright orange reflective style vest helps increase visibility to drivers, cyclists and passersby, making it a smart addition to car emergency kits, motorcycle gear, construction safety supplies and travel safety accessories.\n<br/><br/>\nConstructed from durable weather resistant PVC material with a .10mm thickness, this lightweight disposable safety vest offers dependable coverage without adding bulk to your backpack, glove box or emergency bag. Measuring approximately 29 x 19 inches, the universal fit design provides comfortable wear for most adults and teens, making it ideal for roadside breakdowns, night walking, cycling safety, running, hiking, camping trips and outdoor work environments where visibility matters.\n<br/><br/>\nDesigned for convenience and portability, this high visibility safety vest folds easily for compact storage inside survival kits, bug out bags, vehicle emergency kits, first aid packs and outdoor gear collections. Whether you are building an emergency preparedness kit, upgrading your camping accessories, preparing for roadside safety or looking for affordable high visibility gear, this disposable safety vest is a reliable and practical solution to help you stay seen and stay safe.\nSearch Terms: high visibility vest orange unisex safety vest disposable emergency vest roadside safety gear auto emergency kit cycling running hiking camping construction visibility lightweight pvc safety vest travel preparedness bugout bag gear cheap safety vest outdoor visibility gear\nFeatures:\n- UNIVERSAL FIT FOR MOST BODY TYPES: Designed with a roomy 29 x 19 inch cut to comfortably fit men and women, this unisex high visibility safety vest layers easily over jackets, hoodies or outdoor clothing, making it a practical choice for shared family emergency kits, group camping trips and multi user safety gear\n- HIGH VISIBILITY FOR ROADSIDE AND OUTDOOR SAFETY: Bright orange color helps increase visibility to drivers and others around you during roadside emergencies, bike rides, night walking, hiking adventures, camping setups or construction work where being seen is essential\n- LIGHTWEIGHT DISPOSABLE EMERGENCY GEAR: Made from durable weather resistant PVC with a .10mm thickness, this vest provides quick grab and go protection for car glove boxes, bug out bags, travel kits and first aid supplies without adding bulk or extra weight\n- IDEAL FOR AUTO EMERGENCY AND TRAVEL KITS: A smart addition to vehicle safety kits for breakdowns, flat tires, accidents or roadside assistance situations, helping drivers, passengers and cyclists stay visible while waiting for help or directing traffic\n- UNISEX SAFETY VEST FOR MULTIPLE USE CASES: Suitable for men and women across a variety of activities including biking, running, hiking, event staff use, warehouse work, school safety patrols and outdoor festivals where temporary high visibility gear is needed\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Fit Unisex High Visibility Safety Vest Orange",
+            "tokens": {
+                "brand": "Universal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Universal Fit",
+                "color": "Orange",
+                "name": "High Visibility Safety Vest"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool Universal Fit Unisex Orange Safety Vest",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Universal Fit",
+                "color": "Orange",
+                "name": "Safety Vest"
+            },
+            "char_count": 54,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Lightweight Disposable, Weather Resistant PVC, Reflective, Roadside Emergency, Auto Kit, Camping, Hiking",
+            "char_count": 104,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Bright Orange, Lightweight PVC, Weather Resistant, Universal Fit 29 X 19 In, Roadside And Outdoor Visibility",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ASR-4PACK-MYLAR-BLANKET",
+    "asin": "B00449BOBM",
+    "product_type": "BLANKET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ASR-4PACK-MYLAR-BLANKET\nProduct Type: BLANKET\nBrand (from catalog): ASR Outdoor\nExisting Title: Emergency Outdoor Winter Blanket Insulated Thermal Reflector 4 Pack\nDescription: ASR Outdoor emergency rescue safety mylar blanket. 4-Pack of essential every day carry first aid survival gear.<br/><br/>This 84\" x 52\" Emergency Insulated Thermal Sleeping Blanket is an essential emergency or camping kit item. Mylar foil assists the body in heat retention during emergency situations. Can be used as a regular blanket in cold conditions while sleeping. It's also reusable and won't tear easily, allowing for multiple uses in different situations. Waterproof and windproof. Will not crack or shrink. It also reflects 90 percent of your body heat back to you, making it ideal for offsetting hypothermia reaction\nSearch Terms: Thermal Emergency Blanket Hypothermia Survival\nFeatures:\n- Compacted Dimensions: 5\" x 1\" x 1\" (LxWxH)\n- Expandable Dimensions: 84\" x 52\"\n- Individually Packaged with Instructions/Guidelines\n- Flame, Wind, & Water Retardant Material\n- Ideal for Automotive, Boating, and Outdoor Essential Kits\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 4-Pack 84x52 Emergency Thermal Blanket",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "Pack",
+                "size": "84x52",
+                "color": "",
+                "name": "Emergency Thermal Blanket"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 4-pk Emergency Mylar Blanket",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Emergency Mylar Blanket"
+            },
+            "char_count": 40,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Mylar Heat Reflector, Waterproof And Windproof, Reflects 90 Body Heat, Reusable Survival Gear, Compact Design",
+            "char_count": 109,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "4 Pack, 84\" X 52\", Reflects Body Heat, Waterproof, Windproof, Reusable, Compact, Individually Packaged, Survival Gear",
+            "char_count": 117,
+            "validation_error": null
+        }
+    }
+}

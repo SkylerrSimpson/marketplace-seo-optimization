@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-BLE-PERITEATOWELS-5PK-STD",
+    "asin": "B0H22VT7Y3",
+    "product_type": "TOWEL",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-BLE-PERITEATOWELS-5PK-STD\nProduct Type: TOWEL\nBrand (from catalog): Beille\nExisting Title: Beille 100% Cotton Kitchen Dish Cloth and Tea Towels Set, Machine Washable (Assorted Sof Blue Colors and Patterns), 5pk\nDescription: Bring classic color and everyday function to your kitchen with the Beille 5pc Tea Towel and Dish Cloth Set. Designed with assorted soft blue periwinkle patterns, this coordinated set includes four tea towels and one dish cloth, giving you a practical mix of kitchen linens for drying dishes, wiping counters, handling light spills and adding a polished decorative touch to any kitchen. The blue and white designs blend beautifully with farmhouse, coastal, cottage and traditional kitchen decor.<br/><br/>Made from 100% cotton fabrication, these kitchen towels are soft, reusable and dependable for daily use. Keep them near the sink for dish drying, fold them over an oven handle for easy access, use them during baking prep or keep the dish cloth handy for quick countertop cleanups. The assorted patterns make the set feel elevated, while still being useful for everyday kitchen tasks.<br/><br/>This great value set is machine washable for simple care and repeated use. Instead of reaching for disposable paper towels for every small spill or drying task, these reusable cotton kitchen towels offer a practical option for busy households, apartments, entertaining spaces, pantries and butler kitchens and general, every day food and meal prep. Wash, reuse and rotate the towels throughout the week to keep kitchens looking clean and organized.<br/><br/>Whether you are drying glassware, lining a bread basket, wiping down a kitchen island, or refreshing your kitchen linen collection, this Beille kitchen towel set is a versatile kitchen essential.\nSearch Terms: Kitchen towels; dish rags; cotton washcloths; kitchen and table linens; dish drying towels; kitchen essentials; cleaning supplies; food meal prep; kitchen farmhouse decor; housewarming gifts new home; dish cloths for washing dishes; tea towels\nFeatures:\n- 5PC KITCHEN TOWEL SET: Includes four tea towels and one dish cloth in assorted soft blue patterns, giving you a coordinated kitchen linen set for drying dishes, wiping counters, baking prep, cleanup and everyday kitchen use\n- 100% COTTON FABRICATION: Made from soft cotton for a reusable and practical kitchen tea towel and dish towel option; ideal for drying hands, cleaning countertops, handling light spills and more\n- ASSORTED BLUE PATTERNS: Classic blue and white designs add a fresh touch to farmhouse, coastal, cottage, and traditional kitchens, while still offering everyday dependable everyday functionality\n- MACHINE WASHABLE: Designed for convenient reuse, these cotton kitchen towels and dish cloths are machine washable, making them easy to clean and rotate through daily kitchen tasks\n- GREAT VALUE KITCHEN ESSENTIAL: A useful towel set for home kitchens, apartments, guest spaces, baking areas and entertaining, offering a practical alternative to disposable paper towels for routine cleanup\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 5-pk Blue Periwinkle Tea Towels and Dish Cloth Set",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "5",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Blue Periwinkle",
+                "name": "Tea Towels and Dish Cloth Set"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 5-Pk Soft Blue Kitchen Tea Towels And Dish Cloth Set",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "5",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Soft Blue",
+                "name": "Kitchen Tea Towels And Dish Cloth Set"
+            },
+            "char_count": 59,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "4 Tea Towels Plus 1 Dish Cloth, 100 Percent Cotton, Assorted Blue Patterns, Machine Washable, Farmhouse Decor",
+            "char_count": 109,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "100 Percent Cotton, Machine Washable, Reusable, Assorted Blue Patterns, Farmhouse Coastal Cottage Decor",
+            "char_count": 103,
+            "validation_error": null
+        }
+    }
+}

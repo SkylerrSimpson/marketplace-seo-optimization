@@ -1,0 +1,60 @@
+{
+    "sku": "SON-GUNCLEANPATCHKIT-15PC",
+    "asin": "B08463G17W",
+    "product_type": "GUN_CLEANING_KIT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-GUNCLEANPATCHKIT-15PC\nProduct Type: GUN_CLEANING_KIT\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 15 Piece Gun Cleaning Brush Patch Set\nDescription: Keep your firearms clean and running at peak performance with this ASR Outdoor 5 Piece Gun Cleaning Brush And Pick Set. <br/><br/>This set comes with an assortment of cleaning tools, including: 3 double-sided brushes and 2 double-sided picks. One side is large for surface scrubbing, and the other is small for cleaning hard to reach areas. Brushes are made out of brass, copper, and nylon to get all the dirt and grime out of the way. <br/><br/>Also included are 10 gun cleaning patches, great for polishing, buffing, soaking up dirt, and so much more. <br/><br/>This is the perfect gift for any firearms enthusiast in your life.\nSearch Terms: gun firearm weapon cleaning maintenance hobby gear brushes picks kit brass nylon brush range bag accessories\nFeatures:\n- BRUSHES: Set Has Brass, Copper, And Nylon Brushes | For Cleaning All Kinds Of Stubborn Areas\n- PICKS: Includes Two Picks To Help Get Into Small Cracks And Crevices | Get All The Dirt And Grime Out\n- DOUBLE SIDED: Large End For All Purpose Scrubbing | Small End For Cleaning Hard To Reach Spaces\n- CLEANING PATCHES: Includes 10 Gun Cleaning Patches | Great For Polishing, Buffing, Soaking Up Dirt, And More\n- 15 PIECE SET: General All Purpose Kit Helps To Keep Firearms Clean | Keep Your Firearms At Peak Performance\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 15-Piece Gun Cleaning Brush Patch Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "15",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "",
+                "name": "Gun Cleaning Brush Patch Kit"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 15-Piece Gun Cleaning Brush Patch Set",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "15",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Gun Cleaning Brush Patch Set"
+            },
+            "char_count": 49,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Brass, Copper, Nylon Brushes, Double-Sided Picks, 10 Cleaning Patches, Hard-to-Reach Areas",
+            "char_count": 90,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Brass Copper Nylon Brushes, Double Sided Picks, 10 Cleaning Patches, Hard To Reach Areas, All Purpose Scrubbing",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

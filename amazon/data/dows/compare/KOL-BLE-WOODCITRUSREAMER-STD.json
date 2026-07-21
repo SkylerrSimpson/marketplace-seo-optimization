@@ -1,0 +1,60 @@
+{
+    "sku": "KOL-BLE-WOODCITRUSREAMER-STD",
+    "asin": "B0H34VSDRH",
+    "product_type": "JUICER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: KOL-BLE-WOODCITRUSREAMER-STD\nProduct Type: JUICER\nBrand (from catalog): Beille\nExisting Title: Beille 1pc Natural Beechwood Handheld Citrus Reamer, Manual Lemon Lime Juicer with Ergonomic Handle and Deep Carved Ridges Kitchen Tools (6.5 Inches)\nDescription: Bring fresh citrus flavor into everyday kitchen prep with Beille’s beechwood citrus reamer, a simple and natural tool designed for juicing lemons, limes, oranges, and other small citrus fruits by hand. Whether you are adding lemon juice to hot tea, squeezing lime for margaritas and mocktails, or preparing fresh juice for marinades, dressings, sauces, seafood, baking or cooking, this wooden lemon juicer makes the process easy, efficient and controlled.<br/><br/>The pointed reaming head features deep, carved ridges that press into the citrus half to help release juice while separating pulp naturally through the twisting motion. Unlike bulky countertop juicers or electric citrus juicers, this handheld wooden reamer is compact, lightweight, and easy to reach for whenever you need a small amount of fresh juice. The rounded ergonomic handle offers a comfortable grip, giving you better control while pressing and twisting lemons, limes, grapefruit, kiwis, oranges and more.<br/><br/>Made from smooth beechwood material, this manual citrus reamer has a warm, natural kitchen look that pairs beautifully with wood spoons, linen towels, farmhouse kitchens, bar carts, and every day cooking tools. Measuring 6.5 inches long and weighing only 0.20lbs, it stores easily in a drawer or utensil holder without taking up valuable space.<br/><br/>CARE: For best care, hand wash only and dry promptly after use to help preserve the wood grain and finish\nSearch Terms: Citrus reamer; citrus orange lime lemon juicer; lime squeezer; manual orange juicer; kitchen cooking tools gadgets essentials; margarita; food meal prep; housewarming gifts new home; cocktail tools; bartender accessories; citrus juicer manual\nFeatures:\n- BEECHWOOD CITRUS REAMER: Made from smooth beechwood material, this wooden citrus reamer offers a simple, plastic free feel for everyday kitchen prep; ideal for juicing lemons, limes, oranges and other small citrus fruits\n- DEEP CARVED RIDGES FOR JUICING: Pointed reamer head features deep, carved ridges designed to press into citrus halves and easily help release fresh juice by hand; great for tea, cocktails, mocktails, dressings, marinades, baking and cooking\n- COMPACT 6.5 INCH KITCHEN TOOL: Measuring 6.5 inches long and weighing only 0.20lbs, this manual citrus juicer is easy to store in a kitchen drawer, utensil crock bar cart or small space kitchen setup\n- COMFORTABLE ERGONOMIC HANDLE: Rounded wooden handle is easy to grip while twisting and pressing citrus fruit; design gives you direct control without relying on other bulky countertop citrus juicers, electric juicers or extra kitchen gadgets\n- HAND WASH ONLY: Hand wash only and dry promptly after use to preserve the natural wood finish, grain texture and long-lasting kitchen ready appearance\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 6.5 Inch Natural Beechwood Citrus Reamer",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "6.5",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "Natural",
+                "name": "Beechwood Citrus Reamer"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 1-pk 6.5 in Beechwood Citrus Reamer",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "1",
+                "pack_size_unit": "pk",
+                "size": "6.5",
+                "color": "",
+                "name": "Beechwood Citrus Reamer"
+            },
+            "char_count": 42,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Manual Lemon Lime Juicer, Deep Carved Ridges, Ergonomic Wooden Handle, Compact Handheld, Hand Wash Only",
+            "char_count": 103,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Natural Beechwood, Deep Carved Ridges, Ergonomic Grip, Manual Citrus Juicer, Compact Kitchen Tool",
+            "char_count": 97,
+            "validation_error": null
+        }
+    }
+}

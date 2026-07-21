@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-HELI-IRBALL-VADER-WAL-HPNR-AMZ",
+    "asin": "B089N1MZTC",
+    "product_type": "PRETEND_PLAY_TOY",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-HELI-IRBALL-VADER-WAL-HPNR-AMZ\nProduct Type: PRETEND_PLAY_TOY\nBrand (from catalog): World Tech Toys\nExisting Title: Star Wars Darth Vader UFO Ball Helicopter Mini Copter Toy for Boys 6 and Up\nDescription: Is your child obsessed with Star Wars and the Mandalorian? This UFO ball hovering helicopter toy is a perfect gift idea this holiday season. The mini helicopter features one of everyone’s favorite characters from the hit Disney franchise - Darth Vader.<br/><br/>Made with solid and durable materials, this helicopter toy is also super-lightweight, so no worrying about it breaking anything after a rough landing. It features a coaxial rotor system to provide hovering stability and precise movements (with 2 spare rotors included).<br/><br/>This Star Wars UFO copter uses infrared motion-sensing technology to detect nearby objects and will automatically dodge them, preventing in-flight damage. It also comes with a convenient USB charger so you can charge it just about anywhere.<br/><br/>The mini copters are super easy for kids to use too - just charge it, turn it on, and have them hold their hand underneath it to keep it hovering. Once done with playtime, just grab it out of the air carefully or use any IR remote control to shut it down safely. Your little Star Wars fanatic is sure to love this toy copter.\nSearch Terms: remote control helicopter 6 year old 8 to 12 kids toys boys infrared rc hover hovering sensor tech battery charge charger usb stocking stuffer star wars mando mandolorian stormtrooper evil empire chopper ufo easy fun play hand follow coordination\nFeatures:\n- STAR WARS HELICOPTER - Officially licensed Star Wars UFO Ball Mini Copter is an excellent flying toy for kids; featuring Darth Vader from the hit Disney franchise\n- DURABLE AND LIGHTWEIGHT - Made with solid and light materials that won’t break anything on a rough landing; featuring a coaxial rotor system for hovering stability and precise movements\n- INFRARED MOTION TECH - UFO copter uses infrared motion sensing technology to detect nearby objects and will automatically dodge them; Comes with USB charger and 2 spare rotors\n- EASY TO USE - Just charge it, turn it on and hold your hand underneath to keep it hovering; when you’re done, grab it or use any IR remote control to shut it down safely\n- SPECIFICATIONS - Dimensions: 10.75” x 3” x 6.3”; Weight: .35lbs; Max speed: 5mph; Recommended age: 6+; Max run time: 10mins; Max distance: 10ft; Power source: battery (1 CR2032, included)\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "World Tech Toys Star Wars Darth Vader UFO Ball Helicopter",
+            "tokens": {
+                "brand": "World Tech Toys",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Darth Vader",
+                "name": "UFO Ball Helicopter"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "World Tech Toys Darth Vader UFO Ball Helicopter Mini Copter Toy",
+            "tokens": {
+                "brand": "World Tech Toys",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Darth Vader UFO Ball Helicopter Mini Copter Toy"
+            },
+            "char_count": 63,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Infrared Motion Sensing, Hovering Stability, USB Rechargeable, 2 Spare Rotors, Hand Controlled, Ages 6 And Up",
+            "char_count": 109,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Infrared Motion Sensor, USB Rechargeable, Coaxial Rotor Stability, 2 Spare Rotors, Easy Hand Hover Control",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

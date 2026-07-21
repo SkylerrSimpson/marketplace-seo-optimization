@@ -1,0 +1,60 @@
+{
+    "sku": "26C-BLE-WHEAT-REAMER-BEIGE",
+    "asin": "B0CP4JR7RK",
+    "product_type": "JUICER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 26C-BLE-WHEAT-REAMER-BEIGE\nProduct Type: JUICER\nBrand (from catalog): Beille\nExisting Title: Beille Handheld Lemon Squeezer Citrus Reamer Wheat Straw Kitchen Gadgets, 6.5 in\nDescription: Whether it’s to finish a Ceasar salad or pasta dish, make margaritas or add to cold pressed juices or smoothies, look no further than Beille’s handheld wheat straw citrus reamer or lemon juicer! And, not only will this lemon juicer look stylish in any kitchen with its modern and environmentally conscious design, it’s also incredibly practical. Beille’s citrus reamer is a no fuss kitchen tool that doesn’t require any set up or additional components; it’s fast, efficient and quick to get the work done. Made from wheat straw, a bioplastic, the construction is an alternative plant based material to other less forgiving solid plastics; a renewable and sustainable product, Beille’s citrus reamer is food safe and certified BPA Free. \n<br/><br/>\nThe lemon or lime squeezer is also dishwasher safe, making for quick and easy clean up after any meal and food prep, cooking or baking. In addition to the handheld citrus reamers environmental construction, the finishing details are not to be overlooked! Featuring a smooth, rounded handle with speckled matte finish, these design features ensure a comfortable and controlled grip when juicing lemons, limes grapefruits, oranges and more. \n<br/><br/>\nThe pointed tip and ribbed edges make extracting juice and pulp simple, easy and efficient with just a few quick turns; the lemon squeezer also features a hole at the top if hanging storage is preferred. Upgrade your existing citrus reamer or citrus fruit squeezer to a sustainable one, or gift one as a hostess or housewarming gift alongside other items from Beille’s wheat straw kitchen collection! A must have home essentials item and kitchen gadget in any kitchen for the chef or home cook.\nSearch Terms: fruit squeeze juicer kitchen accessory hand utensil wheat straw tan beige ream reamer ergonomic handle contoured light weight machine washable\nFeatures:\n- LEMON SQUEEZER: Beille’s wheat straw citrus reamer is a must have home essentials item for the kitchen! The lemon squeezer features a rounded handle with a speckled matte finish, ensuring a comfortable and controlled grip when cooking or baking\n- CITRUS REAMER: Get every last drop with Beille’s handheld citrus reamer! The pointed tip and ribbed edges make extracting juice and pulp simple, easy and efficient with just a few quick turns; the lemon squeezer also features a hole at the top if hanging storage is preferred\n- WHEAT STRAW: Beille’s citrus reamer is made of bioplastic wheat straw, an alternative plant based material to other less forgiving solid plastics; a renewable choice and sustainable product, the lemon squeezer is food safe and certified BPA Free\n- DISHWASHER SAFE: Beille’s wheat straw citrus reamer mimics similar plastic kitchen tools but without harmful byproducts; the lemon squeezer is dishwasher safe, making for a quick and easy clean up\n- SPECIFICATIONS: Dimensions: 6.5 x 2 x 1.25 inches; Weight: 0.22lbs; Color: Beige\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 6.5 in Beige Wheat Straw Citrus Reamer",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "6.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Beige",
+                "name": "Wheat Straw Citrus Reamer"
+            },
+            "char_count": 45,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 6.5 in Beige Handheld Lemon Squeezer Citrus Reamer",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "6.5",
+                "pack_size_unit": "in",
+                "size": "6.5 in",
+                "color": "Beige",
+                "name": "Handheld Lemon Squeezer Citrus Reamer"
+            },
+            "char_count": 57,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Handheld Lemon Squeezer, Wheat Straw Bioplastic, Dishwasher Safe, BPA-Free, Eco-Friendly, Ergonomic Handle",
+            "char_count": 106,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Wheat Straw Bioplastic, BPA-Free, Dishwasher Safe, Ergonomic Grip, Ribbed Edges, Hanging Hole",
+            "char_count": 93,
+            "validation_error": null
+        }
+    }
+}

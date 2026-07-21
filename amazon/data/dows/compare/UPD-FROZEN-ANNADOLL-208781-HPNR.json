@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-FROZEN-ANNADOLL-208781-HPNR",
+    "asin": "B07KWL1C18",
+    "product_type": "TOY_FIGURE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-FROZEN-ANNADOLL-208781-HPNR\nProduct Type: TOY_FIGURE\nBrand (from catalog): Disney Frozen\nExisting Title: Frozen 2 Anna Doll in Ionic Epilogue Outfit, Pair of Shoes & Earrings Included - 14\" Anna Doll - Perfect Doll for Any Anna Fan! for Girls Ages 3+\nDescription: The epic adventure continues in Disney Frozen 2, the exciting sequel to the hit film, Frozen Join your beloved friends, Anna, Elsa, Kristoff, Sven and Olaf as they venture beyond Arendelle's gates to strengthen their bonds and make new discoveries that will change their lives forever. Join Anna at the beginning of the next chapter of her life, as Queen of Arendelle, with Disney Frozen 2 Queen Anna Doll Anna is warm and loving, and the brave new leader of Arendelle. She is dressed in her iconic, film-inspired Queen Anna fashion that includes a silky teal and turquoise dress with rich black, purple and gold detail with a matching cape and bejeweled belt. To complete her look, Anna is wearing a beautiful gold and green tiara infused with the crocus symbol- the crest of Arendelle.\nSearch Terms: anna doll frozen\nFeatures:\n- New 2020 spring item cooming soon\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Disney Frozen Queen Anna 14\" Doll with Accessories",
+            "tokens": {
+                "brand": "Disney Frozen",
+                "pack_size": "14",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Teal",
+                "name": "Queen Anna Doll"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Disney Frozen 14-in Anna Doll",
+            "tokens": {
+                "brand": "Disney Frozen",
+                "pack_size": "14",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Anna Doll"
+            },
+            "char_count": 29,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Film-Inspired Queen Outfit, Tiara And Shoes Included, Ages 3 And Up, Perfect Gift For Frozen Fans",
+            "char_count": 97,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Film-Inspired Queen Anna Fashion, Teal And Turquoise Dress, Matching Cape, Tiara, Shoes And Earrings Included",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

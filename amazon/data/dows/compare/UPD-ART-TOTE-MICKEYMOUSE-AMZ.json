@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-ART-TOTE-MICKEYMOUSE-AMZ",
+    "asin": "B0CN4HFPTB",
+    "product_type": "ART_AND_CRAFT_SUPPLY",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-ART-TOTE-MICKEYMOUSE-AMZ\nProduct Type: ART_AND_CRAFT_SUPPLY\nBrand (from catalog): Disney\nExisting Title: Mickey Mouse 40pc Art Supplies Coloring Books Travel Tote Set Boys Ages 3 and Up\nDescription: This immersive Disney Mickey House and Friends art kit features all of your child's favorite characters from the hit Disney Junior series. The portable art kit contains 40 items to keep your little Mickey Mouse and budding artist busy. The set includes an exciting coloring book, six colorful markers, twelve vibrant watercolors with a paintbrush and mixing tray, six colorful markers, ten crayons, six high-quality colored pencils, a pencil sharpener, and an eraser that all securely fit in the art supplies tote provided. With multiple mediums to choose from, your child will never get bored while on the go with this super fun art kit.<br/><br/>Be ready for any Mickey Mouse artistic adventure. This fun Disney Mickey Mouse and Friends Art supplies kit can be used at preschool, elementary school, day camps, or for any imaginative adventures with Mickey and his friends at the Mickey Mouse Clubhouse. Your child can easily keep their art supplies secure with this carrying case craft supplies tote with a convenient handle.<br/><br/>With a multitude of different exciting art mediums found in this colorful craft supplies tote, your little one can unleash their creativity and showcase their own Disney artwork. An ideal birthday present or holiday gift, this Mickey Mouse and Friends art activity set will provide hours of entertainment.\nSearch Terms: toys for boys art set preschool learning activities stocking stuffers brother gifts holiday gifts birthday presents mickey mouse coloring pencils kids painting set boys drawing supplies toddler travel toys stationery set creative gifts for boys\nFeatures:\n- MICKEY MOUSE CLUBHOUSE ART KIT: Join Mickey Mouse and his pals with this super fun Mickey Mouse Clubhouse art kit! The Disney Mickey Mouse and Friends art kit comes with a coloring book, 10 crayons, 6 markers, 6 colored pencils, a pencil sharpener, an eraser, 12 watercolor paints, a mixing tray, and a paintbrush!\n- FUN ART SUPPLIES: With Mickey Mouse and Friends art kit your budding artist will have everything they need to unleash their creativity through art! With so many different types of art supplies provided, little Mickey Mouse fans will get to explore different types of art mediums like painting, drawing, and coloring\n- TODDLER TRAVEL TOYS: Be ready whenever creativity strikes! This Mickey Mouse and Friends art kit can be taken wherever your little Mickey Mouse fan goes; to school, playdates, airplane travel, and more, the easy to carry tote with a built-in handle keeps all the art supplies safe and secure when on the go\n- FINE MOTOR TOYS: Not only a great creative outlet for art, but the Mickey Mouse Clubhouse art kit also allows little ones to develop their fine motor skills through drawing, painting, and coloring! Mixing paint, trying to color between the lines, and perfecting their artwork helps with the development of their dexterity, hand-eye coordination, and imagination\n- SPECIFICATIONS: Dimensions: 11.7” x 1.5” x 12.5”inches; Weight: .86lbs; Color: Blue; Ages: 3+\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Disney Mickey Mouse 40pc Art Supplies Travel Tote Set",
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "40",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Mickey Mouse Art Supplies Travel Tote Set"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Disney 40-pc Mickey Mouse Art Supplies Travel Tote Set",
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "40",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Mickey Mouse Art Supplies Travel Tote Set"
+            },
+            "char_count": 54,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "40 Pieces, Coloring Book, Markers, Watercolors, Colored Pencils, Portable Tote, Ages 3 And Up",
+            "char_count": 93,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "40-Piece Art Kit, Coloring Book, Markers, Crayons, Watercolors, Colored Pencils, Paintbrush, Portable Tote, Ages 3 And Up",
+            "char_count": 121,
+            "validation_error": null
+        }
+    }
+}

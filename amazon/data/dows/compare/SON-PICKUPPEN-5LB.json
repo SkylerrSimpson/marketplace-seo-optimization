@@ -1,0 +1,60 @@
+{
+    "sku": "SON-PICKUPPEN-5LB",
+    "asin": "B09FVJNLQS",
+    "product_type": "UTILITY_MAGNET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-PICKUPPEN-5LB\nProduct Type: UTILITY_MAGNET\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 5LB Pocket Clip Black Sand Magnetic Separator Pen Pick Up Tool for Gold Panning\nDescription: Are you an avid gold prospector, or just beginning to dabble in this fun outdoor activity? Then you absolutely need the ASR Outdoor Black Sand Pocket Separator Pen.<br/><br/>This unique magnetic separator pen has a lifting power of 5 pounds, which will allow you to pull black sand and other magnetic materials away from the gold concentrate so you extract and separate fine gold from other materials. As you locate gold and gold concentrate while panning, you'll find that separating these materials away will make your job easier so you can focus on locating your bounty.<br/><br/>The pen features a plunger-type quick release for ease of use, and the magnet is shielded inside of the pen to keep it from interfering with materials. Just pull the gold magnet away from the gold concentrate in your sifting pan, press the release button and the magnetic particles will be removed. The pen is also water-resistant so you can use it in riverbeds and is constructed of durable, high-quality stainless steel that will last for years to come. The magnet has a diameter of about 5/8\" making it an ideal size for attracting small particles, and it comes with a metal pocket clip so you can just slip it inside of your pocket when not in use.<br/><br/>Whether you're a beginner or a seasoned gold prospector, this pocket separator pen is a must-have addition to your prospecting tools. Make sure to bring it with you on your next adventure, and you'll be swimming in gold in no time.\nSearch Terms: gold panning tools sifting prospecting magnetic pen black sand pick up quick release pickup tool shaped hand essentials for rush supplies\nFeatures:\n- GOLD PROSPECTING ESSENTIAL: ASR Outdoor Magnetic Separator Pen Separates Black Sand and Magnetic Materials Away from Gold and Gold Concentrate\n- 5LB LIFTING POWER: 5/8\" Diameter Magnet Shielded Inside of Pen Tool Picks Up 5lbs of Magnetic Materials; Extract and Separate Fine Gold Easily\n- DURABLE CONSTRUCTION: Made of High-quality Stainless Steel to Last for Years; Water-resistant Design Allows for Panning in Any Weather Condition\n- COMPACT SIZE: Pen-shaped Pick Up Tool Just 5.5\" in Length; Comes with Metal Pocket Clip for Easy Storage When Not in Use\n- QUICK-RELEASE BUTTON: Plunger-type Quick Release Button is Easy to Use; Just Pull Gold Magnet Away from Gold Concentrate in Sifting Pan and Press Release to Remove Magnetic Particles\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 5LB Black Sand Magnetic Separator Pen Pick Up Tool",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "LB",
+                "size": "",
+                "color": "Black",
+                "name": "Sand Magnetic Separator Pen Pick Up Tool"
+            },
+            "char_count": 62,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 5LB Black Magnetic Separator Pen Pick Up Tool",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "5LB",
+                "color": "Black",
+                "name": "Magnetic Separator Pen Pick Up Tool"
+            },
+            "char_count": 57,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "5 Pound Lifting Power, Quick-Release Button, Water-Resistant Stainless Steel, Gold Panning Essential, Pocket Clip",
+            "char_count": 113,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "5LB Shielded Magnet, Quick-Release Plunger, Stainless Steel, Water-Resistant, Pocket Clip",
+            "char_count": 89,
+            "validation_error": null
+        }
+    }
+}

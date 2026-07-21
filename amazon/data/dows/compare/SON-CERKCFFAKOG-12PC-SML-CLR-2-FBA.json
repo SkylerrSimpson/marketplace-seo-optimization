@@ -1,0 +1,60 @@
+{
+    "sku": "SON-CERKCFFAKOG-12PC-SML-CLR-2-FBA",
+    "asin": "B01MZ78EZE",
+    "product_type": "TOOLS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-CERKCFFAKOG-12PC-SML-CLR-2-FBA\nProduct Type: TOOLS\nBrand (from catalog): Universal Tool\nExisting Title: 12pc Compact Eye Glasses Repair Kit Case For Fixing All Kinds Of Glasses\nDescription: This Compact Eyeglass Repair Kit has everything you need to repair your spectacles. <br/><br/>This kit comes with a mini screwdriver, 6 screws, 2 nose pads, 2 grommets and a pair of precision tweezers - all you'll need to fix reading, sun, and far sighted glasses.<br/><br/>The screwdriver can also be used for repairing watches and small electronics. <br/><br/>Become a do-it-yourselfer and buy this kit. Glasses frames can range up to $300 dollars and more so why not just fix the ones you have?\nSearch Terms: Repair Kit Glasses repair Eyeglass Mini Screwdriver Fixer\nFeatures:\n- 12pc Eye Glasses Repair Kit\n- Comes with Nose Pads & Grommets\n- Precision Tweezer & Mini Screwdriver Can Repair Small Electronics & Watches\n- Comes in Compact Box for Easy Storage When Not in Use\n- Great for Home, Office, On the Go & More\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 12-pc Eyeglass Repair Kit",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "12",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Eyeglass Repair Kit"
+            },
+            "char_count": 40,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 12-Pc Eyeglass Repair Kit",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "12",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Eyeglass Repair Kit"
+            },
+            "char_count": 40,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Mini Screwdriver, Nose Pads, Grommets, Precision Tweezers, Compact Storage, Repairs Watches And Electronics",
+            "char_count": 107,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Mini Screwdriver Precision Tweezers Nose Pads Grommets Repairs Glasses Watches Electronics Compact Case",
+            "char_count": 103,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "26C-GGLOVES-HM-75966-96-2PC-BUN-FBA",
+    "asin": "B0BZGNZXWB",
+    "product_type": "GARDEN_TOOL_SET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 26C-GGLOVES-HM-75966-96-2PC-BUN-FBA\nProduct Type: GARDEN_TOOL_SET\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux (2 Pair) Unisex Claw Gardening Gloves for Digging in the Garden, Flower Potting, Universal Fit\nDescription: Are you an avid gardener, or just getting started with this outdoor hobby? Every gardener, aspiring or experienced needs a durable and reliable set of gardening gloves. The ToolTreaux garden gloves are a must-have gardening accessory that will help you safely rake leaves, remove thorns, weeding, and plant holes for seeds.<br/><br/>Our unique gardening gloves come with durable, high-quality ABS plastic claws that easily attach to the fingertips of the gloves. These claws will assist with the removal of weeds and thorns, and they won't slip off during gardening activities. <br/><br/>In addition to the claws, these garden gloves feature an elastic cuff that will stretch to comfortably fit most adult hands, making this an ideal pair of gloves for both men and women alike. The latex material of the gloves is both weather and puncture resistant, so you can count on them to protect your hands rain or shine. These gloves are a great gift idea for yourself or any other gardening enthusiast in your life.\nSearch Terms: gardening hand tools mothers gift gardening kit green thumb home plant lover house landscaping projects weeding patio landscaping accessories rake leaf rake\nFeatures:\n- 2 PAIRS GARDEN GLOVES - ToolTreaux garden gloves are a must-have pair of protective gear for all gardeners; Use them to safely rake leaves, dig holes for planting, remove thorns, and weeding to keep your garden and yard beautiful\n- DURABLE ABS DIGGING CLAWS - Unique gardening gloves come with durable, high-quality ABS plastic claws that will assist with the removal of weeds and dangerous plant materials; Sturdy claws won't slip off during gardening\n- UNIVERSAL UNISEX FIT- Garden gloves feature an elastic cuff that will stretch to fit most hands, ideal for both men and women gardeners; Latex material of gloves is weather-resistant so you can count on them to protect your hands rain or shine\n- PUNCTURE RESISTANT - Gardening gloves are designed to be puncture resistant so you can use them in gardening beds and thorny bushes without worry; Comes in bright green color for high visibility with black fingertips\n- SPECIFICATIONS - Materials: ABS plastic (claws), Latex, and elastic (gloves); Colors: black/green; Size: one size fits most (stretchy); Puncture-resistant: yes; Weather-resistant: yes\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 2-Pair Unisex Claw Gardening Gloves",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "2",
+                "pack_size_unit": "Pair",
+                "size": "Unisex",
+                "color": "",
+                "name": "Claw Gardening Gloves"
+            },
+            "char_count": 46,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 2-Pair Universal Fit Green Claw Gardening Gloves",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "2",
+                "pack_size_unit": "Pair",
+                "size": "Universal Fit",
+                "color": "Green",
+                "name": "Claw Gardening Gloves"
+            },
+            "char_count": 59,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "ABS Digging Claws, Puncture Resistant, Weather Resistant, Universal Fit, Weeding And Thorn Removal",
+            "char_count": 98,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "ABS Digging Claws, Puncture-Resistant Latex, Elastic Unisex Fit, Weed Removal, Leaf Raking, Planting",
+            "char_count": 100,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-GUNCLMAT-18IN",
+    "asin": "B07YNZ62HG",
+    "product_type": "GUN_CLEANING_KIT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-GUNCLMAT-18IN\nProduct Type: GUN_CLEANING_KIT\nBrand (from catalog): ASR Tactical\nExisting Title: American Flag Non-Slip Gun Cleaning Mat 18 Inch\nDescription: Make cleaning firearms and other hobby gear a breeze with the American Flag Non-Slip Gun and Electronics Cleaning Mat. <br/><br/>This mat is 18\" x 12\" and easy to roll up, transport, and store. Thick, shock absorbent material protects against accidental drops, and neoprene rubber backing keeps mat in place. Mat is oil and water resistant, as well as washable for quick and easy cleanup. <br/><br/>This is the perfect gift for dads and hobbyists alike.\nSearch Terms: non slip gun cleaning mat hobby gear water resistant american flag design gifts for hobbyists craft supplies dads\nFeatures:\n- NON-SLIP: Neoprene Rubber Backing Keeps Mat In Place | Made of Durable Material for Any Project\n- WATER-RESISTANT: Oil and Water Resistant to Help With Any Spills | Made of a Washable Material For Easy Clean Up\n- EASY TO STORE: 18 Inch x 12 Inch Mat Can Be Rolled Up and Put Away Easily | A Hobby or Craft Room Staple\n- KEEP PIECES ORGANIZED: No Need to Worry About Losing Small Pieces | Mat Helps Keep Everything Organized and Together\n- COOL DESIGN: Features American Flag Design | Perfect Gift For Dads or Hobbyists\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 18in American Flag Non-Slip Gun Cleaning Mat",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "18",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "American Flag",
+                "name": "Non-Slip Gun Cleaning Mat"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 18-Inch American Flag Gun Cleaning Mat",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "18",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Gun Cleaning Mat"
+            },
+            "char_count": 51,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Non-Slip Neoprene Backing, Water And Oil Resistant, Washable, Durable Shock Absorbent Material, Organized Storage",
+            "char_count": 113,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Non-Slip Neoprene Backing, Oil And Water Resistant, Washable, Rolls Up For Storage, Organizes Small Parts",
+            "char_count": 105,
+            "validation_error": null
+        }
+    }
+}

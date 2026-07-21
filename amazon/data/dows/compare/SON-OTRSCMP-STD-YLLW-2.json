@@ -1,0 +1,60 @@
+{
+    "sku": "SON-OTRSCMP-STD-YLLW-2",
+    "asin": "B017CNA48A",
+    "product_type": "SLEEPING_MAT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-OTRSCMP-STD-YLLW-2\nProduct Type: SLEEPING_MAT\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Single Person Foam Sleeping Pad Thermal Heat Retention Camping Mat\nDescription: ASR Outdoor EVA Thermal Foam Camping Mat would be considered a deluxe version of the ever-so-common eva foam sleeping pad camping mat. This single person foam sleeping pad offers an added barrier of comfort between yourself and the hard ground that you are sleeping under during your outdoor adventure.<br/><br/>The main advantage to the cold weather sleeping pad is the added mylar covering to the top layer of sleeping pad it self; this will assist in retaining warmth and distribute it evenly throughout the mat back to your body as you lay at rest, making cold weather camping more enjoyable.<br/><br/>There are two adjustable elastic straps which allows the unit to be self contained and easily transportable, stow-able, and readily available when needed. <br/><br/>Package Includes: (1) Thermal Camping Mat Sleeping Pad\nSearch Terms: thermal blanket backpacking r value sleep mat winter camping hiking gear accessory comfortable camping foam closed cell sleeping pad adult\nFeatures:\n- One side thermal mylar insulating layer to aid in heat retention while acting as a barrier from ground cold; ideal for use while cold weather camping in the wilderness\n- Other side EVA foam padded material for added comfort\n- Good moisture barrier between you and the ground; dust proof; water resistant\n- Dimensions: 71\" x 20\" x 0.25\" H; Weight: 8 ounces\n- Thermal foam sleeping pad has 2 elastic straps to compress for storage and attach for backpacking\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Single Person Foam Sleeping Pad Yellow",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Single Person",
+                "color": "Yellow",
+                "name": "Foam Sleeping Pad"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Thermal Foam Sleeping Pad",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Thermal Foam Sleeping Pad"
+            },
+            "char_count": 37,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Thermal Mylar Heat Retention, EVA Foam Comfort, Water Resistant, Compact With Elastic Straps",
+            "char_count": 92,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Mylar Heat Retention, EVA Foam Comfort, Moisture Barrier, Water Resistant, 71 Inch X 20 Inch X 025 Inch, 2 Elastic Straps",
+            "char_count": 121,
+            "validation_error": null
+        }
+    }
+}

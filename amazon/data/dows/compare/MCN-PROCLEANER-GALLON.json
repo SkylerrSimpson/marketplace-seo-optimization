@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-PROCLEANER-GALLON",
+    "asin": "B07KQD1D49",
+    "product_type": "LAUNDRY_DETERGENT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-PROCLEANER-GALLON\nProduct Type: LAUNDRY_DETERGENT\nBrand (from catalog): GEAR AID\nExisting Title: Gear Aid Revivex Pro Cleaner Gentle Formula Outerwear Repair 1 Gallon\nDescription: Refresh, renew and revive your outerwear with Revivex Pro Cleaner by GEAR AID. This high-tech synthetic fabric wash is designed to clean technical fabrics safely, without leaving behind residues or affecting water repellency. Keep your skiwear, rainwear and waterproof-breathable garments free of dirt and oils, which typically impact fabric performance. <br/><br/>Revivex Pro Cleaner is the first step when treating garments with Revivex Durable Waterproofing or Revivex Wash-In Waterproofing. You can also use it on non-waterproof items, like sleeping bags, gloves, fleece and soft shell garments.<br/><br/>Caring for high-tech fabrics doesn’t have to be scary. And it’s not rocket science. GEAR AID’s Revivex Pro Cleaner makes it as easy as washing your socks.<br/><br/>Gear Aid’s Revivex is the number one choice of top skiwear and outerwear manufacturers.\nSearch Terms: pro cleaner jacket for clothes washer revivex por sleeping bag rain and down concentrate comforter coat\nFeatures:\n- Low sudsing, laundry detergent for high-tech synthetic fabrics, including insulation, soft-shell and GORE-TEX garments\n- Specialized formula restores breathability, water repellency and warmth to synthetic jackets\n- Gentle cleaner free of fragrances, softeners and optical brighteners will not leave behind residues or impact breathability\n- Preps surfaces for Revivex water repellent treatment\n- Made in USA\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Gear Aid Revivex Pro Cleaner 1 Gallon",
+            "tokens": {
+                "brand": "Gear Aid",
+                "pack_size": "1",
+                "pack_size_unit": "Gallon",
+                "size": "",
+                "color": "",
+                "name": "Revivex Pro Cleaner"
+            },
+            "char_count": 37,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID 1-Gallon Pro Cleaner",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "1",
+                "pack_size_unit": "Gallon",
+                "size": "",
+                "color": "",
+                "name": "Pro Cleaner"
+            },
+            "char_count": 29,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Synthetic Fabric Wash, Low Sudsing, Restores Water Repellency And Breathability, GORE-TEX Safe, Made In USA",
+            "char_count": 107,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Low Sudsing, Gentle On Technical Fabrics, Restores Breathability, Removes Dirt And Oils, Preps Waterproofing",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

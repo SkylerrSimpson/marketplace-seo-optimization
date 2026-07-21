@@ -1,0 +1,56 @@
+{
+    "sku": "UPD-CHRBP-HK-ABYI-AMZ",
+    "asin": "B0B8GWKMPL",
+    "product_type": "OUTDOOR_RECREATION_PRODUCT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-CHRBP-HK-ABYI-AMZ\nProduct Type: OUTDOOR_RECREATION_PRODUCT\nBrand (from catalog): Fast Forward\nExisting Title: Fast Forward Hello Cat 11\" Mini Backpack\nDescription: Does your child love kawaii characters? This officially licensed kid’s backpack features one of everyone’s most recognizable Sanrio characters: Hello Kitty. The backpack has a small interior compartment for safely storing school supplies, padded and adjustable straps for a custom fit, and a bold, colorful Hello Kitty front graphic which is sure to turn heads.<br/><br/>This Hello Kitty backpack is incredibly lightweight and easy for little kids to carry comfortably. The straps are adjustable which offers extra support for most kids. Easy to clean, the vinyl-like interior can be spot cleaned and wiped down if a lunch or water bottle is spilled, and the soft exterior can also be wiped as needed. If you need a deep clean, throw it in the washing machine on the cold setting and let air dry.<br/><br/>Designed for carrying school supplies, this versatile kid’s travel bag can also be used as an overnight back for sleepovers, a travel backpack for vacations and road trips. Your little one will love showing off their favorite character on their brand-new backpack this year.\nSearch Terms: school backpack kids backpacks girls backpacks boys backpacks back to school supplies school supplies backpack kids kids backpacks shoulder straps elementary school backpack boys elementary school backpack for kids mini travel bags for kids\nFeatures:\n- HELLO KITTY SCHOOL BACKPACK - Officially licensed Sanrio kids backpack features one of everyone’s favorite kawaii characters - Hello Kitty; Features mini interior compartment, padded and adjustable shoulder straps and a bold, colorful Hello Kitty front graphic\n- COMFORTABLE AND LIGHTWEIGHT - Hello Kitty backpack is incredibly lightweight and easy for kids to carry comfortably; Straps are padded and adjustable for custom comfort; Offers extra support and a great fit for most little kids\n- EASY TO CLEAN - Vinyl-like interior is easy to wipe down if a water bottle or lunch is spilled; Soft exterior can also be spot cleaned, or the entire backpack washed on the cold setting for a deeper clean when needed (air dry only)\n- VERSATILE TRAVEL BAG - Designed for carrying school supplies, Hello Kitty backpack can also be used as an overnight back for sleepovers, a travel backpack for family vacations and playdates\n- SPECIFICATIONS - Officially licensed by Sanrio (Hello Kitty); Dimensions: 11” x 9” x 3”; Colors: Assorted; Washable: yes (cold setting and air dry only); Adjustable straps: yes\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Fast Forward Hello Kitty 11\" Mini Backpack",
+            "tokens": {
+                "brand": "Fast Forward",
+                "pack_size": "11",
+                "pack_size_unit": "in",
+                "size": "Mini",
+                "color": "",
+                "name": "Hello Kitty Backpack"
+            },
+            "char_count": 42,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": null,
+            "tokens": null,
+            "char_count": null,
+            "validation_error": "no item_name returned"
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Officially Licensed Sanrio, Lightweight And Comfortable, Padded Adjustable Straps, Easy To Clean, Versatile Travel Bag",
+            "char_count": 118,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": null,
+            "char_count": null,
+            "validation_error": "no title_differentiation returned"
+        }
+    },
+    "raw": {
+        "openai": "Client error: `POST https://api.openai.com/v1/chat/completions` resulted in a `429 Too Many Requests` response:\n{\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-5.4-mini in organization org-el3QE531uTdEpv2furRUAnXD on (truncated...)\n"
+    }
+}

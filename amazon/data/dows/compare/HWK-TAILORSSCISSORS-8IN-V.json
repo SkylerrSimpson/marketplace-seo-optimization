@@ -1,0 +1,60 @@
+{
+    "sku": "HWK-TAILORSSCISSORS-8IN-V",
+    "asin": "B09HJRZK5N",
+    "product_type": "SCISSORS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWK-TAILORSSCISSORS-8IN-V\nProduct Type: SCISSORS\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Stainless Steel Heavy Duty Fabric Scissors Sewing Supplies, 8 Inch\nDescription: Whether sewing, quilting, pattern making for fashion design or working with upholstery fabric and more, these heavy duty fabric scissors will see you through countless cuts with precision, including cutting through multiple layers of fabric simultaneously with their classic dressmaking knife edge blades. <br/><br/>- Angled bend in the handle and flat bottom guide or node allows the scissors or dressmakers shears to make contact with your cutting surface and remain flat for steadiness and precise cuts<br/><br/>- The stainless steel tailor scissors are incredibly strong, durable, corrosion resistant and are designed to withstand lots of wear and tear; the knife edge blades allows the top edge to cut an acute angle which is purposefully designed to cut through fabric easier than regular craft scissors <br/><br/>- Even after working through difficult fabrics and hundreds of cuts, the fabric scissors with long knife edge blades will remain sharp, easily handling tough materials time and time again <br/><br/>- The fabric scissors also feature a tapered design on the top blade to prevent the sewing scissors from snagging on seams or threads; the more pointed tip is ideal for clipping and notching curves <br/><br/>If you have a serial sewer or fabric crafter in your life, or you're just taking on some new sewing or fabric projects yourself, these professional high quality fabric scissors offer comfort and accuracy with each and every cut.\nSearch Terms: shears fabric scissors sewing scissors utility scissors sewing supplies pattern making for fashion design art supplies creative quilting craft hobby tools arts and crafts tailoring upholstery fabric embroidery work from home blade DIY\nFeatures:\n- HEAVY DUTY FABRIC SCISSORS: Whether sewing, quilting, pattern making for fashion design or working with upholstery fabric and more, these heavy duty fabric scissors will see you through countless cuts with accuracy, including cutting through multiple layers of fabric simultaneously with knife edge blades\n- ESSENTIAL SEWING SUPPLIES ITEM: If you have a serial sewer in your life, they'll love these professional high quality fabric scissors for the weight, comfort and accuracy; the angled bend in the handle and flat bottom guide allows the scissors to make contact with your cutting surface and remain flat for steadiness and comfort\n- STAINLESS STEEL: High quality construction made from stainless steel, these tailor scissors are incredibly strong, durable, corrosion resistant and are designed to withstand lots of wear and tear; the ergonomic angles design of the handle promotes ease of handling when cutting\n- ULTRA SHARP BLADE RETENTION: Even after working through difficult fabrics and hundreds of cuts, the fabric scissors with long knife edge blades will remain sharp, easily handling tough materials with ease and precision\n- SPECIFICATIONS: Dimensions: 8 x 3 x 0.75 inches; Color: Silver; Material: Stainless Steel; Weight: 0.425 pounds; Blade Length: 4 inches; Plastic Vinyl Storage Case: Included with Purchase\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 8in Silver Stainless Steel Fabric Scissors",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "8",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Silver",
+                "name": "Stainless Steel Fabric Scissors"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 8 in Silver Fabric Scissors",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "8",
+                "pack_size_unit": "in",
+                "size": "8 in",
+                "color": "Silver",
+                "name": "Fabric Scissors"
+            },
+            "char_count": 38,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Heavy Duty Knife Edge Blades, Sharp Blade Retention, Ergonomic Handle, Tailor And Quilting Shears, Storage Case",
+            "char_count": 111,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Heavy Duty Knife Edge Blades, Angled Handle For Flat Cutting, Ultra Sharp Stainless Steel, Includes Storage Case",
+            "char_count": 112,
+            "validation_error": null
+        }
+    }
+}

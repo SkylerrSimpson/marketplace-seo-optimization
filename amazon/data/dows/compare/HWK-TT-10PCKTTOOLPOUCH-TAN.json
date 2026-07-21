@@ -1,0 +1,60 @@
+{
+    "sku": "HWK-TT-10PCKTTOOLPOUCH-TAN",
+    "asin": "B0B6DTH9QK",
+    "product_type": "TOOL_BELT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWK-TT-10PCKTTOOLPOUCH-TAN\nProduct Type: TOOL_BELT\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux 10 Pocket Heavy Duty Leather Tool Pouch for Carpentry Electrician Tools DIY Contractor Bags, 12 x 10 Inches\nDescription: Featuring top grain leather fabrication, wide 3.5 inch backside tunnel loop and 10 pockets for additional tool storage, this leather tool pouch is heavy duty, made to be used and can handle any job you throw its way.<br/><br/>This heavy duty leather tool pouch or tool bag comes with x4 large front pockets (11 x 7, 8 x 5, 9 x 6 and 7.5 x 7 inches), x2 hammer holds (one fixed and one swivel) and x6 smaller thin pockets for pencils, screwdrivers or the like, it can host a lot of tools, a tape measure and more in its generous 12 x 10 inch design. And, made from top grain leather with double rivets and reinforced corner stitching, this leather tool pouch is of high quality and fabricated from quality materials; the tool pouch will be stiff upon arrival but will soften and relax with use and time.<br/><br/>This heavy duty tool pouch from ToolTreaux has a wide application range. It's suitable for DIY at home, construction, electrical work, carpentry, woodworking, framing and building, for plumbers, contractors and more; it also makes great gifts for men, Dad gifts, husbands, brothers and boyfriends.<br/><br/>With ample space for tools, including deep pockets for nail and screws, a tape measure, pencil holders, hammer loops and more, this large capacity tool pouch will give you more than sufficient access to and storage of tools, so you can focus on the job at hand. <br/><br/>Please Note: the tool belt is not customizable or able to be personalized\nSearch Terms: electrician tool pouch carpenter tools carpentry wood working tools and equipment leather tool bag tool belt for men tool belt pouches construction tools plumbing framing building construction accessories men dad gifts gifts for men painting\nFeatures:\n- 10 POCKET LEATHER TOOL POUCH: This leather tool pouch can handle any job! It features x4 large front pockets, x1 tape measure holder, x2 hammer holds and x4 narrow pockets, making it a great add on to an existing tool belt for more storage or as a compact tool belt on its own (belt not included)\n- WIDE 3.5 INCH TUNNEL LOOP: The 3.5 inch wide leather tunnel loop on the backside of the tool belt makes it easy to slide on to an existing tool belt to give you more tool storage\n- QUALITY LEATHER TOOL BAG: Made from top grain leather with double rivets and reinforced stitching, this leather tool pouch is made to be used and is of high quality; the tool belt will be stiff upon arrival but will soften and relax with use and time\n- WIDE APPLICATION: This heavy duty tool pouch from ToolTreaux is suitable for DIY at home, construction, electrical work, carpentry, woodworking, framing and building, for plumbers, contractors and more; great gifts for men, Dad gifts, husbands, brothers and boyfriends\n- SPECIFICATIONS: Dimensions: 12 x 10 x 3 inches; Color: Tan Brown; Material: Leather; Weight: 1.60lbs\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 10 Pocket Tan Leather Tool Pouch",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "10",
+                "pack_size_unit": "Pocket",
+                "size": "12 x 10 in",
+                "color": "Tan",
+                "name": "Leather Tool Pouch"
+            },
+            "char_count": 43,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 12x10 in Tan Leather Tool Pouch",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "12x10 in",
+                "color": "Tan",
+                "name": "Leather Tool Pouch"
+            },
+            "char_count": 42,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Heavy Duty Top Grain Leather, 35 Inch Tunnel Loop, 4 Large Pockets, Hammer Holders, Carpenter Electrician",
+            "char_count": 105,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "10 Pockets, Top Grain Leather, Wide Tunnel Loop, Double Rivets, Hammer Loops, Reinforced Stitching, Tape Measure Holder",
+            "char_count": 119,
+            "validation_error": null
+        }
+    }
+}

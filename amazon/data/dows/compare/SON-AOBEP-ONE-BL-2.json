@@ -1,0 +1,60 @@
+{
+    "sku": "SON-AOBEP-ONE-BL-2",
+    "asin": "B0CHVMYH16",
+    "product_type": "COAT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-AOBEP-ONE-BL-2\nProduct Type: COAT\nBrand (from catalog): ASR Outdoor\nExisting Title: (4-Pack) ASR Outdoor Camping Rain Slicker Universal Fit Unisex Rain Poncho, Sad Face Blue\nDescription: Depending on where you live, chances are that you've found yourself caught in an unexpected rain storm without a proper jacket or umbrella at least once. In order to avoid this unfortunate circumstance, we suggest keeping a poncho in your car, truck, backpack, purse or travel bag - just in case. The ASR Outdoor Blue Emergency Poncho will do just the trick.<br/><br/>Our poncho is constructed of durable yet lightweight polyethylene material that is water resistant, so you don't need to worry about your clothes, hair or anything you're carrying getting ruined in a downpour. It comes with an attached hood and sleeves that are incorporated, so you can ensure you're covering yourself up and protecting yourself from the rain. The hood has an adjustable string so you can loosen or tighten it for custom comfort.<br/><br/>This poncho comes in a bright blue color so it can double as a visibility aid in poor lighting conditions, and has a .015mm thickness so it won't weigh you down. Its sole purpose is to keep you dry. We designed it to be reusable, too - just let it dry out after use, and you can fold it back up and store it for next time. Measuring 61\" x 65\" fully unfolded, it's made to be \"one size fits most\" making it an ideal poncho for men, women and children alike. <br/><br/>In addition to keeping you dry in the event of an unexpected storm while out and about, ponchos are also great for camping, hiking, boating, emergencies and more. The bright blue colored poncho can be a great way to keep your child identifiable in a crowd while traveling. In a pinch, you can even use a poncho as a makeshift roof or shelter, a wind breaker, a rain catcher, or water carrier. Make sure to grab a few of these and prepare yourself for the rain storm.\nSearch Terms: kids rain disposable adult emergency storm weather waterproof lightweight unisex wet water protection inclemental weather hurricane disaster kit survival\nFeatures:\n- DURABLE AND LIGHTWEIGHT CONSTRUCTION - ASR Outdoor Poncho Made of Water Resistance Polyethylene Material; Protect Yourself, Clothes and Hair from the Rain\n- ATTACHED HOOD AND SLEEVES - Poncho Comes with Incorporated Sleeves and Attached Hood; Hood Features Adjustable String for Custom Comfort\n- ONE SIZE FITS MOST - Measures 65\" x 61\" Fully Unfolded; Designed to Fit Most All; Ideal Poncho for Men, Women, and Children\n- HIGH VISIBILITY COLOR - Bright Blue Poncho Aids in Visibility in Poor Weather Conditions; Great for Keeping Children Identifiable in a Crowd\n- MULTI-PURPOSE EQUIPMENT - Use Poncho as Makeshift Roof, Shelter, Wind Breaker, Rain Catcher and More; Bring Camping, Hiking, Boating, etc.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 4-Pack Blue Rain Poncho Unisex",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "Blue",
+                "name": "Rain Poncho Unisex"
+            },
+            "char_count": 42,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 4-Pk Blue Rain Poncho",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "Pk",
+                "size": "",
+                "color": "Blue",
+                "name": "Rain Poncho"
+            },
+            "char_count": 33,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Water Resistant Polyethylene, Attached Hood With Adjustable String, One Size Fits Most, High Visibility, Multi-Purpose Emergency Gear",
+            "char_count": 133,
+            "validation_error": "value exceeds maxLength 125 (133 chars)"
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Waterproof Polyethylene, Attached Hood And Sleeves, One Size Fits Most, Lightweight, Reusable, High Visibility Blue",
+            "char_count": 115,
+            "validation_error": null
+        }
+    }
+}

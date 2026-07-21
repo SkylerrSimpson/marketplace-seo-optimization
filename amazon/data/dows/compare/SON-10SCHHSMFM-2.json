@@ -1,0 +1,60 @@
+{
+    "sku": "SON-10SCHHSMFM-2",
+    "asin": "B000RB3XLU",
+    "product_type": "HAMMER_MALLET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-10SCHHSMFM-2\nProduct Type: HAMMER_MALLET\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 10 inch Stone Carving Hammer Hardened Steel Mallet for Masonry\nDescription: A heavy mallet like this is ideal for breaking up and carving granite, sandstone, tile, and more. You'll also find it useful in small home renovation projects. The wood handle makes for heavier blows in environments where there is limited swing room. The head of the hammer measures 1.5\" x 1.5\". Properly balanced the over all weight is 1.15lbs<br/><br/>This heavy duty mallet can be used to strike cold chisels, star drills, spikes, hardened nails and punches. It is a very reliable and effective tool that you can count on to get the job done right. <br/><br/>The hammer is constructed of a super-strong stone head and a sturdy wooden handle, ensuring it will be up to the task no matter what you need to hammer. The handle features an ergonomic design that will help prevent slippage during use.<br/><br/>1 1/8 Inch Striking Surface<br/>Forged Steel Head<br/>Solid Wood Handle <br/><br/>Weight: 18.4 ounces or 1.15lbs<br/><br/><br/>In addition to masonry projects, stone hammers are also great tools for hobby crafts like jewelry making, leatherworking, woodworking, and construction. It will easily crack hard substances like rocks and stones.\nSearch Terms: steel masonry mallet carving stone hammer steel mallet DIY renovations stonework granite sandstone tile work masonry tool forged steel construction shock rock pick hammer pointed tip brick\nFeatures:\n- HARDENED STEEL HAMMER HEAD: Stone hammer is 10 inches in length, making it the ideal size for striking cold chisels, brick chisels, punches, spikes, hardened nails, and star bits; the head of the hammer measures 1.5 x 1.5 inches\n- DURABLE CONSTRUCTION: The hammer head is made from alloy steel with a solid and sturdy wooden handle, ensuring it will be up to the task no matter what you need to hammer; the handle features a small tappered, ergonomic design that will help prevent slippage during use\n- EVENLY WEIGHTED BALANCE: The mallet head of the stone masonry hammer is appropriately weighted, providing the perfect balance and power-to-weight ratio to increase swing speed and intensify striking power\n- APPLICATIONS AND USE: In addition to masonry projects, stone hammers are also great tools for hobby crafts like jewelry making, leatherworking, woodworking, and construction. It will easily crack hard substances like rocks and stones\n- STONE HAMMER SPECIFICATIONS: Overall dimensions: 10.25\" x 4.5\"; Head dimensions: 1.5\" x 1.5\"; Head weight: 4.8 ounces; Overall weight: 1.15lbs; Comfortable grip handle\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 10 inch Stone Carving Hammer Masonry Mallet",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "inch",
+                "size": "",
+                "color": "",
+                "name": "Stone Carving Hammer Masonry Mallet"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 10 in Stone Carving Hammer",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "in",
+                "size": "10 Inch",
+                "color": "",
+                "name": "Stone Carving Hammer"
+            },
+            "char_count": 38,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Hardened Steel Head, Forged Construction, Ergonomic Wood Handle, Balanced Weight",
+            "char_count": 80,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Hardened Steel Head, Solid Wood Handle, Balanced 115 Lb Weight, For Chisels, Granite, Tile, Masonry",
+            "char_count": 99,
+            "validation_error": null
+        }
+    }
+}

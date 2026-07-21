@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-BOOTKIT-SUEDE-36769",
+    "asin": "B0BQ7LBQ5R",
+    "product_type": "FOOTWEAR_CARE_KIT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-BOOTKIT-SUEDE-36769\nProduct Type: FOOTWEAR_CARE_KIT\nBrand (from catalog): GEAR AID\nExisting Title: GEAR AID Revivex Suede, Nubuck Fabric Boot and Shoe Care Kit, Ideal for use on Waterproof-breathable Footwear\nDescription: The Revivex Suede, Nubuck and Fabric Boot Care Kit is all you need to safely clean and protect suede, nubuck, canvas and waterproof-breathable footwear like GORE-TEX® boots. The complete Deluxe Kit includes suede cleaner, a water repellent spray, a stiff brush to remove dirt, and an eraser block to remove scuffs. This cleaner creates minimal suds, while the water repellent keep your shoes protected from getting soaked and stained. If you already purchased our Deluxe Kit, refill it with the Revivex cleaner and water repellent. Or, if tools are all you need, order the Add-On Kit with only the boot brush and eraser. Extending the life of your favorite kicks is easier than ever with the Revivex Suede, Nubuck and Fabric Boot Care Kit.\nSearch Terms: Boot Care Kit Revivex Nubuck Suede\nFeatures:\n- Clean and protect suede and nubuck footwear from water, dirt and stains to keep them looking like new with the Revivex Suede and Fabric Boot Care Kit\n- PFAS-free with zero fluorocarbons, this formula is ideal for use on waterproof-breathable fabrics\n- Use the concentrated Revivex Boot and Shoe Cleaner to safely remove dirt and grime from suede, nubuck, canvas and GORE-TEX® boots\n- Maximize breathability of waterproof-breathable shoes and keep feet feeling cool and dry with Revivex Suede and Fabric Water Repellent\n- Packaging may vary\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 80 characters.  Please include the size and color of the item in the Product Name, if available.\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "GEAR AID Revivex Suede Nubuck Fabric Boot Care Kit",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Revivex Suede Nubuck Fabric Boot Care Kit"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID Revivex Suede Nubuck Boot and Shoe Care Kit",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Revivex Suede Nubuck Boot and Shoe Care Kit"
+            },
+            "char_count": 52,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Complete Deluxe Kit, Cleaner And Water Repellent Spray, Brush And Eraser, PFAS-Free, GORE-TEX Compatible",
+            "char_count": 104,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Cleans Suede Nubuck Canvas, Water Repellent Protection, PFAS-Free Formula, Brush And Eraser Included",
+            "char_count": 100,
+            "validation_error": null
+        }
+    }
+}

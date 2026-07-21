@@ -1,0 +1,60 @@
+{
+    "sku": "SON-GSC14MSSPPWFP-GRN-PLST",
+    "asin": "B0BLQH67GF",
+    "product_type": "SPORTING_GOODS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-GSC14MSSPPWFP-GRN-PLST\nProduct Type: SPORTING_GOODS\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Gold Rush 1/4\" Sifting Classifier Screen Sieve Prospect Pan, 4 Holes per Inch\nDescription: Heavy duty, rust free plastic sifting screen from ASR Outdoor will aid your increase the quality of the material you can run through a sluice box or gold pan, by separating unwanted coarse raw material into finer, manageable and hopefully more valuable pay dirt.<br/><br/>This classifier screen has been designed to be used in conjunction with a standard 5 gallon or 3 gallon buckets, as well as a 14 inch gold pan; this sifting screen is stackable, interlocking on top of other classifier screens if desired, to create an efficient material classification system, ready for panning. sluicing or high banking.<br/><br/>Featuring four holes per square inch, this classifier screen will work best with partially classified or finer raw materials given the mesh size. The sifting screen is also a great tool for rock hounding or gem hunting, as well as foraging. Good luck out there!<br/><br/>\nSearch Terms: gold panning sluice box prospecting sediment sorting geology classifier screen for home garden worm compost sifter mineral pay dirt collection outdoor dry sifting hash extractor micron sieve pollen soil herb THCL press fine material\nFeatures:\n- 5 GALLON CLASSIFIER SCREEN: Soil sifting plastic classifier will fit on top of 5-gallon bucket and our 14\" gold pan; Interlocking, stackable design; Top Diameter: 13.25\", Bottom Diameter: 11\"\n- RUGGED DESIGN: Constructed from High-Impact Durable Plastic with Polypropylene Mesh Screen\n- 1/4\" CLASSIFIER SIFTING SCREEN SIZE: 4 Holes per Square Inch\n- GOLD PROSPECTING EQUIPMENT: Classifying your raw material down is imperative for successful gold recovery; removing large and worthless rocks from your high-yielding paydirt\n- FIELD TESTED: Easily screen off gravel and rock from your findings to locate gold and other treasures hidden within your raw material\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 14in Gold Sifting Classifier Screen",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "14",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Gold Sifting Classifier Screen"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 1/4\" Gold Prospecting Classifier Screen",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "1/4\"",
+                "color": "",
+                "name": "Gold Prospecting Classifier Screen"
+            },
+            "char_count": 51,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "14 Inch Mesh, 4 Holes Per Square Inch, Stackable, Fits 5-Gallon Bucket, Gold Panning And Prospecting",
+            "char_count": 100,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "4 Holes Per Square Inch, Fits 5-Gallon Buckets And 14\" Pans, Stackable Interlocking Design, Durable Polypropylene Mesh",
+            "char_count": 118,
+            "validation_error": null
+        }
+    }
+}

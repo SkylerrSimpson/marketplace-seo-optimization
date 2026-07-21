@@ -1,0 +1,60 @@
+{
+    "sku": "NPT-9IFTSDKWSLHS-9-SLVR-2",
+    "asin": "B071J92XPM",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: NPT-9IFTSDKWSLHS-9-SLVR-2\nProduct Type: KNIFE\nBrand (from catalog): ASR Outdoor\nExisting Title: Full Tang Serrated 9 Inch Stainless Steel Dive Knife with Leg Holster\nDescription: This Dive Knife is an ideal tool for bringing along dives or other dangerous underwater activities. It features a sharp tip for ultimate slicing capability and serrated edge, great whether you're warding off a big fish or cutting yourself loose from a tangle.<br/><br/>Measuring at just 9\" long, this knife will come in handy in just about any high-pressure situation. It comes with a durable black sheath with a quick release button for reliability. In addition you'll also find convenient fully adjustable leg holster straps constructed of a durable rubber.<br/><br/>The full tang design of this blade ensures that you wont ever have to worry about cleaning it thoroughly. It's all one piece, so no removal of a handle is necessary.<br/><br/>Make sure to keep one of these on you at all times underwater. They also make great additions to car or boat emergency kits.\nSearch Terms: diving knife for fishing underwater leg holster dive knives professional outdoors marsh swamp nife\nFeatures:\n- Overall Length: 9\"\n- Blade Length: 4\"\n- Sheath Length: 7\"\n- 2 pc Holster Straps: 20\" L Each\n- Material: Stainless Steel\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 9\" Serrated Stainless Steel Dive Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "9",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Silver",
+                "name": "Serrated Stainless Steel Dive Knife"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 9-in Serrated Stainless Steel Dive Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "9",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Serrated Stainless Steel Dive Knife"
+            },
+            "char_count": 52,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Full Tang Design, Sharp Tip, Leg Holster Included, Quick Release Sheath, Underwater Cutting Tool",
+            "char_count": 96,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Full Tang Construction, Serrated 4\" Blade, Quick Release Sheath, Adjustable Leg Holster Straps, Stainless Steel",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

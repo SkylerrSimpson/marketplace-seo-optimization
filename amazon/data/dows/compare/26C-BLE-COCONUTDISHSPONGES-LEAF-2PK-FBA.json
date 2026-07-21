@@ -1,0 +1,60 @@
+{
+    "sku": "26C-BLE-COCONUTDISHSPONGES-LEAF-2PK-FBA",
+    "asin": "B0DPD314SS",
+    "product_type": "UTILITY_SPONGE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 26C-BLE-COCONUTDISHSPONGES-LEAF-2PK-FBA\nProduct Type: UTILITY_SPONGE\nBrand (from catalog): Beille\nExisting Title: Beille 2pc Non Scratch Coconut Plant Based Dish Sponges Kitchen Essentials, Leaf\nDescription: Plant based. Food safe. Plastic free. Fully compostable. 100% natural composition. Biodegradable. Need we say more? If you’re looking for green cleaning supplies, look no further than Beille’s Non Scratch 100% Natural Fiber and Coconut Plant Based Dish Sponges. <br/><br/>Tackle your dishwashing tasks with the power of nature. Made from 100% natural fibers and coconut, these dish sponges provide a sustainable alternative to traditional synthetic sponges. Designed for heavy duty scrubbing, they effectively remove grease, grime and food particles without damaging your cookware, dishware or countertops.<br/><br/>The coarse texture of the coconut fibers offers excellent scrubbing power, while the natural material ensures a tougher, more durable, longer lasting sponge that resists odors and unwanted build up. Gentle on surfaces but tough on dirt, these sponges are perfect for all your dishwashing, cleaning and scrubbing needs. And, once your sponge is worn out, it can be composted, returning nutrients to the earth and not contributing landfill waste.<br/><br/>Beille’s 100% natural dishwashing sponges are a small change that makes a big difference! Say goodbye to plastic and embrace a greener, more sustainable way to clean.<br/><br/>Choose from a traditional rectangular shape or modern leaf shape. Sold in packs of two.\nSearch Terms: kitchen essentials dish sponge scrubber cleaning tools supplies sustainable products best housewarming gifts new home pantry natural dish soap dish cloths for washing dishes non scratch sponges plant based biodegradable wipes dishwashing sponges\nFeatures:\n- PLANT BASED DISH SPONGE: Choose from a standard dish sponge shape or modern leaf shape, these all natural, non scratch, plant based dishwashing sponges from Beille are tough on grease but easy on dishes, cookware, counters and more\n- SUSTAINABLE PRODUCTS: Made from 100% natural fibers and coconut, these dishwashing sponges provide a sustainable and biodegradable alternative to traditional synthetic sponges; these dishwashing sponges will quickly become kitchen essentials and are food safe and plastic free\n- ODOR FREE DISHWASHING SPONGE: The coarse texture of the coconut and natural fibers offers excellent scrubbing power, while the natural material ensures a longer lasting sponge that resists unwanted odors and left behind build up; fully compostable\n- CLEANING SUPPLIES: Safe for all dishware, counters, cookware, baking supplies and more, take on even the grimiest of messes, these dishwashing sponges can handle it! Say goodbye to plastic and embrace a greener, more sustainable way to clean\n- SPECIFICATIONS: Dimensions: 4.25 x 2.5 x 0.75 inches; Weight: 0.08lbs; Colors; White/Brown\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 2-pk Leaf Coconut Plant Based Dish Sponges",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "Leaf",
+                "color": "",
+                "name": "Coconut Plant Based Dish Sponges"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 2-pk Leaf Non Scratch Coconut Plant Based Dish Sponges",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "Leaf",
+                "color": "",
+                "name": "Dish Sponges"
+            },
+            "char_count": 61,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Non-Scratch, 100 Percent Natural Fibers, Biodegradable, Compostable, Odor Resistant, Sustainable",
+            "char_count": 96,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Plant Based, Non Scratch, Coconut Fiber, Fully Compostable, Food Safe, Odor Resistant, Plastic Free",
+            "char_count": 99,
+            "validation_error": null
+        }
+    }
+}

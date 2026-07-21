@@ -1,0 +1,60 @@
+{
+    "sku": "SON-DRYBOX-BLK",
+    "asin": "B0BCMXT4P4",
+    "product_type": "STORAGE_BOX",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-DRYBOX-BLK\nProduct Type: STORAGE_BOX\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Illuminated Dry Box Detachable Lid Large Waterproof Storage Case\nDescription: The ASR Outdoor waterproof dry box is a great option for storing tools, essential items, and accessories that need to be kept dry in an emergency or inclement weather. Use it to hold phones, batteries, emergency supplies, and other items and store them safely in your car or boat.<br/><br/>Each dry box comes with a removable COB light and lid that are both detachable so you can locate your items in the dark easily if needed. The light requires 3 AAA batteries which we've included for convenience.<br/><br/>The ASR Outdoor storage case is made of durable, high-quality plastic with a steel latch that won't rust or deteriorate. It comes in a classic black color and features a secure latch that makes the box airtight once locked.<br/><br/>Our dry box comes in a large size (11.4\" x 5.1\" x 7.5\") that is ideal for holding larger tools and supplies without taking up too much space in your car, boat, or workshop. Easily store items like emergency hammers, flashlights, blankets, and more in case of an emergency.\nSearch Terms: ammo can storage dry box military plastic lightweight secure lock box sporting goods storage tackle box\nFeatures:\n- WATERPROOF STORAGE BOX - ASR Outdoor waterproof dry box is ideal for storing tools, accessories, and essential items that need to be kept dry in inclement weather or emergency situations. Use it to hold emergency supplies, phones, batteries, and other items; store them in your car, kayak, or boat safely\n- ILLUMINATED DETACHABLE LID - Dry box comes with a removable COB light and lid that are detachable so you can locate your items in the dark. Light requires 3AAA batteries (included)\n- DURABLE CONSTRUCTION - Waterproof storage case is made of high-quality, durable plastic that won't rust or deteriorate. Comes in black color and features a secure latch lid that makes the box airtight once locked\n- LARGE SIZE - Dry box measures 11.4\" x 5.1\" x 7.5\", the ideal size for holding larger tools and supplies without taking up too much space. Store emergency hammer, flashlights, blankets, blades, and more in case of emergency\n- SPECIFICATIONS - Materials: plastic, metal (waterproof); Colors: Black, chrome; Dimensions: 11.4\" x 5.1\" x 7.5\"; Lid type: detachable; Light included: COB, detachable; Batteries Included: 3AAA\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Large Black Waterproof Dry Box Storage Case",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Large",
+                "color": "Black",
+                "name": "Waterproof Dry Box Storage Case"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Large Black Waterproof Dry Box",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Large",
+                "color": "Black",
+                "name": "Waterproof Dry Box"
+            },
+            "char_count": 42,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Illuminated Detachable Lid, Airtight Latch, Durable Plastic Construction, Emergency Storage, Includes 3AAA Batteries",
+            "char_count": 116,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Illuminated Detachable Lid, Waterproof Airtight Seal, Durable Plastic, Rustproof Steel Latch, Includes 3 AAA Batteries",
+            "char_count": 118,
+            "validation_error": null
+        }
+    }
+}

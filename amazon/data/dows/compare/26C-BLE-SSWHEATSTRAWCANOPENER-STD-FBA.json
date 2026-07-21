@@ -1,0 +1,60 @@
+{
+    "sku": "26C-BLE-SSWHEATSTRAWCANOPENER-STD-FBA",
+    "asin": "B0GY9SXYZ1",
+    "product_type": "CAN_OPENER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 26C-BLE-SSWHEATSTRAWCANOPENER-STD-FBA\nProduct Type: CAN_OPENER\nBrand (from catalog): Beille\nExisting Title: Beille 1pc Manual Stainless Steel Can Opener with Wheat Straw Handle Kitchen Gadgets, Cream\nDescription: The newest addition to the Beille Wheat Straw Collection, this manually operated can opener has been designed for everyday simplicity, combining durable performance with a clean, modern aesthetic. Featuring a sharp stainless steel cutting blade, this useful kitchen gadget delivers smooth, reliable opening with minimal effort, making it a dependable tool for daily use.<br/><br/>Built for ease of use whenever you need it, the ergonomic design provides steady control and consistent results, helping you open cans quickly and efficiently. The stainless steel mechanism ensures long term durability, while the large wheat straw handles provide plenty of surface area for gripping and sturdiness when opening. The handle material is crafted from renewable wheat straw material, offering a subtle, natural texture; this is best described as soft and smooth to the touch, but simultaneously tactile and matte feeling when in hand.<br/><br/>The neutral stainless steel and speckled cream wheat straw design ensures that this modern manual can opener fits seamlessly into a variety of kitchen styles. Whether your space leans farmhouse, mid century, minimalist and more, this can opener is designed to complement any kitchen style. A practical addition to any kitchen, this Beille manual can opener blends functionality, durability and thoughtful design into one simple, reliable tool.\nSearch Terms: Manual can opener handheld can opener kitchen tool stainless steel can opener easy turn can opener durable can opener wheat straw kitchen tools eco friendly kitchen utensil hand can opener smooth edge opener lightweight opener\nFeatures:\n- WHEAT STRAW HANDLES: Designed with comfortable, easy to grip handles made from renewable wheat fiber or wheat straw material for a natural, modern and thoughtful kitchen feel\n- DURABLE STAINLESS STEEL: Sharp stainless steel blade glides through cans with ease, providing clean cuts and consistent performance for everyday kitchen use\n- EASY TO USE AND CONTROL: Large handles and ergonomic design allows for steady turning and controlled opening, making it simple to use for a wide range of users\n- CLEAN AND MODERN DESIGN: Minimal, neutral aesthetic complements any kitchen style, and can be paired with any of the other Beille wheat straw kitchen gadgets and utensils\n- SPECIFICATIONS: Dimensions: 8.0 x 3.25 x 1.75 inches; Product Weight: 0.62lbs; Care: Hand wash only\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille Manual Stainless Steel Can Opener Wheat Straw",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "1",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Cream",
+                "name": "Manual Stainless Steel Can Opener with Wheat Straw Handle"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 1-Pc Cream Stainless Steel Manual Can Opener",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "1",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Cream",
+                "name": "Stainless Steel Manual Can Opener"
+            },
+            "char_count": 51,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Ergonomic Design, Sharp Stainless Steel Blade, Wheat Straw Handles, Eco-Friendly, Easy Turn, Smooth Edge, Hand Wash",
+            "char_count": 115,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Wheat Straw Handles, Ergonomic Grip, Sharp Stainless Blade, Easy Turn Control, Renewable Material, Hand Wash Only",
+            "char_count": 113,
+            "validation_error": null
+        }
+    }
+}

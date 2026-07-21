@@ -1,0 +1,60 @@
+{
+    "sku": "SON-11ISCCMTWCC-20PC-SML-SLVR",
+    "asin": "B06ZXS9JW9",
+    "product_type": "MULTITOOL",
+    "account": "IGE",
+    "generated_at": "2026-07-21T17:20:41+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-11ISCCMTWCC-20PC-SML-SLVR\nProduct Type: MULTITOOL\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor EDC Multi-function Utility Survival Credit Card Tool Silver - 20 Pack\nDescription: Make sure you have the right tool in a pinch with the ASR Outdoor Multi Function Credit Card Tool 20 Pack.<br/><br/>This item was design as a versatile EDC multi tool for survivalists, preppers, backpackers, every day campers and hikers alike. A tool that will stand the test of time when put in any situation. It is strong, durable, constructed from Stainless Steel. Weighs less that 5 grams.<br/><br/>This item was design as a versatile EDC multi tool for survivalists, preppers, backpackers, every day campers and hikers alike. A tool that will stand the test of time when put in any situation. It is strong, durable, constructed from Stainless Steel. Weighs less that 5 grams.<br/><br/>These devices feature 11 in 1 built in functions - a sun compass, 2 position wrench, key chain hole, 4 position wrench, saw, screw wrench, can opener, bottle opener, blade, screwdriver and a ruler for good measure. Their small design will fit neatly in most credit card-sized slots in a wallet or purse. Make sure to grab a few of these to keep in your bag, backpack, vehicle or boat for an emergency.\nSearch Terms: Emergency on the go everyday carry edc prepared bug out prepper durable survival pocket tool bike\nFeatures:\n- Practical Multi-tool Card - Fits In Most Wallets (20 Pack)\n- Material: Thick Guage Steel\n- Extra Durable Stainless Steel\n- Performs 11 Functions (see picture #2)\n- Comes w/ Lightweight Black Sheath\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 20-Pack Silver Credit Card Multi-Tool",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "20",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "Silver",
+                "name": "Credit Card Multi-Tool"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 20-Pk Silver Credit Card Survival Multi-Tool",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "20",
+                "pack_size_unit": "Pk",
+                "size": "",
+                "color": "Silver",
+                "name": "Credit Card Survival Multi-Tool"
+            },
+            "char_count": 56,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "11-In-1 Functions, Stainless Steel, Wallet-Sized EDC, Emergency Survival, Lightweight, Black Sheath",
+            "char_count": 99,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "11-In-1 Functions, Stainless Steel, Wallet-Sized, Includes Sheath, Sun Compass, Wrench, Saw, Can Opener",
+            "char_count": 103,
+            "validation_error": null
+        }
+    }
+}

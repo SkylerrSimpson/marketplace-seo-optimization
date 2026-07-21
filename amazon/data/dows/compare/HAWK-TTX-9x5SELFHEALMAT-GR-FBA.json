@@ -1,0 +1,60 @@
+{
+    "sku": "HAWK-TTX-9x5SELFHEALMAT-GR-FBA",
+    "asin": "B077C8LD7F",
+    "product_type": "CUTTING_BOARD",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HAWK-TTX-9x5SELFHEALMAT-GR-FBA\nProduct Type: CUTTING_BOARD\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux DIY Craft Self Healing Cutting Mat Art Supply Tool, Green (9 x 5 Inches)\nDescription: The ToolTreaux self-healing cutting mat is a hobby and craft essential for any DIY workspace. Designed to heal on its own, the mat's surface is made from separate tiny pieces of materials to create a solid surface for you to cut on. Your cutting tool or blade will go between these tiny pieces to separate them instead of cutting into the surface of the mat. This durable, flexible material will prevent slippage during use.<br/><br/>Each board features a built-in degree angle and grid layout guide to assist with tracing, folding, sewing, gift-wrapping, and more with precision and accuracy. The grid comes with both imperial and metric measurements so it will be compatible with most patterns and hobby crafts.<br/><br/>These mats are ideal for preventing damage to your counter, work table, desktop, or crafting area. The surface will absorb cuts while also preventing your cutting tools and utility blades from dulling. <br/><br/>Measuring just 5\" x 9\", these mats are great for smaller workspaces. They will easily fit inside toolboxes, craft kits, and storage supplies when not in use. Use them for precision cutting and designing with ease in your next craft and hobby project.\nSearch Terms: cutting craft hobby mat; architecture card making arts and craft scrapbooking supplies; desk photography accessories; diy; self healing cutting mat; drawing desk pad; art supplies; craft kits; craft board\nFeatures:\n- SELF HEALING CUTTING MAT: Surface of the ToolTreaux cutting mat heals on its own; cuts, slices, and dices will leave no marks\n- PRECISION GRID: Cutting board comes with a built in grid and angle guide for tracing, sewing, folding, gift wrapping and more with accuracy and precision; grid features imperial and metric measurements\n- WORKSPACE PROTECTION: Cutting mat is designed to prevent damage to your work table, kitchen counter, desktop or crafting area; hobby mat will absorb cuts and prevents your cutting tools from dulling\n- COMPACT SIZE: Mat measures 9 x 5 inches, ideal for small workspaces; easy to store in a toolbox or craft supplies kit when not in use\n- SPECIFICATIONS: Color: Green; Dimensions: 9 x 5 inches; Thickness: 0.08 Inches; Weight: 0.26oz; Material: PVC\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 9x5 Green Self Healing Cutting Mat",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "9x5",
+                "pack_size_unit": "",
+                "size": "9x5",
+                "color": "Green",
+                "name": "Self Healing Cutting Mat"
+            },
+            "char_count": 45,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 9 x 5 in Green Self Healing Cutting Mat",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "9 x 5 in",
+                "color": "Green",
+                "name": "Self Healing Cutting Mat"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Self Healing Surface, Precision Grid With Imperial And Metric Measurements, Workspace Protection, Compact Design",
+            "char_count": 112,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Precision Grid, Imperial And Metric Measurements, Workspace Protection, Flexible PVC, Compact 9 X 5 Size",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

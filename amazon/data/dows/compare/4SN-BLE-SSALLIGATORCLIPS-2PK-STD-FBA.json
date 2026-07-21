@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-BLE-SSALLIGATORCLIPS-2PK-STD-FBA",
+    "asin": "B0H1TF1N7N",
+    "product_type": "TONG_UTENSIL",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-BLE-SSALLIGATORCLIPS-2PK-STD-FBA\nProduct Type: TONG_UTENSIL\nBrand (from catalog): Beille\nExisting Title: Beille 5 Inch Jumbo Heavy Duty Stainless Steel Alligator Clips for Kitchen, Bag Clips for Food Storage, Pantry and Snack Bags (2pk)\nDescription: Keep kitchen, pantry and food storage areas organized with Beille’s Stainless Steel Jumbo Alligator Clips, a practical two pack designed for sealing open food bags and everyday household items. These multipurpose kitchen clips are ideal for closing chip bags, coffee bags, cereal bags, snack bags, bread bags, frozen food bags, baking ingredient bags, pet treat bags and other pantry staples between uses. The alligator style design provides a secure hold to help keep open bags closed, reduce spills and support fresher food storage in cabinets, drawers, pantries, and countertop organization areas.<br/><br/>Made from stainless steel with a clean polished finish, these reusable jumbo clips offer a durable alternative to plastic bag clips. Each clip features an easy spot to hold, open and close, giving you better control when securing thicker folded bags, small packages, bulk pantry items and everyday food storage bags. And, at 4.7 inches long, these alligator clips can easily help to hold small bags, snack packaging and other household items. The sleek stainless steel look also fits beautifully with modern, farmhouse, minimalist and classic kitchen styles.<br/><br/>This Beille two pack of alligator clips are useful beyond food storage, making it a versatile organizing tool for the kitchen, home office, laundry room, craft room and more. Use the clips to hold recipe cards, secure small bags, close snack packaging, or keep pantry goods neatly organized with freshness sealed in. Whether you are storing coffee, chips, crackers, granola, pasta, baking ingredients, or treats, these stainless steel jumbo alligator clips help bring simple, reliable organization to everyday kitchen and pantry storage.\nSearch Terms: Chip bag clip; chip bag sealer; alligator clips; snack coffee cereal dog food kibble freezer bag sealer; food meal prep; kitchen essentials; pantry organizers and storage; airtight food storage; housewarming gifts new home; home organization\nFeatures:\n- 2-PACK KITCHEN BAG CLIPS: Includes two stainless steel jumbo alligator clips designed for everyday kitchen food storage, pantry organization, snack bags, coffee bags, cereal bags, bread bags, chip bags, frozen food bags and more\n- DURABLE STAINLESS STEEL: Made from stainless steel, Beille’s food clips offer a sturdy alternative to plastic clips, while adding a clean, modern and reliable food storage tool to keep dry goods fresher for longer\n- STRONG SPRING CLIP DESIGN: The strong secure spring loaded jaws help keep open bags closed and neatly folded, making these clips useful for sealing pantry staples, snacks, baking ingredients, pet treats, coffee, crackers, granola and other household food bags\n- EASY TO GRIP CLIP: Each clip features an easy spot to hold, open and close, giving you better control when securing thicker folded bags, small packages, bulk pantry items and everyday food storage bags\n- MULTIPURPOSE HOME ORGANIZATION: Great for kitchen, pantry, home office, laundry room, craft room, garage, and utility storage, these 4.7 inch clips can help to close small bags, snack packaging and other household items\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 2-pk Jumbo Stainless Steel Alligator Clips",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "Jumbo",
+                "color": "Stainless Steel",
+                "name": "Alligator Clips"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 2-pk 5 in Heavy Duty Stainless Steel Alligator Clips",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "5 in",
+                "color": "",
+                "name": "Heavy Duty Stainless Steel Alligator Clips"
+            },
+            "char_count": 59,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Food Storage Bag Sealer, Heavy Duty Spring Clip Design, Multipurpose Kitchen And Pantry Organization, Durable Stainless Steel",
+            "char_count": 125,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Strong Spring Loaded Jaws Food Bag Sealer Reusable Stainless Steel Pantry And Snack Storage Multipurpose Organizer",
+            "char_count": 114,
+            "validation_error": null
+        }
+    }
+}

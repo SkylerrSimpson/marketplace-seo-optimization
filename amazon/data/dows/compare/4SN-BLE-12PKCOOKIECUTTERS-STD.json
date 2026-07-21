@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-BLE-12PKCOOKIECUTTERS-STD",
+    "asin": "B0FW9CWW2T",
+    "product_type": "COOKIE_CUTTER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-BLE-12PKCOOKIECUTTERS-STD\nProduct Type: COOKIE_CUTTER\nBrand (from catalog): Beille\nExisting Title: Beille 12pc Cookie Cutters Set, Stars Circles Hearts and Flowers Shapes for Baking, Dishwasher Safe Kitchen Baking Supplies\nDescription: Bring creativity and precision to your baking with Beille versatile 12 piece cookie cutter set, featuring four classic shapes in three convenient sizes each. The set includes: three hearts, three stars, three circles and three flowers, each in small, medium, and large sizes, perfect for layering, decorating, or creating matching sets.<br/><br/>Use the cookie cutters for cookies, biscuits, fondant, pastries, or even fruit and sandwich cutouts; these cookie cutters or cookie molds make home baking fun for all ages! And, crafted from durable stainless steel, each cookie cutter slices cleanly through dough without sticking or warping, ensuring consistent shapes every time, while the nested design makes storage simple and space saving.<br/><br/>Whether you’re preparing sugar cookies for the holidays, shaping biscuits for brunch, or adding charm to fondant and pastries, these cookie cutters make it easy to craft beautiful, uniform designs each and every time. Happy baking!\nSearch Terms: Cookie cutters; baking supplies; kitchen essentials; home and kitchen; mini cookie cutters; fondant tools; cookie dough; cooking; sprinkles; hostess gifts; housewarming gifts new home; cookie molds; cookie cutters variety pack; cookie cutter set\nFeatures:\n- 12 PIECE COOKIE CUTTER SET: Includes (3) heart cookie cutters, (3) star cookie cutters, (3) circle cookie cutters and (3) flower cookie cutters in small, medium and large sizes for versatile baking and decorating\n- SIZE OF COOKIE CUTTERS:  Small Diameter: 1.5 inches; Medium: 2.0 inches; Large: 3.0 inches\n- VERSATILE BAKING SUPPLIES: Perfect for cookies, biscuits, fondant, pastries, fruit slices, sandwiches and more for both everyday baking and fun celebratory occasions\n- DISHWASHER SAFE: Designed for convenience, these cookie cutters can be placed directly in the dishwasher after use; perfect for busy bakers who want to spend more time creating and less time cleaning up\n- SPECIFICATIONS: Set Weight: 0.12lbs; Approximate Diameters: Small: 1.5 inches; Medium: 2.0 inches; Large: 3.0 inches; Color: Silver; Sold as a set of 12pcs\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 12pc Silver Cookie Cutters Set",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "12",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Silver",
+                "name": "Cookie Cutters Set"
+            },
+            "char_count": 37,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 12-pk Silver Cookie Cutters Set",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "12",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Silver",
+                "name": "Cookie Cutters Set"
+            },
+            "char_count": 38,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Hearts, Stars, Circles, Flowers, 3 Sizes Each, Stainless Steel, Dishwasher Safe",
+            "char_count": 79,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "12 Piece Variety Pack, Stainless Steel, Dishwasher Safe, Nested Storage, Hearts Stars Circles Flowers, Cookies Fondant Biscuits",
+            "char_count": 127,
+            "validation_error": "value exceeds maxLength 125 (127 chars)"
+        }
+    }
+}

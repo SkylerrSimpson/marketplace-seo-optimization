@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ASRO-GLDPNACCKIT-18PC-BUN-AMZ",
+    "asin": "B0DMB2K8XL",
+    "product_type": "OUTDOOR_LIVING",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ASRO-GLDPNACCKIT-18PC-BUN-AMZ\nProduct Type: OUTDOOR_LIVING\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Complete Fine Gold Recovery Kit Gold Prospecting Equipment, 18pc\nDescription: The ultimate gold prospecting equipment accessory bundle from ASR Outdoor, this 18pc gold panning kit includes pipettes, snifter bottles, magnifying tweezers, glass vials, pocket scale, carabiner, 8lb black sand magnetic pick up tool and an ASR Outdoor drawstring backpack. All these gold prospecting equipment accessories are essential tools to have in the field when gold panning or sluicing, for fine gold extraction, recovery, clean up, examination and storage.\n<br/><br/>\nThis gold panning kit also comes with an ASR Outdoor drawstring backpack to keep gold prospecting equipment, personal belongings or other outdoor gear together and organized when trekking to and from a claim site or for when not in use. The backpack measures a generous 20 x 16 inches and is of a nylon polyester blend for high durability. The drawstring backpack is incredibly lightweight, allowing you to easily carry gold prospecting equipment on your person to a claim site without the extra added weight of a traditional backpack. \n<br/><br/>\nSet yourself up for success in the field with ASR Outdoors 18pc Complete Fine Gold Recovery Kit with essential gold prospecting equipment and accessories. Good luck!\nSearch Terms: gold rush gold panning kits gold prospecting equipment gold mining equipment adult hobby kits snifter bottles sports and outdoors rockhounding tools geology sluice box pipette backpack carabiner gifts for men\nFeatures:\n- GOLD PROSPECTING EQUIPMENT: 18pc gold panning kit has everything fine gold extraction, recovery, clean up and storage\n- FINE GOLD RECOVERY TOOLS: Pipettes, snifter bottles, magnifying tweezers, glass vials, pocket scale and carabiner\n- FINE GOLD RECOVERY TOOLS: Gold Snifter Bottles, black sand seperator, magnifying tweezers, glass vials, pocket scale\n- DURABLE CONSTRUCTION: All components included are made of durable, high quality materials like plastic, metal and glass that are safe to use out in the field\n- SPECIFICATIONS: Kit Weight: 0.89lbs; Kit Dimensions: 10 x 7 x 4 inches\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 18pc Gold Panning Kit Gold Prospecting",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "18",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Gold Panning Kit Gold Prospecting"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 18pc Complete Fine Gold Recovery Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "18",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Complete Fine Gold Recovery Kit"
+            },
+            "char_count": 48,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Complete Recovery Kit, Pipettes, Snifter Bottles, Magnifying Tweezers, Glass Vials, Pocket Scale, Carabiner, Backpack",
+            "char_count": 117,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Pipettes, Snifter Bottles, Magnifying Tweezers, Glass Vials, Pocket Scale, Black Sand Magnetic Pick Up Tool, Backpack",
+            "char_count": 117,
+            "validation_error": null
+        }
+    }
+}

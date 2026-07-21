@@ -1,0 +1,60 @@
+{
+    "sku": "SON-URCHCTFTW6EB-8-NCX",
+    "asin": "B005HFAY22",
+    "product_type": "HAIR_COMB",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-URCHCTFTW6EB-8-NCX\nProduct Type: HAIR_COMB\nBrand (from catalog): ToolTreaux\nExisting Title: Universal Unisex Hair Cutter Razor Comb for Thin and Thick Hair Cutting and Styling\nDescription: Save time and money with the double-sided Unisex Razor Comb hair cutting and trimming tool for the home hair cut. Cut your hair as you comb it. It can be used to shape, style, shave, trim, thin and taper your hair.<br/><br/>No trip to the barber or hairstylist is needed for the best hair style and great appearances when you have this hair cutting and thinning razor comb around your house. The hair razor comb has two lengths on each side, used for short hair and long hair. It is simple to use, just a you would brush your hair, it will evenly trim and shape any style you want to create. Thinning your hair with these hair shears with help your hair breath and promote healthier hair locks and split ends. For use on both thin and thick hair cutting, trimming and styling.<br/><br/>The razor comb is ideal for unwanted facial hair and is a great option for both men and women. It can be used to thin beards and mustaches and can reach other places that are hard to reach. The home styling razor comb specializes in getting a close shave while cutting angles and blending a fade in your hair while you comb it. <br/><br/>Easy and convenient to use at home, the razor comb features 2 edges and a regular comb on the other end. If the blades begin to dull, the included bonus razors will come in handy to replace and reuse with the razor comb. The replacement blades are standard double-sided razor blades so there is no worry to buy expensive specialized replacement cartridges. Always use a fresh razor blade for best results. <br/><br/>Razor comb works best when hair is lightly wet. Once wet, comb first before using the cutting razor side. Use proper side of razor comb for your desired hair length, proceed to comb hair with razor, going slow to start.<br/><br/>Please Note, personal results will vary person to person due to different hair styles and textures.\nSearch Terms: razor comb hair cutter thinning comb haircut razor texturizing comb split ends trimmer double edge shaper replacement blades bangs trimming salon home pet grooming thick thin hair\nFeatures:\n- EASY TO USE AT HOME: The razor comb can shorten the design, can safely shape and thin thick hair; can be used to trim hair of people and pets; you can DIY your favorite hair style. If you have thin hair, use the fine teeth side. If you have thick hair, use the wide teeth side\n- DOUBLE-SIDED HAIR TRIMMER COMB: Dual functional hair comb on one end and double sided razor comb for thinning and trimming on the other; For use on all hair including facial hair\n- UNWANTED FACIAL HAIR REMOVAL: The razor comb is suitable for use on both thick and thin hair; for cutting, styling and thinning. Quickly removes unwanted hair without the hassles of shaving; Can be used for men and women, beards, mustaches, and all facial hair\n- SAFELY CUTS HAIR: Hair cutter razor combs are used to shorten, shape, and thin hair; The safety shielded razor protects from cutting or scratching your skin; (4) Cutting Lengths: Extra Short Hair, Short Hair, Medium Hair, Light Hair\n- REUSABLE WITH INCLUDED BONUS BLADES: Extra sharp blades with (5) bonus razor blades included; Uses standard double sided replacement razor blades; For best results always use fresh new blades; Blades will last depending on thickness of hair, enough for you to use for a long time\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux Razor Comb Hair Cutter for Thin and Thick Hair",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Razor Comb Hair Cutter for Thin and Thick Hair"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux Hair Razor Comb for Thin and Thick Hair",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Hair Razor Comb"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Double-Sided, Thinning And Trimming, 5 Bonus Blades, Safe Shielded Razor, DIY Home Haircut",
+            "char_count": 90,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Double-Sided Razor And Comb, Safety Shielded Blade, Thins Hair And Beards, Includes 5 Bonus Blades, Easy At Home",
+            "char_count": 112,
+            "validation_error": null
+        }
+    }
+}

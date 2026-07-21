@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-SEAM-SEALANT-SILNYLON-PATCHES-BUN",
+    "asin": "B08BS2C3SW",
+    "product_type": "OUTDOOR_RECREATION_PRODUCT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-SEAM-SEALANT-SILNYLON-PATCHES-BUN\nProduct Type: OUTDOOR_RECREATION_PRODUCT\nBrand (from catalog): GEAR AID\nExisting Title: Seam Grip SIL Silicone Sealant and Silnylon Patches for Silnylon Tents and Tarps\nDescription: Seam Grip SIL is specially formulated for sealing seams on tents and other products constructed or coated with silicone waterproofing. Previously known as SIL Net, this clear sealant dries to a flexible rubber that bonds on all silicone-treated gear including ultralight tents and backpacks. One tube can seal most two-person tents. For faster repair options, choose the Kit, which includes the Seam Grip SIL adhesive with two Tenacious Tape Silnylon Patches. These peel-and-stick patches are also backed by a silicone-based adhesive, so you can patch holes and go. Remember: only silicone will adhere to silicone. Seal out the weather properly with Seam Grip SIL and/or Tenacious Tape Silnylon Patches.\nSearch Terms: adhesive sealant marine clear aquarium silicone and & urethane repair\nFeatures:\n- Seal up to 24 ft of seams with 1.5 oz of Seam Grip SIL, a durable, clear silicone sealant that bonds permanently to silicone-treated (silynylon) tents, backpacks and gear\n- Creates a long-lasting, waterproof and flexible seal that won’t peel or crack over time; not affected by extreme heat or cold\n- Also ideal for applying on silnylon tarps, shelters, and rainwear to keep water out (previously known as SIL Net)\n- Choose the Sealant and Patches Kit, which includes two peel-and-stick Tenacious Tape Silnylon Patches (3”x5”); the only patch that sticks to silicone and repair holes in silicon-treated fabrics\n- Packaging may vary\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Gear Aid Seam Grip SIL Silicone Sealant and Silnylon Patches",
+            "tokens": {
+                "brand": "Gear Aid",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Clear",
+                "name": "Seam Grip SIL Silicone Sealant and Silnylon Patches"
+            },
+            "char_count": 60,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID Seam Grip SIL Silicone Sealant And Silnylon Patches Kit",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Seam Grip SIL Silicone Sealant And Silnylon Patches Kit"
+            },
+            "char_count": 64,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Waterproof Silicone Sealant, Seals 24 Ft Seams, Flexible Durable Seal, 2 Tenacious Silnylon Patches Included",
+            "char_count": 108,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Waterproof Silicone Seam Sealer, Peel-And-Stick Silnylon Patches, Flexible Clear Repair For Tents And Tarps",
+            "char_count": 107,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-EP11A-O-ORANGE-PONCHO-10PK-RL",
+    "asin": "B0D6D7RWN1",
+    "product_type": "COAT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-EP11A-O-ORANGE-PONCHO-10PK-RL\nProduct Type: COAT\nBrand (from catalog): ToolTreaux\nExisting Title: 10 Pack High Visibility Unisex Long Waist Rain Poncho Outdoor Emergency Weather, One Size Fits All\nDescription: Depending on where you live, chances are that you've found yourself caught in an unexpected rainstorm without a proper jacket or umbrella at least once. In order to avoid this unfortunate circumstance, we suggest keeping a poncho in your car, truck, backpack, purse or travel bag just in case. The ASR Outdoor Orange Emergency Poncho will do just the trick.<br/><br/>Our poncho is constructed of durable yet lightweight polyethylene material that is water-resistant, so you don't need to worry about your clothes, hair or anything you're carrying getting ruined in a downpour. It comes with an attached hood and sleeves that are incorporated, so you can ensure you're covering yourself up and protecting yourself from the rain. The hood has an adjustable string so you can loosen or tighten it for custom comfort.<br/><br/>This poncho comes in a bright orange color so it can double as a visibility aid in poor lighting conditions, and has a .015mm thickness so it won't weigh you down. Its sole purpose is to keep you dry. We designed it to be reusable, too - just let it dry out after use, and you can fold it back up and store it for next time. Measuring 61\" x 65\" fully unfolded, it's made to be \"one size fits most\" making it an ideal poncho for men, women and children alike. <br/><br/>In addition to keeping you dry in the event of an unexpected storm while out and about, ponchos are also great for camping, hiking, boating, emergencies and more. The bright orange colored poncho can be a great way to keep your child identifiable in a crowd while traveling. In a pinch, you can even use a poncho as a makeshift roof or shelter, a wind breaker, a rain catcher, or a water carrier. Make sure to grab a few of these and prepare yourself for the rain storm.\nSearch Terms: kids rain disposable adult emergency storm weather waterproof lightweight unisex wet water protection inclemental weather hurricane disaster kit survival wilderness forest camping gear accessories\nFeatures:\n- ULTRA COMPACT: To be saved for a rainy day; the long wasted rain poncho packs down to the size of a small packet of tissues; carry one every day during the incremental seasons to protect yourself, clothes and hair from the wet rain\n- BUILT IN HOOD AND SLEEVES: Better than a sleeveless poncho, this pack away emergency weather disposable rain jacket incorporate sleeves and attached\n- UNISEX ONE SIZE FITS MOST: Designed to fit all sizes of people; men, women and children, with an overall dimension of 65 x 61 inches (LxW) when fully unfolded; made to give you extra coverage in the case that you may need to tuck something under it when wearing it\n- HIGH VISIBILITY COLOR - Bright orange poncho aids in visibility in poor weather conditions; be seen, stand out in a crowd, find your group easier with these identifiable group poncho rain jackets\n- 10-PACK BULK PONCHO: Made to be disposable, carry an extra one with you at all times in the car, purse, on the go. Readily available to deploy at a moments notice. Stay safe and dry with an emergency poncho\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 10-pk Orange High Visibility Rain Poncho",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "10",
+                "pack_size_unit": "pk",
+                "size": "One Size Fits All",
+                "color": "Orange",
+                "name": "High Visibility Rain Poncho"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 10-Pk Long Waist Orange Rain Poncho",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "10",
+                "pack_size_unit": "Pk",
+                "size": "Long Waist",
+                "color": "Orange",
+                "name": "Rain Poncho"
+            },
+            "char_count": 46,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Built-in Hood And Sleeves, One Size Fits Most, Compact And Reusable, Emergency Weather Protection, Waterproof Polyethylene",
+            "char_count": 122,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "High Visibility Orange, Attached Hood And Sleeves, Water-Resistant Polyethylene, Unisex One Size Fits Most, Reusable",
+            "char_count": 116,
+            "validation_error": null
+        }
+    }
+}

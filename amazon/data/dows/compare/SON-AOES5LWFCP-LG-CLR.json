@@ -1,0 +1,60 @@
+{
+    "sku": "SON-AOES5LWFCP-LG-CLR",
+    "asin": "B074JMM816",
+    "product_type": "HIP_FLASK",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-AOES5LWFCP-LG-CLR\nProduct Type: HIP_FLASK\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Emergency Survival 5 Liter Water Flask Compact Portable\nDescription: These Survival Water Flasks are the only of their kind to meet rigorous test criteria for abrasion resistance and durability.<br/><br/>Constructed of multi-layered laminated plastic film, these refillable flasks are ideal for camping, hiking, and everyday use. These flasks can withstand extreme heat, so you can even fill them with boiling water (making them great body warmers in cold situations. Each flask features a screw top cap and a flexible plastic body.<br/><br/>The flask holds 5 liters and features a built in handle. Fill it up and use it to fill the smaller flask to bring along on a day hike. Ideal for any adventure, these flasks will keep your thirst quenched.\nSearch Terms: hip flask stainless steel silver trekking hiking snowboarding skiing backpacking camping gear RV camp kitchen beverage tailgating ASR Outdoor whiskey water alcohol gifts wilderness adventure groomsmen boating drinking cups campfire BBQ\nFeatures:\n- BPA Free | Durable | Flexible\n- Dimensions: 12.5 x 12.5 x 4\"\n- Attached plastic screw-top cap\n- Abrasion Resistant\n- 180 micron Large Top Opening - 1 inch\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 5 Liter Emergency Survival Water Flask",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "Liter",
+                "size": "",
+                "color": "",
+                "name": "Emergency Survival Water Flask"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 5-Liter Emergency Survival Water Flask",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "5-Liter",
+                "color": "",
+                "name": "Emergency Survival Water Flask"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Durable And Flexible, BPA-Free, Abrasion Resistant, Large 1-Inch Opening, Built-in Handle, Camping And Hiking",
+            "char_count": 109,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "BPA Free, Abrasion Resistant, Flexible Body, Boiling Water Safe, Screw Top Cap, Built In Handle",
+            "char_count": 95,
+            "validation_error": null
+        }
+    }
+}

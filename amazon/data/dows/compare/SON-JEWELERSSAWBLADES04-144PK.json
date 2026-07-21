@@ -1,0 +1,60 @@
+{
+    "sku": "SON-JEWELERSSAWBLADES04-144PK",
+    "asin": "B071JWJCRW",
+    "product_type": "SAW_BLADE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-JEWELERSSAWBLADES04-144PK\nProduct Type: SAW_BLADE\nBrand (from catalog): Universal Tool\nExisting Title: ToolTreaux 144pc Jewelry Saw Blades Set 0/3 Size 5.25\" 50 TPI Steel\nDescription: Take your jewelry making and precision cutting projects to the next level with the ToolTreaux 144pc Premium Jewelry Saw Blade Set. Designed for fine, detailed work, these size 0/3 blades feature a high tooth count for smooth, clean cuts in metal and other delicate materials.<br/><br/>Crafted from durable steel and sized at a compact 5-1/4\", this bulk set ensures you always have reliable blades on hand - perfect for professional jewelers, artisans, and hobbyists alike.\nSearch Terms: jewelry saw blades 0/3, piercing saw blades, jewelers saw blades bulk, metal cutting blades fine tooth, 5.25 inch saw blades, jewelry making tools, gold silver cutting blades, hobby craft saw blades, precision cutting steel blades, 144pc saw blade set\nFeatures:\n- PRECISION CUTTING PERFORMANCE - Size 0/3 blades with 50 teeth per inch deliver smooth, accurate cuts for intricate jewelry work\n- DURABLE STEEL CONSTRUCTION - Made from high-quality steel for strength, flexibility, and long-lasting performance\n- STANDARD 5.25\" LENGTH - Compatible with most jewelers’ piercing saw frames for easy, universal use\n- BULK 144PC SET - Includes 12 dozen blades so you’re always stocked for ongoing projects\n- VERSATILE APPLICATION - Ideal for cutting gold, silver, copper, and other soft metals for jewelry making and crafts\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 144-pc Jewelry Saw Blades 0/3 Size 5.25\"",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "144",
+                "pack_size_unit": "pc",
+                "size": "0/3",
+                "color": "",
+                "name": "Jewelry Saw Blades 5.25\""
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 144-Pc 5.25\" Jewelry Saw Blades Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "144",
+                "pack_size_unit": "pc",
+                "size": "5.25\"",
+                "color": "",
+                "name": "Jewelry Saw Blades Set"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "50 TPI Steel, Precision Cutting, Fine Detail Work, Gold And Silver, Bulk Set, 525 Inch Length",
+            "char_count": 93,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "50 TPI Fine Tooth, Size 0-3, Durable Steel, Smooth Precision Cuts, Fits Most Piercing Saw Frames, Bulk 12 Dozen",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-5INFOLDINGKNIFE-BLK",
+    "asin": "B07B4789QY",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-5INFOLDINGKNIFE-BLK\nProduct Type: KNIFE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Thumb Assist Folding Knife Window Punch Seat Belt Cutter - Black\nDescription: Be prepared on the go with the ASR Outdoor 5\" Thumb Assisted Folding Knife.<br/><br/>This knife features a 3.5\" blade, and extends to an overall length of 8.25\" when unfolded. Once folded, the knife with handle is just 5\" in length, making it easy to bring with you just about anywhere. <br/><br/>The blade is constructed of durable 440 stainless steel, and the handle comes with a belt clip, seat belt cutter and window punch in case of an emergency situation. Make sure you keep one of these in your car, backpack, boat or camping gear at all times.\nSearch Terms: hunting knives every day pocket knife window punches seat belt cutters survival rescue EMT first response folding woodland spring assisted tactical emergency self defense protection escape tools camo camouflage outdoor hiking camping travel\nFeatures:\n- ASR Outdoor Thumb Assisted Folding Knife - Black\n- 3.5\" Blade | 5\" Folded | 8.25\" Unfolded\n- Window Punch on Handle\n- Seat Belt Cutter & Belt Clip\n- Material: 440 Stainless Steel\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 5\" Black Thumb Assist Folding Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Thumb Assist Folding Knife"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 5in Black Folding Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "5in",
+                "color": "Black",
+                "name": "Folding Knife"
+            },
+            "char_count": 35,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "35\" Blade, Window Punch, Seat Belt Cutter, Belt Clip, 440 Stainless Steel, EDC Survival Tool",
+            "char_count": 92,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "35\" 440 Stainless Steel Blade, Thumb Assist Opening, Window Punch, Seat Belt Cutter, Belt Clip",
+            "char_count": 94,
+            "validation_error": null
+        }
+    }
+}

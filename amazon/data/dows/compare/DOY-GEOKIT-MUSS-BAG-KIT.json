@@ -1,0 +1,56 @@
+{
+    "sku": "DOY-GEOKIT-MUSS-BAG-KIT",
+    "asin": "B09YLHLJ8P",
+    "product_type": "HAMMER_MALLET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DOY-GEOKIT-MUSS-BAG-KIT\nProduct Type: HAMMER_MALLET\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 38pc Complete Rock Hounding Kit with Geology Hand Tools and Deluxe Musette Bag\nDescription: If rockhounding, gem mining, or fossils are a new hobby or interest, you'll need the right tools to set yourself up for success in the field. From breaking up deposits to cleaning and examining materials, this 38pc ASR Outdoor rockhounding tools kit has you covered.<br/><br/>A must have piece of rockhounding equipment, the 20oz hammer features a rubberized grip for shock reduction; 11 inches in length and forged from one piece of steel, one side features a square face for hammering rock or driving chisels, while the opposing pointed tip allows you to crack open rocks or hard, dense material. In addition to the rock pick hammer, we've also included a three piece cold steel chisel set to help break rocks or other materials in the field.<br/><br/>Once you've made a mess in the field, you're going to need to sort, examine and tidy up any newfound materials; this kit includes a mini steel wire mesh classifier to screen off larger unwanted raw materials, examination brushes, plastic storage baggies, a magnification jewelers loupe, tweezers and more.<br/><br/>Now, for tool bag: the ASR Outdoor rock hounding bag features double stitching at all stress points to ensure that it will last through years of field work. The tote bag is made of high quality nylon that is naturally weather resistant, so you can count on it to protect tools and gear rain or shine. The tool bag also has 13 different pockets and features quick release buckles so you can access tools quickly and easily. <br/><br/>We've also included a 9 x 12 inch specimen mat you can use in the field or when you get home for measuring, cataloging and photographing purposes.<br/><br/>Whether you're on the hunt for emeralds in North Carolina, jade in Big Sur, California, or fossils in Wyoming, this rockhounding kit from ASR Outdoor will have you organized and prepared for your next mineral mining adventure. Good luck!\nSearch Terms: geology tool kit; beginner rockhounding; rock hounding kit; rock pick hammer; rockhounding equipment; cold chisel hammer combo; rockhouding for adults; kids geology tools; gold rush; gold panning kit; camping gear for kids\nFeatures:\n- 38PC ROCKHOUNDING KIT: If rockhounding, gem mining or fossils are a hobby or interest, this rockhounding kit contains all the tools to set yourself up for success in the field; important components include the rock pick hammer, tool bag, cold chisel set and more\n- 13 POCKET TOOL BAG: The included tool bag is above and beyond anything else you've seen; featuring double stitching at all stress points, 13 different pockets and features quick release buckles; made from high quality nylon that is naturally weather resistant, you can count on it to protectgear rain or shine\n- ROCK PICK HAMMER: A must-have, this 20oz rock pick features a rubberized grip for shock reduction; 11 inches in length and forged from one piece of steel; one side features a square face for hammering rock or driving chisels, while the opposing pointed tip allows you to crack open dense material\n- SPECIMEN MAT: Included for identifying, measuring, cataloging and photograhing found rocks, fossils, gems or other valuable materials; 9 x 12 inch double sided mat features both inch and millimeter mesaurements\n- ROCKHOUNDING TOOLS: Once you've made a mess in the field, you're going to need to sort, examine and tidy up new found materials; kit includes examination brushes, plastic storage bags, tweezers, eye loupe, aluminum storage container, black light UV LED flashlight and more\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 38pc Rock Hounding Kit with Hammer and Tool Bag",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "38",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Rock Hounding Kit with Hammer and Tool Bag"
+            },
+            "char_count": 59,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": null,
+            "tokens": null,
+            "char_count": null,
+            "validation_error": "no item_name returned"
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "20Oz Pick Hammer, 13-Pocket Nylon Bag, Cold Chisel Set, Specimen Mat, Magnifier, UV Light",
+            "char_count": 89,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": null,
+            "char_count": null,
+            "validation_error": "no title_differentiation returned"
+        }
+    },
+    "raw": {
+        "openai": "Client error: `POST https://api.openai.com/v1/chat/completions` resulted in a `429 Too Many Requests` response:\n{\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-5.4-mini in organization org-el3QE531uTdEpv2furRUAnXD on (truncated...)\n"
+    }
+}

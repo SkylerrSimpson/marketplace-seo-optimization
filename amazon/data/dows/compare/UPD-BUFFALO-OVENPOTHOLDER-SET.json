@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-BUFFALO-OVENPOTHOLDER-SET",
+    "asin": "B09KZ7ZLPM",
+    "product_type": "POT_HOLDER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-BUFFALO-OVENPOTHOLDER-SET\nProduct Type: POT_HOLDER\nBrand (from catalog): Beille\nExisting Title: Buffalo Christmas House 2 Pot Holders and 1 Oven Mitt Set\nDescription: Stylish, rustic and beautiful this set offers everything you need to create the shabby chic, modern country kitchen. Excellent for special occasions, events, parties, and everyday décor use. Easy care, machine washable. Great For Holidays.\nSearch Terms: oven mitts pot holders bakeware oven sets holiday oven mitt holiday pot holders\nFeatures:\n- HOLIDAYS - Get in the Holiday Spirit with this red and blackplaid set, great for christmas time!\n- MODERN FARMHOUSE HOLIDAY STYLE - Nothing says farmhouse Christmas more than red & black plaid\n- GREAT GIFT CHOICE - Classic Check design will match to most kitchen décor. Makes a great hostess gift for Thanksgiving dinner or parties, give as a gift to cooking or baking lovers for Christmas, Mother's Day, birthdays, or housewarming.\n- INCLUDES - 2 hot pads, 1 oven mitt\n- MEASUREMENTS - Oven Mitt 7\"x13\", Pot Holders 7\"x7\", Magnets 1.75\" each\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille Buffalo Plaid 3-Piece Oven Mitt and Pot Holder Set",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "3",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "Buffalo Plaid",
+                "name": "Oven Mitt and Pot Holder Set"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 3-Pk 7in Red Black Plaid Pot Holder Oven Mitt Set",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "7in",
+                "color": "Red Black Plaid",
+                "name": "Pot Holder Oven Mitt Set"
+            },
+            "char_count": 56,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Includes 2 Pot Holders And 1 Oven Mitt, Machine Washable, Farmhouse Holiday Style, Perfect Gift",
+            "char_count": 95,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "2 Pot Holders, 1 Oven Mitt, Red And Black Plaid, Machine Washable, Farmhouse Holiday Decor, Great Gift Choice",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

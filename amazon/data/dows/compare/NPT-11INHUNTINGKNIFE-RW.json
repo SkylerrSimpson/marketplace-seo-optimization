@@ -1,0 +1,60 @@
+{
+    "sku": "NPT-11INHUNTINGKNIFE-RW",
+    "asin": "B07PD2K46D",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: NPT-11INHUNTINGKNIFE-RW\nProduct Type: KNIFE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Full Tang Hunting Knife ABS Handle Fixed Blade Rainbow Design\nDescription: Be prepared while hunting or camping with the ASR Outdoor 11\" Full Tang Hunting Knife.<br/><br/>This fixed blade features a tough ergonomic ABS handle for added comfort and resistance so you don't need to worry about it slipping. The blade itself measures 6.25\" while the handle is 4.75\", making this knife ideal for travel whether you're hunting, fishing or exploring in the wilderness. It's constructed of durable 3CR13 stainless steel so it wont rust, and the blade itself features a cool rainbow finish design.<br/><br/>The knife also comes with a sturdy nylon sheath to protect it when not in use. The sheath features a loop so you can easily hang it from your belt, backpack or outdoor gear. This is a must-have utility knife for hunters, avid campers and collectors alike.\nSearch Terms: hunting blades full tang knives outdoor camping tools fishing abs handle fixed blade\nFeatures:\n- FULL TANG - Fixed Blade Style Knife 11\" Length (6.25\" Blade | 4.75\" Handle) Ideal Size for Hunting\n- ABS HANDLE - Durable & Tough Ergonomic Handle for Resistance - Grip Wont Slip\n- STAINLESS STEEL - 3CR13 Steel Construction Wont Rust\n- RAINBOW FINISH - Cool Multi-color Blade Design - Must Have for Collectors\n- NYLON SHEATH - Comes with Sturdy Sheath to Protect Blade When Non In Use | Belt Loop\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 11in Rainbow Hunting Knife Full Tang Fixed Blade",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "11",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Rainbow",
+                "name": "Hunting Knife Full Tang Fixed Blade"
+            },
+            "char_count": 60,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 11-in Rainbow Hunting Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "11",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Rainbow",
+                "name": "Hunting Knife"
+            },
+            "char_count": 39,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Full Tang Fixed Blade, 625In Stainless Steel, Ergonomic ABS Handle, Rainbow Finish, Includes Nylon Sheath With Belt Loop",
+            "char_count": 120,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Full Tang Fixed Blade, 3CR13 Stainless Steel, Ergonomic ABS Handle, Rainbow Finish, Nylon Sheath, Belt Loop",
+            "char_count": 107,
+            "validation_error": null
+        }
+    }
+}

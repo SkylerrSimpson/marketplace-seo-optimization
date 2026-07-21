@@ -1,0 +1,60 @@
+{
+    "sku": "LST-KARAOKEMIC-BLU-BUN",
+    "asin": "B0BGR4M393",
+    "product_type": "KARAOKE_MACHINE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-KARAOKEMIC-BLU-BUN\nProduct Type: KARAOKE_MACHINE\nBrand (from catalog): Kidplokio\nExisting Title: Kidplokio Blue Musical Microphone Pretend Play Karaoke Machine Kids MP3 Player\nDescription: Is your child a budding rock star? The Kidplokio Rockin' Star karaoke machine is a great gift idea for your little one. It comes with everything a kid needs to put on their own musical performance - a real working karaoke microphone with a mic stand and realistic sound effect buttons. <br/><br/>In addition to the above features, this fantastic karaoke machine comes with an MP3 connection so you can plug your MP3 in and play your child's favorite songs so they can sing along. Singing and dancing is also a great way for children to practice their creativity, and imagination and get some fun indoor exercise.<br/><br/>Our unique pretend play musical toy comes with an automatic shutdown mode - the karaoke machine will turn off by itself after 5 minutes of no use to conserve energy. The machine requires (3) AA batteries (not included).<br/><br/>Made of high-quality, durable plastic, this machine can easily be wiped down and dried off as needed to keep it clean in between uses. It comes with a cardboard box so you can pack it up to store for later use. These machines are safe for children ages 3 and up with adult supervision, so grab one of these for your little one and watch them star in their own shows.\nSearch Terms: karaoke machine for kids girls kids microphone musical toys for toddlers 1 to 3 baby echo microphone mp3 compatitble recorder instrument for kids mic singalong play rockstar voice confidence singing song\nFeatures:\n- EXPRESS THEIR CREATIVITY: A great introduction to music, music theater, singing and performance, if you have a budding musical artist under your roof, the KidPlay Superstar MP3 Music Microphone Stand and Microphone Karaoke Machine is a great gift! With easy assembly, adjust-ability and tons of cool features\n- MP3 CONNECTION: Connect your MP3 player to the sing along karaoke machine so your child can play their favorite songs and practice their rock star skills; encourages creativity and imagination\n- ADJUSTABLE & TRAVEL FRIENDLY: The kids karaoke machine features an adjustable microphone stand with telescopic height of up to 32.25in, the singing machine can grow with your little ones as they do! The karaoke machine also features an easy to use on/off button and adjustable volume too\n- DURABLE AND KID-SAFE: Made of high-quality, durable plastic that can be wiped clean and dried as needed; Safe for children ages 3 and up with parental supervision\n- SPECIFICATIONS: Microphone Stand Dimensions: Max 32.25 inches; Material: Plastic; Color: Blue or Pink; Batteries: Included with purchase; Warning: Choking Hazard (small parts); Age: 3+\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Kidplokio Blue Karaoke Machine Microphone with MP3 Player",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Blue",
+                "name": "Karaoke Machine Microphone with MP3 Player"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Kidplokio Blue Karaoke Machine Kids MP3 Microphone",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Blue",
+                "name": "Karaoke Machine Kids MP3 Microphone"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Adjustable Mic Stand Up To 3225 Inches, MP3 Compatible, Sound Effects, Ages 3 Plus, Durable Plastic",
+            "char_count": 99,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Adjustable Mic Stand, MP3 Connection, Real Sound Effects, Auto Shutoff, Telescopic Height To 3225 Inches, Ages 3 And Up",
+            "char_count": 119,
+            "validation_error": null
+        }
+    }
+}

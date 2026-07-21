@@ -1,0 +1,60 @@
+{
+    "sku": "SHM-FIREBUTTON-PARENT",
+    "asin": "B0B14462JF",
+    "product_type": "OUTDOOR_RECREATION_PRODUCT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SHM-FIREBUTTON-PARENT\nProduct Type: OUTDOOR_RECREATION_PRODUCT\nBrand (from catalog): ASR Tactical\nExisting Title: Fire Button Emergency Fire Starter Lighting Device (2 Styles)\nDescription: Fire Buttons are low-profile, last-resort fire lighting devices. Because they replace existing buttons on your clothing, they're always with you and take up no additional space or weight. These were originally developed for special ops military personnel for escape and evasion situations. They can also be valuable survival items for anyone who could face an unexpected survival situation in the wilderness.<br/><br/>Available in two versions: Ferrocerium and Magnesium. Ferrocerium is a synthetic pyrophoric alloy that produces hot sparks that can reach temperatures of 5400 degrees F when rapidly oxidized by striking with a hard object. Magnesium shavings provide a highly efficient accelerant and serve as a super hot tinder. Fire is produced by scraping shavings off the Magnesium button and then striking the Ferrocerium button to produce a shower of sparks which can ignite the Magnesium shavings in order to set fire to kindling material.<br/><br/>Size: a standard button size - 3/4\" diameter, 5/32\" thickness. Weight: 0.1 oz. (Magnesium), 0.2 oz. (Ferrocerium). Color: The magnesium button is dull silver, Ferrocerium button is dark gray. Each button sold separately. Made in the USA.\nSearch Terms: emergency fire starters fire lighting sources fire lighters emergency prep tools survival tools tactical tools evasion tools escape tools camping tools hiking tools lightweight backpacking accessories backpacking essentials\nFeatures:\n- LOW PROFILE EMERGENCY FIRE STARTER - This last-resort fire lighting device is made out of a button - just sew it onto your shirt or jacket and you'll have an emergency fire starter with you at all times\n- DESIGNED FOR ESCAPE AND EVASION - These buttons can be valuable survival items for anyone who could face an unexpected survival situation in the wilderness\n- SUPER LIGHT WEIGHT - Each button weighs only .1 ounce, making it a great fire lighting source for campers and hikers who are trying to pack as little weight with them as possible\n- SPECIFICATIONS - Standard Button Size: (.75\" diameter, 5/32\" thickness, weighs just .1oz), Color: SIlver, Made in USA\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical Fire Button Emergency Fire Starter",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Fire Button Emergency Fire Starter"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical Fire Button Emergency Fire Starter",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Fire Button Emergency Fire Starter"
+            },
+            "char_count": 47,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Low Profile, Sew-On Design, Ferrocerium And Magnesium, Ultralight Survival Tool, Made In USA",
+            "char_count": 92,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Sew-On Button, Ultra-Light 01 Oz, Ferrocerium And Magnesium, Escape And Evasion Survival, Made In USA",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

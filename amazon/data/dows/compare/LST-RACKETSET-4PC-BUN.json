@@ -1,0 +1,60 @@
+{
+    "sku": "LST-RACKETSET-4PC-BUN",
+    "asin": "B07YLBX176",
+    "product_type": "SPORT_RACKET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-RACKETSET-4PC-BUN\nProduct Type: SPORT_RACKET\nBrand (from catalog): TychoTyke\nExisting Title: TychoTyke Kids Tennis 4 Rackets Play Set Matching Balls Outdoor Exercise Playtime\nDescription: Add some fun exercise to playtime with the TychoTyke Complete Kids Tennis Racket Play Set.<br/><br/>This complete tennis playset comes with 4 rackets and 4 matching tennis balls, making it a great outdoor play option for kids. The rackets and balls are both constructed of durable plastic that will ensure hours and hours of fun, rain or shine. They come in bright neon yellow, pink and blue colors, and the handles feature foam grips for comfort during playtime. <br/><br/>Tennis is a great way for kids to get some outdoor exercise, and they can learn about the importance of hand-eye coordination. This set is designed for children ages 3 and up. Make sure to grab a set of these for your little ones.\nSearch Terms: tennis racket for kids play sets balls children outdoor exercise durable toys soft grip rackets boys girls christmas gifts birthday\nFeatures:\n- PROMOTES EXERCISE - Tennis Is a Great Way for Kids to Get Outdoor Exercise During Playtime\n- TEACHES HAND-EYE COORDINATION - Kids Will Learn How to Quickly React and Improve Balance\n- COMPLETE SET - Comes with 4 Rackets and 4 Matching Balls for 4 Person Tennis Matches\n- DURABLE CONSTRUCTION - Made of Sturdy Plastic That Will Ensure Hours of Fun, Rain or Shine\n- AGES 3 AND UP - Designed for Children At Least 3 Years of Age | Great Gift Idea for Young Kids\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "TychoTyke Kids Tennis 4-Pk Rackets with Balls",
+            "tokens": {
+                "brand": "TychoTyke",
+                "pack_size": "4",
+                "pack_size_unit": "Pk",
+                "size": "Kids",
+                "color": "",
+                "name": "Tennis Rackets with Balls"
+            },
+            "char_count": 45,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "TychoTyke 4-Pk Kids Tennis Racket Play Set",
+            "tokens": {
+                "brand": "TychoTyke",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "Kids",
+                "color": "",
+                "name": "Tennis Racket Play Set"
+            },
+            "char_count": 42,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "4 Rackets And 4 Balls, Ages 3 And Up, Foam Grip Handles, Durable Plastic, Neon Colors, Outdoor Exercise",
+            "char_count": 103,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "4 Rackets And 4 Balls, Foam Grip Handles, Durable Plastic, Outdoor Play, Ages 3 Plus, Hand-Eye Coordination",
+            "char_count": 107,
+            "validation_error": null
+        }
+    }
+}

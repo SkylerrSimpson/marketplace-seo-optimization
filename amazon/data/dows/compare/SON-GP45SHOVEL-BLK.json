@@ -1,0 +1,60 @@
+{
+    "sku": "SON-GP45SHOVEL-BLK",
+    "asin": "B0C7YJT62Z",
+    "product_type": "SHOVEL_SPADE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-GP45SHOVEL-BLK\nProduct Type: SHOVEL_SPADE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Gold Panning Tool HRC Steel Shovel Knurled Wooden Handle 28.25 Inch\nDescription: Whether you're a seasoned gold prospector or just dipping your feet into this fun outdoor hobby, you need a sturdy and reliable shovel. The ASR Outdoor gold panning shovel is an ideal tool for digging and scooping while hunting for precious gems and metals. Use it in conjunction with your metal detector to dig where your tool detects potential treasures in sand, dirt and rocky areas.<br/><br/>This shovel features a round shovel head made of durable, high-quality 45 HRC hardened steel that will stand the test of time. You can count on this quality shovel to get the job done whether you're panning in the sunshine or during inclement weather. The blade measures 6\" x 8.25\".<br/><br/>Our gold prospecting shovel features a knurled wooden D-shaped handle to provide extra grip and stability while digging and can help prevent slippage. The overall length of the shovel is 28.25\", making it a great size for providing significant strength while also being easy to travel with.<br/><br/>Although this shovel was originally designed for gold panning, it's a great versatile tool for other outdoor activities like gardening, removing weeds and digging holes while camping. Overall, this is a must-have gold prospecting and outdoor adventure tool.\nSearch Terms: gold panning tools gold prospecting tools outdoor shovel beach combing beach digging gold rush camping accessories camping essentials camping gear digging tools metal detection metal detector accessories metal detectors steel shovels\nFeatures:\n- GOLD PANNING SHOVEL - ASR Outdoor steel shovel is an ideal tool for digging and scooping while gold prospecting for precious gems and treasures; Use it in conjunction with a metal detector to dig where your tool detects metal in sand, dirt and rocky areas\n- HARD STEEL CONSTRUCTION - Round shovel head is made of durable, high-quality 45 HRC steel that will stand up to the test of time; Count on this shovel to do the job during both ideal and inclement weather; Blade dimensions: 6\" x 8.25\"\n- KNURLED HANDLE - Gold prospecting shovel features a knurled wooden D-handle to provide extra grip and stability while digging; Overall length of shovel is 28.25\", ideal size for providing strength but is also easy to travel with\n- VERSATILE TOOL - Although designed for gold panning and prospecting, the ASR Outdoor shovel is also great for gardening, removing weeds, and digging holes while camping; Great multi-use outdoor adventure tool\n- SPECIFICATIONS - Overall length: 28.25\"; Blade dimensions: 6\" x 8.25\"; Shovel head type: round; Steel type: 45 HRC hardness; Handle type: D-handle, knurled, wooden; Colors: brown, black\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 28.25in Gold Panning Shovel Black Steel",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "28.25",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Gold Panning Shovel Steel"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 28.25-in Black Gold Panning Shovel",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "28.25",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Gold Panning Shovel"
+            },
+            "char_count": 46,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "45 HRC Hardened Steel, Round Blade 6X825in, Knurled Wooden D-Handle, Metal Detecting, Camping",
+            "char_count": 93,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "45 HRC Hardened Steel, Knurled Wooden D-Handle, Round Blade, Metal Detecting, Camping, Gardening, Outdoor Use",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

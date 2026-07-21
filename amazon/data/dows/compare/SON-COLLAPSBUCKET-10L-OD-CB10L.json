@@ -1,0 +1,60 @@
+{
+    "sku": "SON-COLLAPSBUCKET-10L-OD-CB10L",
+    "asin": "B08FBM1L6H",
+    "product_type": "BUCKET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-COLLAPSBUCKET-10L-OD-CB10L\nProduct Type: BUCKET\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 10 Litre Collapsible Bucket Gold Prospecting Equipment (2.65 Gallons)\nDescription: An ASR Outdoor gold panning essential item, this collapsible silicone bucket is meant to pair seamlessly with the ASR Outdoor green classifier screens or sieves, in order to help you efficiently and effectively sift out unwanted raw materials form your working mineral deposit. And, not only is this gold panning bucket great for sorting your materials in the field, its sturdy plastic handle makes it a handy item to have for carrying equipment, moving water and much more when you're on site.<br/><br/>Easy to use, transport and store, the collapsible silicone bucket features a purposefully compact and thoughtful design: <br/><br/>COLLAPSIBLE: The bucket folds down to just two inches when completely collapsed, great for saving space when it's not in use. And, it easily fits into a backpack, closet, car, tote bag, beach bag and more too. Notably, the silicone and plastic grey collapsible bucket will maintain its shape and structural material integrity after repeated folding and reopening<br/><br/>FUNCTIONAL: A sturdy plastic bottom rim, top rim and carrier handle make this silicone collapsible bucket easy to maneuver; the bucket features a handle groove for grip, as well as a groove on the bucket mouth so you can control the directional flow of water. The bucket also has a handy hook you can employ to hang when not in use<br/><br/>BPA-FREE: This rubber, multipurpose tool bucket is BPA (Bisphenol-A) free, meaning there are no harmful chemicals in the silicone material\nSearch Terms: 5 gallon bucket mop car wash gold panning sluice boxes sifting outdoor hobbies camping and hiking activities folding buckets travel collapsible water container portable toilet plastic\nFeatures:\n- COLLAPSIBLE GOLD PANNING BUCKET: This ASR Outdoor bucket, while incredibly versatile in nature, is meant to work seamlessly with the ASR Outdoor green classifier sieves or screens for gold panning, gold mining and gold prospecting in order to help sift out raw materials from your mineral deposit; high capacity of 10L/2.65 gallons\n- COMPACT DESIGN: Folding down to just two (2) inches when completely collapsed, the silicone bucket fits easily into your backpack, closet, car, tote bag and more; maintains shape and material integrity after repeated folding and reopening; sturdy plastic rim, base and carrying handle for added durability\n- BPA FREE SILICONE: This rubber, multipurpose tool bucket is BPA (Bisphenol-A) free, meaning there are no harmful chemicals in the silicone material; safe to use with drinking water, with little ones and pets; non-toxic and odorless with sturdy plastic handle for carrying and toting\n- MULTIPURPOSE: From beverage cooler, small laundry basket, pet bowl, firewood, cleaning supplies and beach toys carrier, to gardening or fishing bucket, water carrier or car wash bucket, this ASR Outdoor rubber silicone bucket is incredibly versatile and handy to have around the house, at the cabin or in the car for a variety of different tasks and activities\n- SPECIFICATIONS: Dimensions Opened: 12 inches x 10 inches; Dimensions Collapsed: 12 inches x 2 inches; Color: Grey; Capacity: 10L or 2.64 gallons; Material: BPA free silicone rubber; Plastic handle included\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 10L Grey Collapsible Bucket",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "L",
+                "size": "",
+                "color": "Grey",
+                "name": "Collapsible Bucket"
+            },
+            "char_count": 39,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 10 Litre Collapsible Bucket",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "Litre",
+                "size": "",
+                "color": "",
+                "name": "Collapsible Bucket"
+            },
+            "char_count": 39,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Folds To 2 Inches, BPA-Free Silicone, Gold Panning, Multipurpose, Portable",
+            "char_count": 74,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "BPA Free Silicone, Folds To 2 Inches, Sturdy Handle, 10L 265 Gallon Capacity, Works With Classifier Screens",
+            "char_count": 107,
+            "validation_error": null
+        }
+    }
+}

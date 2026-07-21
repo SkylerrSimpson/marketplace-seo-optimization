@@ -1,0 +1,60 @@
+{
+    "sku": "KOL-WBOTTLE-BJ241",
+    "asin": "B09CLXG12X",
+    "product_type": "BOTTLE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: KOL-WBOTTLE-BJ241\nProduct Type: BOTTLE\nBrand (from catalog): ASR Outdoor\nExisting Title: 25oz Tritan Flip Top Cap Water Bottle with Straw Smoke Grey\nDescription: Staying hydrated is easy and fast with the ASR Outdoor flip top water bottle with straw; whether rock climbing, hiking, walking or camping, the 25oz water bottle is lightweight, easy to refill with large mouth, fits ice cubes, and is BPA free. Using a quick flip top open and close mechanism, grabbing a sip of water is fast and efficient when you're on the go; when finished, push the straw back to avoid leaks and other material entering your water bottle. <br/><br/>Hydration is a huge part of staying healthy on the daily, as well as if you're participating in heart-pumping outdoor excursions or fitness challenges; rest assured this ASR Outdoor reusable water bottle is BPA-free, putting your health first, so you can focus on the activity ahead.<br/><br/>This BPA-free water bottle is also great for traveling; clear, incredibly durable, and lightweight, this water bottle or water canteen is perfect for when you're on the go, whether for air travel, local backpacking adventures, or road trips. The water bottle with straw easily fits into a backpack side pocket and the top loop allows for carabiner or hook attachment.<br/><br/>Dimensions: 9.5 x 3 x 3.5 inches\nSearch Terms: water bottle kids flask school large sports fitness clear flip top camping supplies biking cycling womens mens daily intake non-metallic plastic carabiner clip attachable travel hiking health hydration ergonomic grip shatterproof washable triton\nFeatures:\n- WATER BOTTLE WITH STRAW: Staying hydrated is easy and fast with the ASR Outdoor flip top water bottle with straw; whether rock climbing, hiking, walking or for packing with your camping gear, the 25oz water bottle with straw is lightweight, easy to refill with large mouth, easily fits ice cubes and is BPA free!\n- QUICK HYDRATION AT YOUR FINGERTIPS: Using a quick flip top open and close mechanism, grabbing a sip of water is fast and efficient when you're on the go; when finished, push the straw back to avoid leaks and other material entering your water bottle\n- BPA FREE WATER BOTTLE: Hydration is a huge part of staying healthy on the daily, as well as if you're participating in heart pumping outdoor excursions or fitness challenges; rest assured this ASR Outdoor water bottle is BPA-free, putting your health first so you can focus on the activity ahead\n- TRAVEL FRIENDLY WATER BOTTLE: Clear, incredible durable and lightweight, this water bottle or water canteen is perfect for when you're on the go, whether for air travel, local backpacking adventures or road trips; the size easily fits into a backpack side pocket and the top loop allows for carabiner or hook attachment\n- SPECIFICATIONS: Dimensions: 9.5 x 3 x 3.5 inches; Material: BPA free plastic; Color: Grey, Lime Green; Fluid Capacity: 25 ounces\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 25oz Tritan Flip Top Water Bottle Smoke Grey",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "25",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "Smoke Grey",
+                "name": "Tritan Flip Top Water Bottle"
+            },
+            "char_count": 56,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 25-oz Tritan Smoke Grey Water Bottle with Straw",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "25",
+                "pack_size_unit": "oz",
+                "size": "Tritan",
+                "color": "Smoke Grey",
+                "name": "Water Bottle with Straw"
+            },
+            "char_count": 59,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Built-in Straw, BPA-Free, Leak-Proof, Carabiner Clip, Fits Ice, Travel-Friendly, Outdoor Sports",
+            "char_count": 95,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "BPA-Free Tritan, Quick Flip Top Straw, Large Mouth For Ice Cubes, Lightweight, Carabiner Loop, Leak-Resistant",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "PIS-KIDSTEPEE-GRN",
+    "asin": "B07RV5XG2K",
+    "product_type": "COLLAPSIBLE_PLAY_STRUCTURE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: PIS-KIDSTEPEE-GRN\nProduct Type: COLLAPSIBLE_PLAY_STRUCTURE\nBrand (from catalog): Parris\nExisting Title: Parris Kids Pretend Play Hut Pop Up Eagle Sunrise Teepee Water Resistant Nylon\nDescription: Pretend like you're in the Wild Wild West with the Parris Kids Eagle Sunrise Play Hut Tepee. <br/><br/>This traditional style tepee is constructed of durable water resistant nylon fabric, making it ideal for indoor or outdoor play. It sets up just like a regular tent, and comes with strong PVC poles to create the frame. It measures about 3ft x 3ft x 4.5ft, making it a great size for little kids to pretend play in.<br/><br/>The floor of the tepee has a liner to keep it safe from scuff marks, and the door comes with ties so kids can really pretend like they are out on an adventure. It also features a vented screen for air circulation. The tepee can easily be taken down when playtime is over, and it comes with a convenient drawstring bag to keep parts organized and ready for travel. This is a must-have gift for young kids who love camping and the Wild Wild West.\nSearch Terms: pretend play wild west child sized tepees nylon huts kids pop up tents camping\nFeatures:\n- TRADITIONAL STYLE PLAY HUT - Pop Up Eagle Sunrise Designed Tepee Perfect for Wild Wild West Pretend Play\n- DURABLE MATERIAL - Constructed of Water Resistant Nylon Fabric Ideal for Indoor or Outdoor Play | Vented Screen for Air Circulation\n- CHILD SIZED - 3ft x 3ft x 4.5ft (LWH) - Great for Children Ages 3 and Up | Floor Liner and Door Ties\n- EASY SET UP - Functions Like Regular Tent | Comes with Sturdy PVC Poles to Construct Frame\n- DRAW STRING CARRY BAG - Comes with Water Resistant Case to Keep Parts Organized and Ready for Travel\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Parris Kids Eagle Sunrise Green Play Tepee Hut",
+            "tokens": {
+                "brand": "Parris",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Green",
+                "name": "Eagle Sunrise Play Tepee Hut"
+            },
+            "char_count": 46,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Parris Eagle Sunrise Kids Teepee Play Hut",
+            "tokens": {
+                "brand": "Parris",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Kids",
+                "color": "Eagle Sunrise",
+                "name": "Teepee Play Hut"
+            },
+            "char_count": 41,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Water Resistant Nylon, Pop Up Design, 3Ft X 3Ft X 45Ft, Indoor And Outdoor, Includes Carry Bag",
+            "char_count": 94,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Water Resistant Nylon, Indoor And Outdoor Play, Sturdy PVC Poles, Vented Screen, Drawstring Carry Bag",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

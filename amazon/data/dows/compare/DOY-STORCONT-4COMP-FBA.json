@@ -1,0 +1,60 @@
+{
+    "sku": "DOY-STORCONT-4COMP-FBA",
+    "asin": "B0BGR1V14W",
+    "product_type": "STORAGE_BOX",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DOY-STORCONT-4COMP-FBA\nProduct Type: STORAGE_BOX\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Clear 4 Compartment Plastic Pop Top Storage Organizer\nDescription: Are you constantly losing small crafting items and tools? The ToolTreaux 4-compartment storage container is a great organizing option for tiny and easy-to-lose tools, items, and accessories.<br/><br/>Made of sturdy clear plastic, this storage case comes with individual snap-tight lids for each compartment to keep your items safe and organized in between uses. The see-through design makes it easy to identify the supplies you need without opening every compartment.<br/><br/>Our plastic storage container measures just 4\" x 3.3\", making it a great size for storing tiny trinkets and crafting supplies like beads, small blades, glitter, push pins, and more. The snap-tight lids and small size of the container allow you to take your tools with you on the go and also double as great storage for medicine and pills while traveling.\nSearch Terms: craft organizers and storage containers desk with room organizers supplies tool box plastic case pill container bin bead stash 4 small compact organization clasp snap easy useful\nFeatures:\n- 4 COMPARTMENT STORAGE - ToolTreaux plastic storage case features 4 separate compartments for storing and organizing small tools and items; Great storage option for crafting supplies, hobby tools, and other small accessories\n- DURABLE CONSTRUCTION - Made of sturdy clear plastic, the storage case comes with individual snap-tight lids for each compartment to keep tools and items safe and organized in between uses; See-through design makes it easy to identify your supplies\n- COMPACT ORGANIZERS - Plastic storage container measures 4\" x 3.3\", great for storing easy-to-lose trinkets and crafting supplies like glitter, beads, small blades, push pins, and more\n- PORTABLE DESIGN - Sturdy snap-tight lids and small size allows you to take your tools and supplies with you on the go; easily store inside a toolbox, tool belt, or travel bag for on-the-go use; also great for storing medicine and pills while traveling\n- SPECIFICATIONS - Material: plastic; Color: clear; Dimensions: 4\" x 3.3\" (101.6mm x 83.82mm); Lid type: snap-tight; Number of compartments: 4 (individual)\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux Clear 4 Compartment Plastic Storage Organizer",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "4",
+                "pack_size_unit": "Compartment",
+                "size": "",
+                "color": "Clear",
+                "name": "Plastic Storage Organizer"
+            },
+            "char_count": 56,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 4-Compartment Clear Plastic Storage Organizer",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "4-Compartment",
+                "color": "Clear",
+                "name": "Plastic Storage Organizer"
+            },
+            "char_count": 56,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "4 Compartments, Snap-Tight Lids, Compact 4X33in, Portable, Craft And Bead Storage",
+            "char_count": 81,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "4 Individual Snap-Tight Lids, Clear See-Through Case, Compact 4\" X 33\", For Beads, Pills, And Small Tools",
+            "char_count": 105,
+            "validation_error": null
+        }
+    }
+}

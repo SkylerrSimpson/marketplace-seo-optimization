@@ -1,0 +1,60 @@
+{
+    "sku": "ASR-BFTOU-BUN-3PK-STD-SLVR",
+    "asin": "B00JKUWBPS",
+    "product_type": "FORK",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: ASR-BFTOU-BUN-3PK-STD-SLVR\nProduct Type: FORK\nBrand (from catalog): ASR Outdoor\nExisting Title: BBQ Fork Telescoping Outdoor 2 Prong Cooking Utensil - 3 Pack, 35.5\"\nDescription: Cook for your family and friends any time with the ASR Outdoor Telescoping BBQ Fork 3 Pack. This Telescoping BBQ Fork is a great addition to any kitchen or BBQ utensil set. <br/><br/>It features 2 prongs for skewering meat, veggies and just about anything else you want to grill. Each fork extends to 35.5\", making it the perfect length for keeping you away from the heat. You can even use it to toast s'mores.<br/><br/>The fork will collapse down to just 11\" for easy storage, and is constructed of durable stainless steel. The rubber dipped black handles provide added comfort, and each prong comes with a safety cover for when not in use. <br/><br/>Make sure to grab one of these before your next cook out.\nSearch Terms: camping utensil outdoor accessories gear stove cookware eating open fire cooking camp light portable table campng flatware eatting plates backpacking spoon knife spork survival roasting marshmello set\nFeatures:\n- Extendable Length: 35.5\"\n- Collapsed Length: 11\"\n- Fork Length: 5\"\n- Constructed of Stainless Steel\n- Rubber Dipped Handles\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 3-Pack 35.5\" Silver Telescoping BBQ Fork",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "Pack",
+                "size": "35.5\"",
+                "color": "Silver",
+                "name": "Telescoping BBQ Fork"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 3-Pk 35.5 In Telescoping BBQ Fork",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "35.5",
+                "color": "",
+                "name": "Telescoping BBQ Fork"
+            },
+            "char_count": 45,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Extends To 355 Inches, Collapses To 11 Inches, Stainless Steel, Rubber Dipped Handles, 2 Prongs, Safety Covers Included",
+            "char_count": 119,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "2 Prong Stainless Steel, 355 Inch Extendable, Collapses To 11 Inch, Rubber Dipped Handles, Safety Covers",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

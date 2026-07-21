@@ -1,0 +1,60 @@
+{
+    "sku": "SON-3AJ-SML-BLCK-2",
+    "asin": "B005DNUHAW",
+    "product_type": "SAW",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-3AJ-SML-BLCK-2\nProduct Type: SAW\nBrand (from catalog): Universal Tool\nExisting Title: 3in Adjustable Jeweler Saw Frame Professional Quality Hobby Crafts Utility Tool\nDescription: An important and fundamental tool in the jewelry making trade, as well as in other trades like woodworking and metalworking too, owning a professional and adjustable jeweler's saw frame is the key to making precise cuts through a long list of working materials-we're talking wood, metal, plastic and a lot more. <br/><br/>What makes the saw frame, coping saw or piercing saw frame so versatile is the tools adjust-ability factor. Able to slide in either direction to accommodate different sized blades, the adjust-ability function will help jewelers to make minor, but convenient adjustments to blade tension. This Universal Tool frame delivers the maneuverability you need to cut curves, angles and corners. In addition, the locking thumbscrews firmly secure the blades and hold the saw frame steady, allowing you make a straight and precise cut; secure thumbscrews will make your cuts easier and faster, providing strength and firm tension.<br/><br/>Lastly, the Universal Tool saw frame comes with a wooden, black coated handle, ensuring a precise yet comfortable cutting experience, so you can focus on your craft and not the tool! A precise, yet powerful handheld cutting tool, this Universal Tool frame saw is ideal for jewelers but, as mentioned, is also regularly employed by DIY enthusiasts, woodworkers, metalworkers, hobbyists and craftsmen. Featuring a three (3) inch working length, you'll be able to work on quick and small projects with efficiency and ease.\nSearch Terms: (none)\nFeatures:\n- VERSATILE MULTIPURPOSE SAW FRAME: While the jewelers saw frame is designed to be used in conjunction with varying jewelers' saws for making fine cuts through soft metals, it's also a fantastic and diverse tool employed by metalworkers, woodworkers, craftsmen and hobbyists; features a working length of three (3) inches and can be used to cut a variety of materials\n- ADJUSTABLE SAW FRAME: Able to slide in either direction to accommodate different sized blades, the adjustability function will help jewelers to make minor but convenient adjustments to the blade's tension; this frame delivers the maneuverability you need to cut curves, angles and corners\n- RELIABLE LOCKING THUMBSCREWS: The locking thumbscrews firmly secure the blades and hold the saw frame steady while you make a straight and precise cut on metal, plastic, wood, and more; the secure thumbscrews will make your cuts easier and faster, providing strength and firm tension\n- COMFORTABLE WOODEN HANDLE: Featuring a comfortable, black handle, the Universal Tool saw frame, coping saw or piercing saw, the handle is constructed from wood, ensuring a precise yet comfortable cutting experience so you can focus on your craft and not the tool\n- SPECIFICATIONS: Dimensions: 4-5/8 x 1 inch; Frame Length: 7.5 inches; Depth of Cut: 3-inch; Material: Wood, Metal; Note: Saw blades not included with purchase\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 3in Adjustable Jeweler Saw Frame Black",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "3",
+                "pack_size_unit": "in",
+                "size": "3in",
+                "color": "Black",
+                "name": "Adjustable Jeweler Saw Frame"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 3 in Adjustable Jeweler Saw Frame",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "3 in",
+                "color": "",
+                "name": "Adjustable Jeweler Saw Frame"
+            },
+            "char_count": 48,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Adjustable Blade Tension, Locking Thumbscrews, Wooden Handle, Cuts Metal Wood Plastic, Professional Jewelry Making",
+            "char_count": 114,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Wood Handle, Locking Thumbscrews, Adjustable Blade Tension, Cuts Metal Wood Plastic, 3-Inch Depth",
+            "char_count": 97,
+            "validation_error": null
+        }
+    }
+}

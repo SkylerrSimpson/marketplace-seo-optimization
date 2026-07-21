@@ -1,0 +1,60 @@
+{
+    "sku": "SON-STEELDOGPOST-SIL",
+    "asin": "B09TS12DQJ",
+    "product_type": "ANCHOR_STAKE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-STEELDOGPOST-SIL\nProduct Type: ANCHOR_STAKE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Steel Dog Post Heavy Duty Stake 360 Degree Swivel Pet Safety Tie Out\nDescription: The ASR Outdoor heavy-duty dog post is made of weather-resistant steel so you can count on it to keep your dog staked safely in your yard or at your campsite while camping out. This dog stake features a 360-degree swivel ring that you can attach to a tie-out cable (cable not included) so your dog can roam around your yard safely. The stake itself measures 16\" tall, giving your pet a large range of motion.<br/><br/>The ASR Outdoor dog post features an arrowhead design to easily screw into the ground and keep your tie-out cable firmly anchored, ensuring your furry friend will be safe in your yard or garden. It's simple to remove and can be stored in any car, truck, toolbox or garden shed for easy storage when not in use. <br/><br/>A steel dog stake is a great option for dog owners who want their pets to be able to roam around outside safely with supervision. Make sure to keep an eye on them to make sure they don't get tangled in your tie-out.\nSearch Terms: dog tie out cable dog tie out dog tie out stake dog stake for yard yard stake for dogs dog safety stake pet safety stake dog tie out cable and stake dog camping gear pet travel dog leash dog crate dog accessories retractable dog leash dog training\nFeatures:\n- DURABLE YARD STAKE FOR DOGS - The ASR Outdoor heavy duty dog post is made of weather-resistant steel so you can count on it to keep your dog staked safely in your yard or at your campsite while camping out.\n- 360 DEGREE SWIVEL - This dog stake features a 360 degree swivel ring that you can attach to a tie-out cable (cable not included) so your dog can roam around your yard safely. The stake itself measures 16\" tall, giving your pet a large range of motion.\n- EASY SCREW DESIGN - The ASR Outdoor dog post features an arrowhead design to easily screw into the ground and keep your tie-out cable firmly anchored, ensuring your furry friend will be safe in your yard or garden. It's simple to remove and can be stored in any car, truck, tool box or garden shed for easy storage when not in use.\n- KEEP YOUR PET SAFE - A steel dog stake is a great option for dog owners who want their pet to be able to roam around outside safely with supervision. Make sure to keep an eye on them to make sure they don't get tangled in your tie-out.\n- SPECIFICATIONS - Material: stainless steel; Color: chrome; Dimensions: 16\" tall; Arrowhead screw design; 360 degree swivel ring included; Tie-out cable not included\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 16\" Steel Dog Post 360 Swivel Tie Out Stake",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "16",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Steel",
+                "name": "Dog Post 360 Swivel Tie Out Stake"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 16in Chrome Steel Dog Post Swivel Tie Out Stake",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "16",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Chrome",
+                "name": "Steel Dog Post Swivel Tie Out Stake"
+            },
+            "char_count": 59,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "360 Degree Swivel Ring, Weather-Resistant Steel, Arrowhead Screw Design, Easy Installation And Removal, Pet Safety",
+            "char_count": 114,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Weather Resistant Stainless Steel, 360 Degree Swivel Ring, Arrowhead Screw In Design, 16\" Tall, Yard And Camp Use",
+            "char_count": 113,
+            "validation_error": null
+        }
+    }
+}

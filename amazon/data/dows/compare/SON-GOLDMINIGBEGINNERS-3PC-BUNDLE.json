@@ -1,0 +1,60 @@
+{
+    "sku": "SON-GOLDMINIGBEGINNERS-3PC-BUNDLE",
+    "asin": "B0764KFTTJ",
+    "product_type": "OUTDOOR_LIVING",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-GOLDMINIGBEGINNERS-3PC-BUNDLE\nProduct Type: OUTDOOR_LIVING\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Basic Gold Panning Kit for Beginners, Black 3pc Set (Gold Pan Vial Snifter Bottle)\nDescription: Strike it rich with the ASR Outdoor 3pc Beginner Gold Panning Kit<br/><br/>This complete basic set comes with everything you'll need to sift, grab and contain gold and minerals while out gold panning.<br/><br/>In the kit we've included 1 of our most popular sifting gold pan sizes - 12\" diameter. It features dual riffles that will assist you in sifting out minerals and gems from silt and mud.<br/><br/>A few of the other items included are a snifter bottle for easily grabbing small minerals and 1 glass collection vial for containing your gold flake and gem stones once they've been sifted. This is a great kit for beginning gold prospectors.\nSearch Terms: gold mining kit adults beginner panning prospecting equipment classifier screen set outdoor gift for him outdoorsman sifting screen sets metal detector accessories camping\nFeatures:\n- BASIC GOLD PANNING KIT: Ideal for gold panning beginners as an entry level way to get into gold prospecting. Lot of fun to take on camping trips near rivers and streams.\n- GOLD PAN SPECIFICATIONS: 12\" diameter gold pan with dual riffle built into the side wall for washing, sifting raw material alluvial pay dirt\n- Color: Black made from high impact ABS plastic. Much lighter than traditional gold pans made from metal\n- GLASS COLLECTION VIAL: 1 1/3 Dram storage container for gold flake and gold nuggets found\n- SNIFTER BOTTLE: 4oz capacity, also known as a snifter bottle, used to collect found gold out of the basin of your gold pan\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 3pc Black Gold Panning Kit Beginners",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Black",
+                "name": "Gold Panning Kit Beginners"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 3-Pc 12in Black Gold Panning Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "12in",
+                "color": "Black",
+                "name": "Gold Panning Kit"
+            },
+            "char_count": 44,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "12 Inch Gold Pan, Dual Riffle, Snifter Bottle, Glass Collection Vial, Entry Level Prospecting",
+            "char_count": 93,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Dual Riffle 12\" Pan, ABS Plastic, Snifter Bottle, Glass Vial, Beginner Prospecting, Camping, Alluvial Pay Dirt",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}

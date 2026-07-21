@@ -1,0 +1,60 @@
+{
+    "sku": "SON-SHTGLSFLSKSET-SILVER-7PC-BUN",
+    "asin": "B0977YJL2B",
+    "product_type": "HIP_FLASK",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-SHTGLSFLSKSET-SILVER-7PC-BUN\nProduct Type: HIP_FLASK\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Portable Stainless Steel Silver Shot Glasses and Flask Set, 7pc\nDescription: Wherever your adventures take you, family and friends, a shot of courage or celebration toast is never far away with the ASR Outdoor Stainless Steel Shot Glasses and Flask Set. Six compact nesting shot glasses (2 ounces each) and one lightweight hip flask (8 ounces) with chrome-plated screw top, make this set easy to travel with in a backpack or with your hiking, hunting, fishing, trekking, RV or camping gear.<br/><br/>With the shot glasses made from 201 stainless steel, and the hip flask made from 304 stainless steel, you’re looking at a combo that features durability, longevity and rust-resistant properties; notably, stainless steel will not retain flavor so you can jump from one liquor to the next without worry. <br/><br/>In addition, the set doesn’t skip out on form or function with its thoughtful and easily portable design. The shot glasses nestle compactly together to save on space when not in use, while the flask features a chrome plated leak-proof screw cap and intentional curvature on the back side of the flask for easy handling or comfortable pocket storage.<br/>Dishwasher safe.<br/><br/>Both items are able to be engraved, if the set is intended as a gift.\nSearch Terms: groomsman gift hip flask stainless steel silver trekking hiking snowboarding skiing backpacking camping gear RV camp kitchen beverage tailgating ASR Outdoor whiskey water alcohol gifts wilderness adventure groomsmen boating drinking cups campfire\nFeatures:\n- TOASTS TO GO: Wherever your adventures take you, a shot of courage or celebration toast is never far away with the ASR Outdoor Stainless Steel Shot Glasses and Flask Set! Six compact nesting shot glasses and one lightweight hip flask make this set easy to travel with in a backpack or with hiking, hunting, fishing, RV or camping gear\n- QUALITY STAINLESS STEEL: With the shot glasses made from 201 stainless steel, and the hip flask made from 304 stainless steel, you’re looking at a set that features durability, longevity and rust-resistant properties; notably, stainless steel will not retain flavor so you can jump from one liquor to the next without worry\n- PORTABLE DESIGN: The shot glasses and hip flask don’t skip out on form and function; the shot glasses nestle compactly together to save on space; the flask features a chrome plated leakproof screw cap and intentional curvature on the back side of the flask for easy handling or comfortable storage in a pocket\n- EASY TO KEEP CLEAN: Both the shot glasses and hip flask are dishwasher safe, making them easy to clean and maintain after use; both the hip flask and shot glasses are food safe\n- SPECIFICATIONS: Set includes 6 shot glasses, 1 flask; Shot Glass Dimensions: 2.25 x 2 inches; Flask Dimensions: 5.5 x 3.75 x 1 inches; Flask Mouth Diameter: 0.5 inches; Material: 304 and 201 Stainless Steel; Color: Brushed Silver; Shot Glass Fluid Capacity: 2 ounces; Hip Flask Fluid Capacity: 8 ounces\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 7pc Silver Stainless Steel Shot Glasses Flask Set",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "7",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Silver",
+                "name": "Stainless Steel Shot Glasses Flask Set"
+            },
+            "char_count": 61,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 7-pc Silver Shot Glasses and Flask Set",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "7",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Silver",
+                "name": "Shot Glasses and Flask Set"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "6 Nesting Shot Glasses, 8Oz Flask, Leak-Proof, Dishwasher Safe, Portable Camping",
+            "char_count": 80,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "6 Nesting Shot Glasses, 8 Oz Flask, Stainless Steel, Leak-Proof Screw Cap, Dishwasher Safe, Engraveable",
+            "char_count": 103,
+            "validation_error": null
+        }
+    }
+}

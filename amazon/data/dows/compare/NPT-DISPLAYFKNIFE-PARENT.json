@@ -1,0 +1,60 @@
+{
+    "sku": "NPT-DISPLAYFKNIFE-PARENT",
+    "asin": "B07RPPP6XB",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: NPT-DISPLAYFKNIFE-PARENT\nProduct Type: KNIFE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Collectible Graphic Folding Clip Point Knife With Display Case\nDescription: Add some majestic wildlife to your knife collection with the ASR Outdoor Folding Knife with Display Case.<br/><br/>This durable folding knife is constructed of 440 stainless steel that wont rust. It opens to an overall length of 8\", the blade itself is 3\" and it folds down to just 4.5\" making it an ideal size for keeping in your pocket, bag or backpack. <br/><br/>The knife features a clip point blade, resulting in a fine point that is ideal for precision tasks. The gold painted handle features a majestic animal out in the wild, and the ergonomic design adds comfort and prevents slippage during use. <br/><br/>Included with this collectible knife is a faux-wood display case that snaps shut to keep the blade secure when not in use. This is a must-have addition to any outdoor enthusiast's knife collection.\nSearch Terms: hunting blades fishing collectible knives collectors wildlife themed\nFeatures:\n- MAJESTIC DESIGN - Gold Painted Handle Features Wildlife | Ideal Collectible for Hunters & Outdoor Enthusiasts\n- COMPACT SIZE - Folds Down to 4.75\" | 3\" Blade | Overall Length 8\" | Great for Keeping in Pocket, Bag or Backpack\n- CLIP POINT BLADE - Fine Point Tip Ideal for Precision Tasks\n- DISPLAY CASE - Collectible Knife Comes with Faux Wooden Display Case to Store When Not in Use\n- ERGONOMIC HANDLE - Comfortable Handle Designed to Prevent Slippage During Use\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Collectible Folding Clip Point Knife Display Case",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Gold",
+                "name": "Collectible Folding Clip Point Knife Display Case"
+            },
+            "char_count": 61,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 3 in Folding Clip Point Knife With Display Case",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "3 in",
+                "color": "",
+                "name": "Folding Clip Point Knife With Display Case"
+            },
+            "char_count": 59,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Wildlife Themed, 440 Stainless Steel, 3 Inch Blade, Folds To 45 Inch, Ergonomic Handle, Faux Wood Display Case",
+            "char_count": 110,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "440 Stainless Steel, Rust Resistant, Wildlife Graphic Gold Handle, Clip Point Tip, 3-In Blade, Faux Wood Display Case",
+            "char_count": 117,
+            "validation_error": null
+        }
+    }
+}

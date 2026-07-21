@@ -1,0 +1,60 @@
+{
+    "sku": "SON-144PKVIALS-PARENT",
+    "asin": "B07Z8T8H14",
+    "product_type": "LAB_SUPPLY",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-144PKVIALS-PARENT\nProduct Type: LAB_SUPPLY\nBrand (from catalog): ASR Outdoor\nExisting Title: 144pk Air Tight Glass Storage Dram Vials Hobby Craft and Gold Prospecting (5 Sizes)\nDescription: The 144pk Vials Set is a great addition to any crafter or hobbyist's work area. Each vial is perfect for storing small items like beads, glitter, dust and other essential crafts.<br/><br/>In addition, these vials will come in handy for gold prospectors and mineral collectors. They feature a water-tight screw top cap, as well as a durable glass see-through body so you'll be able to identify items easily. These vials will ensure that your craft supplies, gems and other tiny valuables are safe and contained.<br/><br/>This is a perfect gift for crafters and hobbyists looking to store small items.\nSearch Terms: dram vials 1 glass vial gold prospecting equipment tools supplies mining kit\nFeatures:\n- 5 Dram Sizes Available: ¾ | 1 | 1-1/3 | 1-2/3 | 1 3/4| 2\n- Water-tight Plastic Screw Top\n- Durable Glass Transparent Body\n- Perfect for Storing Small Items Like Glitter, Dust, Gems, Beads, Small Parts, etc.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 144-pk Dram Vials Glass Storage 5 Sizes",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "144",
+                "pack_size_unit": "pk",
+                "size": "5 Sizes",
+                "color": "",
+                "name": "Dram Vials Glass Storage"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 144-pk Glass Storage Dram Vials",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "144",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Glass Storage Dram Vials"
+            },
+            "char_count": 43,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Water-Tight Screw Caps, Transparent Glass Body, Gold Prospecting, Craft Supplies, Beads, Glitter, Gems Storage",
+            "char_count": 110,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "5 Dram Sizes, Water-Tight Screw Top, Clear Glass Body, Ideal For Beads, Glitter, Gems, Small Parts, Prospecting",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}
