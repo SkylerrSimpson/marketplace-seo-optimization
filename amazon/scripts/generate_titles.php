@@ -8,6 +8,7 @@ use Ige\Amazon\Ai\Batch\BatchRunner;
 use Ige\Amazon\Ai\Batch\OpenAiBatchProvider;
 use Ige\Amazon\Ai\Concurrent\ParallelJob;
 use Ige\Amazon\Ai\Concurrent\ParallelRunner;
+use Ige\Amazon\Ai\Concurrent\ProgressReporter;
 use Ige\Amazon\Ai\CostEstimator;
 use Ige\Amazon\Ai\ItemNameGenerator;
 use Ige\Amazon\Ai\ModelConfig;
@@ -400,7 +401,9 @@ if ($multi) {
                     $jobs[] = new ParallelJob($pid . '|' . $req['custom_id'], $pid, $models[$pid], $req['prompt'], $req['maxTokens']);
                 }
             }
-            $flat = $parallelRunner->run($jobs);
+            $progress = new ProgressReporter();
+            $flat     = $parallelRunner->run($jobs, $progress);
+            $progress->finish();
             foreach ($requestsByProvider as $pid => $reqs) {
                 foreach ($reqs as $req) {
                     $results[$pid][$req['custom_id']] = $flat[$pid . '|' . $req['custom_id']] ?? null;

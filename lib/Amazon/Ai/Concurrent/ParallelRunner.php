@@ -71,17 +71,33 @@ final class ParallelRunner
     /**
      * Dispatch every job concurrently and collect the results.
      *
-     * @param  list<ParallelJob> $jobs
+     * @param  list<ParallelJob>                    $jobs
+     * @param  (callable(int,int,int,int):void)|null $onProgress called after each
+     *         request settles with (done, total, ok, errored) — e.g. a
+     *         ProgressReporter — so the caller can show live progress.
      * @return array<string,ProviderResult> custom_id => result
      */
-    public function run(array $jobs): array
+    public function run(array $jobs, ?callable $onProgress = null): array
     {
         $jobs = array_values($jobs);
         if ($jobs === []) {
             return [];
         }
 
+        $total   = count($jobs);
+        $done    = 0;
+        $ok      = 0;
+        $err     = 0;
         $results = [];
+        $errors  = []; // deferred so error lines don't shred an in-place progress bar
+
+        $settle = function (bool $success) use (&$done, &$ok, &$err, $total, $onProgress): void {
+            $done++;
+            $success ? $ok++ : $err++;
+            if ($onProgress !== null) {
+                $onProgress($done, $total, $ok, $err);
+            }
+        };
 
         $pool = new Pool($this->client, (function () use ($jobs) {
             foreach ($jobs as $job) {
@@ -89,19 +105,25 @@ final class ParallelRunner
             }
         })(), [
             'concurrency' => $this->concurrency,
-            'fulfilled'   => function (ResponseInterface $response, int $index) use ($jobs, &$results): void {
+            'fulfilled'   => function (ResponseInterface $response, int $index) use ($jobs, &$results, $settle): void {
                 $job                     = $jobs[$index];
                 $results[$job->customId] = $this->adapter($job->provider)->parse($job, $response);
+                $settle(true);
             },
-            'rejected'    => function (mixed $reason, int $index) use ($jobs, &$results): void {
-                $job = $jobs[$index];
-                $msg = $reason instanceof \Throwable ? $reason->getMessage() : (string) $reason;
-                ($this->log)("  [ERROR] {$job->provider}/{$job->customId}: {$msg}");
+            'rejected'    => function (mixed $reason, int $index) use ($jobs, &$results, &$errors, $settle): void {
+                $job                     = $jobs[$index];
+                $msg                     = $reason instanceof \Throwable ? $reason->getMessage() : (string) $reason;
+                $errors[]                = "  [ERROR] {$job->provider}/{$job->customId}: {$msg}";
                 $results[$job->customId] = new ProviderResult($job->provider, $job->model, $msg, null);
+                $settle(false);
             },
         ]);
 
         $pool->promise()->wait();
+
+        foreach ($errors as $line) {
+            ($this->log)($line);
+        }
 
         return $results;
     }
