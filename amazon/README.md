@@ -161,6 +161,9 @@ php amazon/scripts/analyze_gap_fill.php --account=IGE
 # 6.5 — modular titles (both providers → compare/{sku}.json + title_decisions.csv)
 php amazon/scripts/generate_titles.php --account=IGE --dry-run
 php amazon/scripts/generate_titles.php --account=IGE
+# ...or ~50% cheaper for a full account via each provider's Batch API (blocks until done;
+# --resume/--cancel recover an interrupted run from amazon/data/{account}/batch-manifest.json):
+php amazon/scripts/generate_titles.php --account=IGE --batch
 
 # 6.6 — MANUAL: open output/title_decisions.csv and set each *_pick column
 
@@ -494,7 +497,47 @@ php amazon/scripts/generate_titles.php --account=IGE --sku=SOME-SKU --provider=a
 
 Flags: `--provider=both|anthropic|openai` (default both), `--anthropic-model=`
 (default `claude-sonnet-5`; aliases `haiku`/`sonnet`/`opus`), `--openai-model=`
-(default `gpt-4o`), `--force` to overwrite, `--dry-run`.
+(default `gpt-4o`), `--force` to overwrite, `--dry-run`, plus the batch flags below.
+
+#### Batch mode (`--batch`) — ~50% cheaper, for a full account
+
+By default the script makes one live API call per provider per SKU, in order.
+`--batch` instead submits **one asynchronous batch per provider** (Anthropic Message
+Batches / OpenAI Batch API), which bills at roughly half the live rate and processes
+every SKU concurrently. The command blocks, polling until the batches finish, then
+assembles the same `compare/{sku}.json` files as the live path.
+
+```bash
+# Submit both providers as batches and block until they complete.
+php amazon/scripts/generate_titles.php --account=IGE --batch --force \
+    --anthropic-model=haiku --openai-model=gpt-5.4-mini
+
+# Poll less often (default 30s) while waiting.
+php amazon/scripts/generate_titles.php --account=IGE --batch --poll-interval=60
+
+# The batch window can run for many minutes/hours; run it detached if you like:
+nohup php amazon/scripts/generate_titles.php --account=IGE --batch --force \
+    > batch.log 2>&1 &
+```
+
+On submit the script writes **`amazon/data/{account}/batch-manifest.json`** recording
+each provider's batch id, model, and the SKU↔request map, and deletes it once results
+are assembled. While that manifest exists (i.e. a run was interrupted mid-poll before
+it finished), two recovery flags act on it — no argument needed, the manifest is the
+source of truth for providers and models:
+
+```bash
+# Reattach to the still-running batches and finish (no resubmit, no double billing).
+php amazon/scripts/generate_titles.php --account=IGE --resume
+
+# Cancel the in-flight batches and remove the manifest.
+php amazon/scripts/generate_titles.php --account=IGE --cancel
+```
+
+Batch flags: `--batch`, `--resume`, `--cancel`, `--poll-interval=SECONDS` (default 30).
+Note SKUs are keyed inside the batch by a positional id (`sku-1`, `sku-2`, …) because
+Amazon SKUs can contain characters (dots, spaces) that Anthropic's `custom_id` pattern
+rejects; the manifest maps those ids back to real SKUs.
 
 Output, three artifacts:
 - `compare/{sku}.json` — both providers' candidates side by side, plus the shared

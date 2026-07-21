@@ -17,6 +17,15 @@ final class CostEstimator
     private array $totals = [];
 
     /**
+     * @param float $costMultiplier scales every dollar figure (token counts stay
+     *                              actual). Pass 0.5 for the Batch API's discount.
+     */
+    public function __construct(
+        private float $costMultiplier = 1.0,
+    ) {
+    }
+
+    /**
      * Rough token count for a piece of prompt text (~4 chars/token), the same
      * heuristic the scripts used inline before this class existed.
      */
@@ -49,7 +58,7 @@ final class CostEstimator
         foreach ($this->totals as $model => $t) {
             $total += ModelPricing::cost($model, $t['in'], $t['out']) ?? 0.0;
         }
-        return $total;
+        return $total * $this->costMultiplier;
     }
 
     /**
@@ -69,6 +78,7 @@ final class CostEstimator
         $lines = [$heading];
         foreach ($rows as $model => $t) {
             $cost     = ModelPricing::cost($model, $t['in'], $t['out']);
+            $cost     = $cost === null ? null : $cost * $this->costMultiplier;
             $costText = $cost === null ? 'n/a (no rate)' : sprintf('$%.4f', $cost);
             $lines[]  = sprintf(
                 '  %-' . $width . 's  in~%-11s out~%-11s %s',

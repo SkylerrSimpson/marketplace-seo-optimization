@@ -36,7 +36,7 @@ final class OpenAiProvider extends AbstractProvider
 
     public function complete(string $prompt, array $opts = []): ProviderResult
     {
-        $response = $this->client->chat()->create($this->requestParams($prompt, $opts));
+        $response = $this->client->chat()->create(self::requestBody($this->model(), $prompt, $opts));
 
         $text = (string) ($response->choices[0]->message->content ?? '');
 
@@ -55,20 +55,23 @@ final class OpenAiProvider extends AbstractProvider
      * the model family. Reasoning models get max_completion_tokens (with headroom
      * for reasoning tokens) plus a low reasoning_effort; others get max_tokens.
      *
+     * Static and self-contained so the batch path (OpenAiBatchProvider) can emit
+     * JSONL request bodies byte-identical to the synchronous call.
+     *
      * @param  array<string,mixed>  $opts
      * @return array<string,mixed>
      */
-    private function requestParams(string $prompt, array $opts): array
+    public static function requestBody(string $model, string $prompt, array $opts = []): array
     {
         $visibleCap = (int) ($opts['maxTokens'] ?? 256);
 
         $params = [
-            'model'           => $this->model(),
+            'model'           => $model,
             'response_format' => ['type' => 'json_object'],
             'messages'        => [['role' => 'user', 'content' => $prompt]],
         ];
 
-        if (ModelConfig::isReasoningModel($this->model())) {
+        if (ModelConfig::isReasoningModel($model)) {
             $params['max_completion_tokens'] = $visibleCap + 1024;
             $params['reasoning_effort']      = $opts['reasoningEffort'] ?? 'low';
 
