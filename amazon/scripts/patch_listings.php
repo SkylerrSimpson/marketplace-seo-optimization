@@ -27,10 +27,16 @@ declare(strict_types=1);
  *      the live listing, in the draft, or via a deterministic rule, the ENTIRE
  *      SKU is blocked (nothing is written) unless --skip-compliance-block.
  *
- * Backup (Phase 10): on --apply, the live listing is fetched and written to
+ * Backup (Phase 10): --apply first re-fetches a fresh baseline for exactly the
+ *   drafted SKUs (searchListingsItems, 20 identifiers/call) and overwrites their
+ *   snapshots, so it never trusts stale on-disk state. Each SKU's fresh snapshot
+ *   (input/listings/{sku}.json) is then copied to
  *   data/{account}/backups/{sku}/{timestamp}.json BEFORE any patch, so every
- *   write is reversible via restore_listings.php. That same fetch is the
- *   authoritative baseline for the shrink/compliance guards.
+ *   write is reversible via restore_listings.php. That snapshot — the lossless
+ *   getListingsItem/searchListingsItems Item, carrying the same blocks the old
+ *   per-SKU live fetch pulled — is also the baseline for the shrink/compliance
+ *   guards. A drafted SKU Amazon does not return on the refresh has no snapshot
+ *   and is skipped, never patched without a backup.
  *
  * Attributes skipped automatically (unchanged from Phase 8):
  *   - value is null (Claude could not determine a value)
@@ -79,8 +85,9 @@ require __DIR__ . '/../../lib/ComplianceResolvers.php';
 
 $complianceAttrs = require __DIR__ . '/../../lib/ComplianceAttributes.php';
 
-// Data to pull for the pre-change backup / baseline fetch (mirror Phase 2).
-const BACKUP_INCLUDED_DATA = [
+// The lossless Item blocks fetched for the pre-change baseline/backup — the
+// same set Phase 2 (export_listings_items.php) mirrors to disk.
+const BASELINE_INCLUDED_DATA = [
     'attributes', 'issues', 'summaries', 'offers',
     'fulfillmentAvailability', 'procurement', 'relationships', 'productTypes',
 ];
@@ -209,6 +216,29 @@ if ($apply) {
 $marketplaceId = $apply ? $amazon->marketplaceId : ($_ENV['AMAZON_SPAPI_MARKETPLACE_ID'] ?? 'ATVPDKIKX0DER');
 
 // ---------------------------------------------------------------------------
+// Baseline refresh — an --apply run MUST back up current state, so it does not
+// trust whatever snapshots happen to be on disk: it re-fetches a fresh baseline
+// for exactly the drafted SKUs (searchListingsItems, 20 identifiers/call) and
+// overwrites input/listings/{sku}.json before the loop. loadBaseline then reads
+// guaranteed-fresh snapshots and copies them to backups/. A SKU Amazon does not
+// return is left without a snapshot and skipped by the loop's no-backup guard.
+// ---------------------------------------------------------------------------
+
+if ($apply) {
+    $draftSkus = draftedSkus($draftFiles);
+    echo 'Refreshing baseline snapshots for ' . count($draftSkus) . ' SKU(s) before apply...' . PHP_EOL;
+    $refresh = refreshBaselines($draftSkus, $listingsApi, $amazon, $paths);
+    echo '  refreshed : ' . count($refresh['refreshed']) . PHP_EOL;
+    if ($refresh['missing']) {
+        $shown = array_slice($refresh['missing'], 0, 10);
+        echo '  not found on Amazon (will be skipped): ' . count($refresh['missing'])
+            . ' — ' . implode(', ', $shown)
+            . (count($refresh['missing']) > 10 ? ', …' : '') . PHP_EOL;
+    }
+    echo PHP_EOL;
+}
+
+// ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
 
@@ -262,47 +292,113 @@ function schemaRequired(string $productType, string $schemasDir): array
     return $schemaRequiredCache[$productType] = $req;
 }
 
+/** Resolve the SKU for each draft file (the draft's own sku, else the filename). */
+function draftedSkus(array $draftFiles): array
+{
+    $skus = [];
+    foreach ($draftFiles as $file) {
+        $draft  = json_decode((string) file_get_contents($file), true) ?: [];
+        $skus[] = $draft['sku'] ?? basename($file, '.json');
+    }
+    return $skus;
+}
+
 /**
- * Load the baseline listing for a SKU.
- *   --apply : authoritative live getListingsItem, and write a pre-change backup.
- *   dry-run : the on-disk Phase 2 snapshot (approximate — may be stale).
- * Returns ['listing'=>?array, 'source'=>'live'|'snapshot'|'none', 'backup'=>?string].
+ * Fetch fresh baselines for the given SKUs and overwrite their Phase-2
+ * snapshots, so an --apply run always backs up current listing state.
+ *
+ * Uses searchListingsItems with an `identifiers` filter (max 20 SKUs/call,
+ * identifiersType=SKU) — the same lossless Item the per-SKU getListingsItem
+ * returned, but ~20x fewer calls, and scoped to exactly the drafted SKUs so
+ * the 1000-result pagination cap never applies. Snapshots are written in the
+ * same format Phase 2 uses, keeping them interchangeable.
+ *
+ * SKUs Amazon does not return (deleted / not on this account) are reported as
+ * missing and left without a snapshot; loadBaseline then yields 'none' and the
+ * loop refuses to patch them (no listing = nothing to back up or patch).
+ *
+ * @param  list<string> $skus
+ * @return array{refreshed: list<string>, missing: list<string>}
  */
-function loadBaseline(
-    string $sku,
-    bool $apply,
-    $listingsApi,
-    ?AmazonClient $amazon,
-    array $paths,
-): array {
-    if ($apply) {
-        $item = AmazonRateLimits::retryWithBackoff(
-            fn() => $listingsApi->getListingsItem(
-                sellerId:       $amazon->sellerId,
-                sku:            $sku,
-                marketplaceIds: [$amazon->marketplaceId],
-                includedData:   BACKUP_INCLUDED_DATA,
+function refreshBaselines(array $skus, $listingsApi, AmazonClient $amazon, array $paths): array
+{
+    $refreshed = [];
+    foreach (array_chunk(array_values(array_unique($skus)), 20) as $batch) {
+        $data = AmazonRateLimits::retryWithBackoff(
+            fn() => $listingsApi->searchListingsItems(
+                sellerId:        $amazon->sellerId,
+                marketplaceIds:  [$amazon->marketplaceId],
+                includedData:    BASELINE_INCLUDED_DATA,
+                identifiers:     $batch,
+                identifiersType: 'SKU',
+                pageSize:        20,
             )->json(),
-            AmazonOperationIds::GET_LISTINGS_ITEM,
+            AmazonOperationIds::SEARCH_LISTINGS_ITEMS,
         );
-        AmazonRateLimits::throttle(AmazonOperationIds::GET_LISTINGS_ITEM);
+        AmazonRateLimits::throttle(AmazonOperationIds::SEARCH_LISTINGS_ITEMS);
 
-        $dir = $paths['data'] . '/backups/' . $sku;
-        if (!is_dir($dir)) {
-            mkdir($dir, 0755, true);
+        foreach ($data['items'] ?? [] as $item) {
+            $sku = $item['sku'] ?? null;
+            if (!is_string($sku) || $sku === '') {
+                continue;
+            }
+            file_put_contents(
+                $paths['listings'] . '/' . $sku . '.json',
+                json_encode($item, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE),
+            );
+            $refreshed[] = $sku;
         }
-        $backup = $dir . '/' . date('Y-m-d-H-i-s') . '.json';
-        file_put_contents($backup, json_encode($item, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-
-        return ['listing' => is_array($item) ? $item : null, 'source' => 'live', 'backup' => $backup];
     }
 
+    return [
+        'refreshed' => $refreshed,
+        'missing'   => array_values(array_diff(array_values(array_unique($skus)), $refreshed)),
+    ];
+}
+
+/**
+ * Load the baseline listing for a SKU from the Phase-2 snapshot, and on --apply
+ * copy that snapshot into backups/ as the restorable pre-change record.
+ *
+ * The snapshot (input/listings/{sku}.json) is the lossless getListingsItem/
+ * searchListingsItems Item — the same blocks the old per-SKU live backup
+ * fetched — so it feeds the shrink/compliance/identifying guards unchanged and
+ * restore_listings.php replays it identically. It is copied byte-for-byte so
+ * the backup is bit-identical to what Phase 2 wrote.
+ *
+ * Freshness is the caller's responsibility: refresh Phase 2
+ * (export_listings_items.php --force) immediately before an --apply batch so
+ * the backup reflects state at the start of the run.
+ *
+ * Returns ['listing'=>?array, 'source'=>'snapshot'|'none', 'backup'=>?string].
+ * On --apply a SKU with no snapshot returns 'none'; the caller MUST refuse to
+ * patch it — writing without a backup is irreversible.
+ */
+function loadBaseline(string $sku, bool $apply, array $paths): array
+{
     $snap = $paths['listings'] . '/' . $sku . '.json';
-    if (is_file($snap)) {
-        $item = json_decode((string) file_get_contents($snap), true);
-        return ['listing' => is_array($item) ? $item : null, 'source' => 'snapshot', 'backup' => null];
+    if (!is_file($snap)) {
+        return ['listing' => null, 'source' => 'none', 'backup' => null];
     }
-    return ['listing' => null, 'source' => 'none', 'backup' => null];
+
+    $raw  = (string) file_get_contents($snap);
+    $item = json_decode($raw, true);
+    if (!is_array($item)) {
+        return ['listing' => null, 'source' => 'none', 'backup' => null];
+    }
+
+    if (!$apply) {
+        return ['listing' => $item, 'source' => 'snapshot', 'backup' => null];
+    }
+
+    $dir = $paths['data'] . '/backups/' . $sku;
+    if (!is_dir($dir)) {
+        mkdir($dir, 0755, true);
+    }
+    $backup = $dir . '/' . date('Y-m-d-H-i-s') . '.json';
+    file_put_contents($backup, $raw);
+
+    return ['listing' => $item, 'source' => 'snapshot', 'backup' => $backup];
 }
 
 /** Count the value slots a baseline listing holds for an attribute (0 if absent). */
@@ -396,23 +492,27 @@ foreach ($draftFiles as $draftFile) {
         continue;
     }
 
-    // --- Baseline (live fetch + backup on --apply; disk snapshot on dry-run) ---
-    try {
-        $baseline = loadBaseline($sku, $apply, $listingsApi, $amazon, $paths);
-    } catch (\Throwable $e) {
-        echo '[SKIP] ' . $sku . ' — baseline fetch failed: ' . $e->getMessage() . PHP_EOL;
+    // --- Baseline (Phase-2 snapshot; copied to a pre-change backup on --apply) ---
+    $baseline    = loadBaseline($sku, $apply, $paths);
+    $baseListing = $baseline['listing'];
+
+    // Invariant: on --apply, never write without a restorable backup. A drafted
+    // SKU with no snapshot cannot be backed up, so it is skipped rather than
+    // patched blind (the batch precondition above warns when this will happen).
+    if ($apply && $baseline['source'] === 'none') {
+        echo '[SKIP] ' . $sku . ' — Amazon returned no listing on the baseline refresh; '
+            . 'refusing to patch without a backup baseline' . PHP_EOL;
         $stats['failed']++;
-        $results[] = AmazonPatch::resultRow($sku, $asin, $productType, 0, 'ERROR', '', 0, 'baseline fetch: ' . $e->getMessage())
+        $results[] = AmazonPatch::resultRow($sku, $asin, $productType, 0, 'ERROR', '', 0, 'no snapshot baseline')
             + ['skipped_identifying' => '', 'skipped_shrink' => '', 'compliance_block' => ''];
         continue;
     }
-    $baseListing = $baseline['listing'];
 
     echo '[' . $sku . ']' . ($productType ? ' ' . $productType : '') . PHP_EOL;
-    if (!$apply && $baseline['source'] !== 'snapshot') {
+    if ($baseline['source'] === 'none') {
         echo '  note: no on-disk baseline snapshot — shrink/compliance preview limited' . PHP_EOL;
-    } elseif (!$apply) {
-        echo '  note: shrink/compliance preview based on possibly-stale snapshot' . PHP_EOL;
+    } else {
+        echo '  baseline: snapshot' . ($apply ? ' (copied to backup)' : ' (dry-run preview; may be stale)') . PHP_EOL;
     }
 
     // --- Guard 0: modular-title coupling ---
