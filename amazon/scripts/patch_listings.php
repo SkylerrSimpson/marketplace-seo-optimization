@@ -46,7 +46,10 @@ declare(strict_types=1);
  * Modular titles (item_name / title_differentiation) are never patched from the
  * draft; with --include-titles the reviewer's chosen values are read from
  * output/title_decisions.csv (Phase 6.5 review) and patched, subject to the
- * coupling rule (item_name <= 75, pair <= 200).
+ * coupling rule (item_name <= 75, pair <= 200). --titles-only implies
+ * --include-titles and narrows the patch to just those two attributes, so a
+ * post-review pass can push reviewed titles without re-submitting the phase-1
+ * attribute set. All guards (identifying, shrink, compliance, coupling) still apply.
  *
  * Usage:
  *   php amazon/scripts/patch_listings.php [--account=IGE|DOWS] [OPTIONS]
@@ -57,6 +60,8 @@ declare(strict_types=1);
  *   --apply                     Submit patches to Amazon. Required to write.
  *   --include-titles            Patch the reviewed item_name / title_differentiation
  *                               from output/title_decisions.csv. Default: off.
+ *   --titles-only               Patch ONLY item_name / title_differentiation
+ *                               (implies --include-titles). Post-review pass.
  *   --include-identifying[=a,b] Allow identifying attributes. Bare = allow all;
  *                               =list allows only the named attributes.
  *   --allow-shrink              Allow array attrs shorter than the baseline.
@@ -108,6 +113,11 @@ Flags:
                               the guards would hold back) but makes no API calls.
   --include-titles            Patch the reviewed item_name / title_differentiation
                               from output/title_decisions.csv. Default: off.
+  --titles-only               Patch ONLY item_name / title_differentiation and
+                              skip the phase-1 attribute set (implies
+                              --include-titles). Use for the post-review pass so
+                              reviewed titles are pushed without re-submitting
+                              everything else.
   --include-identifying[=a,b] Allow identifying attributes through the guard.
                               Bare allows ALL; =list allows only those named.
   --allow-shrink              Allow array attributes shorter than the baseline.
@@ -119,6 +129,7 @@ Safety:
   --apply is required to write. Review the dry-run output first.
   Identifying data is held back unless --include-identifying is passed.
   Modular titles are held back unless --include-titles is passed.
+  --titles-only patches only the reviewed titles; all guards still apply.
   Attributes with null values or validation_error flags are always skipped.
 
 Rate limits:
@@ -135,6 +146,7 @@ $includeIdentifying = false;      // false | 'all' | array of allowed attr names
 $allowShrink        = false;
 $skipComplianceBlock = false;
 $includeTitles      = false;
+$titlesOnly         = false;
 
 foreach ($argv ?? [] as $arg) {
     if (preg_match('/^--account=(.+)$/i', $arg, $m)) {
@@ -145,6 +157,9 @@ foreach ($argv ?? [] as $arg) {
         $apply = true;
     } elseif ($arg === '--include-titles') {
         $includeTitles = true;
+    } elseif ($arg === '--titles-only') {
+        $titlesOnly    = true;
+        $includeTitles = true; // titles-only implies the title-injection path
     } elseif ($arg === '--include-identifying') {
         $includeIdentifying = 'all';
     } elseif (preg_match('/^--include-identifying=(.+)$/', $arg, $m)) {
@@ -178,6 +193,9 @@ if ($allowShrink) {
 }
 if ($skipComplianceBlock) {
     echo 'Compliance block: DISABLED (--skip-compliance-block)' . PHP_EOL;
+}
+if ($titlesOnly) {
+    echo 'Mode     : TITLES ONLY (item_name / title_differentiation; phase-1 attrs skipped)' . PHP_EOL;
 }
 echo PHP_EOL;
 
@@ -446,23 +464,27 @@ foreach ($draftFiles as $draftFile) {
     $candidates   = [];
     $skippedAttrs = [];
 
-    foreach ($draft['attributes'] ?? [] as $attr => $entry) {
-        $value = $entry['value'] ?? null;
-        if ($value === null) {
-            $skippedAttrs[] = $attr . '(null)';
-            continue;
+    // --titles-only skips the phase-1 attribute set entirely; only the reviewed
+    // titles injected below become candidates. Guards still run on that set.
+    if (!$titlesOnly) {
+        foreach ($draft['attributes'] ?? [] as $attr => $entry) {
+            $value = $entry['value'] ?? null;
+            if ($value === null) {
+                $skippedAttrs[] = $attr . '(null)';
+                continue;
+            }
+            if (isset($entry['validation_error'])) {
+                $skippedAttrs[] = $attr . '(invalid)';
+                continue;
+            }
+            // review_only entries (e.g. item_name_ai_suggested) are human-review
+            // suggestions, not settable schema attributes — never sent to Amazon.
+            if (!empty($entry['review_only'])) {
+                $skippedAttrs[] = $attr . '(review-only)';
+                continue;
+            }
+            $candidates[$attr] = $value;
         }
-        if (isset($entry['validation_error'])) {
-            $skippedAttrs[] = $attr . '(invalid)';
-            continue;
-        }
-        // review_only entries (e.g. item_name_ai_suggested) are human-review
-        // suggestions, not settable schema attributes — never sent to Amazon.
-        if (!empty($entry['review_only'])) {
-            $skippedAttrs[] = $attr . '(review-only)';
-            continue;
-        }
-        $candidates[$attr] = $value;
     }
 
     // Inject the reviewed modular titles (behind --include-titles). The draft only
@@ -487,7 +509,10 @@ foreach ($draftFiles as $draftFile) {
     }
 
     if (!$candidates) {
-        echo '[SKIP] ' . $sku . ' — no patchable attributes (all null or invalid)' . PHP_EOL;
+        $reason = $titlesOnly
+            ? 'no reviewed titles for this SKU in title_decisions.csv'
+            : 'all null or invalid';
+        echo '[SKIP] ' . $sku . ' — no patchable attributes (' . $reason . ')' . PHP_EOL;
         $stats['skipped']++;
         continue;
     }
