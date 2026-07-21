@@ -3,14 +3,14 @@
     "asin": "B085WCHJYD",
     "product_type": "FIRST_AID_KIT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:44:34+00:00",
+    "generated_at": "2026-07-21T20:00:12+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 6,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -131,20 +131,57 @@
             "asin": "B085WCHJYD",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 100-Piece Emergency First Aid Kit with Waterproof Sack",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 100-Piece Emergency First Aid Kit Red",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 49,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "100",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "Red",
+                "name": "Emergency First Aid Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "Camping & Survival | Includes CPR Mask, Tourniquet, Tools | Waterproof Dry Sack",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 1-Person Red Emergency First Aid Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 48,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1",
+                "pack_size_unit": "Person",
+                "size": "Emergency",
+                "color": "Red",
+                "name": "First Aid Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "100 Supplies, Waterproof Dry Sack, CPR Mask, Tourniquet, Travel Ready, High Visibility Red",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 90,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "100 Piece, Waterproof Dry Sack, Wound Cleaning Supplies, Bandages, CPR Mask, Tourniquet, Travel Ready",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

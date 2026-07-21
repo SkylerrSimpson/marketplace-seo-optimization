@@ -3,18 +3,30 @@
     "asin": "B08FQR3X6M",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:55:12+00:00",
+    "generated_at": "2026-07-21T20:04:09+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
-        "fillable": 0,
-        "catalog": 14,
-        "ai_suggested": 2,
+        "fillable": 2,
+        "catalog": 12,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 11
     },
     "attributes": {
+        "material": {
+            "value": "Plastic",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.material"
+        },
+        "size": {
+            "value": "12\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.size_amazon"
+        },
         "batteries_included": {
             "value": [
                 {
@@ -143,19 +155,6 @@
             "asin": "B08FQR3X6M",
             "raw_value": true
         },
-        "material": {
-            "value": [
-                {
-                    "language_tag": "en_US",
-                    "value": "Plastic",
-                    "marketplace_id": "ATVPDKIKX0DER"
-                }
-            ],
-            "is_required": false,
-            "source": "catalog",
-            "asin": "B08FQR3X6M",
-            "raw_value": true
-        },
         "number_of_boxes": {
             "value": [
                 {
@@ -173,19 +172,6 @@
                 {
                     "language_tag": "en_US",
                     "value": "Does Not Expire",
-                    "marketplace_id": "ATVPDKIKX0DER"
-                }
-            ],
-            "is_required": false,
-            "source": "catalog",
-            "asin": "B08FQR3X6M",
-            "raw_value": true
-        },
-        "size": {
-            "value": [
-                {
-                    "language_tag": "en_US",
-                    "value": "12\"",
                     "marketplace_id": "ATVPDKIKX0DER"
                 }
             ],
@@ -219,19 +205,57 @@
             "asin": "B08FQR3X6M",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 2-Cup Green Plastic Gold Panning Scoop Shovel",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 2-Cup Green Plastic Hand Trowel Sand Scoop",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "Cup",
+                "size": "",
+                "color": "Green",
+                "name": "Plastic Hand Trowel Sand Scoop"
+            }
         },
-        "title_differentiation": {
-            "value": "Non-metallic, rust-free, ergonomic design with depth gauge & lanyard hole",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 2-Cup Large Green Feed Scoop",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 40,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "Cup",
+                "size": "Large",
+                "color": "Green",
+                "name": "Feed Scoop"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Gold Panning Scoop, Rust-Free ABS Plastic, Depth Gauge, Multipurpose Gardening Tool, Lanyard Hole",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 97,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "ABS Plastic, Non Metallic, Rust Free, Interior Depth Gauge, Lanyard Hole, Gold Panning And Gardening Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 104,
+            "review_only": true
         },
         "supplier_declared_material_regulation": {
             "value": [

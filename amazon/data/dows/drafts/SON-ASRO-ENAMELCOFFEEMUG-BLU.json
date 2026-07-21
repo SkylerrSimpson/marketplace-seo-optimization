@@ -3,14 +3,14 @@
     "asin": "B0F2CDBHGD",
     "product_type": "DRINKING_CUP",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:21:02+00:00",
+    "generated_at": "2026-07-21T19:52:20+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 3,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -53,20 +53,57 @@
             "asin": "B0F2CDBHGD",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 11.75oz Enamel Coffee Mug Stainless Steel Rim Blue",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 11.75oz Blue Speckled Enamel Coffee Mug",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "11.75",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "Blue Speckled",
+                "name": "Enamel Coffee Mug"
+            }
         },
-        "title_differentiation": {
-            "value": "Kiln-Hardened Enamel, Rust & Scratch Resistant, Vintage Design",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 11.75oz Classic Speckled Blue Enamel Coffee Mug",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 59,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "11.75oz",
+                "color": "Classic Speckled Blue",
+                "name": "Enamel Coffee Mug"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Stainless Steel Rim, Kiln Hardened Enamel, Rust And Scratch Resistant, Heat Retaining, Camping And Backpacking Gear",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 115,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Stainless Steel Rim, Kiln Hardened Enamel, Heat Retention, Scratch And Rust Resistant, Food Safe, Lightweight",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

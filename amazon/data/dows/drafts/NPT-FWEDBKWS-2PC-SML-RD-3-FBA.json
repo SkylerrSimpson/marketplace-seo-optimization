@@ -3,14 +3,14 @@
     "asin": "B019YP10Z0",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:09:30+00:00",
+    "generated_at": "2026-07-21T20:07:09+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 8,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 8
     },
@@ -127,20 +127,57 @@
             "asin": "B019YP10Z0",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 13.75\" Wolf Flag Etched Fixed Blade Hunting Knife",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 13 inch Red Wolf American Flag Etched Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13",
+                "pack_size_unit": "inch",
+                "size": "",
+                "color": "Red",
+                "name": "Wolf American Flag Etched Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "440 Stainless Steel, Acid Etched Design, Decorative Scabbard, Collectors Edition",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 13-in Decorative Wolf American Flag Dagger",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 54,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Decorative Wolf American Flag Dagger"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "440 Stainless Steel Blade, Acid Etched Design, Wolf Scabbard, Fixed Blade Collector's Knife, American Flag Etching",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 114,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "440 Stainless Steel, Acid Etched Blade, Full Color Wolf Scabbard, Steel Wolf Head Pommel, Collectible Display Knife",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 115,
+            "review_only": true
         },
         "supplier_declared_material_regulation": {
             "value": [

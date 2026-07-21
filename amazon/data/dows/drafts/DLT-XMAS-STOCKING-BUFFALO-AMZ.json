@@ -3,14 +3,14 @@
     "asin": "B08P48VBGQ",
     "product_type": "GARLAND",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:22:26+00:00",
+    "generated_at": "2026-07-21T19:52:59+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 8,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -130,25 +130,62 @@
             "raw_value": true
         },
         "fabric_type": {
-            "value": "Felt, Faux Fur",
+            "value": "100% Polyester",
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Christmas Time Buffalo Plaid Stocking with Faux Fur",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Christmas Time Buffalo Plaid Red Black Stocking 8x15 in",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Christmas Time",
+                "pack_size": "8x15",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Red Black",
+                "name": "Buffalo Plaid Stocking"
+            }
         },
-        "title_differentiation": {
-            "value": "Red & Black Check, Faux Fur Trim, 8x15 Inch Jumbo Size",
+        "item_name_ai_openai": {
+            "value": "Christmas Time 8 In Red Black Plaid Faux Fur Stocking",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 53,
+            "review_only": true,
+            "tokens": {
+                "brand": "Christmas Time",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "8 In",
+                "color": "Red Black Plaid",
+                "name": "Faux Fur Stocking"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Faux Fur Trim, Jumbo Size, Red And Black Plaid, Perfect Stocking Stuffer, Holiday Decor",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 87,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Faux Buffalo Fur Top, Jumbo 8 By 15 Inch, Trendy Red And Black Plaid, Ages 3 Plus, Holiday Mantel Display",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 105,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

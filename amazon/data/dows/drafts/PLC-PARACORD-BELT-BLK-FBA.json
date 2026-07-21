@@ -3,14 +3,14 @@
     "asin": "B0BKJSKQJ4",
     "product_type": "APPAREL_BELT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:41:13+00:00",
+    "generated_at": "2026-07-21T19:31:47+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "base_sku:PLC-PARACORD-BELT-BLK",
     "totals": {
         "fillable": 1,
         "catalog": 46,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 17
     },
@@ -683,25 +683,62 @@
             "model": "claude-haiku-4-5"
         },
         "generic_keyword": {
-            "value": "paracord belt survival EDC tactical 550 paracord mens belt stainless steel buckle military spec outdoor camping emergency gear",
+            "value": "survival gear bug out bag EDC tactical duty belt outdoor camping hiking emergency preparedness",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ParaLace Black 550 Paracord Survival Belt Stainless Steel",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ParaLace 52in Black 550 Paracord Belt",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 37,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ParaLace",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "52in",
+                "color": "Black",
+                "name": "550 Paracord Belt"
+            }
         },
-        "title_differentiation": {
-            "value": "110 ft Unraveled, 52 inch, Universal Fit, EDC Tactical Gear",
+        "item_name_ai_openai": {
+            "value": "ParaLace 550 52in Black Survival Paracord Belt",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 46,
+            "review_only": true,
+            "tokens": {
+                "brand": "ParaLace",
+                "pack_size": "550",
+                "pack_size_unit": "",
+                "size": "52 in",
+                "color": "Black",
+                "name": "Survival Paracord Belt"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Survival 550 Paracord, Stainless Steel Buckle, EDC Gear, Emergency Preparedness",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 79,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Stainless Steel Buckle, EDC Carry, Durable 550 Cord, Adjustable 52 Inch Fit, Outdoor Survival Ready",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 99,
+            "review_only": true
         },
         "item_diameter": {
             "value": [

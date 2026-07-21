@@ -3,14 +3,14 @@
     "asin": "B075G4FTWK",
     "product_type": "CORD_ROPE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:46:28+00:00",
+    "generated_at": "2026-07-21T20:12:10+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 6,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -96,20 +96,57 @@
             "asin": "B075G4FTWK",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 550 Paracord Rope 50ft Type III Mil-Spec Orange",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 50ft Reflective Orange 550 Paracord Rope",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "50",
+                "pack_size_unit": "ft",
+                "size": "550",
+                "color": "Reflective Orange",
+                "name": "Paracord Rope"
+            }
         },
-        "title_differentiation": {
-            "value": "Reflective Orange, 550lb Breaking Strength, Military Grade, Survival & Camping",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 50-ft Reflective Orange 550 Type III Paracord Rope",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 62,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "50",
+                "pack_size_unit": "ft",
+                "size": "550 Type III",
+                "color": "Reflective Orange",
+                "name": "Paracord Rope"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Mil-Spec Type III, 550Lb Breaking Strength, 7-Strand Nylon, Tactical Survival, Emergency Gear",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 93,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Mil-Spec MIL-C-5040H, 550-Lb Break Strength, 220-Lb Working Load, 7-Strand Nylon, Reflective Orange, EDC Ready",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 110,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

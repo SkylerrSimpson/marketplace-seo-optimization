@@ -3,14 +3,14 @@
     "asin": "B00G07OIVY",
     "product_type": "SCISSORS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:58:58+00:00",
+    "generated_at": "2026-07-21T19:42:43+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 20,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -286,25 +286,62 @@
             "raw_value": true
         },
         "country_of_origin": {
-            "value": "PK (Pakistan)",
+            "value": "PK",
             "is_required": true,
             "source": "ai",
-            "model": "claude-haiku-4-5",
-            "validation_error": "''PK (Pakistan)'' is not in the schema enum"
-        },
-        "item_name_ai_suggested": {
-            "value": "Universal Hobby Kelly Angular 6\" Embroidery Scissors",
-            "is_required": false,
-            "source": "ai",
-            "model": "claude-haiku-4-5",
-            "review_only": true,
-            "note": "modular <=75 item_name for human review"
-        },
-        "title_differentiation": {
-            "value": "Super Sharp Blades, Nickel-Plated, Precision Sewing & Craft",
-            "is_required": false,
-            "source": "ai",
             "model": "claude-haiku-4-5"
+        },
+        "item_name_ai_anthropic": {
+            "value": "Universal Hobby 6\" Kelly Angular Scissors",
+            "is_required": true,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 41,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Hobby",
+                "pack_size": "6",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Kelly Angular Scissors"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "Universal Hobby 6 in Kelly Angular Scissors",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 43,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Hobby",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "6 in",
+                "color": "",
+                "name": "Kelly Angular Scissors"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Super Sharp Blades, Embroidery And Sewing, Nickel-Plated, Precision Craft Tool",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 78,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Super Sharp Straight Blades, Nickel-Plated, Precision Embroidery And Sewing, Made In Pakistan, Hobby Craft Tool",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

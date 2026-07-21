@@ -3,14 +3,14 @@
     "asin": "B0895635S7",
     "product_type": "SHOELACE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:32:54+00:00",
+    "generated_at": "2026-07-21T20:11:22+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -40,20 +40,57 @@
             "asin": "B0895635S7",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 550 Paracord Hiking Boot Laces Tan Camo",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 550 Paracord Tan Camo Hiking Boot Laces",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1",
+                "pack_size_unit": "Pair",
+                "size": "9ft",
+                "color": "Tan Camo",
+                "name": "550 Paracord Hiking Boot Laces"
+            }
         },
-        "title_differentiation": {
-            "value": "Made in USA, 550lb breaking strength, survival gear, pair included",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 1 Pair 9 Ft Tan Camo Paracord Hiking Boot Laces",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 59,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1",
+                "pack_size_unit": "Pair",
+                "size": "9 Ft",
+                "color": "Tan Camo",
+                "name": "Paracord Hiking Boot Laces"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Made In USA, 550Lb Breaking Strength, UV Resistant, Survival Tool, Unravels For Fishing Line, Metal Aglet",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 105,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Made In USA, 550Lb Break Strength, 7-Strand Nylon Core, UV Resistant, Metal Aglets, EDC Survival Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 100,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

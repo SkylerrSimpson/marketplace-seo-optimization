@@ -3,14 +3,14 @@
     "asin": "B007C7VRLA",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:38:29+00:00",
+    "generated_at": "2026-07-21T20:11:53+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 4,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -69,20 +69,57 @@
             "asin": "B007C7VRLA",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 14 Inch Gold Pan with Ridge Riffles, Green",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 14 inch Green Gold Pan with Ridge Riffles",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "14",
+                "pack_size_unit": "inch",
+                "size": "14 inch",
+                "color": "Green",
+                "name": "Gold Pan with Ridge Riffles"
+            }
         },
-        "title_differentiation": {
-            "value": "Lightweight plastic construction, ridge riffle design, ideal for beginners & prospectors",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 14-in Green Gold Pan",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 32,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "14",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Green",
+                "name": "Gold Pan"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Ridge Riffle Design, Lightweight Plastic, High Contrast Color, Gold Recovery, Beginner Friendly, Paydirt Prospecting",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 116,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "3 Ridges, Fine Gold And Black Sand Recovery, Lightweight 10Oz Plastic, UV Resistant Green Finish, Portable Design",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 113,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B0FS87ZDFL",
     "product_type": "FLASHLIGHT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:21:42+00:00",
+    "generated_at": "2026-07-21T19:52:38+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 11,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -169,20 +169,57 @@
             "asin": "B0FS87ZDFL",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical 6pk Mini LED Stick On Lights Magnetic Adhesive",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical 6-pk Mini LED Stick On Lights Black",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "6",
+                "pack_size_unit": "pk",
+                "size": "0.5 x 1.0 inches",
+                "color": "Black",
+                "name": "Mini LED Stick On Lights"
+            }
         },
-        "title_differentiation": {
-            "value": "50 Lumens Each, Magnetic & Adhesive Mount, Push Lights",
+        "item_name_ai_openai": {
+            "value": "ASR Tactical 6-pk Mini Black LED Stick On Lights",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 48,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "6",
+                "pack_size_unit": "pk",
+                "size": "Mini",
+                "color": "Black",
+                "name": "LED Stick On Lights"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "50 Lumens Each, Magnetic And Adhesive Mount, No Wiring, Compact Push Lights, Tactical Gear And Emergency Use",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 108,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "50 Lumen Each, Magnetic And Adhesive Mounts, No Wiring Required, Toolbox RV Closet Camping Emergency Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 104,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

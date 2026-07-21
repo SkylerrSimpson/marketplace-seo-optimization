@@ -3,14 +3,14 @@
     "asin": "B0DHHZTQCM",
     "product_type": "SCIENCE_FUNDAMENTALS_KIT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:56:32+00:00",
+    "generated_at": "2026-07-21T20:04:31+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 4,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -68,25 +68,63 @@
             "raw_value": true
         },
         "color": {
-            "value": "Multi",
+            "value": "Multicolor",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "ASR Outdoor 5lb Rough Gemstone Mining Paydirt Kit",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 49,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "lb",
+                "size": "Rough",
+                "color": "",
+                "name": "Gemstone Mining Paydirt Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "Includes sifting instructions, ID chart, storage bag, 14+ gemstone varieties",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 5-lb Rough Gemstone Paydirt Mining Dig Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 54,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "lb",
+                "size": "",
+                "color": "",
+                "name": "Rough Gemstone Paydirt Mining Dig Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "2 Pounds Genuine Gemstones, Sifting Screen Instructions, Identification Chart, Burlap Storage Bag, Educational Science Activity",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 127,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (127 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Genuine Rough Gemstones, Two Pounds Of Finds, Burlap Storage Bag, Identification Chart, Screen-Free Science Activity",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 116,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

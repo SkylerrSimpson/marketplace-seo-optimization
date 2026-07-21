@@ -3,14 +3,14 @@
     "asin": "B082BGM5HT",
     "product_type": "BOTTLE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:13:26+00:00",
+    "generated_at": "2026-07-21T19:49:26+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 14,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -202,25 +202,62 @@
             "raw_value": true
         },
         "generic_keyword": {
-            "value": "Disney Frozen canteen kids water bottle popup lid strap 12 oz children drinkware licensed character bottle reusable",
+            "value": "Frozen canteen water bottle, kids drinkware, popup lid, strap, Elsa Anna, travel bottle, camping, school, reusable plastic bottle, girls water bottle",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Disney Frozen 12 Oz Canteen Bottle with Popup Lid & Strap",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Disney Frozen 2-12 Oz Canteen with Popup Lid",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 44,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Disney Frozen",
+                "pack_size": "2",
+                "pack_size_unit": "pack",
+                "size": "12 oz",
+                "color": "",
+                "name": "Canteen with Popup Lid"
+            }
         },
-        "title_differentiation": {
-            "value": "Durable, colorful design with favorite characters, perfect gift for kids",
+        "item_name_ai_openai": {
+            "value": "Disney Frozen 12-Oz Canteen with Popup Lid and Strap",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 52,
+            "review_only": true,
+            "tokens": {
+                "brand": "Disney Frozen",
+                "pack_size": "12",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "",
+                "name": "Canteen"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Durable Quality Materials, Bold Character Graphics, Includes Carrying Strap, Perfect Gift For Kids",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 98,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Bold Colors And Graphics, Favorite Frozen Characters, Durable Long-Lasting Build, Great Gift For Kids",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

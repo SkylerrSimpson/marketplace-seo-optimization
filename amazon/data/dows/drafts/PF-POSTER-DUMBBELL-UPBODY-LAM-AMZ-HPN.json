@@ -3,14 +3,14 @@
     "asin": "0973941138",
     "product_type": "ABIS_BOOK",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:49:49+00:00",
+    "generated_at": "2026-07-21T19:37:16+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 10,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -177,20 +177,57 @@
             "asin": "0973941138",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Productive Fitness Laminated Dumbbell Upper Body Workout Poster",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Productive Fitness Dumbbell Exercise Poster 24x36 Laminated",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 59,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "24",
+                "pack_size_unit": "x36 in",
+                "size": "",
+                "color": "",
+                "name": "Dumbbell Exercise Poster Laminated"
+            }
         },
-        "title_differentiation": {
-            "value": "22 Exercises, 24x36 inches, Photo-Based Instructions, Shoulders & Arms",
+        "item_name_ai_openai": {
+            "value": "Productive Fitness Laminated Dumbbell Exercise Poster Chart",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 59,
+            "review_only": true,
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "24x36 in",
+                "color": "",
+                "name": "Dumbbell Exercise Poster Chart"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "22 Dumbbell Exercises, Shoulders And Arms, Actual Photos, University Designed, Laminated Chart",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 94,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "22 Dumbbell Exercises, Actual Photos, Shoulders And Arms, Step-By-Step Instructions, Laminated 24X36 Inch Chart",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

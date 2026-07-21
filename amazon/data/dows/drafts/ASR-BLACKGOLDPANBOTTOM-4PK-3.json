@@ -3,14 +3,14 @@
     "asin": "B0CL3NZ2SB",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:19:30+00:00",
+    "generated_at": "2026-07-21T20:08:51+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -39,20 +39,57 @@
             "asin": "B0CL3NZ2SB",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 10\" Black Gold Panning Pan 4-Pack",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 4-Pack 10\" Black Gold Panning Pan",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 45,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "Pack",
+                "size": "10\"",
+                "color": "Black",
+                "name": "Gold Panning Pan"
+            }
         },
-        "title_differentiation": {
-            "value": "Single Riffle, ABS Plastic, Floats, Gravity Trap Design",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 4-pk 10\" Black Gold Panning Pan",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 43,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "10\"",
+                "color": "Black",
+                "name": "Gold Panning Pan"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Single Riffled Trap, Durable ABS Plastic, Rust And UV Resistant, Floats In Water, Prospecting And Testing",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 105,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "ABS Plastic, Rust And UV Resistant, Floats In Water, Single Riffle Trap, Textured Bottom, High Visibility Black Finish",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 118,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B09SMWH4H5",
     "product_type": "ABIS_BOOK",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:39:09+00:00",
+    "generated_at": "2026-07-21T19:30:34+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 7,
         "catalog": 9,
-        "ai_suggested": 6,
+        "ai_suggested": 8,
         "ai_null": 0,
         "base_template": 0
     },
@@ -179,7 +179,7 @@
             "value": "11.7 x 1.5 x 12.5 inches",
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "list_price": {
             "value": "24.99",
@@ -188,25 +188,62 @@
             "model": "claude-haiku-4-5"
         },
         "subject_code": {
-            "value": "JNF029000",
+            "value": "JNF001000",
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Studio C Mickey Mouse 40pc Art Supply Tote Set Travel Case",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Crenstone 40-Pc Mickey Mouse Coloring Book Activity Set",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Crenstone",
+                "pack_size": "40",
+                "pack_size_unit": "Pc",
+                "size": "",
+                "color": "",
+                "name": "Mickey Mouse Coloring Book Activity Set"
+            }
         },
-        "title_differentiation": {
-            "value": "40 pieces, coloring book, crayons, markers, pencils, paints, portable with handle",
+        "item_name_ai_openai": {
+            "value": "Crenstone 40-pc Mickey Mouse Coloring Book Super Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 52,
+            "review_only": true,
+            "tokens": {
+                "brand": "Crenstone",
+                "pack_size": "40",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Mickey Mouse Coloring Book Super Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "40 Pieces, Pencil Toppers, Stickers, Games, Puzzles, For Boys And Girls",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 71,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "40-Piece Activity Set With Mickey Pencil Toppers And Stickers And Games And Puzzles For Kids Boys Girls",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

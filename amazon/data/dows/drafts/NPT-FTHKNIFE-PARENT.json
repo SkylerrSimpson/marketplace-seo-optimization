@@ -3,14 +3,14 @@
     "asin": "B07RSTFBJS",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:32:25+00:00",
+    "generated_at": "2026-07-21T19:56:06+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -39,20 +39,57 @@
             "asin": "B07RSTFBJS",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Full Tang Damascus Hunting Knife Stainless Steel",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Full Tang Hunting Knife Damascus Design",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Full Tang Hunting Knife Damascus Design"
+            }
         },
-        "title_differentiation": {
-            "value": "Etched Damascus Design, 7.5\" Overall, Compact Size, Includes Nylon Sheath",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 7.5-in Hunting Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 32,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "7.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Hunting Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Etched Damascus Stainless Steel, Full Tang Blade, 75\" Overall, Includes Nylon Sheath",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 84,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Full Tang, Damascus Etched Blade, Stainless Steel, Rust Resistant, Nylon Sheath, Belt Loop, Lanyard",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 99,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

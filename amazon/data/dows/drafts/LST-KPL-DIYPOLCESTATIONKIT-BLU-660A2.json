@@ -3,14 +3,14 @@
     "asin": "B09KJYN8FW",
     "product_type": "TOY_VEHICLE_SET",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:11:50+00:00",
+    "generated_at": "2026-07-21T20:07:22+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 0,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -21,20 +21,57 @@
             "source": "usurper",
             "usurper_column": "attr.size_amazon"
         },
-        "item_name_ai_suggested": {
-            "value": "Kidplokio Police Station Playmat with 8pc Vehicles & Traffic Signs",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Kidplokio Police Station Playmat 31x27 inch Blue",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "31x27",
+                "pack_size_unit": "inch",
+                "size": "",
+                "color": "Blue",
+                "name": "Police Station Playmat"
+            }
         },
-        "title_differentiation": {
-            "value": "31x27 Felt Activity Mat, 2 Friction Cars, 5 Signs, Ages 3+",
+        "item_name_ai_openai": {
+            "value": "Kidplokio 8-Pc 31x27in Blue Police Playset",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 42,
+            "review_only": true,
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "8",
+                "pack_size_unit": "pc",
+                "size": "31x27in",
+                "color": "Blue",
+                "name": "Police Playset"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Felt Activity Mat With 8Pc Vehicles, Urban City Map, Fine Motor Skills, Pretend Play, Ages 3 Plus",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 97,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Felt Urban Road Map, 2 Friction Police Cars, 5 Traffic Signs, Foldable Storage, Pretend Play Learning",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

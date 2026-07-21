@@ -3,14 +3,14 @@
     "asin": "B0CLFY82H2",
     "product_type": "CORD_ROPE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:07:55+00:00",
+    "generated_at": "2026-07-21T20:06:58+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 2,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -53,21 +53,59 @@
             "value": "Kevlar",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical Sleeved Kevlar Survival Cord 200 lb",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical Sleeved Kevlar Cord Black",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 38,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Sleeved Kevlar Cord"
+            }
         },
-        "title_differentiation": {
-            "value": "3-Strand, 200 lb Breaking Strength, UV & Flame Resistant",
+        "item_name_ai_openai": {
+            "value": "ASR Tactical Black Kevlar Survival Cord",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 39,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Kevlar Survival Cord"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "200 Lb Breaking Strength, Flame Resistant, UV And Abrasion Resistant, Made In USA",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 81,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "3 Strand Kevlar Thread, 200 Lb Break Strength, Flame Resistant, Polyurethane Coated, UV And Abrasion Resistant, Made In USA",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 123,
+            "review_only": true
         },
         "pesticide_marking": {
             "value": [

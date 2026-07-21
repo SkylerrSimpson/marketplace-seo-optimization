@@ -3,14 +3,14 @@
     "asin": "B007QXXODY",
     "product_type": "TWEEZER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:20:26+00:00",
+    "generated_at": "2026-07-21T19:52:00+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 5,
         "catalog": 3,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -89,25 +89,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "LSTTSWC1210A8I",
+            "value": "LTS-3",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Tool Stainless Steel Tweezers Set 3-Pack 12\" 10\" 8\"",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Tool 3-Pack Stainless Steel Tweezer Set",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 49,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "3",
+                "pack_size_unit": "Pack",
+                "size": "12in, 10in, 8in",
+                "color": "Stainless Steel",
+                "name": "Tweezer Set"
+            }
         },
-        "title_differentiation": {
-            "value": "Serrated Tip, Hand Grip, Precision & Craft Work, Storage Case Included",
+        "item_name_ai_openai": {
+            "value": "Universal Tool 3-pk Oversize Giant Household Tweezer Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 56,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Oversize Giant Household Tweezer Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Serrated Tips, Hand Grip, Stainless Steel, Carrying Case, Precision Craft And Jewelry Repair",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 92,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Stainless Steel, Hand Grip, Serrated Tip, Carrying Case, 12\", 10\", 8\" Sizes, Precision Pick Up Tool, For Crafts And Repairs",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 123,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B0FTTFR36L",
     "product_type": "DRINKING_CUP",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:04:47+00:00",
+    "generated_at": "2026-07-21T19:45:51+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 19,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -280,20 +280,57 @@
             "asin": "B0FTTFR36L",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille 10oz Whiskey Glasses Old Fashioned Lowball Tumbler 4pk",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 4-pk 10oz Clear Whiskey Glasses",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 38,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "10oz",
+                "color": "Clear",
+                "name": "Whiskey Glasses"
+            }
         },
-        "title_differentiation": {
-            "value": "Heavy Base, Dishwasher Safe, Classic Cut Glass Design",
+        "item_name_ai_openai": {
+            "value": "Beille 4-pk 10.82oz Whiskey Glasses",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 35,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "10.82oz",
+                "color": "",
+                "name": "Whiskey Glasses"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Heavy Base, Dishwasher Safe, Old Fashioned Lowball Tumbler, Perfect For Bourbon And Scotch",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 90,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Old Fashioned Cut Glass Design, Heavy Weighted Base, Dishwasher Safe, Set Of 4, 1082Oz, Gift For Men",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 100,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

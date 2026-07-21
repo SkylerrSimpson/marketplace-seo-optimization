@@ -3,14 +3,14 @@
     "asin": "B0CB9CQ21P",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:32:19+00:00",
+    "generated_at": "2026-07-21T20:11:22+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,20 +27,57 @@
             "asin": "B0CB9CQ21P",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 7pc Intermediate Gold Panning Kit with 1lb Paydirt",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 1lb Intermediate Black Gold Panning Kit",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1",
+                "pack_size_unit": "lb",
+                "size": "",
+                "color": "Black",
+                "name": "Gold Panning Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "1lb Intermediate Paydirt, 10\" Gold Pan, Magnetic Separator, Complete Prospecting Set",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 7pc 1lb Black Paydirt Gold Panning Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 50,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "7",
+                "pack_size_unit": "pc",
+                "size": "1lb",
+                "color": "Black",
+                "name": "Paydirt Gold Panning Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "7-Piece Paydirt Kit, 10 Inch Gold Pan, Magnetic Separator, Sifter Bottle, Glass Vial, Pipette",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 93,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Intermediate Level, 1Lb Unclassified Paydirt, 10\" Gold Pan, Magnetic Separator Pen, Snifter Bottle, Vial, Pipette",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 113,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B0GVPWQMT2",
     "product_type": "KEYCHAIN",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:13:23+00:00",
+    "generated_at": "2026-07-21T19:49:23+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 0,
-        "ai_suggested": 6,
+        "ai_suggested": 8,
         "ai_null": 0,
         "base_template": 0
     },
@@ -19,40 +19,78 @@
             "value": "Gold",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "material": {
             "value": "Stainless Steel",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "model_name": {
-            "value": "Prospecting Carabiner Keychain",
+            "value": "Prospect Keychain",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
             "value": "One Size",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "ASR Outdoor Gold Prospecting Stainless Steel Carabiner Keychain",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 63,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Gold",
+                "name": "Prospecting Carabiner Keychain"
+            }
         },
-        "title_differentiation": {
-            "value": "Durable EDC, Split Ring Included, 2 Styles - Gold Panner & Sluice Box",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 1-pk Stainless Steel Gold Prospecting Carabiner Keychain",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 68,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Stainless Steel Gold Prospecting Carabiner Keychain"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Stainless Steel Construction, Integrated Carabiner Clip, Split Ring Included, Gold Panner Or Sluice Box Design, Lightweight EDC",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 127,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (127 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Sluice Box And Gold Panner Styles, Rust Resistant, Split Ring Included, Quick Clip On, Lightweight EDC Gift",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B0B1LST8SQ",
     "product_type": "BOTTLE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:06:48+00:00",
+    "generated_at": "2026-07-21T19:46:51+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 4,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -77,25 +77,62 @@
             "raw_value": true
         },
         "size": {
-            "value": "20 Ounce",
+            "value": "20 oz",
             "is_required": false,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Beille Fruit Infuser Water Bottle 20oz BPA Free with Handle",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille Fruit Infuser Water Bottle 20 Ounce with Handle",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "20",
+                "pack_size_unit": "Ounce",
+                "size": "",
+                "color": "",
+                "name": "Fruit Infuser Water Bottle with Handle"
+            }
         },
-        "title_differentiation": {
-            "value": "Fruit infuser basket, twist-cap carry handle, 4 colors, durable BPA-free plastic",
+        "item_name_ai_openai": {
+            "value": "Beille 20 Ounce Fruit Infuser Water Bottle",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 42,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "20 Ounce",
+                "color": "",
+                "name": "Fruit Infuser Water Bottle"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "BPA-Free, Fruit Infuser Basket, Carry Handle Twist-Cap, Leak-Proof, Easy Clean, Fits Cup Holders",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 96,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "BPA Free Durable Plastic, Carry Handle Twist Cap, 20 Ounce Capacity, Fits Cup Holders, Reusable",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 95,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

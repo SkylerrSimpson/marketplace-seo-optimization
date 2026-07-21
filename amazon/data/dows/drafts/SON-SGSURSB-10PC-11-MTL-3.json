@@ -3,14 +3,14 @@
     "asin": "B017S95U64",
     "product_type": "LAB_SUPPLY",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:21:20+00:00",
+    "generated_at": "2026-07-21T20:08:55+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -45,20 +45,58 @@
             "asin": "B017S95U64",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Hobby #11 Carbon Steel Scalpel Blades 10pc Sterile",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Hobby 10-pc Size 11 Sterile Surgical Scalpel Blades",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 61,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Hobby",
+                "pack_size": "10",
+                "pack_size_unit": "pc",
+                "size": "11",
+                "color": "",
+                "name": "Sterile Surgical Scalpel Blades"
+            }
         },
-        "title_differentiation": {
-            "value": "Size #11, 10-Pack Sterile, Universal Fit, Precision Cutting",
+        "item_name_ai_openai": {
+            "value": "Universal Hobby 10-Pk Size 11 Sterile Scalpel Blades",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 52,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Hobby",
+                "pack_size": "10",
+                "pack_size_unit": "Pk",
+                "size": "11",
+                "color": "",
+                "name": "Sterile Scalpel Blades"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Carbon Steel, Precision Cutting, X-acto Compatible, Individually Sealed, Perfect For Crafting, Art, Leather Working And Hobby Projects",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 134,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (134 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Individually Sealed, Sterile, Carbon Steel, Precision Cutting, X-Acto Knife Compatible, Craft And Hobby Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

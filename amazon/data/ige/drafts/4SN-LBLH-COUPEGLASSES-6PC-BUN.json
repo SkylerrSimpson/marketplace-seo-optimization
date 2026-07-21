@@ -3,14 +3,14 @@
     "asin": "B0D4B43K84",
     "product_type": "DRINKING_CUP",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:44:36+00:00",
+    "generated_at": "2026-07-21T19:28:41+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 7,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -114,20 +114,57 @@
             "asin": "B0D4B43K84",
             "raw_value": true
         },
-        "title_differentiation": {
-            "value": "Wide bowl, tapered lip design enhances aromas & flavors; dishwasher safe soda lime glass; 8.5 oz capacity",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Labrea Life + Home 6-pc Classic Etched Champagne Coupe Glasses",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8",
-            "validation_error": "requires item_name <= 75 chars"
-        },
-        "item_name_ai_suggested": {
-            "value": "Labrea Life + Home 6pc Etched Champagne Coupe Glasses Set",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 62,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Labrea Life + Home",
+                "pack_size": "6",
+                "pack_size_unit": "pc",
+                "size": "Classic",
+                "color": "Etched",
+                "name": "Champagne Coupe Glasses"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "LABREA LIFE + HOME 6-pk Etched Champagne Coupe Glasses",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 54,
+            "review_only": true,
+            "tokens": {
+                "brand": "LABREA LIFE + HOME",
+                "pack_size": "6",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Etched Champagne Coupe Glasses"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Set Of 6, 85Oz, Dishwasher Safe, Vintage Design, Cocktail And Wine Glassware, Soda Lime Glass",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 93,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Set Of 6, Vintage Etched Design, 85 Oz, Dishwasher Safe, Sturdy Stem, Cocktail And Dessert Use, Elegant Tablescapes",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 115,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

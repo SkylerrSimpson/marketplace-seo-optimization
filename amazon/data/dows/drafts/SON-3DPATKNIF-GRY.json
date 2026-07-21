@@ -3,14 +3,14 @@
     "asin": "B0BCHF1QDW",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:07:06+00:00",
+    "generated_at": "2026-07-21T20:06:44+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -46,20 +46,57 @@
             "asin": "B0BCHF1QDW",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical 3D Pattern Drop Point Pocket Knife 4.75in",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical 4.75in 3D Pattern Drop Point Pocket Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "4.75",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "3D Pattern",
+                "name": "Drop Point Pocket Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "Lockback Design, Stainless Steel Blade, Ergonomic Grip, EDC",
+        "item_name_ai_openai": {
+            "value": "ASR Tactical 4.75 In 3D Pattern Drop Point Pocket Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 55,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "4.75",
+                "color": "",
+                "name": "3D Pattern Drop Point Pocket Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Lockback Design, Stainless Steel Blade, Metal Clip, Ergonomic Grip, EDC, Camping, Hiking, Hunting",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 97,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Stainless Steel Serrated Blade, Lockback Safety, Metal Pocket Clip, Ergonomic Grip, Lightweight EDC, Camping Utility",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 116,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B01M1UOG1U",
     "product_type": "WALLET",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:09:45+00:00",
+    "generated_at": "2026-07-21T19:47:57+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 11,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -154,20 +154,58 @@
             "asin": "B01M1UOG1U",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Federal Leather Bifold Minimalist Double ID Card Wallet Black",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Federal Black Leather Bifold Minimalist ID Card Holder",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 58,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Leather Bifold Minimalist ID Card Holder"
+            }
         },
-        "title_differentiation": {
-            "value": "Genuine Heavy Gauge Leather, Basketweave Design, Dual Clear Windows, USA Made",
+        "item_name_ai_openai": {
+            "value": "ASR Federal Black Leather Bifold ID Card Holder",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 47,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Leather Bifold ID Card Holder"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Double ID Windows, Genuine Heavy Gauge Leather, Basketweave Design, Compact 1 Inch Depth, Slim Wallet, Police And Security Credential Holder",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 140,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (140 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Genuine Leather, Two Clear Windows, Slim 1-Inch Profile, Made In USA, Basketweave Design, Fits ID Credit And Business Cards",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 123,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

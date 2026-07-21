@@ -3,14 +3,14 @@
     "asin": "B06XDX2XVR",
     "product_type": "KEYCHAIN",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:13:20+00:00",
+    "generated_at": "2026-07-21T19:49:21+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 10,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -178,19 +178,58 @@
             "asin": "B06XDX2XVR",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux Pull Apart Key Ring, Nickel Plated, 2-Split",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux Pull Apart Key Ring Silver Double-Ended",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "1 inch",
+                "color": "Silver",
+                "name": "Pull Apart Key Ring Double-Ended"
+            }
         },
-        "title_differentiation": {
-            "value": "Quick Release Lock & Connect, Organize Car Keys Separately",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux Pull Apart Key Ring",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 30,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Pull Apart Key Ring"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Quick Release Lock And Connect, Splits Into 2 Key Rings, Nickel-Plated Brass, Organize Car Keys Separately, 3 Inch Total Length",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 127,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (127 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Quick Release Lock And Connect, Split Into 2 Independent Rings, Brass Body Nickel Plated, 1\" Rings, 3\" Total Length",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 115,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

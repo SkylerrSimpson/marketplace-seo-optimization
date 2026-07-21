@@ -3,14 +3,14 @@
     "asin": "B0065MV8W6",
     "product_type": "TOWEL",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:49:37+00:00",
+    "generated_at": "2026-07-21T19:37:16+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 10,
         "catalog": 23,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -445,20 +445,57 @@
             "asin": "B0065MV8W6",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "GEAR AID Quick Dry Microfiber Towel, X-Large 35x62, Cobalt",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "GEAR AID Quick Dry Microfiber Towel Cobalt X-Large",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "X-Large",
+                "color": "Cobalt",
+                "name": "Quick Dry Microfiber Towel"
+            }
         },
-        "title_differentiation": {
-            "value": "Super Absorbent, Lightweight, Compact, Snap Loop, Travel & Camping",
+        "item_name_ai_openai": {
+            "value": "GEAR AID X-Large Cobalt Quick Dry Microfiber Towel",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 50,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "X-Large",
+                "color": "Cobalt",
+                "name": "Quick Dry Microfiber Towel"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "35 Inch By 62 Inch, Fast Drying Microfiber, Lightweight And Compact, Perfect For Gym Travel And Camping",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 103,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "35X62 Inch, Lightweight, Ultra Absorbent, Compact, Gym Travel Camping, Fast Drying, Easy Packing",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 96,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

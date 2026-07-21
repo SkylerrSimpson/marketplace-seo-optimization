@@ -3,14 +3,14 @@
     "asin": "B0FV4P6BL6",
     "product_type": "DRINKING_CUP",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:33:10+00:00",
+    "generated_at": "2026-07-21T19:56:22+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 2
     },
@@ -81,20 +81,57 @@
             "asin": "B0FV4P6BL6",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille Coupe Glasses 8.5oz Crystal Champagne Cocktail Set 4pc",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 4-pc 8.5oz Crystal Coupe Glasses",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 39,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "pc",
+                "size": "8.5oz",
+                "color": "Crystal",
+                "name": "Coupe Glasses"
+            }
         },
-        "title_differentiation": {
-            "value": "Vintage-Inspired, Dishwasher Safe, Etched Design, Elegant Barware",
+        "item_name_ai_openai": {
+            "value": "Beille 4-Pk 8.5oz Coupe Glasses",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 31,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "8.5oz",
+                "color": "",
+                "name": "Coupe Glasses"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Vintage-Inspired Design, Dishwasher Safe, Durable Soda Lime Glass, Perfect For Champagne And Cocktails",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 102,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Vintage Etched Design, Dishwasher Safe, Sturdy Stem And Base, Wide Bowl, Ideal For Champagne And Craft Cocktails",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 112,
+            "review_only": true
         },
         "parentage_level": {
             "value": [

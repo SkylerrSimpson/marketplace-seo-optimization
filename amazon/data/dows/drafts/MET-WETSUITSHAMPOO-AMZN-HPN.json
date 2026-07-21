@@ -3,14 +3,14 @@
     "asin": "B077T32WDH",
     "product_type": "CLEANING_AGENT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:10:36+00:00",
+    "generated_at": "2026-07-21T19:48:10+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 20,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -283,20 +283,58 @@
             "asin": "B077T32WDH",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Gear Aid Revivex Wetsuit Shampoo Cleaner Conditioner 10oz",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "GEAR AID Revivex Wetsuit and Drysuit Shampoo 10 fl oz",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "10",
+                "pack_size_unit": "fl oz",
+                "size": "",
+                "color": "",
+                "name": "Revivex Wetsuit and Drysuit Shampoo"
+            }
         },
-        "title_differentiation": {
-            "value": "Cleans & Conditions Neoprene, Extends Suit Life, Safe for Drysuits & Waders",
+        "item_name_ai_openai": {
+            "value": "GEAR AID 10-fl oz Revivex Wetsuit and Drysuit Shampoo",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 53,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "10",
+                "pack_size_unit": "fl oz",
+                "size": "",
+                "color": "",
+                "name": "Revivex Wetsuit and Drysuit Shampoo"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Cleaner And Conditioner, Removes Chlorine And Salt Damage, Extends Suit Life, Safe For Booties Gloves And GORE-TEX, Concentrated Formula",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 136,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (136 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Cleans And Conditions Neoprene, Removes Chlorine And Salt Residue, Safe For Wetsuits, Drysuits, Gloves, Waders",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 110,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

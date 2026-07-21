@@ -3,14 +3,14 @@
     "asin": "B0D4327T4P",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:04:33+00:00",
+    "generated_at": "2026-07-21T20:06:09+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 3,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -58,20 +58,57 @@
             "asin": "B0D4327T4P",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Mini Pocket Knife 3-in-1 EDC Keychain Tool",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Mini Pocket Knife 3 in 1 EDC Blue",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 45,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Mini",
+                "color": "Blue",
+                "name": "Pocket Knife 3 in 1 EDC"
+            }
         },
-        "title_differentiation": {
-            "value": "2.25\" Closed, Blade/Scissors/File, Compact Lightweight, Multiple Colors",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor Blue Multifunctional EDC Mini Pocket Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 54,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Mini",
+                "color": "Blue",
+                "name": "Multifunctional EDC Pocket Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Nail File, Blade And Scissors, Keychain Ring, 225 Inch Closed, Lightweight Camping And Survival Gear",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 100,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "3 In 1 Tool, Nail File Knife Blade Scissors, Keyring Attachment, Compact 225 Inch Closed Length, EDC Carry",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 106,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

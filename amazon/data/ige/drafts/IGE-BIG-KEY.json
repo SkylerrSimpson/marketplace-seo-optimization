@@ -3,14 +3,14 @@
     "asin": "B003AKJJHC",
     "product_type": "SPORTING_GOODS",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:39:28+00:00",
+    "generated_at": "2026-07-21T19:27:45+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 20,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -305,20 +305,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "title_differentiation": {
-            "value": "Universal fit for all leading handcuff brands; back pin for double-locking; 3-inch oversized design",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical Oversize 3\" Handcuff Key",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8",
-            "validation_error": "requires item_name <= 75 chars"
-        },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical Oversized Universal Handcuff Key for Gloved Hands",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 37,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "3",
+                "pack_size_unit": "in",
+                "size": "Oversize",
+                "color": "",
+                "name": "Handcuff Key"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "ASR Tactical Oversize Handcuff Key",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 34,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Oversize",
+                "color": "",
+                "name": "Handcuff Key"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Universal Fit All Brands, Double-Lock Compatible, Gloved Hand Use, Professional Law Enforcement, EDC Ready",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 106,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Universal Fit For Leading Handcuff Brands, 3\" Oversize Design, Back Pin For Double-Locking, Easy Gloved Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

@@ -3,14 +3,14 @@
     "asin": "B08KTX4QRM",
     "product_type": "GUN_SUPPORT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:38:11+00:00",
+    "generated_at": "2026-07-21T20:11:53+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -44,22 +44,60 @@
             "value": "Scum Bag",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Flatline Ops Minimalist Rifle Shooting Rest Bag Gray",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Flatline Ops Scum Bag Rifle Rest Gray",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 37,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Flatline Ops",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Gray",
+                "name": "Scum Bag Rifle Rest"
+            }
         },
-        "title_differentiation": {
-            "value": "Lightweight Polypropylene, Water-Resistant Cordura, USA-Made, Refillable",
+        "item_name_ai_openai": {
+            "value": "Flatline-Ops Gray Rifle Rest Shooting Bag",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 41,
+            "review_only": true,
+            "tokens": {
+                "brand": "Flatline-Ops",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Gray",
+                "name": "Rifle Rest Shooting Bag"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Minimalist Shooting Bag, Hand Sewn USA, Lightweight Polypropylene, Water Resistant Cordura, Refillable",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 102,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Made In USA, Minimalist Flatter Design, Water-Resistant Cordura, Micro-Pellet Fill, Zipper Access, Tri-Hook Clip-On, Lightweight",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 128,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (128 chars)"
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

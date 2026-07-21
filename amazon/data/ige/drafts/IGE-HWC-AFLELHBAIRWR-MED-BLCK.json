@@ -3,14 +3,14 @@
     "asin": "B093K8N7LC",
     "product_type": "WALLET",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:40:48+00:00",
+    "generated_at": "2026-07-21T19:28:05+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 24,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -336,20 +336,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "title_differentiation": {
-            "value": "RFID-blocking genuine leather; hidden recessed badge mount; suede protection flap; removable ID holder",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Federal Black Leather Police Bifold RFID Badge Holder",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8",
-            "validation_error": "requires item_name <= 75 chars"
-        },
-        "item_name_ai_suggested": {
-            "value": "ASR Federal Black Leather Police Bifold RFID Badge Wallet",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 57,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Leather Police Bifold RFID Badge Holder"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "ASR Federal Round Black Leather Police Bifold RFID Badge Holder Wallet",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 70,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Round",
+                "color": "Black",
+                "name": "Leather Police Bifold RFID Badge Holder Wallet"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "RFID Shield, Removable ID Holder, Recessed Badge Mount, Genuine Leather, Suede Protection Flap",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 94,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "RFID Shielding, Removable ID Card Holder, Recessed Badge Mount, Suede Protection Flap, Genuine Leather, Pin Or Clip Back",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 120,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B00GNLP7T4",
     "product_type": "HOME",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:48:19+00:00",
+    "generated_at": "2026-07-21T20:01:44+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 3,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -63,20 +63,57 @@
             "asin": "B00GNLP7T4",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Heeper 15\" Forged Steel Flat Nail Puller Heavy Duty",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Heeper 15\" Forged Steel Cats Paw Nail Puller",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 44,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Heeper",
+                "pack_size": "15",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Forged Steel Cats Paw Nail Puller"
+            }
         },
-        "title_differentiation": {
-            "value": "Forged Steel Construction, 35mm Width, Essential Carpenter's Tool for Demolition & Nail Removal",
+        "item_name_ai_openai": {
+            "value": "Heeper 15-in Cat's Paw Nail Puller",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 34,
+            "review_only": true,
+            "tokens": {
+                "brand": "Heeper",
+                "pack_size": "15",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Nail Puller"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Heavy Duty Forged Steel, Carpenter's Essential Tool, Ideal For Demolition And Nail Removal",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 90,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Forged Steel, Heavy Duty Demolition, Grips Nails Securely, 35Mm Wide, 6Mm Thick, Carpentry Essential",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 100,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

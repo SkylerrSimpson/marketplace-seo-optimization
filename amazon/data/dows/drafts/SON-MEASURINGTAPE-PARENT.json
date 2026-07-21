@@ -3,14 +3,14 @@
     "asin": "B07DR7X215",
     "product_type": "TAPE_MEASURE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:10:51+00:00",
+    "generated_at": "2026-07-21T20:07:18+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -39,20 +39,57 @@
             "asin": "B07DR7X215",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Tool 10ft Measuring Tape, Metric & SAE, 4 Colors",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Tool 10ft Measuring Tape Metric SAE 4 Colors",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "4",
+                "pack_size_unit": "Colors",
+                "size": "10ft",
+                "color": "",
+                "name": "Measuring Tape Metric SAE"
+            }
         },
-        "title_differentiation": {
-            "value": "10ft/3m, SAE & Metric units, 1/32\" & 1mm increments, thumb lock & belt clip",
+        "item_name_ai_openai": {
+            "value": "Universal Tool 10ft Metric SAE Measuring Tape",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 45,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "10ft",
+                "color": "",
+                "name": "Measuring Tape"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "10 Feet And 3 Meters, SAE And Metric Units, 132 Inch And 1Mm Increments, Thumb Lock, Belt Clip",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 94,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Dual SAE And Metric Scales, 1 Mm Precision, Thumb Lock, Metal Belt Clip, Nylon Wrist Strap, 4 Color Options",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

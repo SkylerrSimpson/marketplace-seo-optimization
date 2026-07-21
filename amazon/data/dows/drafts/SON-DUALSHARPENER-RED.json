@@ -3,14 +3,14 @@
     "asin": "B07CT7Q9Z8",
     "product_type": "TOOLS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:24:46+00:00",
+    "generated_at": "2026-07-21T19:53:46+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 3,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -74,20 +74,57 @@
             "asin": "B07CT7Q9Z8",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "Universal Tool Pocket Dual Ceramic Blade Sharpener Red",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Pocket",
+                "color": "Red",
+                "name": "Dual Ceramic Blade Sharpener"
+            }
         },
-        "title_differentiation": {
-            "value": "Ceramic honing rods, grooved handle, portable 2.25\" size for knives & scissors",
+        "item_name_ai_openai": {
+            "value": "Universal Tool Pocket-Sized Red Dual Ceramic Blade Sharpener",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 60,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Pocket-Sized",
+                "color": "Red",
+                "name": "Dual Ceramic Blade Sharpener"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Ceramic Honing Rods, Grooved Handle, Pocket-sized 225 Inch, Durable Polypropylene, Knives And Scissors",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 102,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Ceramic Honing Rods, Grooved Grip Handle, Durable Polypropylene, Sharpens Knives Blades Scissors And Hand Tools",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

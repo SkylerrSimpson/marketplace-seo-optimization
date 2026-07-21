@@ -3,14 +3,14 @@
     "asin": "B0DZG8JP9P",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:28:02+00:00",
+    "generated_at": "2026-07-21T19:54:56+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 24,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 2
     },
@@ -418,22 +418,59 @@
             "value": "Stainless Steel",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 9\" Recurve Blade Full Tang Hunting Knife",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 9 Inch Recurve Blade Fixed Hunting Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "9",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "",
+                "name": "Recurve Blade Fixed Hunting Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "440 Stainless Steel, Wood Handle, Includes Sheath with Belt Loop",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 9-in Recurve Hunting Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 38,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "9",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Recurve Hunting Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Full Tang 440 Stainless Steel, Wood Handle, Included Sheath, Enhanced Cutting Efficiency",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 88,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Full Tang Construction, 440 Stainless Steel Blade, Wood Handle, Sheath With Belt Loop, Recurve Edge",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 99,
+            "review_only": true
         },
         "target_gender": {
             "value": [

@@ -3,14 +3,14 @@
     "asin": "B01LYPQOFM",
     "product_type": "OFFICE_PRODUCTS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:43:51+00:00",
+    "generated_at": "2026-07-21T19:59:59+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 12,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -173,25 +173,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "Minimalist Memo Pad Cover",
+            "value": "Federal Minimalist",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Federal 3x5 Genuine Leather Memo Pad Cover Basketweave",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Federal 3x5 Black Leather Memo Pad Cover",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 44,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "3x5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Leather Memo Pad Cover"
+            }
         },
-        "title_differentiation": {
-            "value": "Black leather notepad holder, EDC pocket size, secure flap design",
+        "item_name_ai_openai": {
+            "value": "ASR Federal 3x5 In Black Leather Memo Pad Cover",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 47,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "3x5 In",
+                "color": "Black",
+                "name": "Leather Memo Pad Cover"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "100 Genuine Leather, Basketweave Or Smooth Finish, EDC Notepad Holder, Water Resistant, Pocket Sized",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 100,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Genuine Leather, Slim Pocket Carry, Secure Flap And Loop, Protects Notes From Weather, Coffee And Dirt",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 102,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

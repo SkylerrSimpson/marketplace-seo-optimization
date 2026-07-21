@@ -3,14 +3,14 @@
     "asin": "B08P48VBGQ",
     "product_type": "GARLAND",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:23:52+00:00",
+    "generated_at": "2026-07-21T19:53:35+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 6,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -96,25 +96,62 @@
             "raw_value": true
         },
         "fabric_type": {
-            "value": "Felt, Faux Fur",
+            "value": "70% Felt, 30% Faux Fur",
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Christmas Time Red Buffalo Check Stocking with Faux Fur",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Christmas Time Red Buffalo Check Christmas Stocking 15in",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 56,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Christmas Time",
+                "pack_size": "15",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Red",
+                "name": "Buffalo Check Christmas Stocking"
+            }
         },
-        "title_differentiation": {
-            "value": "8x15 inch jumbo size, plush faux fur trim, perfect for holiday candy and gifts",
+        "item_name_ai_openai": {
+            "value": "Christmas Time 8-in x 15-in Red Black Buffalo Check Christmas Stocking",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 70,
+            "review_only": true,
+            "tokens": {
+                "brand": "Christmas Time",
+                "pack_size": "8",
+                "pack_size_unit": "in",
+                "size": "15-in",
+                "color": "Red Black",
+                "name": "Buffalo Check Christmas Stocking"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Faux Fur Plush Trim, Jumbo 15 Inch Size, Red And Black Plaid, Perfect Stocking Stuffer",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 86,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Faux Fur Trim, Jumbo 8X15 Inch Size, Soft Felt Construction, Red Plaid Holiday Decor, Ages 3 Plus, Giftable",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

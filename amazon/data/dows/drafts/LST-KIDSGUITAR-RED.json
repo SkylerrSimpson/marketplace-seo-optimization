@@ -3,14 +3,14 @@
     "asin": "B09S8BX282",
     "product_type": "MUSICAL_INSTRUMENT_TOY",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:44:18+00:00",
+    "generated_at": "2026-07-21T20:00:07+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 0,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -21,19 +21,57 @@
             "source": "usurper",
             "usurper_column": "attr.unit_count_amazon"
         },
-        "item_name_ai_suggested": {
-            "value": "Kidplokio Kids Electric Guitar Toy with Lights, Sounds, Red",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Kidplokio Red Kids Electric Guitar Toy with Lights",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Red",
+                "name": "Kids Electric Guitar Toy with Lights"
+            }
         },
-        "title_differentiation": {
-            "value": "8 Keys, 4 Animal Sounds, Multiple Genres, Ages 3+",
+        "item_name_ai_openai": {
+            "value": "Kidplokio Red Kids Electric Guitar Toy",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 38,
+            "review_only": true,
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Red",
+                "name": "Kids Electric Guitar Toy"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "8 Keys, Multiple Genres, Flashing Lights, Animal Sounds, Adjustable Strap, Ages 3",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 81,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "8 Fret Keys, 4 Animal Sounds, Flashing Lights, Adjustable Strap, Rock Disco Samba Modes, Ages 3 And Up",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 102,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

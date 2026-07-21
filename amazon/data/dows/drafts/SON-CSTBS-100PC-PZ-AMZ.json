@@ -3,14 +3,14 @@
     "asin": "B0CLJYMQ5N",
     "product_type": "FASTENER_DRIVE_BIT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:34:23+00:00",
+    "generated_at": "2026-07-21T19:56:34+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 5,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -133,28 +133,65 @@
             "value": "Silver",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "model_name": {
-            "value": "CSTBS-100PC-PZ",
+            "value": "100SVT",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux 100pc Security Screwdriver Bit Set CRV Steel",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux 100pc Security Tamperproof Screwdriver Bit Set",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 57,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "100",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Security Tamperproof Screwdriver Bit Set"
+            }
         },
-        "title_differentiation": {
-            "value": "100 Bits, Tamperproof, Automotive & Electronics Repair",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux 100-Pc Security Tamperproof Screwdriver Bit Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 58,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "100",
+                "pack_size_unit": "Pc",
+                "size": "",
+                "color": "",
+                "name": "Security Tamperproof Screwdriver Bit Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "CRV Steel, 100 Bits, Torx, Phillips, Pozidriv, Hex, Square, Auto And Electronics Repair",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 87,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "CRV Steel, 100 Piece Assorted Bits, Torx Phillips Square Slotted Hex, Automotive Electronics Repair",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 99,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

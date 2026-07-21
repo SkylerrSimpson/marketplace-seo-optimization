@@ -3,14 +3,14 @@
     "asin": "B0B9VJY9VM",
     "product_type": "BEAUTY",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:21:52+00:00",
+    "generated_at": "2026-07-21T20:09:02+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,20 +27,57 @@
             "asin": "B0B9VJY9VM",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux 9-Piece Beauty Tool Kit - Nail, Lash & Pore Care",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux 9-Piece Beauty Tool Kit Nail Clipper Eyelash",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "9",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "",
+                "name": "Beauty Tool Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "9 tools, stainless steel, includes nail clipper, eyelash curler, tweezers & blackhead remover",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux 9-Pc Beauty Tool Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 31,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "9",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Beauty Tool Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Dual-Sided Nail Brush, Blackhead Remover, Eyelash Curler, Stainless Steel, Travel Kit",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 85,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Dual-Sided Nail Brush, Blackhead Extractors, Eyelash Curler, Tweezers, Nail Clipper, Emery Boards, Stainless Steel",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 114,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B0DBRKY25H",
     "product_type": "COSMETIC_NAIL_SET",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:44:03+00:00",
+    "generated_at": "2026-07-21T19:33:44+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 14,
         "catalog": 19,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -361,25 +361,62 @@
             "raw_value": true
         },
         "country_of_origin": {
-            "value": "CN",
+            "value": "US",
             "is_required": true,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Hello Kitty 5pc Water-Based Nail Polish Set with Art Decorations",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Hello Kitty 3-Pack Nail Polishes and Nail Art Kit",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 49,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Hello Kitty",
+                "pack_size": "3",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "",
+                "name": "Nail Polishes and Nail Art Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "3 Colors, Easy Apply & Remove, Safe for Kids Ages 3+, Includes Nail Art Accessories",
+        "item_name_ai_openai": {
+            "value": "Hello Kitty 3-Pk Nail Polish Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 32,
+            "review_only": true,
+            "tokens": {
+                "brand": "Hello Kitty",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Nail Polish Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "3 Nail Polish Colors, Nail Art Kit Included, Fun Character Design, Perfect For Kids And Fans",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 92,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Three Nail Polishes - Nail Art Kit - Fun Character Designs - Giftable Cosmetic Set - Easy To Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 96,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

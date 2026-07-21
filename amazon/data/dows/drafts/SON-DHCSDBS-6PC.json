@@ -3,14 +3,14 @@
     "asin": "B008J4ER9E",
     "product_type": "DRILL_BITS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:38:00+00:00",
+    "generated_at": "2026-07-21T19:57:44+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 6,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -108,20 +108,58 @@
             "asin": "B008J4ER9E",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Tool 6pc Diamond Coated Hole Saw Bit Set 1/8\" Shank",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Tool 6-pc Diamond Coated Hole Saw Bits",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "6",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Diamond Coated Hole Saw Bits"
+            }
         },
-        "title_differentiation": {
-            "value": "Diamond Coated Tips, Tile/Glass/Marble Cutting, 6 Sizes Included",
+        "item_name_ai_openai": {
+            "value": "Universal Tool 6-pc 80 Grit Diamond Hole Saw Drill Bit Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 58,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "6",
+                "pack_size_unit": "pc",
+                "size": "80 Grit",
+                "color": "",
+                "name": "Diamond Hole Saw Drill Bit Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "6 Sizes 532\" To 12\", 18\" Shank, Diamond Coated Tips, Tile Glass Marble, Nickel Plated, Rotary Tool Compatible",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 109,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "One Eighth Inch Shank, Nickel Plated, Cuts Tile Glass Marble Gemstones And Slate, For Construction Home Improvement And Crafts",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 126,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (126 chars)"
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

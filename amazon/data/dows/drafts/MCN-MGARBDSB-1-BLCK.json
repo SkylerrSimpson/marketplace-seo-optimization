@@ -3,14 +3,14 @@
     "asin": "B00SFB5CW2",
     "product_type": "BUCKLE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:51:47+00:00",
+    "generated_at": "2026-07-21T20:03:15+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 10,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -156,24 +156,62 @@
             "raw_value": true
         },
         "fabric_type": {
-            "value": "Plastic",
+            "value": "100% Plastic",
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Gear Aid Dual Snap Bar Replacement Buckle 1 Inch",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Gear Aid 1\" Black Dual Snap Bar Replacement Buckle",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Gear Aid",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "1\"",
+                "color": "Black",
+                "name": "Dual Snap Bar Replacement Buckle"
+            }
         },
-        "title_differentiation": {
-            "value": "Side-Release, No-Sew, Durable Plastic, Fits 1\" Webbing",
+        "item_name_ai_openai": {
+            "value": "GEAR AID 1\" Black Replacement Buckle Dual Snap Bar",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 50,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "1",
+                "color": "Black",
+                "name": "Replacement Buckle Dual Snap Bar"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "No-Sew Side-Release, Fits 1 Inch Webbing, Durable Plastic, Dry Bags And Backpacks, Easy Snap Installation",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 105,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "No-Sew Buckle Repair, Fits 1\" Webbing, Side-Release Snap, Durable Plastic, For Dry Bags And Backpacks",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

@@ -3,14 +3,14 @@
     "asin": "B00HVNW4NA",
     "product_type": "ABRASIVES",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:12:30+00:00",
+    "generated_at": "2026-07-21T19:49:07+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 3,
         "catalog": 6,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -125,25 +125,62 @@
             "model": "claude-haiku-4-5"
         },
         "model_name": {
-            "value": "Precious Metal Polish #4 Compound",
+            "value": "Precious Metal Polish #4",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Tool #4 Precious Metal Polish Compound Stick 2.2oz",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Tool #4 Precious Metal Polish Compound 2.2 oz",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "2.2",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "",
+                "name": "#4 Precious Metal Polish Compound"
+            }
         },
-        "title_differentiation": {
-            "value": "Solid stick format, removes oxidation & corrosion, works on all precious metals",
+        "item_name_ai_openai": {
+            "value": "Universal Tool Precious Metal Polish Compound",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 45,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Precious Metal Polish Compound"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Solid Stick Format, Removes Oxidation And Corrosion, Polishes All Precious Metals, Buffing Wheel Compatible",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 107,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Solid 22 Oz Stick, For Precious Metals, Removes Oxidation, Burs, Corrosion And Scratches, Home Or Workshop Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 110,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

@@ -3,14 +3,14 @@
     "asin": "B07DPVY34V",
     "product_type": "PLANNER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:53:15+00:00",
+    "generated_at": "2026-07-21T20:03:37+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -39,20 +39,57 @@
             "asin": "B07DPVY34V",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "Productive Fitness Yoga Exercises Home Gym Poster 24x36",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "24",
+                "pack_size_unit": "x36 in",
+                "size": "",
+                "color": "",
+                "name": "Yoga Exercises Home Gym Poster"
+            }
         },
-        "title_differentiation": {
-            "value": "Laminated or Non-Laminated, Step-by-Step Instructions, Expert-Designed",
+        "item_name_ai_openai": {
+            "value": "Productive Fitness 24\"x36\" Yoga Exercise Poster",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 47,
+            "review_only": true,
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "24\"x36\"",
+                "color": "",
+                "name": "Yoga Exercise Poster"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Laminated Or Non-Laminated, Step-by-Step Instructions, Proper Form Guide, Expert-Designed, Large Format Wall Chart",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 114,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Step By Step Instructions, Color Photos, Proper Form Guide, Home Gym Wall Display, Laminated Or Non-Laminated",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

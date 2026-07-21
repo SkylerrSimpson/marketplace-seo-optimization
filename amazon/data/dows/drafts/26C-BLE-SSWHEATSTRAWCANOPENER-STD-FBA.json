@@ -3,14 +3,14 @@
     "asin": "B0GY9SXYZ1",
     "product_type": "CAN_OPENER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:39:12+00:00",
+    "generated_at": "2026-07-21T20:11:57+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -45,20 +45,57 @@
             "asin": "B0GY9SXYZ1",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "Beille Manual Stainless Steel Can Opener Wheat Straw",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "1",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Cream",
+                "name": "Manual Stainless Steel Can Opener with Wheat Straw Handle"
+            }
         },
-        "title_differentiation": {
-            "value": "Ergonomic design, sharp blade, eco-friendly wheat straw handles",
+        "item_name_ai_openai": {
+            "value": "Beille 1-Pc Cream Stainless Steel Manual Can Opener",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 51,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "1",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Cream",
+                "name": "Stainless Steel Manual Can Opener"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Ergonomic Design, Sharp Stainless Steel Blade, Wheat Straw Handles, Eco-Friendly, Easy Turn, Smooth Edge, Hand Wash",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 115,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Wheat Straw Handles, Ergonomic Grip, Sharp Stainless Blade, Easy Turn Control, Renewable Material, Hand Wash Only",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 113,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

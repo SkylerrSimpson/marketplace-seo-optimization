@@ -3,14 +3,14 @@
     "asin": "B0BJ1YSSGR",
     "product_type": "BLANKET",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:26:03+00:00",
+    "generated_at": "2026-07-21T19:54:21+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 3,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -74,20 +74,57 @@
             "asin": "B0BJ1YSSGR",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Navajo Southwest Fleece Blanket 60x80 Black",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 60x80 in Black Fleece Southwest Blanket",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "60",
+                "pack_size_unit": "x80 in",
+                "size": "Queen",
+                "color": "Black",
+                "name": "Fleece Southwest Blanket"
+            }
         },
-        "title_differentiation": {
-            "value": "Ultra Soft Plush Fleece, Lightweight Heat Retention, Camping & Indoor Use",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 60x80 in Black Fleece Blanket",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 41,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "60x80 in",
+                "color": "Black",
+                "name": "Fleece Blanket"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Ultra Soft Plush Fleece, Navajo And Aztec Design, Breathable And Heat Retaining, Camping And Home Decor",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 103,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Ultra Soft Plush Fleece, Breathable Warmth, Southwest Navajo Aztec Design, Machine Washable, Camping And Cabin Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 114,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B07KWL1C18",
     "product_type": "TOY_FIGURE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:50:12+00:00",
+    "generated_at": "2026-07-21T19:37:29+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 27,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -398,20 +398,57 @@
             "asin": "B07KWL1C18",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Frozen 2 Queen Anna Doll 14\" with Tiara, Shoes & Earrings",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Disney Frozen Queen Anna 14\" Doll with Accessories",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Disney Frozen",
+                "pack_size": "14",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Teal",
+                "name": "Queen Anna Doll"
+            }
         },
-        "title_differentiation": {
-            "value": "Film-Inspired Outfit, Bejeweled Accessories, Ages 3+",
+        "item_name_ai_openai": {
+            "value": "Disney Frozen 14-in Anna Doll",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 29,
+            "review_only": true,
+            "tokens": {
+                "brand": "Disney Frozen",
+                "pack_size": "14",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Anna Doll"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Film-Inspired Queen Outfit, Tiara And Shoes Included, Ages 3 And Up, Perfect Gift For Frozen Fans",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 97,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Film-Inspired Queen Anna Fashion, Teal And Turquoise Dress, Matching Cape, Tiara, Shoes And Earrings Included",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

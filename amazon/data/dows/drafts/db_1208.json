@@ -3,14 +3,14 @@
     "asin": "B00JX006BQ",
     "product_type": "FLASHLIGHT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:50:07+00:00",
+    "generated_at": "2026-07-21T19:37:26+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 12,
-        "ai_suggested": 6,
+        "ai_suggested": 8,
         "ai_null": 0,
         "base_template": 0
     },
@@ -192,13 +192,13 @@
             "value": "Aluminum",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "model_name": {
-            "value": "Cree XPE 3 Watt Flashlight",
+            "value": "3 Watt Cree XPE",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
             "value": "Pocket",
@@ -206,20 +206,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Cree XPE 3W Aluminum Flashlight with Clip",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 3.75\" Black Aluminum Cree XPE Flashlight",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "3.75\"",
+                "color": "Black",
+                "name": "Aluminum Cree XPE Flashlight"
+            }
         },
-        "title_differentiation": {
-            "value": "120-140 Lumens, Pocket Clip & Lanyard, 3.75\" Compact Size",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 3 Watt Cree XPE Aluminum Flashlight",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 47,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "3 Watt",
+                "color": "",
+                "name": "Flashlight"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "120-140 Lumens, Pocket Clip And Lanyard, Compact Portable Design, AA Battery Powered",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 84,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "120-140 Lumens, Cree XPE Bulb, Pocket Clip, Lanyard, Black Aluminum Body, 375\" Compact Size, 1 AA Battery Required",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 114,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

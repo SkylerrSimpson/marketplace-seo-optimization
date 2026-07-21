@@ -3,14 +3,14 @@
     "asin": "B0CLBDJCJ6",
     "product_type": "MARKING_PEN",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:11:24+00:00",
+    "generated_at": "2026-07-21T20:07:20+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 11,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -293,20 +293,57 @@
             "asin": "B0CLBDJCJ6",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Federal UV Invisible Ink Spy Pen Marker 10-Pack Pink",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Federal 10-Pack UV Invisible Ink Pen Pink",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 45,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "10",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "Pink",
+                "name": "UV Invisible Ink Pen"
+            }
         },
-        "title_differentiation": {
-            "value": "Invisible Ink, UV Activated, Waterproof, Heat-Proof, Non-Toxic",
+        "item_name_ai_openai": {
+            "value": "ASR Federal 10-Pk Pink UV Invisible Ink Permanent Marker Pens",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 61,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "10",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Pink",
+                "name": "UV Invisible Ink Permanent Marker Pens"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Invisible Ink, UV Reveal, Waterproof, Heat-proof, Non-toxic, Election Certified, Security Marker",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 96,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Invisible Ink UV Reveal - Waterproof Heatproof Non-Toxic - Marks 2500 Feet - For Theft Detection And Election Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 113,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

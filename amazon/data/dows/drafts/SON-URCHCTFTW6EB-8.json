@@ -3,18 +3,30 @@
     "asin": "B005HFAY22",
     "product_type": "HAIR_COMB",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:29:05+00:00",
+    "generated_at": "2026-07-21T20:10:50+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
-        "fillable": 0,
-        "catalog": 7,
-        "ai_suggested": 2,
+        "fillable": 2,
+        "catalog": 5,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
     "attributes": {
+        "specific_uses_for_product": {
+            "value": "Hair Cutting and Thinning",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.specific_uses_for_product_amazon"
+        },
+        "style": {
+            "value": "Hair Razor Comb",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.style_amazon"
+        },
         "configuration": {
             "value": [
                 {
@@ -86,32 +98,6 @@
             "asin": "B005HFAY22",
             "raw_value": true
         },
-        "specific_uses_for_product": {
-            "value": [
-                {
-                    "language_tag": "en_US",
-                    "value": "Thinning Hair",
-                    "marketplace_id": "ATVPDKIKX0DER"
-                }
-            ],
-            "is_required": false,
-            "source": "catalog",
-            "asin": "B005HFAY22",
-            "raw_value": true
-        },
-        "style": {
-            "value": [
-                {
-                    "language_tag": "en_US",
-                    "value": "Razor Comb",
-                    "marketplace_id": "ATVPDKIKX0DER"
-                }
-            ],
-            "is_required": false,
-            "source": "catalog",
-            "asin": "B005HFAY22",
-            "raw_value": true
-        },
         "unspsc_code": {
             "value": [
                 {
@@ -124,20 +110,57 @@
             "asin": "B005HFAY22",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux Double-Sided Razor Hair Comb Trimmer for All Hair",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux Razor Comb Hair Cutter for Thin and Thick Hair",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 57,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Razor Comb Hair Cutter for Thin and Thick Hair"
+            }
         },
-        "title_differentiation": {
-            "value": "Dual-sided, includes 5 bonus blades, cuts thin & thick hair, home DIY styling",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux Razor Comb Hair Cutter Thinning Comb",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 47,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Razor Comb Hair Cutter Thinning Comb"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Double-Sided, Includes 5 Bonus Blades, Thinning And Trimming, Facial Hair, Home And Pet Grooming",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 96,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Double-Sided Razor Comb, Thins And Shapes Hair, Beard And Mustache, 5 Bonus Blades, Safety Shield",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 97,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

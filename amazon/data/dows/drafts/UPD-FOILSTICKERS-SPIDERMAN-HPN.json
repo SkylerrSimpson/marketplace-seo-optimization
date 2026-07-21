@@ -3,14 +3,14 @@
     "asin": "B086W2VS2B",
     "product_type": "STICKER_DECAL",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:39:43+00:00",
+    "generated_at": "2026-07-21T19:30:55+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 15,
         "catalog": 18,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -344,31 +344,68 @@
             "raw_value": true
         },
         "country_of_origin": {
-            "value": "US",
+            "value": "CN",
             "is_required": true,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
         "model_name": {
-            "value": "Spiderman 200pc Foil Sticker Book",
+            "value": "Spiderman Sticker Book",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Marvel Spiderman 200pc Puffy Sticker Book 4 Sheets Ages 3+",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Disney Marvel Spiderman Sticker Book 200+ Stickers",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "200+",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Spiderman Sticker Book"
+            }
         },
-        "title_differentiation": {
-            "value": "Officially Licensed | 200 Puffy Stickers | 4 Sheets | Arts & Crafts",
+        "item_name_ai_openai": {
+            "value": "Disney Spider-Man Sticker Book Over 200 Stickers",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 48,
+            "review_only": true,
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Sticker Book"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Over 200 Stickers, Perfect For Gifts, Party Favors, Rewards, Scrapbooking, Stocking Stuffers, Kids Crafts, School",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 113,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Over 200 Stickers, Party Favor, Scrapbooking, Classroom Reward, Kids Craft, Stocking Stuffer, For Boys And Girls",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 112,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

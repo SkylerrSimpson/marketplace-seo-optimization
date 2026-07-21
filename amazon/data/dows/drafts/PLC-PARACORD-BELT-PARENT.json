@@ -3,14 +3,14 @@
     "asin": "B0BKJWWQH3",
     "product_type": "APPAREL_BELT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:02:23+00:00",
+    "generated_at": "2026-07-21T20:05:44+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -31,22 +31,59 @@
             "value": "One Size",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ParaLace 550 Paracord Belt with Stainless Steel Buckle",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ParaLace 550 Paracord Belt 52 inch Universal Fit",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ParaLace",
+                "pack_size": "550",
+                "pack_size_unit": "",
+                "size": "52 inch",
+                "color": "",
+                "name": "Paracord Belt"
+            }
         },
-        "title_differentiation": {
-            "value": "Universal fit, 52 inches, 110 feet unraveled paracord, adjustable, 3 colors",
+        "item_name_ai_openai": {
+            "value": "ParaLace 52 Inch Paracord Survival Belt",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 39,
+            "review_only": true,
+            "tokens": {
+                "brand": "ParaLace",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "52 Inch",
+                "color": "",
+                "name": "Paracord Survival Belt"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "110 Feet Unraveled Paracord, Mil-Spec 550Lb, Stainless Steel Buckle, One Size Fits All, EDC Survival Gear",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 105,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "110 Feet Tactical Paracord, Stainless Steel Buckle, Adjustable Universal Fit, Washable, EDC Survival Gear",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 105,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

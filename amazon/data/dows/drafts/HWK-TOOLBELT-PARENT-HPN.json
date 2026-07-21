@@ -3,14 +3,14 @@
     "asin": "B0BT78V1F6",
     "product_type": "TOOL_BELT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:33:00+00:00",
+    "generated_at": "2026-07-21T20:11:22+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -42,20 +42,57 @@
             "asin": "B0BT78V1F6",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux 7 Pocket Suede Leather Tool Belt with Quick Release",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux 7 Pocket Suede Leather Tool Belt",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 43,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "7",
+                "pack_size_unit": "Pocket",
+                "size": "",
+                "color": "Suede",
+                "name": "Leather Tool Belt"
+            }
         },
-        "title_differentiation": {
-            "value": "Heavy Duty Nylon Belt, Adjustable 28-50\", Hammer & Tape Holder",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux 7-Pocket Suede Leather Tool Belt with Quick Release",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 62,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "7",
+                "pack_size_unit": "Pocket",
+                "size": "",
+                "color": "",
+                "name": "Suede Leather Tool Belt"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Quick Release Buckle, Fits 28-50 Inch Waist, Metal Hammer And Tape Holder, Heavy Duty Construction",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 98,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Hammer Holder, Tape Measure Holder, Knife Sheath, Adjustable 28-50\" Waist, Double Stitching, Riveted",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 100,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

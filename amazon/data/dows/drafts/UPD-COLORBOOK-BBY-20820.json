@@ -3,14 +3,14 @@
     "asin": "B09FRJRM9M",
     "product_type": "ART_CRAFT_KIT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:38:59+00:00",
+    "generated_at": "2026-07-21T19:30:26+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 16,
         "catalog": 21,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -409,20 +409,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Disney Star Wars Mandalorian Coloring Book Activity Set with Crayons",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Mandalorian 4-pk Star Wars Coloring Book with Crayons",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Mandalorian",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Star Wars Coloring Book with Crayons"
+            }
         },
-        "title_differentiation": {
-            "value": "5-Piece Set, Includes 4 Crayons, Ages 3+, Puzzles & Games",
+        "item_name_ai_openai": {
+            "value": "Mandalorian 4-pk Coloring Book with Crayons",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 43,
+            "review_only": true,
+            "tokens": {
+                "brand": "Mandalorian",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Coloring Book with Crayons"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Includes 4 Crayons, Activity Book, Perfect For School Home And Travel, Fun Children Coloring",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 92,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Portable Kids Activity Book - Includes 4 Crayons - Great For School Home And On The Go Fun",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 90,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

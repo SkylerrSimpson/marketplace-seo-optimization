@@ -3,14 +3,14 @@
     "asin": "B09GTKWZPK",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:09:37+00:00",
+    "generated_at": "2026-07-21T20:07:11+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -46,20 +46,57 @@
             "asin": "B09GTKWZPK",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 8.25\" Tactical Folding Rescue Knife, Black",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 8.25\" Black Tactical Folding Rescue Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8.25",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Tactical Folding Rescue Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "Serrated blade, seatbelt cutter & window punch, 3CR13 stainless steel",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 8.25in Black Tactical Folding Rescue Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 54,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "8.25in",
+                "color": "Black",
+                "name": "Tactical Folding Rescue Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Serrated Blade, Seatbelt Cutter, Window Punch, Thumb Assist, Stainless Steel, Pocket Clip",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 89,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Serrated Blade, Seatbelt Cutter, Window Punch, 3CR13 Stainless Steel, Pocket Clip, Thumb Assist Open",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 100,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

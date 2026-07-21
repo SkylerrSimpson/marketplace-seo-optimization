@@ -3,14 +3,14 @@
     "asin": "B07HMDB76V",
     "product_type": "SPORTING_GOODS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:24:07+00:00",
+    "generated_at": "2026-07-21T19:53:38+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 3,
         "catalog": 12,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -221,20 +221,57 @@
             "asin": "B07HMDB76V",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical Technora 950lb Braided Survival Rope 200ft Black",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical 200ft Black Braided Technora Survival Rope",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "200",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Black",
+                "name": "Braided Technora Survival Rope"
+            }
         },
-        "title_differentiation": {
-            "value": "950lb Breaking Strength, Heat Resistant to 930°F, Chemical & UV Resistant",
+        "item_name_ai_openai": {
+            "value": "ASR Tactical 200-ft Black Braided Technora Survival Cord",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 56,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "200",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Black",
+                "name": "Braided Technora Survival Cord"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "950Lb Breaking Strength, 8X Stronger Than Steel, Heat Resistant To 930F, Chemical Resistant, Low Stretch",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 104,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "950 Lb Breaking Strength, 930F Heat Resistant, Abrasion Resistant, Chemical Resistant, Low Creep, Low Stretch",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

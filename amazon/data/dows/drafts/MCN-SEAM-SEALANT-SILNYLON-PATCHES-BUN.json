@@ -3,14 +3,14 @@
     "asin": "B08BS2C3SW",
     "product_type": "OUTDOOR_RECREATION_PRODUCT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:45:18+00:00",
+    "generated_at": "2026-07-21T20:00:31+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 3,
         "catalog": 7,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -271,20 +271,57 @@
             "asin": "B08BS2C3SW",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Gear Aid Seam Grip SIL Silicone Sealant & Silnylon Patches",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Gear Aid Seam Grip SIL Silicone Sealant and Silnylon Patches",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 60,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Gear Aid",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Clear",
+                "name": "Seam Grip SIL Silicone Sealant and Silnylon Patches"
+            }
         },
-        "title_differentiation": {
-            "value": "Waterproof tent repair kit with adhesive sealant and peel-and-stick patches",
+        "item_name_ai_openai": {
+            "value": "GEAR AID Seam Grip SIL Silicone Sealant And Silnylon Patches Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 64,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Seam Grip SIL Silicone Sealant And Silnylon Patches Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Waterproof Silicone Sealant, Seals 24 Ft Seams, Flexible Durable Seal, 2 Tenacious Silnylon Patches Included",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 108,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Waterproof Silicone Seam Sealer, Peel-And-Stick Silnylon Patches, Flexible Clear Repair For Tents And Tarps",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

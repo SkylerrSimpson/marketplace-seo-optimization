@@ -3,14 +3,14 @@
     "asin": "B0721WB96J",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:27:15+00:00",
+    "generated_at": "2026-07-21T19:54:41+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 5,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -96,21 +96,59 @@
             "value": "Stainless Steel",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 13.75\" Patriotic Bald Eagle Stainless Steel Knife",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 13.75\" Patriotic Bald Eagle Decorative Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 56,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13.75",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Patriotic",
+                "name": "Bald Eagle Decorative Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "440 Stainless Steel Blade, Eagle Head Pommel, Full Color Scabbard with Graphic",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 3.5\" Patriotic Bald Eagle Decorative Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 54,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Patriotic",
+                "name": "Bald Eagle Decorative Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Fixed Blade, 440 Stainless Steel, Full Color Scabbard, Eagle Head Pommel, US Flag Graphic",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 89,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Intricately Detailed US Flag Graphic, Stainless Steel Blade, Eagle Head Pommel, Full Color Scabbard",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 99,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

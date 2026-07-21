@@ -3,14 +3,14 @@
     "asin": "B07D4645GG",
     "product_type": "HOME_FURNITURE_AND_DECOR",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:58:50+00:00",
+    "generated_at": "2026-07-21T20:04:57+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 4,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 1,
         "base_template": 0
     },
@@ -75,28 +75,65 @@
             "value": null,
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "model_name": {
-            "value": "Mood Light Rectangle",
+            "value": "Color Changing Mood Light",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Home 7 Color LED Mood Light 5 Inch Decor",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 5 Inch 7 Color LED Color Changing Mood Light",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 56,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "Inch",
+                "size": "5 Inch",
+                "color": "7 Color",
+                "name": "LED Color Changing Mood Light"
+            }
         },
-        "title_differentiation": {
-            "value": "Color Changing, Battery Powered, Nightlight Function",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 5in Color Changing LED Mood Light",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 45,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "5in",
+                "color": "Color Changing",
+                "name": "LED Mood Light"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "7 Color LED Cycles, 5 Inch Tall, Durable Plastic Base, Foam Grips, Nightlight, Battery Powered",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 94,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "7 Color Cycle, Warm Ambient Glow, 5\" Compact Size, Foam Grip Base, Battery Powered Nightlight, Bedroom And Living Room",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 118,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

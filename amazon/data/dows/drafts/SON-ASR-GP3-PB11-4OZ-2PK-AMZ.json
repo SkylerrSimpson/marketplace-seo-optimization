@@ -3,14 +3,14 @@
     "asin": "B00DVPNKX0",
     "product_type": "LAB_SUPPLY",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:30:41+00:00",
+    "generated_at": "2026-07-21T20:11:09+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 11,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -181,20 +181,57 @@
             "asin": "B00DVPNKX0",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Gold Snifter Bottle 2-Pack 4oz with Extending Nozzle",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 2-Pack 4oz Gold Snifter Bottle",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 42,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "Pack",
+                "size": "4oz",
+                "color": "Gold",
+                "name": "Snifter Bottle"
+            }
         },
-        "title_differentiation": {
-            "value": "Gold Panning Recovery Tool, Squeeze Suction Design, Extended Reach Tube",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 2-Pk 4oz Gold Snifter Bottle",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 40,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "Pk",
+                "size": "4oz",
+                "color": "",
+                "name": "Gold Snifter Bottle"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Fine Gold Recovery, Extendable Nozzle, Strong Suction, 5 Inch Tall, Prospecting Tool",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 84,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Fine Gold Recovery - Extendable Nozzle - O-Ring Seal - Strong Suction - Compact 4 Oz Bottles",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 92,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

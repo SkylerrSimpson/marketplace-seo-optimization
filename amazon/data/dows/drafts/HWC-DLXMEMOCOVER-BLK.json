@@ -3,14 +3,14 @@
     "asin": "B09T26L3B5",
     "product_type": "OFFICE_PRODUCTS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:42:35+00:00",
+    "generated_at": "2026-07-21T19:59:27+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -45,20 +45,57 @@
             "asin": "B09T26L3B5",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Federal Deluxe Black Nylon Memo Book Cover Belt Clip",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Federal Black Deluxe Memo Book Cover Belt Clip",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "3x5",
+                "color": "Black",
+                "name": "Deluxe Memo Book Cover Belt Clip"
+            }
         },
-        "title_differentiation": {
-            "value": "Holds 3x5 Notebooks, Metal Belt Clip, Weather-Resistant, USA Made",
+        "item_name_ai_openai": {
+            "value": "ASR Federal 3x5 in Black Memo Book Cover Belt Clip",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 50,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "3x5 in",
+                "color": "Black",
+                "name": "Memo Book Cover"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Metal Spring Belt Clip, Holds 3X5 Notebook, Weather Resistant Nylon, Pen And Business Card Slots, Made In USA",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 109,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Weather Resistant Nylon, Metal Spring Belt Clip, Fits 2\" Belts, Pen And AA Light Pockets, Business Card Slot, Made In USA",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 121,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

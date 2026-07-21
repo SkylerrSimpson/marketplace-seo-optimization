@@ -3,18 +3,30 @@
     "asin": "B01BFNCABW",
     "product_type": "HAMMER_MALLET",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:11:35+00:00",
+    "generated_at": "2026-07-21T19:48:42+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
-        "fillable": 0,
-        "catalog": 12,
-        "ai_suggested": 4,
+        "fillable": 2,
+        "catalog": 11,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
     "attributes": {
+        "material": {
+            "value": "Plastic",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.material"
+        },
+        "unit_count": {
+            "value": "1.0000",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.unit_count_amazon"
+        },
         "batteries_included": {
             "value": [
                 {
@@ -173,22 +185,6 @@
             "asin": "B01BFNCABW",
             "raw_value": true
         },
-        "unit_count": {
-            "value": [
-                {
-                    "type": {
-                        "language_tag": "en_US",
-                        "value": "Count"
-                    },
-                    "value": 1,
-                    "marketplace_id": "ATVPDKIKX0DER"
-                }
-            ],
-            "is_required": false,
-            "source": "catalog",
-            "asin": "B01BFNCABW",
-            "raw_value": true
-        },
         "unspsc_code": {
             "value": [
                 {
@@ -201,32 +197,63 @@
             "asin": "B01BFNCABW",
             "raw_value": true
         },
-        "material": {
-            "value": "Plastic",
-            "is_required": false,
-            "source": "ai",
-            "model": "claude-sonnet-4-6"
-        },
         "model_name": {
-            "value": "Emergency Escape Hammer",
+            "value": "Automotive Escape Tool",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Tool Emergency Escape Hammer Window Punch Seat Belt Cutter",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Tool Orange Emergency Escape Hammer Window Punch",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 58,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Orange",
+                "name": "Emergency Escape Hammer Window Punch"
+            }
         },
-        "title_differentiation": {
-            "value": "Dual-sided steel points, razor blade cutter, glow-in-dark bracket",
+        "item_name_ai_openai": {
+            "value": "Universal Tool Orange Emergency Escape Hammer Window Punch",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 58,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Orange",
+                "name": "Emergency Escape Hammer Window Punch"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Dual-Sided Steel Points, Seat Belt Cutter, Glow-in-Dark Pin, Mounting Bracket",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 77,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Dual Sided Steel Window Breaker, Seat Belt Cutter, Mounting Bracket, Glow In The Dark Pin, Compact Orange Body",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 110,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

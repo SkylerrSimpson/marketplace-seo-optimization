@@ -3,14 +3,14 @@
     "asin": "B00TG81ERA",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:23:09+00:00",
+    "generated_at": "2026-07-21T19:53:15+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 6,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -107,24 +107,63 @@
             "raw_value": true
         },
         "size": {
-            "value": "6 Inch",
+            "value": "6 inch",
             "is_required": false,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Wartech 6\" Survival Paracord Neck Chain Knife w/Sheath Black",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Wartech 6\" Black Survival Paracord Wrapped Neck Chain Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 59,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Wartech",
+                "pack_size": "6",
+                "pack_size_unit": "in",
+                "size": "6\"",
+                "color": "Black",
+                "name": "Survival Paracord Wrapped Neck Chain Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "Stainless Steel Fixed Blade, Quick Release Sheath, Survival Paracord Handle",
+        "item_name_ai_openai": {
+            "value": "Wartech 6in Black Mini Neck Chain Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 39,
+            "review_only": true,
+            "tokens": {
+                "brand": "Wartech",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "6in",
+                "color": "Black",
+                "name": "Mini Neck Chain Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "2-Pack, Stainless Steel Fixed Blade, Razor Sharp Edge, Impact Resistant Sheath, Quick Release, Survival Paracord Handle, Covert Protection",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 138,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (138 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Stainless Steel Fixed Blade, Paracord Wrapped Handle, Impact Resistant Sheath, Quick Release Neck Chain, Covert Carry",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 117,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

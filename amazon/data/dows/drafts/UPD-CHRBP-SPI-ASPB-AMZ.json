@@ -3,14 +3,14 @@
     "asin": "B0C1HL63GH",
     "product_type": "BACKPACK",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:56:57+00:00",
+    "generated_at": "2026-07-21T19:41:24+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 29,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -423,20 +423,57 @@
             "asin": "B0C1HL63GH",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Marvel Spiderman 15 Inch School Backpack Adjustable Straps",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Spider-Man 15 Inch School Backpack for Kids",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 43,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Spider-Man",
+                "pack_size": "15",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "",
+                "name": "School Backpack for Kids"
+            }
         },
-        "title_differentiation": {
-            "value": "Padded Straps, Lightweight, Machine Washable, Ages 3+",
+        "item_name_ai_openai": {
+            "value": "Spider-Man 15 in School Backpack",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 32,
+            "review_only": true,
+            "tokens": {
+                "brand": "Spider-Man",
+                "pack_size": "15",
+                "pack_size_unit": "in",
+                "size": "15 in",
+                "color": "",
+                "name": "School Backpack"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Official Marvel Licensed, Adjustable Padded Straps, Lightweight, Washable, Versatile Travel Bag",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 95,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Officially Licensed, Padded Adjustable Straps, Large Interior, Lightweight, Wipe Clean, Washable",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 96,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B01DQ2A1P2",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:29:33+00:00",
+    "generated_at": "2026-07-21T20:10:58+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 3,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -58,20 +58,57 @@
             "asin": "B01DQ2A1P2",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 22pc Gold Panning Kit with Classifier & Rock Hammer",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 22pc Gold Panning Kit with Classifier Screen",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 56,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "22",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Gold Panning Kit with Classifier Screen"
+            }
         },
-        "title_differentiation": {
-            "value": "Complete beginner set with 1/8\" classifier screen, dual pans, pick hammer & recovery tools",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 22-pc Gold Panning Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 34,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "22",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Gold Panning Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "18 Classifier Screen, Dual Gold Pans, Rock Pick Hammer, Fine Recovery Tools, Portable Prospecting",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 97,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "One-Eighth Classifier Screen, Rock Pick Hammer, Fine Gold Recovery Tools, Beginner To Adult, Bucket Fit",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

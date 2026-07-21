@@ -3,14 +3,14 @@
     "asin": "B019YP111S",
     "product_type": "KNIFE",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:40:16+00:00",
+    "generated_at": "2026-07-21T19:27:58+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 28,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -415,25 +415,62 @@
             "raw_value": true
         },
         "country_of_origin": {
-            "value": "CN",
+            "value": "US",
             "is_required": true,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "title_differentiation": {
-            "value": "440 Stainless Steel Acid Etched Blade | Ornamental Wolf Head Pommel | Full-Color Sheath | Collector's Gift",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 13.75\" Black Wolf Dagger Fixed Blade Knife",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8",
-            "validation_error": "requires item_name <= 75 chars"
-        },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 13.75\" Black Wolf Etched Fixed Blade Dagger Knife",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13.75",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Wolf Dagger Fixed Blade Knife"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 13.5-in Black Fixed Blade Hunting Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 51,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Fixed Blade Hunting Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "440 Stainless Steel, Acid Etched Blade, Wolf Head Pommel, Decorative Scabbard, Collector's Edition",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 98,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "440 Stainless Steel, Acid Etched Blade, Wolf Head Pommel, Full Color Wolf Scabbard, 1375-Inch Overall Length",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 108,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

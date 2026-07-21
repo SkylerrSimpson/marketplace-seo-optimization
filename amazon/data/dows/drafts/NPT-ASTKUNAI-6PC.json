@@ -3,14 +3,14 @@
     "asin": "B0828CXJBL",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:45:47+00:00",
+    "generated_at": "2026-07-21T20:00:35+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 6,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -92,19 +92,57 @@
             "asin": "B0828CXJBL",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 6 Piece Ninja Kunai Set 6.5 Inch With Sheath",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 6-Piece 6.5in Assorted Ninja Kunai Set",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "6",
+                "pack_size_unit": "Piece",
+                "size": "6.5in",
+                "color": "Assorted",
+                "name": "Ninja Kunai Set"
+            }
         },
-        "title_differentiation": {
-            "value": "Assorted Colors, Includes Black Sheath, Red Ribbon Details",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 6-pk 6.5 in Assorted Kunai Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 42,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "6",
+                "pack_size_unit": "pk",
+                "size": "6.5 in",
+                "color": "Assorted",
+                "name": "Kunai Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "6 Throwing Knives, BlackSilverHolographic Colors, 65 Inches, Includes Sheath, Red Ribbon, Collectible",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 101,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Assorted Black Silver Holographic Colors, Durable 65 Inch Practice Blades, Sheath Included, Red Ribbon Gift Set",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

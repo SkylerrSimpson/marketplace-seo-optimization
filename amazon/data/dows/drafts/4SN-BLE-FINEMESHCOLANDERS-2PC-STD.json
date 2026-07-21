@@ -3,14 +3,14 @@
     "asin": "B0GZ552WYL",
     "product_type": "FOOD_STRAINER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:46:53+00:00",
+    "generated_at": "2026-07-21T20:12:11+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -39,20 +39,57 @@
             "asin": "B0GZ552WYL",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille 2-Piece Fine Mesh Stainless Steel Colander Set",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 2-Pc Fine Mesh Stainless Steel Colander Set",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "Pc",
+                "size": "",
+                "color": "Stainless Steel",
+                "name": "Fine Mesh Colander Set"
+            }
         },
-        "title_differentiation": {
-            "value": "11 & 8.75 inch, Dishwasher Safe, Stackable, Rice Washer & Pasta Strainer",
+        "item_name_ai_openai": {
+            "value": "Beille 2pc 11in and 8.75in Fine Mesh Stainless Steel Colander Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 65,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "pc",
+                "size": "11in and 8.75in",
+                "color": "",
+                "name": "Fine Mesh Stainless Steel Colander Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "11 And 875 Inch, Stackable, Dishwasher Safe, Rice And Grain Strainer, Fast Drain Design",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 87,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Fine Micro Mesh, Fast Drain, Stackable Nested Storage, Dishwasher Safe, Handles, Rice And Quinoa Washer",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

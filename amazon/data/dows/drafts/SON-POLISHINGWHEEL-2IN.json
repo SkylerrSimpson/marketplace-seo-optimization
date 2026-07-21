@@ -3,14 +3,14 @@
     "asin": "B07BLLWJ9S",
     "product_type": "TOOLS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:21:54+00:00",
+    "generated_at": "2026-07-21T19:52:46+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 4,
         "catalog": 2,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -70,25 +70,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "Polishing Buffing Wheel 2 Inch",
+            "value": "Polishing & Buffing Wheel",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Tool 2 Inch Polishing Buffing Wheel Muslin",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Tool 2 inch White Polishing Buffing Wheel",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "2",
+                "pack_size_unit": "inch",
+                "size": "2 inch",
+                "color": "White",
+                "name": "Polishing Buffing Wheel"
+            }
         },
-        "title_differentiation": {
-            "value": "Soft Muslin Cloth, 40 Layers, 1/4 Shank, Safe for Jewelry & Gems",
+        "item_name_ai_openai": {
+            "value": "Universal Tool 2 In White Polishing Buffing Wheel",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 49,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "2",
+                "pack_size_unit": "in",
+                "size": "2 In",
+                "color": "White",
+                "name": "Polishing Buffing Wheel"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "40 Layers Soft Muslin Cloth, 14 Inch Shank, Safe For Precious Metals And Gems",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 77,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "40 Layers Soft Muslin Cloth, 14\" Shank, Safe For Precious Metals And Gems, Jewelry Making And Crafting",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 102,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

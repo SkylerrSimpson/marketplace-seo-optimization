@@ -3,14 +3,14 @@
     "asin": "B0CTJ92W7N",
     "product_type": "FIRST_AID_KIT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:37:53+00:00",
+    "generated_at": "2026-07-21T19:57:44+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -45,20 +45,57 @@
             "asin": "B0CTJ92W7N",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 55pc Compact Travel First Aid Kit Hiking",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 55pc Compact Travel First Aid Kit",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 45,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "55",
+                "pack_size_unit": "pc",
+                "size": "Compact",
+                "color": "",
+                "name": "Travel First Aid Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "Portable Emergency Kit with Bandages, Gauze & Relief Wipes",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 55pc Compact Travel First Aid Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 45,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "55",
+                "pack_size_unit": "pc",
+                "size": "Compact",
+                "color": "",
+                "name": "First Aid Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Resealable Bag, Portable Emergency Preparedness, Hiking Camping Gear, Car Kit, Bandages And Gauze",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 97,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "55 Pieces, Resealable Bag, Compact And Lightweight, Hiking Camping Travel, Car Emergency Preparedness",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

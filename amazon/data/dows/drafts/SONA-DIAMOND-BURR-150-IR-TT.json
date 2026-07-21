@@ -3,14 +3,14 @@
     "asin": "B0BBSQCY13",
     "product_type": "TOOLS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:28:57+00:00",
+    "generated_at": "2026-07-21T19:55:13+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -33,20 +33,57 @@
             "asin": "B0BBSQCY13",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux 30pc Diamond Burr Set 150 Grit Round Ball Rotary",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux 30pc Diamond Burr Set 150 Grit Chrome",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "30",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Chrome",
+                "name": "Diamond Burr Set"
+            }
         },
-        "title_differentiation": {
-            "value": "30pc assorted sizes, 150 fine grit, stainless steel, storage case included",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux 30-pc Diamond Coated Cutting Burr Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 48,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "30",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Diamond Coated Cutting Burr Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "30 Assorted Sizes, Round Ball Heads, Fine 150 Grit, Stainless Steel, Storage Case Included",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 90,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "150 Grit Fine Finish, Assorted Ball Heads, Stainless Steel, For Glass Tile Wood Ceramics Stone And Fiberglass",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

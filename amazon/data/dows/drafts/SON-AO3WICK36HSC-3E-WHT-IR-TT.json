@@ -3,14 +3,14 @@
     "asin": "B0B2X7TRM1",
     "product_type": "CANDLE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:35:57+00:00",
+    "generated_at": "2026-07-21T19:57:00+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 12,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -185,20 +185,57 @@
             "asin": "B0B2X7TRM1",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 36-Hour Emergency Survival Candle 3-Wick",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 3-Wick 36-Hour Emergency Candle White",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 49,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "Wick",
+                "size": "36-Hour",
+                "color": "White",
+                "name": "Emergency Candle"
+            }
         },
-        "title_differentiation": {
-            "value": "Adjustable burn time, soy wax, compact tin, power outage & camping",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 3-Wick 36-Hour White Emergency Candle",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 49,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "Wick",
+                "size": "36-Hour",
+                "color": "White",
+                "name": "Emergency Candle"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "36 Hour Burn Time, Soy And Wax Blend, Compact Portable Tin, Fire Starter, Power Outage Essential",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 96,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Unscented Soy And Palm Wax, 12 Hour Per Wick, Compact Tin, Portable, Fire Starter, Survival Ready",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 97,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

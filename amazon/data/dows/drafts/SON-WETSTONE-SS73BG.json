@@ -3,14 +3,14 @@
     "asin": "B07QDBWGPS",
     "product_type": "TOOLS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:40:23+00:00",
+    "generated_at": "2026-07-21T19:58:37+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -59,20 +59,57 @@
             "asin": "B07QDBWGPS",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 8\" Silicon Carbide Double Sided Whetstone",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 8\" Silicon Carbide Double Sided Sharpening Stone",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 60,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Silicon Carbide Double Sided Sharpening Stone"
+            }
         },
-        "title_differentiation": {
-            "value": "180/240 Grit, Water Stone, Knife & Tool Sharpener",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 8in Silicon Carbide Knife Sharpening Stone",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 54,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8",
+                "pack_size_unit": "in",
+                "size": "8in",
+                "color": "",
+                "name": "Knife Sharpening Stone"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "180 And 240 Grit, Water Stone, Restores Dull Blades Fast, Knives Chisels Axes Scissors",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 86,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Coarse 180 Grit And Medium 240 Grit, Double Sided, Water Use, Fast Edge Repair, For Knives, Chisels, Tools",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 106,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

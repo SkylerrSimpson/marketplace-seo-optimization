@@ -3,14 +3,14 @@
     "asin": "B07CNGY549",
     "product_type": "COAT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:55:00+00:00",
+    "generated_at": "2026-07-21T19:40:06+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 12,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -193,20 +193,57 @@
             "asin": "B07CNGY549",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "GEAR AID Revivex Wash-In Water Repellent, 1 Gallon",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "GEAR AID Wash-In Water Repellent, 1 Gallon Concentrated",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "1",
+                "pack_size_unit": "Gallon",
+                "size": "",
+                "color": "",
+                "name": "Wash-In Water Repellent, Concentrated"
+            }
         },
-        "title_differentiation": {
-            "value": "Concentrated formula, treats 10+ jackets, fluorocarbon-free, maintains breathability",
+        "item_name_ai_openai": {
+            "value": "GEAR AID 1-Gallon Wash-In Water Repellent",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 41,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "1",
+                "pack_size_unit": "Gallon",
+                "size": "",
+                "color": "",
+                "name": "Wash-In Water Repellent"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Fluorocarbon-Free, Restores DWR, Treats Multiple Garments, GORE-TEX Compatible, Maintains Breathability",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 103,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Restores DWR, Fluorocarbon-Free Formula, Treats Multiple Garments, Maintains Breathability, For GORE-TEX Jackets And Pants",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 122,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

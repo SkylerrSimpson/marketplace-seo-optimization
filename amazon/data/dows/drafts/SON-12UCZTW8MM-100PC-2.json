@@ -3,14 +3,14 @@
     "asin": "B01BFNC8KU",
     "product_type": "CABLE_TIE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:28:34+00:00",
+    "generated_at": "2026-07-21T19:55:02+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -84,19 +84,57 @@
             "asin": "B01BFNC8KU",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Tool 12\" White Cable Zip Ties, 100pk, 8mm, 110lbs",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Tool 100-pk 12\" White Cable Zip Ties 8MM",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "100",
+                "pack_size_unit": "pk",
+                "size": "12\"",
+                "color": "White",
+                "name": "Cable Zip Ties 8MM"
+            }
         },
-        "title_differentiation": {
-            "value": "100 Pack, 12 Inch Length, 8mm Width, 110lbs Tensile Strength",
+        "item_name_ai_openai": {
+            "value": "Universal Tool 100-pk 12\" White Cable Zip Ties",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 46,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "100",
+                "pack_size_unit": "pk",
+                "size": "12\"",
+                "color": "White",
+                "name": "Cable Zip Ties"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "110Lbs Tensile Strength, 8Mm Thick, Organize Wires And Cables, Bulk Pack",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 72,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Heavy Duty 110Lb, 8Mm Thick, Organizes Wires Cables And Hoses, Home Garage Office, Indoor Outdoor Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

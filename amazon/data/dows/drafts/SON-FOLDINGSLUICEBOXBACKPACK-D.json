@@ -3,18 +3,24 @@
     "asin": "B07JG93GG4",
     "product_type": "METAL_DETECTOR",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:30:52+00:00",
+    "generated_at": "2026-07-21T20:11:10+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
-        "fillable": 0,
-        "catalog": 9,
-        "ai_suggested": 2,
+        "fillable": 1,
+        "catalog": 8,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
     "attributes": {
+        "style": {
+            "value": "Backpack Sluice Box Kit",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.style_name_amazon"
+        },
         "batteries_included": {
             "value": [
                 {
@@ -113,19 +119,6 @@
             "asin": "B07JG93GG4",
             "raw_value": true
         },
-        "style": {
-            "value": [
-                {
-                    "language_tag": "en_US",
-                    "value": "Backpack Sluice Box Kit",
-                    "marketplace_id": "ATVPDKIKX0DER"
-                }
-            ],
-            "is_required": false,
-            "source": "catalog",
-            "asin": "B07JG93GG4",
-            "raw_value": true
-        },
         "unspsc_code": {
             "value": [
                 {
@@ -138,20 +131,57 @@
             "asin": "B07JG93GG4",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 24pc Gold Sluice Box Backpack Kit 50\" Folding",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 24pc 50\" Khaki Folding Gold Sluice Box Backpack",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 59,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "24",
+                "pack_size_unit": "pc",
+                "size": "50\"",
+                "color": "Khaki",
+                "name": "Folding Gold Sluice Box Backpack"
+            }
         },
-        "title_differentiation": {
-            "value": "Complete gold panning kit with 50\" aluminum sluice box, 30L backpack, classifier & pans",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 24-pc 50in Khaki Folding Gold Sluice Box Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 56,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "24",
+                "pack_size_unit": "pc",
+                "size": "50in",
+                "color": "Khaki",
+                "name": "Folding Gold Sluice Box Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "24-Piece Complete Kit, 50-Inch Aluminum Sluice Box, 30L Canvas Backpack, Classifier Screen, Gold Pans, Prospecting Tools",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 120,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "24-Piece Complete Prospecting Set, Aluminum Foldable Sluice, Canvas Backpack, Classifier Screen, Gold Pans, Recovery Tools",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 122,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

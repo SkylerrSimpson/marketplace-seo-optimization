@@ -3,14 +3,14 @@
     "asin": "B0C95VYMRZ",
     "product_type": "ART_AND_CRAFT_SUPPLY",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:49:27+00:00",
+    "generated_at": "2026-07-21T20:12:16+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,20 +27,57 @@
             "asin": "B0C95VYMRZ",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux Gold Silver Testing Kit with 6pc Needles & Stone",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux 6-pc Gold and Silver Testing Kit Needles",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "6",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Gold and Silver Testing Kit Needles"
+            }
         },
-        "title_differentiation": {
-            "value": "10k 14k 18k Gold & 999S Silver, Natural Black Stone, Brass Keyring",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux 6-Pk 10K 14K 18K 999S Gold Silver Testing Kit Stone",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 62,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "6",
+                "pack_size_unit": "Pk",
+                "size": "",
+                "color": "",
+                "name": "10K 14K 18K 999S Gold Silver Testing Kit Stone"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "10K 14K 18K 999S Needles, Testing Stone, Brass Key Ring, Jewelry Appraisal, Portable",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 84,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Natural Black Stone, Acid Resistant, Brass Key Ring, Lightweight Travel Ready, Organized For Easy Testing",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 105,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

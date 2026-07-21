@@ -3,14 +3,14 @@
     "asin": "B0F2D4BRRN",
     "product_type": "DRINKING_CUP",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:33:23+00:00",
+    "generated_at": "2026-07-21T19:56:24+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,20 +27,58 @@
             "asin": "B0F2D4BRRN",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 12oz Stainless Steel Coffee Mug Collapsible",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 12oz Stainless Steel Coffee Mug",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 43,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "12",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "",
+                "name": "Stainless Steel Coffee Mug"
+            }
         },
-        "title_differentiation": {
-            "value": "304 Stainless Steel, Collapsible Handles, Camping & Hiking",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 12-oz Stainless Steel Coffee Mug Collapsible Handles",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 64,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "12",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "",
+                "name": "Stainless Steel Coffee Mug Collapsible Handles"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Collapsible Handles, 304 Stainless Steel, Camping Essentials, Lightweight, Rust Resistant, Portable",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 99,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "304 Stainless Steel, Collapsible Handles, Rust And Corrosion Resistant, Lightweight, Hot Or Cold Drinks, Camping And Backpacking Gear",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 133,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (133 chars)"
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

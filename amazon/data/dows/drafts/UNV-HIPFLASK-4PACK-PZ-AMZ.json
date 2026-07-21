@@ -3,14 +3,14 @@
     "asin": "B0CL576J1W",
     "product_type": "HIP_FLASK",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:55:43+00:00",
+    "generated_at": "2026-07-21T20:04:14+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 5,
+        "ai_suggested": 7,
         "ai_null": 0,
         "base_template": 0
     },
@@ -41,16 +41,16 @@
             "raw_value": true
         },
         "color": {
-            "value": "Silver",
+            "value": "Chrome",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "model_name": {
-            "value": "Classic 8oz Stainless Steel Hip Flask",
+            "value": "Classic",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
             "value": "8oz",
@@ -58,20 +58,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux 4-Pack 8oz Stainless Steel Hip Flask Set",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux 4-Pack 8oz Stainless Steel Hip Flask",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 47,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "4",
+                "pack_size_unit": "Pack",
+                "size": "8oz",
+                "color": "Stainless Steel",
+                "name": "Hip Flask"
+            }
         },
-        "title_differentiation": {
-            "value": "Set of 4, Attached Screw Cap, Pocket-Sized, Travel Ready",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux 4-Pk 8oz Chrome Stainless Steel Hip Flask",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 52,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "4",
+                "pack_size_unit": "Pk",
+                "size": "8oz",
+                "color": "Chrome",
+                "name": "Stainless Steel Hip Flask"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Set Of 4, 8Oz Capacity, Stainless Steel, Attached Screw Cap, Pocket-Sized, Hiking And Camping",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 93,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Attached Screw Cap, Rust Resistant Stainless Steel, Flavor Neutral, Pocket Size, Travel Hiking Backpacking Camping",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 114,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

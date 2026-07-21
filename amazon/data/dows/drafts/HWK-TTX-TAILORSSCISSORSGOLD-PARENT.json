@@ -3,14 +3,14 @@
     "asin": "B0D2SZDRGB",
     "product_type": "SCISSORS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:47:18+00:00",
+    "generated_at": "2026-07-21T20:01:21+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 3,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -74,25 +74,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "TTX Tailor Scissors Gold",
+            "value": "Tailor Scissors",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux Stainless Steel Heavy Duty Fabric Scissors Gold",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux Gold Handle Fabric Scissors 8 inch 10 inch",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "2",
+                "pack_size_unit": "Sizes",
+                "size": "8 inch 10 inch",
+                "color": "Gold",
+                "name": "Fabric Scissors"
+            }
         },
-        "title_differentiation": {
-            "value": "Sharp Knife Edge Blades, 8 or 10 Inch, Ergonomic Design",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux Gold Heavy Duty Fabric Scissors",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 42,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Gold",
+                "name": "Heavy Duty Fabric Scissors"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Heavy Duty Stainless Steel, Knife Edge Blade, Sharp Retention, Sewing And Quilting, Ergonomic Gold Handles",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 106,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Stainless Steel, Ultra Sharp Knife Edge, Ergonomic Offset Handle, Precision Cutting, Includes Storage Case",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 106,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

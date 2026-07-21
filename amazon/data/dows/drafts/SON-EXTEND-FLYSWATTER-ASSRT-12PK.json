@@ -3,14 +3,14 @@
     "asin": "B09KKL8WL9",
     "product_type": "PEST_CONTROL_DEVICE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:31:37+00:00",
+    "generated_at": "2026-07-21T19:55:56+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 4,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -87,25 +87,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "Extendable Fly Swatter Assorted 12 Pack",
+            "value": "AssortFly",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Extendable Fly Swatter 12 Pack Telescopic",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 12-Pack Extendable Fly Swatter",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 42,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "12",
+                "pack_size_unit": "Pack",
+                "size": "Extendable",
+                "color": "",
+                "name": "Fly Swatter"
+            }
         },
-        "title_differentiation": {
-            "value": "Extends to 28.5\", Collapsible, Anti-Slip Handle, 12-Pack Assorted",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 12-Pk Extendable Fly Swatter",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 40,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "12",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Extendable Fly Swatter"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Extends To 285 Inches, Collapsible Design, Anti-Slip Rubber Handle, Square Swatting Pad, Non-Toxic Plastic",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 106,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Telescopic Stainless Steel Pole, Anti-Slip Rubber Grip, Square Swatting Pad, 285-Inch Reach, Indoor Outdoor Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

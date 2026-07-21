@@ -3,14 +3,14 @@
     "asin": "B0DPD17BL6",
     "product_type": "UTILITY_SPONGE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:23:59+00:00",
+    "generated_at": "2026-07-21T20:09:09+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 9,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -135,20 +135,57 @@
             "asin": "B0DPD17BL6",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille Plant-Based Coconut Dish Sponges, Non-Scratch, 2-Pack",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 2-pk Coconut Plant Based Dish Sponges",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 44,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Coconut Plant Based Dish Sponges"
+            }
         },
-        "title_differentiation": {
-            "value": "100% Natural Fibers, Compostable, Plastic-Free, Odor-Resistant",
+        "item_name_ai_openai": {
+            "value": "Beille 2-pk Standard White Brown Coconut Dish Sponges",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 53,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "Standard",
+                "color": "White Brown",
+                "name": "Coconut Dish Sponges"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Non Scratch, 100 Natural Fibers, Biodegradable, Compostable, Odor Resistant, Plastic Free",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 89,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Non Scratch, Plant Based, Fully Compostable, Odor Resistant, Food Safe, Heavy Duty Scrubbing, Plastic Free",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 106,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

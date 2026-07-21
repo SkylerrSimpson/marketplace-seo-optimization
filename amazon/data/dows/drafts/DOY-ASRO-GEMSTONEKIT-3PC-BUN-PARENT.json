@@ -3,14 +3,14 @@
     "asin": "B0F9HTWCCX",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:47:08+00:00",
+    "generated_at": "2026-07-21T20:01:14+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 0,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,20 +27,57 @@
             "source": "usurper",
             "usurper_column": "attr.size_amazon"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 5lb Brazilian Gemstone Mining Kit with Classifier",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 5lb Rough Gemstone Mining Kit with Classifier",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 57,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "lb",
+                "size": "Rough",
+                "color": "",
+                "name": "Gemstone Mining Kit with Classifier"
+            }
         },
-        "title_differentiation": {
-            "value": "Includes sifter, ID chart, burlap bag; 2lbs genuine rough gemstones",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 5-lb Rough Gemstone Mining Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 42,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "lb",
+                "size": "",
+                "color": "",
+                "name": "Rough Gemstone Mining Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Includes Sifter, ID Chart, Storage Bag, Brazilian Gemstones, Educational Geology Activity",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 89,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "5Lb Brazilian Paydirt, Genuine Rough Gemstones, 36-Hole Sifter, Laminated ID Chart, Burlap Storage Bag",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 102,
+            "review_only": true
         },
         "pesticide_marking": {
             "value": [

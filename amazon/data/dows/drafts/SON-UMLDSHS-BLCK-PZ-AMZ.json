@@ -3,14 +3,14 @@
     "asin": "B0CL82FK5N",
     "product_type": "STETHOSCOPE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:04:45+00:00",
+    "generated_at": "2026-07-21T20:06:16+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -28,10 +28,10 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "UMLDSHS",
+            "value": "Universal Lightweight Diagnostic Stethoscope",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
             "value": "30 inches",
@@ -39,20 +39,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux Medical Single Head Stethoscope 30in Black",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux 30in Black Single Head Stethoscope",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 45,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "30in",
+                "color": "Black",
+                "name": "Single Head Stethoscope"
+            }
         },
-        "title_differentiation": {
-            "value": "Lightweight, Non-Chill Head, High Acoustic Sensitivity, Durable Aluminum",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux 30-in Universal Black Single Head Stethoscope",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 56,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "30",
+                "pack_size_unit": "in",
+                "size": "Universal",
+                "color": "Black",
+                "name": "Single Head Stethoscope"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Lightweight Diagnostic Design, Non-Chill Head, High Acoustic Sensitivity, Adjustable Binurals, Durable Aluminum Chest Piece",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 123,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Lightweight, High Acoustic Sensitivity, Non-Chill Chest Piece, Anodized Aluminum, Adjustable Binaurals",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 102,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

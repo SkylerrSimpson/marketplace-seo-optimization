@@ -3,14 +3,14 @@
     "asin": "B0B57PTN8M",
     "product_type": "PALETTE_PUTTY_KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:07:52+00:00",
+    "generated_at": "2026-07-21T20:06:56+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -28,25 +28,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "Wax Carver Spatula Tips Pick Set 10pc",
+            "value": "Wax Carver Spatula Tips Pick Set",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux Stainless Steel Wax Carver 10pc Set with Storage Pouch",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux 10-Piece Stainless Steel Wax Carver Set",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "10",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "Stainless Steel",
+                "name": "Wax Carver Set"
+            }
         },
-        "title_differentiation": {
-            "value": "Double-ended tips, ergonomic grip handles, ideal for sculpting, jewelry, clay",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux 10-pk Chrome Stainless Steel Wax Carver Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 54,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "10",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Chrome",
+                "name": "Stainless Steel Wax Carver Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Double-Ended Tips, Ergonomic Grip Handles, Precision Crafting, Jewelry Making, Clay Sculpting, Includes Storage Pouch",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 117,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Double-Ended Assorted Tips, 20 Precision Picks, Ergonomic Grip Handles, Rust Resistant Stainless Steel, PVC Pouch",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 113,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

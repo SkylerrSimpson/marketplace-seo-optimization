@@ -3,14 +3,14 @@
     "asin": "B07GXCG8W3",
     "product_type": "BLANKET",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:03:07+00:00",
+    "generated_at": "2026-07-21T19:45:07+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 8,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -141,25 +141,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "Wilderness Adventure Southwest Style Fleece Blanket",
+            "value": "Wilderness Adventure",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Southwest Fleece Blanket Blue 50x60 In",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 50x60 in Blue Southwest Fleece Blanket",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "50x60",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Blue",
+                "name": "Southwest Fleece Blanket"
+            }
         },
-        "title_differentiation": {
-            "value": "Polar Fleece | Machine Wash Safe | Indoor/Outdoor Use",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 50 x 60 in Blue Fleece Blanket",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 42,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "50 x 60",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Blue",
+                "name": "Fleece Blanket"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Polar Fleece Throw, Machine Wash And Dry Safe, Southwest Pattern, Camping And Home Decor, Polyester Blend",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 105,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Southwest Style, Polar Fleece, Machine Wash And Dry Safe, Indoor And Outdoor Warmth, Home And Camping Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 105,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B006M6G4YW",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:38:20+00:00",
+    "generated_at": "2026-07-21T19:57:51+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -45,20 +45,57 @@
             "asin": "B006M6G4YW",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "World Hobbies Surgical Grade Scalpel Blades #11 Carbon Steel 10pc",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "World Hobbies 10-pc Size #11 Surgical Scalpel Blades",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "World Hobbies",
+                "pack_size": "10",
+                "pack_size_unit": "pc",
+                "size": "#11",
+                "color": "",
+                "name": "Surgical Scalpel Blades"
+            }
         },
-        "title_differentiation": {
-            "value": "Sterile, individually sealed, fits X-acto knives, precision cutting",
+        "item_name_ai_openai": {
+            "value": "World Hobbies 10-pk Size 11 Sterile Surgical Grade Scalpel Blades",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 65,
+            "review_only": true,
+            "tokens": {
+                "brand": "World Hobbies",
+                "pack_size": "10",
+                "pack_size_unit": "pk",
+                "size": "11",
+                "color": "",
+                "name": "Sterile Surgical Grade Scalpel Blades"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Sterile Carbon Steel, Universal X-acto Fit, Precision Cutting, Craft And Art, Individually Sealed",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 97,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Individually Sealed, Carbon Steel, Universal Fit, Precision Cutting, Ideal For Craft, Leather And Hobby Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

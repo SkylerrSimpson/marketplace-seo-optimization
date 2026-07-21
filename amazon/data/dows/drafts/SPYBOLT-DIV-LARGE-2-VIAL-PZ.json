@@ -3,14 +3,14 @@
     "asin": "B07XCJ4NV4",
     "product_type": "SAFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:27:36+00:00",
+    "generated_at": "2026-07-21T19:54:49+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 6,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -108,20 +108,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "MEGA BOLT Large Diversion Safe Hidden Hollow Container 2 Vials",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "IGE Innovative MEGA BOLT Large Diversion Safe Hidden Container",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 62,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "IGE Innovative",
+                "pack_size": "2",
+                "pack_size_unit": "Vials",
+                "size": "Large",
+                "color": "",
+                "name": "MEGA BOLT Diversion Safe Hidden Container"
+            }
         },
-        "title_differentiation": {
-            "value": "Extra Large Capacity, Weatherproof O-Ring Seal, Made in USA",
+        "item_name_ai_openai": {
+            "value": "IGE Innovative Internet Products 2-Vial Large Diversion Safe",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 60,
+            "review_only": true,
+            "tokens": {
+                "brand": "IGE Innovative Internet Products",
+                "pack_size": "2",
+                "pack_size_unit": "vials",
+                "size": "Large",
+                "color": "",
+                "name": "Diversion Safe"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "2 Glass Vials Included, 4 Inches, Weather-Proof O-Ring Seal, Hollow Bolt Safe, Made In USA, Conceals Jewelry And Memory Cards",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 125,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Extra Large Capacity, 2 Glass Vials Included, Weather-Proof O-Ring Seal, Hidden Storage For Cash, Gems, Micro SD Cards",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 118,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

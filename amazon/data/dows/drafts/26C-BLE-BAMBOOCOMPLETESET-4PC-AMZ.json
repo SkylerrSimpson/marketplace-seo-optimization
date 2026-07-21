@@ -3,14 +3,14 @@
     "asin": "B0DV8HWDWN",
     "product_type": "CLEANING_BRUSH",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:39:25+00:00",
+    "generated_at": "2026-07-21T19:58:11+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -31,28 +31,65 @@
             "value": "Bamboo",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "model_name": {
-            "value": "Bamboo Complete Set 4PC",
+            "value": "Bamboo Complete Set",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Beille 4pc Bamboo Cleaning Brush Set with Squeegee",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 4-pc Bamboo Cleaning Supplies Set Multicolor",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Multicolor",
+                "name": "Bamboo Cleaning Supplies Set"
+            }
         },
-        "title_differentiation": {
-            "value": "Sustainable bamboo handles, dish brush, scrub brush, squeegee, dust pan",
+        "item_name_ai_openai": {
+            "value": "Beille 4-pk Multicolor Cleaning Supplies Complete Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 53,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Multicolor",
+                "name": "Cleaning Supplies Complete Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Dish Brush, Scrub Brush, Shower Squeegee, Dust Pan And Brush, Sustainable Bamboo Handles",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 88,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Bamboo Handles, High Density Bristles, Shower Squeegee, Dust Pan And Brush, Hanging Holes, Ergonomic Grip",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 105,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

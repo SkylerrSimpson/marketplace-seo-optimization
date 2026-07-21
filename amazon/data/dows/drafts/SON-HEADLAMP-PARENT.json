@@ -3,14 +3,14 @@
     "asin": "B09TG5PXDS",
     "product_type": "FLASHLIGHT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:06:57+00:00",
+    "generated_at": "2026-07-21T19:46:53+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 4,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -73,28 +73,65 @@
             "value": "Plastic",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "model_name": {
-            "value": "200 Lumen 3 Watt Super Bright LED Head Lamp",
+            "value": "200LHL-O-185",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 200 Lumen LED Head Lamp with Adjustable Strap",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 200 Lumen Super Bright LED Head Lamp",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "200 Lumen",
+                "color": "",
+                "name": "Super Bright LED Head Lamp"
+            }
         },
-        "title_differentiation": {
-            "value": "3 Watt Super Bright, Pivoting Head, 3 Modes, Camping & Hiking",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 200 Lumen LED Head Lamp",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 35,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "200 Lumen",
+                "color": "",
+                "name": "Head Lamp"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "3 Watt LED Flood Light, Pivoting Head, Adjustable Strap, 3 Brightness Modes, Hands-Free Lighting",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 96,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "200 Lumen Flood Light, Pivoting Head, Supportive Crown, Adjustable Elastic Strap, 3 Modes, 3 Watt COB Bulbs",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

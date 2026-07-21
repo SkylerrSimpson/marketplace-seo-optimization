@@ -3,14 +3,14 @@
     "asin": "B0FLS7RSCZ",
     "product_type": "TOWEL",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:19:39+00:00",
+    "generated_at": "2026-07-21T19:51:41+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 21,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -316,20 +316,57 @@
             "asin": "B0FLS7RSCZ",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille 5pc 100% Cotton Oversized Dish Towels 28x22 Blue",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 5-pc 28x22 Blue Oversized Cotton Dish Towels",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "5",
+                "pack_size_unit": "pc",
+                "size": "28x22",
+                "color": "Blue",
+                "name": "Oversized Cotton Dish Towels"
+            }
         },
-        "title_differentiation": {
-            "value": "5-Piece Set, 100% Cotton, Oversized 28x22 inches, Absorbent & Durable",
+        "item_name_ai_openai": {
+            "value": "Beille 5-pk 28x22 in Blue Dish Towel Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 40,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "5",
+                "pack_size_unit": "pk",
+                "size": "28x22 in",
+                "color": "Blue",
+                "name": "Dish Towel Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "100 Cotton, Ultra Absorbent, Woven Linen Texture, Machine Washable, Hanging Loop",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 80,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "5-Piece Set, 100 Cotton, Oversized 28X22 Inch Towels, Highly Absorbent, Hanging Loop, Machine Washable",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 102,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

@@ -3,14 +3,14 @@
     "asin": "B09H3T9JNF",
     "product_type": "ART_AND_CRAFT_SUPPLY",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:49:34+00:00",
+    "generated_at": "2026-07-21T20:12:16+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,20 +27,57 @@
             "asin": "B09H3T9JNF",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux Platinum Purity Testing Kit with Safety Glasses 7pc",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux Platinum Testing Kit 7pc with Safety Glasses",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "7",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Platinum Testing Kit with Safety Glasses"
+            }
         },
-        "title_differentiation": {
-            "value": "Includes testing stone, pipettes, vials, safety glasses & 0.5oz solution",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux Platinum Testing Kit with Safety Glasses and Stone",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 61,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Platinum Testing Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Includes Testing Stone, Pipettes, Glass Vials, Safety Glasses, Hundreds Of Tests, USA Made Solution",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 99,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Shatterproof 05Oz Bottle, Safety Glasses, Pipettes, Glass Vials, Testing Stone, For Precious Metals",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 99,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

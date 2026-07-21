@@ -3,14 +3,14 @@
     "asin": "B0CBNJM3XK",
     "product_type": "SPORTING_GOODS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:42:30+00:00",
+    "generated_at": "2026-07-21T19:59:27+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -111,20 +111,57 @@
             "asin": "B0CBNJM3XK",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille Silver Chrome Borosilicate Glass Water Bottle, 23oz",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 23oz Silver Chrome Borosilicate Glass Water Bottle",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 57,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "23oz",
+                "color": "Silver Chrome",
+                "name": "Borosilicate Glass Water Bottle"
+            }
         },
-        "title_differentiation": {
-            "value": "BPA Free, Bamboo Lid, Keeps Drinks Cold, Lightweight Travel Design",
+        "item_name_ai_openai": {
+            "value": "Beille 23oz Silver Chrome Borosilicate Glass Water Bottle",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 57,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "23",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "Silver Chrome",
+                "name": "Water Bottle"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "BPA-Free Glass, Bamboo Lid, Keeps Water Cool, Lightweight Travel, Hand Wash Only",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 80,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "BPA Free Borosilicate Glass, Bamboo Airtight Lid, Lightweight Travel Design, Cold Drinks Only, Hand Wash Only",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

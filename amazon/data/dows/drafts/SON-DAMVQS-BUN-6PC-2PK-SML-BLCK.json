@@ -3,14 +3,14 @@
     "asin": "B07Y2HTQT9",
     "product_type": "CARGO_STRAP",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:16:45+00:00",
+    "generated_at": "2026-07-21T20:08:16+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 3,
-        "ai_suggested": 1,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -63,14 +63,57 @@
             "asin": "B07Y2HTQT9",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "{\"item_name\": \"Universal Tool 12pc Adjustable D-Ring Cargo Straps Black\", \"title_differentiation\": \"9.5\"-16\" Adjustable, Hook & Loop Closure, Reusable Tie Down\"}",
+        "item_name_ai_anthropic": {
+            "value": "Universal Tool 12-pc Black D-Ring Adjustable Tie Down Straps",
+            "is_required": true,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 60,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "12",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Black",
+                "name": "D-Ring Adjustable Tie Down Straps"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "Universal Tool 12-pc Black D-Ring Hook and Loop Straps",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 54,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "12",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Black",
+                "name": "D-Ring Hook and Loop Straps"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Adjustable 95 To 16 Inches, Hook And Loop Closure, Reusable, Multi-Purpose Cable And Strap Organization",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "review_only": true,
-            "note": "modular <=75 item_name for human review",
-            "validation_error": "exceeds modular item_name cap of 75 chars (161)"
+            "char_count": 103,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Adjustable 9-12\" To 16\", Reusable Tie Down Straps, D-Ring Loop, Secure Hook And Loop Closure, For Cables Hoses Ropes",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 116,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

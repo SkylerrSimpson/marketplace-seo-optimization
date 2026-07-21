@@ -3,14 +3,14 @@
     "asin": "B08L75DVBF",
     "product_type": "LIP_BALM",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:38:48+00:00",
+    "generated_at": "2026-07-21T19:57:59+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 3,
         "catalog": 8,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -135,20 +135,57 @@
             "asin": "B08L75DVBF",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Townley Frozen 5 Pack Flavored Lip Balm with Glitter Case",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Townley Girl Frozen 5-Pack Flavored Lip Balm with Glitter Case",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 62,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Townley Girl",
+                "pack_size": "5",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "",
+                "name": "Flavored Lip Balm with Glitter Case"
+            }
         },
-        "title_differentiation": {
-            "value": "5 Fun Flavors, Glitter-Filled Carrying Case, Disney Licensed",
+        "item_name_ai_openai": {
+            "value": "Townley Girl 5-pk Frozen Lip Balm Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 37,
+            "review_only": true,
+            "tokens": {
+                "brand": "Townley Girl",
+                "pack_size": "5",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Frozen",
+                "name": "Lip Balm Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Five Fun Flavors, Officially Licensed Disney Frozen, Glitter Filled Carrying Case, Hydrating And Protective, Ages 3 And Up",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 122,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Five Flavors Berry Cotton Candy Strawberry Watermelon Blueberry, Glitter Carrying Case, Officially Licensed, Ages 3 Plus",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 120,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

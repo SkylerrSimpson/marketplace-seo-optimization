@@ -3,14 +3,14 @@
     "asin": "B07L5X914M",
     "product_type": "MASSAGER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:18:49+00:00",
+    "generated_at": "2026-07-21T19:51:19+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -45,20 +45,58 @@
             "asin": "B07L5X914M",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Home Telescoping Massage Roller with Cushion Grip Gray",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Gray Telescoping Massage Roller with Cushion Grip",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 61,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "23.5 inch",
+                "color": "Gray",
+                "name": "Telescoping Massage Roller"
+            }
         },
-        "title_differentiation": {
-            "value": "7-Ring Roller, Extends 8.5\" to 23.5\", Retractable Handle, Portable",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor Gray Telescoping Massage Roller",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 43,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Gray",
+                "name": "Telescoping Massage Roller"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "7 Ring Massage Roller, Extends 85 To 235 Inches, Cushion Grip Handle, Compact Retractable Storage, Back Itch And Muscle Relief",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 126,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (126 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "7 Ring Massage Head, Extends 85\" To 235\", Cushion Grip Handle, Compact Storage, Instant Itch Relief",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 99,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

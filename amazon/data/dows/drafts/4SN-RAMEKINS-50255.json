@@ -3,14 +3,14 @@
     "asin": "B09RSVPSDK",
     "product_type": "CASSEROLES",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:50:42+00:00",
+    "generated_at": "2026-07-21T20:12:18+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 3,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -74,20 +74,57 @@
             "asin": "B09RSVPSDK",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille 8pc White Porcelain Creme Brulee Ramekins Set",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 8-pc White Porcelain Creme Brulee Ramekins",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 49,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "8",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "White",
+                "name": "Porcelain Creme Brulee Ramekins"
+            }
         },
-        "title_differentiation": {
-            "value": "Oven & Dishwasher Safe, Stackable Design, Perfect for Desserts",
+        "item_name_ai_openai": {
+            "value": "Beille 8-Pk White Porcelain Ramekins",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 36,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "8",
+                "pack_size_unit": "Pk",
+                "size": "",
+                "color": "White",
+                "name": "Porcelain Ramekins"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Oven Safe, Microwave Safe, Dishwasher Safe, Stackable Design, BPA-Free, Food Safe, Freezer Safe",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 95,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Oven Safe, Microwave Safe, Dishwasher Safe, Stackable Design, BPA-Free Porcelain, Ideal For Creme Brulee",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 104,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B087QSRP3W",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:27:53+00:00",
+    "generated_at": "2026-07-21T20:10:41+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -31,22 +31,59 @@
             "value": "Stainless Steel",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 13.5\" Fixed Blade Hunting Knife Animal Design",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 13.5\" Fixed Blade Hunting Knife Animal Head",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Fixed Blade Hunting Knife Animal Head"
+            }
         },
-        "title_differentiation": {
-            "value": "Ornamental animal head pommel, etched stainless steel blade, includes decorative scabbard",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 13.5 in Hunting Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 33,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Hunting Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Bowie-Style Collector's Knife, Ornamental Animal Pommel, 8\" Stainless Steel Blade, Etched Scabbard, Display Ready",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 113,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Bowie-Style Clip Point, Ornamental Animal Head Pommel, Etched Stainless Blade, Matching Scabbard, Gift For Collectors",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 117,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

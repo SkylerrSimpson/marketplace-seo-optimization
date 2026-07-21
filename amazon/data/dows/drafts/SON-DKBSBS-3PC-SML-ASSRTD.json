@@ -3,18 +3,24 @@
     "asin": "B00VU9IVHE",
     "product_type": "KNIFE_SHARPENER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:21:47+00:00",
+    "generated_at": "2026-07-21T19:52:41+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
-        "fillable": 0,
-        "catalog": 5,
-        "ai_suggested": 2,
+        "fillable": 1,
+        "catalog": 4,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
     "attributes": {
+        "model_number": {
+            "value": "3DBS",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.mpn"
+        },
         "grit": {
             "value": [
                 {
@@ -55,18 +61,6 @@
             "asin": "B00VU9IVHE",
             "raw_value": true
         },
-        "model_number": {
-            "value": [
-                {
-                    "value": "3DBS",
-                    "marketplace_id": "ATVPDKIKX0DER"
-                }
-            ],
-            "is_required": false,
-            "source": "catalog",
-            "asin": "B00VU9IVHE",
-            "raw_value": true
-        },
         "skip_offer": {
             "value": [
                 {
@@ -91,19 +85,57 @@
             "asin": "B00VU9IVHE",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "Universal Tool 3-Piece Diamond Knife Sharpening Block Set",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 57,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "3",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "",
+                "name": "Diamond Knife Sharpening Block Set"
+            }
         },
-        "title_differentiation": {
-            "value": "Fine, Medium & Coarse Grit | 6\" x 2\" Blocks | Nickel-Bonded Steel",
+        "item_name_ai_openai": {
+            "value": "Universal Tool 3-pc 6\" x 2\" Diamond Knife and Blade Sharpening Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 66,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "6\" x 2\"",
+                "color": "",
+                "name": "Diamond Knife and Blade Sharpening Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Fine, Medium And Coarse Grits, 6\" X 2\" Blocks, Nickel-Bonded Steel Frame, Ergonomic Design",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 90,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "3 Grits 150 300 400, 3 Layer Diamond On Alloy Steel, Ergonomic Grip, Fine Medium Coarse",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 87,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

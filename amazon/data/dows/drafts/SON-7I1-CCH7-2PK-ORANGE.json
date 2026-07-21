@@ -3,14 +3,14 @@
     "asin": "B0CBW7YMPV",
     "product_type": "SURVIVAL_KIT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:46:01+00:00",
+    "generated_at": "2026-07-21T20:12:10+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -175,20 +175,57 @@
             "asin": "B0CBW7YMPV",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 7-in-1 Kids Survival Multi Tool Whistle Orange",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 2-Pack Orange Kids 7 in 1 Survival Whistle",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "Orange",
+                "name": "Kids 7 in 1 Survival Whistle"
+            }
         },
-        "title_differentiation": {
-            "value": "2-Pack, Waterproof, LED Flashlight, Compass, Thermometer & Mirror",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 2-Pk Orange 7 In 1 Survival Whistle Flashlight",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 58,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "Pk",
+                "size": "",
+                "color": "Orange",
+                "name": "7 In 1 Survival Whistle Flashlight"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "7 In 1 Multi-Tool, Compass, LED Flashlight, Magnifier, Signal Mirror, Thermometer, Storage, Waterproof, Lanyard Included",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 120,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Whistle Compass, LED Flashlight, 5X Magnifier, Thermometer, Signal Mirror, Storage Compartment, Lanyard",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B0BZK59VJJ",
     "product_type": "MAGNIFIER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:47:44+00:00",
+    "generated_at": "2026-07-21T20:01:32+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 4,
         "catalog": 3,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -82,25 +82,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "Jewelers Loupe 10x Aluminum 22mm",
+            "value": "10X Aluminum Jewelers Loupe",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux 10x Jewelers Loupe 22mm Aluminum Magnifier",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux 10x Aluminum Jewelers Loupe 22mm Magnifier",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "22mm",
+                "color": "Aluminum",
+                "name": "Jewelers Loupe Magnifier"
+            }
         },
-        "title_differentiation": {
-            "value": "10X Magnification, 22mm Lens, Compact Aluminum Housing, Jewelry & Coins",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux 10X Aluminum Jewelers Loupe 22Mm Magnifier",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 53,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "10X",
+                "color": "",
+                "name": "Jewelers Loupe Magnifier"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "10X Magnification, 22Mm Optical Glass Lens, Jewelry Gems Coins Stamps, Compact Aluminum Body, Precision Crafting",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 112,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Scratch Resistant Aluminum Body, 22Mm Glass Lens, 10X Detail View, Compact Portable Design, Jewelry Watch Repair",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 112,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

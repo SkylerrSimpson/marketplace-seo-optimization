@@ -3,14 +3,14 @@
     "asin": "B00SLXYKI6",
     "product_type": "AXE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:58:21+00:00",
+    "generated_at": "2026-07-21T20:04:45+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -104,20 +104,57 @@
             "asin": "B00SLXYKI6",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 12 Inch Full Tang Steel Hatchet with Paracord",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 12 Inch Black Steel Axe Hatchet with Paracord",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 57,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "12",
+                "pack_size_unit": "Inch",
+                "size": "12 Inch",
+                "color": "Black",
+                "name": "Steel Axe Hatchet"
+            }
         },
-        "title_differentiation": {
-            "value": "Cord Cutter, Gut Hook, Hex Holes, Emergency Paracord, Pry Bar",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 12-in Black Full Tang Steel Hatchet",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 47,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "12",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Hatchet"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Full Tang Steel, Paracord Handle, Gut Hook, Mini Pry Bar, Hex Holes, Multitool, Survival EDC",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 92,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Paracord Wrapped Handle, Built In Gut Hook Cord Cutter, Mini Pry Bar, 3 Hex Holes, Sheath Included",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 98,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

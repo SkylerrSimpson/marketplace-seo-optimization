@@ -3,15 +3,15 @@
     "asin": "B0B2XB2QK6",
     "product_type": "BUCKLE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:16:36+00:00",
+    "generated_at": "2026-07-21T20:08:16+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 6,
-        "ai_suggested": 3,
-        "ai_null": 0,
+        "ai_suggested": 4,
+        "ai_null": 1,
         "base_template": 0
     },
     "attributes": {
@@ -96,25 +96,63 @@
             "raw_value": true
         },
         "fabric_type": {
-            "value": "Plastic",
+            "value": null,
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Paracord Bracelet Buckles 12 Pack Black 15mm",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 12-Pack 15MM Black Paracord Bracelet Buckles",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 56,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "12",
+                "pack_size_unit": "Pack",
+                "size": "15MM",
+                "color": "Black",
+                "name": "Paracord Bracelet Buckles"
+            }
         },
-        "title_differentiation": {
-            "value": "12PC Set, Durable Plastic, Male & Female Clips, Camping & Survival",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 12-pk 15mm Black Paracord Bracelet Buckles",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 54,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "12",
+                "pack_size_unit": "pk",
+                "size": "15mm",
+                "color": "Black",
+                "name": "Paracord Bracelet Buckles"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "12 Buckles With Male And Female Clips, Durable Plastic, Quick Release, Replacement For DIY Paracord Bracelets, Camping And Survival Gear",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 136,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (136 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "12 Pack, Male And Female Parts, Durable Plastic, Quick-Release Side Buckles, Fits Standard Paracord Bracelets",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

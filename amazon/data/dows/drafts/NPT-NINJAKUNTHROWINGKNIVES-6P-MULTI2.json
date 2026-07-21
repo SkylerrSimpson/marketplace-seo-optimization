@@ -3,14 +3,14 @@
     "asin": "B082FPTFBV",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:32:30+00:00",
+    "generated_at": "2026-07-21T19:56:10+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 5,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -90,21 +90,59 @@
             "value": "Stainless Steel",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical 6pc Kunai Throwing Knife Set with Carrying Case",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical 6-pc Throwing Knives Set with Carrying Case",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 56,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "6",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Throwing Knives Set with Carrying Case"
+            }
         },
-        "title_differentiation": {
-            "value": "6 Balanced Blades, Drop Point, Cord-Wrapped, Nylon Sheath with Belt Loop",
+        "item_name_ai_openai": {
+            "value": "ASR Tactical 6-pk Kunai Throwing Knives Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 43,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "6",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Kunai Throwing Knives Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "6 Throwing Knives, Drop Point Blades, Evenly Balanced, Nylon Sheath With Belt Loop, Chrome Finish",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 97,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Balanced Blades - Cord Wrapped Grips - Reinforced Nylon Sheath - Belt Loop - Accurate Throwing Practice",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

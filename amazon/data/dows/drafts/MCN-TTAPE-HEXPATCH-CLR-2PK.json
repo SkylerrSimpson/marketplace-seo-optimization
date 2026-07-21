@@ -3,14 +3,14 @@
     "asin": "B09V3DL9SK",
     "product_type": "ADHESIVE_TAPES",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:19:20+00:00",
+    "generated_at": "2026-07-21T19:51:37+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 19,
-        "ai_suggested": 1,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -263,14 +263,58 @@
             "asin": "B09V3DL9SK",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "{\n  \"item_name\": \"GEAR AID Tenacious Tape Hex Repair Patches, Clear, 2 Pack\",\n  \"title_differentiation\": \"Peel-and-stick hex patches, 1.5\" & 2.5\", no sewing, outdoor gear repair\"\n}",
+        "item_name_ai_anthropic": {
+            "value": "GEAR AID Tenacious Tape Hex Patch 2-Pack Clear",
+            "is_required": true,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 46,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "Pack",
+                "size": "Hex",
+                "color": "Clear",
+                "name": "Tenacious Tape Repair Patches"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "GEAR AID 2-pk 1.5-2.5\" Clear Hex Repair Patches",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 47,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "1.5-2.5\"",
+                "color": "Clear",
+                "name": "Hex Repair Patches"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Peel And Stick Repair, No Sewing Or Ironing, Waterproof, GORE-TEX Compatible, Nylon Polyester Vinyl, Washable, Outdoor Gear Tent Jacket",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 135,
             "review_only": true,
-            "note": "modular <=75 item_name for human review",
-            "validation_error": "exceeds modular item_name cap of 75 chars (180)"
+            "validation_error": "value exceeds maxLength 125 (135 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Peel And Stick, No Sew Or Iron, Wash Durable, Ultra-Aggressive Adhesive, Works On Nylon Vinyl Polyester",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

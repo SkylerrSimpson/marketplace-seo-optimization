@@ -3,14 +3,14 @@
     "asin": "B00KNCGJN2",
     "product_type": "FLASHLIGHT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:17:13+00:00",
+    "generated_at": "2026-07-21T19:50:35+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 4,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -72,10 +72,10 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "Zoom 3 Watt Cree Head Lamp",
+            "value": "Zoom Head Lamp",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
             "value": "One Size",
@@ -83,20 +83,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 3 Watt Cree Zoom Headlamp 120 Lumens",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Zoom 3 Watt Cree Head Lamp",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 38,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "3 Watt",
+                "color": "",
+                "name": "Zoom Cree Head Lamp"
+            }
         },
-        "title_differentiation": {
-            "value": "120 Lumens, Zoom Focus, 3-Stage Switch, 180° Swivel, Hands-Free Head Strap",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 3 Watt Zoom Cree LED Headlamp",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 41,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "3 Watt",
+                "color": "",
+                "name": "Zoom Cree LED Headlamp"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "120 Lumens, Zoom Focus, 180 Degree Pivot, 3 Stage Switch, Hands-Free Use, Camping And Hiking",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 92,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "120 Lumens, 180-Degree Pivot, 3-Stage Switch, Zoom Focus, 3AAA Batteries Included, Elastic Head Strap",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

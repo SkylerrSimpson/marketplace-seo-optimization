@@ -3,14 +3,14 @@
     "asin": "1926534530",
     "product_type": "ABIS_BOOK",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:48:54+00:00",
+    "generated_at": "2026-07-21T19:36:51+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 11,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -189,25 +189,62 @@
             "raw_value": true
         },
         "subject_code": {
-            "value": "HEA007000",
+            "value": "SPO033000",
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Mike Jespersen Fitness Area Rules Poster 24x36 Laminated",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Mike Jespersen Fitness Area Rules Poster 24x36 Black",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Mike Jespersen",
+                "pack_size": "24x36",
+                "pack_size_unit": "",
+                "size": "24x36",
+                "color": "Black",
+                "name": "Fitness Area Rules Poster"
+            }
         },
-        "title_differentiation": {
-            "value": "Gym Safety Guidelines, Weight Room Etiquette Chart, Liability Protection",
+        "item_name_ai_openai": {
+            "value": "Mike Jespersen 24 x 36 Black Fitness Area Rules Poster",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 54,
+            "review_only": true,
+            "tokens": {
+                "brand": "Mike Jespersen",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "24 x 36",
+                "color": "Black",
+                "name": "Fitness Area Rules Poster"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Laminated Gym Safety Chart, Weight Room Guidelines, Liability Protection, Apartment And Hotel Fitness Facilities",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 112,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Laminated, 24\" X 36\", Gym Safety Rules, Liability Reduction, Unsupervised Fitness Areas, Apartments Hotels And Workplace Gyms",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 125,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

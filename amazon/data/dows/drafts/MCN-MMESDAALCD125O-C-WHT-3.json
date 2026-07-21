@@ -3,14 +3,14 @@
     "asin": "B001DZPQIW",
     "product_type": "CLEANING_AGENT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:06:44+00:00",
+    "generated_at": "2026-07-21T19:46:50+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 15,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -220,19 +220,58 @@
             "asin": "B001DZPQIW",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Gear Aid Sea Drops Anti-Fog Lens Cleaner 1.25oz",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Gear Aid Sea Drops Anti-Fog and Lens Cleaner 1.25 oz",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Gear Aid",
+                "pack_size": "1.25",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "",
+                "name": "Sea Drops Anti-Fog and Lens Cleaner"
+            }
         },
-        "title_differentiation": {
-            "value": "2-in-1 formula, non-toxic & biodegradable, safe for all dive masks",
+        "item_name_ai_openai": {
+            "value": "GEAR AID 1.25-oz Sea Drops Anti-Fog and Lens Cleaner Drops",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 58,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "1.25",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "",
+                "name": "Sea Drops Anti-Fog and Lens Cleaner Drops"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "2-In-1 Anti-Fog And Cleaner, Non-Toxic, Biodegradable, Alcohol-Free, Safe On Glass And Plastic Lenses, Works On Dive Masks, Goggles, Binoculars",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 143,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (143 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Anti-Fog Protection, Cold Water Performance, Non-Toxic, Biodegradable, Alcohol-Free, Safe On Glass And Plastic Lenses",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 117,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

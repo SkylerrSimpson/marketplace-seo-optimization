@@ -3,14 +3,14 @@
     "asin": "B0725TNGN2",
     "product_type": "CORD_ROPE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:46:08+00:00",
+    "generated_at": "2026-07-21T20:12:10+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 6,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -96,20 +96,57 @@
             "asin": "B0725TNGN2",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 550 Type III Mil-Spec Paracord Rope 100ft Black",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 100ft Black 550 Type III Paracord Rope",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "100",
+                "pack_size_unit": "ft",
+                "size": "550",
+                "color": "Black",
+                "name": "Type III Paracord Rope"
+            }
         },
-        "title_differentiation": {
-            "value": "Military Grade, 550lb Breaking Strength, 7-Strand Nylon",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 100-ft Black Survival 550 Type III Tactical Paracord Rope",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 69,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "100",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Black",
+                "name": "Survival 550 Type III Tactical Paracord Rope"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Mil-Spec 550Lb Breaking Strength, 7 Strand Nylon, Tactical Grade, Emergency And Survival Ready",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 94,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Mil-Spec MIL-C-5040H, 7 Strand Nylon, 550 Lb Break Strength, 220 Lb Working Load, 10 Percent Stretch",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 100,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

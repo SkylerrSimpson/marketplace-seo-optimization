@@ -3,14 +3,14 @@
     "asin": "B0CL5LYWMM",
     "product_type": "STORAGE_BAG",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:54:46+00:00",
+    "generated_at": "2026-07-21T20:03:56+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 3,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -54,25 +54,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "5X6SLPB-100PC",
+            "value": "Self Locking Storage Baggies",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux 100pc 5x6 Clear Plastic Self-Locking Storage Bags",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux 100-pk 5x6 Clear Self Locking Storage Bags",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "100",
+                "pack_size_unit": "pk",
+                "size": "5x6",
+                "color": "Clear",
+                "name": "Self Locking Storage Bags"
+            }
         },
-        "title_differentiation": {
-            "value": "2mm Thick, Reusable Zipper Bags, All-Purpose Organization",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux 100-pk 5 x 6 in Clear Plastic Bags",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 45,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "100",
+                "pack_size_unit": "pk",
+                "size": "5 x 6 in",
+                "color": "Clear",
+                "name": "Plastic Bags"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "2Mm Thick, Resealable Zipper, Reusable, Jewelry And Craft Organization, All Purpose",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 83,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "100 Count, 2Mm Thick, Reclosable Single Zipper, Clear Plastic, Ideal For Beads Jewelry Crafts Storage",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

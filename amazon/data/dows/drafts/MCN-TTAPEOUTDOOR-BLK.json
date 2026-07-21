@@ -3,14 +3,14 @@
     "asin": "B079L4BVQH",
     "product_type": "FABRIC_APPLIQUE_PATCH",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:49:04+00:00",
+    "generated_at": "2026-07-21T20:01:56+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 6,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -104,22 +104,59 @@
             "value": "Tenacious Tape Gear Patches",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "GEAR AID Tenacious Tape Black Nylon Repair Patches 3x20",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "GEAR AID Tenacious Tape Black Nylon Repair Patches 3\"x20\"",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 57,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "3",
+                "pack_size_unit": "\"x20\"",
+                "size": "",
+                "color": "Black",
+                "name": "Tenacious Tape Nylon Repair Patches"
+            }
         },
-        "title_differentiation": {
-            "value": "Peel-and-stick, no heat/sewing, washable, synthetic fabrics",
+        "item_name_ai_openai": {
+            "value": "GEAR AID 3-in Black Tenacious Tape Gear Patches",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 47,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "3",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Tenacious Tape Gear Patches"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Peel And Stick, No Heat Or Sewing Required, Waterproof, Washable, Synthetic Fabrics, Outdoor Gear Repair",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 104,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Peel And Stick, No Heat Or Sewing, Washable, Works On Nylon Vinyl And Polyester, Ultra-Strong Adhesive",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 102,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

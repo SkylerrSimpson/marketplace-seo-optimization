@@ -3,14 +3,14 @@
     "asin": "B0C95XQGFB",
     "product_type": "ART_AND_CRAFT_SUPPLY",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:50:07+00:00",
+    "generated_at": "2026-07-21T20:12:17+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -28,25 +28,62 @@
             "raw_value": true
         },
         "size": {
-            "value": "One Size",
+            "value": "5 Piece",
             "is_required": false,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux 5pc Gold Silver Testing Kit Needles Purity Tester",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux 5-Pc Gold and Silver Testing Kit Jewelry Needles",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 59,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "5",
+                "pack_size_unit": "Pc",
+                "size": "",
+                "color": "Gold",
+                "name": "Silver Testing Kit Jewelry Needles"
+            }
         },
-        "title_differentiation": {
-            "value": "10k, 14k, 18k Gold & 999 Silver | Portable Jewelry Testing Needles",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux Silver and Gold Testing Kit Precious Metal Tester",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 60,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Silver and Gold Testing Kit Precious Metal Tester"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "10K, 14K, 18K, 999 Silver Purity Tester, Scratch Testing Needles, Portable Precious Metal Verifier, Jewelers And Prospectors",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 124,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Touchstone Scratch Testing, 999 Silver And 10K 14K 18K Gold, Brass Key Ring, Portable, Durable, For Jewelry And Scrap",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 117,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

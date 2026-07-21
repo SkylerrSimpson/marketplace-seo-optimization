@@ -3,14 +3,14 @@
     "asin": "B07PGD3HFT",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:29:27+00:00",
+    "generated_at": "2026-07-21T19:55:24+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -93,20 +93,57 @@
             "asin": "B07PGD3HFT",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 11\" Full Tang Hunting Knife w/ Galaxy Finish",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 11in Galaxy Space Hunting Knife Fixed Blade",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "11",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Galaxy Space",
+                "name": "Hunting Knife Fixed Blade"
+            }
         },
-        "title_differentiation": {
-            "value": "Fixed Blade, 3CR13 Stainless Steel, ABS Handle, Includes Nylon Sheath",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor Full Tang Hunting Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 35,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Full Tang Hunting Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Full Tang Fixed Blade, 625In Stainless Steel, Ergonomic ABS Handle, Includes Nylon Sheath With Belt Loop",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 104,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "11 Inch Fixed Blade, 3CR13 Stainless Steel, Ergonomic ABS Handle, Galaxy Finish, Nylon Belt Sheath",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 98,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

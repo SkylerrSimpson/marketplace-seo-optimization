@@ -3,14 +3,14 @@
     "asin": "B0GQDS681B",
     "product_type": "METAL_DETECTOR",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:57:00+00:00",
+    "generated_at": "2026-07-21T20:04:32+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -51,20 +51,57 @@
             "asin": "B0GQDS681B",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 5lb Rough Gemstone Paydirt Dig Kit with ID Chart",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 5lb Large Brazilian Gemstone Paydirt Kit",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "lb",
+                "size": "Large",
+                "color": "Brazilian",
+                "name": "Gemstone Paydirt Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "20pc Brazilian Geodes, Sift & Sort, Includes Burlap Bag & Identification Guide",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 5lb Rough Gemstone Paydirt Dig Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 46,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "lb",
+                "size": "",
+                "color": "",
+                "name": "Rough Gemstone Paydirt Dig Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "20Pc Rough Gemstones, Identification Chart, Sifting Screen Instructions, Burlap Storage Bag",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 91,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Genuine Rough Gemstones, Two Pounds Of Finds, Burlap Storage Bag, Identification Chart, Sifting Instructions",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 108,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

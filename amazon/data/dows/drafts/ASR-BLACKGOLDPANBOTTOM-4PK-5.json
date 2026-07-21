@@ -3,14 +3,14 @@
     "asin": "B0CHVN4Q66",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:35:41+00:00",
+    "generated_at": "2026-07-21T19:56:57+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -40,20 +40,57 @@
             "asin": "B0CHVN4Q66",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 14\" Black Gold Pan 4-Pack - Riffled Trap",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 4-Pack 14\" Black Gold Pan",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 37,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "Pack",
+                "size": "14\"",
+                "color": "Black",
+                "name": "Gold Pan"
+            }
         },
-        "title_differentiation": {
-            "value": "High impact flexible plastic, riffled traps, professional prospecting",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 4-Pk 14\" Black Gold Rush Gravity Trap Gold Pan",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 58,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "14\"",
+                "color": "Black",
+                "name": "Gold Rush Gravity Trap Gold Pan"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Riffled Traps, High Impact Flexible Plastic, Prospecting Gold Panning, Lightweight And Durable",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 94,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Riffled Traps, Wide Textured Bottom, Flexible High Impact Plastic, Deep Black Color, 14\" Diameter, Fine Gold Separation",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 119,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

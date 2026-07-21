@@ -3,14 +3,14 @@
     "asin": "B0CL5DH5P3",
     "product_type": "FOOD_STORAGE_BAG",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:26:41+00:00",
+    "generated_at": "2026-07-21T19:54:29+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 7,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -111,25 +111,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "4X5SLPB-100PC",
+            "value": "Resealable Storage Bags",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux 4x5 Clear Resealable Plastic Zip Lock Bags 100pc",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux 100-Pack 4x5 Clear Resealable Plastic Bags",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "100",
+                "pack_size_unit": "Pack",
+                "size": "4x5",
+                "color": "Clear",
+                "name": "Resealable Plastic Bags"
+            }
         },
-        "title_differentiation": {
-            "value": "2mm Thickness, Reusable, Perfect for Jewelry, Crafts & Food Storage",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux 100-pk 4 x 5 in Clear Resealable Plastic Bags",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 56,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "100",
+                "pack_size_unit": "pk",
+                "size": "4 x 5 in",
+                "color": "Clear",
+                "name": "Resealable Plastic Bags"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "100 Units, 4X5 Inch, 2Mm Thick, Single Track Zipper, Jewelry Organizer, Craft Storage, Food Safe",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 96,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "100 Count, 2Mm Thick, Single Zip Seal, Clear Reusable, Jewelry Crafts Candy Nuts, Home Office Storage",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

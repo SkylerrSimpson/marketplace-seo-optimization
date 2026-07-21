@@ -3,14 +3,14 @@
     "asin": "B0B78BPHRF",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:42:58+00:00",
+    "generated_at": "2026-07-21T19:59:36+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 10,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -151,20 +151,57 @@
             "asin": "B0B78BPHRF",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 9-in-1 Survival Knife G10 Handle Black",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 9 in 1 Survival Knife Black G10 Handle",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "9",
+                "pack_size_unit": "in 1",
+                "size": "8.25 Inch",
+                "color": "Black",
+                "name": "Multitool Pocket Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "Spring Assisted Blade, Glass Breaker, Screwdriver Bits, Water Resistant",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 8.25-in Black Multitool Pocket Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 48,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8.25",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Multitool Pocket Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Spring Assisted Blade, Window Punch, 6Pc Screwdriver Bits, Wire Cutter, Water Resistant G10, Belt Clip, Nylon Sheath",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 116,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Spring Assisted Blade, Window Punch, 6-Piece Bit Set, G10 Handle, Nylon Sheath, Belt Clip, Wire Cutter",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 102,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

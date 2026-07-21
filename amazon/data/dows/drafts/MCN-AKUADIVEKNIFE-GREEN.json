@@ -3,14 +3,14 @@
     "asin": "B074YFMVT2",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:31:12+00:00",
+    "generated_at": "2026-07-21T19:55:47+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 29,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -436,20 +436,58 @@
             "asin": "B074YFMVT2",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Gear Aid Akua 3\" Blunt Tip Dive Knife with Sheath Green",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "GEAR AID Akua 3 inch Green Dive Knife with Sheath",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 49,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "3",
+                "pack_size_unit": "inch",
+                "size": "3 inch",
+                "color": "Green",
+                "name": "Dive Knife with Sheath"
+            }
         },
-        "title_differentiation": {
-            "value": "Titanium-coated, serrated blade, cord cutter, glass breaker, MOLLE compatible sheath",
+        "item_name_ai_openai": {
+            "value": "GEAR AID 3 in Green Akua Blunt Tip Paddle Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 47,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "3",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Green",
+                "name": "Akua Blunt Tip Paddle Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Blunt Tip Titanium Blade, Serrated Edge, Cord Cutter, Glass Breaker, MOLLE Sheath, Quick Release, Under 6 Oz, Water Sport Rescue",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 128,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (128 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Titanium-Coated 3\" Blade, Serrated Edge And Cord Cutter, MOLLE Sheath, Quick Release, Glass Breaker",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 99,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

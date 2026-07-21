@@ -3,14 +3,14 @@
     "asin": "B081HX24WS",
     "product_type": "NON_RIDING_TOY_VEHICLE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:03:44+00:00",
+    "generated_at": "2026-07-21T19:45:23+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 0,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,20 +27,57 @@
             "source": "usurper",
             "usurper_column": "attr.unit_count_amazon"
         },
-        "item_name_ai_suggested": {
-            "value": "KidPlay Products Pirate Ship Toy Set with Lights, Sounds & 3 Figures",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "KidPlay Products 2-Pack Black Pirate Ship Toy Light Up Sound",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 60,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "2",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "Black",
+                "name": "Pirate Ship Toy Light Up Sound"
+            }
         },
-        "title_differentiation": {
-            "value": "2-Pack, Light Up & Sound Effects, Includes 3 Action Figures, Ages 3+",
+        "item_name_ai_openai": {
+            "value": "KidPlay Products 2-Pack Pirate Ship Play Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 44,
+            "review_only": true,
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Pirate Ship Play Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Lights And Sounds, 3 Action Figures Included, Ages 3 And Up, Educational Pretend Play, Batteries Included",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 105,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Lights And Sounds, 3 Pirate Figures, Batteries Included, Durable Plastic, Ages 3 And Up, Role Play Adventure",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 108,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

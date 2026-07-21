@@ -3,14 +3,14 @@
     "asin": "B07X375CW1",
     "product_type": "NON_RIDING_TOY_VEHICLE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:19:55+00:00",
+    "generated_at": "2026-07-21T19:51:51+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 3,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -61,22 +61,59 @@
             "value": "Yellow",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "TychoTyke Construction Rescue Truck with Light & Sound",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "TychoTyke Construction Rescue Tools Truck Light Sound",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "TychoTyke",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Construction Rescue Tools Truck Light Sound"
+            }
         },
-        "title_differentiation": {
-            "value": "Carrier design with snap-close lids, plays music, ages 3+",
+        "item_name_ai_openai": {
+            "value": "TychoTyke Construction Rescue Tools Truck Light and Sound",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 57,
+            "review_only": true,
+            "tokens": {
+                "brand": "TychoTyke",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Construction and Rescue Tools Truck"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Light And Sound Effects, Carrying Handle, 2 Colors, Educational Play, Portable Toy Organizer",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 92,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Snap-Close Storage Lids, Carrying Handle, Lights And Music, Durable Organizer Truck, Ages 3 And Up",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 98,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B07Z8T8H14",
     "product_type": "LAB_SUPPLY",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:29:53+00:00",
+    "generated_at": "2026-07-21T19:55:33+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 2,
-        "ai_suggested": 5,
+        "ai_suggested": 7,
         "ai_null": 0,
         "base_template": 0
     },
@@ -61,7 +61,7 @@
             "value": "Glass",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
             "value": "One Size",
@@ -69,20 +69,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR 144pk Air Tight Glass Dram Vials 5 Sizes Craft Storage",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 144-pk Dram Vials Glass Storage 5 Sizes",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "144",
+                "pack_size_unit": "pk",
+                "size": "5 Sizes",
+                "color": "",
+                "name": "Dram Vials Glass Storage"
+            }
         },
-        "title_differentiation": {
-            "value": "Water-tight Screw Caps, Transparent Glass, Beads Glitter Gems Storage",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 144-pk Glass Storage Dram Vials",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 43,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "144",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Glass Storage Dram Vials"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Water-Tight Screw Caps, Transparent Glass Body, Gold Prospecting, Craft Supplies, Beads, Glitter, Gems Storage",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 110,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "5 Dram Sizes, Water-Tight Screw Top, Clear Glass Body, Ideal For Beads, Glitter, Gems, Small Parts, Prospecting",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

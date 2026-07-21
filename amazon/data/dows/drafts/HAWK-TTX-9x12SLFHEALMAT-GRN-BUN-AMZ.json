@@ -3,14 +3,14 @@
     "asin": "B0H2KL8F97",
     "product_type": "CUTTING_BOARD",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:27:35+00:00",
+    "generated_at": "2026-07-21T20:10:29+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -39,20 +39,58 @@
             "asin": "B0H2KL8F97",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux 9x12 Self Healing Cutting Mat with Grid, Green",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux 9 x 12 Inch Self Healing Cutting Mat Green",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "9 x 12",
+                "pack_size_unit": "inch",
+                "size": "",
+                "color": "Green",
+                "name": "Self Healing Cutting Mat"
+            }
         },
-        "title_differentiation": {
-            "value": "Self healing surface, double grid design, ideal for paper crafts, vinyl, sewing & quilting",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux 9x12 in Green Self Healing Craft Cutting Mat",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 55,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "9x12 in",
+                "color": "Green",
+                "name": "Self Healing Craft Cutting Mat"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Self Healing Surface, Double Gridded Design, Compact For Desks, Protects Work Surface, Paper Crafts Sewing Quilting Vinyl Cutting",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 129,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (129 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Double Gridded Layout, Self Healing Surface, Protects Desks And Tables, Compact 9X12 Inch Size, For Precise Cuts",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 112,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

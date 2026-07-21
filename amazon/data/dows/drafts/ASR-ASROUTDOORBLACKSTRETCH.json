@@ -3,14 +3,14 @@
     "asin": "B0B1RGS42K",
     "product_type": "BUNGEE_CORD",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:35:40+00:00",
+    "generated_at": "2026-07-21T20:11:42+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 4,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -83,20 +83,57 @@
             "asin": "B0B1RGS42K",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Black Elastic Shock Cord with Ball 100 Pack",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 100-pk 6\" Black Stretch Shock Cord",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 46,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "100",
+                "pack_size_unit": "pk",
+                "size": "6\"",
+                "color": "Black",
+                "name": "Stretch Shock Cord"
+            }
         },
-        "title_differentiation": {
-            "value": "6\" Stretch Cord, 4mm Thick, Durable Rubber Nylon, Camping Tarp Tie Down",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 100-pk Black Stretch Shock Cord",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 43,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "100",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Black",
+                "name": "Stretch Shock Cord"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "100 Pack, 6 Inch Length, Plastic Ball, Durable Rubber And Nylon, Weather-Resistant",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 82,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "6 Inch 4Mm Elastic Cord, Plastic Ball Ends, Weather Resistant, Reusable, Camping Tarps Canopies Rv Trailer",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 106,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

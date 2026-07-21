@@ -3,14 +3,14 @@
     "asin": "B096L9189W",
     "product_type": "FUEL_LAMP",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:06:07+00:00",
+    "generated_at": "2026-07-21T20:06:32+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 3,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -54,25 +54,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "Vintage Style Hanging Hurricane Oil Lantern",
+            "value": "Vintage Hurricane Lantern",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Kerosene Oil Hurricane Lantern Red 9.25\"",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 9\" Red Vintage Kerosene Oil Hurricane Lantern",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 57,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "9",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Red",
+                "name": "Vintage Kerosene Oil Hurricane Lantern"
+            }
         },
-        "title_differentiation": {
-            "value": "Dimmable Wick, Heavy-Duty Metal & Plastic, Hanging Hook, Emergency",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor Red Hanging Kerosene Hurricane Lantern",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 50,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Red",
+                "name": "Hanging Kerosene Hurricane Lantern"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Adjustable Wick And Dimmer Switch, Heavy-Duty Metal And Plastic, Hangable With Hook, Compact Camping And Emergency Light",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 120,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Adjustable Wick, Dimmer Switch, Heavy-Duty Metal And Plastic, Hang Or Freestanding, Camping Emergency Light",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

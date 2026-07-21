@@ -3,15 +3,15 @@
     "asin": "B00GI3K6OI",
     "product_type": "ABIS_BOOK",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:45:20+00:00",
+    "generated_at": "2026-07-21T19:34:22+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 3,
-        "ai_suggested": 6,
-        "ai_null": 1,
+        "ai_suggested": 9,
+        "ai_null": 0,
         "base_template": 0
     },
     "attributes": {
@@ -65,7 +65,7 @@
             "value": "Productive Fitness",
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "language": {
             "value": "english (English)",
@@ -75,37 +75,74 @@
             "validation_error": "''english (English)'' is not in the schema enum"
         },
         "pages": {
-            "value": "2",
+            "value": "1",
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "publication_date": {
-            "value": null,
+            "value": "2017-05-16",
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "subject_code": {
-            "value": "HEA007000",
+            "value": "HEA011000",
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Productive Fitness Medicine Ball Exercise Poster 24x36",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Productive Fitness Medicine Ball Exercise Poster 24x36 Orange",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 61,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "24",
+                "pack_size_unit": "x36in",
+                "size": "",
+                "color": "Orange",
+                "name": "Medicine Ball Exercise Poster"
+            }
         },
-        "title_differentiation": {
-            "value": "Basic exercises, step-by-step instructions, non-laminated",
+        "item_name_ai_openai": {
+            "value": "Productive Fitness Medicine Ball Exercise Poster, Non-Laminated",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 63,
+            "review_only": true,
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Medicine Ball Exercise Poster, Non-Laminated"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Medicine Ball Exercises, Step-by-Step Instructions, Color Photos, Proper Form And Technique, Home Gym Training",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 110,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Step By Step Exercise Instructions, Proper Form Guidance, Color Photos, Home Gym Training, 24\" X 36\" Poster",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

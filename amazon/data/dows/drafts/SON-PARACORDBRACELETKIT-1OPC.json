@@ -3,14 +3,14 @@
     "asin": "B07CT56YZ9",
     "product_type": "CORD_ROPE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:45:04+00:00",
+    "generated_at": "2026-07-21T20:12:09+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 6,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -97,20 +97,57 @@
             "asin": "B07CT56YZ9",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Paracord Bracelet Making Kit 10pc Camo 550lb",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 10-pc Paracord Bracelet Making Kit Camo",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Camo",
+                "name": "Paracord Bracelet Making Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "10 Assorted Camo Colors | 10ft Each | Matching Buckles | 550lb Capacity",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 10-pk Assorted Camo Paracord Bracelet Making Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 60,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Assorted Camo",
+                "name": "Paracord Bracelet Making Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Makes 10 Bracelets, 550Lbs Pull Capacity, 10Ft Cord Each, 7-Strand Cordage, Matching Buckles Included",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 101,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "10 Camo Colors, Makes 10 Bracelets, 10 Feet Of Paracord, 550 Lb Pull, 7 Strand Cordage, Matching Buckles",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 104,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

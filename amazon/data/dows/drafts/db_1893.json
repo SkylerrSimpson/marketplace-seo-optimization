@@ -3,14 +3,14 @@
     "asin": "B00SLXYKI6",
     "product_type": "AXE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:55:49+00:00",
+    "generated_at": "2026-07-21T20:04:14+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 12,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -232,19 +232,58 @@
             "asin": "B00SLXYKI6",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Ultra Lightweight Camping Hatchet Green Paracord",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 9in Green Paracord Camping Micro Axe",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "9",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Green",
+                "name": "Paracord Camping Micro Axe"
+            }
         },
-        "title_differentiation": {
-            "value": "8.75\" Compact, Razor Sharp Steel, Includes Snap Sheathe",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 9in Green Camping Micro Hatchet",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 43,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "9",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Green",
+                "name": "Camping Micro Hatchet"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Razor Sharp Steel Blade, Full Tang Design, Lightweight And Compact, Neon Green Paracord Handle, Snap Sheathe Included, EDC And Survival",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 135,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (135 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Razor Sharp Steel Blade, Full Tang Balance, Paracord Wrapped Handle, Snap Sheath, Lanyard Included",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 98,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

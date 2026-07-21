@@ -3,14 +3,14 @@
     "asin": "B098TX7GN8",
     "product_type": "JUICER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:44:13+00:00",
+    "generated_at": "2026-07-21T20:00:07+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 7,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -108,20 +108,57 @@
             "asin": "B098TX7GN8",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille Citrus Juicer Handheld Glass 14oz Jar with Easy-Pour Red",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille Citrus Juicer 14oz Red Handheld Glass",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 44,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "14",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "Red",
+                "name": "Handheld Glass Citrus Juicer"
+            }
         },
-        "title_differentiation": {
-            "value": "Dishwasher Safe, BPA-Free Glass, Easy-Pour Spout, Compact Design",
+        "item_name_ai_openai": {
+            "value": "Beille 14 Oz Red Citrus Juicer",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 30,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "14 Oz",
+                "color": "Red",
+                "name": "Citrus Juicer"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Dishwasher Safe, Easy Pour Spout, BPA-Free Glass, Compact Design, Manual Hand Press Squeezer",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 92,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "BPA-Free Glass Jar, Dishwasher Safe, Easy Pour Spout, Screw-On Lid, 14 Ounce, Compact Fridge Friendly",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

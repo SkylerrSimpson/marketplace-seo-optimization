@@ -3,14 +3,14 @@
     "asin": "1926534549",
     "product_type": "ABIS_BOOK",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:49:50+00:00",
+    "generated_at": "2026-07-21T19:37:16+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 11,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -185,20 +185,57 @@
             "asin": "1926534549",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Productive Fitness Treadmill Guide Laminated Poster 24x36",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Productive Fitness Treadmill Poster 24x36 inch Laminated",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 56,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "24x36",
+                "pack_size_unit": "inch",
+                "size": "",
+                "color": "",
+                "name": "Treadmill Poster Laminated"
+            }
         },
-        "title_differentiation": {
-            "value": "Safety, Form & Workout Instructions with Muscle Anatomy Chart",
+        "item_name_ai_openai": {
+            "value": "Productive Fitness 24x36 in Treadmill Poster Chart",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 50,
+            "review_only": true,
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "24x36",
+                "pack_size_unit": "in",
+                "size": "24x36 in",
+                "color": "",
+                "name": "Treadmill Poster Chart"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Laminated Safety Guide, Workout Setup Instructions, Muscle Anatomy Chart, Heart Rate Training Zones, Proper Form Tips",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 117,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Laminated, Safety Tips, Proper Posture, Muscle Anatomy Guide, Heart Rate Zones, Beginner Workout Instructions",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

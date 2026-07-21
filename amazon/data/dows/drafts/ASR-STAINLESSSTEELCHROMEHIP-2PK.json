@@ -3,14 +3,14 @@
     "asin": "B0089E42GM",
     "product_type": "HIP_FLASK",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:05:50+00:00",
+    "generated_at": "2026-07-21T20:06:28+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 4,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -77,20 +77,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Stainless Steel Hip Flask 6oz 2-Pack",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 2-pk 6oz Stainless Steel Hip Flask",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 46,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "6oz",
+                "color": "Stainless Steel",
+                "name": "Hip Flask"
+            }
         },
-        "title_differentiation": {
-            "value": "Traditional design, attached screw cap, compact travel size",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 2-Pk 6Oz Silver Traditional Stainless Steel Hip Flask",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 65,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "Pk",
+                "size": "6Oz",
+                "color": "Silver",
+                "name": "Traditional Stainless Steel Hip Flask"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Traditional Design, Attached Screw Cap, Pocket-Sized, Compact Travel, Hiking And Camping, Whiskey Water Alcohol",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 111,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Attached Screw Cap, Tasteless Stainless Steel, Pocket Friendly, Travel Hiking Camping Groomsmen Gift",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 100,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

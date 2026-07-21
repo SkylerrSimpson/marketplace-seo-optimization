@@ -3,14 +3,14 @@
     "asin": "B0748M58GM",
     "product_type": "SPORTING_GOODS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:08:07+00:00",
+    "generated_at": "2026-07-21T20:06:58+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 4,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -72,20 +72,57 @@
             "asin": "B0748M58GM",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 3-in-1 Waterproof Match Container with Fire Starter",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 3 in 1 Green Waterproof Match Container",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "in 1",
+                "size": "3 inches",
+                "color": "Green",
+                "name": "Waterproof Match Container"
+            }
         },
-        "title_differentiation": {
-            "value": "Compact 3\" Green, Watertight Seal, Signal Mirror, Flint Fire Starter",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 3in Green Match Storage Container",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 45,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "3in",
+                "color": "Green",
+                "name": "Match Storage Container"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Waterproof Seal, Fire Starter Flint, Signal Mirror, Compact 3 Inch Design, Survival Kit Essential",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 97,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Watertight Seal, Mirror In Cover, Flint Fire Starter, Pocket Size, Camping Hiking Survival Kit",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 94,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

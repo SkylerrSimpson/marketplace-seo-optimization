@@ -3,14 +3,14 @@
     "asin": "B07DGMZ5RS",
     "product_type": "SPORTING_GOODS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:38:56+00:00",
+    "generated_at": "2026-07-21T19:58:00+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 3,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -65,24 +65,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "TitanLace 1200 Technora Boot Lace",
+            "value": "TitanLace 1200",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical 1200lb Technora Boot Lace Black 8ft",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical 8ft Black Technora Boot Lace",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 41,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "8",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Black",
+                "name": "Technora Boot Lace"
+            }
         },
-        "title_differentiation": {
-            "value": "1200lb Breaking Strength, Heavy Duty Cord, Emergency Survival, Made in USA",
+        "item_name_ai_openai": {
+            "value": "ASR Tactical 8 ft Black Technora Boot Lace",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 42,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "8 ft",
+                "color": "Black",
+                "name": "Technora Boot Lace"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "1200Lb Breaking Strength, Made In USA, Universal Fit 4Mm Aglet, Emergency Paracord Survival",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 91,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "1200 Lb Technora, Ptfe Coated, 4Mm Metal Aglets, Made In USA, Emergency Cord For Boots, Hiking, Camping",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B0GV1X21SK",
     "product_type": "FOOD_STORAGE_CONTAINER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:19:51+00:00",
+    "generated_at": "2026-07-21T19:51:47+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 0,
-        "ai_suggested": 5,
+        "ai_suggested": 7,
         "ai_null": 0,
         "base_template": 0
     },
@@ -19,34 +19,71 @@
             "value": "Glass",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "model_name": {
-            "value": "Ribbed Glass Food Storage Containers with Airtight Lids",
+            "value": "Ribbed Glass Mixing Bowls",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
-            "value": "2-Pack (33oz & 67oz)",
+            "value": "2 Sizes",
             "is_required": false,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "Beille Glass Mixing Bowls with Airtight Lids, 2 Sizes",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "Sizes",
+                "size": "",
+                "color": "",
+                "name": "Glass Mixing Bowls with Airtight Lids"
+            }
         },
-        "title_differentiation": {
-            "value": "Microwave, Freezer & Dishwasher Safe | 33oz & 67oz | Ribbed Design",
+        "item_name_ai_openai": {
+            "value": "Beille 2 Sizes Glass Mixing Bowls with Lid",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 42,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "2 Sizes",
+                "color": "",
+                "name": "Glass Mixing Bowls with Lid"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "33Oz And 67Oz, Microwave Freezer Dishwasher Safe, Airtight Lids, Non-Toxic Glass, Meal Prep And Food Storage",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 108,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Airtight Lids, Microwave Freezer Fridge Dishwasher Safe, Non Toxic Glass, Ribbed Design, Nesting Bowls",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 102,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

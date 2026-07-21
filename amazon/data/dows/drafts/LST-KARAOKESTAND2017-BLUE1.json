@@ -3,14 +3,14 @@
     "asin": "B07Z8HVYBS",
     "product_type": "KARAOKE_MACHINE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:59:42+00:00",
+    "generated_at": "2026-07-21T20:05:05+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 0,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,20 +27,57 @@
             "source": "usurper",
             "usurper_column": "attr.unit_count_amazon"
         },
-        "item_name_ai_suggested": {
-            "value": "KidPlay Kids Karaoke Machine with Adjustable Stand and Lights",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "KidPlay Kids Karaoke Microphone with Adjustable Stand Blue",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 58,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "KidPlay",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Blue",
+                "name": "Kids Karaoke Microphone with Adjustable Stand"
+            }
         },
-        "title_differentiation": {
-            "value": "Adjustable 15.75\"-32.25\", MP3 Compatible, Flashing Lights & Applause",
+        "item_name_ai_openai": {
+            "value": "KidPlay Products Kids Karaoke Microphone Stand Blue",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 51,
+            "review_only": true,
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Blue",
+                "name": "Kids Karaoke Microphone Stand"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Adjustable Stand 1575-3225 Inches, MP3 Compatible, Flashing Lights, Built-in Applause, Aux Cord Included",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 104,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Adjustable Height 1575\"-3225\", Built In Speaker, Flashing Lights, Applause Sounds, Aux Cord Included",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 100,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

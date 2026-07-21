@@ -3,14 +3,14 @@
     "asin": "B0038AM1QU",
     "product_type": "FLASHLIGHT",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:38:41+00:00",
+    "generated_at": "2026-07-21T19:27:29+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 12,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -183,25 +183,62 @@
             "model": "claude-haiku-4-5"
         },
         "model_name": {
-            "value": "UV Theft Detection Powder and UV LED Flashlight Crime Kit",
+            "value": "Invisible Security UV Theft Detection Powder and Flashlight Crime Kit",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "title_differentiation": {
-            "value": "Non-toxic UV detection powder & LED flashlight combo; marks locks, keys, keyboards; invisible until under UV light; made in USA",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Federal Invisible Security UV Theft Detection Powder Kit",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8",
-            "validation_error": "requires item_name <= 75 chars"
-        },
-        "item_name_ai_suggested": {
-            "value": "ASR Federal UV Theft Detection Powder & LED Flashlight Kit",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 60,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Invisible",
+                "name": "Security UV Theft Detection Powder Kit"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "ASR Federal UV Theft Detection Powder and UV LED Flashlight Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 63,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "UV Theft Detection Powder and UV LED Flashlight Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Theft Detection Powder And UV LED Flashlight Combo, Invisible Under Normal Light, Identifies Suspects, Non-Toxic, Made In USA",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 125,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Non-Toxic Theft Marker, Invisible On Touch, Identifies Suspects And Altered Items, Made In USA, 14Oz Container",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 110,
+            "review_only": true
         },
         "pesticide_marking": {
             "value": [

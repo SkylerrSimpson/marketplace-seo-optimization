@@ -3,14 +3,14 @@
     "asin": "B009PAOLP6",
     "product_type": "CORD_ROPE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:48:13+00:00",
+    "generated_at": "2026-07-21T20:12:15+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 3,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -58,20 +58,57 @@
             "asin": "B009PAOLP6",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical Braided Kevlar Survival Cord 200lb 100ft Yellow",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical 100ft Yellow Braided Kevlar Survival Cord",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "100",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Yellow",
+                "name": "Braided Kevlar Survival Cord"
+            }
         },
-        "title_differentiation": {
-            "value": "200lb Breaking Strength, UV & Heat Resistant, Made in USA, Lightweight EDC",
+        "item_name_ai_openai": {
+            "value": "ASR Tactical 100-ft Yellow Kevlar Survival Cord Rope",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 52,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "100",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Yellow",
+                "name": "Kevlar Survival Cord Rope"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "200Lb Breaking Strength, US Navy Seals Tested, UV Resistant, Flame Resistant, Lightweight, Made In USA",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 102,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "200Lb Breaking Strength, 3-Strand Braided Kevlar, UV And Flame Resistant, Abrasion Resistant, Made In USA",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 105,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

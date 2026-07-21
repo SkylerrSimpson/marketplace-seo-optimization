@@ -3,18 +3,24 @@
     "asin": "B0B9HT21ZF",
     "product_type": "SPOON",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:37:26+00:00",
+    "generated_at": "2026-07-21T20:11:51+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
-        "fillable": 0,
+        "fillable": 1,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
     "attributes": {
+        "language": {
+            "value": "English",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.language_amazon"
+        },
         "gpsr_safety_attestation": {
             "value": [
                 {
@@ -83,20 +89,57 @@
             "asin": "B0B9HT21ZF",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille Grey Nylon Slotted Spoon 13 Inch High Heat Resistant",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 13 in Grey Nylon Slotted Spoon with Wooden Handle",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 56,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Grey",
+                "name": "Nylon Slotted Spoon with Wooden Handle"
+            }
         },
-        "title_differentiation": {
-            "value": "Wooden Handle, Ergonomic Design, Dishwasher Safe, Heat Resistant",
+        "item_name_ai_openai": {
+            "value": "Beille 13-in Grey Nylon Slotted Spoon",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 37,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "13-in",
+                "color": "Grey",
+                "name": "Nylon Slotted Spoon"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "High Heat Resistant Nylon, Ergonomic Wooden Handle, Dishwasher Safe, Hang Storage Slot, Food Safe",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 97,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Wooden Handle, High Heat Resistant Nylon, Ergonomic Grip, Dishwasher Safe, Hanging Slot, Food Safe",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 98,
+            "review_only": true
         },
         "pesticide_marking": {
             "value": [

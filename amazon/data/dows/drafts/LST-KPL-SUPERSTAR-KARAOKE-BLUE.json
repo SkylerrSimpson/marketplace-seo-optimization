@@ -3,14 +3,14 @@
     "asin": "B09RSVFC2W",
     "product_type": "KARAOKE_MACHINE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:14:17+00:00",
+    "generated_at": "2026-07-21T20:07:47+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 6,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -107,20 +107,58 @@
             "asin": "B09RSVFC2W",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Kidplokio Kids Karaoke Machine with Microphone & LED Lights, Blue",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Kidplokio Blue Karaoke Machine for Kids with Microphone",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Blue",
+                "name": "Karaoke Machine for Kids with Microphone"
+            }
         },
-        "title_differentiation": {
-            "value": "Built-in Amplifier, MP3 Compatible, Adjustable Stand, Ages 3+",
+        "item_name_ai_openai": {
+            "value": "Kidplokio Blue Kids Karaoke Machine With Microphone Lights",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 58,
+            "review_only": true,
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Blue",
+                "name": "Kids Karaoke Machine With Microphone Lights"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Built-in Amplifier, LED Lights, MP3 Compatible, Adjustable Stand, Ages 3, Portable",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 82,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Built In Amplifier, Adjustable Volume, Telescopic Stand, LED Lights, MP3 And Smartphone Compatible, Portable, Ages Three And Up",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 127,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (127 chars)"
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

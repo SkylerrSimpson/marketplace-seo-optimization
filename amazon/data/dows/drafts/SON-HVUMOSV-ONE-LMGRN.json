@@ -3,14 +3,14 @@
     "asin": "B07RCCJCLM",
     "product_type": "APPAREL",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:59:29+00:00",
+    "generated_at": "2026-07-21T19:42:57+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 5,
         "catalog": 7,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -149,25 +149,62 @@
             "raw_value": true
         },
         "fabric_type": {
-            "value": "100% Polyester",
+            "value": "100% Polyester Mesh",
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Universal High Visibility Lime Green Mesh Safety Vest",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Lime Green High Visibility Mesh Safety Vest",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "One Size Fits All",
+                "color": "Lime Green",
+                "name": "High Visibility Mesh Safety Vest"
+            }
         },
-        "title_differentiation": {
-            "value": "One Size Fits Most, Breathable Polyester Mesh, Hook & Loop Closure",
+        "item_name_ai_openai": {
+            "value": "Universal Tool One Size Lime Green Safety Vest",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 46,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "One Size Fits All",
+                "color": "Lime Green",
+                "name": "Safety Vest"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Breathable Mesh Material, Lightweight And Easy To Store, Hook And Loop Closures, One Size Fits Most, Unisex",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 107,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Breathable Mesh, Lightweight 2 Oz, Hook And Loop Closures, One Size Fits Most, Unisex, 25\" X 25\"",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 96,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

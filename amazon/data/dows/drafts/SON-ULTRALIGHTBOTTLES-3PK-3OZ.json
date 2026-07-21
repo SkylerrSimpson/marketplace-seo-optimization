@@ -3,14 +3,14 @@
     "asin": "B07BN4TT6F",
     "product_type": "BOTTLE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:28:20+00:00",
+    "generated_at": "2026-07-21T19:54:56+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 7,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -120,20 +120,57 @@
             "asin": "B07BN4TT6F",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Ultralight Travel Bottles 3pk 3oz TSA Compliant",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 3-pk 3oz Travel Bottles TSA Compliant",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 49,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "3oz",
+                "color": "Pink Blue Yellow",
+                "name": "Travel Bottles"
+            }
         },
-        "title_differentiation": {
-            "value": "Food Grade BPA Free, Pink Blue Yellow, Perfect for Air Travel",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 3-pk 3oz Ultralight Travel Bottles",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 46,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "3oz",
+                "color": "",
+                "name": "Ultralight Travel Bottles"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Food Grade BPA-Free, TSA Compliant, 100ML Capacity, Pink Blue Yellow, Ultralight Design",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 87,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "TSA Compliant Food Grade BPA Free Plastic 3 Fluid Ounces Each Pink Blue And Yellow Lightweight Leak Resistant",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,18 +3,24 @@
     "asin": "B09YCP41HQ",
     "product_type": "SPOON",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:35:52+00:00",
+    "generated_at": "2026-07-21T20:11:46+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
-        "fillable": 0,
+        "fillable": 1,
         "catalog": 6,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
     "attributes": {
+        "language": {
+            "value": "English",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.language_amazon"
+        },
         "gpsr_safety_attestation": {
             "value": [
                 {
@@ -99,20 +105,57 @@
             "asin": "B09YCP41HQ",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille Grey Nylon Ladle with Wooden Handle, Dishwasher Safe",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 12in Grey Nylon Ladle with Wooden Handle",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 47,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "12",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Grey",
+                "name": "Nylon Ladle with Wooden Handle"
+            }
         },
-        "title_differentiation": {
-            "value": "High Heat Resistant, Ergonomic Grip, 11.5 Inch, Hanging Storage Slot",
+        "item_name_ai_openai": {
+            "value": "Beille 13in Grey Nylon Ladle with Soft Grip Wooden Handle",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 57,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Grey",
+                "name": "Nylon Ladle"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "High Heat Resistant Nylon, Ergonomic Wooden Handle, Dishwasher Safe, Hang Storage Slot",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 86,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "High Heat Resistant Nylon, Ergonomic Wooden Handle, Dishwasher Safe, Hanging Slot, Hot And Cold Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 99,
+            "review_only": true
         },
         "pesticide_marking": {
             "value": [

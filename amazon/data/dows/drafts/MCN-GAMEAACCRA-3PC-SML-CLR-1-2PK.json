@@ -3,14 +3,14 @@
     "asin": "B07L56GYPX",
     "product_type": "BONDING_ADHESIVES",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:41:33+00:00",
+    "generated_at": "2026-07-21T19:58:58+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 14,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -338,20 +338,58 @@
             "asin": "B07L56GYPX",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "GEAR AID Aquaseal FD Flexible Waterproof Repair Adhesive 2-pk",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "GEAR AID Aquaseal FD Flexible Repair Adhesive 0.75oz 2-pk",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 57,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "0.75oz",
+                "color": "Clear",
+                "name": "Aquaseal FD Flexible Repair Adhesive"
+            }
         },
-        "title_differentiation": {
-            "value": "With Cure Accelerator, 2-Hour Fast Cure, Waterproof & Flexible",
+        "item_name_ai_openai": {
+            "value": "GEAR AID 2-pk 0.75 oz Clear Aquaseal FD Repair Adhesive Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 59,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "0.75 oz",
+                "color": "Clear",
+                "name": "Aquaseal FD Repair Adhesive Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Waterproof Flexible Urethane, Cures In 2 Hours, Bonds Waders Wetsuits Boots, Includes Cure Accelerator, Works On Neoprene Nylon Canvas Leather",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 142,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (142 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Flexible Waterproof Urethane, Bonds Neoprene Nylon Canvas Leather Rubber, Fast 2-Hour Cure, Permanent Seal",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 106,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

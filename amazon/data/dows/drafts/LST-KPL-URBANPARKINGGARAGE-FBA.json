@@ -3,14 +3,14 @@
     "asin": "B09M9F8CG9",
     "product_type": "TOY_VEHICLE_SET",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:02:13+00:00",
+    "generated_at": "2026-07-21T20:05:43+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 0,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 11
     },
@@ -21,20 +21,57 @@
             "source": "usurper",
             "usurper_column": "attr.unit_count_amazon"
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "Kidplokio Urban Parking Garage Playset with 4 Diecast Cars",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 58,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "4",
+                "pack_size_unit": "cars",
+                "size": "",
+                "color": "Multicolor",
+                "name": "Urban Parking Garage Playset"
+            }
         },
-        "title_differentiation": {
-            "value": "3-Level Garage, 2 Ramps, Traffic Signs & Fuel Station, DIY Assembly",
+        "item_name_ai_openai": {
+            "value": "Kidplokio 4-pk Toy Car Garage Playset",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 37,
+            "review_only": true,
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Toy Car Garage Playset"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "3-Level Garage, 2 Ramps, Compatible 164 Diecast Cars, DIY Assembly, Educational Play, Ages 3",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 92,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "3 Levels Parking Garage, 2 Ramps, 4 Diecast Cars, Traffic Signs, Fueling Stations, Extended Roadways, Ages 3 And Up",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 115,
+            "review_only": true
         },
         "supplier_declared_material_regulation": {
             "value": [

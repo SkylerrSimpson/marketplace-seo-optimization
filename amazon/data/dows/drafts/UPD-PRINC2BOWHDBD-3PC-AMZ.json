@@ -3,14 +3,14 @@
     "asin": "B0CN1SPHQ7",
     "product_type": "CHILDRENS_COSTUME",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:01:45+00:00",
+    "generated_at": "2026-07-21T20:05:37+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 5,
+        "ai_suggested": 7,
         "ai_null": 0,
         "base_template": 0
     },
@@ -41,37 +41,74 @@
             "raw_value": true
         },
         "fabric_type": {
-            "value": "Polyester",
+            "value": "100% Polyester",
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "material": {
             "value": "Polyester",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "model_name": {
-            "value": "Princess 3pc Headband Clip On Bows Hair Accessory Set",
+            "value": "Princess Headband Clip On Bows Set",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Disney Princess 3pc Hair Accessory Set Headband Clip Bows",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Disney Princess 3-pc Headband Clip On Bows Hair Accessory",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 57,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Blue, Pink",
+                "name": "Princess Headband Clip On Bows Hair Accessory"
+            }
         },
-        "title_differentiation": {
-            "value": "Sequin Headband + 2 Sparkly Bows, Ariel Belle Cinderella, Ages 3+",
+        "item_name_ai_openai": {
+            "value": "Disney 3-pc Blue Headband Hair Accessory Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 44,
+            "review_only": true,
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Blue",
+                "name": "Headband Hair Accessory Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Sequin Headband With Ariel, Belle And Cinderella Bows, Easy Clip-On Closure, Ages 3 And Up, Official Disney Licensed",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 116,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Officially Licensed Disney Princess, Ariel Belle And Cinderella, Sparkle Clip-On Bows, Ages 3 Plus",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 98,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

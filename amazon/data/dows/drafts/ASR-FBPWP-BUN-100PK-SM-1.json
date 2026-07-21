@@ -3,14 +3,14 @@
     "asin": "B07K3Z2WJR",
     "product_type": "WRITING_INSTRUMENT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:42:49+00:00",
+    "generated_at": "2026-07-21T19:59:36+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 13,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -181,20 +181,58 @@
             "asin": "B07K3Z2WJR",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Federal Non-Lethal Flexible Ballpoint Safety Pen 100pk",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Federal 100-pk Non-Lethal Flexible Ballpoint Safety Pen",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 59,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "100",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Black",
+                "name": "Non-Lethal Flexible Ballpoint Safety Pen"
+            }
         },
-        "title_differentiation": {
-            "value": "Bendable design, 4.25\" length, institutional safety, black ink, USA assembled",
+        "item_name_ai_openai": {
+            "value": "ASR Federal 100-pk Flexible Ballpoint Safety Pen Black Ink",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 58,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "100",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Black",
+                "name": "Flexible Ballpoint Safety Pen"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Non-Lethal Bendable Design, 425 Inches, Institutional Safety, Prison And Mental Health Facilities, 3500 Feet Writing Capacity, USA Made",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 135,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (135 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Non-Lethal Bendable, 425 Inch Institutional Writing Tool, 3500 Foot Ink, Assembled In USA, For Corrections",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 106,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

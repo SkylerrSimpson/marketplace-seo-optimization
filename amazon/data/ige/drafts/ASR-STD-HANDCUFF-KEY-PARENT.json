@@ -3,14 +3,14 @@
     "asin": "B07X57B9NW",
     "product_type": "SPORTING_GOODS",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:41:39+00:00",
+    "generated_at": "2026-07-21T19:28:18+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 5,
+        "ai_suggested": 7,
         "ai_null": 0,
         "base_template": 0
     },
@@ -34,31 +34,68 @@
             "model": "claude-haiku-4-5"
         },
         "material": {
-            "value": "Metal",
+            "value": "Steel",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "model_name": {
-            "value": "Standard Issue Universal Handcuff Key",
+            "value": "Standard Issue",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "title_differentiation": {
-            "value": "Universal fit for all leading handcuff brands; back-pin for double-locking; USA-made; key ring included",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical Universal Standard Issue Handcuff Key",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8",
-            "validation_error": "requires item_name <= 75 chars"
-        },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical Universal Handcuff Key - Professional Grade",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Silver",
+                "name": "Universal Standard Issue Handcuff Key"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "ASR Tactical Silver Universal Law Enforcement Handcuff Key",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 58,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Silver",
+                "name": "Universal Law Enforcement Handcuff Key"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Universal Fit All Brands, Professional Grade, Back-Pin Double-Lock, USA Made, Law Enforcement EDC",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 97,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Universal Fit, Back Pin For Double Locking Cuffs, Professional Grade, USA Made, Key Ring On Multi Packs",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "pesticide_marking": {
             "value": [

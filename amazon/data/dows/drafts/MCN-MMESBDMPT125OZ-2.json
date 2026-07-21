@@ -3,14 +3,14 @@
     "asin": "B000T31P0M",
     "product_type": "OUTDOOR_RECREATION_PRODUCT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:08:02+00:00",
+    "generated_at": "2026-07-21T20:06:58+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 12,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -185,19 +185,58 @@
             "asin": "B000T31P0M",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Gear Aid Sea Buff Dive Mask Precleaner - 1.25 oz",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "GEAR AID Sea Buff Dive Mask Precleaner - 1.25 oz",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "1.25",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "",
+                "name": "Sea Buff Dive Mask Precleaner"
+            }
         },
-        "title_differentiation": {
-            "value": "Removes manufacturing residue, prepares for anti-fog, gentle on lenses",
+        "item_name_ai_openai": {
+            "value": "GEAR AID 1.25 fl oz Sea Buff Dive Mask Precleaner",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 49,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "1.25",
+                "pack_size_unit": "fl oz",
+                "size": "",
+                "color": "",
+                "name": "Sea Buff Dive Mask Precleaner"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Removes Manufacturing Residue And Debris, Gentle Pre-Cleaner Before Anti-Fog, Concentrated Formula, Safe For Glass Lenses, Prepares Masks And Slates",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 148,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (148 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Removes Residue And Algae, Prepares Lenses For Anti-Fog, Gentle On Tempered Glass, Concentrated Formula, Multiple Uses",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 118,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

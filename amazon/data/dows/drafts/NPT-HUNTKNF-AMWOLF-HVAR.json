@@ -3,14 +3,14 @@
     "asin": "B09QP8X2Z8",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:57:47+00:00",
+    "generated_at": "2026-07-21T20:04:37+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -34,20 +34,57 @@
             "asin": "B09QP8X2Z8",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 13.5\" Fixed Blade Wolf Hunting Knife 440 Stainless",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 13.5\" Wolf Hunting Knife with Scabbard",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Wolf Hunting Knife with Scabbard"
+            }
         },
-        "title_differentiation": {
-            "value": "Etched blade, wildlife scabbard, ornamental pommel, collector's piece",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 13.5-in Patriotic Wolf Hunting Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 48,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Patriotic",
+                "name": "Wolf Hunting Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Fixed Blade, 8 Inch Stainless Steel, Etched Design, Wildlife Collectible, Ornamental Scabbard, Outdoorsman Gift",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 111,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "8\" 440 Stainless Steel Blade, Etched Wildlife Design, Ornate Scabbard, Animal Head Pommel, Collector Gift",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 105,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

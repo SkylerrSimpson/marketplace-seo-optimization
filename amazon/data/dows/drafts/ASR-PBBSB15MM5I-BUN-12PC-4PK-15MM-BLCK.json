@@ -3,14 +3,14 @@
     "asin": "B01E0EA7C2",
     "product_type": "BUCKLE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:34:37+00:00",
+    "generated_at": "2026-07-21T20:11:29+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 4,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -65,24 +65,63 @@
             "raw_value": true
         },
         "fabric_type": {
-            "value": "Plastic",
+            "value": "100% Plastic",
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Paracord Bracelet Buckles 15mm Black 48 Pack",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 48-Pack 15mm Black Paracord Bracelet Buckles",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 56,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "48",
+                "pack_size_unit": "Pack",
+                "size": "15mm",
+                "color": "Black",
+                "name": "Paracord Bracelet Buckles"
+            }
         },
-        "title_differentiation": {
-            "value": "48pc Side Release Buckles, 1/2\" Width, Plastic, DIY Repair & Craft",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 48-Pack 15mm Black Paracord Bracelet Buckle Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 59,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "48",
+                "pack_size_unit": "Pack",
+                "size": "15mm",
+                "color": "Black",
+                "name": "Paracord Bracelet Buckle Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Side Release Clips, DIY Craft Hardware, Survival Gear, Camping And Hiking Repair, Lightweight Plastic, Easy One-Handed Release",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 126,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (126 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Side Release Clips, One Handed Quick Release, Lightweight Plastic, For Bracelet Repair, Craft And Outdoor Gear",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 110,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B00QK2ABEM",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:36:26+00:00",
+    "generated_at": "2026-07-21T19:57:20+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 5,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -91,21 +91,59 @@
             "value": "Stainless Steel",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 13.5\" Deer Head Hunting Knife 440 Stainless",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 13.5in Deer Hunting Knife with Scabbard",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Deer Hunting Knife with Scabbard"
+            }
         },
-        "title_differentiation": {
-            "value": "Fixed Blade, Acid Etched Design, Collectible Wildlife Scabbard",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 13.5-in Fixed Blade Hunting Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 45,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Fixed Blade Hunting Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "8In 440 Stainless Steel Blade, Acid Etched Design, Collectible Wildlife Animal Head, Full Color Scabbard",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 104,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "8\" Acid Etched 440 Stainless Steel Blade, Wildlife Collection Etching, Deer Head Pommel, Full Color Scabbard",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 108,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

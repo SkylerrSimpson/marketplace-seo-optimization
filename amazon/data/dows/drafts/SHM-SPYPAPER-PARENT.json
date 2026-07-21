@@ -3,14 +3,14 @@
     "asin": "B07DLHY5TC",
     "product_type": "BLANK_BOOK",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:04:10+00:00",
+    "generated_at": "2026-07-21T19:45:32+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -31,27 +31,65 @@
             "value": "White",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "material": {
             "value": "Paper",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "CCS Spy Gear Disappearing Spy Paper Dissolving Notepad",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "CCS Spy Gear",
+                "pack_size": "25",
+                "pack_size_unit": "Sheets",
+                "size": "",
+                "color": "",
+                "name": "Disappearing Spy Paper Dissolving Notepad"
+            }
         },
-        "title_differentiation": {
-            "value": "25 sheets, dissolves in seconds with water, USA made",
+        "item_name_ai_openai": {
+            "value": "CCS Spy Gear Spy Paper Dissolving Note Pad",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 42,
+            "review_only": true,
+            "tokens": {
+                "brand": "CCS Spy Gear",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Spy Paper"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "25 Sheets Per Pad, Water-Soluble, Dissolves In Seconds, Made In USA, Secret Message Protection",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 94,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "25 Sheets, Water Soluble Paper, Dissolves On Contact With Liquid, Made In USA, Hide Secret Notes, Decoder Games",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

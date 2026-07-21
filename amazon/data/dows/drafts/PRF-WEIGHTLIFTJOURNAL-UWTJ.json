@@ -3,14 +3,14 @@
     "asin": "B0CV64RFWC",
     "product_type": "PLANNER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:14:57+00:00",
+    "generated_at": "2026-07-21T19:49:55+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 4,
         "catalog": 4,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -94,25 +94,62 @@
             "model": "claude-haiku-4-5"
         },
         "model_name": {
-            "value": "Ultimate Weight Training Journal",
+            "value": "The Ultimate Weight Lifting Journal",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Productive Fitness Ultimate Weight Lifting Journal Workout Planner",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Productive Fitness Ultimate Weight Lifting Journal",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "8.5 x 5.5",
+                "color": "",
+                "name": "Ultimate Weight Lifting Journal"
+            }
         },
-        "title_differentiation": {
-            "value": "1-Year Spiral Bound, Progress Tracking, Body Measurements & Safety Tips",
+        "item_name_ai_openai": {
+            "value": "Productive Fitness Weight Training Journal Workout Handbook",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 59,
+            "review_only": true,
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Weight Training Journal"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "1-Year Workout Tracker, Spiral Bound, Progress Reports, Body Measurements, Safety Tips, Nutrition Guide",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 103,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "One Year Workout Log, Spiral Bound, Track Reps Sets And Weight, Body Measurements, Safety Tips, Stretching",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 106,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

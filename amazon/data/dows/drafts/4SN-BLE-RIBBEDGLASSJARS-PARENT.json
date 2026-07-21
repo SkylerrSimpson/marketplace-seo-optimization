@@ -3,14 +3,14 @@
     "asin": "B0GVW19MNZ",
     "product_type": "FOOD_STORAGE_CONTAINER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:28:23+00:00",
+    "generated_at": "2026-07-21T19:54:59+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 0,
-        "ai_suggested": 5,
+        "ai_suggested": 7,
         "ai_null": 0,
         "base_template": 0
     },
@@ -25,13 +25,13 @@
             "value": "Glass",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "model_name": {
-            "value": "Ribbed Glass Storage Jars",
+            "value": "Ribbed Glass Storage Jar",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
             "value": "43.9 Ounce",
@@ -39,20 +39,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Beille Ribbed Glass Storage Jars 43.9oz Airtight Kitchen Canisters",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 43.9oz Ribbed Clear Glass Storage Jars",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 45,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "43.9",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "Clear",
+                "name": "Ribbed Glass Storage Jars"
+            }
         },
-        "title_differentiation": {
-            "value": "Airtight Lids, Dishwasher Safe, Coffee Tea Sugar Storage",
+        "item_name_ai_openai": {
+            "value": "Beille 43.9oz Clear Ribbed Glass Storage Jars",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 45,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "43.9oz",
+                "color": "Clear",
+                "name": "Ribbed Glass Storage Jars"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Airtight Kitchen Canisters, Coffee Tea Sugar Pantry Containers, Dishwasher Safe, Screw Top Lids",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 95,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Airtight Screw Top Lid, Dishwasher Safe, Fridge And Freezer Safe, Food Safe Glass, Coffee Tea Sugar Storage",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

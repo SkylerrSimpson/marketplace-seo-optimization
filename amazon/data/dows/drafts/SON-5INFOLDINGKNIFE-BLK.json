@@ -3,14 +3,14 @@
     "asin": "B07B4789QY",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:23:44+00:00",
+    "generated_at": "2026-07-21T19:53:30+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -98,20 +98,57 @@
             "asin": "B07B4789QY",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Thumb Assist Folding Knife 3.5\" Blade Black",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 5\" Black Thumb Assist Folding Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 47,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Thumb Assist Folding Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "Window Punch, Seat Belt Cutter, Belt Clip, 440 Stainless Steel",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 5in Black Folding Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 35,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "5in",
+                "color": "Black",
+                "name": "Folding Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "35\" Blade, Window Punch, Seat Belt Cutter, Belt Clip, 440 Stainless Steel, EDC Survival Tool",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 92,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "35\" 440 Stainless Steel Blade, Thumb Assist Opening, Window Punch, Seat Belt Cutter, Belt Clip",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 94,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B0B846BG3S",
     "product_type": "SPORTING_GOODS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:39:10+00:00",
+    "generated_at": "2026-07-21T19:58:08+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -46,20 +46,57 @@
             "asin": "B0B846BG3S",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Waterproof Backpack Rain Cover Blue Adjustable",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Waterproof Backpack Cover Blue Adjustable",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "28",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Blue",
+                "name": "Waterproof Backpack Cover Adjustable"
+            }
         },
-        "title_differentiation": {
-            "value": "Lightweight, adjustable drawstring fit, expands to 28x17.5 inches",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor Blue Waterproof Backpack Cover",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 42,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Blue",
+                "name": "Waterproof Backpack Cover"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Adjustable Drawstring Closure, Lightweight And Compact, Fits Most Backpacks, Easy To Clean, High-Visibility",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 107,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Waterproof Polyester, Adjustable Drawstring Fit, Lightweight, Fits Most Backpacks, High-Visibility Blue",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

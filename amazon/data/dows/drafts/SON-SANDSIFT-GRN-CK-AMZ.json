@@ -3,14 +3,14 @@
     "asin": "B0F84Y98RQ",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:46:16+00:00",
+    "generated_at": "2026-07-21T20:00:49+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 2,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -55,28 +55,65 @@
             "value": "Plastic",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
-            "value": "8.5 inches",
+            "value": "8.5 Inch",
             "is_required": false,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Sand Sifter 8.5in Stackable Beach Combing Green",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 8.5in Green Sand Sifter Beach Combing",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 49,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Green",
+                "name": "Sand Sifter Beach Combing"
+            }
         },
-        "title_differentiation": {
-            "value": "36 Holes/Sq In, Durable Plastic, Metal Detecting & Beach Combing",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 8.5in Green Sand Sifter Beach Combing Screen",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 56,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "8.5in",
+                "color": "Green",
+                "name": "Sand Sifter Beach Combing Screen"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Stackable Design, 36 Holes Per Square Inch, Durable Plastic, Metal Detecting Accessory, Beginner Friendly",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 105,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "36 Holes Per Square Inch, Stackable Bucket Top Design, Rustproof Plastic, Built In Handles, Great For Beachcombing",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 114,
+            "review_only": true
         },
         "pesticide_marking": {
             "value": [

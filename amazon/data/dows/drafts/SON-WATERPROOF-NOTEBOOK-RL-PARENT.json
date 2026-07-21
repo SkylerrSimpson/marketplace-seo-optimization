@@ -3,14 +3,14 @@
     "asin": "B0946CFYFF",
     "product_type": "BLANK_BOOK",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:11:02+00:00",
+    "generated_at": "2026-07-21T19:48:22+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 9,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -134,25 +134,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "Waterproof Paper Pocket Spiral Notebook",
+            "value": "Waterproof Pocket Spiral Notebook",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Waterproof Spiral Notebook 3x5 50 Pages Green",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 3x5 Green Waterproof Spiral Notebook",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3x5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Green",
+                "name": "Waterproof Spiral Notebook"
+            }
         },
-        "title_differentiation": {
-            "value": "Waterproof Cover, Pocket-Sized, Includes Pencil & Ruler, Camping & Travel",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 50-Page 3x5in Green Waterproof Pocket Spiral Notebook",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 65,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "50",
+                "pack_size_unit": "Page",
+                "size": "3x5in",
+                "color": "Green",
+                "name": "Waterproof Pocket Spiral Notebook"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "50 Lined Pages, Waterproof Cover, Pocket-Sized, Includes Pencil And Ruler, Weather-Resistant",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 92,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "50 Lined Pages - 3 Inch Pencil Included - Side Ruler - Waterproof Cover - Pocket Sized Travel Notepad",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

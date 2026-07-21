@@ -3,14 +3,14 @@
     "asin": "B07NTWBPXL",
     "product_type": "FLATWARE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:16:23+00:00",
+    "generated_at": "2026-07-21T20:08:10+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 6,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -89,20 +89,57 @@
             "asin": "B07NTWBPXL",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 4-in-1 Camping Multitool Utensil Fork Spoon Knife",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 4-in-1 Camping Multitool Utensil Set",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "in-1",
+                "size": "",
+                "color": "",
+                "name": "Camping Multitool Utensil Set"
+            }
         },
-        "title_differentiation": {
-            "value": "Lightweight, Compact, TSA-Compliant, Bottle Opener, Dishwasher Safe",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 4-In-1 Camping Utensil Spork",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 40,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Camping Utensil Spork"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Fork, Knife, Spoon, Bottle Opener, Lightweight, Compact, TSA-Compliant, Eco-Friendly, Dishwasher Safe, BPA-Free",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 111,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Fork, Knife, Spoon And Bottle Opener, Lightweight, BPA Free, Dishwasher Safe, TSA Compliant, Detachable Blade",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

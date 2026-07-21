@@ -3,14 +3,14 @@
     "asin": "B07R92GZVY",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:29:45+00:00",
+    "generated_at": "2026-07-21T19:55:27+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 3,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -65,20 +65,57 @@
             "asin": "B07R92GZVY",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Wooden Inlay Pocket Knife Blue Steel Drop Point",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Blue Wooden Inlay Pocket Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 42,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Blue",
+                "name": "Wooden Inlay Pocket Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "Thumb Assist Open, 3.5\" Blade, Ergonomic Wood Handle, Pocket Clip",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 8in Blue Wooden Inlay Pocket Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 46,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "8in",
+                "color": "Blue",
+                "name": "Pocket Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Drop Point Blade, Thumb Assist Open, Pocket Clip, 35In Blade, Ergonomic Wood Handle, Compact 45In Folded",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 104,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "CR13 Steel Blade, Thumb Assist Open, Pocket Clip, Drop Point Edge, Ergonomic Grip, 8 Inch Overall Length",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 104,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

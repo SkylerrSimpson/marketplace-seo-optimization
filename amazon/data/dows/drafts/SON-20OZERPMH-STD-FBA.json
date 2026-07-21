@@ -3,14 +3,14 @@
     "asin": "B007BTRT5W",
     "product_type": "HAMMER_MALLET",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:51:27+00:00",
+    "generated_at": "2026-07-21T19:38:15+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 12,
         "catalog": 23,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 16
     },
@@ -469,20 +469,57 @@
             "asin": "B007BTRT5W",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 20oz Rock Pick Hammer - 11 Inch Geology Tool",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 20oz Rock Pick Mining Hammer",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 40,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "20",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "",
+                "name": "Rock Pick Mining Hammer"
+            }
         },
-        "title_differentiation": {
-            "value": "Forged Steel Pick & Hammer Head, Ergonomic Grip, Gold Prospecting",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 20-oz 11-in Rock Pick Mining Hammer",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 47,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "20",
+                "pack_size_unit": "oz",
+                "size": "11 in",
+                "color": "",
+                "name": "Rock Pick Mining Hammer"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "11-Inch Pointed Tip, Gold Prospecting, Geology Tool, Rockhounding Equipment",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 75,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Pointed Tip, Forged Steel Head, Fiberglass Handle, Ideal For Gold Prospecting, Geology, Rockhounding",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 100,
+            "review_only": true
         },
         "supplier_declared_material_regulation": {
             "value": [

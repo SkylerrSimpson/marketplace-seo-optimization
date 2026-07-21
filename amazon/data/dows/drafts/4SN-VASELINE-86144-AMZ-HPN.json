@@ -3,14 +3,14 @@
     "asin": "B0983VFGPL",
     "product_type": "LIP_BALM",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:41:40+00:00",
+    "generated_at": "2026-07-21T19:32:08+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 5,
         "catalog": 32,
-        "ai_suggested": 5,
+        "ai_suggested": 7,
         "ai_null": 0,
         "base_template": 0
     },
@@ -498,27 +498,65 @@
             "value": "Clear",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "generic_keyword": {
-            "value": "lip balm moisturizer dry lips petroleum jelly hydrating lip therapy stick long lasting protection Vaseline lip care smooth soft",
+            "value": "chapstick lip protectant moisturizer stick petroleum jelly dry lips care travel size",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Vaseline Lip Therapy Stick Petroleum Jelly Lip Balm 4.8g",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Vaseline Lip Therapy Stick Petroleum Jelly 4.8g",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 47,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Vaseline",
+                "pack_size": "4.8",
+                "pack_size_unit": "g",
+                "size": "",
+                "color": "",
+                "name": "Lip Therapy Stick Petroleum Jelly"
+            }
         },
-        "title_differentiation": {
-            "value": "24-Hour Hydration, Moisturizing Formula, Softens & Protects Dry Lips",
+        "item_name_ai_openai": {
+            "value": "Vaseline Lip Therapy Stick, Petroleum Jelly Lip Balm, 4.8g",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 58,
+            "review_only": true,
+            "tokens": {
+                "brand": "Vaseline",
+                "pack_size": "4.8",
+                "pack_size_unit": "g",
+                "size": "",
+                "color": "",
+                "name": "Lip Therapy Stick Petroleum Jelly Lip Balm"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Moisturizing Lip Balm, Petroleum Jelly Formula, Long-Lasting Moisture, Softens And Protects Lips",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 96,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Long Lasting Moisture, Smooth Application, Pocket Size Stick, Daily Lip Comfort, Easy On The Go Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 99,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

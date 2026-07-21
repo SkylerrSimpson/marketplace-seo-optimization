@@ -3,14 +3,14 @@
     "asin": "B074MHJ29N",
     "product_type": "SPORTING_GOODS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:41:15+00:00",
+    "generated_at": "2026-07-21T19:58:56+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 4,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -77,20 +77,57 @@
             "asin": "B074MHJ29N",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 6 Inch Green Glow Stick Emergency Light",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 6 inch Green Emergency Glow Stick",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 45,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "6",
+                "pack_size_unit": "inch",
+                "size": "6 inch",
+                "color": "Green",
+                "name": "Emergency Glow Stick"
+            }
         },
-        "title_differentiation": {
-            "value": "12-Hour Duration, Snap & Shake Activation, Includes Lanyard",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 6in Green Emergency Glow Stick",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 42,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "6",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Green",
+                "name": "Emergency Glow Stick"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Lasts Up To 12 Hours, Snap And Shake For Instant Light, High Visibility Night Safety, Red Lanyard Included",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 106,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Lasts Up To 12 Hours, Snap And Shake Activation, 6 Inch Compact Size, Includes Red Lanyard, High Visibility",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

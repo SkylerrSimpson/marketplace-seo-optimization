@@ -3,14 +3,14 @@
     "asin": "B08PQ5D3GG",
     "product_type": "KNIFE",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:40:03+00:00",
+    "generated_at": "2026-07-21T19:27:55+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 31,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -478,22 +478,59 @@
             "value": "Stainless Steel",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "title_differentiation": {
-            "value": "440 stainless steel 8 inch acid etched blade; full color animal graphic scabbard and handle; collector's piece",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 13.75in Animal Head Decorative Hunting Knife",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8",
-            "validation_error": "requires item_name <= 75 chars"
-        },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 13.75\" Animal Head Fixed Blade Hunting Knife",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 56,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13.75",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Animal Head Decorative Hunting Knife"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 13.5 in Animal Head Dagger",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 38,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Animal Head Dagger"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Fixed Blade, 440 Stainless Steel, Acid Etched, Ornamental Scabbard, Collector's Piece, Wildlife Design",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 102,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "440 Stainless Steel Blade, Acid Etched Wildlife Artwork, Full Color Scabbard, Ornamental Animal Head Pommel, Collector Gift",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 123,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

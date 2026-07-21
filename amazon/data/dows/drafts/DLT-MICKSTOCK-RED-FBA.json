@@ -3,14 +3,14 @@
     "asin": "B081S426Q8",
     "product_type": "HOME_FURNITURE_AND_DECOR",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:40:55+00:00",
+    "generated_at": "2026-07-21T19:58:49+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 6,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 5
     },
@@ -102,27 +102,66 @@
             "value": "100% Felt",
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "model_name": {
-            "value": "Mickey Mouse Kids Felt Holiday Stocking",
+            "value": "Mickey Mouse Stocking",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Ruz Mickey Mouse Kids Christmas Stocking, 15.5\" Felt",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Ruz Mickey Mouse Red Kids Christmas Holiday Stocking",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Ruz",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "15.5 inch",
+                "color": "Red",
+                "name": "Mickey Mouse Kids Christmas Holiday Stocking"
+            }
         },
-        "title_differentiation": {
-            "value": "Embossed Snowflake Pattern, Hang Loop, Stuff-to-Brim Design",
+        "item_name_ai_openai": {
+            "value": "Ruz Mickey Mouse Kids Red Felt Holiday Stocking",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 47,
+            "review_only": true,
+            "tokens": {
+                "brand": "Ruz",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Red",
+                "name": "Stocking"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Licensed Disney Character, 155 Inch Large Felt Stocking, Embossed Snowflake Design, Hang Loop, Lightweight, Stuff With Toys And Gifts",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 133,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (133 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Officially Licensed, 155 Inch Large, Soft Felt, Embossed Snowflake Pattern, Hang Loop, Lightweight",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 98,
+            "review_only": true
         },
         "required_product_compliance_certificate": {
             "value": [

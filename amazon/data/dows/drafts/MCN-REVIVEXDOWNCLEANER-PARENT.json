@@ -3,14 +3,14 @@
     "asin": "B09RNVBMRC",
     "product_type": "CLEANING_AGENT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:58:19+00:00",
+    "generated_at": "2026-07-21T19:42:26+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -39,20 +39,57 @@
             "asin": "B09RNVBMRC",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Gear Aid Revivex Down Cleaner - Restores Loft & Warmth",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "GEAR AID Revivex Down Cleaner for Jackets and Bags",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Revivex Down Cleaner for Jackets and Bags"
+            }
         },
-        "title_differentiation": {
-            "value": "4x Concentrated Formula, Cleans Up to 24 Garments, Preserves Natural Oils",
+        "item_name_ai_openai": {
+            "value": "GEAR AID Revivex Down Cleaner",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 29,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Revivex Down Cleaner"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "4X Concentrated Formula, Preserves Loft And Warmth, Safe For All Down Types, Cleans Up To 24 Garments",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 101,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "4X Concentrated, Cleans Up To 24 Garments, Preserves Loft And Warmth, Safe On DownTek, Gentle On Shell Fabrics",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 110,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

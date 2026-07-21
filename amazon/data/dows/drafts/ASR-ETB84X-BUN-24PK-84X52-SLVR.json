@@ -3,14 +3,14 @@
     "asin": "B071ZNBGQC",
     "product_type": "BLANKET",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:14:14+00:00",
+    "generated_at": "2026-07-21T19:49:42+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 10,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -154,20 +154,58 @@
             "asin": "B071ZNBGQC",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Emergency Thermal Blanket 84x52in 24-Pack Silver",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 24-Pack 84x52 Silver Emergency Blanket",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "24",
+                "pack_size_unit": "Pack",
+                "size": "84x52",
+                "color": "Silver",
+                "name": "Emergency Blanket"
+            }
         },
-        "title_differentiation": {
-            "value": "Mylar Reflective, Waterproof, Reusable, Retains 90% Body Heat",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 24-Pk 84x52 Silver Emergency Blanket",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 48,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "24",
+                "pack_size_unit": "pk",
+                "size": "84x52",
+                "color": "Silver",
+                "name": "Emergency Blanket"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Mylar Thermal Reflector, Retains 90 Percent Body Heat, Waterproof And Windproof, Reusable, Hypothermia Prevention",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 113,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Insulated Thermal Mylar, Reflects 90 Percent Body Heat, Waterproof Windproof, Flame Retardant, Reusable, Individually Packaged",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 126,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (126 chars)"
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

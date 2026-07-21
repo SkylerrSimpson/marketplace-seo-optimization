@@ -3,18 +3,24 @@
     "asin": "B0188C8A44",
     "product_type": "LAB_SUPPLY",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:46:07+00:00",
+    "generated_at": "2026-07-21T20:12:10+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
-        "fillable": 0,
+        "fillable": 1,
         "catalog": 6,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
     "attributes": {
+        "style": {
+            "value": "4oz",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.style"
+        },
         "capacity": {
             "value": [
                 {
@@ -98,20 +104,57 @@
             "asin": "B0188C8A44",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Gold Snifter Squeeze Bottle 4oz with Nozzle",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 5.25 Inch Plastic Gold Snifter Bottle 4 oz",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "5.25 Inch",
+                "color": "Gold",
+                "name": "Snifter Bottle"
+            }
         },
-        "title_differentiation": {
-            "value": "5 inch, extendable nozzle, o-ring seal, gold panning recovery tool",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 5.25-in Gold Snifter Bottle Nozzle",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 46,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5.25",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Gold",
+                "name": "Snifter Bottle Nozzle"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Heavy Duty Squeeze Bottle, Gold Recovery Tool, Fine Gold Extraction, 4 Fluid Ounce Capacity, Extendable Nozzle, O-Ring Seal",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 123,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "4 Oz Capacity, Extendable Nozzle, O-Ring Seal, Strong Suction, Fine Gold Recovery, Compact Prospecting Tool",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

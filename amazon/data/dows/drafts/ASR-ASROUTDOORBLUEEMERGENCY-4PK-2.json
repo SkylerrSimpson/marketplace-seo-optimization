@@ -3,14 +3,14 @@
     "asin": "B06Y5V4MC9",
     "product_type": "COAT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:54:59+00:00",
+    "generated_at": "2026-07-21T19:40:06+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 16,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -247,25 +247,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "Emergency Poncho One Size Fits Most Reusable with Attached Hood and Sleeves",
+            "value": "Emergency Poncho",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Blue Emergency Poncho 4-Pack Hood Sleeves",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 4-Pack Blue Emergency Poncho One Size",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 49,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "Pack",
+                "size": "One Size",
+                "color": "Blue",
+                "name": "Emergency Poncho"
+            }
         },
-        "title_differentiation": {
-            "value": "Water-Resistant Polyethylene | One Size Fits Most | Reusable | High Visibility",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 4-Pk One Size Blue Emergency Poncho",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 47,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "Pk",
+                "size": "One Size Fits Most",
+                "color": "Blue",
+                "name": "Emergency Poncho"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Water-Resistant Polyethylene, Attached Hood And Sleeves, High Visibility, Reusable, Lightweight, One Size Fits Most",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 115,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Water-Resistant Polyethylene, Attached Hood And Sleeves, Reusable, Adjustable Hood String, High Visibility Blue",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

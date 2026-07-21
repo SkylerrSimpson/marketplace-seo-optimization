@@ -3,14 +3,14 @@
     "asin": "B0CLBD3WTP",
     "product_type": "MARKING_PEN",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:18:45+00:00",
+    "generated_at": "2026-07-21T20:08:37+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -78,20 +78,57 @@
             "asin": "B0CLBD3WTP",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Federal UV Invisible Ink Permanent Marker Pen 10-Pack Blue",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Federal 10-Pack Blue UV Invisible Ink Security Marker Pen",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 61,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "10",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "Blue",
+                "name": "UV Invisible Ink Security Marker Pen"
+            }
         },
-        "title_differentiation": {
-            "value": "Invisible ink, waterproof, heat-proof, election certified, 2500+ feet writing",
+        "item_name_ai_openai": {
+            "value": "ASR Federal 10-pk Blue UV Invisible Ink Marker Pens",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 51,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "10",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Blue",
+                "name": "UV Invisible Ink Marker Pens"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Election Certified, Invisible Ink, UV Revealed, Waterproof, Heat-Proof, Non-Toxic, 2500 Feet Writing Length",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 107,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Invisible Ink, UV Revealed, Waterproof, Heat-Proof, Non-Toxic, Writes On Multiple Surfaces, Election Certified",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 110,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,
