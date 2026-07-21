@@ -682,17 +682,6 @@ function buildPrompt(
             . "return null there instead of a contradictory claim.\n";
     }
 
-    // Amazon modular titles (effective 2026-07-27): item_name <= 75 chars and a
-    // supplementary title_differentiation <= 125 chars, only usable when
-    // item_name is 75 chars or fewer, with the two totalling <= 200 chars.
-    $titleRule = '';
-    if (in_array('title_differentiation', $attrs, true) || in_array('item_name', $attrs, true)) {
-        $titleRule = "\n- Titles are modular: item_name must be 75 characters or fewer. "
-            . "title_differentiation is a supplementary highlight (<=125 chars) that is "
-            . "only valid when item_name is <=75 chars; item_name + title_differentiation "
-            . "must total 200 characters or fewer.";
-    }
-
     // bullet_point is a list of highlights, not a single value: ask for an array
     // so each bullet lands in its own attr.featureXX column downstream.
     $bulletRule = '';
@@ -718,7 +707,7 @@ Features:
 === INSTRUCTIONS ===
 - Suggest one value per attribute based on the product context.
 - For attributes with ALLOWED VALUES, return exactly one of those values verbatim.
-- Respect any stated Max length; keep the value within it.{$titleRule}{$bulletRule}
+- Respect any stated Max length; keep the value within it.{$bulletRule}
 - If you truly cannot determine a suitable value, return null for that key.
 - Return ONLY a valid JSON object. Keys are attribute names, values are strings, null,
   or (only for bullet_point) an array of strings.
