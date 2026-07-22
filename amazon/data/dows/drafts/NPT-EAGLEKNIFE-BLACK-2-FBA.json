@@ -3,14 +3,14 @@
     "asin": "B07W7WGKR4",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:12:35+00:00",
+    "generated_at": "2026-07-21T20:07:25+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 8
     },
@@ -82,20 +82,57 @@
             "asin": "B07W7WGKR4",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 13\" Eagle Fixed Blade Hunting Knife Black",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 13\" Black Eagle Wildlife Fixed Blade Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Eagle Wildlife Fixed Blade Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "440 Stainless Steel, Etched Sheath, Display & Functional, Wildlife Design",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 13-in Black Eagle Fixed Blade Hunting Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 55,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Eagle Fixed Blade Hunting Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Etched Eagle Design, 440 Stainless Steel, Ornamental Pommel, Matching Sheath, Display Ready, Collectible",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 104,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "440 Stainless Steel, Etched Wild Eagle Sheath, Clip Point Bowie Style, Ornamental Pommel, Display Ready",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "supplier_declared_material_regulation": {
             "value": [

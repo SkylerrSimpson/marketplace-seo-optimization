@@ -1,0 +1,60 @@
+{
+    "sku": "UNV-DVCHCK-BUN-29PC-18X12-GRN-BNDL",
+    "asin": "B0CLBF6SCT",
+    "product_type": "CUTTING_BOARD",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UNV-DVCHCK-BUN-29PC-18X12-GRN-BNDL\nProduct Type: CUTTING_BOARD\nBrand (from catalog): Universal Tool\nExisting Title: Deluxe Vinyl Cutting Hobby Craft Kit with Self Healing Mat 18\" x 12\", Precision Hobby Knife Set, Pick & Hook Set, Tweezers, and Clamps\nDescription: Cut and shape vinyl like a pro with the Deluxe Vinyl Cutting Tool Kit.<br/><br/>This kit comes with everything you need to craft with vinyl: a self healing cutting board, assorted precision hobby blades, scissors, clamps, tweezers and a hook and pick set.<br/><br/>The self-healing mat measures 18\" x 12\" and comes with handy grid-lines for exact measurements. We've included clamps to hold your vinyl down while you work, and the scissors will assist you in cutting larger pieces.<br/><br/>Additionally we've included a 4 piece hook and pick set as well as 5 assorted tweezers for added accuracy and easy clean up. Make sure to grab this set before your next vinyl cutting project.<br/><br/>16pc Hobby Knife Set Includes:<br/>*(1) Precision Knife w/ 3/8\" Chuck & Plastic Grip Handle<br/>*(1) Precision Knife w/ 3/8\" Chuck & Metal Handle<br/>*(1) Precision Knife w/ 1/4\" Chuck & Metal Handle<br/>*(2) #2 Blades<br/>*(1) #7 Blade<br/>*(1) #10 Blade<br/>*(3) #11 Blades<br/>*(1) #12 Blade<br/>*(1) #17 Blade<br/>*(1) #19 Blade<br/>*(1) #20 Blade<br/>*(1) #21 Blade<br/>*(1) #22 Blade<br/><br/>4pc Pick & Hook Set Includes:<br/>*(1) Straight Pick<br/>*(1) 30 Degree Hook<br/>*(1) Hook<br/>*(1) 90 Degree Hook\nSearch Terms: self-healing cutting board vinyl-working tools hobby tools craft tools\nFeatures:\n- Self Healing Mat: 18\" x 12\" | Gridlines & Measurement References\n- Hobby Knife Set: 3 Precision Knives with Assorted Blades Sizes for Any Project\n- Pick & Hook Set: Soft Grip Handles with Assorted Tips\n- Assorted Tweezers for Holding Vinyl/Cleaning Up\n- Clamps for Holding Vinyl Down\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 29pc Vinyl Cutting Mat Kit 18x12",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "29",
+                "pack_size_unit": "pc",
+                "size": "18x12",
+                "color": "",
+                "name": "Vinyl Cutting Mat Kit"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 18x12in Green Self-Healing Cutting Mat Kit",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "18x12in",
+                "color": "Green",
+                "name": "Self-Healing Cutting Mat Kit"
+            },
+            "char_count": 57,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Self-Healing Mat With Grid, 16Pc Hobby Knife Set, Pick And Hook Set, Tweezers, Clamps",
+            "char_count": 85,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Gridlines And Measurement References, 16 Piece Hobby Knife Set, Pick And Hook Tools, Tweezers, Clamps",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

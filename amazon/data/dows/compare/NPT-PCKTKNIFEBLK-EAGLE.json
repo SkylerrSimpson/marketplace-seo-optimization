@@ -1,0 +1,60 @@
+{
+    "sku": "NPT-PCKTKNIFEBLK-EAGLE",
+    "asin": "B07X2LWVZD",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: NPT-PCKTKNIFEBLK-EAGLE\nProduct Type: KNIFE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Soaring Eagle Pocket Knife with Drop Point Blade, Matte Black, 8 inch\nDescription: Hunt and explore the wilderness in style with the ASR Outdoor Matte Black and Gold Eagle Pocket Knife.<br/><br/>This handy pocket knife features a spring-assisted drop point blade that releases quickly for rapid deployment. This handy pocket knife features a spring-assisted drop point blade that releases quickly for rapid deployment. The drop point blade slopes on the spine from handle to tip to eliminate pitch momentum, making it a popular choice for hunters. It's constructed of durable stainless steel that won't rust, so you can count on it during inclement weather.<br/><br/>The compact size of this pocket knife makes it a great every day carry tool. Unfolded it measures 8\" in length, the blade itself is 3.25\" and folded it measures just 4.5\" so you can easily store it in your pocket or backpack. It even comes with a steel pocket clip and optional lanyard hole for easy transportation when not in use.<br/><br/>The handle features a cool matte black and gold finish with a majestic eagle silhouette for a unique look. It also has a contoured ergonomic design to prevent slippage during use. The folding knife's lock-back function ensures it can be handled safely by the user. Ideal for a multitude of tasks this is a must-have pocket knife for hunters, knife collectors, and outdoor enthusiasts alike.\nSearch Terms: American eagle indian decorative pocket knife usa bald soaring gift collector set for dad native bird\nFeatures:\n- DURABLE CONSTRUCTION - Made of Stainless Steel that Won't Rust | Matte Black and Gold Color Finish for Unique Look\n- DROP POINT BLADE - Blade Slopes on Spine from Handle to Tip to Eliminate Pitch Momentum | Popular Blade Style for Hunting\n- THUMB ASSISTED - Thumb Button Easily Opens for Quick Release | Great Every Day Carry Tool\n- POCKET CLIP - Comes with Steel Pocket Clip for Easy Storage in Pocket, Belt or Backpack\n- COMPACT SIZE - Overall Length: 8\" | Blade Length: 3.25\" | Folds Down to Just 4.5\" for Safe Transportation When not In Use\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 8 inch Matte Black Eagle Pocket Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8",
+                "pack_size_unit": "inch",
+                "size": "8 inch",
+                "color": "Matte Black",
+                "name": "Eagle Pocket Knife"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 8-in Matte Black Soaring Eagle Pocket Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8",
+                "pack_size_unit": "in",
+                "size": "8 in",
+                "color": "Matte Black",
+                "name": "Soaring Eagle Pocket Knife"
+            },
+            "char_count": 55,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Spring-Assisted Drop Point Blade, Stainless Steel, Folds To 45 Inch, Steel Pocket Clip, Ergonomic Design",
+            "char_count": 104,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Spring Assisted Drop Point Blade, Stainless Steel, Thumb Button Open, Pocket Clip, Lock Back Safety, Ergonomic Grip",
+            "char_count": 115,
+            "validation_error": null
+        }
+    }
+}

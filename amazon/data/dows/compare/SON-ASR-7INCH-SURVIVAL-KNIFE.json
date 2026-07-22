@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ASR-7INCH-SURVIVAL-KNIFE",
+    "asin": "B0CNP1WRD3",
+    "product_type": "SURVIVAL_KIT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ASR-7INCH-SURVIVAL-KNIFE\nProduct Type: SURVIVAL_KIT\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Full Tang Tanto Survival Knife with Fire Starter, 7 inch, Serrated Spine, Black and Green Camping Hunting Gear\nDescription: The ASR Outdoor Full Tang Hunting Knife is a great addition to any camping or outdoor tools collection. Each knife is constructed of 440 stainless steel with a tanto point as well as serrated spine.<br/><br/>Additionally, these 7\" knives include a magnesium rod fire starter, so you'll have fire in seconds if you need it. The paracord wrapped handle allow for a comfortable and easy grip in any situation. <br/><br/>Each knife includes a nylon sheath with a belt loop, and will come in handy in an emergency or survival situation.\nSearch Terms: best hunting knife paracord wrap survival knvies outdoor emergency wilderness gift fixed blade tactical tanto point camping accessories gear\nFeatures:\n- FULL TANG SURVIVAL KNIFE: Heavy duty 440 stainless steel construction; 3mm thick serrated spine with tanto point blade\n- MILITARY GREEN PARACORD WRAPPED HANDLE: Ideal gift for any prepper or man who likes to always be prepared. Use the paracord wrap to attach to a stick for a spear or lash together to make shelter\n- INCLUDES NYLON BELT LOOP SHEATH: Easy to carry and great for any hiking excursion; whittle some wood around the camp fire or prepare your game for dinner\n- EMERGENCY SURVIVAL KNIFE: Use the the included magnesium rod against the spine of the knife to create sparks; rule number one is to always get a fire started in order to survive in the wilderness\n- COMPACT AND LIGHTWEIGHT: Versatile, rugged and convenient this 7 inch fixed blade survival knife will keep you going when you need it most\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 7 inch Black Green Survival Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "7",
+                "pack_size_unit": "inch",
+                "size": "7 inch",
+                "color": "Black and Green",
+                "name": "Survival Knife"
+            },
+            "char_count": 45,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 7-in Black and Green Survival Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "7",
+                "pack_size_unit": "in",
+                "size": "7-in",
+                "color": "Black and Green",
+                "name": "Survival Knife"
+            },
+            "char_count": 47,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Full Tang 440 Stainless Steel, Serrated Spine, Magnesium Fire Starter, Paracord Handle, Belt Loop Sheath",
+            "char_count": 104,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Full Tang 440 Stainless Steel, Tanto Point Blade, Serrated Spine, Fire Starter, Paracord Wrapped Handle, Nylon Sheath",
+            "char_count": 117,
+            "validation_error": null
+        }
+    }
+}

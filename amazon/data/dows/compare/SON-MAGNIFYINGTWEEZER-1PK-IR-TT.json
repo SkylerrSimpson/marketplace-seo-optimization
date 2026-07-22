@@ -1,0 +1,60 @@
+{
+    "sku": "SON-MAGNIFYINGTWEEZER-1PK-IR-TT",
+    "asin": "B0BG6CN926",
+    "product_type": "OUTDOOR_LIVING",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-MAGNIFYINGTWEEZER-1PK-IR-TT\nProduct Type: OUTDOOR_LIVING\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Gold Panning Magnifying Tweezer 4X Power Precision Tool Glass Lens\nDescription: The ASR Outdoor Magnifying Tweezer is an essential utilitarian tool for gold prospecting and panning. It's great for identifying not only gold flakes but precious minerals and gems. <br/><br/>These tweezers feature an optical-quality glass lens with a 4X power magnification so you can examine your findings in fine detail without distortion. The lens has a 1\" diameter, making it the ideal size for viewing small objects like flakes, stones, and gems located while panning.<br/><br/>Made of durable, high-quality stainless steel, these magnifying tweezers won't rust so you can count on them in any weather condition. Use them in creeks and rivers without working about them being damaged. The blades have precision needle points ideal for manipulating tiny objects.<br/><br/>The magnifying tweezers will fold up into a compact size that will fit in just about any pocket, toolbox, or outdoor gear kit. Once folded, they measure just 3.75\" in length, and they weigh just .35oz. <br/><br/>Although these were designed for gold prospecting, the magnifying tweezers are also great versatile tools for other precision work that require fine detail like jewelry making, arts and crafts and even removing splinters. Make sure to grab a set of these before your next outdoor adventure or hobby craft project, and add one to your survival gear in case of a splinter emergency.\nSearch Terms: 4.5x magnifier attached precision first aid magnification fine point tweezer stainless steel glass lens hobbies crafts projects detail sturdy reduces strain grasp object examination\nFeatures:\n- PRECISION MAGNIFYING TWEEZERS - The ASR Outdoor tweezers are an essential gold panning and prospecting tool. They're great for identifying small precious minerals and gems like gold flakes while out in the field. The glass lens has a magnification power of 4X.\n- DURABLE CONSTRUCTION - The tweezers are made of durable, high-quality stainless steel that won't rust so you can count on them rain or shine. Use them in rivers and creeks without working about rusting or damage.\n- COMPACT DESIGN - ASR Outdoor tweezers fold up into a compact size that will fit inside your toolbox, pocket, or gold panning kit. The folded length is 3.75\" and they weigh only .35oz. The blades feature precision needle points designed to manipulate tiny objects with ease.\n- VERSATILE HOBBY TOOL - Precision magnifying tweezers are also great tools for other fine detail work like jewelry making and applying small embellishments to art projects, and will even remove splinters in an emergency.\n- SPECIFICATIONS - Material: stainless steel, glass lens; Size: folded length 3.75\", glass lens diameter 1\"; Weight: .35oz; Precision blades; Magnification power: 4X\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Gold Panning Magnifying Tweezer 4X Precision",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Gold",
+                "name": "Panning Magnifying Tweezer"
+            },
+            "char_count": 56,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Gold Panning Magnifying Tweezers",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Gold Panning Magnifying Tweezers"
+            },
+            "char_count": 44,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "4X Magnification, Stainless Steel, Compact Folding Design, Precision Needle Points, Gold Prospecting And Jewelry Making",
+            "char_count": 119,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "4X Glass Lens, Stainless Steel, Precision Needle Points, Compact Foldable, Rust Resistant, 1\" Lens, For Prospecting",
+            "char_count": 115,
+            "validation_error": null
+        }
+    }
+}

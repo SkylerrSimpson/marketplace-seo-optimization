@@ -1,0 +1,60 @@
+{
+    "sku": "SON-HAWKBILLKNIFE-PARENT",
+    "asin": "B0B92SGD5X",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-HAWKBILLKNIFE-PARENT\nProduct Type: KNIFE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Hawkbill Style Folding Knife Digital Camo Pocket Blade (4 Colors)\nDescription: Be prepared out in the field with the ASR Outdoor Hawkbill Style Kerambit Pocket Knife. <br/><br/> This blade features a point that will tear even if the rest of the knife becomes dull. The pocket knife has an overall length of 6.5\" and the blade itself is about 2.5\" in length. The body of the knife features a digital camo design and comes with a pocket clip so you can easily attach it to your pocket, belt or bag. <br/><br/>The handle of the knife features a finger loop for convenience, and the kerambit style of this pocket knife makes it an ideal option for personal protection. The blade is constructed of durable stainless steel, and is designed for everyday uses including cutting, slashing, hooking and trapping. Make sure to keep one of these on you, in your car or in your camping and emergency gear.<br/><br/>Colors Available: Navy Blue, Desert, Green or Grey\nSearch Terms: pocket knife small folding for women spring assisted pink\nFeatures:\n- Hawkbill Style Kerambit Pocket Knife - 4 Colors\n- Overall Length: 6.5 inches; Blade Length: 2.5 incehes; Folded Length: 4.75 inches\n- Hawkbill Style Blade Point Will Tear Even If Blade is Dull\n- Material: Stainless Steel\n- Comes with Pocket Clip & Finger Loop\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Hawkbill Folding Knife 4-Color Pocket Blade",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "Color",
+                "size": "",
+                "color": "",
+                "name": "Hawkbill Folding Knife Pocket Blade"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Digital Camo Hawkbill Folding Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Digital Camo",
+                "name": "Hawkbill Folding Knife"
+            },
+            "char_count": 47,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Hawkbill Kerambit Style, Stainless Steel, 65In Overall Length, Finger Loop, Pocket Clip, Personal Protection",
+            "char_count": 108,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Stainless Steel Blade, Finger Loop Grip, Pocket Clip, 65 Inch Overall Length, Kerambit Style, Everyday Carry",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

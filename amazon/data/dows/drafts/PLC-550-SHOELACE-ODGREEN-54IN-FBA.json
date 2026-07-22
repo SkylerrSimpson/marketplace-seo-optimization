@@ -3,14 +3,14 @@
     "asin": "B0BMQX8J37",
     "product_type": "SHOELACE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:41:30+00:00",
+    "generated_at": "2026-07-21T20:12:04+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 7,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -116,20 +116,57 @@
             "asin": "B0BMQX8J37",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ParaLace 550 Paracord Shoelaces 54in Hiking Boots Green",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ParaLace 550 Paracord Shoelaces 54in Olive Green",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ParaLace",
+                "pack_size": "550",
+                "pack_size_unit": "",
+                "size": "54in",
+                "color": "Olive Green",
+                "name": "Paracord Shoelaces"
+            }
         },
-        "title_differentiation": {
-            "value": "550lbs Breaking Strength, Survival Gear, Low Stretch Kernmantle",
+        "item_name_ai_openai": {
+            "value": "ParaLace 54-in Green 550 Paracord Shoelaces",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 43,
+            "review_only": true,
+            "tokens": {
+                "brand": "ParaLace",
+                "pack_size": "54",
+                "pack_size_unit": "in",
+                "size": "54-in",
+                "color": "Green",
+                "name": "550 Paracord Shoelaces"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "550Lbs Breaking Strength, Survival Gear, Hiking Boots And Running Shoes, Metal Aglets, UV Resistant",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 99,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "550 Lb Strength, Low Stretch Fit, Metal Aglets, Abrasion Resistant, Survival Gear, Fits Boots And Sneakers",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 106,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

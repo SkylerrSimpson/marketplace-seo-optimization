@@ -3,14 +3,14 @@
     "asin": "B09K959BS4",
     "product_type": "TOYS_AND_GAMES",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:59:06+00:00",
+    "generated_at": "2026-07-21T19:42:48+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 4,
         "catalog": 0,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -40,25 +40,62 @@
             "usurper_column": "attr.unit_count_amazon"
         },
         "model_name": {
-            "value": "Magnetic Drawing Board with Magic Pen and Stamps",
+            "value": "Magic Sketch",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Kidplokio Pink Magnetic Drawing Board with Stamps",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Kidplokio Pink Magnetic Drawing Board Sketch Pad",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Pink",
+                "name": "Magnetic Drawing Board Sketch Pad"
+            }
         },
-        "title_differentiation": {
-            "value": "Portable sketch pad with magic pen, heart & hexagon stamps, ages 3+",
+        "item_name_ai_openai": {
+            "value": "Kidplokio Pink Magnetic Drawing Board Sketch Pad",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 48,
+            "review_only": true,
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Pink",
+                "name": "Magnetic Drawing Board Sketch Pad"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Includes Magic Pen And Stamps, Educational Learning Toy, Portable Travel Friendly, Ages 3 Plus",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 94,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Magic Pen, Heart And Hexagon Stamps, Portable Travel Toy, Reusable No-Mess Fun, BPA-Free, Ages 3",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 96,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

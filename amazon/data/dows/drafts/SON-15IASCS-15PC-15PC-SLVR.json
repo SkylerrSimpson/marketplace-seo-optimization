@@ -3,33 +3,29 @@
     "asin": "B00EFD90N6",
     "product_type": "ITEM_CONTAINER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:22:46+00:00",
+    "generated_at": "2026-07-21T20:09:04+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
-        "fillable": 0,
-        "catalog": 2,
-        "ai_suggested": 2,
+        "fillable": 2,
+        "catalog": 1,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
     "attributes": {
-        "unit_count": {
-            "value": [
-                {
-                    "type": {
-                        "language_tag": "en_US",
-                        "value": "Count"
-                    },
-                    "value": 1,
-                    "marketplace_id": "ATVPDKIKX0DER"
-                }
-            ],
+        "style": {
+            "value": "15pc",
             "is_required": false,
-            "source": "catalog",
-            "asin": "B00EFD90N6",
-            "raw_value": true
+            "source": "usurper",
+            "usurper_column": "attr.style"
+        },
+        "unit_count": {
+            "value": "1.0000",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.unit_count_amazon"
         },
         "unspsc_code": {
             "value": [
@@ -43,19 +39,57 @@
             "asin": "B00EFD90N6",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Hobby 1.5\" Aluminum Storage Container Set 15pc",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Hobby 15-Piece 1.5\" Aluminum Storage Container",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 56,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Hobby",
+                "pack_size": "15",
+                "pack_size_unit": "Piece",
+                "size": "1.5\"",
+                "color": "",
+                "name": "Aluminum Storage Container"
+            }
         },
-        "title_differentiation": {
-            "value": "Clear Top, Heavy Duty Aluminum, Carrying Case Included",
+        "item_name_ai_openai": {
+            "value": "Universal Hobby 15-Pk 1.5 in Silver Aluminum Hobby Storage Container Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 72,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Hobby",
+                "pack_size": "15",
+                "pack_size_unit": "pk",
+                "size": "1.5 in",
+                "color": "Silver",
+                "name": "Aluminum Hobby Storage Container Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Clear Top Lids, Heavy Duty Aluminum, Carrying Case Included, Craft Organization, Hobby Storage",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 94,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Clear Top Inner Containers, Heavy Duty Aluminum, Carrying Case, 15 Piece Organization, 75\" X 45\" Case",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

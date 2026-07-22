@@ -3,14 +3,14 @@
     "asin": "B09CRH1473",
     "product_type": "HAT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:59:00+00:00",
+    "generated_at": "2026-07-21T19:42:45+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 13,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -201,21 +201,59 @@
             "value": "Polyester and Cotton Blend",
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "Concept One Space Jam 2 A New Legacy Adjustable Baseball Cap",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 60,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Concept One",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "One Size Fits Most",
+                "color": "Blue, Orange, White",
+                "name": "Space Jam 2 A New Legacy Adjustable Baseball Cap"
+            }
         },
-        "title_differentiation": {
-            "value": "One Size Fits Most, Lightweight Cotton Polyester Blend, Snapback Closure",
+        "item_name_ai_openai": {
+            "value": "Concept One Blue Orange White Space Jam 2 A New Legacy Baseball Cap",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 67,
+            "review_only": true,
+            "tokens": {
+                "brand": "Concept One",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Blue Orange White",
+                "name": "Baseball Cap"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Official Warner Bros Licensed, Snapback Closure, Polyester Cotton Blend, Mesh Ventilation, Kids And Adults",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 106,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "One Size Fits Most, Snapback Closure, Mesh Ventilation, Lightweight Polyester Cotton, Official Warner Bros License",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 114,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

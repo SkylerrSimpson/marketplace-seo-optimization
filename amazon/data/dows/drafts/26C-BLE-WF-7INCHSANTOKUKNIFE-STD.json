@@ -3,14 +3,14 @@
     "asin": "B0FN6LL198",
     "product_type": "KITCHEN_KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:42:57+00:00",
+    "generated_at": "2026-07-21T20:12:08+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 7,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -109,20 +109,57 @@
             "asin": "B0FN6LL198",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille 7 Inch Santoku Knife Stainless Steel Wheat Fiber",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 7 Inch Santoku Knife Stainless Steel",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 43,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "7",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "",
+                "name": "Santoku Knife Stainless Steel"
+            }
         },
-        "title_differentiation": {
-            "value": "Japanese Style, Granton Edge, Dishwasher Safe, Ergonomic Handle",
+        "item_name_ai_openai": {
+            "value": "Beille 1-pc 7 in Santoku Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 30,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "1",
+                "pack_size_unit": "pc",
+                "size": "7 in",
+                "color": "",
+                "name": "Santoku Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Japanese Style, Wheat Fiber Handle, Granton Edge, Dishwasher Safe, Eco-Friendly",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 79,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Stainless Steel Blade, Granton Edge, Wheat Fiber Handle, Dishwasher Safe, Ergonomic Grip, Balanced Control",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 106,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

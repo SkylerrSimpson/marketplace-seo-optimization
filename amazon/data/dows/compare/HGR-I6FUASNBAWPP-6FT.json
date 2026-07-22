@@ -1,0 +1,60 @@
+{
+    "sku": "HGR-I6FUASNBAWPP-6FT",
+    "asin": "B01FL7M1GW",
+    "product_type": "UMBRELLA",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HGR-I6FUASNBAWPP-6FT\nProduct Type: UMBRELLA\nBrand (from catalog): Heininger\nExisting Title: 6ft Italian Market Patio Umbrella Blue and White Stripes with Tilt\nDescription: Bring the charm of a seaside café to your outdoor space with the Destination Gear 6ft Italian Market Tilt Umbrella in classic blue stripe. Inspired by the timeless look of Amalfi Coast bistros, this stylish umbrella combines European flair with everyday functionality.<br/><br/>The durable aluminum push-up frame makes setup simple, while the 3-position tilt allows you to adjust shade as the sun moves throughout the day. A built-in wind vent enhances airflow and stability, making it ideal for patios, beach days, or camping trips.<br/><br/>With its vibrant striped canopy and versatile design, this umbrella pairs perfectly with bistro sets and outdoor furniture—creating a relaxed, resort-style atmosphere wherever you use it.\nSearch Terms: italian market umbrella, patio umbrella 6ft, blue stripe umbrella, bistro patio umbrella, outdoor sun umbrella tilt, beach umbrella with tilt, striped patio umbrella, small patio shade umbrella, wind vent umbrella, camping umbrella shade, outdoor canopy\nFeatures:\n- CLASSIC ITALIAN BISTRO STYLE - Eye-catching blue stripe design brings a coastal café vibe to patios, decks, and outdoor seating areas\n- 3 POSITION TILT FUNCTION - Easily adjust the canopy angle for optimal sun protection throughout the day\n- DURABLE ALUNIMINUM FRAME - Lightweight yet sturdy push-up pole design ensures quick setup and long-lasting use\n- WIND VENT FOR STABILITY - Integrated vent promotes airflow and helps reduce wind pressure for improved durability\n- VERSATILE INDOOR/OUTDOOR USE - Perfect for patios, beach outings, picnics, and camping with dual height options (94\" patio / 89\" beach mode)\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Heininger 6ft Blue and White Stripe Italian Market Umbrella",
+            "tokens": {
+                "brand": "Heininger",
+                "pack_size": "6",
+                "pack_size_unit": "ft",
+                "size": "6ft",
+                "color": "Blue and White Stripe",
+                "name": "Italian Market Umbrella"
+            },
+            "char_count": 59,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Heininger 6ft Italian Market Patio Umbrella Blue Stripe Tilt",
+            "tokens": {
+                "brand": "Heininger",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "6ft",
+                "color": "Blue and White Stripes",
+                "name": "Italian Market Patio Umbrella"
+            },
+            "char_count": 60,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "3-Position Tilt, Wind Vent Stability, Aluminum Frame, Bistro Style, Beach And Patio Use",
+            "char_count": 87,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "3 Position Tilt, Wind Vent Stability, Aluminum Push Up Frame, Dual Height 94 Inch Patio 89 Inch Beach",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

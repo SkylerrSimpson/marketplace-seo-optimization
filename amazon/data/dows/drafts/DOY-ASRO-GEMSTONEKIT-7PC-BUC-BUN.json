@@ -3,14 +3,14 @@
     "asin": "B0DJRTYB1T",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:52:46+00:00",
+    "generated_at": "2026-07-21T20:03:28+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -39,20 +39,57 @@
             "asin": "B0DJRTYB1T",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 7pc Gemstone Mining Kit with Bucket & Tools",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 7pc Gemstone Mining Kit with Bucket and Tools",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 57,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "7",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Gemstone Mining Kit with Bucket and Tools"
+            }
         },
-        "title_differentiation": {
-            "value": "5lb Paydirt, Sieve, ID Chart, Magnifying Loupe, Tweezers & Brush",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 7-Pc Gemstone Dig Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 33,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "7",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Gemstone Dig Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "5Lb Paydirt, Sieve, 35-Gallon Bucket, Magnifying Loupe, ID Chart, Tweezers, Brush",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 81,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "5 Lb Rough Paydirt, Gemstone ID Chart, 975\" Stackable Sieve, Bucket, Tweezers, Brush, 10X Loupe",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 95,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

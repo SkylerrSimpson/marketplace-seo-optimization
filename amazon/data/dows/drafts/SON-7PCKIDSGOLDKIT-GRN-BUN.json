@@ -3,14 +3,14 @@
     "asin": "B0B2ZVCN12",
     "product_type": "METAL_DETECTOR",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:20:39+00:00",
+    "generated_at": "2026-07-21T20:08:51+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -39,20 +39,57 @@
             "asin": "B0B2ZVCN12",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 7pc Kids Gold Panning Kit with Paydirt",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 7pc Gold Panning Kit Beginner Green",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 47,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "7",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Green",
+                "name": "Gold Panning Kit Beginner"
+            }
         },
-        "title_differentiation": {
-            "value": "Includes Bobby Bo paydirt, classifier, dual riffle pan, magnifier & collection tools",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 7-Pc Starter Gold Panning Kit, Green",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 48,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "7",
+                "pack_size_unit": "Pc",
+                "size": "Starter",
+                "color": "Green",
+                "name": "Gold Panning Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Includes Paydirt, Classifier, Dual Riffle Pan, 10X Loupe, Collection Tools, Kids And Beginners",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 94,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Bobby Bo Paydirt, 6-Inch Classifier, 8-Inch Dual Riffle Pan, 10X Loupe, Kids Beginner Prospecting Set",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

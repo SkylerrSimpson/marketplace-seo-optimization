@@ -3,14 +3,14 @@
     "asin": "B07PDJ8QSY",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:25:05+00:00",
+    "generated_at": "2026-07-21T19:54:00+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 4,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -80,19 +80,58 @@
             "asin": "B07PDJ8QSY",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Bald Eagle Throwing Knives 3 Piece Set",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 3-Piece 6.5in Bald Eagle Throwing Knives",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "Piece",
+                "size": "6.5in",
+                "color": "Multi-Color",
+                "name": "Bald Eagle Throwing Knives"
+            }
         },
-        "title_differentiation": {
-            "value": "6.5\" Stainless Steel, Patriotic Design, Includes Nylon Sheath",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 3-Pk 6.5in Multi-Color Throwing Knives",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 50,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "6.5in",
+                "color": "Multi-Color",
+                "name": "Throwing Knives"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "3CR13 Stainless Steel, Patriotic Eagle And Flag Design, Multi-Color Blades, Includes Nylon Sheath With Belt Loop, Lanyard Hole",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 126,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (126 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "3CR13 Stainless Steel, Rust Resistant, Bald Eagle And American Flag Etching, Nylon Sheath, Lanyard Holes",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 104,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

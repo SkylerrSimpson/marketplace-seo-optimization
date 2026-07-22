@@ -1,0 +1,60 @@
+{
+    "sku": "LST-IKSMMRFLASP-3PC-AMZ-HPN1",
+    "asin": "B07XGC91Z2",
+    "product_type": "KARAOKE_MACHINE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-IKSMMRFLASP-3PC-AMZ-HPN1\nProduct Type: KARAOKE_MACHINE\nBrand (from catalog): NA\nExisting Title: Princess Karaoke -Children's Toy Stand Up Microphone Play Set w/Built-in MP3 Player, Speaker, Adjustable Height (Pink)\nDescription: This hands on Bedazzled Rainbow Flashing Lights and Sound Singing Machine Microphone has 9 different rhythms that become interactive whenever the bedazzled, light-up gems are pushed inwith 9 Demonstration Songs is a great musical toy to get your kids in touch with their inner pop star. Children will have the confidence to get on stage and belt out their favorite songs while they are playing by themselves or in a room full of family and friends.\nSearch Terms: karaoke machine singing girls toys\nFeatures:\n- Built In MP3 Jack and Speaker! Plug In your MP3 Player, Phone, etc. to Play and Sing Along to your Own Tunes!\n- Working Microphone and Speaker with Volume Control Knob! Adjustable Height: 40\" - 56\" Tall Requires 4 AA Batteries (not included)\n- Recommended for ages 3 & up. Products arrive in attractive packaging making it an ideal birthday or Christmas gift\n- Durably Constructed Material - Your Little Princess will spend hours entertaining herself with this child safe set. Made of high quality plastic materials (non-toxic)\n- timulating Imagination - Pretend play develops a child's imaginative and understanding skills; additionally, it improves the child's self esteem\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Princess Karaoke Stand Up Microphone Play Set Pink",
+            "tokens": {
+                "brand": "",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Pink",
+                "name": "Princess Karaoke Stand Up Microphone Play Set"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "NA Pink Karaoke Machine",
+            "tokens": {
+                "brand": "NA",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Pink",
+                "name": "Karaoke Machine"
+            },
+            "char_count": 23,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Built-in MP3 Jack, Adjustable Height 40-56 In, 9 Rhythms And Demo Songs, Flashing Rainbow Lights, Ages 3",
+            "char_count": 104,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "MP3 Jack And Speaker, Adjustable 40-56\" Height, Working Microphone, Volume Control, Ages 3 Plus",
+            "char_count": 95,
+            "validation_error": null
+        }
+    }
+}

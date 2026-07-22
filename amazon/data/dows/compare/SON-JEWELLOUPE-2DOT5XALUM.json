@@ -1,0 +1,60 @@
+{
+    "sku": "SON-JEWELLOUPE-2DOT5XALUM",
+    "asin": "B0FF78MHSL",
+    "product_type": "MAGNIFIER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-JEWELLOUPE-2DOT5XALUM\nProduct Type: MAGNIFIER\nBrand (from catalog): Universal Tool\nExisting Title: Universal Tool 2.5X Aluminum Jewelers Loupe 22mm Diameter Glass Lens Magnifier\nDescription: If you're a jewelry maker or hobby craft enthusiast, you've probably found yourself in a situation where you could use a better look at tiny gems, beads or other materials. With the Universal Tool Magnifier Loupe, you'll be able to do just that.<br/><br/>Jeweler's loupes are simple yet effective magnification devices designed to help you see small details more closely. Unlike a magnifying glass, loupes generally have a focusing lens that is contained in housing that protects the lens when not in use. Our loupe features an aluminum body that will ensure that your lens is safe from scratches and fingerprints that may mar the view of the small items you're working with.<br/><br/>This loupe features either a 2.5X, 5X, 7.5X, or 10X magnification power, which means it will magnify whatever you're viewing by 2.5, 5, 7.5, or 10. This is a significant improvement when viewing intricate details, and will help jewelers, watch makers or photographers pinpoint areas that need extra attention. The lens has a diameter of 22mm making it an ideal size for small items like beads, jewels, rhinestones, sequins and other items that require precision. <br/><br/>As stated previously, this loupe is housed inside of a durable yet lightweight aluminum body to protect the lens, and measures just 1.25\" tall so it can easily fit inside just about any craft box, hobby tool kit or supply drawer. Keep in mind that loupes are meant to be used with the lens close to the item you're magnifying so that they work properly. <br/><br/>In addition to jewelry making, watch repairs and other precision hobby crafts, loupes are great tools for other professions like printing, dentistry, geology, electronics repair and even tattooing. This is a must-have magnifying tool for anyone who needs a better look at small items and details.\nSearch Terms: jewelers loupe 10x eye led illuminated magnifying aluminum watch making tools precision magnifiers metal small the\nFeatures:\n- 2.5X MAGNIFICATION POWER - Loupe Magnifies Small Objects; Ideal for Jewelry Makers, Watch Repairs and Hobby Crafters Placing, Setting and Identifying Tiny Materials\n- ALUMINUM BODY - Aluminum Body Protects Lens From Scratches and Fingerprints When Not in Use; Durable Yet Lightweight Material Also Doubles as Handle for Ease of Use\n- 22MM DIAMETER LENS - Small Lens is Perfect Size for Viewing Beads, Gems, Rhinestones, Jewels, Sequins and Other Materials Requiring Precision\n- COMPACT DESIGN - Loupe Measures Just 1.25\" Tall and 1.5\" Wide; Easily Fits Inside Most Craft Boxes, Hobby Tool Kits, Supply Drawers or Workshop Storage\n- VERSATILE MAGNIFIER - Designed for Jewelry Making but Great for Watchmaking/Repair, Photography, Printing, Dentistry, Tattooing, Biology/Geology, Coin Collecting and More\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 2.5X Aluminum Jewelers Loupe 22mm",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "2.5",
+                "pack_size_unit": "X",
+                "size": "22mm",
+                "color": "Aluminum",
+                "name": "Jewelers Loupe"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 2.5X Aluminum Jewelers Loupe 22mm Glass Magnifier",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "2.5X",
+                "color": "",
+                "name": "Aluminum Jewelers Loupe Magnifier"
+            },
+            "char_count": 64,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "25X Magnification, 22Mm Lens, Aluminum Body, Compact Design, Jewelry Making And Watch Repair",
+            "char_count": 92,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Aluminum Body Protects Lens From Scratches, 22Mm Precision Lens, Compact 125 Inch Design, Ideal For Jewelry And Watch Repair",
+            "char_count": 124,
+            "validation_error": null
+        }
+    }
+}

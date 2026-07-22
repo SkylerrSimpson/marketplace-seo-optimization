@@ -3,14 +3,14 @@
     "asin": "B0D4TK9L6C",
     "product_type": "FOOD_SPATULA",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:46:31+00:00",
+    "generated_at": "2026-07-21T19:28:51+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 17,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -242,20 +242,57 @@
             "asin": "B0D4TK9L6C",
             "raw_value": true
         },
-        "title_differentiation": {
-            "value": "Food safe natural finish, comfortable rounded handles, won't scratch nonstick cookware, handwash only",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Labrea Life + Home 5pc Acacia Wood Kitchen Utensils Set",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8",
-            "validation_error": "requires item_name <= 75 chars"
-        },
-        "item_name_ai_suggested": {
-            "value": "Labrea Life + Home 5pc Acacia Wood Kitchen Utensil Set, 12\"",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Labrea Life + Home",
+                "pack_size": "5",
+                "pack_size_unit": "pc",
+                "size": "12 Inch",
+                "color": "",
+                "name": "Acacia Wood Kitchen Utensils Set"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "LABREA LIFE + HOME 5-pk 12 in Acacia Wood Kitchen Utensil Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 61,
+            "review_only": true,
+            "tokens": {
+                "brand": "LABREA LIFE + HOME",
+                "pack_size": "5",
+                "pack_size_unit": "pk",
+                "size": "12 in",
+                "color": "",
+                "name": "Acacia Wood Kitchen Utensil Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Food Safe, Non-Scratch, Natural Wood Grain, Rounded Handles, Includes Spoon, Spatula And Skimmer",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 96,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Natural Acacia Wood Grain, Food Safe, Non Scratch For Nonstick Cookware, Rounded Handle, Hand Wash Only",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

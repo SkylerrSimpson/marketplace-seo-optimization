@@ -3,14 +3,14 @@
     "asin": "B087LWGQPP",
     "product_type": "CORD_ROPE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:59:02+00:00",
+    "generated_at": "2026-07-21T20:05:02+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 3,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -56,25 +56,62 @@
             "raw_value": true
         },
         "color": {
-            "value": "Black",
+            "value": "Assorted",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Kevlar Sport Line Cord 200lb Breaking Strength",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Kevlar Sport Line Utility Cord 200LB",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "200LB",
+                "color": "",
+                "name": "Kevlar Sport Line Utility Cord"
+            }
         },
-        "title_differentiation": {
-            "value": "100% USA Made, Lightweight, UV & Flame Resistant, Multiple Lengths & Colors",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor Kevlar Sport Line Utility Cord",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 42,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Kevlar Sport Line Utility Cord"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "200LB Breaking Strength, Made In USA, Flame And Heat Resistant, Lightweight, UV Resistant, Multiple Lengths And Colors",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 118,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "200 Lb Break Strength, 100 Percent Genuine Kevlar, Made In USA, Flame And UV Resistant, Low Stretch, 03 Inch Diameter",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 117,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

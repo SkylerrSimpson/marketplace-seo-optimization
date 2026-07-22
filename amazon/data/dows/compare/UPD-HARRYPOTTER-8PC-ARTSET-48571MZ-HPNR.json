@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-HARRYPOTTER-8PC-ARTSET-48571MZ-HPNR",
+    "asin": "B08MZ6Q4NT",
+    "product_type": "ART_CRAFT_KIT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-HARRYPOTTER-8PC-ARTSET-48571MZ-HPNR\nProduct Type: ART_CRAFT_KIT\nBrand (from catalog): Wizarding World\nExisting Title: Harry Potter 8-Piece Art Set with Gryffindor Carrying Tote\nDescription: 8-Piece Art Set with Gryffindor Carrying Tote\nSearch Terms: harry potter wizard gryffindor house sorting hat markers drawing kids toddler children stickers backpack tote notepad kit education back to school pre kindergarten developmental learning mini set coloring book travel activity no mess\nFeatures:\n- Wizarding World of Harry Potter presents this take-along art bag set\n- Includes 6 markers, 1 notebook and 1 sticker sheet\n- Includes a mini backpack tote bag with Gryffindor logo\n- Bag measures 9.5 by 8 by 2.75 inches with adjustable shoulder straps\n- Harry Potter 8-Piece Art Set with Gryffindor Carrying Tote\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Wizarding World Harry Potter 8-Piece Art Set Gryffindor Tote",
+            "tokens": {
+                "brand": "Wizarding World",
+                "pack_size": "8",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "Gryffindor",
+                "name": "Art Set with Carrying Tote"
+            },
+            "char_count": 60,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Wizarding World 8-pc Art Set with Gryffindor Tote",
+            "tokens": {
+                "brand": "Wizarding World",
+                "pack_size": "8",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Art Set with Gryffindor Tote"
+            },
+            "char_count": 49,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Includes 6 Markers, Notebook And Sticker Sheet, Gryffindor Backpack Tote, Adjustable Shoulder Straps, Travel Activity Kit",
+            "char_count": 121,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "6 Markers, Notebook, Sticker Sheet, Mini Backpack Tote, Adjustable Shoulder Straps, Gryffindor Logo",
+            "char_count": 99,
+            "validation_error": null
+        }
+    }
+}

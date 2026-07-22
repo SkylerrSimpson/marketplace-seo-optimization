@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-CANTEEN-FROZEN-FRZCB660-HPNR",
+    "asin": "B082BGM5HT",
+    "product_type": "BOTTLE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-CANTEEN-FROZEN-FRZCB660-HPNR\nProduct Type: BOTTLE\nBrand (from catalog): Disney Frozen\nExisting Title: United Pacific Designs FRZCB660: Frozen 2-12 Oz Canteen with Popup Lid and Strap\nDescription: United Pacific Designs supplies licensed merchandise. Success in Licensed Character Merchandise is more than just great names. You need innovative, well-designed and aggressively-priced merchandise that catches your customers’ eyes and represents fantastic values. This is where U.P.D., Inc. excels. U.P.D.’s product offerings include the best values in stationery, toys, backpacks, keychains, children’s dinnerware & drinkware, photo albums, stickers & novelty items for children. Every day, our talented team of designers and buyers are developing new items and new programs to guarantee your success in Licensed Character Merchandise. With U.P.D., there is always something new.\nSearch Terms: (none)\nFeatures:\n- Bold colors and graphics\n- Features your favorite characters\n- Makes a great gift\n- Made from quality materials\n- Durable and long lasting material\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Disney Frozen 2-12 Oz Canteen with Popup Lid",
+            "tokens": {
+                "brand": "Disney Frozen",
+                "pack_size": "2",
+                "pack_size_unit": "pack",
+                "size": "12 oz",
+                "color": "",
+                "name": "Canteen with Popup Lid"
+            },
+            "char_count": 44,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Disney Frozen 12-Oz Canteen with Popup Lid and Strap",
+            "tokens": {
+                "brand": "Disney Frozen",
+                "pack_size": "12",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "",
+                "name": "Canteen"
+            },
+            "char_count": 52,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Durable Quality Materials, Bold Character Graphics, Includes Carrying Strap, Perfect Gift For Kids",
+            "char_count": 98,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Bold Colors And Graphics, Favorite Frozen Characters, Durable Long-Lasting Build, Great Gift For Kids",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

@@ -3,18 +3,24 @@
     "asin": "B074JLHYDV",
     "product_type": "SPORTING_GOODS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:11:44+00:00",
+    "generated_at": "2026-07-21T19:48:44+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
-        "fillable": 0,
+        "fillable": 1,
         "catalog": 3,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
     "attributes": {
+        "target_audience": {
+            "value": "Men, Adults, People, Unisex Adult",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.target_audience_amazon"
+        },
         "externally_assigned_product_identifier": {
             "value": [
                 {
@@ -58,20 +64,57 @@
             "asin": "B074JLHYDV",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Ninja Grappling Hook 33ft Rope Black Stainless Steel",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Ninja Grappling Hook 33ft Rope Black",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "33",
+                "pack_size_unit": "ft",
+                "size": "9.5in",
+                "color": "Black",
+                "name": "Ninja Grappling Hook"
+            }
         },
-        "title_differentiation": {
-            "value": "9.5\" Hook with 33 Feet Nylon Rope, Heavy Duty Stainless Steel, Compact Design",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 33-ft Black Grappling Hook",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 38,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "33",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Black",
+                "name": "Grappling Hook"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Heavy Duty Stainless Steel, 95In Hook With 8In Spikes, 33 Feet Nylon Rope, Compact And Portable",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 95,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Heavy Duty Stainless Steel, Two 8\" Spikes, 33 Feet Nylon Cord, Rope Attachment Loop, Compact Carry, Outdoor Retrieval Tool",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 122,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

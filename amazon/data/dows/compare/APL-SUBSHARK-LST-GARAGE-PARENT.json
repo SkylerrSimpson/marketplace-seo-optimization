@@ -1,0 +1,60 @@
+{
+    "sku": "APL-SUBSHARK-LST-GARAGE-PARENT",
+    "asin": "B0BP8ZGJRJ",
+    "product_type": "TOY_VEHICLE_SET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: APL-SUBSHARK-LST-GARAGE-PARENT\nProduct Type: TOY_VEHICLE_SET\nBrand (from catalog): Kidplokio\nExisting Title: Kidplokio Diecast Car Toy Set Car Carrier Boys 3 and Up (Sub or Parking Garage)\nDescription: Does your child love diecast cars? This set comes with a 25pc set of diecast cars and 1 of 2 choices to go with the race cars - a submarine shark car carrier or a parking garage play set. All pieces included are safe for children ages 3 and up with adult supervision. <br/><br/>Kids will have a blast playing with this fin-tastic shark submarine toy. This double-sided, freewheeling shark submarine comes with six diecast race cars or stunt cars, a front hatch that opens to a car slide, a spinning back propeller, and a moving periscope for lots of jawsome action at home or on the go.<br/><br/>The parking garage play set comes with 3 race cars and a police car to ensure no one is driving too fast. Kids will love driving and parking the race cars in the multi-level parking garage which comes with an assortment of stickers to designate street signs, shops, and buildings.\nSearch Terms: Birthday present toys for boys Christmas Hanukkah brother gifts all childrens stunt alloy toy car stocking stuffers toy vehicle playsets car accessories kids sharks submarine holiday toy list 2022 toddler travel toy pretend play cosplay playroom\nFeatures:\n- DIECAST CAR BUNDLE SET - Kidplokio pretend play set comes with 25pc diecast cars and 1 of 2 choices: parking garage set or submarine shark car carrier; All pieces included are safe for kids ages 3 and up with adult supervision\n- SUBMARINE SHARK TOYS - Kids will have a blast playing with this fin-tastic shark submarine toy; Double-sided car carrier slots with an opening front hatch car slide, spinning propellers, and moving periscopes\n- TIDY STORAGE - The side compartments snap closed so toys and diecast cars can be neatly tucked away when playtime is over, making for a quick clean up and tidy storage of race cars when not in use\n- PARKING GARAGE SET - 3 Level Parking Garage Urban City Play Set - Comes with (3) Diecast Race Cars and a single (1) Patrolling Diecast Police Car AND Stickers for Designating Street Signs, Shops & Buildings\n- EDUCATIONAL STIMULATION - Command the car to run, use the spiral ramp to drop cars to different floors, thoroughly exercise the toddler's hand-eye coordination ability, and stimulate the mind o to create various imaginary stories and games\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Kidplokio 25pc Diecast Car Toy Set Submarine Shark Garage",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "25",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Diecast Car Toy Set Submarine Shark Garage"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Kidplokio Diecast Car Toy Set Car Carrier For Boys 3 And Up",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Diecast Car Toy Set Car Carrier"
+            },
+            "char_count": 59,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Submarine Shark Carrier And Parking Garage, 25 Diecast Cars, Ages 3 Plus, Educational Play",
+            "char_count": 90,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "25-Piece Diecast Cars, Shark Submarine Or 3-Level Parking Garage, Freewheeling, Storage, Ages 3",
+            "char_count": 95,
+            "validation_error": null
+        }
+    }
+}

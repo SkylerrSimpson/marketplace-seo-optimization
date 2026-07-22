@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-BLE-UTENSILSET-LANC",
+    "asin": "B0BZ6JRLQS",
+    "product_type": "BLADED_FOOD_PEELER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-BLE-UTENSILSET-LANC\nProduct Type: BLADED_FOOD_PEELER\nBrand (from catalog): Beille\nExisting Title: Beille Kitchen Gadget Pastel Lancashire Peeler Wooden Handle Cooking Tool\nDescription: This fresh and fun Lancashire peeler from Beille is a must-have kitchen accessory featuring a modern design with a thick rounded handle to ensure comfortable maneuvering during food and meal prep. <br/><br/>The Lancashire-style peeler is a handy item to have for any kitchen. Featuring a stiff and straight design, this tool is ideal for peeling hard-skinned vegetables like potatoes, yams and carrots.<br/><br/>Each peeler is made of durable, high-quality plastic with a sturdy wooden handle, and the tools are dishwasher-safe for easy cleanup. It's made of food-safe materials so you can trust it whether you're meal-prepping or hosting a party. The handle also comes with a convenient hole for hanging storage if desired.\nSearch Terms: cooking baking utensil wooden silicone food prep college essentials house warming gifts home chef kitchen decor cookware sets bakeware organization first beverage pantry storage kitchen tools kitchen gifts home decor farmhouse decor\nFeatures:\n- LANCASHIRE PEELER - Beille Lancashire peeler works more like a knife than a standard Y-peeler; Features a straight and stiff design, ideal for peeling hard-skin vegetables like potatoes, carrots, and yams\n- TRENDY STYLE - Veggie peeler features a stylish soft pastel and light wooden handle for a trendy look; Perfect fit for any modern, farmhouse, or country-style kitchen; Great housewarming gift idea\n- DURABLE DESIGN - Each kitchen gadget is made of durable, high-quality silicone and stainless steel with a sturdy wooden handle; Tools are dishwasher safe for easy clean up after use\n- FOOD SAFE - Beille Lancashire peeler is made of food-safe materials so you can trust it for use in your kitchen, meal prep, or at backyard BBQs and parties; Tool handle features a convenient hole for hanging storage if desired\n- SPECIFICATIONS - Dimensions: 6.75\" x 1\"; Weight: .15oz; Materials: wood, plastic; Food safe: Yes; Color: pastel blue\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille Pastel Blue Lancashire Peeler Wooden Handle",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Pastel Blue",
+                "name": "Lancashire Peeler Wooden Handle"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille Pastel Blue Lancashire Peeler Wooden Handle",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Pastel Blue",
+                "name": "Lancashire Peeler"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Straight Blade Design, Dishwasher Safe, Food-Safe Stainless Steel, Ideal For Hard Vegetables, Hanging Storage Hole",
+            "char_count": 114,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Straight Stiff Blade, Ideal For Potatoes Carrots And Yams, Wooden Handle, Dishwasher Safe, Food Safe",
+            "char_count": 100,
+            "validation_error": null
+        }
+    }
+}

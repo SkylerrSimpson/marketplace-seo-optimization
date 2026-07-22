@@ -3,15 +3,15 @@
     "asin": "B0F7NQ3RRK",
     "product_type": "CUTTING_BOARD",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:50:58+00:00",
+    "generated_at": "2026-07-21T20:02:56+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 4,
-        "ai_null": 0,
+        "ai_suggested": 5,
+        "ai_null": 1,
         "base_template": 0
     },
     "attributes": {
@@ -31,27 +31,66 @@
             "value": "PVC",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "model_name": {
-            "value": "TTX Pink Self Healing Cutting Mat",
+            "value": null,
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux Pink Self Healing Cutting Mat Set, 9x12 & 12x18",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux Pink Self Healing Cutting Mat Bundle 2-Pack",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "2",
+                "pack_size_unit": "Pack",
+                "size": "9x12 and 12x18 inch",
+                "color": "Pink",
+                "name": "Self Healing Cutting Mat"
+            }
         },
-        "title_differentiation": {
-            "value": "Dual sizes, self-healing surface, dual measurements, ideal for crafting",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux Assorted Sizes Pink Self Healing Cutting Mat",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 55,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Assorted Sizes",
+                "color": "Pink",
+                "name": "Self Healing Cutting Mat"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Two Mats Included, Self Healing Surface, Dual Measurements In Inches And Millimeters, 45 And 60 Degree Guides, Stylish Pink Color",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 129,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (129 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Two Mat Set, 9 By 12 And 12 By 18 Sizes, Dual Inch And Millimeter Grids, 45 And 60 Degree Guides, Self Healing Surface",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 118,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

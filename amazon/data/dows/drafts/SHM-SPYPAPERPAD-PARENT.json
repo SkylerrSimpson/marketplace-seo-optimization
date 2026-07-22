@@ -3,14 +3,14 @@
     "asin": "B07TZKWRMS",
     "product_type": "BLANK_BOOK",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:05:12+00:00",
+    "generated_at": "2026-07-21T19:46:05+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 6,
-        "ai_suggested": 5,
+        "ai_suggested": 7,
         "ai_null": 0,
         "base_template": 0
     },
@@ -98,33 +98,71 @@
             "value": "White",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "material": {
             "value": "Paper",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
-            "value": "5.5 x 8.5 inches",
+            "value": "8.5 x 5.5 inches",
             "is_required": false,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "CCS Spy Gear Disappearing Magic Notepad - Water Dissolving Journal",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "CCS Spy Gear 32-Sheet Disappearing Magic Note Pad",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 49,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "CCS Spy Gear",
+                "pack_size": "32",
+                "pack_size_unit": "Sheet",
+                "size": "",
+                "color": "",
+                "name": "Disappearing Magic Note Pad"
+            }
         },
-        "title_differentiation": {
-            "value": "32 sheets, dissolves with liquid, secret message pad, made in USA",
+        "item_name_ai_openai": {
+            "value": "CCS Spy Gear 32-Sheet 5.5\" x 8.5\" Disappearing Note Pad",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 55,
+            "review_only": true,
+            "tokens": {
+                "brand": "CCS Spy Gear",
+                "pack_size": "32",
+                "pack_size_unit": "sheet",
+                "size": "5.5\" x 8.5\"",
+                "color": "",
+                "name": "Disappearing Note Pad"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Water-Soluble Paper, Dissolves Instantly, Secret Message Journal, Made In USA, Secure Note Disposal",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 99,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Dissolves When Wet, Water-Soluble Paper, Secret Notes Disappear, Made In USA, Secure Hidden Messages, Quick Dispose",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 115,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

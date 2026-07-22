@@ -3,14 +3,14 @@
     "asin": "B0CNP1WRD3",
     "product_type": "SURVIVAL_KIT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:57:59+00:00",
+    "generated_at": "2026-07-21T20:04:37+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 7,
         "catalog": 9,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 20
     },
@@ -193,20 +193,57 @@
             "asin": "B0CNP1WRD3",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 7 Inch Full Tang Survival Knife with Fire Starter",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 7 inch Black Green Survival Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 45,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "7",
+                "pack_size_unit": "inch",
+                "size": "7 inch",
+                "color": "Black and Green",
+                "name": "Survival Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "440 Stainless Steel, Serrated Spine, Tanto Point, Paracord Handle, Includes Magnesium Rod & Sheath",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 7-in Tanto Black Green Survival Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 49,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "7",
+                "pack_size_unit": "in",
+                "size": "Tanto",
+                "color": "Black Green",
+                "name": "Survival Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Full Tang Tanto, Serrated Spine, Fire Starter Rod, Paracord Handle, Nylon Sheath",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 80,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Full Tang 440 Stainless Steel, Serrated Spine, Paracord Wrapped Handle, Magnesium Fire Starter, Nylon Sheath",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 108,
+            "review_only": true
         },
         "supplier_declared_material_regulation": {
             "value": [

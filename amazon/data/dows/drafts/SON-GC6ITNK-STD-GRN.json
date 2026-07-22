@@ -3,14 +3,14 @@
     "asin": "B00ZO651YA",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:38:50+00:00",
+    "generated_at": "2026-07-21T19:57:59+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 4,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -85,20 +85,57 @@
             "asin": "B00ZO651YA",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical 6\" Serrated Fixed Blade Neck Knife Green Camo",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical 6\" Green Camo Serrated Fixed Blade Neck Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 58,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "6",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Green Camo",
+                "name": "Serrated Fixed Blade Neck Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "3.5\" Tanto Blade, Necklace Sheath with Bead Chain, Survival Ready",
+        "item_name_ai_openai": {
+            "value": "ASR Tactical 6-in Green Fixed Blade Neck Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 46,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "6",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Green",
+                "name": "Fixed Blade Neck Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "35 Inch Tanto Blade, Durable Plastic Sheath With Bead Chain, Fixed Blade Survival Knife, Outdoor Hunting Tool",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 109,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Serrated Tanto Blade, 35\" Cutting Edge, Wearable Bead Chain Sheath, Lock Pin Retention, Compact Survival Tool",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

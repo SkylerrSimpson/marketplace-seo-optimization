@@ -3,14 +3,14 @@
     "asin": "B087CCKR8S",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:36:40+00:00",
+    "generated_at": "2026-07-21T19:57:23+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 0,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -25,22 +25,59 @@
             "value": "Stainless Steel",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Full Tang Survival Knife 5.5\" Blade Paracord Fire Starter",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 11\" Fixed Blade Survival Knife Paracord Serrated",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 60,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "11",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Fixed Blade Survival Knife Paracord Serrated"
+            }
         },
-        "title_differentiation": {
-            "value": "Stainless Steel, Tanto Blade, Magnesium Fire Starter, Nylon Sheath Included",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 11-in Survival Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 32,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "11",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Survival Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Full Tang Stainless Steel, Magnesium Fire Starter, Paracord Handle, Nylon Sheath, Tanto Blade",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 93,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Full Tang 440 Stainless Steel, Paracord Wrapped Handle, Magnesium Fire Starter, Nylon Sheath, Rust Resistant",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 108,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

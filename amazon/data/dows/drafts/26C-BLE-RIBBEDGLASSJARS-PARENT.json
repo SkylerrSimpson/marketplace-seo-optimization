@@ -3,14 +3,14 @@
     "asin": "B0GTN2PS6P",
     "product_type": "FOOD_STORAGE_CONTAINER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:19:47+00:00",
+    "generated_at": "2026-07-21T19:51:43+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 0,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -25,28 +25,65 @@
             "value": "Glass",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "model_name": {
-            "value": "Ribbed Glass Food Storage Containers",
+            "value": "Ribbed Glass Storage Containers",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Beille Ribbed Glass Food Storage Containers, Airtight Lids",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille Ribbed Glass Food Storage Containers, 3 Sizes",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "3",
+                "pack_size_unit": "Sizes",
+                "size": "",
+                "color": "Clear",
+                "name": "Ribbed Glass Food Storage Containers"
+            }
         },
-        "title_differentiation": {
-            "value": "Plastic-Free, 3 Sizes, Microwave/Dishwasher/Freezer Safe",
+        "item_name_ai_openai": {
+            "value": "Beille 3 Sizes Ribbed Glass Food Storage Containers",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 51,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "3 Sizes",
+                "color": "",
+                "name": "Ribbed Glass Food Storage Containers"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Airtight Silicone Lids, Plastic Free, Microwave Dishwasher Freezer Safe, Pantry Organization",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 92,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Airtight Silicone Lid, Plastic Free Non Toxic, Microwave Dishwasher Freezer Safe, Clear Ribbed Glass, Pantry Organization",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 121,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

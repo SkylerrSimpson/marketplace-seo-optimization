@@ -3,14 +3,14 @@
     "asin": "B09YCDQPL6",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:31:13+00:00",
+    "generated_at": "2026-07-21T20:11:11+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -33,20 +33,58 @@
             "asin": "B09YCDQPL6",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 6pc Hook and Pick Set Gold Prospecting Tool",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 6-Pc Hook and Pick Gold Prospecting Set",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "6",
+                "pack_size_unit": "Pc",
+                "size": "",
+                "color": "",
+                "name": "Hook and Pick Gold Prospecting Set"
+            }
         },
-        "title_differentiation": {
-            "value": "High Carbon Steel, Ergonomic Grip, 9.25\" Length, Rust-Resistant",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 6-pc Hook and Pick Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 34,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "6",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Hook and Pick Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "6 Versatile Tools, High Carbon Steel, Non-Slip Ergonomic Handles, Rust-Resistant, 925 Inch Length, Rockhounding And Jewelry Making",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 130,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (130 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "6 Precision Hook And Pick Profiles, Non-Slip Rubber Grips, 40 HRC Steel, Rust Resistant, 9-14 Inch Long",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

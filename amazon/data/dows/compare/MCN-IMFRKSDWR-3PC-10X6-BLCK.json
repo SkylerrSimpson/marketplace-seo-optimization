@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-IMFRKSDWR-3PC-10X6-BLCK",
+    "asin": "B000GT471S",
+    "product_type": "ADHESIVE_TAPES",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-IMFRKSDWR-3PC-10X6-BLCK\nProduct Type: ADHESIVE_TAPES\nBrand (from catalog): GEAR AID\nExisting Title: GEAR AID Wetsuit Repair Kit with Neoprene Patch, Fix Seams and Tears , Black , 6” x 10\"…\nDescription: Extend the life of neoprene gear and fix it when it rips using Tenacious Tape Neoprene Patch. <br/>Simply cut the 10\"x6\" patch to size and activate the adhesive using an iron to create a permanent repair for neoprene waders, wetsuits and more. Previously known as Iron Mend, this iron-on fabric patch kit can be used to reinforce seams and high-wear areas including elbows, knees and underarms. It's also designed to repair other stretchy fabrics like spandex and Lycra. For larger repairs or gear that is hard to iron like gloves, booties, and spray skirts, choose the Wetsuit Repair Kit that includes Aquaseal NEO. This flexible, black contact cement cures permanently within 30 minutes. It also seals leaky gaskets and bonds to coated materials and even latex. For ultra-stretch repair that lasts, use Tenacious Tape Iron-On Neoprene Patch or Aquaseal NEO.\nSearch Terms: scuba diving wetsuit drysuit repair neoprene\nFeatures:\n- Fix tears permanently in neoprene wetsuits, gloves and waders with just a household iron and this heat-activated Tenacious Tape Neoprene Patch\n- Cut the black, 10\"x6\" fabric patch to size, and repair tears or reinforce elbows, knees and high-wear areas that require lots of flexibility and durability; also compatible with stretch fabrics like spandex and Lycra®\n- Choose the complete Wetsuit Repair Kit, which includes the Iron-On Neoprene Patch with Aquaseal NEO Contact Cement (1.5 fl oz)\n- Repair torn or ripped neoprene permanently in 30 minutes using Aquaseal NEO; cures to a black, flexible rubber and bonds to latex\n- Packaging may vary\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "GEAR AID Tenacious Tape Neoprene Patch 10x6 Black",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "10x6",
+                "pack_size_unit": "in",
+                "size": "10x6",
+                "color": "Black",
+                "name": "Tenacious Tape Neoprene Patch"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID 10\" x 6\" Black Neoprene Patch Kit",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "10\" x 6\"",
+                "color": "Black",
+                "name": "Neoprene Patch Kit"
+            },
+            "char_count": 42,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Iron-On Fabric Patch, Permanent Wetsuit And Wader Repair, Heat Activated, Flexible Black Rubber, Reinforces Seams And High-Wear Areas",
+            "char_count": 133,
+            "validation_error": "value exceeds maxLength 125 (133 chars)"
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Heat Activated Iron-On Repair, Fixes Wetsuits Gloves Waders, Reinforces Seams And High Wear Areas",
+            "char_count": 97,
+            "validation_error": null
+        }
+    }
+}

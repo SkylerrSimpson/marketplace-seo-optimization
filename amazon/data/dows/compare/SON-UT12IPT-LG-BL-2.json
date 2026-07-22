@@ -1,0 +1,60 @@
+{
+    "sku": "SON-UT12IPT-LG-BL-2",
+    "asin": "B06XV41M4D",
+    "product_type": "TOOLS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-UT12IPT-LG-BL-2\nProduct Type: TOOLS\nBrand (from catalog): Universal Tool\nExisting Title: Universal Tool 12 Inch Low Profile Paper Trimmer with Guide\nDescription: Ensure you get straight cuts during your crafting or DIY projects with the Universal Tool 12 Inch Paper Trimmer. <br/><br/>This trimmer is compact, lightweight and easy to transport. It can cut up to 4 sheets of paper at once, and features a magnetic cutting bar to hold the paper in place while you cut. Rubber stoppers are located on the base to prevent slippage, and it has a 6 x 21 square grid guide for use while cutting. Make sure you grab one of these to add to your tool collection.\nSearch Terms: hand held office paper trimming device cutter crafting tools crafts scrapbook kids crafting home projects\nFeatures:\n- Universal Tool Paper Trimmer - 12\" Length\n- Compact, Lightweight & Easy to Transport\n- Cuts Up to 4 Sheets At Once\n- Magnetic Cutting Bar To Hold Paper in Place\n- Rubber Stoppers On Base to Prevent Slippage\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 12 Inch Paper Trimmer with Guide",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "12",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Paper Trimmer with Guide"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 12-in Low Profile Paper Trimmer",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "12",
+                "pack_size_unit": "in",
+                "size": "Low Profile",
+                "color": "",
+                "name": "Paper Trimmer"
+            },
+            "char_count": 46,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Cuts 4 Sheets, Magnetic Bar, Grid Guide, Rubber Stoppers, Compact And Lightweight",
+            "char_count": 81,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Cuts 4 Sheets, Magnetic Cutting Bar, Rubber Stoppers, 6 X 21 Grid Guide, Compact Lightweight, Easy Transport",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

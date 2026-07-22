@@ -1,0 +1,60 @@
+{
+    "sku": "PFT-PFTGKEHDS-BUN-2PC-SML-TN-BNDL",
+    "asin": "B01E67YFGW",
+    "product_type": "PHYSICAL_MOVIE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: PFT-PFTGKEHDS-BUN-2PC-SML-TN-BNDL\nProduct Type: PHYSICAL_MOVIE\nBrand (from catalog): Productive Fitness\nExisting Title: Productive Fitness The Great Kettlebell Exercise Handbook & DVD Set\nDescription: Learn to exercise with kettlebells with the Productive Fitness Great Kettlebell DVD & Handbook Set.<br/><br/>Kettlebell training is a full body workout that challenges your core strength, body strength and cardiovascular system. A high intensity set of exercises will tone and build muscle and burn a huge amount of calories.<br/><br/>Starting with safety, The Great Kettlebell DVD moves on to some simple movement patterns that are the foundation of all kettlebell lifting and then onto some slightly more complex but basic moves. The DVD then covers a series of kettlebell exercises and finally some more complex exercises such as the Windmill and the Snatch.<br/><br/>The Kettlebell Handbook is designed to take the mystery out of kettlebell training. Get more value out of your equipment and discover new exercises. Written by experts, the handbook has easy to follow illustrations that guide you through each exercise. It includes 39 exercises and 3 sample routines.\nSearch Terms: personal trainer gym equipment exercise muscle groups workout\nFeatures:\n- Learn to Train with Kettlebells\n- DVD: Teaches the Foundation of KB Lifting and Basic/Complex Moves\n- Get More Value Out of Your Equipment\n- Learn 3 Sample KB Routines\n- Handbook: 39 KB Exercises; Printed in Color; 64 Pages\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Productive Fitness Great Kettlebell Exercise Handbook & DVD",
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "2",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Great Kettlebell Exercise Handbook and DVD Set"
+            },
+            "char_count": 59,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Productive Fitness Great Kettlebell Exercise Handbook and DVD Set",
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Great Kettlebell Exercise Handbook and DVD Set"
+            },
+            "char_count": 65,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "2-Piece Bundle, DVD Training, 39 Exercises, 3 Sample Routines, Full Body Workout, Color Handbook",
+            "char_count": 96,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "DVD Safety And Foundation Moves, 39 Kettlebell Exercises, 3 Sample Routines, 64-Page Color Handbook",
+            "char_count": 99,
+            "validation_error": null
+        }
+    }
+}

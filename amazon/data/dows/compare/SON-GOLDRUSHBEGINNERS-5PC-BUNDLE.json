@@ -1,0 +1,60 @@
+{
+    "sku": "SON-GOLDRUSHBEGINNERS-5PC-BUNDLE",
+    "asin": "B0764JVCD8",
+    "product_type": "OUTDOOR_LIVING",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-GOLDRUSHBEGINNERS-5PC-BUNDLE\nProduct Type: OUTDOOR_LIVING\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Gold Pan Gold Prospecting Beginners Kit, Collection Tools, 5 Piece Green\nDescription: Take to your local river with the ASR Outdoor 5pc Beginner's Gold Panning Kit! This set comes with everything you'll need to pan for gold, examine and store gold flakes, gold flour or small gold nuggets, or other gems, fossils or precious metals found when gold panning.<br/><br/>In the beginner gold panning kit, we've included one of our most popular gold pans: 10 inch diameter; the gold pan features dual riffles (coarse and fine) that will assist you in separating gold from other unwanted materials like gravels, sands and rocks. The dual riffle gold pan is molded from one piece of high impact, ABS plastic; the gold pan is very lightweight, rust resistant, UV resistant, waterproof and it floats! This pan is unseasoned so be sure to clean off before use for best results.<br/><br/>As for gold prospecting equipment accessories, this kit comes with a magnifying loupe that you'll be able to use to evaluate the quality of any found objects that may be of value. A few of the other items included are fine gold recovery tools for collecting, cleaning and storing your findings. This is a great kit for beginner gold prospectors who are looking to experiment and get their hands dirty with this fun and challenging outdoor sport or hobby.<br/><br/>PLEASE NOTE: Gold pan colors come in high contrast colors of blue, deep green and black.\nSearch Terms: adult beginner gold panning kit for kids 10 inch dual riffle pan recovery miners moss sluice box prospecting equipment mining tools supplies\nFeatures:\n- Size of Gold Pan: 10 inch, 12 inch, or 14 inch diameter; Dual riffle technology for ease of use while sifting pay dirt for gold nuggets\n- Gold Collection Vial: Large glass vial with screw on lid to hold recovered gold flake\n- Magnifying Tweezer: Magnification loupe built into the tweezer body for checking the quality of recovered gold and precious gems\n- Size of Tweezers: 4.5\" L\n- Size of Gold Snifter Bottle: 3oz Capacity\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 5-Piece Gold Panning Beginners Kit, Green",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "Piece",
+                "size": "10 inch",
+                "color": "Green",
+                "name": "Gold Panning Beginners Kit"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 5-Pc 10 In Green Gold Prospecting Beginners Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "Pc",
+                "size": "10 In",
+                "color": "Green",
+                "name": "Gold Prospecting Beginners Kit"
+            },
+            "char_count": 59,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "10 Inch Dual Riffle Pan, Magnifying Tweezer, Glass Vial, Snifter Bottle, Recovery Tools",
+            "char_count": 87,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Dual Riffle Pan, Glass Gold Vial, Magnifying Tweezer, 3Oz Snifter Bottle, Lightweight ABS, Floats, UV Resistant",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-18ISRARSASAG-55PC",
+    "asin": "B0078S63NA",
+    "product_type": "SECURITY_CAMERA",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-18ISRARSASAG-55PC\nProduct Type: SECURITY_CAMERA\nBrand (from catalog): World Hobbies\nExisting Title: 54pc Universal 1/8 Shank Rubber Polishing Bit Burr Set, Rotary Tool Assorted Shapes and Grit Accessory Tool Kit For Dremel\nDescription: The 54pc Rubber Abrasive Rotary Polishing Bit Burr Set is a complete hobby tool set with assorted key shapes and grit strengths all in a standard 1/8\" shank for your next project. This set comes with 80 grit, 240 grit, and 600 grit pieces. Ranging in (5) different head shapes including cylinder, tapered, round, and (2) wheel shaped rubber abrasive polishing and grinding bits. <br/><br/>The set also includes a clear plastic storage container to keep all the tiny pieces secure, safe and organized. High quality rotary DIY abrasive burrs and bits designed with mandrel mounted metal shank, high quality rubber head. This set is great for polishing ferrous metals, stones, glass, ceramic, jewelry and more. Used for various molds, metal, iron, jade, agate, plastics. For use with electric drills, electric grinders and power rotary tools. Be sure to have these within arms reach during your next diy home project!\nSearch Terms: small polishing craft hobby modeling bits rubber adhesive set 54 piece 1/8\" shank assorted grit for rotary tool\nFeatures:\n- ASSORTED GRIT: 80 Grit (Yellow Pieces); 240 Grit (Green Pieces); 600 Grit (Blue Pieces)\n- SPECIFICATIONS: Shank diameter: 1/8 inch; Head Diameter: 15 mm, 10 mm, 8 mm, 6 mm, 5 mm, 4 mm\n- (5) RUBBER POLISHING HEAD SHAPES: Cylinder, tapered, round, big wheel, small wheel\n- UNIVERSAL COMPATIBILITY:  For use with all electric drills, collet electric grinders, power rotary tools and flexible shaft extensions that has a 1/8 collet\n- Ideal high quality home abrasive rubber polishing burrs and bits for do it yourself projects and detail work on ferrous metals, stones, glass, ceramic, jewelry, molds, jade, agate, and plastics\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "World Hobbies 54pc Rubber Polishing Bit Burr Set 1/8 Shank",
+            "tokens": {
+                "brand": "World Hobbies",
+                "pack_size": "54",
+                "pack_size_unit": "pc",
+                "size": "1/8 Shank",
+                "color": "",
+                "name": "Rubber Polishing Bit Burr Set"
+            },
+            "char_count": 58,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "World Hobbies 54-Pc 1/8-Inch Rubber Polishing Bit Burr Set",
+            "tokens": {
+                "brand": "World Hobbies",
+                "pack_size": "54",
+                "pack_size_unit": "pc",
+                "size": "1/8-Inch",
+                "color": "",
+                "name": "Rubber Polishing Bit Burr Set"
+            },
+            "char_count": 58,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "5 Head Shapes, 3 Grit Levels 80240600, Universal 18 Collet, Storage Case, Rotary Tool Compatible",
+            "char_count": 96,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Assorted 80 240 And 600 Grit, 5 Polishing Head Shapes, 18-Inch Shank, Storage Case, For Metal Glass Ceramic Jewelry",
+            "char_count": 115,
+            "validation_error": null
+        }
+    }
+}

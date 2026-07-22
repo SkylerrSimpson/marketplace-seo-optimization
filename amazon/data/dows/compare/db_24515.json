@@ -1,0 +1,60 @@
+{
+    "sku": "db_24515",
+    "asin": "B01DQ2A1P2",
+    "product_type": "OUTDOOR_LIVING",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: db_24515\nProduct Type: OUTDOOR_LIVING\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 22pc Complete Gold Panning Kit for Beginner and Kids Gold Prospecting\nDescription: The 22pc ASR Outdoor Gold Prospecting Set is perfect for beginners and kids new to the hobby as well as an excellent choice gold panning kit for adults looking for a new outdoor hobby that is fun and can be very rewarding.<br/><br/>This set comes with gold mining tools that are essential for getting a new gold prospector started in this rapidly growing hobby. We've included a coarse soil sifting 1/8th inch classifier with wire mesh that is a material sifting screen used to break down your collected gold panning material into finer pay dirt that can be washed with the included gold pans and can in fact also sit right on top of a 5 gallon bucket. The included gold pans in this kit are perfect for picking out the fine gold flakes and larger gold nuggets, as the dark green color will help you identify gold when it is in the base of the pan.<br/><br/>To help you start collecting that needed dirt to wash through your gold pans, we've included 2 durable plastic trowels and a 32oz rock pick hammer so that you can break up tough rocks and loosen the soil for your paydirt when needed. There is also a black sand magnet which helps pick out any magnetically rich iron material that is easier and faster to remove with this pick up tool than washing it out with your pan hand.<br/><br/>Additionally we've added some fine gold recovery tools to collect, clean and store your findings. All in all, this set is great for those just starting out, or for intermediate users to add to their gold prospecting tool collection!<br/><br/>Good luck and happy gold prospecting, we hope you strike it with this ASR Outdoor complete gold panning kit.\nSearch Terms: gold panning kit for adults gold prospecting tools gold recovery gold pan kit prospecting gold panning kit sluice box for gold paydirt wash station gold mat gold panning for adults supplies gold panning equipment for beginners gold mining sluice box\nFeatures:\n- ALL IN ONE GOLD PANNING KIT: Everything needed to get outside and start breaking up some ground in one complete gold rush combo gold panning kit This gold prospecting kit has everything one needs for gold panning, recovery, cleaning and storage, making it an accessible, yet comprehensive kit with an assortment of tools for beginners and adults looking to become gold prospectors\n- 1/8 COARSE CLASSIFYING SCREEN: Essential to a new hobbyist or seasoned gold prospector are reliable coarse sized soil classifier screens; this is the biggest time saver to running more material through your wash plant or gold pan; by breaking down your material; constructed from heavy-duty abs plastic, the classifier screen features 304 steel wire mesh that is rust-resistant and conveniently fit on the rim of a five gallon bucket; with all the rocks plucked out now you can run your paydirt\n- FINE GOLD RECOVERY EQUIPMENT: The included magnifying tweezers and assorted fine gold recovery tools will allow you to better clean, store and examine your newly discovered finds\n- QUALITY GOLD EQUIPMENT: All the gold mining tools included in this complete gold panning kit are made from high quality material; from the high impact, durable plastic classifier screen, gold pans and sand scoop, to the metal magnifying tweezers, durable magnetic pick-up tool and sturdy, reliable flashlight; all the components will see you through many gold prospecting seasons to come\n- PORTABLE AND LIGHTWEIGHT: Everything in this Gold Pan and Classifier Set will conveniently pack into nearly any backpack and unlike gold miners of the past you won't need a pack mule to haul your equipment in\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 22pc Gold Panning Kit for Beginners",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "22",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Gold Panning Kit for Beginners"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 22-Pc Gold Panning Kit for Beginners and Kids",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "22",
+                "pack_size_unit": "Pc",
+                "size": "",
+                "color": "",
+                "name": "Gold Panning Kit"
+            },
+            "char_count": 57,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Complete Gold Prospecting Set, Classifier Screen, Gold Pans, Rock Pick, Magnetic Tool, Recovery Equipment",
+            "char_count": 105,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "All In One Prospecting Set, One-Eighth Inch Classifier Screen, Gold Pans, Trowels, Magnet, Tweezers, Portable Gear",
+            "char_count": 114,
+            "validation_error": null
+        }
+    }
+}

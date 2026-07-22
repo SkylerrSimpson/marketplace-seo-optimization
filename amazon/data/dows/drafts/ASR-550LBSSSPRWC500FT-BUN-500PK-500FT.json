@@ -3,14 +3,14 @@
     "asin": "B00L9G9NUC",
     "product_type": "CORD_ROPE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:16:39+00:00",
+    "generated_at": "2026-07-21T20:08:16+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -81,20 +81,57 @@
             "asin": "B00L9G9NUC",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 550lb Mil-Spec Tactical Paracord Rope 500ft",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 550lb Paracord Rope 500ft Woodland Camo",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "500",
+                "pack_size_unit": "ft",
+                "size": "550lb",
+                "color": "Woodland Camo",
+                "name": "Paracord Rope"
+            }
         },
-        "title_differentiation": {
-            "value": "Type III Military Grade, 550lb Breaking Strength, Woodland Camo",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 500-ft Woodland Camo Paracord Rope",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 46,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "500",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Woodland Camo",
+                "name": "Paracord Rope"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Mil-Spec Type III, 550Lb Breaking Strength, 7 Strand Nylon, Military Grade, Bug Out Bags And Survival Kits",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 106,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "MIL-Spec Type III, 550-Lb Breaking Strength, 7-Strand Nylon, 500 Ft Length, 10 Percent Stretch, Survival Ready",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 110,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

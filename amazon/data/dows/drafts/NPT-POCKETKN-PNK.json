@@ -3,14 +3,14 @@
     "asin": "B07R7XYQKZ",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:20:39+00:00",
+    "generated_at": "2026-07-21T19:52:08+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 3,
         "catalog": 4,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -85,25 +85,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "Drop Point Pocket Knife Pink Inlay",
+            "value": "Drop Point Pocket Knife",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Pink Inlay Drop Point Pocket Knife Steel Blade",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Pink Pocket Knife Drop Point Blade Steel",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Pink",
+                "name": "Pocket Knife Drop Point Blade Steel"
+            }
         },
-        "title_differentiation": {
-            "value": "Thumb Assist, 3.5\" Steel Blade, Pocket Clip, Ergonomic Grip",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor Pink Inlay Pocket Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 35,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Pink Inlay",
+                "name": "Pocket Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Thumb Assist, 35In Blade, Ergonomic Grip, Pocket Clip, Everyday Carry, Hunting",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 78,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "CR13 Steel Drop Point Blade, Thumb Assist Open, Ergonomic Grip, Pocket Clip, Rust Resistant, Compact Carry",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 106,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

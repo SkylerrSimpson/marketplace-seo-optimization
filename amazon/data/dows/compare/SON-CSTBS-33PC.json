@@ -1,0 +1,60 @@
+{
+    "sku": "SON-CSTBS-33PC",
+    "asin": "B00KI4YXCO",
+    "product_type": "FASTENER_DRIVE_BIT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-CSTBS-33PC\nProduct Type: FASTENER_DRIVE_BIT\nBrand (from catalog): Universal Tool\nExisting Title: Chrome Vanadium Steel Security Bit Set Magnetic ExtensionHolder 33pc\nDescription: You never know when you’ll need to fix an appliance, electronic device, or automobile. With the ToolTreaux 33pc CRV Steel Security Bit Set, you can save hundreds if not thousands of dollars by fixing your own items like sewing machines, electronics, coffee machines, cars and trucks, and more.<br/><br/>Our security bits are constructed of strong chrome vanadium steel, ensuring portability, durability, and flexibility for long service life. The security bit set features an external hex system with a strong head and large diameters to add versatility to your power drill. They are compatible with most standard power drill chucks for ease of use and can be used with screw guns or power drivers.<br/><br/>The ToolTreaux set comes with a 2.25” magnetic extension bit holder so you can easily slot your bit in prior to using it. The magnet will help prevent the bit from dropping out during use. It also comes with a bright red compact carrying case that has a hole for each bit to keep them secure when not in use. The lightweight case measures just 3” x 2” in size when closed so it will easily fit inside of most tool boxes or bags.<br/><br/>Security bits are must-have tools for a wide variety of projects including automotive assembly, electronics repair, hobby crafts, metalworking, and more. The set comes with (4) Tri-wing bits, (9) security Torx bits, (6) metric security Torx bits, (3) torq, (6) SAE security hex, and (4) spanner bits.\nSearch Terms: screw screws kit bit holder extension tool magnetic set security chrome vanadium steel mag spanner torq bits 3 inch secure fasteners hobby tools\nFeatures:\n- DURABLE CONSTRUCTION – The ToolTreaux 33pc bits are constructed of strong tamperproof chrome vanadium steel, ensuring portability, durability, and flexibility for long service life.\n- EXTERNAL HEX DRIVE – Our security bit set features an external hex system with a strong head and large diameters to add versatility to your power drills. They are compatible with most standard power drill chucks for ease of use.\n- MAGNETIC BIT HOLDER – The set comes with a 2.25” magnetic extension bit holder so you can easily slot your bit in prior to use. The magnet will help prevent the bit from dropping out during use.\n- STORAGE CASE INCLUDED – Our set comes with a bright red compact carrying case that has a hole for each bit to keep them secure when not in use. The lightweight case measures just 3” x 2” in size when closed so it will easily fit inside of most tool boxes or bags.\n- VERSATILE TOOL SET – Security bits are must-have tools for a wide variety of projects including automotive assembly, electronics repair, hobby crafts, metalworking and more. The set comes with (4) Tri-wing bits, (9) security torx bits, (6) metric security torx bits, (3) torq, (6) SAE security hex and (4) spanner bits.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 33pc Chrome Vanadium Security Bit Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "33",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Chrome",
+                "name": "Security Bit Set"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 33-Pc Security Bit Set Magnetic Extension Holder",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "33",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Security Bit Set Magnetic Extension Holder"
+            },
+            "char_count": 63,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Magnetic Extension Holder, Red Storage Case, Torx Spanner Tri-wing Bits, Power Drill Compatible",
+            "char_count": 95,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Chrome Vanadium Steel, 6 Bit Types, Tamperproof Security Bits, Magnetic 225\" Holder, Compact Red Case",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

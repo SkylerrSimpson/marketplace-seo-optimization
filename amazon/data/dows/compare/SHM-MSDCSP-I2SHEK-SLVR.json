@@ -1,0 +1,60 @@
+{
+    "sku": "SHM-MSDCSP-I2SHEK-SLVR",
+    "asin": "B07MZBW9JV",
+    "product_type": "SAFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SHM-MSDCSP-I2SHEK-SLVR\nProduct Type: SAFE\nBrand (from catalog): CCS Spy Gear\nExisting Title: Covert Spy Hidden Compartment Israeli 2 Shekel Diversion Safe\nDescription: The Covert Spy Hidden Compartment Israeli 2 Shekel Diversion Safe are expertly hand-made from real coins to create a secret interior compartment within the coin. Once the coin is shut, they are impossible to tell apart from regular coins with the naked eye. Because of their tight seal, they can be handled without the chance of accidentally being opened. <br/><br/>Each coin comes with an opening ring, without which the coin is nearly impossible to open. They are designed to precisely hold a microSD card which you can use to keep important information safe while traveling, in your home or office. <br/><br/>Please note: This listing is for the Israeli 2 Shekel Covert Coin. Feel free to contact us if you're interested in other denominations.\nSearch Terms: gifts for guys travelers spy gadgets covert coins\nFeatures:\n- Authentic Israeli Mint Covert Coin\n- Fits Micro SD Card\n- Made in the USA\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "CCS Spy Gear Israeli 2 Shekel Covert Diversion Safe Coin",
+            "tokens": {
+                "brand": "CCS Spy Gear",
+                "pack_size": "2",
+                "pack_size_unit": "Shekel",
+                "size": "",
+                "color": "",
+                "name": "Covert Diversion Safe Coin"
+            },
+            "char_count": 56,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "CCS Spy Gear Israeli 2 Shekel Diversion Safe",
+            "tokens": {
+                "brand": "CCS Spy Gear",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Israeli 2 Shekel",
+                "color": "",
+                "name": "Diversion Safe"
+            },
+            "char_count": 44,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Hidden Compartment, Fits Micro SD Card, Authentic Israeli Mint, Made In USA, Secure Travel Storage",
+            "char_count": 98,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Authentic Israeli Mint Coin, Hidden Secret Compartment, Fits Micro SD Card, Made In USA, Travel Security",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

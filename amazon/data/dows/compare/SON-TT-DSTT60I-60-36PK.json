@@ -1,0 +1,60 @@
+{
+    "sku": "SON-TT-DSTT60I-60-36PK",
+    "asin": "B09KP21TYC",
+    "product_type": "TAPE_MEASURE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-TT-DSTT60I-60-36PK\nProduct Type: TAPE_MEASURE\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux 60 Inch Tailors Measuring Tape Sewing Supplies, Assorted Colors, 36pk\nDescription: Need to find your inseam? The Tailors Tape Measure from ToolTreaux can do all that and more. The double sided tailors soft tape measure (5 feet or 60 inches) is ideal for projects at home or at work, whether it's for your next sewing or arts and crafts projects, or if you work in the the apparel, textile, tailoring or fitness industries. This particular tape measure is non stretch, soft and flexible and comes in three different colors: white, blue and yellow. The soft measuring tape will ensure that you're getting precise measurements that you can trust. The tape measures in both inches and centimeters.<br/><br/>FEATURES & SPECIFICATIONS:<br/><br/>- Scale: 1mm or 1/8 inch<br/>- SAE & Metric Units of measurement<br/>- Tape Width: 3/4 inches<br/>- Material: PVC, Fiberglass<br/>- Dual Sided Measurements:<br/><br/>One Side: Inches with 1.8\" Graduation<br/>One Side: Inches/mm with 1mm Graduation<br/><br/>PACKAGE INCLUDES: (36) 60 inch Double Sided Tailors Tape\nSearch Terms: sewing kit alteration tape arts and crafts hobby pattern making dressmaking furniture design seamstress measuring tape tools learn to sew fashion womans clothing fitness weight loss\nFeatures:\n- TAILORS MEASURING TAPE: Ideal for projects at home or work for sewing, tailoring, alterations and other arts and crafts; this particular tape measure is non stretch, soft and flexible, allowing for efficient measuring and very precise measurements\n- DOUBLE SIDED MEASURING TAPE: One Side: Inches with 1/8\" Graduation other Side: cm/mm with 1mm Graduation. Scale: 1mm / 1/8 inch\n- EASY TO USE: The measuring tape is made from a soft and flexible fiberglass material, meaning its incredibly easy and efficient to maneuver; the units of measurements are printed in black and easy to read\n- COMPACT DESIGN: This measuring tape rolls up into a compact roll for convenient carrying and storage; all tape measures come with a clear plastic case to keep the tailors tape tidy and together when not in use\n- SPECIFICATIONS: Compact Dimensions: 1.75 x 1.75 x 1 inches; Weight: 0.1lbs; Colors: Blue, White, Yellow; Tape Width: 0.75 inches; Tape Measure Max Length: 60 inches or 5 feet\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 36-pk 60 Inch Tailors Measuring Tape Assorted",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "36",
+                "pack_size_unit": "pk",
+                "size": "60 Inch",
+                "color": "Assorted",
+                "name": "Tailors Measuring Tape"
+            },
+            "char_count": 56,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 36-Pk 60 In Assorted Colors Tailors Measuring Tape",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "36",
+                "pack_size_unit": "pk",
+                "size": "60",
+                "color": "Assorted Colors",
+                "name": "Tailors Measuring Tape"
+            },
+            "char_count": 61,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Double Sided, Soft Flexible Fiberglass, Inches And Metric, Non Stretch, Sewing And Alterations",
+            "char_count": 94,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Dual Sided Inches And Cm And Mm, Soft Flexible Fiberglass, One Eighth Inch Scale, Clear Storage Case",
+            "char_count": 100,
+            "validation_error": null
+        }
+    }
+}

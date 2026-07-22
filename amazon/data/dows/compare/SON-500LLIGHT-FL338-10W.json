@@ -1,0 +1,60 @@
+{
+    "sku": "SON-500LLIGHT-FL338-10W",
+    "asin": "B08V5663PM",
+    "product_type": "FLASHLIGHT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-500LLIGHT-FL338-10W\nProduct Type: FLASHLIGHT\nBrand (from catalog): ASR Tactical\nExisting Title: Black Compact Multi Mode 500 Lumen LED Flashlight with Wrist Strap, 5.25 Inch\nDescription: ASR Tactical Multi Mode 500 Lumen LED Flashlight may only measure 5.25 inches but, it comes with great and practical built-in features that will make it your go to flashlight-read on.<br/><br/>-5-Stage Switch: easily maneuver between SOS, Strobe, Low, Medium and High light<br/>-Adjustable focus head (zoom in or out between x1, x250, x500, x1000 or x2000)<br/>-500 Lumen brightness<br/>-10W LED bulb<br/>-Glow in the dark on/off button<br/>-Convenient wrist strap<br/>-Patrial texturized handle <br/><br/>Compact, lightweight and easy to handle, this ASR Outdoor multi-mode flashlight is meant to perform for any at home, field or tactical work needs and tasks. The flashlight as mentioned above, comes with a handy wrist strap that allows you to secure the tactical tool to your wrist when employed; the wrist strap also makes it easy to attach to an inner pocket, backpack or work bag via a clip or carabiner for storage or travel when not in use. <br/><br/>Length: 5.25 inches<br/><br/>Batteries: x3 AAA (not included)\nSearch Terms: edc flashlight gear tool survival kit 500 lumen light tactical camping accessories lantern emergency roadside disaster for home car travel gadgets police\nFeatures:\n- 5- STAGE SWITCH TACTICAL FLASHLIGHT: This multi-mode LED tactical flashlight comes with five stages including low, mid, high, SOS and lastly strobe; easily switch between the five modes by engaging the pressure push on/off button at the back of the flashlight\n- ADJUSTABLE FOCUS HEAD: By simply pushing and pulling the flashlight body in and out, the beam of LED light will be easily adjustable depending on the intended or needed use; zoom in or out between x1, x250, x500, x1000 or x2000; the flashlight also features a texturized grip for easy handling and comfort\n- GLOW IN THE DARK ON/OFF BUTTON: The ASR Tactical Black Compact Multi Mode 500 Lumen LED flashlight comes with a convenient pressure push on/off button that glows in the dark, allowing you to easily and quickly access the power end of the flashlight\n- HANDY WRIST STRAP: Featuring a useful and handy wrist strap, secure the compact, LED tactical flashlight around your wrist when in use; when not employed, use the strap to attach to a backpack, inner pocket, work bag and more via carabiner or clip making it easy to locate and store\n- SPECIFICATIONS: Length: 5.25 inches; Color: Black; Watt: 10W; Lumen: 500; Batteries: x3 AAA required (not included)\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 5.25in Black Compact 500 Lumen LED Flashlight",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "5.25",
+                "pack_size_unit": "in",
+                "size": "Compact",
+                "color": "Black",
+                "name": "500 Lumen LED Flashlight"
+            },
+            "char_count": 58,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 5.25 in Black 500 Lumen LED Flashlight",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "5.25 in",
+                "color": "Black",
+                "name": "500 Lumen LED Flashlight"
+            },
+            "char_count": 51,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "5-Stage Multi-Mode, Adjustable Focus Zoom, 10W LED, Glow-in-Dark Button, Wrist Strap, Tactical EDC",
+            "char_count": 98,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "5-Stage Switch, Adjustable Focus Zoom, Glow In Dark Button, Wrist Strap, SOS Strobe, 10W LED, Compact EDC",
+            "char_count": 105,
+            "validation_error": null
+        }
+    }
+}

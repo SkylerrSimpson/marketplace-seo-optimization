@@ -3,14 +3,14 @@
     "asin": "B0DXRLD4TX",
     "product_type": "METAL_DETECTOR",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:17:17+00:00",
+    "generated_at": "2026-07-21T20:08:16+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 3,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -58,20 +58,57 @@
             "asin": "B0DXRLD4TX",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "ASR Outdoor 5lb Madagascar Gemstone Paydirt Bag",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 47,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "lb",
+                "size": "",
+                "color": "",
+                "name": "Madagascar Gemstone Paydirt Bag"
+            }
         },
-        "title_differentiation": {
-            "value": "2lbs genuine rough gemstones, sifting kit included, identification chart",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 5-lb Rough Madagascar Gemstone Paydirt Bag",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 54,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "lb",
+                "size": "Rough Madagascar",
+                "color": "",
+                "name": "Gemstone Paydirt Bag"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Rough Gemstones, Sifting Activity, Identification Chart, Amethyst, Quartz, Pyrite, Includes Storage Bag",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 103,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "2 Lb Genuine Madagascar Gemstones, Rough And Tumbled Stones, Burlap Storage Bag, ID Chart, Screen Not Included",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 110,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

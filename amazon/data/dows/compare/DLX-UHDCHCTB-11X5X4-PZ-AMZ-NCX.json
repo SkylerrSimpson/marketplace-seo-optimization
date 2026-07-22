@@ -1,0 +1,60 @@
+{
+    "sku": "DLX-UHDCHCTB-11X5X4-PZ-AMZ-NCX",
+    "asin": "B0CL3VXWWC",
+    "product_type": "PORTABLE_TOOL_BOX",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DLX-UHDCHCTB-11X5X4-PZ-AMZ-NCX\nProduct Type: PORTABLE_TOOL_BOX\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Portable Plastic Dual Compartment Craft Organizers and Storage Tool Box, 11.5 Inches\nDescription: Do you need a smaller tool box or stowing option for craft supplies and smaller hobby tools? Look no further than ToolTreaux's Black Portable Plastic Dual Compartment Craft Organizers and Storage Tool Box.<br/><br/>Designed with tool organization and smaller item storage in mind, this plastic tool box is ideal for all of your small tools and accessories. It measures 11.5 (L) x 6 (W) x 4 (H) inches, making it a great size for any workshop, crafting area, studio, office or garage. It's constructed of lightweight plastic and weighs just 0.6 pounds when empty, making it easy to tote from one project to the next.<br/><br/>This handy toolbox features dual compartments: one large compartment for tools like pliers, scissors, screwdrivers, rivets, tape measures and more, and a top compartment to organize smaller accessories like bolts, screws, nails and nuts. The top compartment comes with four different inner compartments that will keep your small essentials organized.<br/><br/>The top of the toolbox comes with a bright yellow colored carry handle for easy transportation. Furthermore, the locking clasps ensure that your tools and supplies will remain safe and organized during transportation and provide flexible opening and closing when in use (180 degrees so no digging required). <br/><br/>This is a great craft organizers and storage tool box for any crafter, hobbyist or DIYer.\nSearch Terms: tool box craft organizers and storage DIY craft supplies hobby box tools jewelry making scrapbooking supplies arts and crafts garage office home organization\nFeatures:\n- DUAL COMPARTMENT STORAGE: Large main compartment for tools and larger items, with additional top storage that features individual compartments for smaller supplies, nuts and bolts, wire and more\n- LIGHTWEIGHT DESIGN: Constructed completely of plastic and weighing just 0.6lbs when empty, this tool box is incredibly lightweight, making it easy to tote; also comes with built in top carry handle in bright yellow colorway\n- SNAP LOCK CLOSURE: Plastic clasps lock both upper and lower compartments to keep interior contents safe and secure during travel! tool box features 180 degree opening so items are each to reach for when needed\n- CRAFT ORGANIZERS AND STORAGE: The ideal tool box for craft supplies and hobby items, like scissors, repair tools, tape measures, rivets, paint brushes, pottery sculpting tools and more\n- SPECIFICATIONS: Dimensions: 11.5 x 6 and 4 inches; Material: Plastic; Weight: 0.6lbs\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 11.5in Black Portable Dual Compartment Tool Box",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "11.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Portable Dual Compartment Tool Box"
+            },
+            "char_count": 58,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 11.5-in Black Portable Tool Box",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "11.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Portable Tool Box"
+            },
+            "char_count": 42,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Dual Compartment Storage, Lightweight Plastic, Snap Lock Closure, Craft Organizer, 180 Degree Opening",
+            "char_count": 101,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Dual Compartment Storage, Lightweight Plastic, Snap Lock Closure, Top Tray Organizers, Yellow Carry Handle",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

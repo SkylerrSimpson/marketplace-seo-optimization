@@ -3,14 +3,14 @@
     "asin": "B0CHVNZLM8",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:19:28+00:00",
+    "generated_at": "2026-07-21T20:08:51+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -40,20 +40,57 @@
             "asin": "B0CHVNZLM8",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 10\" Black Gold Pan 2-Pack with Riffled Traps",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 2-pk 10\" Black Gold Pan",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 35,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "10\"",
+                "color": "Black",
+                "name": "Gold Pan"
+            }
         },
-        "title_differentiation": {
-            "value": "High Impact Flexible Plastic, Riffled Traps, 2-Pack Set",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 2-pk 10 in Black Gold Pan",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 37,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "10 in",
+                "color": "Black",
+                "name": "Gold Pan"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Riffled Traps, High Impact Flexible Plastic, Prospecting And Testing, Highlights Fine Gold, Durable Lightweight Design",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 118,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Riffled Traps For Fine Gold, Wide Textured Bottom For Black Sands, High Impact Flexible Plastic, Lightweight Durable",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 116,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

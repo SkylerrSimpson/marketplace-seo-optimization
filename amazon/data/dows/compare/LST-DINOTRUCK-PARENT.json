@@ -1,0 +1,60 @@
+{
+    "sku": "LST-DINOTRUCK-PARENT",
+    "asin": "B07WZW4WB4",
+    "product_type": "TOY_FIGURE_PLAYSET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-DINOTRUCK-PARENT\nProduct Type: TOY_FIGURE_PLAYSET\nBrand (from catalog): TychoTyke\nExisting Title: TychoTyke Electronic Light Up Jurassic Dinosaur Transport Truck Toy (2 Colors)\nDescription: Don't let your house get cluttered with cars, trucks and other children's toys all over the place. This fantastic carrier is neatly designed with holder snap-close lids on both sides of the truck to display the dinosaurs and other toys neatly. It has space for additional toy cars inside the truck. Big carrier truck is not only a transport car toy but also a good organizer for your mini cars and dinosaur toys. <br/><br/>This truck will give you hours of fun and quality time with your little one. The sturdy carrying handle makes it easy to take along around the house or when you are on the go, convenient to carry. <br/><br/>This dinosaur toys set shows the children what kinds of dinosaurs were on the earth. This set is ideal for educational, school and family, science projects, birthday parties, collections, party favors, and so on. Best Christmas Gift for boys & girls, inspire imaginations and improve learning interest.<br/><br/>Ages 3+ and Up<br/>Includes 3 1.5 \"LR44\" Size Batteries<br/><br/>Colors Available: Orange or Green\nSearch Terms: TychoTyke Dinosaur TRex Triceratops Pterodactyl Light Up Musical Transport Truck Carying Handle\nFeatures:\n- DINOSAUR TRANSPORT TRUCK - Including 11 Dinosaur Accessories That Easily Fit in the Truck.\n- EASY TO CARRY - The Carrying Handle On Top Makes It Easy To Take Along, Around, Around the House or When You Are On The Go. Designed With High Quality and Durable Materials. Tested and proven to be safe and strong for your children.\n- LIGHTS - The Truck Lights Up Making it Easy to Navigate Your Truck In the Dark.\n- PLAYS SOUNDS - The Truck Has Plenty of Sounds and Music Guaranteed To Give You Hours Upon Hours of Fun.\n- THE MOST AMAZING GIFT - It is the best toy truck for children ever been on any marketplace. Terrific Gift for Birthdays and Holidays, for your young children. They will enjoy hours of play.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "TychoTyke Electronic Light Up Dinosaur Transport Truck Toy",
+            "tokens": {
+                "brand": "TychoTyke",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Electronic Light Up Dinosaur Transport Truck Toy"
+            },
+            "char_count": 58,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "TychoTyke Orange Or Green Light Up Dinosaur Transport Truck Toy",
+            "tokens": {
+                "brand": "TychoTyke",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Orange Or Green",
+                "name": "Light Up Dinosaur Transport Truck Toy"
+            },
+            "char_count": 63,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "11 Dinosaur Accessories, Lights And Sounds, Portable Carrying Handle, Educational Toy, Ages 3 Plus",
+            "char_count": 98,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "11 Dinosaur Accessories, Lights And Sounds, Carrying Handle, Storage Organizer, Educational Play, Ages 3 And Up",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "UNV-DISPOSABLETOWELS-PZ-AMZ",
+    "asin": "B0CL59C7YX",
+    "product_type": "SKIN_CLEANING_WIPE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UNV-DISPOSABLETOWELS-PZ-AMZ\nProduct Type: SKIN_CLEANING_WIPE\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux 12pk Compressed Towel Tablets Face Wipes Coin Tissues Disposable Washcloths, Biodegradable and Unscented\nDescription: Not only are ToolTreaux’s compressed towel tables naturally biodegradable and environmentally conscious, they are lightweight, compact, fragrance free and an absolute travel essential. Whether you use them for camping trips, in baby diaper bags, car cleaning kits, emergency preparedness or just around the house, these 100% rayon coin tissues will always come in handy.<br/><br/>Quick to activate, simply add water and discover the convenience of these compressed towel tablets or coin tissues in just a matter of minutes. Towels are durable and suitable to use as hand towels, face towels, baby wipes and more. When finished using the disposable washcloths, rest assured they will have a minimal impact on the environment due to their cellulose fabrication.<br/><br/>Each compressed towel table comes individually wrapped. Ships as a pack of twelve units.<br/><br/>Portable Diameter: 0.75 inches; Activated dimensions are 8.5 x 9.5 inches\nSearch Terms: disposable towels biodegradable compressed face wash beauty accessories\nFeatures:\n- COMPRESSED TOWEL TABLETS: Pack of 12 compressed towel tablets immediately expand when activated by water; great for travel, baby diaper bags, car cleaning kits, garage, for backpacking, camping, hiking and much more!\n- BIODEGRADABLE WIPES: Made from 100% rayon that will naturally degrade, these disposable hand towels are environmentally conscious and fragrance free; when finished with the disposable washcloths, rest assured these will have minimal impact on the environment due to their cellulose fabrication\n- TRAVEL ESSENTIALS: Whether it be a road trip with kids, airplane travel, camping or backpacking, ToolTreaux’s coin tissues are lightweight, compact and completely biodegradable and disposable, lightening your load as you go!\n- JUST ADD WATER: Quick to activate, simply add water and discover the convenience of these compressed towel tablets or coin tissues in just minutes! Towels are durable and suitable to use as hand towels, face towels, baby wipes and more\n- SPECIFICATIONS: Portable Diameter: 0.75 inches; Activated dimensions are 8.5 x 9.5 inches; Quantity: Pack of 12; Individually wrapped\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 12-pk Compressed Towel Tablets Disposable Wipes",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "12",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Compressed Towel Tablets Disposable Wipes"
+            },
+            "char_count": 58,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 12-pk Compressed Towel Tablets",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "12",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Compressed Towel Tablets"
+            },
+            "char_count": 41,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Biodegradable Rayon, Just Add Water, Travel Essential, Hand And Face Towels, Individually Wrapped",
+            "char_count": 97,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Individually Wrapped, Just Add Water, Biodegradable Rayon, Fragrance Free, Travel Camping And Baby Use",
+            "char_count": 102,
+            "validation_error": null
+        }
+    }
+}

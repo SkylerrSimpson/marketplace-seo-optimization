@@ -3,15 +3,15 @@
     "asin": "B0CV64ZTMD",
     "product_type": "ABIS_BOOK",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:51:05+00:00",
+    "generated_at": "2026-07-21T19:38:02+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 3,
-        "ai_suggested": 3,
-        "ai_null": 1,
+        "ai_suggested": 6,
+        "ai_null": 0,
         "base_template": 0
     },
     "attributes": {
@@ -65,31 +65,68 @@
             "raw_value": true
         },
         "publication_date": {
-            "value": null,
+            "value": "2024-02-07",
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "subject_code": {
-            "value": "HEA007000",
+            "value": "SPO033000",
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Productive Fitness Great Balance & Stability Handbook",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Productive Fitness Great Balance and Stability Handbook",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Great Balance and Stability Handbook"
+            }
         },
-        "title_differentiation": {
-            "value": "88 Exercises, 64 Color Pages, Muscle Diagrams, Compact Size",
+        "item_name_ai_openai": {
+            "value": "Productive Fitness Great Balance And Stability Exercise Handbook",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 64,
+            "review_only": true,
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Exercise Handbook"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "88 Exercises, 64 Color Pages, Muscle Anatomy Diagrams, Balance Ball And Wobble Board Guide",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 90,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "88 Balance Exercises, 64 Color Pages, Muscle Anatomy Diagrams, Beginner To Advanced, Compact 8\" X 5\" Guide",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 106,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

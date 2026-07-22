@@ -3,14 +3,14 @@
     "asin": "B0BSG8CFJH",
     "product_type": "TOYS_AND_GAMES",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:11:47+00:00",
+    "generated_at": "2026-07-21T19:48:44+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 0,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -21,20 +21,57 @@
             "source": "usurper",
             "usurper_column": "attr.theme_amazon"
         },
-        "item_name_ai_suggested": {
-            "value": "Disney Frozen II 4pc BFF Hair Accessory Bundle Set Ages 3+",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Disney Frozen II 4pc BFF Hair Accessory Bundle",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 46,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "4",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Frozen II BFF Hair Accessory Bundle"
+            }
         },
-        "title_differentiation": {
-            "value": "Includes Hair Brushes, Jewelry Set & Faux Braids for Sisters",
+        "item_name_ai_openai": {
+            "value": "Disney 4-Pc BFF Hair Accessory Bundle",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 37,
+            "review_only": true,
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "4",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "BFF Hair Accessory Bundle"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Hair Brushes, Jewelry Set, Faux Braids, Ages 3 And Up, Sister Gifts",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 67,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Licensed Frozen II Gift Set, Matching Anna And Elsa Brushes, Jewelry Set, Faux Hair Braids, Ages 3 Plus",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

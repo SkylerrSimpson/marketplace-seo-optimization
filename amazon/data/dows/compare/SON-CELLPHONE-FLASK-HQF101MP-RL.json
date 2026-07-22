@@ -1,0 +1,60 @@
+{
+    "sku": "SON-CELLPHONE-FLASK-HQF101MP-RL",
+    "asin": "B0CM2N7C17",
+    "product_type": "HIP_FLASK",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-CELLPHONE-FLASK-HQF101MP-RL\nProduct Type: HIP_FLASK\nBrand (from catalog): ToolTreaux\nExisting Title: Secret Squirrel 4 Oucnce Alcohol Flask Disguised as a Cell Phone with a Faux Leather Belt Clip Case\nDescription: The cell phone flask is the perfect way to bring a drink along with you. The best part is, nobody will know that you are not just simply holding onto your cell phone, but a flask filled with your favorite liquor.<br/><br/>The 04PHONE flask is the go to extra little kicker you may need to get through the day; go ahead give it a try. Its one of those white elephant gifts that wont be forgotten.<br/><br/>This clever item looks just like a cell phone but holds 4 ounces of your favorite beverage, making it an excellent choice for the big game or any other place where your thirst needs slaking. Polished chrome stainless steel construction; includes handsome and convenient realistic looking black leather case and belt clip. This undercover flask will make you the James Bond of drinking gadgets.\nSearch Terms: hip flask stainless steel silver trekking hiking snowboarding skiing backpacking camping gear RV camp kitchen beverage tailgating ASR Outdoor whiskey water alcohol gifts wilderness adventure groomsmen boating drinking cups campfire BBQ\nFeatures:\n- HIDDEN ALCOHOL FLASK: Disguised as an everyday 90's cellphone, this hip flask will have you coming back for seconds; The antenna acts as a straw for both consumption and refilling\n- SECRET SQUIRREL NEVER TELLS: Only you know that your cellphone rings on silent at all times. Who could be calling you on this rainy day; better pick up to make it a better day\n- EASILY ACCESSIBLE: Included with the cell phone liquor flask is a faux leather belt clip case in black, making it very easy to have a sip on the go unnoticed; drinking out of a cell phone is not the strangest thing you will see on the subway this week\n- MADE TO BE USED: Not designed to sit on a shelf after being gifted to your best friend for Christmas; this is designed to be used and more socially accepted than a stainless steel hip flask; great for sporting events, concerts and other crowded areas\n- SPECIFICATIONS: Overall dimensions are 5 x 2 x 0.75 inches (LxWxD); Overall capacity is 4 fluid ounces; color: chrome\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 4 Ounce Chrome Cell Phone Flask",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "4",
+                "pack_size_unit": "Ounce",
+                "size": "",
+                "color": "Chrome",
+                "name": "Cell Phone Flask"
+            },
+            "char_count": 42,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 4-oz Chrome Cell Phone Flask",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "4",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "Chrome",
+                "name": "Cell Phone Flask"
+            },
+            "char_count": 39,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Disguised As 90S Cellphone, Stainless Steel, Includes Black Leather Belt Clip Case, Antenna Straw",
+            "char_count": 97,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Hidden 90S Cell Phone Disguise, Faux Leather Belt Clip Case, Antenna Straw, 4 Ounce Capacity, Chrome Stainless Steel",
+            "char_count": 116,
+            "validation_error": null
+        }
+    }
+}

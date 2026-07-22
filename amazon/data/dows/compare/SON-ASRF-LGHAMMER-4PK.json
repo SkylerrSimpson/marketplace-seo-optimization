@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ASRF-LGHAMMER-4PK",
+    "asin": "B0B9WG44G9",
+    "product_type": "HAMMER_MALLET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ASRF-LGHAMMER-4PK\nProduct Type: HAMMER_MALLET\nBrand (from catalog): ASR Federal\nExisting Title: Large 4pk Car Emergency Hammer Window Punch and Seat Belt Cutter Tool\nDescription: The Emergency Hammer is a tool every driver should have. It is designed to help prevent being trapped in a wrecked or submerged vehicle.<br/><br/>Should the doors become jammed shut or a seat belt locked after an accident, the double-sided steel hammer points allow the driver to easily shatter side and rear windows, while a safeguarded razor blade cuts easily through safety belts for a quick escape.<br/><br/>This emergency hammer includes a black mounting bracket for quick access installation to a roof, dash, or console. The bright orange plastic body make the hammer easy to find and a glow-in-the-dark pin helps spotting in the dark or murky water easier.\nSearch Terms: emergency survival escape tool car accident window windshield glass breaker shatter piercer rescue emt strap razor blade knife cutter hammer orange visible high visibility mountable essential teen gift family safety\nFeatures:\n- THOUGHTFUL CONSTRUCTION - Dual-Sided Hardened Steel Impact Points Shatters Car Windows in Emergency Situations\n- MULTIPLE EMERGENCY FUNCTIONS - Safeguarded Razor Blade Cuts Trough Seat Belts to Help Free You and Your Passengers\n- HI VISIBILITY & ACCESSIBILITY - Black Mounting Bracket to Keep Hammer In Reach & Glow-in-the-Dark Button For Easy Spotting in the Dark\n- MADE TO WITHSTAND AN IMPACT - Durable, Bright Orange Plastic Body\n- PERFECT STOCKING STUFFER - This compact emergency hammer makes a perfect gift for teens, friends, and loved ones.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Federal 4-pk Large Orange Car Emergency Hammer",
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "Large",
+                "color": "Orange",
+                "name": "Car Emergency Hammer"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Federal 4-pk Emergency Hammer Seat Belt Cutter Window Punch",
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Emergency Hammer Seat Belt Cutter Window Punch"
+            },
+            "char_count": 63,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Dual-Sided Steel Window Breaker, Seat Belt Cutter, Glow-in-Dark, Mounting Bracket",
+            "char_count": 81,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Dual Sided Hardened Steel Window Breaker, Seat Belt Cutter, Mounting Bracket, Glow In The Dark Button",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

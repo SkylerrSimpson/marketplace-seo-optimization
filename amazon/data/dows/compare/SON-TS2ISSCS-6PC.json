@@ -1,0 +1,60 @@
+{
+    "sku": "SON-TS2ISSCS-6PC",
+    "asin": "B00GJ85336",
+    "product_type": "HARDWARE_CLAMP_VISE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-TS2ISSCS-6PC\nProduct Type: HARDWARE_CLAMP_VISE\nBrand (from catalog): Universal Tool\nExisting Title: 2 Inch Metal Spring Heavy Duty Clamps Set Rubber Tipped Grip 6pc\nDescription: Whether you're getting ready for a party, camping, setting up an outdoor event, or crafting, metal spring clamps are handy tools to keep around. The ToolTreaux 6pc metal spring clamp set is great for tightly clamping down objects like lights, decorations, tarps, and accessories.<br/><br/>These metal spring clamps are constructed of heavy-duty nickel-plated steel, ensuring a long service life. Each clamp features a rubber-tipped jaw and handles that will help prevent scratching and slipping to protect whatever object you're clamping.<br/><br/>Each clamp measures just 2\" in length and weighs only .01lbs (.16oz) so they won't take up a lot of space. They have a high-tension spring that will tightly clamp your objects down, and the whole set will easily fit inside of a backpack or toolbox for on-the-go use. This is a great set of clamps to keep handy at your home, office, or in your outdoor gear.\nSearch Terms: metal spring clamps 2 inch clips powerful force rubber tips heavy duty steel protected handles nickel plated camping grip\nFeatures:\n- PREMIUM CONSTRUCTION - The ToolTreaux metal spring clamps are constructed of heavy-duty nickel-plated steel, ensuring a long service life.\n- RUBBER-TIPPED JAWS - Each clamp features a rubber-tipped jaw and handles that will help prevent scratching and slipping.\n- HIGH-TENSION SPRING - Our metal spring clamps have a high-tension spring that will tightly clamp objects like lights, decorations, tarps, and accessories.\n- COMPACT SIZE - These clamps measure just 2\" in length and weigh only .01lbs each (.16oz) so they won't take up a lot of space. You can easily fit the whole set inside of a backpack, toolbox, or bag for on-the-go use.\n- VERSATILE CLAMPS - The ToolTreaux clamps can be used in a variety of ways - craft projects, parties, camping, outdoor events, and setting up decorations will be a breeze with this 6 piece set!\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 6-pc 2 Inch Metal Spring Clamps Rubber Tipped",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "6",
+                "pack_size_unit": "pc",
+                "size": "2 Inch",
+                "color": "",
+                "name": "Metal Spring Clamps Rubber Tipped"
+            },
+            "char_count": 60,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 6-pk 2 in Metal Spring Clamps",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "6",
+                "pack_size_unit": "pk",
+                "size": "2 in",
+                "color": "",
+                "name": "Metal Spring Clamps"
+            },
+            "char_count": 44,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Heavy Duty Nickel Plated Steel, Rubber Tipped Jaws, High Tension Spring, Compact Portable Design",
+            "char_count": 96,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Nickel-Plated Steel, Rubber-Tipped Jaws, High-Tension Spring, Compact 2\" Size, Set Of 6, For Camping And Crafts",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

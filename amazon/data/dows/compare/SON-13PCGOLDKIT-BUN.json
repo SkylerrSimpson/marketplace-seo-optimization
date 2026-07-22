@@ -1,0 +1,60 @@
+{
+    "sku": "SON-13PCGOLDKIT-BUN",
+    "asin": "B09RS6NGQ6",
+    "product_type": "OUTDOOR_LIVING",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-13PCGOLDKIT-BUN\nProduct Type: OUTDOOR_LIVING\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 13pc Gold Panning Backpack Kit Collapsible Bucket Prospecting Tools (4 Colors) (Green)\nDescription: The ASR Outdoor 13pc Deluxe Gold Panning Kit comes with everything you’ll need to pan for gold: a classifier, gold pans, sand scoop, mini aluminum sluice box, collection tools and magnetic pick up tool. All of the items fit neatly inside of a 30L capacity canvas backpack.<br/><br/>Each backpack kit comes with three different dual riffle gold pans (8, 12, and 14 inch diameters) in deep blue colorway, which will assist with identifying gold nuggets and flakes while sifting through your classified pay dirt. We’ve also included a 1/2 inch classifier screen that has been designed to work seamlessly with the included BPA silicone collapsible bucket. Lightweight and versatile, not only is the collapsible bucket design perfect for gold prospecting, it can also do double duty as a beverage cooler, small laundry basket, pet bowl, firewood carrier, gardening or fishing bucket at your campsite or gold claim when needed.<br/><br/>Inside the backpack you’ll find a compact and portable mini sluice box that is just 12 inches length, featuring high channel walls and V-shape ribbed rubber matting, ideal for fine gold recovery in the field. Ready to use out of the kit, the mini sluice box requires no assembly so you can get to sluicing right away!<br/><br/>Lastly, we’ve included a set of essential gold prospecting accessories that will help with separating, scooping, and storing gold: a 12 inch sand scoop, fine gold recovery tools, and a 5lb magnetic pickup tool that will help to remove black sand from your working pay dirt.<br/><br/>This kit was designed for all levels of gold prospectors from novice to expert and has been curated to be travel friendly, with all gold panning kit components and accessories fitting inside the 30L ASR Outdoor rucksack.\nSearch Terms: hand held metal detectors sand scoop gold prospecting equipment accessories gold rush kit metal detecting kit gold panning kit gold prospecting essentials gold panning pans dual riffle pans mini sluice box aluminum sluice box pick up\nFeatures:\n- 13PC GOLD PROSPECTING KIT – The ASR Outdoor 13pc Deluxe Gold Panning Kit comes with everything you’ll need to pan for gold; a sifting classifier, gold pans, a sand scoop, a mini sluice box, collection tools and a magnetic pick up tool. All of the items fit neatly inside of a 30 liter capacity canvas backpack (color may vary) featuring reinforced stitching and sturdy zip and buckle closures.\n- COLLAPSIBLE BUCKET - Included with the kit is a BPA Free silicone collapsible bucket designed to fit on a standard 5 gallon bucket. Incredibly versatile in nature, this bucket will work seamlessly with classifier sieves for gold panning, prospecting and mining. It can also be used as a beverage cooler, small laundry basket, pet bowl, firewood carrier, gardening or fishing bucket.\n- DUAL RIFFLE GOLD PANS - Each backpack kit comes with 3 different dual riffle gold pans (8\", 12\" and 14\" diameter) that are designed to fit with the collapsible bucket. They come in a deep blue color that will assist with identifying gold nuggets and flakes while sifting through dirt, sand and silt. We've also included a 1/2\" classifier sieve that also fits with the collapsible bucket, great for sifting through coarser material.\n- MINI ALUMINUM SLUICE BOX - Inside the backpack you'll find a compact and portable mini sluice box that is just 12\" in length, featuring high channel walls and V-shape ribbed rubber matting ideal for gold mining. Ready to use out of the kit, the mini sluice box requires no assembly so you can get to work right away.\n- GOLD PANNING ACCESSORIES – Lastly, we’ve included a set of essential gold panning accessories that will help with separating, scooping and storing gold; a 12” sand scoop, fine gold recovery tools and 5lb magnetic pick up tool that will distinguish gold flakes from black sand.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 13pc Gold Panning Backpack Kit Green",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Green",
+                "name": "Gold Panning Backpack Kit"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 13pc Green Gold Panning Backpack Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Green",
+                "name": "Gold Panning Backpack Kit"
+            },
+            "char_count": 48,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Dual Riffle Gold Pans, Mini Sluice Box, Collapsible Bucket, Classifier, Sand Scoop, Magnetic Pickup Tool",
+            "char_count": 104,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Classifier Sieve, Collapsible Bucket, Mini Aluminum Sluice Box, Dual Riffle Pans, Sand Scoop, Magnetic Pickup Tool",
+            "char_count": 114,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-DUSTER-EBD2602JB-PARENT",
+    "asin": "B07NWJMQQG",
+    "product_type": "DUST_REMOVAL_TOOL",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-DUSTER-EBD2602JB-PARENT\nProduct Type: DUST_REMOVAL_TOOL\nBrand (from catalog): ASR Outdoor\nExisting Title: Universal Home Telescopic XL Flexible Duster Extendable 56In Pink Green Yellow\nDescription: Telescopic Jumbo Flexible Duster Extends easily to the maximum length to 24\"- 56\". With the lightweight extension pole, you'll be able to reach all of those tricky high and hard to reach places without the assistance of a ladder or a step stool. Feather dusters are important for keeping the house clean from dust that can contain allergens <br/><br/>The dusters head is bendable able to rotate and lock at multiple angles. This feature makes it able to effortlessly reach just about anywhere: behind the television, under the couch, on top of the cabinets, atop ceiling fan blades, or in between the appliances.\nSearch Terms: home garden office dusting cleaning\nFeatures:\n- TELESCOPIC HANDEL: The Telescoping Handle extends up to 56\" granting access to all of those tricky, high, and hard to reach places without a ladder or step stool.\n- HYPOALLERGENIC: For those who are prone to allergies, our Hypo Allergenic Microfiber Duster is designed to not only remove dust but also trap it, preventing the spread of dust.\n- WASHABLE: The Microfiber Design allows you to wash your duster, prolonging it's use and life.\n- ADJUSTABLE: The Flexible Shaft allows the duster to bend to the position needed for optimal cleaning.\n- STORE ANYWHERE: Duster can collapse to 23 inches to allow for easy storing in house-keeping kits, closets, cars, offices, or cubbies.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 56in Telescopic Flexible Duster",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "56",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Telescopic Flexible Duster"
+            },
+            "char_count": 43,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 56-in XL Pink Green Yellow Telescopic Flexible Duster",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "56",
+                "pack_size_unit": "in",
+                "size": "XL",
+                "color": "Pink Green Yellow",
+                "name": "Telescopic Flexible Duster"
+            },
+            "char_count": 65,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Extends To 56 Inches, Bendable Head, Hypoallergenic Microfiber, Washable, Reaches High Spaces",
+            "char_count": 93,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Extendable To 56\", Flexible Shaft, Hypoallergenic Microfiber, Washable, Collapses To 23\", Reaches High And Tight Spaces",
+            "char_count": 119,
+            "validation_error": null
+        }
+    }
+}

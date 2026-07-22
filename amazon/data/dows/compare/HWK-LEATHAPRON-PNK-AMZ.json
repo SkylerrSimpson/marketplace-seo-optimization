@@ -1,0 +1,60 @@
+{
+    "sku": "HWK-LEATHAPRON-PNK-AMZ",
+    "asin": "B0BGYSGV1F",
+    "product_type": "APRON",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWK-LEATHAPRON-PNK-AMZ\nProduct Type: APRON\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Leather Work Tool Apron with Pockets Welding Woodworking DIY, Pink 36 x 25 Inches\nDescription: The ToolTreaux leather apron features nylon straps and reinforced rivets on the pockets ensuring a long service life, whether you're a beginner in the workshop or a woodworking enthusiast. <br/><br/>Designed with safety in mind, the leather apron women repels liquids and sparks to protect you and your clothing from dangerous materials. Our apron provides full body coverage which is a must have safety measure for woodworkers, metalworkers, ceramists, DIY projects at home or in the studio and more. <br/><br/>The apron features two spacious front tool pockets that measure 7.5 x 6.5 inches, to keep tools and supplies organized. Easily store chisels, hammer, brushes, screwdriver, nuts and bits and more for quick access.<br/><br/>Although originally intended for woodworking and workshop use, this versatile leather apron is a great smock option for painters, artists, potters and crafters alike. It measures 36 x 25 inches with adjustable nylon straps for a custom comfort fit, making it a one size fits most apron.\nSearch Terms: apron apron women mens apron pink apron woodworking tools leather apron cooking apron apron for men home improvement items crafting supplies crafting storage art smock painting DIY apron with pockets carpenter apron ceramics welding\nFeatures:\n- DURABLE CONSTRUCTION - ToolTreaux full body leather apron features reinforced rivets and nylon straps that are built to last. Sturdy pink leather will protect your clothing during woodworking and other workshop projects\n- REPELS LIQUID AND SPARKS - Designed with safety in mind, our leather apron keeps you and your clothing safe from dangerous sparks and liquids while working. Must-have full body coverage for woodworkers, metalworkers, and home improvement enthusiasts\n- SPACIOUS TOOL POCKETS - Apron features 2 front tool pockets, measuring 7.5\" x 6.5\" to keep tools handy. Store a hammer, drills, chisels, brushes, screwdrivers, and more for easy and quick access\n- ONE SIZE FITS MOST - Versatile leather apron measures 36\" x 25\" with nylon straps for a custom comfort fit; one size fits most men and women. Great smock option for artists, painters, potters, and artisan crafters\n- SPECIFICATIONS - Dimensions: 36\" x 25\" (one size fits most); Pocket dimensions: 7.5\" x 6.5\"; Number of pockets: 2; Color: pink; Materials: leather, nylon; Reinforced rivets\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 36 x 25 Pink Leather Work Apron",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "36",
+                "pack_size_unit": "x 25 in",
+                "size": "",
+                "color": "Pink",
+                "name": "Leather Work Apron"
+            },
+            "char_count": 42,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux Pink Leather Work Tool Apron With Pockets",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "36 x 25 in",
+                "color": "Pink",
+                "name": "Leather Work Tool Apron With Pockets"
+            },
+            "char_count": 52,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Reinforced Rivets, Spark And Liquid Resistant, 2 Tool Pockets, Adjustable Nylon Straps, Woodworking And Welding",
+            "char_count": 111,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Liquid And Spark Resistant Full Coverage 2 Tool Pockets Adjustable Nylon Straps Reinforced Rivets 36\"X25\"",
+            "char_count": 105,
+            "validation_error": null
+        }
+    }
+}

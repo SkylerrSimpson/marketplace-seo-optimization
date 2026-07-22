@@ -1,0 +1,60 @@
+{
+    "sku": "LST-DIECASTCARSET-25PC",
+    "asin": "B076HY5WYN",
+    "product_type": "NON_RIDING_TOY_VEHICLE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-DIECASTCARSET-25PC\nProduct Type: NON_RIDING_TOY_VEHICLE\nBrand (from catalog): KidPlay Products\nExisting Title: KidPlay Die Cast Toy Race Car Set Asst Colors 25pc\nDescription: Vroom Vroom. Create the ultimate toy car race with the KidPlay 25 Piece Die Cast Vehicle Play Set.<br/><br/> This set comes with 25 race cars in assorted colors, all of which are decorated like real race cars. In the set we've included white, blue, green, yellow, orange, red and black cars in different shades and styles. Each car is painted in a cool race car style, and all are of a die cast construction. <br/><br/> These cars are durable so they are ideal for indoor or outdoor play. Young kids will love zooming around and racing each other with this huge set of cars. This is a great gift idea for young kids and die cast race car collectors alike.\nSearch Terms: die-cast toy race car set assorted colors vehicles 25 piece\nFeatures:\n- Material: Die Cast\n- Pieces: 25\n- Colors: White, Blue, Green, Yellow, Orange, Red & Black\n- Durable Construction for Indoor & Outdoor Play\n- Painted Just Like Real Race Cars\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "KidPlay 25-Piece Die Cast Toy Race Car Set Assorted",
+            "tokens": {
+                "brand": "KidPlay",
+                "pack_size": "25",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "Assorted",
+                "name": "Die Cast Toy Race Car Set"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "KidPlay 25-Pk Die Cast Toy Race Car Set",
+            "tokens": {
+                "brand": "KidPlay",
+                "pack_size": "25",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Die Cast Toy Race Car Set"
+            },
+            "char_count": 39,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "25 Die Cast Cars, 7 Colors, Durable Construction, Indoor And Outdoor Play, Realistic Race Car Styling",
+            "char_count": 101,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Assorted Colors, 25 Piece Set, Realistic Race Car Styling, Durable Die Cast Construction, Indoor And Outdoor Play",
+            "char_count": 113,
+            "validation_error": null
+        }
+    }
+}

@@ -3,14 +3,14 @@
     "asin": "B0DV8T5Y6W",
     "product_type": "SHOVEL_SPADE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:39:10+00:00",
+    "generated_at": "2026-07-21T20:11:57+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 3,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -57,20 +57,57 @@
             "asin": "B0DV8T5Y6W",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille Dust Pan and Brush Set with Bamboo Handle, 13 Inch",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 13 in Dust Pan and Brush Set with Bamboo Handle",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Dust Pan and Brush Set with Bamboo Handle"
+            }
         },
-        "title_differentiation": {
-            "value": "2pc set, bamboo handle, built-in brush cleaner teeth, space-saving snap design",
+        "item_name_ai_openai": {
+            "value": "Beille 2-pk 13 in Dust Pan and Brush Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 40,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "13 in",
+                "color": "",
+                "name": "Dust Pan And Brush Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "2-Piece Set, Bamboo Handle, Built-in Teeth, Hanging Holes, Space-Saving Snap Design",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 83,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Natural Bamboo Handle, Non Scratch Bristles, Built-In Pan Teeth, Snap Together Storage, Hanging Holes",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

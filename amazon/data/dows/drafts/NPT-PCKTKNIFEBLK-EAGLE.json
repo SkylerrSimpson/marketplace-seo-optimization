@@ -3,14 +3,14 @@
     "asin": "B07X2LWVZD",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:32:38+00:00",
+    "generated_at": "2026-07-21T19:56:12+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 4,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -77,20 +77,57 @@
             "asin": "B07X2LWVZD",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Soaring Eagle Matte Black Pocket Knife, Drop Point",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 8 inch Matte Black Eagle Pocket Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 49,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8",
+                "pack_size_unit": "inch",
+                "size": "8 inch",
+                "color": "Matte Black",
+                "name": "Eagle Pocket Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "Spring-Assisted, 3.25\" Stainless Steel Blade, 8\" Open Length",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 8-in Matte Black Soaring Eagle Pocket Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 55,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8",
+                "pack_size_unit": "in",
+                "size": "8 in",
+                "color": "Matte Black",
+                "name": "Soaring Eagle Pocket Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Spring-Assisted Drop Point Blade, Stainless Steel, Folds To 45 Inch, Steel Pocket Clip, Ergonomic Design",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 104,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Spring Assisted Drop Point Blade, Stainless Steel, Thumb Button Open, Pocket Clip, Lock Back Safety, Ergonomic Grip",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 115,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

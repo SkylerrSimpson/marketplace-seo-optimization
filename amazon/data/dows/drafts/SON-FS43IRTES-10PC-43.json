@@ -3,30 +3,41 @@
     "asin": "B009DNAP3C",
     "product_type": "TOOLS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:20:23+00:00",
+    "generated_at": "2026-07-21T19:51:58+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
-        "fillable": 0,
-        "catalog": 8,
+        "fillable": 4,
+        "catalog": 7,
         "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
     "attributes": {
         "color": {
-            "value": [
-                {
-                    "language_tag": "en_US",
-                    "value": "Black",
-                    "marketplace_id": "ATVPDKIKX0DER"
-                }
-            ],
+            "value": "Black",
             "is_required": false,
-            "source": "catalog",
-            "asin": "B009DNAP3C",
-            "raw_value": true
+            "source": "usurper",
+            "usurper_column": "attr.color"
+        },
+        "material": {
+            "value": "Plastic",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.material"
+        },
+        "power_source_type": {
+            "value": "Corded Electric",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.power_source"
+        },
+        "size": {
+            "value": "43\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.size"
         },
         "customer_package_type": {
             "value": [
@@ -125,32 +136,57 @@
             "asin": "B009DNAP3C",
             "raw_value": true
         },
-        "material": {
-            "value": "Metal",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Tool 43\" Flex Shaft Rotary Tool Extension Set",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
-        },
-        "size": {
-            "value": "43 inches",
-            "is_required": false,
-            "source": "ai",
-            "model": "claude-haiku-4-5"
-        },
-        "item_name_ai_suggested": {
-            "value": "Universal 43\" Flex Shaft Rotary Tool Extension with Pen Grip",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "43",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Flex Shaft Rotary Tool Extension Set"
+            }
         },
-        "title_differentiation": {
-            "value": "1/8\" Chuck, Complete Set, Tight Spaces, Dremel Compatible",
+        "item_name_ai_openai": {
+            "value": "Universal Tool 43 in Flex Shaft Rotary Tool Extension Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 57,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "43",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Flex Shaft Rotary Tool Extension Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "10-Piece Complete Set, Universal 18 Chuck Fit, Ergonomic Pen Grip, Tight Spaces, Jewelry Making",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 95,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Universal Fit 18 Inch Chuck, 43 Inch Flexible Shaft, Pen Grip Comfort, Engraving, Grinding, Carving",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 99,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

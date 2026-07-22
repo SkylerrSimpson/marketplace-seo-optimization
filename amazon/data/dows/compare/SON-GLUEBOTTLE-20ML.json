@@ -1,0 +1,60 @@
+{
+    "sku": "SON-GLUEBOTTLE-20ML",
+    "asin": "B09FSN6KQ3",
+    "product_type": "BOTTLE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-GLUEBOTTLE-20ML\nProduct Type: BOTTLE\nBrand (from catalog): ASR Outdoor\nExisting Title: 0.7fl oz Glue Bottle Snifter Needle Tip Dispenser\nDescription: Glue bottle features an 18 gauge needle tip dispenser for precision applications. This bottle is perfect for applying precise amounts of glue, glaze, paints, testing solutions, or other liquids. Each bottle will hold up to .7 fluid ounces (20mL) of liquid and is just 5.74\" tall, making it a nice compact size for easy transport and storage when not in use. <br/><br/>The bottle is made of durable, transparent and flexible plastic that easily squeezes without too much pressure so you can use it many times without your hand cramping. The needle comes with a sturdy snap-tight lid to protect it and your hands when not in use. You can also easily add a brush tip to the bottle if needed for a specific project or craft.\nSearch Terms: arts and crafts art supplies craft and hobby glue bottle scrapbooking repair tools home and garden need tip dispenser painting snifter bottle squeeze baking cooking kitchen essentials applicator bottle craft room kitchen gadget\nFeatures:\n- 18 GAUGE NEEDLE TIP DISPENSER - The ASR Outdoor glue bottle features an 18 gauge needle tip dispenser for precision applications. This bottle is perfect for applying precise amounts of glue, glaze, paints, testing solutions or other liquids.\n- .7 FLUID OUNCE CAPACITY - Each bottle will hold up to .7 fluid ounces (20mL) of liquid and is just 5.74\" tall, making it a nice compact size for easy transport and storage when not in use.\n- DURABLE CONSTRUCTION - The bottle is made of durable, transparent and flexible plastic that easily squeezes without too much pressure so you can use it many times without your hand cramping.\n- SNAP TIGHT LID - The needle comes with a sturdy snap tight lid to protect it and your hands when not in use. You can also easily add a brush tip to the bottle if needed for a specific project or craft.\n- SPECIFICATIONS: Dimensions: 5-3/4 x 1-7/16 inches; 18 gauge needle: 1mm diameter; Volume: 0.7 fl.oz (20ml); Brush coverage width: 1/2 inches; Color: Clear; Material: Plastic\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 0.7fl oz Clear Glue Bottle Needle Tip Dispenser",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "0.7",
+                "pack_size_unit": "fl oz",
+                "size": "",
+                "color": "Clear",
+                "name": "Glue Bottle Needle Tip Dispenser"
+            },
+            "char_count": 59,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 0.7 fl oz Clear Glue Bottle Snifter Needle Tip Dispenser",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "0.7 fl oz",
+                "color": "Clear",
+                "name": "Glue Bottle Snifter Needle Tip Dispenser"
+            },
+            "char_count": 68,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "18 Gauge Needle Tip, Precision Applicator, 20ML Capacity, Durable Flexible Plastic, Snap Tight Lid, Brush Tip Compatible",
+            "char_count": 120,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "18 Gauge Precision Tip, 20ML Capacity, Flexible Clear Plastic, Snap Tight Lid, Brush Tip Compatible",
+            "char_count": 99,
+            "validation_error": null
+        }
+    }
+}

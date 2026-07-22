@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ASRO-SSFUNNEL-BUN",
+    "asin": "B0FNSKD18D",
+    "product_type": "FUNNEL",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ASRO-SSFUNNEL-BUN\nProduct Type: FUNNEL\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 304 Stainless Steel Flask Funnel Camping Gear (1-1/2 Inch Diameter with 3/8 Inch Spout)\nDescription: Simplify pouring and storage tasks like never before with the ASR Outdoor 304 Stainless Steel Funnel. Designed for precision and convenience, this funnel is the perfect tool for transferring liquids into flasks, jars, bottles, or other small containers without the mess.<br/><br/>Measuring 2 inches in height with a 1-1/2 inch mouth diameter, and a 3/8 inch spout, it fits perfectly with flasks that have a 3/8 inch spout opening. Crafted from premium 304 stainless steel, this funnel is built for durability and long lasting use. Its 0.55mm thickness ensures strength while remaining lightweight and easy to handle, making it a reliable and handy addition to outdoor gear.<br/><br/>Perfect Size for Flasks – 2 inches tall with a 1-1/2 inch mouth diameter and 3/8 inch spout, ideal for flask openings<br/><br/>Durable 304 Stainless Steel – Rust resistant construction for longevity<br/><br/>Precision Pouring – Prevents spills and mess when transferring liquids<br/><br/>Lightweight & Strong – 0.55mm thickness for reliable daily use\nSearch Terms: hip flask stainless steel silver trekking hiking snowboarding skiing backpacking camping gear RV camp kitchen beverage tailgating ASR Outdoor whiskey water alcohol gifts wilderness adventure groomsmen boating drinking cups campfire BBQ\nFeatures:\n- PERFECT SIZE FOR FLASKS - 2 inches tall with a 1-1/2 inch mouth diameter and 3/8 inch spout, ideal for flask openings\n- DURABLE CONSTRUCTION - 304 stainless steel rust resistant construction for longevity\n- PRECISION POURING - Prevents spills and mess when transferring liquids\n- LIGHTWEIGHT AND STRONG - 0.55mm thickness for reliable daily use\n- REFILL ON THE GO - Ideal for refilling your favorite beverages while out adventuring, camping, hiking, backpacking and more\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 304 Stainless Steel Flask Funnel",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Stainless Steel",
+                "name": "Flask Funnel"
+            },
+            "char_count": 44,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 1-1/2 Inch Stainless Steel Flask Funnel",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "1-1/2 Inch",
+                "color": "",
+                "name": "Stainless Steel Flask Funnel"
+            },
+            "char_count": 51,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "15 Inch Diameter, 38 Inch Spout, Rust Resistant, Precision Pouring, Lightweight And Strong",
+            "char_count": 90,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "304 Stainless Steel, 1-12 Inch Mouth, 38 Inch Spout, Rust Resistant, Spill-Free Pouring",
+            "char_count": 87,
+            "validation_error": null
+        }
+    }
+}

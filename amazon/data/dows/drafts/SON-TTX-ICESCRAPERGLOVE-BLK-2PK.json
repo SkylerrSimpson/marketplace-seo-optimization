@@ -3,15 +3,15 @@
     "asin": "B0BT6R7T37",
     "product_type": "MOTORCYCLES",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:12:38+00:00",
+    "generated_at": "2026-07-21T19:49:09+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 2,
-        "ai_null": 1,
+        "ai_suggested": 5,
+        "ai_null": 0,
         "base_template": 0
     },
     "attributes": {
@@ -28,25 +28,62 @@
             "raw_value": true
         },
         "country_of_origin": {
-            "value": null,
+            "value": "CN",
             "is_required": true,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux Ice Scraper Gloves Waterproof Fleece Lined 2 Pack",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux 2-pk Ice Scraper Glove Black",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 39,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Black",
+                "name": "Ice Scraper Glove"
+            }
         },
-        "title_differentiation": {
-            "value": "Waterproof, Fleece Lined, Built-in Acrylic Scraper, One Size Fits All",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux 2-pk Black Ice Scraper Glove",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 39,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Black",
+                "name": "Ice Scraper Glove"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Waterproof Fleece Lined, Non-Scratch Acrylic Edge, Removable Scraper, One Size Fits All",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 87,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Fleece Lined, Waterproof, Acrylic Blade, Comfortable Grip, Detachable Scraper, Fits Most Hands, Warm Winter Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B0916DVXC5",
     "product_type": "AIMING_SCOPE_SIGHT",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:49:09+00:00",
+    "generated_at": "2026-07-21T19:29:08+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -78,20 +78,57 @@
             "asin": "B0916DVXC5",
             "raw_value": true
         },
-        "title_differentiation": {
-            "value": "6061-T6 aircraft aluminum, hard anodized; corrects cant error; dual-position detent; made in USA",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Flatline-Ops 30mm Rifle Scope Bubble Level Articulating",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8",
-            "validation_error": "requires item_name <= 75 chars"
-        },
-        "item_name_ai_suggested": {
-            "value": "Flatline-Ops 30mm Rifle Scope Bubble Level Articulating Dual",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Flatline-Ops",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "30mm",
+                "color": "Black",
+                "name": "Rifle Scope Bubble Level Articulating"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "Flatline-Ops 30mm Black Rifle Scope Bubble Level",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 48,
+            "review_only": true,
+            "tokens": {
+                "brand": "Flatline-Ops",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "30mm",
+                "color": "Black",
+                "name": "Rifle Scope Bubble Level"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Dual Position Detent, Fluorescent Fluid, 6061-T6 Aircraft Aluminum, Corrects Cant Error, Low Profile Design",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 107,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Articulating Dual Position - Cant Error Correction - High Visibility Fluid - 6061-T6 Aluminum - Made In USA",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

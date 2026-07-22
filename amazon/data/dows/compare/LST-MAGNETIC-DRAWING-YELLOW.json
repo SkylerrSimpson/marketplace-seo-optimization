@@ -1,0 +1,60 @@
+{
+    "sku": "LST-MAGNETIC-DRAWING-YELLOW",
+    "asin": "B07J58BVXT",
+    "product_type": "WRITING_BOARD",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-MAGNETIC-DRAWING-YELLOW\nProduct Type: WRITING_BOARD\nBrand (from catalog): KidPlay Products\nExisting Title: Doodle Draw CB2010 Magnetic Color Drawing Board Kids Toy Art Play Set, Yellow\nDescription: Is your child constantly creating or drawing?<br/><br/>If so this Coloring Board is perfect for them. The Magnetic Coloring Board Kit allows kids to draw detailed pictures and run wild with their imagination. The Kit comes with a Pen, Stamp, and eraser.\nSearch Terms: tool box kids educational creative\nFeatures:\n- SLIDING ERASER - Just one swipe back and forth can wipe out all doodles , allowing endless times of drawing for hours of play\n- HIGH QUALITY PLASTIC - Made of high quality plastic, with better resilience, not easy to break\n- EXTRA LARGE WRITING AREA - Includes a 10\" X 7\" large drawing screen. Designed to encourage kids to doodle and create beautiful artwork. The writing stencils teach toddlers how to learn, to write, and draw step by step\n- Easy Set Up | Folding Stand | Bright Vibrant Colors\n- Recommended for Ages 2-13 | Stimulates Art and Creativity Learning and Play\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "KidPlay Products Yellow Magnetic Drawing Board",
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "10\" X 7\"",
+                "color": "Yellow",
+                "name": "Magnetic Drawing Board"
+            },
+            "char_count": 46,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "KidPlay Products 10\"x7\" Yellow Magnetic Drawing Board",
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "10\"x7\"",
+                "color": "Yellow",
+                "name": "Magnetic Drawing Board"
+            },
+            "char_count": 53,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "10\" X 7\" Writing Area, Sliding Eraser, Includes Pen And Stamp, Ages 2-13, Durable Plastic",
+            "char_count": 89,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Sliding Eraser, Pen And Stamp Set, Durable Plastic, Folding Stand, Ages 2-13, Creative Learning, Bright Vibrant Colors",
+            "char_count": 118,
+            "validation_error": null
+        }
+    }
+}

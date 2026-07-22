@@ -3,14 +3,14 @@
     "asin": "B0D3S36888",
     "product_type": "SURVIVAL_KIT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:33:43+00:00",
+    "generated_at": "2026-07-21T20:11:22+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 9,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 15
     },
@@ -155,20 +155,57 @@
             "asin": "B0D3S36888",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 5 Inch Waterproof Aluminum EDC Storage Capsule Silver",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 5 Inch Silver Waterproof Storage Capsule",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "Inch",
+                "size": "5 Inch",
+                "color": "Silver",
+                "name": "Waterproof Storage Capsule"
+            }
         },
-        "title_differentiation": {
-            "value": "Airtight with Carabiner, Lightweight, O-ring Seal, Camping & Travel",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 5-in Jumbo Silver Waterproof Aluminum Storage Capsule",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 65,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "in",
+                "size": "Jumbo",
+                "color": "Silver",
+                "name": "Waterproof Aluminum Storage Capsule"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Aluminum EDC Container, Waterproof O-ring Seal, Carabiner Clip, Camping And Survival Gear, Lightweight And Durable",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 114,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Rubber O Ring Seal, Built In Carabiner Clip, Lightweight EDC Carry, Secure Dry Storage, Travel Camping Survival",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "product_expiration_type": {
             "value": [

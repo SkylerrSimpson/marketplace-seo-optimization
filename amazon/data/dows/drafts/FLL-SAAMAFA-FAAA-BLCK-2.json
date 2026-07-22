@@ -3,14 +3,14 @@
     "asin": "B004SR90L6",
     "product_type": "SPORTING_GOODS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:30:05+00:00",
+    "generated_at": "2026-07-21T19:55:35+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -33,19 +33,58 @@
             "asin": "B004SR90L6",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "Flatline Ops Strong Arm ADI ACI Mounting Adapter Black",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Flatline Ops",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Strong Arm ADI ACI Mounting Adapter"
+            }
         },
-        "title_differentiation": {
-            "value": "6061-T6 Aircraft Aluminum, Hard Anodized, Universal Fit, Includes Installation Tool",
+        "item_name_ai_openai": {
+            "value": "Flatline-Ops Strong Arm ADI ACI Mounting Adapter",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 48,
+            "review_only": true,
+            "tokens": {
+                "brand": "Flatline-Ops",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Strong Arm ADI ACI Mounting Adapter"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "6061-T6 Aircraft Aluminum, Hard Anodized Military Spec Finish, Stainless Steel Hardware, Interchangeable All Sizes, Installation Tool Included",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 142,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (142 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Fits All Articulating ACCULEVELs, Interchangeable Between Firearms, 6061-T6 Aircraft Aluminum, Tool Included",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 108,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

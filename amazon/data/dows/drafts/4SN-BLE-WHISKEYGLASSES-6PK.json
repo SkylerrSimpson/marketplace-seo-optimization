@@ -3,14 +3,14 @@
     "asin": "B0FTTD6V67",
     "product_type": "DRINKING_CUP",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:04:49+00:00",
+    "generated_at": "2026-07-21T19:45:51+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 4,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -81,20 +81,57 @@
             "asin": "B0FTTD6V67",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille 10oz Whiskey Glasses Old Fashioned Lowball Tumbler 6-Pack",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 6-pk 10.82oz Clear Whiskey Glasses",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 41,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "6",
+                "pack_size_unit": "pk",
+                "size": "10.82oz",
+                "color": "Clear",
+                "name": "Whiskey Glasses"
+            }
         },
-        "title_differentiation": {
-            "value": "Heavy Base, Dishwasher Safe, Cut Glass Design, Perfect for Bourbon & Cocktails",
+        "item_name_ai_openai": {
+            "value": "Beille 6-pk 10.82oz Clear Whiskey Glasses",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 41,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "6",
+                "pack_size_unit": "pk",
+                "size": "10.82oz",
+                "color": "Clear",
+                "name": "Whiskey Glasses"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Old Fashioned Style, Heavy Base, Dishwasher Safe, Perfect For Bourbon And Cocktails",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 83,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Weighted Base, Dishwasher Safe, 1082Oz Capacity, Vintage Cut Glass Design, Set Of 6, Gift For Bourbon Lovers",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 108,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-SNAPATITEUTENSIL-BLK",
+    "asin": "B07PW54PHC",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-SNAPATITEUTENSIL-BLK\nProduct Type: KNIFE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 3 in 1 Portable Plastic Utensils Flatware Camping Accessories, Black\nDescription: Whether you're camping, hiking, backpacking or road tripping, less is more is our motto. These super lightweight 3 in 1 cutlery set from ASR Outdoor (available in black, light grey, OD green, yellow, orange, grey and blue), make packing for your next outdoor adventure a breeze but mostly importantly, will add barely any weight or bulk to your gear.<br/><br/>This lightweight multitool includes a spoon and fork, and pulls apart to reveal a knife. Easily snap the utensil set together with a slide and snap closure when you're done eating or snacking for safe storage when not in use, Utensils can be used separately to enjoy a meal or connected together to use for stirring, other meal prep or even serving if needed. <br/><br/>These utensils are constructed of durable BPA free plastic, making them food safe and suitable for all. And, the flatware multitool is dishwasher safe for fast and easy cleaning when and if needed.<br/><br/>These lightweight and pocket sized utensils set are ideal camping accessories to pack with your camping gear for your next outdoor excursion.\nSearch Terms: tools camping utensil set cookware open fire cooking equipment spork knife spoon fork survival marshmallow roasting sticks travel accessories trekking camp gear hiking gear flatware sets toddler eating supplies climbing skiing snowboarding lunch box\nFeatures:\n- 3 IN 1 CUTLERY SET: Camping gear flatware comes with a spoon, fork and knife all in one multitool; weighing in at just 0.08lbs and measuring 6.75 inches in length, the cutlery set is incredibly lightweight, easy to pack and suitable for all kinds of hiking, camping, backpacking or travel\n- HANDY SNAP CLOSURE: Easily snap the utensil set together with a slide and snap closure for storage when not in use; Utensils can be used separately to enjoy a meal or connected together to use for stirring, other meal prep or even serving if needed\n- FOOD SAFE UTENSILS: Constructed of durable and BPA free plastic, this utensil set is completely food safe\n- DISHWASHER SAFE FLATWARE: Fork, knife and spoon multitool are dishwasher safe for fast and easy cleaning when needed\n- SPECIFICATIONS: Colors: Grey, Blue, Orange, OD Green, Yellow, Light Grey; Weight: 0.08lbs; Dimensions: 6.75 x 1.25 x 0.25 inches; Material: BPA free plastic\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 3 in 1 Portable Plastic Utensils Black",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "in 1",
+                "size": "Portable",
+                "color": "Black",
+                "name": "Plastic Utensils"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Black 3 In 1 Camping Utensil Set",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Camping Utensil Set"
+            },
+            "char_count": 44,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "3 In 1 Spoon Fork Knife, Lightweight Camping Gear, Snap Closure, Dishwasher Safe, BPA Free",
+            "char_count": 90,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Spoon Fork Knife Multitool, BPA-Free Plastic, Dishwasher Safe, Snap Closure, Lightweight, Pocket Size",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

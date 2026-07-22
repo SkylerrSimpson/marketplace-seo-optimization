@@ -1,0 +1,60 @@
+{
+    "sku": "SON-DUALSHARPENER-RED",
+    "asin": "B07CT7Q9Z8",
+    "product_type": "TOOLS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-DUALSHARPENER-RED\nProduct Type: TOOLS\nBrand (from catalog): Universal Tool\nExisting Title: Universal Tool Pocket-sized Dual Ceramic Blade Sharpener Grooved Handle - Red\nDescription: Keep your knives and blades sharp with the Universal Tool Pocket-sized Dual Ceramic Sharpener. <br/><br/>This sharpener features ceramic honing rods and a grooved handle for a secure grip. At only 2.25\" wide, it'll easily fit inside your pocket, tool bag or box. The sharpener is constructed of durable polypropylene so you can count on it to get the job done. This is a must-have sharpener to keep on hand for all of your blades, knives, scissors, hand tools and more.\nSearch Terms: knives blades scissors knife sharpener blade\nFeatures:\n- Universal Tool Dual Sharpener - Red Color\n- Pocket-sized: 2.24\" x .8\" x 2\"\n- Ceramic Honing Rods Keep Blades Sharp\n- Handle with Embedded Groove for Secure Grip\n- Constructed of Durable Polypropylene\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool Pocket Dual Ceramic Blade Sharpener Red",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Pocket",
+                "color": "Red",
+                "name": "Dual Ceramic Blade Sharpener"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool Pocket-Sized Red Dual Ceramic Blade Sharpener",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Pocket-Sized",
+                "color": "Red",
+                "name": "Dual Ceramic Blade Sharpener"
+            },
+            "char_count": 60,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Ceramic Honing Rods, Grooved Handle, Pocket-sized 225 Inch, Durable Polypropylene, Knives And Scissors",
+            "char_count": 102,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Ceramic Honing Rods, Grooved Grip Handle, Durable Polypropylene, Sharpens Knives Blades Scissors And Hand Tools",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

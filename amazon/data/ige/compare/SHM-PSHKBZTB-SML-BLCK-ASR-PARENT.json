@@ -1,0 +1,60 @@
+{
+    "sku": "SHM-PSHKBZTB-SML-BLCK-ASR-PARENT",
+    "asin": "B0FH7KSYQ9",
+    "product_type": "SPORTING_GOODS",
+    "account": "IGE",
+    "generated_at": "2026-07-21T17:20:41+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SHM-PSHKBZTB-SML-BLCK-ASR-PARENT\nProduct Type: SPORTING_GOODS\nBrand (from catalog): ASR Tactical\nExisting Title: ASR Tactical American Universal Handcuff Key with Clip for All Standard Handcuffs\nDescription: Stay prepared and in control with the ASR Tactical Universal Steel Handcuff Key with Clip.\n<br/><br/>\nMade from heat-treated steel, this key is built to withstand daily use and deliver every time. The knurled barrel body is comfortable to grip, designed to fit all leading professional handcuff brands, it is the ultimate convenience tool for anyone who demands dependability. The added ease of access with the the XL handcuff key offers a greater surface area to hold onto and allows for much easier access with gloved hands than any other style keys on the market today.\n<br/><br/>\nAll styles feature a back security pin for double-locking handcuffs. and include a pocket clip, making this easy to carry on the go. Simply attach the key to the lip of your pocket or gear for effortless and convenient access, ensuring you are always ready.\nSearch Terms: lightweight edc tactical uniform law enforcement jail officer duty belt attaching key ring hand cuff key profession double locking handcuffs\nFeatures:\n- UNIVERSAL HANDCUFF COMPATIBILITY - Fits all leading professional steel double locking handcuffs and standard restraints\n- PROFESSIONAL GRADE - Made from premium heat-treated steel to ensure quality and withstand daily long-term use; knurled barrel body is comfortable to grip; No recycled or inpure materials used in the manufacturing process\n- RAPID DEPLOYMENT QUICK ACCESS - Easy to handle and locate when needed; always reliable. Features a pocket clip for convenient, quick-access carry on pockets or gear\n- LIGHTWEIGHT AND PORTABLE - Perfect for law enforcement, security, police, fire agencies, and any other users of tactical equipment\n- BACK PIN - Includes built in back pin for unlocking double-locking handcuffs\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical Universal Handcuff Key with Pocket Clip",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Universal",
+                "color": "",
+                "name": "Handcuff Key with Pocket Clip"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical Universal Handcuff Key with Clip",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Universal Handcuff Key with Clip"
+            },
+            "char_count": 45,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Heat-Treated Steel, Double-Locking, Fits All Standard Handcuffs, EDC Pocket Clip, Law Enforcement",
+            "char_count": 97,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Heat-Treated Steel, Fits Standard And Double-Lock Handcuffs, Pocket Clip, Back Pin, Knurled Grip",
+            "char_count": 96,
+            "validation_error": null
+        }
+    }
+}

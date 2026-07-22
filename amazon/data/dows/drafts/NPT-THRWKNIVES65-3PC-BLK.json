@@ -3,29 +3,29 @@
     "asin": "B076CV3DQD",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:48:01+00:00",
+    "generated_at": "2026-07-21T20:01:38+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
-        "fillable": 0,
-        "catalog": 7,
-        "ai_suggested": 2,
+        "fillable": 2,
+        "catalog": 5,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
     "attributes": {
         "item_type_keyword": {
-            "value": [
-                {
-                    "value": "tactical-fixed-blade-knives",
-                    "marketplace_id": "ATVPDKIKX0DER"
-                }
-            ],
+            "value": "martial-arts-knives",
             "is_required": true,
-            "source": "catalog",
-            "asin": "B076CV3DQD",
-            "raw_value": true
+            "source": "usurper",
+            "usurper_column": "attr.item_type_amazon"
+        },
+        "material": {
+            "value": "440 Stainless Steel",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.material"
         },
         "batteries_included": {
             "value": [
@@ -66,19 +66,6 @@
             "asin": "B076CV3DQD",
             "raw_value": true
         },
-        "material": {
-            "value": [
-                {
-                    "language_tag": "en_US",
-                    "value": "440 Stainless Steel",
-                    "marketplace_id": "ATVPDKIKX0DER"
-                }
-            ],
-            "is_required": false,
-            "source": "catalog",
-            "asin": "B076CV3DQD",
-            "raw_value": true
-        },
         "unspsc_code": {
             "value": [
                 {
@@ -103,20 +90,57 @@
             "asin": "B076CV3DQD",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical 6pc 6.5\" Throwing Knives Set, 440 Stainless",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical 6pc 6.5\" Black Throwing Knives Set",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 47,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "6",
+                "pack_size_unit": "pc",
+                "size": "6.5\"",
+                "color": "Black",
+                "name": "Throwing Knives Set"
+            }
         },
-        "title_differentiation": {
-            "value": "Full Tang Japanese Style, Webbing Wrapped Handle, Includes Nylon Sheath",
+        "item_name_ai_openai": {
+            "value": "ASR Tactical 6-pk 6.5\" Black Throwing Knives Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 48,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "6",
+                "pack_size_unit": "pk",
+                "size": "6.5\"",
+                "color": "Black",
+                "name": "Throwing Knives Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "6 Piece Set, Full Tang 440 Stainless Steel, Balanced Flight, Cord Wrapped Handle, Nylon Sheath Included",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 103,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Japanese Style Kunai Throwers, Full Tang 440 Stainless Steel, Web-Wrapped Handle, Reinforced Nylon Sheath, Finger Ring",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 118,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

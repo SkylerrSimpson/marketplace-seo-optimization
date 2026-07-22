@@ -3,14 +3,14 @@
     "asin": "B00HHE999K",
     "product_type": "BEAUTY",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:01:53+00:00",
+    "generated_at": "2026-07-21T20:05:39+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 4,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -75,19 +75,57 @@
             "asin": "B00HHE999K",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "JSP Glass Vials 1 Dram with Black Screw Caps 36 Pack",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "JSP 36-Pack Glass Vials with Black Screw Caps",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 45,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "JSP",
+                "pack_size": "36",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "Black",
+                "name": "Glass Vials with Screw Caps"
+            }
         },
-        "title_differentiation": {
-            "value": "Leakproof, 1/8 oz, Black Plastic Caps, Essential Oil Storage",
+        "item_name_ai_openai": {
+            "value": "JSP 36-Pk Glass Vials, Black Caps",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 33,
+            "review_only": true,
+            "tokens": {
+                "brand": "JSP",
+                "pack_size": "36",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Black",
+                "name": "Glass Vials"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Leakproof Design, 1 Dram Each, Black Plastic Caps, Gold Panning, Jewelry Making, Small Specimen Storage",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 103,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Leakproof Glass Vials, Screw On Black Plastic Caps, 1 Dram Capacity, 36 Individual Vials, Jewelry And Gold Panning Storage",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 122,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

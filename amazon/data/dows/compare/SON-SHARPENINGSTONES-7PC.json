@@ -1,0 +1,60 @@
+{
+    "sku": "SON-SHARPENINGSTONES-7PC",
+    "asin": "B07D4Z3NZ8",
+    "product_type": "KNIFE_SHARPENER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-SHARPENINGSTONES-7PC\nProduct Type: KNIFE_SHARPENER\nBrand (from catalog): Universal Tool\nExisting Title: Universal Tool Set of 6, 180 Grit Sharpening Stone Rods, 6 Inch Assorted Shapes Various Sizes\nDescription: Keep your knives and blades sharp with the Universal Tool 6pc Sharpening Stone Set.<br/><br/>This set comes with 6 different sharpening stones in a variety of sizes, all with a 180 grit. The green sticks are constructed of silicon carbide, with each bench shapening stone a different shape, so this set will ensure you have the correct sharpener for the job. <br/><br/>The different shapes (square, rectangle, half circle and triangle) will allow you to sharpen most utility knives and blades. This is a must have set for hobbiests, DIYers and knife fanatics.\nSearch Terms: whetstone bench sharpening stones coarse grit knife sharpener blade sharpening stones sharpen care\nFeatures:\n- Universal Tool Knife and Blade Sharpener Set - 6 Pieces\n- ASSORTED TYPES OF SHAPES - A variety of choices in the shapes of your stone allows you to make the right choice for any type of tool, whether it is semicircular, rectangular, square or triangular\n- 3 Green Silicon Carbide Sticks - Circle: 1/2\" Triangle: 1/2\"\n- 3 Green Silicon Carbide Sticks - Square: 5/8\" Rectangle: 1/2\" Half Circle: 5/8\"\n- Specifications: 180 Grit  Length: 6\"\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 6-Piece 6 Inch Sharpening Stone Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "6",
+                "pack_size_unit": "Piece",
+                "size": "6 Inch",
+                "color": "Green",
+                "name": "Sharpening Stone Set"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 6-pk 6 in Green Sharpening Stone Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "6",
+                "pack_size_unit": "pk",
+                "size": "6 in",
+                "color": "Green",
+                "name": "Sharpening Stone Set"
+            },
+            "char_count": 51,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "180 Grit Silicon Carbide, Assorted Shapes, Bench Sharpening Stones, Knives And Blades, Coarse Grit",
+            "char_count": 98,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "180 Grit, Silicon Carbide, Assorted Shapes, Square Rectangle Half Circle And Triangle, For Knives And Blades",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

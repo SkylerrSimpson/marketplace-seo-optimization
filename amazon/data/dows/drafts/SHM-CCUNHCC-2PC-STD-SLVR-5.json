@@ -3,14 +3,14 @@
     "asin": "B017AEJO2S",
     "product_type": "WIRELESS_ACCESSORY",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:51:11+00:00",
+    "generated_at": "2026-07-21T20:03:02+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 3,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -64,19 +64,58 @@
             "asin": "B017AEJO2S",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "CCS Spy Gear Covert Coin Hidden Compartment US Nickel",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "CCS Spy Gear Covert Compartment US Nickel Silver Coin",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "CCS Spy Gear",
+                "pack_size": "2",
+                "pack_size_unit": "pc",
+                "size": "US Nickel",
+                "color": "Silver",
+                "name": "Covert Compartment Coin"
+            }
         },
-        "title_differentiation": {
-            "value": "Secret Micro SD Card Holder, Hand-Made, Impossible to Detect",
+        "item_name_ai_openai": {
+            "value": "CCS Spy Gear US Nickel Silver Hidden Compartment Coin",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 53,
+            "review_only": true,
+            "tokens": {
+                "brand": "CCS Spy Gear",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "US Nickel",
+                "color": "Silver",
+                "name": "Hidden Compartment Coin"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Secret Micro SD Card Holder, Authentic US Mint Coin, Hand-Made, Impossible To Detect, Tight Seal, Includes Opening Ring, Made In USA",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 132,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (132 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Authentic US Mint, Secret Micro SD Card Holder, Made In The USA, Tight Seal, Includes Opening Ring, Discreet Carry",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 114,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

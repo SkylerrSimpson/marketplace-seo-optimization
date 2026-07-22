@@ -3,14 +3,14 @@
     "asin": "B0BLZS3WMC",
     "product_type": "TOOL_BELT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:24:44+00:00",
+    "generated_at": "2026-07-21T20:09:31+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 12,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -173,20 +173,57 @@
             "asin": "B0BLZS3WMC",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux Heavy Duty Leather Tool Belt 10 Pocket Dark Brown",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux 10-Pocket Brown Leather Tool Belt",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 44,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "10",
+                "pack_size_unit": "Pocket",
+                "size": "",
+                "color": "Brown",
+                "name": "Leather Tool Belt"
+            }
         },
-        "title_differentiation": {
-            "value": "Top Grain Leather, Adjustable 36-50\", Reinforced Stitching, Construction",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux Leather Tool Belt Utility Pocket Dark Brown",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 54,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Dark Brown",
+                "name": "Leather Tool Belt Utility Pocket"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Heavy Duty Top Grain Leather, Adjustable 36-50 Inch Waist, Reinforced Stitching, Multiple Tool Storage",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 102,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Top Grain Leather, 10 Pocket Storage, Adjustable 36 To 50 Inch Waist, Reinforced Stitching, Heavy Duty",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 102,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

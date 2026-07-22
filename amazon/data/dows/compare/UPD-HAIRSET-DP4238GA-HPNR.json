@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-HAIRSET-DP4238GA-HPNR",
+    "asin": "B09C6GN754",
+    "product_type": "OUTDOOR_RECREATION_PRODUCT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-HAIRSET-DP4238GA-HPNR\nProduct Type: OUTDOOR_RECREATION_PRODUCT\nBrand (from catalog): Townley Girl\nExisting Title: Townley Girl Disney Princess Hair Accessories 6pcs Set for Kids Toddlers Girls Age 3+\nDescription: Get your little ones looking pretty and stylize their hair with their first Disney Princess Hair Accessories Kit. Playing with hair styling accessories enhances their creativity, sharpens eye-hand coordination and fine motor skills as they try to comb their hair and put scrunchies and hair clips. A truly simple but fun gift for kids who enjoy styling their hair with hair accessories for kids. Your little one will be excited playing dress up and styling their hair with this adorable Disney Princess Hair Girls Kit. Now your kid can practice styling their hair with their own set of Disney hair accessories for girls. Enjoy the lovely kids hair styling kit for a makeover pretend play or for a babysitting activity, a princess makeover, and as a kids party favor. Disney Princess fans will be thrilled to steal the princesses' iconic look with the Disney Princess brush and hair kit for girls. Top off the look with the Disney Princess Bow. Just the right gift set for young hair salon enthusiasts who want to spend quality time with their friends and family. It's a great set of hair salon toys for girls who love to dress up as Disney Princesses for pretend play. Every item in the Disney Princesses hairstyle toy kit is made with high-quality, resistant, durable, and child-friendly materials. Each piece in the set of Disney Princesses hair accessories for little girls is carefully designed and sized for kids ages 3 and up. The brushes fit into big and small hands, so you and your little one can be immersed in the hair brushing experience together at home or on-the-go. Includes 1 Hair Brush, 1 Hair Bow, 3 Hair Ties, 1 Pony. The Disney Princesses hair design accessory kit makes the perfect gift for children ages 3 and older. Ideal for Disney birthday party goodie bags, sleepovers, and makeover parties.\nSearch Terms: (none)\nFeatures:\n- THE PRINCESS HAIR ACCESSORIES FOR KIDS COME WITH UNIQUE DESIGN YOU LOVE – Your little one will be excited playing dress up and styling their hair with this adorable Disney Princess Hair Girls Kit. Now your kid can practice styling their hair with their own set of Disney hair accessories for girls. Enjoy the lovely kids hair styling kit for a makeover pretend play or for a fashion activity, a princess makeover, and as a kids party favor.\n- THE DISNEY PRINCESS ACCESSORY KIT FOR GIRLS IS FOR DISNEY PRINCESS FANS – Disney Princess fans will be thrilled to steal the princesses iconic looks with the Disney Princess brush and hair kit for girls. Top off the look with the Princess Bow! Just the right gift set for young hair salon enthusiasts who want to spend quality time with their friends and family. It's a great set of hair salon toys for girls who love to dress up for pretend play.\n- INCLUDED IN THE PURCHASE IN THE DISNEY PRINCESS HAIR ACCESSORIES KIT FOR GIRLS – Includes 1 Hair Brush, 1 Hair Bow, 3 Hair Ties, 1 Pony. The Disney Princesses hair design accessory kit makes the perfect gift for children ages 3 and older. Ideal for Disney birthday party goodie bags, sleepovers, and makeover parties.\n- HIGH-QUALITY DISNEY HAIR ACCESSORIES FOR KIDS – Every item in the Disney Princess hairstyle toy kit is made with high-quality, resistant, durable, and child-friendly materials. Each piece in the set of Disney Princess hair accessories for little girls is carefully designed for kids ages 3 and up. The brushes fit into big and small hands, so you and your little one can be immersed in the hair brushing experience together at home or on-the-go.\n- IDEAL USE FOR THE DISNEY PRINCESS HAIR CLIPS – Get your little ones looking fashionable and stylize their hair with their first Disney Princess Hair Accessories Kit. Playing with hair styling accessories enhances their creativity, sharpens eye-hand coordination and fine motor skills as they try to comb their hair and put scrunchies and hair clips. A fun gift for kids who enjoy styling their hair with Disney Princess hair accessories for kids.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Townley Girl Disney Princess Hair Accessories 6-pc Set",
+            "tokens": {
+                "brand": "Townley Girl",
+                "pack_size": "6",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Disney Princess Hair Accessories Set"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Townley Girl 6-pc Disney Princess Hair Accessories Set",
+            "tokens": {
+                "brand": "Townley Girl",
+                "pack_size": "6",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Disney Princess Hair Accessories Set"
+            },
+            "char_count": 54,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "6 Pieces, Ages 3, Brush, Bow, Hair Ties, Pony, Pretend Play, Gift Set",
+            "char_count": 69,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Includes Brush Bow 3 Hair Ties And Pony, Durable Child-Safe Materials, Ages 3 And Up, Pretend Play Gift, Party Favor",
+            "char_count": 116,
+            "validation_error": null
+        }
+    }
+}

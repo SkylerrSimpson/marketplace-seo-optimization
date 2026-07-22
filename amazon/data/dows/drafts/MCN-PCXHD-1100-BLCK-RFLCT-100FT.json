@@ -3,14 +3,14 @@
     "asin": "B092CR2S7Q",
     "product_type": "CORD_ROPE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:53:44+00:00",
+    "generated_at": "2026-07-21T20:03:49+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 13,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -210,20 +210,57 @@
             "asin": "B092CR2S7Q",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Gear Aid 1100 Paracord 100 ft Black Reflective Heavy Duty",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "GEAR AID 100ft 5.5mm Black Reflective 1100 Paracord",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "100",
+                "pack_size_unit": "ft",
+                "size": "5.5mm",
+                "color": "Black Reflective",
+                "name": "1100 Paracord"
+            }
         },
-        "title_differentiation": {
-            "value": "5.5mm, 16-strand, double strength, less stretch, camping & survival",
+        "item_name_ai_openai": {
+            "value": "GEAR AID 100-ft 5.5 mm Black Reflective Paracord",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 48,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "100",
+                "pack_size_unit": "ft",
+                "size": "5.5 mm",
+                "color": "Black Reflective",
+                "name": "Paracord"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Heavy-Duty 16-Strand Cord, Double Strength, Less Stretch, Camping And Survival, Reflective Design",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 97,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "16-Strand Core, Double Strength Of 550 Cord, Less Stretch, Ideal For Tents Tarps Luggage And Gear",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 97,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

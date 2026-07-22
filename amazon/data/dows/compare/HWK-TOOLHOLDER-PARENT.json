@@ -1,0 +1,60 @@
+{
+    "sku": "HWK-TOOLHOLDER-PARENT",
+    "asin": "B0BT8L2S2T",
+    "product_type": "UTILITY_HOLSTER_POUCH",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWK-TOOLHOLDER-PARENT\nProduct Type: UTILITY_HOLSTER_POUCH\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux 9 Inch One Pocket Top Grain Leather Tool Holder with Belt Clip, Dark Brown\nDescription: Do you have a favorite tool or high traffic tool that you need separated from other tools on your tool belt? Or do you just need a little more room on an already full tool belt? Whatever your end goal, ToolTreaux top grain leather tool holders are here to help.<br/><br/>Featuring v-shaped pockets with secure metal snap closures, these tool holders will keep chosen tools secure and in place. And, with sturdy built in metal belt clips, these tool holders can attached to your person or other tool bag if needed or preferred. <br/><br/>Constructed from top grain leather, the high quality fabrication ensures longevity in the field and across many projects; the tool <br/>holder may be stiff upon arrival, but will soften with time and use.<br/><br/>Ideal for separating a favorite or repeatedly used tool from other tools on your tool belt, these top grain leather tool holders from ToolTreaux give you quick and easy specific tool access that is organized and secure.\nSearch Terms: gifts for dad Tool belt accessories leather tool belt boyfriend fathers day gifts framers carpenter electrician tool belt DIY mens stocking stuffers Small tool pouch with belt clip edc leather belt organizer construction tools plumber gardening\nFeatures:\n- LEATHER TOOL HOLDERS: Durable leather tool holders with belt loops and built in belt clips make a great addition to any tool belt to house extra tools\n- TOP GRAIN LEATHER: High quality top grain leather ensures longevity in the field; while the tool holder may be stiff upon arrival, it will soften with time and use\n- BUILT IN BELT CLIP: If not needed on as tool belt, these high quality leather tool holders feature a sturdy, built in metal belt clip to allow for easy attachment to your person or other tool bag as needed\n- TOOL BELT ACCESSORIES: Versatile leather tool holders gives you fast and quick access to favorite or high traffic tools, separated from others on your tool belt\n- DIMENSIONS: One pocket: 9 x 3.5 x 2 inches; Two pocket: 8.25 x 3.5 x 3 inches\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 9 Inch Dark Brown Leather Tool Holder",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "9",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "Dark Brown",
+                "name": "Leather Tool Holder"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 9-in One Pocket Dark Brown Leather Tool Holder Clip",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "9",
+                "pack_size_unit": "in",
+                "size": "One Pocket",
+                "color": "Dark Brown",
+                "name": "Leather Tool Holder Clip"
+            },
+            "char_count": 62,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Top Grain Leather, Metal Belt Clip, Snap Closure, One Pocket, Durable Construction",
+            "char_count": 82,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "V-Shaped Pocket, Secure Snap Closure, Built-In Metal Belt Clip, Top Grain Leather, Durable Field Use",
+            "char_count": 100,
+            "validation_error": null
+        }
+    }
+}

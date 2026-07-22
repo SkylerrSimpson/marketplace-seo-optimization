@@ -3,15 +3,15 @@
     "asin": "B087CB316H",
     "product_type": "CORD_ROPE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:48:06+00:00",
+    "generated_at": "2026-07-21T20:01:42+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 6,
-        "ai_suggested": 3,
-        "ai_null": 0,
+        "ai_suggested": 4,
+        "ai_null": 1,
         "base_template": 0
     },
     "attributes": {
@@ -103,25 +103,62 @@
             "raw_value": true
         },
         "color": {
-            "value": "Black",
+            "value": null,
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Spectra 325LB Tactical Survival Cord with Sleeve",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Spectra Utility Cord 325LB Tactical Sleeved",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "325LB",
+                "color": "",
+                "name": "Spectra Utility Cord Tactical Sleeved"
+            }
         },
-        "title_differentiation": {
-            "value": "325LB tensile strength, UV & abrasion resistant, lightweight Spectra 1000 core",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 325LB Spectra Sleeved Survival Cord",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 47,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "325LB",
+                "color": "",
+                "name": "Spectra Sleeved Survival Cord"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "325Lb Tensile Strength, Lightweight High-Strength Fiber, UV And Abrasion Resistant, Survival And Tactical",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 105,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Spectra 1000 Core, Polyester Braided Sleeve, UV And Abrasion Resistant, Lightweight, 325 Lb Tensile Strength",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 108,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

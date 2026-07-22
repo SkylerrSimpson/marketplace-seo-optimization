@@ -3,14 +3,14 @@
     "asin": "B09KP3JLLK",
     "product_type": "OUTDOOR_RECREATION_PRODUCT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:42:28+00:00",
+    "generated_at": "2026-07-21T19:59:27+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 0,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,20 +27,58 @@
             "source": "usurper",
             "usurper_column": "attr.size_amazon"
         },
-        "item_name_ai_suggested": {
-            "value": "What Kids Want Kids Superhero Inflatable Punching Bop Bag 34.5\"",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "What Kids Want Kids Bop Bag Punching Bag 34.5 Inch Green",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 56,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "What Kids Want",
+                "pack_size": "34.5",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "Green",
+                "name": "Kids Bop Bag Punching Bag"
+            }
         },
-        "title_differentiation": {
-            "value": "Licensed Characters, Water-Weighted Base, Includes Repair Kit, Indoor/Outdoor",
+        "item_name_ai_openai": {
+            "value": "What Kids Want 34.5 in Green Punching Bag",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 41,
+            "review_only": true,
+            "tokens": {
+                "brand": "What Kids Want",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "34.5 in",
+                "color": "Green",
+                "name": "Punching Bag"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Officially Licensed Superhero, Inflatable Punching Bag, Water-Weighted Base, Includes Repair Kit, Promotes Exercise And Fitness",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 127,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (127 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Officially Licensed Superhero Graphics, Water Weighted Base, Repair Kit Included, Indoor Or Outdoor Play, Encourages Fitness",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 124,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

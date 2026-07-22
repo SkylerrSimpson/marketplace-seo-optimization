@@ -3,14 +3,14 @@
     "asin": "B084RRT4FQ",
     "product_type": "LAB_SUPPLY",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:41:53+00:00",
+    "generated_at": "2026-07-21T19:59:05+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 4,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -90,20 +90,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Premium Life Clear Glass Vials 12-Pack 5 Sizes Screw Cap",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Premium Life 12-pk Clear Glass Vials Gold Prospecting",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Premium Life",
+                "pack_size": "12",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Clear",
+                "name": "Glass Vials"
+            }
         },
-        "title_differentiation": {
-            "value": "Leak-resistant caps, 3ml-7ml sizes, gem/mineral/craft storage",
+        "item_name_ai_openai": {
+            "value": "Premium Life 12-Pk Clear Glass Vials",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 36,
+            "review_only": true,
+            "tokens": {
+                "brand": "Premium Life",
+                "pack_size": "12",
+                "pack_size_unit": "Pk",
+                "size": "",
+                "color": "Clear",
+                "name": "Glass Vials"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "12 Transparent Vials, 5 Sizes, Screw-On Caps, Leak-Resistant, Jewelry Making, Gem Storage",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 89,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Leak Resistant Screw Caps, 5 Sizes Available, Easy Visibility, Great For Gems, Minerals, Crafts, Travel",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

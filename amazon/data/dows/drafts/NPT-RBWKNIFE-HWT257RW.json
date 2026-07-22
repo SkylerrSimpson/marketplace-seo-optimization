@@ -3,14 +3,14 @@
     "asin": "B096CW1JZ8",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:32:46+00:00",
+    "generated_at": "2026-07-21T19:56:12+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 4,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -78,19 +78,58 @@
             "asin": "B096CW1JZ8",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical Spear Point Full Tang Fixed Blade Knife Rainbow",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical Rainbow Spear Point Full Tang Fixed Blade Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 60,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "3.5 inch",
+                "color": "Rainbow",
+                "name": "Spear Point Full Tang Fixed Blade Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "3.5\" Stainless Steel, Compact 8.25\", Finger Hook, Kydex Sheath",
+        "item_name_ai_openai": {
+            "value": "ASR Tactical Rainbow Full Tang Spear Point Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 48,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Rainbow",
+                "name": "Full Tang Spear Point Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Full Tang Fixed Blade, Spear Point, 35 Inch, Compact 825 Inch Overall, Stainless Steel, Kydex Sheath, Tactical And Self-Defense",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 127,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (127 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Spear Point Throwing Design, Full Tang 3Cr13 Stainless Steel, Finger Hook Handle, Kydex Sheath, 825\" Overall",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 108,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

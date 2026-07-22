@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ZOOM-HEADLAMP-FL8212-10W",
+    "asin": "B07LC4R9HT",
+    "product_type": "FLASHLIGHT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ZOOM-HEADLAMP-FL8212-10W\nProduct Type: FLASHLIGHT\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 1000 Lumen Zoom Rechargeable Pivoting Headlamp 3 Stage Light\nDescription: Ever ended up stuck in the dark at camp or at the end of a long day post-trek? We have, and it admittedly happens to all of us at some point. Nevertheless, it's easily avoidable by adding the ASR Outdoor 10 Watt LED 1000-Lumen Rechargeable Headlamp to your arsenal of outdoor activity gear, survival or emergency preparedness kits and much more.<br/><br/>Suitable for walking or running, cycling, reading, climbing, hiking, camping, hunting, fishing, tactical purposes, craft and hobby projects, and is a must-have to include with your camping gear, fishing gear, hiking backpacks, and camping accessories so you'll never be left without light again.<br/><br/>The ASR Outdoor 1000 Lumen 3 Stage Switch Zoom Rechargeable Pivoting Headlamp is an ASR Outdoor essential and must-have safety item for hiking, trekking, fishing, cycling, hunting, running, walking, climbing or curling up a good book on your next camping trip. Easy to pack in your camping gear or hiking backpack, we don't leave the house without it.\nSearch Terms: headlamp led rechargeable flashlight running camping with red light kids\nFeatures:\n- RECHARGEABLE HEADLAMP: 2000mAh Lithium Batteries. Hiking, camping, fishing, cycling or working on craft or hobby projects, never get stuck in the dark again with the ASR Outdoor rechargeable headlamp with up to 20 hours of bright light; UL Certified Batteries and USB charging cable included\n- SWITCHABLE BRIGHTNESS MODES: The ASR Outdoor rechargeable headlamp can switch between three different brightness modes including low beam, high beam and strobe, depending on your activity; low beam mode will give you 7 hours of battery life, high beam mode 3.5 hours and strobe mode 20 hours\n- ZOOM CAPABILITY: Featuring easy zoom adjustments, you can adjust outwards for a focused beam or adjust inwards for wider beam depending on activity or project; the rechargeable headlamp light also pivots for directional illumination\n- ADJUSTABLE: Whether you're hiking, camping, fishing or working on home, craft or hobby projects, the ASR Outdoor rechargeable headlamp features a contoured forehead plate and adjustable straps to ensure a comfortable position for your head and reduce any potential neck fatigue\n- MULTIFUNCTIONAL: This rechargeable headlamp is suitable for walking or running, cycling, reading, climbing, hiking, camping, hunting, fishing, tactical purposes, craft and hobby projects and a must-have to include with camping gear, fishing gear, hiking backpacks, camping accessories, survival kits and more\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 1000 Lumen Zoom Rechargeable Headlamp",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "1000 Lumen",
+                "color": "",
+                "name": "Zoom Rechargeable Headlamp"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 1000 Lumen Rechargeable Pivoting Headlamp",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "1000 Lumen",
+                "color": "",
+                "name": "Rechargeable Pivoting Headlamp"
+            },
+            "char_count": 53,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "10W LED, 3 Brightness Modes, Zoom And Pivot, 20 Hour Battery Life, USB Rechargeable, Adjustable Straps",
+            "char_count": 102,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Zoom Focus Beam, Three Light Modes, Pivoting Head, USB Rechargeable, 20 Hour Runtime, Adjustable Fit",
+            "char_count": 100,
+            "validation_error": null
+        }
+    }
+}

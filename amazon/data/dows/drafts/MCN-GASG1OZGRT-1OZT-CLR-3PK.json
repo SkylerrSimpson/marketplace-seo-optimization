@@ -3,14 +3,14 @@
     "asin": "B01MY89BTS",
     "product_type": "SEALANT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:00:34+00:00",
+    "generated_at": "2026-07-21T20:05:20+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 15,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -332,20 +332,58 @@
             "asin": "B01MY89BTS",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Gear Aid Seam Grip WP Waterproof Tent Sealant, Clear, 3-pk",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "GEAR AID Seam Grip WP Waterproof Sealant Clear 1oz 3-pk",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "1oz",
+                "color": "Clear",
+                "name": "Seam Grip WP Waterproof Sealant"
+            }
         },
-        "title_differentiation": {
-            "value": "1 oz tubes, flexible waterproof adhesive, seals up to 12 ft per oz",
+        "item_name_ai_openai": {
+            "value": "GEAR AID 3-PK 1 OZ Clear Seam Grip WP Sealant and Adhesive",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 58,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "1 oz",
+                "color": "Clear",
+                "name": "Seam Grip WP Sealant and Adhesive"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Waterproof Tent And Fabric Sealant, Permanent Adhesive Repair, Seals 12 Feet Per Oz, Flexible Rubber Seal, Includes Applicator Brushes",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 134,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (134 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Waterproof Tent Seam Sealer, Flexible Rubber Cure, Bonds Nylon Polyester Canvas Vinyl, Includes 2 Brushes",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 105,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

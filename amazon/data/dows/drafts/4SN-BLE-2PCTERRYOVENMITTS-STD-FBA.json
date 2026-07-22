@@ -3,14 +3,14 @@
     "asin": "B0FLFQVK1V",
     "product_type": "POT_HOLDER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:08:44+00:00",
+    "generated_at": "2026-07-21T20:07:04+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 16,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 1
     },
@@ -246,22 +246,59 @@
             "value": "Terry Cloth",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Beille 2pc Quilted Terry Oven Mitts, 14 Inch Length, Cream",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 2pc 14 Inch Cream Terry Quilted Oven Mitts",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 49,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "pc",
+                "size": "14 Inch",
+                "color": "Cream",
+                "name": "Terry Quilted Oven Mitts"
+            }
         },
-        "title_differentiation": {
-            "value": "Extended arm coverage, soft terry cloth quilted, machine washable, one size fits all",
+        "item_name_ai_openai": {
+            "value": "Beille 2-pc 14 In Cream Oven Mitts",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 34,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "pc",
+                "size": "14 In",
+                "color": "Cream",
+                "name": "Oven Mitts"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Extended Length, Quilted Terry Cloth, Machine Washable, Hanging Loop, One Size Fits All",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 87,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Quilted Terry Cloth, Extended Forearm Coverage, Hanging Loops, Machine Washable, Farmhouse Neutral",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 98,
+            "review_only": true
         },
         "required_product_compliance_certificate": {
             "value": [

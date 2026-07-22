@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-GAAACCRA-3PC-SML-CLR-1",
+    "asin": "B000MMNCV0",
+    "product_type": "OUTDOOR_RECREATION_PRODUCT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-GAAACCRA-3PC-SML-CLR-1\nProduct Type: OUTDOOR_RECREATION_PRODUCT\nBrand (from catalog): GEAR AID\nExisting Title: Aquaseal and Cotol-240 Combo Repair Adhesive Glue\nDescription: Aquaseal repairs all types of wader fabrics and materials including GORE-TEX fabric waders and other waterproof breathable fabrics – as well as neoprene waders and all types of fishing footwear. Provides superior adhesion, wear resistance, flexibility and waterproofing. Highly concentrated formula provides thick repairs and minimal adhesive shrinkage with only one permanent application. For fast cure, use with Cotol-240 Cure Accelerator. Made in U.S.A. <br/><br/>Aquaseal is made to fix just about anything. With it you can make permanent repairs to tears, holes and rips in GORE-TEX fabric and all other wader material. Its super-strong formula waterproofs, seals, bonds and repairs your most important gear. Aquaseal is part of a comprehensive line of Care and Repair products from Gear Aid. With Gear Aid, anyone can be a master of gear repair. Works on all wader fabrics and materials, plus felt soles, float tubes, and pontoon boats.\nSearch Terms: repair adhesive aquaseal seam sealant cotol-240 sealant fabric repair gear maintenance\nFeatures:\n- Dries to Clear\n- Permanently Seals, Bonds, and Repairs\n- 2 Hour Dry Time with Cotol-240\n- Superior Adhesion and Waterproofing\n- Aquaseal Size: 3/4 oz | Cotol-240 Size: 1/2 oz\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Gear Aid Aquaseal and Cotol-240 Combo Repair Adhesive",
+            "tokens": {
+                "brand": "Gear Aid",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Clear",
+                "name": "Aquaseal and Cotol-240 Combo Repair Adhesive"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID Aquaseal and Cotol-240 Combo Repair Adhesive Glue",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Aquaseal and Cotol-240 Combo Repair Adhesive Glue"
+            },
+            "char_count": 58,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Waterproof Wader Repair, GORE-TEX Compatible, 2-Hour Cure Time, Permanent Seal, Superior Adhesion, US Made",
+            "char_count": 106,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Waterproof Gear Repair, Fast 2 Hour Cure With Accelerator, Strong Flexible Bond, Clear Drying, For Waders And Neoprene",
+            "char_count": 118,
+            "validation_error": null
+        }
+    }
+}

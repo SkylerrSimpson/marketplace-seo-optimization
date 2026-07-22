@@ -1,0 +1,60 @@
+{
+    "sku": "HWK-TBPHDBSLFHAN-BLCK",
+    "asin": "B00H2S86I6",
+    "product_type": "UTILITY_HOLSTER_POUCH",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWK-TBPHDBSLFHAN-BLCK\nProduct Type: UTILITY_HOLSTER_POUCH\nBrand (from catalog): Universal Tool\nExisting Title: 10 Pocket Tool Belt Pouch Heavy Duty Suede Leather Fits Hammer And Nails - Black\nDescription: The Universal Tool 10 Pocket Black Tool Pouch is a great addition to any crafter or hobbyists tool supplies. Each belt features 2 main pockets, 2 medium pockets, 6 small pockets and a steel hammer holder. The pouches themselves are constructed of heavy duty black suede leather.<br/><br/>The tool pouch features a metal tape clip for measuring tape as well as a tunnel that will fit a 3 inch wide belt (belt not included). This is a great gift idea this holiday season.\nSearch Terms: hobby organizer carry do it yourself tool bag suede utility holster bag construction leather home improvement belt worksman\nFeatures:\n- 10 Pockets\n- 2 Main Pockets | 2 Medium Pockets | 6 Small Pockets | 1 Steel Hammer Holder\n- Metal Tape Clip for Holding Measuring Tape\n- Belt Tunnel Fits 3 inch Wide Belt (Belt Not Included)\n- Heavy Duty Suede Leather\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 10 Pocket Black Heavy Duty Suede Leather Tool Pouch",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "10",
+                "pack_size_unit": "Pocket",
+                "size": "",
+                "color": "Black",
+                "name": "Heavy Duty Suede Leather Tool Pouch"
+            },
+            "char_count": 66,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool Black Suede Leather Tool Pouch",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Tool Pouch"
+            },
+            "char_count": 45,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Steel Hammer Holder, Metal Tape Clip, 2 Main And 6 Small Pockets, 3 Inch Belt Tunnel, Heavy Duty Suede",
+            "char_count": 102,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "10 Pockets, Hammer Holder, Tape Clip, 3 Inch Belt Tunnel, Heavy Duty Suede Leather, Fits Hammer And Nails",
+            "char_count": 105,
+            "validation_error": null
+        }
+    }
+}

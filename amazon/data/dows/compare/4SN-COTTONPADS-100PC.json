@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-COTTONPADS-100PC",
+    "asin": "B086RC763B",
+    "product_type": "COTTON_PAD",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-COTTONPADS-100PC\nProduct Type: COTTON_PAD\nBrand (from catalog): Home Essentials\nExisting Title: Hypoallergenic Cosmetic Cotton Pads Soft Absorbent 100pc\nDescription: When we think of all the unexpected external and environmental factors that our skin faces on a daily basis (chemicals, pollution, wind, sun exposure and dust to name just a few), coupled with any added stress from daily life, our skin goes through a lot just in one day. So, when it comes to your daily makeup, beauty, skin care and makeup removal routine, give your skin the all-natural pureness and softness it deserves with All Pure's Hypoallergenic 100% Pure Cotton Pads. <br/><br/>All Pure cotton pads are an essential to keep in your bathroom as part of your daily makeup application, makeup removal, nail polish removal and skin care routine. All Pure cotton pads are made from 100% cotton, meaning you won't find any added synthetics, chemicals, fragrances or perfume. In addition, the 100% pure cotton pads are naturally hypoallergenic. Simple and safe, All Pure cotton pads are much less likely to cause allergic reactions, containing fewer allergens or substances that trigger allergies. <br/>Ideal for makeup application and removal, All Pure 100% cotton pads are ideal and an essential tool to keep in your bathroom. Not only are they great for applying makeup, you can also use them for applying facial toner, lotion, cream, or powder as part of your regular skin care routine; they're also great for makeup use when softening, blending or balancing. In addition to makeup, All Pure's 100% cotton pads are ideal nail polish removal; soft and very absorbent cotton balls will easily remove your nail polish when desired.<br/><br/>Notably, All Pure's 100% cotton pads are baby safe. Soft, hypoallergenic and very absorbent, making these 100% pure cotton pads safe to use with young children or a newborn baby on their very delicate and sensitive skin.<br/><br/>Give your skin the pureness it deserves with All Pure Hypoallergenic 100% Pure Cotton Pads. A staple in your bathroom for makeup application and removal, nail polish removal and skin care applications.\nSearch Terms: pure cotton balls pads soft hypoallergenic cosmetic clean baby makeup remover beauty toner facial cream lotion bag accessories essentials nail polish\nFeatures:\n- 100% PURE COTTON PADS: All Pure 100% Cotton Pads are made with only 100% pure cotton; no added synthetics, chemicals, fragrances or perfume; use with your favorite skin care, makeup, cosmetics and beauty products and to keep in your cosmetic bag if you're planning to travel\n- NATURALLY HYPOALLERGENIC: Simple, safe, and naturally hypoallergenic; All Pure Cotton Pads are much less likely to cause allergic reactions, containing fewer allergens or substances that trigger allergies\n- MAKEUP APPLICATION AND REMOVAL: All Pure 100% Cotton Pads are an essential part of taking your makeup off at the end of the day with makeup remover; also great for using in the application of makeup for blending, softening and balancing and for applying lotion, cream, toner or powder to skin\n- IDEAL FOR NAIL POLISH REMOVAL: 100% cotton All Pure cotton pads are ideal nail polish removal; soft and very absorbent cotton pads will easily remove your nail polish when desired; keep the cotton pads handy in your bathroom to use as part of your daily skin care, makeup application and skin care routine\n- BABY SAFE: The All Pure 100% pure cotton pads are gentle enough and safe to use with young children or a newborn baby on their delicate skin\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Home Essentials 100-pc Hypoallergenic Cosmetic Cotton Pads",
+            "tokens": {
+                "brand": "Home Essentials",
+                "pack_size": "100",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Hypoallergenic Cosmetic Cotton Pads"
+            },
+            "char_count": 58,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Home Essentials 100-pc Cotton Pads",
+            "tokens": {
+                "brand": "Home Essentials",
+                "pack_size": "100",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Cotton Pads"
+            },
+            "char_count": 34,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "100 Pure Cotton, Soft And Absorbent, Hypoallergenic, Makeup Remover, Baby Safe, Nail Polish Removal",
+            "char_count": 99,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "100 Percent Pure Cotton, Hypoallergenic, Soft And Absorbent, Makeup And Nail Polish Removal, Baby Safe",
+            "char_count": 102,
+            "validation_error": null
+        }
+    }
+}

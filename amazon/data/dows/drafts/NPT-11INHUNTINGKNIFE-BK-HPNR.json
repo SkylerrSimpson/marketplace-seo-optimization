@@ -3,14 +3,14 @@
     "asin": "B07P6T69F5",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:13:31+00:00",
+    "generated_at": "2026-07-21T19:49:28+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 11,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -169,20 +169,57 @@
             "asin": "B07P6T69F5",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Wuu Jau Co 11\" Full Tang Hunting Knife Stainless Steel",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Wuu Jau 11in Full Tang Hunting Knife Black",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 42,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Wuu Jau",
+                "pack_size": "11",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Full Tang Hunting Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "6.25\" Blade, 3CR3 Stainless Steel, ABS Handle, Includes Nylon Sheath",
+        "item_name_ai_openai": {
+            "value": "Wuu Jau 11in Fixed Blade Hunting Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 38,
+            "review_only": true,
+            "tokens": {
+                "brand": "Wuu Jau",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "11in",
+                "color": "",
+                "name": "Fixed Blade Hunting Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "625In Blade, 3CR3 Stainless Steel, Full Tang, ABS Handle, Includes Nylon Sheath, Fixed Blade",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 92,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Full Tang 3CR3 Stainless Steel, 625\" Blade, ABS Handle, Nylon Sheath, 3Mm Thickness, Outdoor Camping",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 100,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

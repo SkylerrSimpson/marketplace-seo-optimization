@@ -3,14 +3,14 @@
     "asin": "B0016HS8XC",
     "product_type": "SEALANT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:12:27+00:00",
+    "generated_at": "2026-07-21T20:07:22+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 20,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -433,20 +433,58 @@
             "asin": "B0016HS8XC",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Gear Aid Seam Grip WP Waterproof Sealant, Clear, 1oz",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "GEAR AID Seam Grip WP Waterproof Sealant Clear 1 oz 2-pk",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 56,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "1 oz",
+                "color": "Clear",
+                "name": "Seam Grip WP Waterproof Sealant"
+            }
         },
-        "title_differentiation": {
-            "value": "Flexible urethane adhesive for tent seams, tarps & outdoor fabric repair",
+        "item_name_ai_openai": {
+            "value": "GEAR AID 1 oz Clear Seam Grip WP Waterproof Sealant Adhesive",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 60,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "1",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "Clear",
+                "name": "Seam Grip WP Waterproof Sealant Adhesive"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Waterproof Tent And Fabric Sealant, Flexible Urethane Adhesive, Seals Up To 12 Feet, Works On Nylon Polyester Canvas And Vinyl",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 126,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (126 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Repairs Tents Tarps And Awnings, Flexible Waterproof Urethane, Bonds Nylon Polyester Canvas, 2 Applicator Brushes",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 113,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

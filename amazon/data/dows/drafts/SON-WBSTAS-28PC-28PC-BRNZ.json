@@ -3,14 +3,14 @@
     "asin": "B00KNCGLBW",
     "product_type": "TOOLS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:40:22+00:00",
+    "generated_at": "2026-07-21T19:58:37+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -45,20 +45,57 @@
             "asin": "B00KNCGLBW",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Tool 28pc Wood Burning & Soldering Tips Set",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Tool 28pc Wood Burning and Soldering Tips Set",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "28",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Wood Burning and Soldering Tips Set"
+            }
         },
-        "title_differentiation": {
-            "value": "Wood carving, embossing, soldering tips with stencils and hot knife",
+        "item_name_ai_openai": {
+            "value": "Universal Tool 28-pk Wood Burning Tips Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 42,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "28",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Wood Burning Tips Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Wood Carving Tips, Embossing Tips, Hot Knife Chuck And Blade, Number Letter Symbol Stencils",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 91,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Wood Carving Tips, Wood Embossing Tips, Hot Knife Chuck And Blade, Number Letter And Symbol Stencils",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 100,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

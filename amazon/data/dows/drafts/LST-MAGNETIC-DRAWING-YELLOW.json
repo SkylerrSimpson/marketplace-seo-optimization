@@ -3,14 +3,14 @@
     "asin": "B07J58BVXT",
     "product_type": "WRITING_BOARD",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:26:34+00:00",
+    "generated_at": "2026-07-21T19:54:28+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 0,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -21,20 +21,57 @@
             "source": "usurper",
             "usurper_column": "attr.target_audience_amazon"
         },
-        "item_name_ai_suggested": {
-            "value": "KidPlay Products Magnetic Drawing Board, Yellow, 10\" x 7\"",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "KidPlay Products Yellow Magnetic Drawing Board",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 46,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "10\" X 7\"",
+                "color": "Yellow",
+                "name": "Magnetic Drawing Board"
+            }
         },
-        "title_differentiation": {
-            "value": "Sliding Eraser, Includes Pen & Stamps, Ages 2-13, Reusable",
+        "item_name_ai_openai": {
+            "value": "KidPlay Products 10\"x7\" Yellow Magnetic Drawing Board",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 53,
+            "review_only": true,
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "10\"x7\"",
+                "color": "Yellow",
+                "name": "Magnetic Drawing Board"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "10\" X 7\" Writing Area, Sliding Eraser, Includes Pen And Stamp, Ages 2-13, Durable Plastic",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 89,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Sliding Eraser, Pen And Stamp Set, Durable Plastic, Folding Stand, Ages 2-13, Creative Learning, Bright Vibrant Colors",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 118,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

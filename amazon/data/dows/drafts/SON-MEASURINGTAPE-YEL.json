@@ -3,14 +3,14 @@
     "asin": "B079VWSNRW",
     "product_type": "TAPE_MEASURE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:16:15+00:00",
+    "generated_at": "2026-07-21T20:08:08+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 3,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -58,20 +58,57 @@
             "asin": "B079VWSNRW",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Tool 10ft Tape Measure SAE & Metric Yellow",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Tool 10ft Tape Measure Yellow SAE Metric",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "10",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Yellow",
+                "name": "Tape Measure"
+            }
         },
-        "title_differentiation": {
-            "value": "10ft/3m, SAE & Metric Units, Thumb Lock, Belt Clip",
+        "item_name_ai_openai": {
+            "value": "Universal Tool 10-ft Measuring Tape Yellow",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 42,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "10",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Yellow",
+                "name": "Measuring Tape"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "SAE And Metric Units, Thumb Lock, Metal Belt Clip, Nylon Wrist Strap, 132 Inch And 1Mm Increments",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 97,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Dual Scale SAE Metric 1-32 Inch And 1 Mm Increments Thumb Lock Belt Clip Wrist Strap Durable Plastic Body",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 105,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

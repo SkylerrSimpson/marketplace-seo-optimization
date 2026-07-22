@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-CHEESEGRATER-PARENT",
+    "asin": "B09TD8QV4P",
+    "product_type": "FOOD_GRATER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-CHEESEGRATER-PARENT\nProduct Type: FOOD_GRATER\nBrand (from catalog): Beille\nExisting Title: 6 Side Stainless Steel Grater Top Handle Zester Slicer 7.75 in (2 Colors)\nDescription: Don't limit your grating and slicing potential with just any slicer. The Beille 6-sided stainless steel food grater will quickly become your go-to kitchen tool for food prep. The ergonomic and functional design provides you with 6 different grating/shredding/slicing options, making any other grater in your kitchen obsolete.<br/><br/>Grate vegetables like a pro, prepare both soft and hard kinds of cheese effortlessly, extract maximum flavor from citrus with a dedicated zester side, grate breadcrumbs or ginger using finer mesh, or slice cucumbers & other veggies in a breeze using the slicer plane. The Beille 6-in-1 kitchen gadget is a versatile tool that is both handy and indispensable.<br/><br/>Each side provides a different desired result:<br/>-Fine Shred (Zester): Ideal for shredding nutmeg, parmesan, garlic, citrus, fruit zests, and more <br/>-Slice: Make crisp slices from vegetables and medium-sized cheeses<br/>-Arc Slice - Ideal for chocolate, parmesan, and small vegetable ribbons for salad<br/>-Medium shred - Make crisp slices from cucumbers, tomatoes, and more<br/>-Coarse - Great for shredding firm vegetables, medium & hard cheese, ginger, and chocolate<br/>-Square shred - Great for shredding hard vegetables, bread and hard cheeses<br/><br/>Once you are done prepping all of your ingredients, the Beille hexagon stainless steel grater can easily be washed with soap and water or on the top rack of your dishwasher. It allows the food slicer to take up minimal storage space with a lightweight and compact design whether it is displayed on your counter or inside of a cabinet. Choose between two modern color options - seafoam green and coral. Our multi-sided food grater is a great gift idea for bridal showers, weddings, housewarmings, dinner party host gifts, or birthdays.\nSearch Terms: stainless steel cheese greater hexagon shaped grater 6 sided food grader fine grating tool fruit zester citrus zest lemon lime ginger kitchen medium shred shredder for soft dishwasher safe tools\nFeatures:\n- ESSENTIAL KITCHEN TOOL - The Beille 6-side stainless steel grater is six kitchen tools built into one! Each side of the hexagon-shaped grater offers a different result - fine shred, slice, medium shred, arc slice, course shred and square shred. This space saver is ideal for every kitchen!\n- VERSATILE MULTI-FUNCTION GRATER - Grate vegetables like a pro, prepare both soft and hard cheeses effortlessly, extract maximum flavor from citrus with a dedicated zester side, grate breadcrumbs or ginger using finer mesh, or slice cucumbers & other veggies in a breeze using the slicer plane! The Beille 6-in-1 kitchen gadget is a versatile tool that is both handy and indispensable.\n- DURABLE CONSTRUCTION - Featuring sharp stainless steel blades, this grater will get the job done quickly and result in cleanly sliced and grated food. Its rubber bottom prevents slipping and sliding on your counter, cutting board or plate. The hexagon-shaped grater also prevents food from escaping the bottom of the grater, so you will have less mess to clean up when you're done!\n- ERGONOMIC AND LIGHTWEIGHT - Designed with comfort in mind the grater has an ergonomic top handle and allows for efficient slicing, grating or shredding. The rubber base provides a firm stand for easy and safe grating. With a lightweight and compact design, it allows the food slicer to take up minimal storage space whether it is displayed on your counter or inside your cabinet.\n- CLEAN-UP WITH EASE - Once you are done prepping all your food items, the Beille hexagon stainless steel grater can easily be washed with soap and water or on the top rack of your dishwasher.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 6-Side Stainless Steel Grater 7.75in 2 Colors",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "6",
+                "pack_size_unit": "Side",
+                "size": "7.75in",
+                "color": "2 Colors",
+                "name": "Stainless Steel Grater"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 7.75 in 6-Side Stainless Steel Grater",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "7.75",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "6-Side Stainless Steel Grater"
+            },
+            "char_count": 44,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "6-In-1 Multi-Function, Dishwasher Safe, Ergonomic Handle, Zester, Slicer, Shredder, Hexagon Design, Seafoam Green And Coral",
+            "char_count": 123,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Six Grating Surfaces, Fine Shred And Zester, Slice And Shred Cheese, Rubber Base, Dishwasher Safe, Ergonomic Handle",
+            "char_count": 115,
+            "validation_error": null
+        }
+    }
+}

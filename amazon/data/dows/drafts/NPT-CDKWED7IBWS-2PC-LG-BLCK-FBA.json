@@ -3,14 +3,14 @@
     "asin": "B0887VHCQ3",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:10:05+00:00",
+    "generated_at": "2026-07-21T19:48:09+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 4,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 11
     },
@@ -105,20 +105,57 @@
             "asin": "B0887VHCQ3",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Black Wolf Bowie Dagger Knife with Sheath",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 13.5\" Black Wolf Collector's Hunting Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Wolf Collector's Hunting Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "7\" Stainless Steel Blade, Cast Wolf Head Pommel, Collector's Edition",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 13.5-in Black Wolf Hunting Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 44,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Wolf Hunting Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "7\" Acid Etched Stainless Steel Blade, Wolf Head Pommel, Cast Metal Guard, Full Color Scabbard, Collectible Dagger",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 113,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "7 Inch Acid Etched Stainless Steel Blade, Cast Metal Wolf Head Pommel, Intricate Guard, Full Color Sheath",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 105,
+            "review_only": true
         },
         "item_weight": {
             "value": [

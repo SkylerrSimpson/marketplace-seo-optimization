@@ -1,0 +1,60 @@
+{
+    "sku": "HWK-MYLAR-BLANKET",
+    "asin": "B07RL92W5N",
+    "product_type": "BLANKET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWK-MYLAR-BLANKET\nProduct Type: BLANKET\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor First Aid Bug Out Emergency Light Mylar Foil Space Blanket\nDescription: Individually sealed and conveniently folded in half to fit in the palm of your hand or pocket. Same size and protection as the other blankets when unfolded, but takes up half the size when folded. You can easily throw them in your hiking backpack, car, first aid kit, go-bag, camping gear, or emergency kit at home or work. Blankets are reusable, waterproof, windproof, moisture-proof. Stay warm, help prevent hypothermia or shock in emergencies, and keep yourself and your family safe.<br/><br/>It all starts with the material, metalized polyethylene, that reflects 90% of your body heat while also offering several other essential features that set it apart from traditional mylar blankets. Our ultralight blankets are popular with everyone from emergency responders to endurance athletes using them to prevent sweat chills after running marathons. The most advanced emergency blanket on the market - meticulously designed to for outdoor enthusiast, the marathon runner or emergency first aid responders. Perfect for hiking, camping, boating, hunting, and surviving in the cold outdoors.<br/><br/>Our emergency thermal blankets are individually packed in zip-lock bags for easy transport and storage. Emergency Thermal Blanket provides convenient, secure protection in all cold or warm weather states. A waterproof and windproof shelter barrier, and a covering to help reduce shock when someone is injured. Emergency thermal blanket to be used as an emergency shelter.<br/><br/>Emergency Blanket, Space Blanket, Thermal Blanket, Mylar Blanket, Survival Blanket, Bug Out Bag Supplies, Emergency Kit, Ponchos Family Pack, Survival Kit, Camping Blanket.\nSearch Terms: ASR Outdoor First Aid Bug Out Emergency Light Mylar Foil Space Blanket Best for Bag BOB EDC Kit Hiking Camping Hunting Fishing\nFeatures:\n- MYLAR EMERGENCY BLANKET – Your pack will have a mylar sheet, also called space blankets, individually wrapped in a re-sealable zip-lock bag. Always keep some: in your car, truck, first aid kit, emergency kit, backpack, jacket pockets, bug out bag, hiking, hunting, fishing or camping gear.\n- LARGE & DUAL REFLECTIVE SURFACE – Dimensions of 52”L x 83.5\"W can accommodate up to 6’ 5” tall adults, very light 2oz, effective addition to your thermal control gear, reflects back up to 90% of your body heat, 12-micron aluminized polyethylene mylar, resistant, windproof, waterproof, moisture proof, dual reflective sides for rescue signaling.\n- FEW WAYS TO USE YOUR BLANKET - Wrap in it for extra warmth, extra layer in sleeping bag, improvised poncho, effective sunshade cooling, rain shelter, catching rain, fishing lure, sling, tourniquet, protect your backpack from rain, form a water carrying device, etc.\n- MANUFACTURED FROM THE BEST WATERPROOF MATERIAL - Waterproof and weatherproof foil and Mylar emergency thermal blanket for retaining or deflecting heat. Mylar insert provides insulation and the foil cover can reflect heat back to the body or deflect heat from the sun\n- COMPACT - Provides compact emergency protection in all weather conditions: Perfect for camping trips and sporting events. uses are nearly limitless: use as tent footprint, backpack cover, rain poncho, emergency signal, solar oven, shade cover, fishing lure, bird repellent, emergency shelter, sleeping bag liner, ground cover, bivouac sack, wind blocker, arm sling, tourniquet, bivvy, trail marker, water collector, snow melt container and so on.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Emergency Mylar Space Blanket",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Silver",
+                "name": "Emergency Mylar Space Blanket"
+            },
+            "char_count": 41,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Mylar Foil Space Blanket",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Mylar Foil Space Blanket"
+            },
+            "char_count": 36,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Reflects 90 Body Heat, Waterproof Windproof, 52X835 Inch, Compact Survival Gear",
+            "char_count": 79,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Emergency Thermal Protection, Reflects 90 Body Heat, Waterproof Windproof, Compact Zip-Lock Pack, Reusable",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

@@ -3,14 +3,14 @@
     "asin": "B0186S21CC",
     "product_type": "SCISSORS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:03:59+00:00",
+    "generated_at": "2026-07-21T20:06:03+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 4,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -75,20 +75,57 @@
             "asin": "B0186S21CC",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Hobby 5.5\" Blunt Tip Stainless Steel Craft Scissors",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Hobby 5.5\" Blunt Tip Stainless Steel Scissors",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Hobby",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "5.5\"",
+                "color": "",
+                "name": "Blunt Tip Stainless Steel Scissors"
+            }
         },
-        "title_differentiation": {
-            "value": "Super Sharp Blades, Cuts Paper Wire & Cloth, Perfect for Crafts",
+        "item_name_ai_openai": {
+            "value": "Universal Hobby 6 in Silver Blunt Tip Craft Scissors",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 52,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Hobby",
+                "pack_size": "6",
+                "pack_size_unit": "in",
+                "size": "6 in",
+                "color": "Silver",
+                "name": "Blunt Tip Craft Scissors"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Blunt Tip Design, Super Sharp Straight Blades, Stainless Steel, Cuts Paper Wire And Cloth, Craft Hobby Shears",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 109,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "55 Inch Overall Length, 2 Inch Straight Blades, Stainless Steel, Super Sharp, Cuts Paper Fabric Wire Bandages",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B08BYGT6JY",
     "product_type": "CLEANING_AGENT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:06:09+00:00",
+    "generated_at": "2026-07-21T19:46:30+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 10,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -152,20 +152,57 @@
             "asin": "B08BYGT6JY",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "GEAR AID Anti-Fog Spray for Goggles, Masks & Eyeglasses",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "GEAR AID Anti-Fog Spray for Goggles, Masks, 2-pk",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "0.5 fl oz",
+                "color": "",
+                "name": "Anti-Fog Spray for Goggles, Masks"
+            }
         },
-        "title_differentiation": {
-            "value": "0.5 fl oz, 2-Pack, 150 Sprays, Alcohol-Free Cleaner",
+        "item_name_ai_openai": {
+            "value": "GEAR AID 2-pk 0.5 fl oz Anti-Fog Spray",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 38,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "0.5 fl oz",
+                "color": "",
+                "name": "Anti-Fog Spray"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Prevents Fogging On Goggles, Masks And Eyeglasses, Alcohol-Free Cleaner, 150 Sprays Per Bottle, Works On Wet And Dry Lenses",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 123,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Fog-Free Vision, Alcohol-Free Cleaner, Works On Goggles Masks And Eyeglasses, 150 Sprays, For Wet Or Dry Lenses",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

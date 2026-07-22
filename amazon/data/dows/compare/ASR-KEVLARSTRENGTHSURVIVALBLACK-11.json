@@ -1,0 +1,60 @@
+{
+    "sku": "ASR-KEVLARSTRENGTHSURVIVALBLACK-11",
+    "asin": "B00BC2W9GS",
+    "product_type": "CORD_ROPE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: ASR-KEVLARSTRENGTHSURVIVALBLACK-11\nProduct Type: CORD_ROPE\nBrand (from catalog): ASR Tactical\nExisting Title: ASR Tactical 260LB HMPE Utility Cord - 100ft Black\nDescription: The ASR Tactical Kevlar Cord is ideal for your survival kit. Made from 3 strands of Kevlar thread, it has a breaking strength of 200 lbs. This cord is coated in polyurethane, which gives it added abrasion and UV resistance. All cords are flame-resistant.<br/><br/>Weighing less than a few ounces, the Kevlar survival cord is optimal for traps, bows, and snares. This cord is a perfect addition to any emergency kit. Made in the USA.\nSearch Terms: every day carry edc kevlar trip line booby trap signaling device tactical bug out bag survival cord kite braided spear fishing\nFeatures:\n- Breaking strength: 200 lbs\n- Diameter: .03\" (VERY THIN- CONSTRUCTED FROM 3 STRANDS OF THREAD)\n- Color: Black\n- Length: 100 feet\n- Flame & Weather Resistant\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 100ft Black Kevlar Survival Cord",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "100",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Black",
+                "name": "Kevlar Survival Cord"
+            },
+            "char_count": 45,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 100-ft Black Kevlar Cord",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "100",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Black",
+                "name": "Kevlar Cord"
+            },
+            "char_count": 37,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "200LB Breaking Strength, Flame And Weather Resistant, Thin Braided, Made In USA, EDC Bug Out Bag",
+            "char_count": 96,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "200 Lb Breaking Strength, 3 Strand Kevlar Thread, Polyurethane Coated, Flame Resistant, UV And Abrasion Resistant",
+            "char_count": 113,
+            "validation_error": null
+        }
+    }
+}

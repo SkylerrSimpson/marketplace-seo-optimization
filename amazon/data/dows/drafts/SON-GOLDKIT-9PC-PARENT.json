@@ -3,14 +3,14 @@
     "asin": "B09WNFYVVD",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:25:37+00:00",
+    "generated_at": "2026-07-21T20:09:40+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 0,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -21,20 +21,57 @@
             "source": "usurper",
             "usurper_column": "attr.size_amazon"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 9pc Gold Panning Kit with Dual Riffle Pans",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 9pc Gold Prospecting Recovery Kit",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 45,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "9",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Gold Prospecting Recovery Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "Includes rock pick hammer, classifier screen, tweezers & storage vials",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 9-pc Gold Prospecting Recovery Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 46,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "9",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Gold Prospecting Recovery Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Dual Riffle Gold Pans, Rock Pick Hammer, Classifier Screen, Tweezers, Beginners",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 79,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Dual Riffle Pans, 20-Oz Rock Pick Hammer, 18\" Classifier Screen, Tweezers, Trowel, Gold Storage Tools",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

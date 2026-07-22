@@ -3,14 +3,14 @@
     "asin": "B0FB274H6S",
     "product_type": "JEWELRY_STORAGE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:03:16+00:00",
+    "generated_at": "2026-07-21T20:05:51+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -80,20 +80,58 @@
             "asin": "B0FB274H6S",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux Clear Plastic Watch Travel Case Coffin Storage",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux 1pk Clear Plastic Watch Coffin Travel Case",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "1",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Clear",
+                "name": "Plastic Watch Coffin Travel Case"
+            }
         },
-        "title_differentiation": {
-            "value": "Thin lightweight design, double-layer protection, fits luxury sport watches",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux 1-Pk Thin Clear Watch Case Coffin",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 44,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "1",
+                "pack_size_unit": "pk",
+                "size": "Thin",
+                "color": "Clear",
+                "name": "Watch Case Coffin"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Double Layer Protection, Lightweight Secure Design, OEM Industry Standard, Easy Identification, Compatible With Luxury Watches",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 126,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (126 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Travel Protection, Double Layer Security, Moisture And Dust Resistant, Lightweight, Fits Luxury Stainless Steel Watches",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 119,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

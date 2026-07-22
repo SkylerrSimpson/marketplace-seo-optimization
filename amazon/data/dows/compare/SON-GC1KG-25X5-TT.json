@@ -1,0 +1,60 @@
+{
+    "sku": "SON-GC1KG-25X5-TT",
+    "asin": "B0CMN2VYPF",
+    "product_type": "LAB_SUPPLY",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-GC1KG-25X5-TT\nProduct Type: LAB_SUPPLY\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Graphite Crucible for Melting Gold and Silver 2.5 by 5 Inch\nDescription: Melt gold and silver with the Universal Tool 2.5\" x 5\" Graphite Crucible.<br/><br/>This crucible is perfect for melting precious metals such as gold, silver, aluminum, copper and brass. The crucible is about 5\" deep, making it ideal for use with larger amounts of metal.<br/><br/>Crucibles can come in handy for a number of hobby projects, including jewelry making, metalworking and gold prospecting. Just add your metal in, melt it and get to work. Make sure you grab one of these before your next metalworking project.\nSearch Terms: industrial science lab supplies crucible holder ceramic alumina smelting pot raw metals smelting goldsmith tools crucible melting pot jewelry making hot melt casting alloys compounds supplies\nFeatures:\n- GRAPHITE CRUCIBLE: Measuring 2.5 x 5 inch depth, this mini compact graphite crucible is great for working with small samples of materials and metals, no matter what your project making it easy to move and maneuver\n- SMELTING METAL: Made from durable graphite with high corrosion and high impact resistance that allows for a long working; featuring excellent thermal conductivity and temperature resistance\n- METAL REFINEMENT: Crucibles can come in handy for a number of hobby projects, including jewelry making, metalworking and gold prospecting. Just add your metal in, melt it and get to work\n- PROPER CARE INSTRUCTIONS: Store in dry place when not in use; important to thoroughly dry after use if graphite crucible becomes wet; this will ensure your graphite crucible is a reliable melting tool\n- JEWELRY CASTING TOOL: Used for precious metal refinement; working with gold, silver, platinum, brass and other alloys in a wide range of industries including metallurgy, metal casting, calcining, laboratory testing, gold prospecting or melting precious metals for jewelry making and design\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 2.5 x 5 Inch Graphite Crucible for Melting",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "2.5",
+                "pack_size_unit": "x 5 inch",
+                "size": "",
+                "color": "",
+                "name": "Graphite Crucible for Melting"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 2.5\" x 5\" Graphite Crucible",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "2.5\" x 5\"",
+                "color": "",
+                "name": "Graphite Crucible"
+            },
+            "char_count": 38,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Gold And Silver Melting, High Heat Resistant, Durable Graphite, Jewelry Making, Metal Casting And Smelting",
+            "char_count": 106,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "High Thermal Conductivity, Corrosion Resistant Graphite, Gold Silver Brass Melting, Jewelry Casting And Smelting",
+            "char_count": 112,
+            "validation_error": null
+        }
+    }
+}

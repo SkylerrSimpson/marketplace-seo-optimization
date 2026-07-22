@@ -1,0 +1,60 @@
+{
+    "sku": "SON-AOBRGFGP-2PC-ONE-BLCK",
+    "asin": "B06W5XTXLD",
+    "product_type": "OUTDOOR_LIVING",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-AOBRGFGP-2PC-ONE-BLCK\nProduct Type: OUTDOOR_LIVING\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 24\" Full Length Arm Rubber Gloves, Medium Weight, Industrial Lab Supply Protection, 1 Pair\nDescription: Protect your hands and arms with these full length protective rubber gloves with texturized palms for safe handling of materials.<br/><br/>These rubber gloves are an essential lab supply industrial accessory while being ideal even serious gold panners. Each pair is 24\" in length, so they 'll fit most all and cover your arms to protect you. They feature a texturized palm grip and are black in color. They are made large enough that you can wear thermal gloves underneath, can be used in outdoor environments, in wet and cold conditions. <br/><br/>Make sure you have a pair of these to protect your hands and arms from the elements you work with.\nSearch Terms: arm length full protection chemical resistant heavy duty lab gloves industrial large clean room tool saefood oyester shucking kitchen dishwasher safety glov fish fillet meat cutting butcher alaska salmon\nFeatures:\n- INDUSTRIAL LAB SUPPLIES SAFETY GLOVES: One size fits most all; Large oversize fit to accommodate under layers of clothing or protective lab suit\n- SPECIFICATIONS AND QUALITY: Medium weight, natural rubber industrial glove;. Thickness: 1.20mm; Safely handle materials with full length material protection\n- ARM LENGTH RUBBER GLOVES: Texturized palm grip; Length: 24 inches;\n- Color: Black\n- Ideal for gold prospecting and cold water gloves; fully waterproof against the elements, good cold water protection works well with seafood handling, oyster gloves\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 24\" Black Arm Length Rubber Gloves",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "24",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Arm Length Rubber Gloves"
+            },
+            "char_count": 46,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 1-Pair Black Full Length Arm Rubber Gloves",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1",
+                "pack_size_unit": "Pair",
+                "size": "",
+                "color": "Black",
+                "name": "Full Length Arm Rubber Gloves"
+            },
+            "char_count": 54,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Full Length Protection, Texturized Palm Grip, Industrial Lab Safety, Waterproof, Cold Water, Gold Panning, Oyster Shucking",
+            "char_count": 122,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "24 Inch Arm Coverage, Texturized Palm Grip, Medium Weight, Waterproof, Cold Water, Seafood And Lab Protection",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

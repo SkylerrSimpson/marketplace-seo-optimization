@@ -1,0 +1,56 @@
+{
+    "sku": "UNI-TENTPEGS-GREEN-4PK",
+    "asin": "B074JVGCD3",
+    "product_type": "ANCHOR_STAKE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UNI-TENTPEGS-GREEN-4PK\nProduct Type: ANCHOR_STAKE\nBrand (from catalog): ASR Outdoor\nExisting Title: (4 Pack) Steel Tent Stake Heavy Duty Universal Camping Gear Anchor Tent Pegs, Green\nDescription: Before you pack your camping gear for your next outdoor adventure, be sure to grab a handful of the ASR Outdoor Universal Heavy Duty Twisted Metal PVC Camping Gear Canopy Tent Stakes. Easy to install, durable, versatile and easy to spot due to the vibrant orange topper, the tent pegs will soon become a staple in your backpacking, trekking and camping gear. <br/><br/>The tent stakes feature sharp square-pointed tips, a twisted metal body design, large heavy-duty PVC toppers and a stringing eyelet on top of the plastic topper for anchoring versatility. The tent stakes feature a deliberate twisted metal body design that easily penetrates everything from hard packed soil to grass and sand; the tent pegs will hold strong against bad weather or heavy winds wherever you need to secure a canopy, tent, pergola or overhead covering. <br/><br/>In addition to the functional twisted metal design feature, the tent pegs are constructed from durable and long-lasting galvanized steel, meaning a protective zinc coating is placed over top of the steel in order to prevent rusting or corrosion. The tent peg material is incredibly sturdy and rust-resistant, sure to last you through many camping seasons and backpacking adventures to come.<br/><br/>Whether installing a tent, grow tent, canopy, camping tent, beach tent, pop up tent, tarp tent, pergola or overhead covering for a wedding, picnic, sporting event or other, the tent stakes can handle all of the aforementioned, and with the handy stringing eyelet on top of the plastic topper, installation will be a breeze.<br/><br/>Available Colors: Green, Orange or Glow in the Dark<br/><br/>Available Pack Sizes: 4, 8, 10 or 20 Stakes\nSearch Terms: ground anchor tarp canopy replacement tent pegs heavy duty camping backpacking tie down metal rust free weather proof titanium\nFeatures:\n- CAMPING GEAR ESSENTIAL: The ASR Outdoor camping tent stakes are an essential item to pack with your camping gear; the tent stakes feature sharp square-pointed tips, twisted metal body design, large heavy-duty PVC stoppers and a stringing eyelet on top of the plastic topper for anchoring versatility and easy installation\n- TWISTED METAL DESIGN: The tent stakes feature a deliberate twisted metal body design that easily penetrates everything from hard packed soil to sand; the tent pegs will hold strong against bad weather or heavy winds wherever you need to secure an overhead covering, canopy, tent, pergola and more\n- DURABLE GALVANIZED STEEL: The tent stakes to tent pegs are constructed from galvanized steel, meaning a protective zinc coating is placed over top of the steel in order to prevent any rusting or corrosion; the tent pegs material is incredibly durable and sturdy, sure to last through many camping seasons and backpacking adventures\n- MULTIPURPOSE TENT STAKE: Whether you are installing a tent, grow tent, canopy, camping tent, beach tent, pop up tent, tarp tent, pergola or overhead covering for a wedding, picnic, sporting event or other, the tent stakes can handle all of it and with the handy stringing eyelet on top of the plastic topper, installation will be a breeze\n- SPECIFICATIONS: Length: 10 inches; Thickness: 7mm; Material: Galvanized High Carbon Steel; Available Colors: Orange, Green or Glow in the Dark\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 4-pk Green Heavy Duty Tent Stakes",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Green",
+                "name": "Heavy Duty Tent Stakes"
+            },
+            "char_count": 45,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": null,
+            "tokens": null,
+            "char_count": null,
+            "validation_error": "no item_name returned"
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Twisted Metal Design, Galvanized Steel, Sharp Square Tips, Rust-Resistant, Multipurpose Canopy And Tarp Anchors",
+            "char_count": 111,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": null,
+            "char_count": null,
+            "validation_error": "no title_differentiation returned"
+        }
+    },
+    "raw": {
+        "openai": "Client error: `POST https://api.openai.com/v1/chat/completions` resulted in a `429 Too Many Requests` response:\n{\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-5.4-mini in organization org-el3QE531uTdEpv2furRUAnXD on (truncated...)\n"
+    }
+}

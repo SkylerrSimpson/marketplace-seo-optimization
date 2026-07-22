@@ -3,14 +3,14 @@
     "asin": "B08955PPBG",
     "product_type": "SHOELACE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:06:03+00:00",
+    "generated_at": "2026-07-21T20:06:29+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 10,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -153,20 +153,57 @@
             "asin": "B08955PPBG",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 550 Paracord Shoelaces Glow in Dark Pair",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Glow In The Dark 550 Paracord Shoelaces",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1",
+                "pack_size_unit": "Pair",
+                "size": "550",
+                "color": "Glow In The Dark",
+                "name": "Paracord Shoelaces"
+            }
         },
-        "title_differentiation": {
-            "value": "Made in USA, 550lb Breaking Point, Survival EDC Tool, Hiking Boot Laces",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 1-Pair Glow In The Dark Paracord Boot Laces",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 55,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1",
+                "pack_size_unit": "Pair",
+                "size": "",
+                "color": "Glow In The Dark",
+                "name": "Paracord Boot Laces"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "550Lb Breaking Strength, Made In USA, Survival Gear, Emergency Kit Essential, Hiking Boot Laces, UV Resistant",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 109,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "550 Pound Paracord Core, Abrasion And UV Resistant, Survival Ready, Made In USA, Copper Aglets, Hiking Boots",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 108,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

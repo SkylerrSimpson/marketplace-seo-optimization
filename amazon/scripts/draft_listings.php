@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Anthropic\Client;
+use Ige\Amazon\Ai\CostEstimator;
 
 /**
  * Phase 7 — AI-assisted draft generation.
@@ -12,6 +13,11 @@ use Anthropic\Client;
  * catalog snapshot) -> AI (Anthropic, schema-constrained). Usurper and catalog
  * are free and authoritative; AI is the last resort for what neither can supply.
  * Catalog fills run across all gaps regardless of --include-recommended scope.
+ *
+ * item_name and title_differentiation are NOT authored here — generate_titles.php
+ * writes both providers' candidates to compare/{sku}.json, and this script folds
+ * each into the draft under a review-only key (item_name_ai_{provider} /
+ * title_differentiation_ai_{provider}); the winner is chosen at patch time.
  *
  * Output: one draft JSON per SKU at amazon/data/{account}/drafts/{sku}.json
  *
@@ -23,7 +29,7 @@ use Anthropic\Client;
  *   --model=auto|MODEL        Model selection. Default: auto (haiku for
  *                             enum/short-string, sonnet for prose, opus for the
  *                             marquee title/description set). Pass an explicit
- *                             model (claude-haiku-4-5 / claude-sonnet-4-6 /
+ *                             model (claude-haiku-4-5 / claude-sonnet-5 /
  *                             claude-opus-4-8) to use it for all AI attributes.
  *   --include-recommended     Author the full optional schema tail. Default authors
  *                             only required + the curated high-value allowlist.
@@ -50,6 +56,7 @@ use Anthropic\Client;
  *   amazon/data/{account}/input/usurper/*.csv      (latest by mtime)
  *   amazon/data/{account}/input/listings/{sku}.json
  *   amazon/data/{account}/input/catalog/{asin}.json
+ *   amazon/data/{account}/compare/{sku}.json        (title options; optional)
  *   amazon/data/schemas/{PRODUCT_TYPE}.json
  *
  * Output:
@@ -85,21 +92,11 @@ const PLACEHOLDER_SUFFIX_RE = '/-(NCX|FBA)$/';
 // Canonical model IDs. One place to bump a version; referenced everywhere else
 // by name so no bare model string is duplicated across the script.
 const MODEL_HAIKU  = 'claude-haiku-4-5';
-const MODEL_SONNET = 'claude-sonnet-4-6';
+const MODEL_SONNET = 'claude-sonnet-5';
 const MODEL_OPUS   = 'claude-opus-4-8';
 
-// Model tiers for --model=auto and cost estimation. $ per 1M tokens.
-const MODEL_RATES = [
-    MODEL_HAIKU  => ['in' => 1.0, 'out' => 5.0],
-    MODEL_SONNET => ['in' => 3.0, 'out' => 15.0],
-    MODEL_OPUS   => ['in' => 5.0, 'out' => 25.0],
-];
-
-// Model for the standalone modular item_name suggestion. Condensing an existing
-// title into a <=75-char shopper-facing string is mechanical text-shortening, not
-// marquee reasoning, so it runs on haiku rather than opus. Single knob: bump this
-// to sonnet/opus if condense quality regresses.
-const ITEM_NAME_MODEL = MODEL_HAIKU;
+// Per-1M-token rates for the dry-run cost projection now live in
+// Ige\Amazon\Ai\ModelPricing (shared with generate_titles.php).
 
 // Never copied from a base into a placeholder: these are SKU-specific — the
 // whole point of an FBA/FBM split — so they must stay per-SKU. Mirrors the
@@ -126,7 +123,7 @@ Flags:
                                                  sonnet for prose, opus for the
                                                  marquee title/description set
                               claude-haiku-4-5 — haiku for all AI attributes
-                              claude-sonnet-4-6— sonnet for all AI attributes
+                              claude-sonnet-5  — sonnet for all AI attributes
                               claude-opus-4-8  — opus for all AI attributes
   --include-recommended     Author the full optional schema tail. Default authors
                             only required + the curated high-value allowlist
@@ -254,11 +251,14 @@ if (!file_exists($gapFile)) {
     exit(1);
 }
 
+// Escape disabled ('') to match how analyze_gap_fill.php writes this file
+// (strict RFC-4180). With the default backslash escape a usurper_value
+// containing a backslash would desync quote state and drop the row.
 $fhG    = fopen($gapFile, 'r');
-$header = fgetcsv($fhG);
+$header = fgetcsv($fhG, 0, ',', '"', '');
 $gaps   = []; // [sku => [rows]]
 
-while (($row = fgetcsv($fhG)) !== false) {
+while (($row = fgetcsv($fhG, 0, ',', '"', '')) !== false) {
     if (!$header || count($row) !== count($header)) {
         continue;
     }
@@ -594,6 +594,43 @@ function schemaHint(string $attr, array $prop): string
 }
 
 /**
+ * Compact "attr: value" digest of the product's already-populated attributes,
+ * so the batch prompt can infer missing values from real product facts instead
+ * of guessing from prose alone. Scalar values only; image/offer/shipping/
+ * compliance/identifier noise and the attributes already shown elsewhere in the
+ * prompt are skipped. Values are truncated and the list capped to bound the prompt.
+ *
+ * @param array<string,mixed> $attributes SP-API attribute slots (listing ∪ catalog)
+ * @param list<string>        $skip       attribute names already in the prompt context
+ */
+function knownAttributesText(array $attributes, array $skip, int $limit = 40): string
+{
+    $skipMap = array_flip($skip);
+    $lines   = [];
+    foreach ($attributes as $attr => $slots) {
+        if (isset($skipMap[$attr]) || !is_array($slots)) {
+            continue;
+        }
+        if (preg_match('/image|offer|shipping|fulfillment|proposition_65|pesticide|gift_options|price|procurement|identifier/i', $attr)) {
+            continue;
+        }
+        $v = $slots[0]['value'] ?? null;
+        if (!is_scalar($v)) {
+            continue;
+        }
+        $v = trim((string) $v);
+        if ($v === '') {
+            continue;
+        }
+        $lines[] = $attr . ': ' . mb_substr($v, 0, 80);
+        if (count($lines) >= $limit) {
+            break;
+        }
+    }
+    return implode("\n", $lines);
+}
+
+/**
  * Build the Claude prompt for a batch of needs_authoring attributes.
  */
 function buildPrompt(
@@ -605,7 +642,9 @@ function buildPrompt(
     array  $features,
     array  $attrs,
     array  $schemaProps,
-    array  $prop65Chemicals = []
+    array  $prop65Chemicals = [],
+    string $searchTerms = '',
+    string $knownAttrs = ''
 ): string {
     $featuresText = '';
     foreach (array_filter($features) as $f) {
@@ -621,7 +660,9 @@ function buildPrompt(
         $attrsBlock .= "\n" . schemaHint($attr, $prop) . "\n";
     }
 
-    $attrList = implode(', ', $attrs);
+    $attrList     = implode(', ', $attrs);
+    $searchLine   = $searchTerms !== '' ? $searchTerms : '(none)';
+    $knownBlock   = $knownAttrs !== '' ? "Known Attributes:\n{$knownAttrs}\n" : '';
 
     // Declared compliance state (Amazon-accepted, authoritative). When the
     // listing carries a Prop 65 chemical warning, the product is CERTIFIED to
@@ -639,17 +680,6 @@ function buildPrompt(
             . "these substances — including their common abbreviations (e.g. \"BPA\" for "
             . "bisphenol_a_bpa). For example, do not answer \"BPA Free\" for material_type_free; "
             . "return null there instead of a contradictory claim.\n";
-    }
-
-    // Amazon modular titles (effective 2026-07-27): item_name <= 75 chars and a
-    // supplementary title_differentiation <= 125 chars, only usable when
-    // item_name is 75 chars or fewer, with the two totalling <= 200 chars.
-    $titleRule = '';
-    if (in_array('title_differentiation', $attrs, true) || in_array('item_name', $attrs, true)) {
-        $titleRule = "\n- Titles are modular: item_name must be 75 characters or fewer. "
-            . "title_differentiation is a supplementary highlight (<=125 chars) that is "
-            . "only valid when item_name is <=75 chars; item_name + title_differentiation "
-            . "must total 200 characters or fewer.";
     }
 
     // bullet_point is a list of highlights, not a single value: ask for an array
@@ -670,82 +700,20 @@ Product Type: {$productType}
 Title: {$title}
 Brand: {$brand}
 Description: {$description}
+Search Terms: {$searchLine}
 Features:
-{$featuresText}{$complianceBlock}
+{$featuresText}{$knownBlock}{$complianceBlock}
 === MISSING ATTRIBUTES ==={$attrsBlock}
 === INSTRUCTIONS ===
 - Suggest one value per attribute based on the product context.
 - For attributes with ALLOWED VALUES, return exactly one of those values verbatim.
-- Respect any stated Max length; keep the value within it.{$titleRule}{$bulletRule}
+- Respect any stated Max length; keep the value within it.{$bulletRule}
 - If you truly cannot determine a suitable value, return null for that key.
 - Return ONLY a valid JSON object. Keys are attribute names, values are strings, null,
   or (only for bullet_point) an array of strings.
 - Do not include markdown fences, code blocks, or any explanation — just the JSON object.
 
 Required keys in your response: {$attrList}
-PROMPT;
-}
-
-/**
- * Build the prompt for a standalone modular item_name suggestion (stakeholder 5).
- * Asks for a single <=75-char title for human review, seeded with the product's
- * existing title so the model condenses rather than invents.
- */
-function buildItemNamePrompt(
-    string $sku,
-    string $productType,
-    string $existingTitle,
-    string $brand,
-    string $description,
-    array  $features,
-    bool   $wantDifferentiation = false
-): string {
-    $featuresText = '';
-    foreach (array_slice(array_filter($features), 0, 5) as $f) {
-        $featuresText .= "- {$f}\n";
-    }
-    if ($featuresText === '') {
-        $featuresText = "(none)\n";
-    }
-    $existing = $existingTitle !== '' ? $existingTitle : '(none)';
-
-    // title_differentiation rides along on the same call (it shares all the same
-    // product context) so the short benefit phrase never costs a second request.
-    $diffInstruction = $wantDifferentiation
-        ? "- Also write \"title_differentiation\": a SHORT (<=125 char) benefit- or\n"
-        . "  feature-driven phrase for Amazon modular titles — NOT a full sentence, NOT\n"
-        . "  the brand, and NOT a repeat of the item_name. Think the differentiating\n"
-        . "  descriptor a shopper scans for (e.g. \"Set of 6, Dishwasher Safe, 8oz\").\n"
-        : '';
-    $returnShape = $wantDifferentiation
-        ? '{"item_name": "<= 75 char title", "title_differentiation": "<= 125 char benefit phrase"}'
-        : '{"item_name": "<= 75 char title"}';
-
-    return <<<PROMPT
-You are an Amazon SP-API listing specialist. Amazon's modular titles (effective
-2026-07-27) require item_name to be 75 characters or fewer. Write ONE concise,
-keyword-rich, SEO-optimized item_name of AT MOST 75 characters for the product
-below — a shopper-facing title, not a part number.
-
-Prefer condensing the existing title if one is provided; keep the brand and the
-most important product identity. Do not exceed 75 characters.
-
-=== PRODUCT CONTEXT ===
-SKU: {$sku}
-Product Type: {$productType}
-Existing Title: {$existing}
-Brand: {$brand}
-Description: {$description}
-Features:
-{$featuresText}
-=== INSTRUCTIONS ===
-- Write a real, human-readable SEO title: brand + what the product IS + its most
-  searchable attributes (material, size, color, use). Lead with the brand.
-- Do NOT output the SKU, MPN, or a model/part number as the title, and do NOT
-  repeat any identifier. If the existing title is just a code or model number,
-  ignore it and describe the product from the type, brand, and features instead.
-{$diffInstruction}- Return ONLY a valid JSON object: {$returnShape}.
-- No markdown fences, no explanation.
 PROMPT;
 }
 
@@ -787,11 +755,8 @@ $stats = [
 // SKUs flagged for human enrichment (no context, no base match).
 $needsHumanSkus = [];
 
-// Dry-run cost projection: per-model input/output token + dollar accumulators.
-$costEst = [];
-foreach (array_keys(MODEL_RATES) as $mId) {
-    $costEst[$mId] = ['in' => 0, 'out' => 0];
-}
+// Dry-run cost projection: per-model input/output token + dollar accumulator.
+$costEstimator = new CostEstimator();
 
 // Applicability filter is only meaningful for the full recommended tail; the
 // default curated scope is already tiny. Enabled unless explicitly disabled.
@@ -813,7 +778,7 @@ $resolveNotApplicable = function (
     string $productType,
     array  $schemaProps,
     array  $schemaRequired
-) use ($anthropic, $dryRun, $paths, $complianceAttrs, &$stats, &$applicabilityDryNoted): ?array {
+) use ($anthropic, $dryRun, $paths, $complianceAttrs, &$stats, &$applicabilityDryNoted, $costEstimator): ?array {
     if ($productType === '' || !$schemaProps) {
         return null;
     }
@@ -858,6 +823,11 @@ $resolveNotApplicable = function (
         );
         $stats['triage_calls']++;
         $stats['api_calls']++;
+        $costEstimator->add(
+            MODEL_HAIKU,
+            (int) ($msg->usage->inputTokens ?? 0),
+            (int) ($msg->usage->outputTokens ?? 0),
+        );
 
         $text = '';
         foreach ($msg->content as $block) {
@@ -950,6 +920,20 @@ foreach ($gaps as $sku => $rows) {
             }
         }
     }
+
+    // Search terms (generic_keyword) — strong signal for inferring descriptive
+    // attributes; listing first, then this ASIN's catalog snapshot.
+    $searchTerms = listingAttr($listing, 'generic_keyword');
+    if ($searchTerms === '') {
+        $searchTerms = listingAttr(['attributes' => $catalogAttrs], 'generic_keyword');
+    }
+
+    // Digest of already-populated attributes (listing ∪ catalog) to ground the
+    // batch prompt; the attributes shown elsewhere in the prompt are excluded.
+    $knownAttrs = knownAttributesText(
+        ($listing['attributes'] ?? []) + $catalogAttrs,
+        ['item_name', 'brand', 'product_description', 'bullet_point', 'generic_keyword'],
+    );
 
     // Separate fillable vs needs_authoring
     $fillableRows  = array_filter($rows, fn($r) => $r['fillable'] === 'yes');
@@ -1153,27 +1137,13 @@ foreach ($gaps as $sku => $rows) {
         }
     }
 
-    // title_differentiation is a short benefit phrase, not marquee prose. It shares
-    // all of the modular item_name call's context, so we author it there (Haiku)
-    // instead of in the Opus/Sonnet batch — pull it out here to avoid a second,
-    // pricier authoring. Only when the schema carries it, the modular call will run
-    // (item_name schema present), and nothing already filled it (catalog/Usurper).
-    $titleDiffViaModular = !$needsHuman
-        && isset($schemaProps['title_differentiation'])
-        && isset($schemaProps['item_name'])
-        && !isset($draftAttrs['title_differentiation']);
-    $titleDiffRequired = false;
-    if ($titleDiffViaModular) {
-        foreach ($authoringRows as $r) {
-            if (strtolower($r['attribute']) === 'title_differentiation') {
-                $titleDiffRequired = $r['is_required'] === 'yes';
-            }
-        }
-        $authoringRows = array_filter(
-            $authoringRows,
-            fn($r) => strtolower($r['attribute']) !== 'title_differentiation',
-        );
-    }
+    // item_name and title_differentiation are no longer batch-authored: both come
+    // from the compare/ file (generate_titles.php), folded into the draft below.
+    // Remove them from the authoring set so the Opus/Sonnet batch never spends on them.
+    $authoringRows = array_filter(
+        $authoringRows,
+        fn($r) => !in_array(strtolower($r['attribute']), ['item_name', 'title_differentiation'], true),
+    );
 
     // --- AI authoring ---
     $aiAttrs      = array_values(array_map(fn($r) => $r['attribute'], $authoringRows));
@@ -1222,14 +1192,13 @@ foreach ($gaps as $sku => $rows) {
 
                 // Cost projection: real prompt for input tokens (~chars/4),
                 // per-attribute heuristic for output tokens.
-                if (isset($costEst[$batchModel])) {
-                    foreach ($chunks as $chunk) {
-                        $prompt = buildPrompt($sku, $productType, $title, $brand, $description, $features, $chunk, $schemaProps, $prop65Chemicals);
-                        $costEst[$batchModel]['in'] += (int) ceil(strlen($prompt) / 4);
-                        foreach ($chunk as $a) {
-                            $costEst[$batchModel]['out'] += estOutputTokens($a, $schemaProps[$a] ?? []);
-                        }
+                foreach ($chunks as $chunk) {
+                    $prompt  = buildPrompt($sku, $productType, $title, $brand, $description, $features, $chunk, $schemaProps, $prop65Chemicals, $searchTerms, $knownAttrs);
+                    $outToks = 0;
+                    foreach ($chunk as $a) {
+                        $outToks += estOutputTokens($a, $schemaProps[$a] ?? []);
                     }
+                    $costEstimator->add($batchModel, CostEstimator::estimateTokens($prompt), $outToks);
                 }
             }
         } else {
@@ -1264,7 +1233,9 @@ foreach ($gaps as $sku => $rows) {
                         $features,
                         $chunk,
                         $schemaProps,
-                        $prop65Chemicals
+                        $prop65Chemicals,
+                        $searchTerms,
+                        $knownAttrs
                     );
 
                     try {
@@ -1276,6 +1247,11 @@ foreach ($gaps as $sku => $rows) {
                         );
 
                         $stats['api_calls']++;
+                        $costEstimator->add(
+                            $batchModel,
+                            (int) ($message->usage->inputTokens ?? 0),
+                            (int) ($message->usage->outputTokens ?? 0),
+                        );
 
                         $rawText = '';
                         foreach ($message->content as $block) {
@@ -1362,95 +1338,49 @@ foreach ($gaps as $sku => $rows) {
         echo '  fillable=' . count($fillableRows) . ' catalog=' . $catalogFilled . ' ai=0' . PHP_EOL;
     }
 
-    // --- Modular item_name suggestion (stakeholder 5) -----------------------
-    // Always produce a fresh <=75-char modular item_name for HUMAN REVIEW, stored
-    // under a separate key so the live item_name is never touched. Seeded with the
-    // best existing title (listing -> catalog -> usurper, via $title) so the model
-    // condenses rather than invents. review_only: patch_listings never sends it to
-    // Amazon. Skipped when the SKU has no product context (needs_human).
-    $seedTitle = $title !== '' ? $title : listingAttr(['attributes' => $catalogAttrs], 'item_name');
-    $canSuggestTitle = !$needsHuman
-        && isset($schemaProps['item_name'])
-        && ($seedTitle !== '' || $description !== '' || array_filter($features) !== []);
-    if ($canSuggestTitle) {
-        $titlePrompt = buildItemNamePrompt($sku, $productType, $seedTitle, $brand, $description, $features, $titleDiffViaModular);
-        if ($dryRun) {
-            if (isset($costEst[ITEM_NAME_MODEL])) {
-                $costEst[ITEM_NAME_MODEL]['in']  += (int) ceil(strlen($titlePrompt) / 4);
-                // item_name (~30) plus title_differentiation (~35) when it rides along.
-                $costEst[ITEM_NAME_MODEL]['out'] += $titleDiffViaModular ? 65 : 30;
-            }
-            echo '  [DRY RUN] Would call ' . basename(str_replace('claude-', '', ITEM_NAME_MODEL))
-                . ' for modular item_name suggestion'
-                . ($titleDiffViaModular ? ' + title_differentiation' : '') . PHP_EOL;
-        } else {
-            try {
-                assert($anthropic !== null);
-                $titleMsg = $anthropic->messages->create(
-                    model: ITEM_NAME_MODEL,
-                    maxTokens: 128,
-                    messages: [['role' => 'user', 'content' => $titlePrompt]],
-                );
-                $stats['api_calls']++;
-
-                $titleText = '';
-                foreach ($titleMsg->content as $block) {
-                    if ($block->type === 'text') {
-                        $titleText = $block->text;
-                        break;
+    // --- Modular title options from the compare/ file (stakeholder 2/3) ------
+    // item_name and title_differentiation are authored upstream by
+    // generate_titles.php, which writes both providers' candidates to
+    // compare/{sku}.json. Fold each provider's option into the draft under its own
+    // review-only key (item_name_ai_{provider} / title_differentiation_ai_{provider});
+    // the winner is chosen at patch/review time and is never patched automatically.
+    // Skipped (with a note) when no compare file exists for the SKU.
+    $compareFile = $paths['data'] . '/compare/' . $sku . '.json';
+    if ($needsHuman) {
+        // No product context — generate_titles.php skips it too; nothing to fold in.
+    } elseif (!file_exists($compareFile)) {
+        echo '  titles: no compare file — run generate_titles.php --sku=' . $sku . ' (skipped)' . PHP_EOL;
+    } else {
+        $compare   = json_decode((string) file_get_contents($compareFile), true) ?? [];
+        $schemaReq = $schema['required'] ?? [];
+        foreach (['item_name', 'title_differentiation'] as $attr) {
+            $isReq = in_array($attr, $schemaReq, true);
+            foreach ($compare[$attr] ?? [] as $provider => $cand) {
+                $value = is_array($cand) ? ($cand[$attr] ?? null) : null;
+                if (!is_string($value) || $value === '') {
+                    if (is_array($cand) && isset($cand['error'])) {
+                        echo "  {$attr}_ai_{$provider}: generation error — skipped" . PHP_EOL;
                     }
+                    continue;
                 }
-                $titleText = preg_replace('/^```(?:json)?\s*/m', '', $titleText);
-                $titleText = trim(preg_replace('/\s*```$/m', '', $titleText ?? ''));
-
-                $decoded   = json_decode($titleText, true);
-                $suggested = is_array($decoded) ? ($decoded['item_name'] ?? null) : $titleText;
-
-                if (is_string($suggested) && $suggested !== '') {
-                    $entry = [
-                        'value'       => $suggested,
-                        'is_required' => false,
-                        'source'      => 'ai',
-                        'model'       => ITEM_NAME_MODEL,
-                        'review_only' => true, // never patched — for human review
-                        'note'        => 'modular <=75 item_name for human review',
-                    ];
-                    if (mb_strlen($suggested) > 75) {
-                        $entry['validation_error'] = 'exceeds modular item_name cap of 75 chars ('
-                            . mb_strlen($suggested) . ')';
-                        echo '  [WARN] item_name suggestion exceeds 75 chars (' . mb_strlen($suggested) . ')' . PHP_EOL;
-                    }
-                    $draftAttrs['item_name_ai_suggested'] = $entry;
-                    echo '  item_name: AI modular suggestion (' . mb_strlen($suggested) . ' chars) [review]' . PHP_EOL;
+                $entry = [
+                    'value'       => $value,
+                    'is_required' => $isReq,
+                    'source'      => 'ai',
+                    'provider'    => $provider,
+                    'model'       => $cand['model'] ?? null,
+                    'char_count'  => $cand['char_count'] ?? mb_strlen($value),
+                    'review_only' => true, // a human picks a provider before patch
+                ];
+                if (($cand['validation_error'] ?? null) !== null) {
+                    $entry['validation_error'] = $cand['validation_error'];
                 }
-
-                // title_differentiation rode along on the same response — a real,
-                // patchable attribute (unlike the review-only item_name suggestion).
-                if ($titleDiffViaModular) {
-                    $diff = is_array($decoded) ? ($decoded['title_differentiation'] ?? null) : null;
-                    if (is_string($diff) && trim($diff) !== '') {
-                        $diff      = trim($diff);
-                        $diffEntry = [
-                            'value'       => $diff,
-                            'is_required' => $titleDiffRequired,
-                            'source'      => 'ai',
-                            'model'       => ITEM_NAME_MODEL,
-                        ];
-                        $diffMax = schemaMaxLength($schemaProps['title_differentiation'] ?? []);
-                        if ($diffMax !== null && mb_strlen($diff) > $diffMax) {
-                            $diffEntry['validation_error'] = "value exceeds maxLength {$diffMax} ("
-                                . mb_strlen($diff) . ' chars)';
-                            echo '  [WARN] title_differentiation exceeds maxLength ' . $diffMax
-                                . ' (' . mb_strlen($diff) . ')' . PHP_EOL;
-                        }
-                        $draftAttrs['title_differentiation'] = $diffEntry;
-                        $stats['ai_total']++;
-                        echo '  title_differentiation: AI (' . mb_strlen($diff) . ' chars) via modular call' . PHP_EOL;
-                    }
+                if ($attr === 'item_name' && isset($cand['tokens']) && is_array($cand['tokens'])) {
+                    $entry['tokens'] = $cand['tokens'];
                 }
-            } catch (\Throwable $e) {
-                echo '  [ERROR] item_name suggestion failed for ' . $sku . ': ' . $e->getMessage() . PHP_EOL;
-                $stats['errors']++;
+                $draftAttrs[$attr . '_ai_' . $provider] = $entry;
+                echo "  {$attr}_ai_{$provider}: {$entry['char_count']} chars [review]"
+                    . (isset($entry['validation_error']) ? ' [' . $entry['validation_error'] . ']' : '') . PHP_EOL;
             }
         }
     }
@@ -1650,24 +1580,12 @@ foreach ($gaps as $sku => $rows) {
         echo '  default: ' . $dAttr . ' = ' . $shown . PHP_EOL;
     }
 
-    // --- Modular-title coupling (Amazon 2026-07-27) -------------------------
-    // title_differentiation is only valid when the effective item_name is <=75
-    // chars, and the two together must be <=200. Flag violations so they never
-    // reach the write path (mirrors the enum/maxLength validation above).
-    if (isset($draftAttrs['title_differentiation'])
-        && is_string($draftAttrs['title_differentiation']['value'] ?? null)) {
-        $effItemName = (isset($draftAttrs['item_name']['value']) && is_string($draftAttrs['item_name']['value']))
-            ? $draftAttrs['item_name']['value']
-            : $title; // fall back to listing/usurper/base title
-        $tdLen = mb_strlen($draftAttrs['title_differentiation']['value']);
-        if ($effItemName !== '' && mb_strlen($effItemName) > 75) {
-            $draftAttrs['title_differentiation']['validation_error'] = 'requires item_name <= 75 chars';
-            echo '  [WARN] title_differentiation flagged — item_name > 75 chars' . PHP_EOL;
-        } elseif ($effItemName !== '' && mb_strlen($effItemName) + $tdLen > 200) {
-            $draftAttrs['title_differentiation']['validation_error'] = 'item_name + title_differentiation exceeds 200 chars';
-            echo '  [WARN] title_differentiation flagged — combined title > 200 chars' . PHP_EOL;
-        }
-    }
+    // NOTE: the Amazon modular-title coupling rule (title_differentiation valid
+    // only when item_name <= 75 chars, and the pair <= 200 combined) is validated
+    // at PATCH time, when a concrete provider pair is actually assembled. The
+    // compare candidates are per-provider and each is limit-checked upstream
+    // (item_name <= 75, title_differentiation <= schema maxLength), and 75 + 125 =
+    // 200 holds by construction, so there is nothing coherent to couple here.
 
     if ($dryRun) {
         continue;
@@ -1719,25 +1637,7 @@ if ($dryRun) {
     echo 'needs_human (no context)   : ' . $stats['needs_human'] . PHP_EOL;
     echo PHP_EOL;
 
-    $total = 0.0;
-    echo 'Estimated cost (rough — heuristic output tokens):' . PHP_EOL;
-    foreach ($costEst as $mId => $t) {
-        if ($t['in'] === 0 && $t['out'] === 0) {
-            continue;
-        }
-        $rate = MODEL_RATES[$mId];
-        $cost = $t['in'] / 1e6 * $rate['in'] + $t['out'] / 1e6 * $rate['out'];
-        $total += $cost;
-        printf(
-            "  %-8s in~%-10s out~%-10s \$%.4f%s",
-            basename(str_replace('claude-', '', $mId)),
-            number_format($t['in']),
-            number_format($t['out']),
-            $cost,
-            PHP_EOL,
-        );
-    }
-    printf('  %-8s %27s$%.4f%s', 'TOTAL', '', $total, PHP_EOL);
+    echo $costEstimator->report();
     echo PHP_EOL;
     echo 'Remove --dry-run to generate drafts.' . PHP_EOL;
 } else {
@@ -1769,6 +1669,9 @@ if ($dryRun) {
         if (count($needsHumanSkus) > 20) {
             echo '  … +' . (count($needsHumanSkus) - 20) . ' more' . PHP_EOL;
         }
+    }
+    if (!$costEstimator->isEmpty()) {
+        echo PHP_EOL . $costEstimator->report('Actual cost (from API token usage):');
     }
     echo PHP_EOL;
     echo 'Drafts dir: ' . $paths['drafts'] . PHP_EOL;

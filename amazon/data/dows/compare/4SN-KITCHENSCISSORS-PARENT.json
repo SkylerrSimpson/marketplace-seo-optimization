@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-KITCHENSCISSORS-PARENT",
+    "asin": "B09XZKCCRX",
+    "product_type": "SCISSORS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-KITCHENSCISSORS-PARENT\nProduct Type: SCISSORS\nBrand (from catalog): Beille\nExisting Title: Beille 8.5 Inch Stainless Steel Kitchen Scissors Shears Bottle Opener 2 Colors\nDescription: Whether you use the shears as food scissors, cooking scissors, meat scissors, or utility scissors, these all-purpose kitchen shears have you covered in the kitchen with comfortable ergonomic handles, durable stainless steel blades, and a built in nutcracker. Dishwasher safe. <br/><br/>Featuring high quality hardened stainless steel blades, the scissors will cut through everything you need to in the kitchen from paper, packaging, twine, and herbs, to fish, chicken, and more; stainless steel is an ideal material for scissors due to its durability, resistance to corrosion and high temperatures. These kitchen scissors or shears can also be put to work outside the kitchen as utility scissors too. Great for gardening, arts and crafts, and slicing through cardboard, in the garage or office, these scissors from Beille are useful all throughout the house.<br/><br/>And, while handwashing is recommended to increase the longevity of kitchen scissors, the stainless steel shears can go in the dishwasher when needed (ensure to fully dry after hand or dishwashing).\nSearch Terms: pinking shears cooking baking meal food prep dorm room essentials home decor pantry storage and organization DIY precision tools hobby garage office supplies scrapbooking kids arts and crafts wrapping paper gardening\nFeatures:\n- ALL PURPOSE KITCHEN SCISSORS: Whether you use as food scissors, cooking scissors, meat scissors or utility scissors, these all purpose kitchen shears have you covered in the kitchen with comfortable ergonomic handles, stainless steel blades and a built in nut cracker!\n- STAINLESS STEEL SHEARS: High quality hardened stainless steel blades cut through everything you need to in the kitchen from paper, packaging twine and herbs, to fish, chicken and more; stainless steel is an ideal material for scissors due to its durability, resistance to corrosion and high temperatures\n- MULTIPURPOSE SCISSORS: These kitchen scissors or shears can be put to work outside the kitchen as utility scissors too! Great for gardening, arts and crafts, slicing through cardboard, in the garage or office, these scissors from Beille are useful all throughout the house\n- DISHWASHER SAFE SCISSORS: While handwashing is recommended to increase longevity of kitchen scissors, the stainless steel shears can go in the dishwasher when needed; ensure to fully dry after hand or dish washing\n- SPECIFICATIONS: Dimensions: 8.5 x 3 x 0.5 inches; Weight: 0.15lbs; Color: Teal or Red; Material: Stainless Steel\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 8.5 Inch Stainless Steel Kitchen Scissors",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "8.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Kitchen Scissors"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 8.5-In Stainless Steel Kitchen Scissors Shears",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "8.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Stainless Steel Kitchen Scissors Shears"
+            },
+            "char_count": 53,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Stainless Steel Blades, Built-in Nutcracker, Ergonomic Handles, Dishwasher Safe, Multi-Purpose",
+            "char_count": 94,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Ergonomic Handles, Built In Nut Cracker, Dishwasher Safe, Hardened Stainless Steel Blades, Multipurpose Use",
+            "char_count": 107,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-DUSTER-EBD2603-12-PARENT",
+    "asin": "B07NZYL3JS",
+    "product_type": "DUST_REMOVAL_TOOL",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-DUSTER-EBD2603-12-PARENT\nProduct Type: DUST_REMOVAL_TOOL\nBrand (from catalog): ASR Outdoor\nExisting Title: Universal Dual Head Flexible Telescopic Extendable Duster 46.5in - 5 Colors\nDescription: This microfiber duster is unlike anything you've used before. The two heads are adjustable cutting your cleaning time in half. It also makes it easier to clean light bulbs or chandeliers. This duster extends up to 46.5\" allowing you to reach even the toughest of spots tops of bookcases, refrigerators, cabinets, Ceilings, Moldings, or Window Blinds. You could clean two blades of your ceiling fan at once or clean out that had to reach vent. <br/><br/>Feather dusters are essential for the home and important for keeping the house clean from dust that can contain remnants of allergens. This duster is made with microfiber which traps this dust and keeping it from spreading around your house ensuring your house will be free of allergens. This feature makes it a must-have for those with allergies, young children, or pets. <br/><br/>With the extendable feature, you will have an easy reach as you dust, or you can quickly bring it down to 10 inches and easily fit it in small spaces to store it away. You could store it in your housekeeping kit or keep in the corner of your office.\nSearch Terms: home garden office dusting cleaning\nFeatures:\n(none)\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 46.5in Dual Head Flexible Telescopic Duster",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "46.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Dual Head Flexible Telescopic Duster"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 46.5-in Universal Dual Head Telescopic Extendable Duster",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "46.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Universal Dual Head Flexible Telescopic Extendable Duster"
+            },
+            "char_count": 68,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Adjustable Dual Heads, Extends To 465 Inches, Microfiber Traps Allergens, Collapses To 10 Inches, Ideal For Ceiling Fans And High Surfaces",
+            "char_count": 138,
+            "validation_error": "value exceeds maxLength 125 (138 chars)"
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Dual Microfiber Heads, Flexible Telescoping Reach, Cleans Blinds Fans Ceilings, Traps Dust And Allergens",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

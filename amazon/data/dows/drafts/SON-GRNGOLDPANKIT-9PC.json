@@ -3,14 +3,14 @@
     "asin": "B084S2B7JX",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:31:08+00:00",
+    "generated_at": "2026-07-21T20:11:10+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,20 +27,57 @@
             "asin": "B084S2B7JX",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Gold Rush 9pc Prospecting Pan Kit Green",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 9pc Green Gold Prospecting Pan Kit",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 46,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "9",
+                "pack_size_unit": "pc",
+                "size": "10\"",
+                "color": "Green",
+                "name": "Gold Prospecting Pan Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "10\" Green Pan, Glass Vials, Testing Stone, Magnetic Tool",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 10\" Green Gold Pan Prospecting Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 46,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Green",
+                "name": "Gold Pan Prospecting Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "10 Inch Pan, Glass Vials, Testing Stone, Magnetic Tool, Ceramic Crucible, Beginner Friendly",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 91,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "3 Glass Vials, Testing Stone, 3\" Ceramic Crucible, 2 3ML Pipettes, 8Lb Magnetic Pickup Tool, Black Sand Separator",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 113,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

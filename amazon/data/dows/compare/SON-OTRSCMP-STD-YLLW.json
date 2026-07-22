@@ -1,0 +1,60 @@
+{
+    "sku": "SON-OTRSCMP-STD-YLLW",
+    "asin": "B007IVDZTC",
+    "product_type": "SLEEPING_MAT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-OTRSCMP-STD-YLLW\nProduct Type: SLEEPING_MAT\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Thermal Mat Heat Retention Camping Sleeping Pad Insulated Winter Chill\nDescription: The ASR Outdoor Single Person Thermal Camping Mat will keep you warm on those cold winter nights while camping out in the wilderness. <br/><br/>You never know when a little extra heat will come in handy and this camping sleeping pad offers an added barrier between you and the hard ground that will help retain warmth with additional comfort packed into just a quarter inch of closed cell EVA foam; don't leave home without it, be prepared at all times!<br/><br/>While the main advantage to the insulated foam camping sleeping pad is the added mylar covering which helps retain heat and disburses it evenly throughout the camping pad back to your body as you lay at rest. This foam sleeping pad also has two adjustable elastic straps which allows the unit to be self contained and easily transportable, stow-able, and readily available when needed.<br/><br/>Un-rolled dimensions of the sleeping pad is 71 x 20 x 0.25 inches. Making it the ideal size for a single person sleeping pad. Rolled up the cushioned camping mat is only 20 x 5.5 inches and features 2 attached elastic straps which make packing up a breeze.<br/><br/>This sleeping pad is easy to keep clean and should hand wiped with a light soapy rag and can easily be stored with all your other outdoor gear until your ready to use it again on your next hiking, camping, hunting, or fishing expedition. <br/><br/>We hope you have fun in comfort on all your outdoor activites and adventures.\nSearch Terms: solo sleeping pad sleep mat eva double sided thermal blanket mylar insulation backpacking r value tent winter cold weather camping hiking gear accessory single person\nFeatures:\n- INSULATED FOAM SLEEPING PAD: Made with EVA foam for comfort and a special thermal aluminum mylar layer to retain body heat and keep you warm; use in combination with a fleece sleeping bag liner for added heat retention on cold winter nights\n- ULTRA LIGHTWEIGHT: Weighing just 8 ounces while covering 9.86 sq feet of ground surface area, this foam camping pad is ideal for packing light when camping or hiking\n- OVERALL DIMENSIONS: The sleeping mat measures 71 inches long x 20 inches wide when unrolled; rolled up, it is 20 inches in length by 5.5 inches in diameter; ideal for use as a single person foam sleeping pad\n- VERSATILE: Can be used as a sleeping pad or seat cover; it can be used on flat ground, or over rocks, a log giving you a space to sit or sleep no matter where you are; easily unrolls in seconds, you'll enjoy having this as part of your essential camping gear\n- PORTABLE: Included adjustable elastic straps and buckles are forgiving and simple to use; the stretchy elastic bands easily wrap around the mat meaning you don't need to worry about rolling up tightly; attach to your backpack to save space\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Thermal Sleeping Pad Insulated Camping Mat",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Thermal Sleeping Pad Insulated Camping Mat"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Single Person Yellow Thermal Camping Sleeping Pad",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Single Person",
+                "color": "Yellow",
+                "name": "Thermal Camping Sleeping Pad"
+            },
+            "char_count": 61,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "EVA Foam With Mylar Heat Retention, Lightweight 8Oz, 71In X 20In, Portable With Elastic Straps",
+            "char_count": 94,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "EVA Foam, Thermal Mylar Insulation, Ultra Lightweight 8 Oz, 71 Inch By 20 Inch, Adjustable Straps",
+            "char_count": 97,
+            "validation_error": null
+        }
+    }
+}

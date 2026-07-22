@@ -1,0 +1,60 @@
+{
+    "sku": "LST-CASH-REGISTER",
+    "asin": "B07JBKZYLH",
+    "product_type": "PRETEND_PLAY_TOY",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-CASH-REGISTER\nProduct Type: PRETEND_PLAY_TOY\nBrand (from catalog): KidPlay Products\nExisting Title: KidPlay Electronic Learning Cash Register with Sounds Play Money Groceries Shopping Basket, Pink\nDescription: This electronic cash register for kids has it all-pretend play money, groceries, fun, interactive sounds and more, endless hours of supermarket shopping and pretend play checkout await. The cash register toy from KidPlay, available in either green or pink (while quantities last), also features a moveable conveyor belt, working cash drawer, card swipe, barcode scanner and intercom microphone speaker too. Little ones will have a blast running friends or family through the grocery line as the in-house expert cashier. <br/><br/> And, in addition to the cash register and all its fantastic playtime fun features, your little ones will also get a cute shopping basket to house all their goodies including, pretend play money-both coins and cash bills-a debit card, a juice box, creamer, a milk jug, a box of biscuits and a pack of strawberry jello.<br/><br/> The KidPlay Electronic Cash Register for kids is a fun way for kids and toddlers to learn about the value of money, math, cash handling skills, as well as developing their social interaction, fine motor and critical thinking skills too, as they prepare, scan, organize and checkout your grocery store purchases; combining tactile, auditory and visual learning, this kids electronic pretend play cash register is a great gift to promote fun and learning with your little ones. The electronic cash register for kids in pink or green is not just useful for introducing kids to math-related concepts, counting or cash handling, it's also a great tool for them to learn about fruit, vegetables, colors, shapes and sounds too.<br/><br/> No assembly is required so the fun can start right out of the box. Ready, set... shop. <br/><br/> BATTERIES: Included with purchase <br/><br/> WARNING: Choking Hazard (small parts)<br/><br/> AGE: 3+\nSearch Terms: cash register cash register for kids toy cash register kids cash register play cash register for kids cash register toy girls toys girls toys for 3 year old girls toys for girls toys for 6 year old girls gifts for girls toys for 4 year\nFeatures:\n- READY SET SHOP: This electronic cash register for kids has it all-pretend play money, groceries, fun, interactive sounds and more, endless hours of supermarket shopping and pretend play checkout await! The cash register toy from KidPlay, available in either green or pink, also features a moveable conveyor belt, working cash drawer, card swipe, barcode scanner and intercom microphone speaker too!\n- HAVE FUN WHILE LEARNING: The KidPlay Electronic Cash Register for kids is a fun way for kids and toddlers to learn about the value of money, math, cash handling skills, as well as developing their social interaction, fine motor and critical thinking skills too, as they prepare, scan, organize and checkout your grocery store purchases; Combining tactile, auditory and visual learning, this cash register is a great gift to promote fun and learning with your little ones!\n- MORE THAN JUST MATH: The electronic cash register for kids in pink or green is not just useful for introducing kids to math-related concepts, counting or cash handling, it's also a great tool for them to learn about fruit, vegetables, colors, shapes and sounds too; no assembly is required so the fun can start right out of the box!\n- FUN PLAYTIME ACCESSORIES: In addition to the cash register and all its fantastic playtime fun features, your little ones will also get a cute shopping basket to house all their goodies including, pretend play money-both coins and cash bills-a debit card, a juice box, creamer, a milk jug, a box of biscuits and a pack of strawberry jello\n- SPECIFICATIONS: Dimensions: 14 x 6 x 8 inches; Color: Multi; Material: Plastic; Warning: Choking Hazard (small parts); Batteries: Included; Age: 3+\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "KidPlay Electronic Learning Cash Register with Play Money",
+            "tokens": {
+                "brand": "KidPlay",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Pink",
+                "name": "Electronic Learning Cash Register"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "KidPlay Pink Electronic Learning Cash Register",
+            "tokens": {
+                "brand": "KidPlay",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Pink",
+                "name": "Electronic Learning Cash Register"
+            },
+            "char_count": 46,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Interactive Sounds, Conveyor Belt, Card Swipe, Barcode Scanner, Shopping Basket, Play Money Included",
+            "char_count": 100,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Interactive Sounds, Working Drawer, Card Swipe, Barcode Scanner, Conveyor Belt, Pretend Money, Shopping Basket",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}

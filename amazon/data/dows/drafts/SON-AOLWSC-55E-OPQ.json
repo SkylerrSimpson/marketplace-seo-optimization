@@ -3,14 +3,14 @@
     "asin": "B00GNLP6EA",
     "product_type": "STORAGE_BOX",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:50:43+00:00",
+    "generated_at": "2026-07-21T19:37:46+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 3,
         "catalog": 13,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -210,20 +210,57 @@
             "asin": "B00GNLP6EA",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Waterproof Storage Container 5.5in Clear",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 5.5 Inch Clear Waterproof Storage Container",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5.5",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "Clear",
+                "name": "Waterproof Storage Container"
+            }
         },
-        "title_differentiation": {
-            "value": "O-Ring Seal, Compact Hard Case, Camping & Travel Essentials",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 5.5-in Clear Hard Case Waterproof Storage Container",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 63,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5.5",
+                "pack_size_unit": "in",
+                "size": "5.5 Inch",
+                "color": "Clear",
+                "name": "Hard Case Waterproof Storage Container"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "O-Ring Seal, Hinge Locking Mechanism, Translucent ABS Plastic, Attached Lanyard, Compact Design",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 95,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "O-Ring Watertight Seal, Translucent ABS Plastic, Lanyard Carry Loop, Pocket-Sized, For Cards Medicine Electronics",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 113,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

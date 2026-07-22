@@ -3,14 +3,14 @@
     "asin": "B0CB9B6J71",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:37:39+00:00",
+    "generated_at": "2026-07-21T20:11:52+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,20 +27,57 @@
             "asin": "B0CB9B6J71",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 7pc Beginner Gold Panning Kit with 1lb Paydirt",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 1lb Beginner Gold Panning Kit, Green",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1",
+                "pack_size_unit": "lb",
+                "size": "Beginner",
+                "color": "Green",
+                "name": "Gold Panning Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "10\" Dual Riffle Pan, Snifter Bottle, Glass Vial, Carabiner - Green",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 7-pc 1lb Green Gold Panning Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 43,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "7",
+                "pack_size_unit": "pc",
+                "size": "1lb",
+                "color": "Green",
+                "name": "Gold Panning Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "7-Piece Prospecting Equipment, Pre-Classified Paydirt, 10In Dual Riffle Pan, Snifter Bottle, Glass Vial, Pipette",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 112,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Beginner Paydirt, 10 Inch Dual Riffle Pan, Snifter Bottle, Glass Vial, Pipette, Carabiner Clip",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 94,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

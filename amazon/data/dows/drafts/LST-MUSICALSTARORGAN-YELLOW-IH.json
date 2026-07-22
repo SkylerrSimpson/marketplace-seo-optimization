@@ -3,14 +3,14 @@
     "asin": "B0B34NGRZY",
     "product_type": "MUSICAL_INSTRUMENT_TOY",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:39:36+00:00",
+    "generated_at": "2026-07-21T19:58:16+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 0,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -21,20 +21,57 @@
             "source": "usurper",
             "usurper_column": "attr.unit_count_amazon"
         },
-        "item_name_ai_suggested": {
-            "value": "Kidplokio Yellow Electronic Keyboard Piano Toy, 24 Keys",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Kidplokio Yellow Little Pianist Kids Electronic Keyboard Piano",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 62,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Yellow",
+                "name": "Little Pianist Kids Electronic Keyboard Piano"
+            }
         },
-        "title_differentiation": {
-            "value": "24 Musical Keys, 6 Instruments, Flashing Lights, Travel Handle, Ages 3+",
+        "item_name_ai_openai": {
+            "value": "Kidplokio Yellow Kids Electronic Keyboard Piano Toy",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 51,
+            "review_only": true,
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Yellow",
+                "name": "Kids Electronic Keyboard Piano Toy"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "24 Keys, 6 Instruments, Flashing Lights, Travel Handle, Educational Musical Toy Ages 3",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 86,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "24 Musical Keys, 6 Instrument Buttons, Flashing Lights, Volume Control, Travel Handle, Battery Operated, Ages 3 And Up",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 118,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

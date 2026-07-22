@@ -3,14 +3,14 @@
     "asin": "B09L3FGBS6",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:14:54+00:00",
+    "generated_at": "2026-07-21T19:49:52+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 1,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -37,22 +37,59 @@
             "value": "Stainless Steel",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical Full Tang Paracord Survival Knife 4\" Blade",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical 4\" Drop Point Paracord Survival Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "4",
+                "pack_size_unit": "\"",
+                "size": "",
+                "color": "",
+                "name": "Drop Point Paracord Survival Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "Stonewash Finish, 440 Stainless Steel, Nylon Sheath Included",
+        "item_name_ai_openai": {
+            "value": "ASR Tactical Full Tang Paracord Survival Knife with Sheath",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 58,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Full Tang Paracord Survival Knife With Sheath"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Full Tang 440 Stainless Steel, Stonewash Finish, Paracord Wrapped Handle, Nylon Sheath With Belt Loop",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 101,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "440 Stainless Steel, Stonewashed Finish, Full Tang Paracord Handle, Nylon Belt Loop Sheath, 4\" Blade",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 100,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

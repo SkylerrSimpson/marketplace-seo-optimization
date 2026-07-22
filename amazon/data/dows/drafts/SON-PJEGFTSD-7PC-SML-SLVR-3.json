@@ -3,14 +3,14 @@
     "asin": "B0051QJ00O",
     "product_type": "WATCH",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:50:57+00:00",
+    "generated_at": "2026-07-21T19:37:54+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 4,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -51,20 +51,57 @@
             "asin": "B0051QJ00O",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Jeweler's Tools 7pc Precision Screwdriver Set 0.6-1.6mm",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Jeweler's Tools 7-pc Micro Precision Screwdriver Set 0.6-1.6mm",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 62,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Jeweler's Tools",
+                "pack_size": "7",
+                "pack_size_unit": "pc",
+                "size": "0.6-1.6mm",
+                "color": "",
+                "name": "Micro Precision Screwdriver Set"
+            }
         },
-        "title_differentiation": {
-            "value": "Flat Tips, Stainless Steel, Replaceable Tips, Color-Coded Handles",
+        "item_name_ai_openai": {
+            "value": "Jeweler's Tools 7-Pc Micro Precision Screwdriver Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 52,
+            "review_only": true,
+            "tokens": {
+                "brand": "Jeweler's Tools",
+                "pack_size": "7",
+                "pack_size_unit": "pc",
+                "size": "Micro Precision",
+                "color": "Silver",
+                "name": "Screwdriver Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Flat Tips 06Mm To 16Mm, Replaceable Tips, Stainless Steel, Watch And Jewelry Repair, Screw-on Chuck",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 99,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "7 Flat Tip Drivers, 06Mm-16Mm, Stainless Steel, Screw On Chuck, Replaceable Tips, Jewelry Watch Eyeglass Repair",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

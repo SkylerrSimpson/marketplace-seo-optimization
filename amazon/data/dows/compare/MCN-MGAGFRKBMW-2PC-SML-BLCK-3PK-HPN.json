@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-MGAGFRKBMW-2PC-SML-BLCK-3PK-HPN",
+    "asin": "B01KN6U474",
+    "product_type": "FABRIC_APPLIQUE_PATCH",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-MGAGFRKBMW-2PC-SML-BLCK-3PK-HPN\nProduct Type: FABRIC_APPLIQUE_PATCH\nBrand (from catalog): GEAR AID\nExisting Title: GEAR AID Tenacious Tape GORE-TEX Fabric Patches for Jacket Repair, Black, Round and Rectangle, 3-pk\nDescription: Tenacious Tape GORE-TEX® Fabric Patches are easy-to-use and made specifically for torn or ripped GORE-TEX fabrics. This repair kit contains two, pressure-sensitive patches: a 3” round and a 2” x 4” rectangle. The tough adhesive ensures the patches don’t peel off – making them washing machine and dryer safe. Apply it with a hair dryer or iron it on for maximum hold. When high-performing, waterproof garments tear, fix it fast with Tenacious Tape GORE-TEX Fabric Patches.\nSearch Terms: gore tex goretex adhesive WINDSTOPPER WIND STOPPER\nFeatures:\n- Repair jackets, pants, bibs and gloves made of GORE-TEX® fabric for a truly waterproof, breathable patch; no sewing required\n- Peel-and-stick patch to quickly fix rips, tears or holes in GORE-TEX garments; use an iron or hair dryer to increase bond strength\n- Apply this patch with an ultra-aggressive adhesive, which bonds instantly; won’t peel even after a wash\n- Use patch kit that includes one 3” round patch and one 2” x 4” rectangular patch; DOWS patches are black and can be cut to size\n- Packaging may vary\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "GEAR AID Tenacious Tape GORE-TEX Fabric Patches, Black, 3-pk",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Black",
+                "name": "Tenacious Tape GORE-TEX Fabric Patches"
+            },
+            "char_count": 60,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID 3-Pk GORE-TEX Black Fabric Patches",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "3",
+                "pack_size_unit": "Pk",
+                "size": "GORE-TEX",
+                "color": "Black",
+                "name": "Fabric Patches"
+            },
+            "char_count": 43,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Waterproof Adhesive Patches, Round And Rectangle, No Sewing, Wash And Dryer Safe, Iron Or Hair Dryer Application",
+            "char_count": 112,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Waterproof Breathable Repair, Peel-And-Stick Adhesive, Iron Or Hair Dryer Bond, Wash Safe, 3\" Round And 2X4\" Rectangle",
+            "char_count": 118,
+            "validation_error": null
+        }
+    }
+}

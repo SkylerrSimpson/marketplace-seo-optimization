@@ -3,14 +3,14 @@
     "asin": "B0B84C96DX",
     "product_type": "STORAGE_HOOK",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:36:13+00:00",
+    "generated_at": "2026-07-21T19:57:13+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 8,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -133,20 +133,57 @@
             "asin": "B0B84C96DX",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux 4-Piece Hook and Pick Set, Precision Cleaning Tools",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux 4-Pc Mini Hook and Pick Set Yellow",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 45,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "4",
+                "pack_size_unit": "Pc",
+                "size": "Mini",
+                "color": "Yellow",
+                "name": "Hook and Pick Set"
+            }
         },
-        "title_differentiation": {
-            "value": "Hardened steel tips, ergonomic yellow grip handles, angle/straight/full/90° hooks",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux 4-pk Yellow Hook and Pick Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 40,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Yellow",
+                "name": "Hook and Pick Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "4 Assorted Tips, Hardened Steel, Ergonomic Soft Grip, High-Visibility Yellow, Precision Cleaning Tools",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 102,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "4 Tip Assortment, Hardened 40 HRC Steel, Soft Grip Handles, Precision Cleaning, O-Ring Removal, High-Vis Yellow",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

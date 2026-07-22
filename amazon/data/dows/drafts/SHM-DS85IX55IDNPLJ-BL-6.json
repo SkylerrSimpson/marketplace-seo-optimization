@@ -3,14 +3,14 @@
     "asin": "B01LXWUJY4",
     "product_type": "BLANK_BOOK",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:58:25+00:00",
+    "generated_at": "2026-07-21T19:42:26+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 9,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -145,20 +145,57 @@
             "asin": "B01LXWUJY4",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "CCS Spy Gear Disappearing Paper 8.5x5.5 Dissolving Notepad",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "CCS Spy Gear 8.5 x 5.5 Disappearing SpyPaper Notepad",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "CCS Spy Gear",
+                "pack_size": "8.5",
+                "pack_size_unit": "x 5.5 in",
+                "size": "",
+                "color": "",
+                "name": "Disappearing SpyPaper Notepad"
+            }
         },
-        "title_differentiation": {
-            "value": "32 Sheets, Dissolves in Water, Secret Message Journal, Made in USA",
+        "item_name_ai_openai": {
+            "value": "CCS Spy Gear 8.5in x 5.5in Disappearing SpyPaper Note Pad",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 57,
+            "review_only": true,
+            "tokens": {
+                "brand": "CCS Spy Gear",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "8.5in x 5.5in",
+                "color": "",
+                "name": "Disappearing SpyPaper Note Pad"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Dissolving Paper, Secret Notes, Self-Destructing, Made In USA, 32 Sheets, Water Activated, Secure Disposal",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 106,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "32 Sheets, Extra Large 85\" X 55\" Pages, Turns To Pulp In 10 Seconds, Made In USA, Hides Secret Notes",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 100,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

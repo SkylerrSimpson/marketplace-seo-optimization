@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-GAMEAACCRA-3PC-SML-CLR-1",
+    "asin": "B001BZMGUA",
+    "product_type": "SEALANT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-GAMEAACCRA-3PC-SML-CLR-1\nProduct Type: SEALANT\nBrand (from catalog): GEAR AID\nExisting Title: Gear Aid Aquaseal FD Flexible Durable Repair Adhesive and Cure Accelerator, Clear Glue, 0.75 oz\nDescription: Repair ripped or torn waders, wetsuits, inflatables, boots and all your outdoor gear faster with Aquaseal FD and Cure Accelerator. This repair kit gets you back into the water within two hours. The flexible, durable adhesive is waterproof and bonds to all types of outdoor fabrics and creates a permanent seal that doesn't peel or crack. The Cure Accelerator speeds up cure time (normally 8-12 hours) and can also be used as a cleaner to remove tar, sap, glue and other resins from fabric. Use Aquaseal FD and Cure Accelerator together so repairs are quick and simple.\nSearch Terms: repair adhesive aquaseal cotol-240 fabric gear maintenance\nFeatures:\n- Fix rips and tears permanently on waders, wetsuits, PVC inflatables, boots, and more within two hours using Aquaseal FD and Cure Accelerator\n- Use the 0.75 oz tube of repair adhesive to patch holes and seal leaks; cures to a flexible and waterproof urethane rubber\n- Apply this clear glue to neoprene, nylon, canvas, leather, rubber, and GORE-TEX fabric; creates a water-tight seal that won't peel or crack over time\n- Protect gear from abrasions with a repair that is unaffected by extreme temperatures; Cure Accelerator can also be used as a solvent and surface cleaner\n- Packaging may vary\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Gear Aid Aquaseal FD Clear Flexible Repair Adhesive 0.75oz",
+            "tokens": {
+                "brand": "Gear Aid",
+                "pack_size": "0.75",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "Clear",
+                "name": "Aquaseal FD Flexible Repair Adhesive"
+            },
+            "char_count": 58,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID 0.75-oz Clear Aquaseal FD Repair Adhesive",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "0.75",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "Clear",
+                "name": "Aquaseal FD Repair Adhesive"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Waterproof Flexible Urethane, Cures In 2 Hours, Bonds Neoprene, Nylon, Canvas, Leather, Rubber And Gore-Tex, Temperature Resistant",
+            "char_count": 130,
+            "validation_error": "value exceeds maxLength 125 (130 chars)"
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Flexible Waterproof Urethane Rubber, Fast Two Hour Cure, Bonds Neoprene Nylon Leather And PVC, Won't Peel Or Crack",
+            "char_count": 114,
+            "validation_error": null
+        }
+    }
+}

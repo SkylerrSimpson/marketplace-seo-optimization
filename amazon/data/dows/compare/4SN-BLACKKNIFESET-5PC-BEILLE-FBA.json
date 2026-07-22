@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-BLACKKNIFESET-5PC-BEILLE-FBA",
+    "asin": "B0CHHT3JRY",
+    "product_type": "KITCHEN_KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-BLACKKNIFESET-5PC-BEILLE-FBA\nProduct Type: KITCHEN_KNIFE\nBrand (from catalog): Beille\nExisting Title: Beille 5pc Home Kitchen Knife Set, Black Matte Stainless Steel\nDescription: Upgrade your kitchen knives with this matte black knife set for the home cook or chef, that will stand out in any kitchen. This knife set from Beille includes a chef knife, slicing knife, bread knife, utility knife and paring knife, all of which will easily assist with food and meal prep needs in the kitchen. <br/><br/>Constructed from quality stainless steel, that will ensure optimum sharpness for precise cutting, chopping, slicing and more. Additionally, the rounded, textured and ergonomically designed handles make for a safe and easy handling experience, while providing an excellent grip.<br/><br/>Featuring a sleek matte black finish, the five piece knife set from Beille is not only functional and reliable, but also a stylish and contemporary alternative to standard stainless steel knives. The black knife set makes a great wedding gift for the newlywed, or as new housewarming gift or Father's Day Gift. Knives are dishwasher safe, but as with all knives, handwashing is preferred and recommended.<br/><br/>Dimensions: Chef Knife 8.0 inch; Carving Knife 8.0 inch; Bread Knife 8.25 inch; Utility Knife 4.25 inch; Paring Knife 3.25 inch\nSearch Terms: kitchen knife set; stainless steel knives; chef santoku utility paring bread knife;  food meal prep; gift for women; knife block set; kitchen gadget; kitchen knives; knives set for kitchen\nFeatures:\n- 5PC KITCHEN KNIFE SET: Constructed from quality stainless steel that ensures optimum sharpness for precise cutting; textured, ergonomic handles make for safe and easy handling while providing a very comfortable grip\n- 5 PIECE BLACK KNIFE SET: Eye catching black matte finish; set includes a chef knife, slicing knife, bread knife, utility knife and paring knife that will assist with all food and meal prep needs\n- WEDDING GIFTS: Whether as a standalone gift or bundled with other kitchen essentials, the 5pc stainless steel knife set from Beille makes a great gift for newlyweds, for college dorm rooms or as a housewarming gift too!\n- DISHWASHER SAFE: Knife set is dishwasher safe however, as for all knives, handwashing is always preferred\n- SPECIFICATIONS: Color: Black; Material: Stainless Steel; Dimensions: Chef Knife 8.0 inch, Bread Knife 8.25 inch, Utility Knife 4.25 inch, Paring Knife 3.25 inch and Carving Knife 8.0 inch\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 5-pc Black Matte Stainless Steel Kitchen Knife Set",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "5",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Black",
+                "name": "Stainless Steel Kitchen Knife Set"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 5-pk Black Kitchen Knife Set",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "5",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Black",
+                "name": "Kitchen Knife Set"
+            },
+            "char_count": 35,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Chef, Bread, Utility And Paring Knives, Ergonomic Handles, Dishwasher Safe, Gift Ready",
+            "char_count": 86,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Matte Black Finish - Sharp Stainless Steel Blades - Ergonomic Grip - Dishwasher Safe - Chef Bread Utility Paring Knives",
+            "char_count": 119,
+            "validation_error": null
+        }
+    }
+}

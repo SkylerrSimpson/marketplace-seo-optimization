@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-STICKERACTIVITY-CAPUSA-AMZ",
+    "asin": "B0C6QNQXTP",
+    "product_type": "BLANK_BOOK",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-STICKERACTIVITY-CAPUSA-AMZ\nProduct Type: BLANK_BOOK\nBrand (from catalog): Marvel\nExisting Title: 80pg Avengers Jumbo Coloring & Activity Art Set\nDescription: If your child is obsessed with superheroes, the officially licensed Marvel Avengers coloring and activity book is a perfect gift idea. This jumbo-sized activity book comes with 80 fun pages to color, solve puzzles, and complete activities, all featuring characters from the hit Marvel Avengers comic franchise.<br/><br/>This jumbo-coloring book is designed to be a great size for little kids who are just learning how to read and write. The large pages will allow them to explore their creativity, practice penmanship, and color within the lines. The front of the coloring book even features one of everyone's favorite superheroes - Captain America and his iconic shield.<br/><br/>The entire coloring book is made of durable paper that will hold up to the wear and tear of your child's coloring, drawing, and doodling. Kids will love using their imagination, and the book will fit inside most standard-sized backpacks and travel bags for fun on the go. This is a great gift idea for young boys who love Marvel.\nSearch Terms: kids coloring books boys coloring books kids activity books boys activity books jumbo coloring books for boys coloring books for boys 3 and up stocking stuffers for boys superhero toys for boys avengers gifts for boys avengers coloring book for boys\nFeatures:\n- MARVEL AVENGERS ACTIVITY SET- Officially licensed Marvel children's activity SET features characters from the hit Marvel comic franchise including a cool graphic of Captain America on the front; Awesome gift idea for Avengers fans\n- JUMBO-SIZED COLORING SET- Large coloring set is a great size for little kids just learning how to read and write; Large pages allow them to explore their creativity and will fit inside most standard-sized backpacks for on-the-go fun\n- DURABLE MATERIAL - Set comes with 80 pages made of durable paper ideal for drawing, writing, doodling, and completing puzzles; Kids can practice penmanship, solving puzzles, and coloring inside the lines\n- SAFE FOR KIDS - Jumbo activity set is safe for children ages 3 and up with adult supervision; Great bring-along to school, on road trips, and to playdates\n- SPECIFICATIONS - Officially licensed (Marvel Avengers); Colors: red, white, blue; Material: paper; Number of pages: 80; Age recommendation: 3+ years\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Marvel Avengers Jumbo Coloring and Activity Book 80pg",
+            "tokens": {
+                "brand": "Marvel",
+                "pack_size": "80",
+                "pack_size_unit": "pg",
+                "size": "Jumbo",
+                "color": "",
+                "name": "Avengers Coloring and Activity Book"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Marvel Jumbo Avengers Coloring Activity Book",
+            "tokens": {
+                "brand": "Marvel",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Jumbo",
+                "color": "",
+                "name": "Coloring Activity Book"
+            },
+            "char_count": 44,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "80 Pages, Jumbo Size, Captain America Cover, Durable Paper, Puzzles And Activities, Ages 3 Plus",
+            "char_count": 95,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "80 Pages, Captain America Cover, Coloring And Puzzles, Durable Paper, Ages 3 Plus, Travel-Friendly",
+            "char_count": 98,
+            "validation_error": null
+        }
+    }
+}

@@ -3,14 +3,14 @@
     "asin": "B09WWWKP7S",
     "product_type": "METAL_DETECTOR",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:18:30+00:00",
+    "generated_at": "2026-07-21T20:08:33+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 8,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -120,20 +120,57 @@
             "asin": "B09WWWKP7S",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 10pc Gold Panning Kit with Dual Riffle Pans & Tools",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 10pc Gold Panning Kit - Green",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 41,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Green",
+                "name": "Gold Panning Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "10-Piece Prospecting Set | Dual Riffle Pans, Magnet Separator, Trowel, Vials",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 10-pk Green Gold Panning Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 40,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Green",
+                "name": "Gold Panning Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Dual Riffle Pans, Prospecting Trowel, Black Sand Magnet, Tweezers With 4X Magnifier, Glass Vials",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 96,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "10 Piece Prospecting Set, 8\" And 10\" Dual Riffle Pans, Black Sand Magnet, 4X Magnifier Tweezers, Vials, ABS Trowel",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 114,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

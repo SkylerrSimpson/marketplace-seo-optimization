@@ -3,14 +3,14 @@
     "asin": "B0BKX6KRWL",
     "product_type": "APPAREL_BELT",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:38:57+00:00",
+    "generated_at": "2026-07-21T19:27:33+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 29,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -412,20 +412,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "title_differentiation": {
-            "value": "110 ft unraveled Mil-Spec cord; adjustable universal fit; ideal for camping, hiking & bug out bag EDC gear",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ParaLace 52in Green 550 Paracord Survival Belt",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8",
-            "validation_error": "requires item_name <= 75 chars"
-        },
-        "item_name_ai_suggested": {
-            "value": "ParaLace 550 Paracord Belt Green Survival EDC Tactical",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 46,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ParaLace",
+                "pack_size": "52",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Green",
+                "name": "550 Paracord Survival Belt"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "ParaLace 52 in Green Survival Paracord Belt",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 43,
+            "review_only": true,
+            "tokens": {
+                "brand": "ParaLace",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "52 in",
+                "color": "Green",
+                "name": "Survival Paracord Belt"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "110Ft Unraveled Paracord, Stainless Steel Buckle, One Size Fits All, Adjustable, Mil-Spec 550Lb Breaking Strength",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 113,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "110 Feet Unraveled Cord, Stainless Steel Buckle, Adjustable Universal Fit, 550 Lb Mil Spec Strength, Washable",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

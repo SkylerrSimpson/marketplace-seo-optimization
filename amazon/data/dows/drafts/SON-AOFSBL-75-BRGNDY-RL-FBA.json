@@ -3,14 +3,14 @@
     "asin": "B0949VVBRK",
     "product_type": "SPORTING_GOODS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:02:43+00:00",
+    "generated_at": "2026-07-21T19:44:53+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 15,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 11
     },
@@ -241,25 +241,62 @@
             "raw_value": true
         },
         "country_of_origin": {
-            "value": "US",
+            "value": "CN",
             "is_required": true,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Cotton Fleece Camping Sleeping Bag Liner, Red",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Red Cotton Fleece Camping Sleeping Bag Liner",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 56,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "75 x 66 inches",
+                "color": "Red",
+                "name": "Cotton Fleece Camping Sleeping Bag Liner"
+            }
         },
-        "title_differentiation": {
-            "value": "Fire Retardant, Thermal +12.1°F, Includes Storage Bag & Zippers",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 75 x 66 in Red Cotton Fleece Sleeping Bag Liner",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 59,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "75 x 66 in",
+                "color": "Red",
+                "name": "Cotton Fleece Sleeping Bag Liner"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Fire Retardant, 121 Degree Warmth, Compact Storage Bag, Machine Washable, Lightweight Thermal Blanket",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 101,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Fire Retardant, Up To 12F Warmth, Nylon Storage Bag, Three Side Zippers, Machine Washable, Compact Packable",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "supplier_declared_material_regulation": {
             "value": [

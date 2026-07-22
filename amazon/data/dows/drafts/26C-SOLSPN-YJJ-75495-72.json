@@ -3,18 +3,24 @@
     "asin": "B0B9HSB1K1",
     "product_type": "SPOON",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:37:28+00:00",
+    "generated_at": "2026-07-21T20:11:51+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
-        "fillable": 0,
+        "fillable": 1,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
     "attributes": {
+        "language": {
+            "value": "English",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.language_amazon"
+        },
         "gpsr_safety_attestation": {
             "value": [
                 {
@@ -87,20 +93,57 @@
             "asin": "B0B9HSB1K1",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille Grey Nylon Spoon with Wood Handle, 13 Inch, High Heat",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 13 in Grey Nylon Spoon with Wooden Handle",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Grey",
+                "name": "Nylon Spoon with Wooden Handle"
+            }
         },
-        "title_differentiation": {
-            "value": "Dishwasher Safe, Ergonomic Grip, Heat Resistant Nylon",
+        "item_name_ai_openai": {
+            "value": "Beille 13-in Grey Nylon Spoon with Wooden Handle",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 48,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Grey",
+                "name": "Nylon Spoon with Wooden Handle"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "High Heat Resistant Nylon, Ergonomic Wooden Handle, Dishwasher Safe, Hang Loop Storage",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 86,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "High Heat Resistant Nylon, Ergonomic Wood Handle, Dishwasher Safe, Hanging Slot, Safe For Cooking And Serving",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "pesticide_marking": {
             "value": [

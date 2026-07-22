@@ -1,0 +1,60 @@
+{
+    "sku": "SON-VIAL-12PK-HVAR-PARENT",
+    "asin": "B084RRT4FQ",
+    "product_type": "LAB_SUPPLY",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-VIAL-12PK-HVAR-PARENT\nProduct Type: LAB_SUPPLY\nBrand (from catalog): Premium Life\nExisting Title: Premium Life Clear Glass Vials Gold Prospecting Hobby Craft Storage (5 Sizes)\nDescription: Easily organize and store your gems and minerals collected from gold prospecting with our variety of ASR Outdoor Clear Glass Vials.<br/>These screw-on cap vials are made of clear transparent glass for easy visibility. They are designed to contain small items and valuables for safekeeping, making them ideal not only for gold prospecting but jewelry making, crafting and hobby projects where you require small and easily identifiable storage containers.<br/>Each glass vial comes with a leak-resistant plastic screw cap that will ensure your small valuables are secure whether you're out in the field or crafting at home. They also work great for scientific research, displaying small objects or creating your own party favors. We have included 12 vials in each set, and you have the choice of 5 different vial sizes for a variety of uses: 3/4 Dram/3ml (.10 fl oz), 1 Dram/4ml (.135 fl oz), 1 1/3 Dram/5ml (.17 fl oz), 1 2/3 Dram/6ml (.203 fl oz) or 2 Dram/7ml (.24 fl oz). <br/>There's nothing worse than losing a precious gem, so make sure to keep yours organized, easy to identify and safe from the elements with the ASR Outdoor Multi-purpose Clear Glass Vials.\nSearch Terms: glass vials with caps corks screw caps small jewelry making gold panning kit supplies equipment tools gold rush nuggets collection tools metal detector tools accessories gold prospecting tools for adults for kids kits camping accessories supplies\nFeatures:\n- TRANSPARENT GLASS VIALS - Each Set Comes with 12 Transparent Clear Glass Vials for Easy Visibility and Identification (Your Choice of Vial Size)\n- VERSATILE STORAGE CONTAINERS - Designed to Contain Small Items and Valuables for Safe Keeping | Store and Organize Gems, Minerals, Crafting or Hobby Materials\n- LEAK-RESISTANT DESIGN - Comes with Black Plastic Cap that Screws on Tight to Prevent Leaks | Great for Use Outdoors and On the Go\n- 5 DIFFERENT SIZES - Choose the Size Appropriate for Your Purposes: 3/4 Dram/3ml (.10 fl oz), 1 Dram/4ml (.135 fl oz), 1 1/3 Dram/5ml (.17 fl oz), 1 2/3 Dram/6ml (.203 fl oz), 2 Dram/7ml (.24 fl oz)\n- DURABLE CONSTRUCTION - Made of High-quality Glass and Plastic to Ensure your Items are Protected | Easily Packs in Bag, Backpack or Travel Case\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Premium Life 12-pk Clear Glass Vials Gold Prospecting",
+            "tokens": {
+                "brand": "Premium Life",
+                "pack_size": "12",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Clear",
+                "name": "Glass Vials"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Premium Life 12-Pk Clear Glass Vials",
+            "tokens": {
+                "brand": "Premium Life",
+                "pack_size": "12",
+                "pack_size_unit": "Pk",
+                "size": "",
+                "color": "Clear",
+                "name": "Glass Vials"
+            },
+            "char_count": 36,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "12 Transparent Vials, 5 Sizes, Screw-On Caps, Leak-Resistant, Jewelry Making, Gem Storage",
+            "char_count": 89,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Leak Resistant Screw Caps, 5 Sizes Available, Easy Visibility, Great For Gems, Minerals, Crafts, Travel",
+            "char_count": 103,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "DOY-ASRO-14PCGEMSTONEPAYDIRTKIT-BRZ-AMZ",
+    "asin": "B0DXXDZ7NR",
+    "product_type": "METAL_DETECTOR",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DOY-ASRO-14PCGEMSTONEPAYDIRTKIT-BRZ-AMZ\nProduct Type: METAL_DETECTOR\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 14pc Gemstone Paydirt Rocks and Minerals Collection of 5lb Brazilian Genuine Rough Gems\nDescription: Excitement and discovery await with ASR Outdoor Complete 14pc Genuine Gemstone Paydirt Kit!<br/><br/>This kit includes all the equipment you need for successful gemstone paydirt processing: A five pound rough gemstone paydirt bag of your choice, collapsible silicone bucket, sifting screen (colors ship assorted), scoop, 10X eye loupe, tweezers, microfiber cloth, safety goggles, two 4x6 drawstring burlap bags and one large 8x12 burlap cinch bag for gemstone storage. The kit also comes with a paydirt screening instructions card, as well as double sided gemstone identification chart and information card.<br/><br/>Whether you're a seasoned gemstone enthusiast or curious beginner, our 14pc complete gemstone paydirt kit delivers the thrill of sifting through organic material to uncover authentic rough gemstones. Perfect for hobbyists, gemstone collectors and gold prospectors looking for a fun, hands on and engaging outdoor activity.\nSearch Terms: rock collections for kids; geology; gemstone dig kit; fossils; paleontology; archeology; mineral science kits; crystals and stones; amethyst; pyrite; crystal\nFeatures:\n- GEMSTONE PAYDIRT: Enjoy the thrill of sifting through paydirt and identifying precious gemstones! Each five pound bag is packed with a rich assortment of genuine rough gemstones, two pounds worth, as well a small assortment of tumbled stones, all waiting to be discovered!\n- TOP QUALITY GEMSTONES: In your paydirt, you’ll uncover an assortment of rough gemstones like Amazonite, Amethyst, Carnelian, Citrine, Fuchsite, Fluorite, Labradorite, Pyrite, Rainbow Moonstone, Strawberry Quartz, Sea Jasper, Smoky Quartz, Tiger Eye and more\n- IDENTIFICATION CHART: Double sided gemstone rocks and mineral collection identification chart and precious gemstone facts sheet makes identifying gemstones easy and fun\n- HOW TO USE: Fill a large bucket with water; scoop out paydirt into sifting screen, dip sifting screen into water to remove dirt and repeat with remaining paydirt; sift through material a second time to ensure no gemstones were missed\n- KIT INCLUDES: 5lb rough gemstone paydirt bag, 8x12 burlap bag, screening instructions card, gemstone identification chart, collapsible bucket, sifting screen, scoop, two 4x6 drawstring burlap bags, X10 eye loupe, tweezers, microfiber cloth and safety goggles\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 14pc Gemstone Paydirt Kit Brazilian Rough Gems",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "14",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Brazilian",
+                "name": "Gemstone Paydirt Kit Rough Gems"
+            },
+            "char_count": 58,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 14-pc 5lb Gemstone Paydirt Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "14",
+                "pack_size_unit": "pc",
+                "size": "5lb",
+                "color": "",
+                "name": "Gemstone Paydirt Kit"
+            },
+            "char_count": 42,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "5Lb Paydirt Bag, Sifting Screen, Identification Chart, Loupe, Tweezers, Safety Goggles, Burlap Storage Bags",
+            "char_count": 107,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Genuine Rough Gemstones, 14-Piece Kit, Collapsible Bucket, Sifting Screen, Loupe, Tweezers, Goggles, Burlap Bags",
+            "char_count": 112,
+            "validation_error": null
+        }
+    }
+}

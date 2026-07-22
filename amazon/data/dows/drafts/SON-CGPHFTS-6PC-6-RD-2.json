@@ -3,14 +3,14 @@
     "asin": "B071FP7GY5",
     "product_type": "KNIFE_SHARPENER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:09:12+00:00",
+    "generated_at": "2026-07-21T19:47:50+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 4,
-        "ai_suggested": 1,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -91,14 +91,57 @@
             "asin": "B071FP7GY5",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "{\"item_name\": \"Universal Tool 6pc Coarse Grit Precision Hobby File Set\", \"title_differentiation\": \"6 Different Files, 6\" Length, Bearing Steel, 70 Cuts/Inch\"}",
+        "item_name_ai_anthropic": {
+            "value": "Universal Tool 6-Pc 6in Coarse Precision Hobby File Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 55,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "6",
+                "pack_size_unit": "Pc",
+                "size": "6in",
+                "color": "",
+                "name": "Coarse Precision Hobby File Set"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "Universal Tool 6-pc 6-in Coarse Grit Hobby File Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 51,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "6",
+                "pack_size_unit": "pc",
+                "size": "6-in",
+                "color": "",
+                "name": "Hobby File Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Coarse Grit 70 Cuts Per Inch, 6 File Shapes, Bearing Steel, 62 HRC Hardness, Metal Working And Crafts",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "review_only": true,
-            "note": "modular <=75 item_name for human review",
-            "validation_error": "exceeds modular item_name cap of 75 chars (158)"
+            "char_count": 101,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "6 Piece Set, 70 Cuts Per Inch, 6 Inch Files, 6 Shapes, Bearing Steel, 62 HRC, Precision Craft Handles",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

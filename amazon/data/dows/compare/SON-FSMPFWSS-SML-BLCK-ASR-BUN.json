@@ -1,0 +1,60 @@
+{
+    "sku": "SON-FSMPFWSS-SML-BLCK-ASR-BUN",
+    "asin": "B0FDT35342",
+    "product_type": "SURVIVAL_KIT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-FSMPFWSS-SML-BLCK-ASR-BUN\nProduct Type: SURVIVAL_KIT\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Magnesium Fire Starter Camping Survival Pocket Flint Grip Handle\nDescription: Whether you're deep in the backcountry, prepping for emergencies, or teaching essential outdoor skills, the ASR Outdoor Magnesium Fire Starter is your go-to tool for instant flame and reliable heat!<br/><br/>Compact and powerful, this pocket-sized fire starter packs serious survival punch. Just shave off some magnesium onto dry tinder, strike the ferro rod with the included scraper, and voila! A burst of hot sparks ignites your fire in seconds, even in damp or windy conditions.<br/><br/>Perfect for campers, hikers, backpackers, preppers, and anyone who loves the outdoors, this fire starter is a smart, lightweight addition to your survival kit or bug-out bag.<br/><br/>No matches? No problem. Wet wood? Still lights. Cold night? You’re covered.<br/><br/>Don’t get caught without a flame - grab the fire-starting tool that sparks when it counts!\nSearch Terms: magnesium fire starter ferro rod camping fire starter survival gear emergency fire starter hiking fire tool outdoor fire starter bushcraft gear fire starter kit waterproof fire starter backpacking gear prepper supplies fire making tool\nFeatures:\n- RELIABLE IGNITION IN ANY WEATHER - Produces hot sparks even in wind, rain, or cold conditions for all-weather fire starting.\n- COMPACT AND LIGHTWEIGHT - Measures just 3\" x 1\", making it an easy addition to any backpack, pocket, or emergency kit.\n- DUAL FUNCTION DESIGN - Includes both magnesium for easy ignition and a ferro rod for generating intense sparks.\n- LONG LASTING PERFORMANCE - Each fire starter provides hundreds of strikes, giving you lasting peace of mind in the wild.\n- ESSENTIAL SURVIVAL TOOL - Perfect for camping, hiking, prepping, or teaching wilderness fire-building skills.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Magnesium Fire Starter Ferro Rod Camping",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Magnesium Fire Starter Ferro Rod"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Magnesium Fire Starter",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Magnesium Fire Starter"
+            },
+            "char_count": 34,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Waterproof Ferro Rod, All-Weather Sparks, Compact 3 Inch, Hundreds Of Strikes, Hiking And Emergency Survival",
+            "char_count": 108,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "All Weather Ignition, Magnesium And Ferro Rod Sparks, Hundreds Of Strikes, Compact Pocket Size, Emergency Survival Tool",
+            "char_count": 119,
+            "validation_error": null
+        }
+    }
+}

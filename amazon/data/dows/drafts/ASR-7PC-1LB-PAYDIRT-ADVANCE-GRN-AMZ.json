@@ -3,14 +3,14 @@
     "asin": "B0CB9D2H2F",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:35:36+00:00",
+    "generated_at": "2026-07-21T20:11:42+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,20 +27,57 @@
             "asin": "B0CB9D2H2F",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 7pc Advanced Gold Panning Kit with 1lb Paydirt",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 7pc 1lb Advanced Green Gold Panning Kit",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "7",
+                "pack_size_unit": "pc",
+                "size": "1lb",
+                "color": "Green",
+                "name": "Gold Panning Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "Unclassified paydirt, 10\" green pan, magnetic separator, snifter bottle",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 7-pc 1lb Green Gold Panning Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 43,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "7",
+                "pack_size_unit": "pc",
+                "size": "1lb",
+                "color": "Green",
+                "name": "Gold Panning Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Advanced Paydirt, 10In Finishing Pan, Magnetic Separator, Snifter Bottle, Glass Vial, Pipette",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 93,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Advanced Paydirt, Fine Gold Extraction, 10\" Green Finishing Pan, Black Sand Magnet, Snifter Bottle, Vial",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 104,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

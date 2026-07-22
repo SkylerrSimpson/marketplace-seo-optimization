@@ -1,0 +1,60 @@
+{
+    "sku": "26C-BLE-GREYNYLONSPOONSET-3PC-BUN",
+    "asin": "B0DTJMB2ZB",
+    "product_type": "SPOON",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 26C-BLE-GREYNYLONSPOONSET-3PC-BUN\nProduct Type: SPOON\nBrand (from catalog): Beille\nExisting Title: Beille 3pc Grey Nylon Cooking Spoons Kitchen Utensils Set with Wooden Handle High Heat Resistance\nDescription: Upgrade your kitchen with this versatile three piece nylon and wood cooking spoons kitchen utensils set, thoughtfully designed to handle all your cooking needs with ease and style. This set is perfect for everyday use, combining functionality and durability with a modern aesthetic. The collection includes a slotted cooking spoon, a solid cooking spoon and a skimmer spoon.<br/><br/>The kitchen utensils set have been designed with sturdy handles made of wood, so you can count on them to last. The ergonomic handle design with top rubber soft grip will provide comfort when in use and help prevent against slippage giving you maximum control. The handles also come with built in slots for hanging storage if preferred.<br/><br/>Made from tough and durable nylon, these kitchen utensils can withstand high heat cooking temperatures, that will stand up to all the wear and tear your kitchen can dish out! The durable nylon construction ensures strength and flexibility when cooking in the kitchen.<br/><br/>Durable, easy to clean and safe for non stick cookware, these utensils are a must have for any culinary enthusiast. With the Beille nylon kitchen utensils set, you can cook, bake, serve and food prep in comfort and style for many meals to come! And, the modern design and neutral colors will go with just about any existing kitchen decor.<br/><br/>Dishwasher Safe.\nSearch Terms: Kitchen utensils set; cooking baking supplies; meal food prep; kitchen starter set; serveware; house warming gifts new home; restaurant equipment; bakeware; kitchen gadgets tools; culinary gift ideas; skimmer spoon; cooking spoons\nFeatures:\n- 3PC COOKING SPOONS: Beille’s 3pc cooking spoons kitchen utensils set includes one slotted spoon, one solid spoon and one skimmer spoon, making it a great kitchen starter set for cooking, baking, serving, food and meal prep\n- HEAT RESISTANT NYLON: Lightweight cooking spoons are made of durable nylon which will not cause harmful chemical contamination of foods; kitchen utensils set has been designed to withstand high cooking temperatures\n- ERGONOMIC HANDLE: Durable wood handles with soft rubber top makes for a comfortable grip when cooking, giving you maximum control when taking on your favorite recipes; the top handle features a handy slot for easy hang storage if preferred; neutral grey color will style easily with any kitchen decor\n- DISHWASHER SAFE: Must have kitchen essentials items to add to your arsenal of kitchen utensils for cooking, baking, meal and food prep and more; conveniently dishwasher safe for quick clean up\n- SPECIFICATIONS: Weight: 0.45lbs; Color: Grey/Wood; Length: 13 inches approximately for each kitchen utensils, heights and widths vary by style\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 3-pc Grey Nylon Cooking Spoons with Wooden Handle",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "13 in",
+                "color": "Grey",
+                "name": "Nylon Cooking Spoons with Wooden Handle"
+            },
+            "char_count": 56,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 3-Pk Grey Nylon Cooking Spoons Set",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "3",
+                "pack_size_unit": "Pk",
+                "size": "",
+                "color": "Grey",
+                "name": "Nylon Cooking Spoons Set"
+            },
+            "char_count": 41,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "High Heat Resistant Nylon, Ergonomic Wood Handle With Soft Grip, Dishwasher Safe, Hang Storage Slots, Kitchen Utensils Set",
+            "char_count": 122,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Slotted Solid And Skimmer Spoons, Heat Resistant Nylon, Wooden Handle, Soft Grip, Dishwasher Safe, Nonstick Safe",
+            "char_count": 112,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "NPT-SWORDTHROWINGKNIVES-GRN",
+    "asin": "B077QVV1HF",
+    "product_type": "SWORD",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: NPT-SWORDTHROWINGKNIVES-GRN\nProduct Type: SWORD\nBrand (from catalog): ASR Tactical\nExisting Title: 27 Inch Outdoor Ninja Sword Throwing Knives Set\nDescription: Practice and perfect your your skills with the Full Tang Martial Arts Sword and 2pc Throwing Knife Set.<br/><br/>The sword measures 27\" in length and comes with two 5\" throwing knives. This set comes with a nylon sheath with a compartment for the sword along with a small compartment to hold both the throwing knives. The nylon sheath has a shoulder strap for easy transportation on your shoulder or belt.<br/><br/>The 440 stainless steel construction will keep these knives in great condition through many practice sessions. The solid piece of steel from tip to handle ensures you wont have to worry about losing rivets or parts of the handle if you accidentally hit a rock.<br/><br/>There are multiple color options so make sure you order multiple to collect all the colors. This is a perfect gift for any adult, cosplayer or ninja fan.\nSearch Terms: throwing knives stars swords and\nFeatures:\n- Amazing Ninja Sword and 2 Throwing Knives Set\n- Extremely Sharp Blade Perfect for Chopping and Slashing Objects\n- Constructed of Strong 440 Stainless Steel\n- Nylon Carrying Case for Easy Transportation\n- Sword Length: 27\" | Throwing Knife Length: 5\"\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 27 Inch Ninja Sword Throwing Knives Set",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "27 Inch",
+                "color": "",
+                "name": "Ninja Sword Throwing Knives Set"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 27 in Green Ninja Sword Throwing Knives Set",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "27 in",
+                "color": "Green",
+                "name": "Ninja Sword Throwing Knives Set"
+            },
+            "char_count": 56,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Full Tang Martial Arts Sword, 2 Throwing Knives, 440 Stainless Steel, Nylon Carrying Case, Shoulder Strap",
+            "char_count": 105,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "440 Stainless Steel, Full Tang Construction, Nylon Carrying Case, Shoulder Strap, 27\" Sword, 5\" Throwing Knives",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

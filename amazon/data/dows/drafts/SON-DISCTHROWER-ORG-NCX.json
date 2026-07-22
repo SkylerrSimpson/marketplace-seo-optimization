@@ -3,14 +3,14 @@
     "asin": "B0BFC2RQ6D",
     "product_type": "SPORTING_GOODS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:42:39+00:00",
+    "generated_at": "2026-07-21T19:32:39+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 16,
         "catalog": 20,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 14
     },
@@ -404,25 +404,62 @@
             "raw_value": true
         },
         "country_of_origin": {
-            "value": "US",
+            "value": "CN",
             "is_required": true,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Clay Target Disc Thrower 4.5in Orange",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 4.5 in Clay Target Disc Thrower",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 43,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Clay Target Disc Thrower"
+            }
         },
-        "title_differentiation": {
-            "value": "Manual, Left/Right Handed, 19in Handle, Indoor/Outdoor",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 4.5 in Orange Clay Target Disc Thrower",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 50,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "4.5 in",
+                "color": "Orange",
+                "name": "Clay Target Disc Thrower"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Right And Left Handed, 19 Inch Long, Clay Pigeon Launcher, Sporting Goods",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 73,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Right And Left Handed, 19 Inch Length, Clay Target Launcher, Easy Grip Handle, Orange, For Sporting Clays",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 105,
+            "review_only": true
         },
         "supplier_declared_material_regulation": {
             "value": [

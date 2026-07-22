@@ -3,14 +3,14 @@
     "asin": "B089558HPF",
     "product_type": "SHOELACE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:39:50+00:00",
+    "generated_at": "2026-07-21T20:12:00+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 3,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -53,20 +53,57 @@
             "asin": "B089558HPF",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 550 Paracord Hiking Boot Laces Black 5ft",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 550 Paracord Black 5ft Hiking Boot Laces",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "ft",
+                "size": "5ft",
+                "color": "Black",
+                "name": "550 Paracord Hiking Boot Laces"
+            }
         },
-        "title_differentiation": {
-            "value": "550lb Breaking Strength, Made in USA, Survival EDC Tool, Pair",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 1 Pair 5 Ft Black Paracord Boot Laces",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 49,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1",
+                "pack_size_unit": "pair",
+                "size": "5 Ft",
+                "color": "Black",
+                "name": "Paracord Boot Laces"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "550Lb Breaking Strength, Made In USA, EDC Survival Tool, UV Resistant, Metal Aglet Included, 1 Pair",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 99,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "550 Paracord, Made In USA, 550 Lb Strength, Metal Aglets, Abrasion And UV Resistant, EDC Survival Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

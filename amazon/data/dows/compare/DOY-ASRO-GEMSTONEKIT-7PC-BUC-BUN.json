@@ -1,0 +1,60 @@
+{
+    "sku": "DOY-ASRO-GEMSTONEKIT-7PC-BUC-BUN",
+    "asin": "B0DJRTYB1T",
+    "product_type": "OUTDOOR_LIVING",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DOY-ASRO-GEMSTONEKIT-7PC-BUC-BUN\nProduct Type: OUTDOOR_LIVING\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 7pc Rock and Gemstone Dig Kit Gemstone Mining Bucket (Sift, Sort and Find Treasures)\nDescription: Whether you’re a seasoned prospector or just getting started with mining and geology hobbies, the ASR Outdoor Gemstone Mining Kit comes with essential items to enjoy the thrill of sifting through paydirt and identifying precious minerals! Inside the kit, you’ll find a 1x 5 pound bag of assorted rough gemstone paydirt, a gemstone identification chart, a plastic sieve, a 3.5-gallon bucket, a brush, a pair of tweezers, and a 10X magnifying loupe.<br/><br/>Our gemstone bags include top-quality gemstones in a rough assortment, including but not limited to: Amazonite, Rough Amethyst, Carnelian, Citrine, Clear Quartz, Fuchsite, Labradorite, Pyrite, Moonstone, Rose Quartz, Sea Jasper, Smoky Quartz, Tiger Eye and more! We’ve also included a gemstone identification chart so you can easily identify the gems from your rough mix bags, making this a great tool for beginners.<br/><br/>We’ve added a high-quality, durable plastic classifying sifter so you can easily sift through your gemstones and paydirt. The sieve has a stackable design and convenient handles to make sifting a breeze. We’ve also added a durable, high-quality plastic 3.5-gallon bucket, a pair of tweezers, a brush, and a 10X magnifying loupe for collecting, cleaning, and analyzing your findings out in the field. This is a great gift set idea for prospectors, gemstone enthusiasts, and kids studying geology!\nSearch Terms: Gemstone Kit\nFeatures:\n- 7PC GEMSTONE PAYDIRT KIT - This ASR Outdoor Gemstone Mining Kit comes with essential items to enjoy the thrill of sifting through paydirt and identifying precious minerals: 1x 5 pound bag of assorted rough gemstone paydirt, a gemstone identification chart, a plastic sieve, a 3.5 gallon bucket, a brush, a pair of tweezers and a 10X magnifying loupe\n- TOP QUALITY GEMSTONES - In your paydirt, you’ll discover an assortment of rough gemstones like Amazonite, Rough Amethyst, Carnelian, Citrine, Clear Quartz, Fuchsite, Labradorite, Pyrite, Moonstone, Rose Quartz, Sea Jasper, Smoky Quartz, Tiger Eye and more\n- PLASTIC SAND SIFTER - The kit comes with a 9.75” x 9.75” classifying sieve ideal for sifting through your gemstones and paydirt. The sieve has 36 holes per square inch, comes with convenient handles, and is made of durable plastic ideal for use in any weather\n- IDENTIFICATION CHART - Included is a gemstone identification chart so you can easily identify the gems from your rough mix bags, and the chart is laminated so you can take it with you to identify precious gems out in the field\n- COLLECTION TOOLS - We’ve also added a durable, high-quality plastic 3.5-gallon bucket, a pair of tweezers, a brush, and a 10X magnifying loupe for collecting, cleaning and analyzing your findings out in the field\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 7pc Gemstone Mining Kit with Bucket and Tools",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "7",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Gemstone Mining Kit with Bucket and Tools"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 7-Pc Gemstone Dig Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "7",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Gemstone Dig Kit"
+            },
+            "char_count": 33,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "5Lb Paydirt, Sieve, 35-Gallon Bucket, Magnifying Loupe, ID Chart, Tweezers, Brush",
+            "char_count": 81,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "5 Lb Rough Paydirt, Gemstone ID Chart, 975\" Stackable Sieve, Bucket, Tweezers, Brush, 10X Loupe",
+            "char_count": 95,
+            "validation_error": null
+        }
+    }
+}

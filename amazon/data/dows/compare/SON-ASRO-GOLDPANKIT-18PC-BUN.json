@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ASRO-GOLDPANKIT-18PC-BUN",
+    "asin": "B0H3WN5JXB",
+    "product_type": "OUTDOOR_LIVING",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ASRO-GOLDPANKIT-18PC-BUN\nProduct Type: OUTDOOR_LIVING\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 18pc Deluxe Miner's Gold Prospecting Kit Mini Rubber Sluice Box, Gold Pans, Inspection Tools\nDescription: Equip yourself for your next prospecting adventure with the ASR Outdoor 18pc Deluxe Miner's Gold Prospecting Kit. This comprehensive collection combines gold recovery, material sorting, collection, and inspection tools into one convenient package suitable for hobbyists and experienced prospectors alike.<br/><br/>The kit features a compact mini rubber sluice box designed for portability and efficient fine gold retention. Its lightweight construction makes it easy to carry into remote locations while helping process material in a variety of prospecting conditions.<br/><br/>Three dual riffle gold pans in 8-inch, 10-inch, and 12-inch sizes allow for effective material separation at multiple stages of recovery. Included 1/4 inch, 1/12 inch, and ultra-fine 1/50 inch classifiers help sort concentrates by size, making downstream processing more efficient.<br/><br/>A tri-fold shovel, heavy-duty green scoop, and high-visibility orange trowel provide versatile digging and material handling capabilities. The kit also includes 8 lb and 16 lb magnetic separator tools that assist with removing magnetic black sand from concentrates.<br/><br/>For collection and storage, a 3 oz snifter bottle and three glass vials (3/4 dram, 2 dram, and 3 dram) help secure recovered material. Protective gloves support comfortable field use, while the gemstone quality inspection tool assists with examining gold, minerals, gemstones, and other prospecting finds. Compact and easy to transport, this deluxe kit is well suited for gold panning, sluicing, mineral collecting, and outdoor exploration.\nSearch Terms: gold prospecting kit, mini sluice box kit, gold panning kit, gold mining equipment, gold classifiers set, fine gold recovery tools, black sand magnet tool, gold pans set, snifter bottle gold, gold collection vials, prospecting shovel, deluxe mining kit\nFeatures:\n- COMPLETE 18PC PROSPECTING KIT - Includes mini rubber sluice box gold pans classifiers digging tools magnetic separators snifter bottle three collection vials gloves and gemstone quality inspection tool\n- COMPACT MINI RUBBER SLUICE BOX - Flexible lightweight design helps retain fine gold while remaining easy to transport and use in a variety of prospecting locations\n- THREE CLASSIFIERS FOR MATERIAL SORTING - Features 1/4 inch 1/12 inch and ultra-fine 1/50 inch classifiers for improved separation and concentrate processing\n- DUAL MAGNETIC SEPARATOR TOOLS - Includes 8 lb and 16 lb black sand separators to remove magnetic material and improve concentrate visibility\n- COLLECT STORE AND INSPECT FINDS - Equipped with snifter bottle three glass vials gloves and gemstone quality inspection tool for prospecting mineral collecting and field use\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 18pc Deluxe Gold Prospecting Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "18",
+                "pack_size_unit": "pc",
+                "size": "Deluxe",
+                "color": "",
+                "name": "Gold Prospecting Kit"
+            },
+            "char_count": 44,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 18-pc Gold Prospecting Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "18",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Gold Prospecting Kit"
+            },
+            "char_count": 38,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Mini Sluice Box, Three Gold Pans, Classifiers, Magnetic Separators, Collection Vials, Inspection Tool",
+            "char_count": 101,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Mini Rubber Sluice Box, 3 Gold Pans, 3 Classifiers, Black Sand Magnets, Snifter Bottle, Vials, Gloves",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

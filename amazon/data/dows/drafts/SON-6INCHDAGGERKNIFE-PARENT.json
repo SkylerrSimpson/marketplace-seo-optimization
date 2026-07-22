@@ -3,14 +3,14 @@
     "asin": "B07DLBY2N4",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:34:59+00:00",
+    "generated_at": "2026-07-21T19:56:45+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -37,22 +37,59 @@
             "value": "Stainless Steel",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical 6 Inch Tanto Serrated Fixed Blade Neck Knife",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical 6 Inch Tanto Serrated Fixed Blade Dagger Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 59,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "6",
+                "pack_size_unit": "inch",
+                "size": "",
+                "color": "",
+                "name": "Tanto Serrated Fixed Blade Dagger Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "Dagger Style, Double-Edged, Includes Necklace Sheath with Locking Pin",
+        "item_name_ai_openai": {
+            "value": "ASR Tactical 6-Inch Tanto Serrated Fixed Blade Boot Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 57,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "6-Inch",
+                "color": "",
+                "name": "Tanto Serrated Fixed Blade Boot Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Double-Edged Dagger Style, Sharp Tanto Point, Survival Neck Knife, Includes Necklace Sheath, Tactical Fixed Blade",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 113,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Double Edged Dagger Blade, Compact 35\" Edge, Durable Plastic Sheath, Bead Chain Necklace, Quick Access",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 102,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

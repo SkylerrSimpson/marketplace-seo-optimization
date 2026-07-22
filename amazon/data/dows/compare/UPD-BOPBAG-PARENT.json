@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-BOPBAG-PARENT",
+    "asin": "B09N7WKF5Y",
+    "product_type": "PUNCHING_BAG",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-BOPBAG-PARENT\nProduct Type: PUNCHING_BAG\nBrand (from catalog): What Kids Want\nExisting Title: What Kids Want Superhero Inflatable Punching Bop Bag Exercise Toy (2 Styles)\nDescription: Your little hero can fight villains and save the day with the Superhero Punching Bop Bag. <br/><br/>Your child will love pretending they are training with their favorite superhero with this durable punching bag. This bop bag is a great way to encourage your little one to exercise and use their imagination to pretend play they are defeating the most notorious super villains. <br/><br/>The bop bag inflates to 34.5 inches and is weighted on the bottom by water so it will always spring back up after impact ensuring hours of fun. It also comes with a repair kit in case of a rip or tear. <br/><br/>The Superhero Inflatable Punching Bop Bag is the perfect exercise and pretend play toy for your little hero this holiday season.<br/><br/>Characters Available: Batman, Spiderman, or The Avengers\nSearch Terms: inflatable punching bag christmas gifts toddler toys hand eye coordination training toys for boys christmas presents for kids holiday toy list 2024 stocking stuffers cosplay exercise equipment kids weight loss sports and outdoor play toys\nFeatures:\n- OFFICIALLY LICENSED - Authentic licensed super hero inflatable toy punching bop bag; Train With Favorite Superhero\n- PROMOTES EXERCISE - Kids Punching Bags are Great for Indoor or Outdoor Play; Encourages Fitness\n- COOL GRAPHICS - Featuring superheroes graphics direct from the movies and cartoons your children love\n- REPAIR KIT - Comes with Repair Kit In Case of Rips or Tears; Ensures Hours of Fun\n- CHILD SIZED - Bop Bag Inflates to 34.5 inches; Fill Bottom Chamber with Water or Sand To Keep in Upright Position\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "What Kids Want Superhero Inflatable Punching Bop Bag 34.5in",
+            "tokens": {
+                "brand": "What Kids Want",
+                "pack_size": "34.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Superhero Inflatable Punching Bop Bag"
+            },
+            "char_count": 59,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "What Kids Want Superhero Inflatable Punching Bop Bag",
+            "tokens": {
+                "brand": "What Kids Want",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Inflatable Punching Bop Bag"
+            },
+            "char_count": 52,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Licensed Superhero Graphics, Water-Weighted Bottom, Includes Repair Kit, Promotes Exercise And Imaginative Play",
+            "char_count": 111,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Officially Licensed, Weighted Water Base, Indoor And Outdoor Play, Repair Kit Included, Encourages Fitness",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

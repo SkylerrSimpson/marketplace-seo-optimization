@@ -3,14 +3,14 @@
     "asin": "B0BWC7MPRY",
     "product_type": "UTILITY_KNIFE",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:44:50+00:00",
+    "generated_at": "2026-07-21T19:28:42+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 19,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -278,20 +278,57 @@
             "asin": "B0BWC7MPRY",
             "raw_value": true
         },
-        "title_differentiation": {
-            "value": "Ceramic zirconia blades outperform steel, superior edge retention, rust resistant, slices foam, paper, fabric",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux 10-pk White Ceramic Two Notch Utility Knife Blades",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8",
-            "validation_error": "requires item_name <= 75 chars"
-        },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux Ceramic Utility Knife Blades, Two Notch, 10 Pack",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 61,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "10",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "White",
+                "name": "Ceramic Two Notch Utility Knife Blades"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "ToolTreaux 10-pk White Ceramic Utility Knife Replacement Blades",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 63,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "10",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "White",
+                "name": "Ceramic Utility Knife Replacement Blades"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Ceramic Zirconia, Superior Edge Retention, Rust Resistant, Compatible With Standard Box Cutters",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 95,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Two Notch Design, Zirconia Ceramic, Rust Resistant, Nonmagnetic, Long Lasting Edge, Cuts Foam Paper Fabric Rubber",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 113,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B09B1KG8SL",
     "product_type": "PERSONAL_PILL_DISPENSER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:40:05+00:00",
+    "generated_at": "2026-07-21T19:58:29+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -88,20 +88,58 @@
             "asin": "B09B1KG8SL",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux Waterproof Keychain Pill Holder - Aluminum ID Storage 12 Pack",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 12-Pack Waterproof Keychain Pill Holder",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "12",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "Assorted",
+                "name": "Waterproof Keychain Pill Holder"
+            }
         },
-        "title_differentiation": {
-            "value": "Assorted Colors, O-Ring Sealed, Compact 1.75\" with Plastic Vial",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 12-pk Assorted Colors Key Chain ID Pill Holder",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 58,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "12",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Assorted Colors",
+                "name": "Key Chain ID Pill Holder"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Waterproof Aluminum Construction, O-Ring Sealed, Assorted Colors, Compact 175In Design, Multi-Purpose Storage For Pills And ID",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 126,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (126 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Waterproof Aluminum Capsule, O-Ring Seal, Removable Plastic Vial, Travel ID And Pill Storage, Assorted Colors",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

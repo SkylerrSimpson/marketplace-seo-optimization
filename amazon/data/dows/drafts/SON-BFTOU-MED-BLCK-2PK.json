@@ -3,14 +3,14 @@
     "asin": "B00B88CM4K",
     "product_type": "FORK",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:04:18+00:00",
+    "generated_at": "2026-07-21T20:06:07+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 4,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -75,20 +75,58 @@
             "asin": "B00B88CM4K",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Industrial Tools Telescoping Campfire Forks - 36\" Stainless Steel 2pc",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "IIT 2-Pack 36\" Telescoping Campfire Forks",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 41,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "IIT",
+                "pack_size": "2",
+                "pack_size_unit": "Pack",
+                "size": "36\"",
+                "color": "",
+                "name": "Telescoping Campfire Forks"
+            }
         },
-        "title_differentiation": {
-            "value": "Extends to 36\", Retracts to 11\", Heat-Insulated PVC Grip, Non-Slip",
+        "item_name_ai_openai": {
+            "value": "IIT 2-pk 36in Black Telescoping Campfire Forks",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 46,
+            "review_only": true,
+            "tokens": {
+                "brand": "IIT",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "36in",
+                "color": "Black",
+                "name": "Telescoping Campfire Forks"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Extends To 36 Inches, Retracts To 11 Inches, Stainless Steel, Heat Insulated PVC Grip, Non-slip, Perfect For Hot Dogs And Marshmallows",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 134,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (134 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Telescoping To 36 Inches, Stainless Steel, Insulated Non-Slip Handle, Safe Hot Dog And Marshmallow Roasting",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

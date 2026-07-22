@@ -1,0 +1,60 @@
+{
+    "sku": "SON-CARBIDESHARPENER-BLK",
+    "asin": "B07CPDXMP4",
+    "product_type": "KNIFE_SHARPENER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-CARBIDESHARPENER-BLK\nProduct Type: KNIFE_SHARPENER\nBrand (from catalog): Universal Tool\nExisting Title: Universal Tool Carbide Knife and Scissors Sharpener Thumb Traction Hollow Grind\nDescription: Keep your knives and scissors sharp with the Universal Tool Carbide Sharpener. <br/><br/>This sharpener features strong carbide blades with a hollow grind and thumb traction, to ensure safety while sharpening your blades. At just 5\" in length, it's the perfect size to keep in your pocket, backpack, tool bag or travel pouch. It even comes with an eyelet so you can easily attach it to a loop for added convenience. This is a must-have tool to keep on hand so you can make sure your blades are sharp at all times, ensuring perfect and clean cuts.\nSearch Terms: carbide knife sharpeners scissor pocket tools knives\nFeatures:\n- Carbide Blade Knife Sharpener - Black\n- Length: 5\" | Pocket-sized\n- Hollow Grind & Thumb Traction for Safety\n- Eyelet for Added Convenience\n- Durable Plastic Body\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 5 in Black Carbide Knife Sharpener",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Carbide Knife Sharpener"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 5-in Black Carbide Knife and Scissors Sharpener",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Carbide Knife and Scissors Sharpener"
+            },
+            "char_count": 62,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Hollow Grind, Thumb Traction, Pocket-Sized, Eyelet Loop Attachment, Scissors And Knives",
+            "char_count": 87,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Pocket-Sized 5\" Sharpener, Carbide Blades, Hollow Grind, Thumb Traction, Eyelet Loop, Durable Plastic Body",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

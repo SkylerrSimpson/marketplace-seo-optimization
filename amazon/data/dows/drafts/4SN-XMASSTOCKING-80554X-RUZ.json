@@ -3,14 +3,14 @@
     "asin": "B08P979J5V",
     "product_type": "HOME_FURNITURE_AND_DECOR",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:50:03+00:00",
+    "generated_at": "2026-07-21T20:02:28+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -28,30 +28,68 @@
             "raw_value": true
         },
         "fabric_type": {
-            "value": "Plush, Faux Fur",
+            "value": "100% Polyester",
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "model_name": {
-            "value": "Kids Red Jumbo Holiday Stocking with Plush Faux Fur Trim",
+            "value": "Jumbo Holiday Stocking",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Ruz Kids Red Plush Holiday Stocking with Faux Fur, 18 Inch",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Ruz 18in Red Jumbo Holiday Stocking with Plush Faux Fur",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Ruz",
+                "pack_size": "18",
+                "pack_size_unit": "in",
+                "size": "Jumbo",
+                "color": "Red",
+                "name": "Holiday Stocking with Plush Faux Fur"
+            }
         },
-        "title_differentiation": {
-            "value": "Jumbo size, soft plush material, white faux-fur cuff, hanging loop",
+        "item_name_ai_openai": {
+            "value": "Ruz 18-in Red Holiday Stocking",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 30,
+            "review_only": true,
+            "tokens": {
+                "brand": "Ruz",
+                "pack_size": "18",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Red",
+                "name": "Holiday Stocking"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Super Soft Plush Material, White Faux-Fur Cuff, Sturdy Hanging Loop, Wide Opening For Stuffing, Classic Holiday Decor",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 117,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Soft Plush, Faux-Fur Cuff, Sturdy Hanging Loop, Wide Opening, 18\" Tall, Holds Treats And Small Gifts",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 100,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

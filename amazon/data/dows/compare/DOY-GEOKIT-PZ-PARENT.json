@@ -1,0 +1,60 @@
+{
+    "sku": "DOY-GEOKIT-PZ-PARENT",
+    "asin": "B0CNY9YD6W",
+    "product_type": "OUTDOOR_LIVING",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DOY-GEOKIT-PZ-PARENT\nProduct Type: OUTDOOR_LIVING\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Rockhounding Kit with Geology Tools, Rock Hounding Equipment and Deluxe Carry Bag\nDescription: If rockhounding, gem mining, fossil hunting, or mineral collecting is your new hobby, this ASR Outdoor rock hounding tools kit gives beginner and intermediate explorers the essential geology tools needed to get started in the field. Designed for gemstone hunting, mineral prospecting, fossil collecting, and outdoor discovery, this complete rockhounding kit helps you break, sort, examine, clean, and organize materials during every adventure.<br/><br/>\n\nThe included 20oz rock pick hammer is built for serious field use, featuring a durable one-piece forged steel construction, an 11 inch length, and a rubberized grip for improved comfort and shock reduction. One side features a square hammer face for striking rocks or driving chisels, while the pointed pick end helps crack open rocks, break apart dense material, and expose hidden minerals, crystals, gems, or fossils.<br/><br/>\n\nThis rock hounding equipment set also includes practical tools for sorting, cleaning, and inspecting your finds. Use the mini steel wire mesh classifier to screen larger unwanted material, the examination brushes and snifter bottle for detailed cleaning work, the plastic collection baggies for organizing samples, and the jeweler’s loupe for close inspection of gemstones, minerals, crystals, and fossil details.<br/><br/>\n\nThe ASR Outdoor rock hounding bag keeps your geology tools organized and ready for travel. Made from high-quality weather-resistant nylon, the carrying bag features double stitching at key stress points, 13 pockets for tool storage, and quick-release buckles for easy access in the field. Whether you are searching for emeralds in North Carolina, jade in Big Sur, California, fossils in Wyoming, or minerals closer to home, this deluxe rockhounding kit with carrying bag is built to help keep your tools protected, organized, and ready for your next outdoor discovery.\nSearch Terms: rockhounding kit rock hounding equipment geology tools rock pick hammer gemstone mineral hunting mining prospecting safety goggles beginner intermediate archaeology archaeologist miner gift carry bag case deluxe fossil lapidary field\nFeatures:\n- DELUXE ROCKHOUNDING TOOLS KIT: If rockhounding, gem mining or fossils are a new hobby or interest, you’ll need the right tools to set yourself up for success in the field! From breaking up deposits to cleaning and examining materials, this ASR Outdoor rockhounding tools kit has you covered\n- ESSENTIAL ROCK PICK: A must have, this 20oz hammer features rubberized grip for shock reduction; 11 inches in length and forged from one piece of steel, one side features a square face for hammering rock or driving chisels, while the opposing pointed tip allows you to crack open rocks or hard, dense material\n- ROCKHOUNDING ACCESSORIES: Once you’ve made a mess in the field, you’re going to need to sort, examine and tidy up any new found materials; this kit includes a mini steel wire mesh classifier to screen off larger unwanted raw materials, examination brushes and a snifter bottle for more detailed cleaning work, plastic baggies and a magnification jewelers loupe\n- DELUXE ASR BAG: The deluxe nylon tool bag makes it easy to carry all your rockhounding tools to and from your field site, keeping everything organized; the tool bag features convenient side pockets, a durable lower compartment and large middle compartment\n- MULTIPLE KIT OPTIONS: Choose the right kit for your rock hounding needs and experience. Whether you're a novice or an expert we've got you covered so you can get out there and ROCK ON\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Rockhounding Kit with Geology Tools & Carry Bag",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Rockhounding Kit with Geology Tools and Carry Bag"
+            },
+            "char_count": 59,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Rockhounding Kit with Geology Tools and Carry Bag",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Rockhounding Kit"
+            },
+            "char_count": 61,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "20Oz Rock Pick Hammer, Wire Mesh Classifier, Jeweler's Loupe, Brushes, Snifter Bottle, Deluxe Nylon Bag",
+            "char_count": 103,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "20 Oz Forged Steel Rock Pick Hammer, Wire Mesh Classifier, Brushes, Snifter Bottle, Loupe, 13 Pocket Nylon Bag",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}

@@ -3,14 +3,14 @@
     "asin": "B07GTDR7RS",
     "product_type": "SOCKS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:45:18+00:00",
+    "generated_at": "2026-07-21T20:12:09+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 8,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -114,20 +114,57 @@
             "asin": "B07GTDR7RS",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Navajo Southwest Beige Mens Hiking Socks",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Beige Southwest Navajo Mens Socks",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 45,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1",
+                "pack_size_unit": "Pair",
+                "size": "Mens",
+                "color": "Beige",
+                "name": "Southwest Navajo Socks"
+            }
         },
-        "title_differentiation": {
-            "value": "Aztec Design, Polyester Spandex Blend, One Size Fits Most",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 1-Pair Beige Mens Socks",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 35,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1",
+                "pack_size_unit": "Pair",
+                "size": "Mens",
+                "color": "Beige",
+                "name": "Socks"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Navajo And Aztec Design, Polyester Spandex Blend, Warm And Durable, One Size Fits Most, Great Hiking And Camping Accessory",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 122,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Southwest Aztec Navajo Inspired, Polyester Spandex Blend, Warm And Durable, One Size Fits Most, Hiking Camping",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 110,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

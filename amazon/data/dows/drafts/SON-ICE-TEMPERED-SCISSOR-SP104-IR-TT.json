@@ -3,14 +3,14 @@
     "asin": "B0B72CX35S",
     "product_type": "SCISSORS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:41:48+00:00",
+    "generated_at": "2026-07-21T19:59:00+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 6,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -106,20 +106,57 @@
             "asin": "B0B72CX35S",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux 6.5\" Ice-Tempered Stainless Steel Barber Scissors",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux 6.5 Inch Chrome Barber Scissors",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 42,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "6.5",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "Chrome",
+                "name": "Barber Scissors"
+            }
         },
-        "title_differentiation": {
-            "value": "Professional Hair Cutting Shears, Ergonomic Design, Includes Storage Pouch",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux 6.5 in Chrome Barber Scissors Hair Cut Shears",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 56,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "6.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Chrome",
+                "name": "Barber Scissors Hair Cut Shears"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Ice-Tempered Stainless Steel, Ergonomic Design, Professional Hair Cutting, Pet Grooming, Includes PVC Pouch",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 107,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Ice Tempered Stainless Steel, Ergonomic Finger Rest, Rust Resistant, PVC Pouch, Wet Or Dry Hair, Pet Grooming",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

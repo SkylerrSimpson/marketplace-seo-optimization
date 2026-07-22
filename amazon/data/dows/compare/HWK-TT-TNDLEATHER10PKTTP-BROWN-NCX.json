@@ -1,0 +1,60 @@
+{
+    "sku": "HWK-TT-TNDLEATHER10PKTTP-BROWN-NCX",
+    "asin": "B0BLZS3WMC",
+    "product_type": "TOOL_BELT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWK-TT-TNDLEATHER10PKTTP-BROWN-NCX\nProduct Type: TOOL_BELT\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux 10 Pocket Utility Heavy Duty Leather Tool Pouch (Dark Brown)\nDescription: Featuring top grain leather fabrication, easy waist belt adjustments, pockets for primary and secondary tool storage and reinforced stitching, this leather tool belt is heavy duty and made to be used. The leather tool belt is great for DIY projects at home, construction, electrical work, carpentry and more.<br/><br/>Please Note: the tool belt is not customizable or able to be personalized\nSearch Terms: electrician tool belt carpenter tools tool belt for women wood working tools and equipment tool box construction accessories men welding painting supplies hammer gifts for men dad gifts fathers day gifts for husband gifts for brother boyfriend gifts\nFeatures:\n- UTILITY POCKET LEATHER TOOL BELT: This leather tool belt can handle any job!\n- ADJUSTABLE TOOL BELT: The 2 inch wide leather belt with double metal needles comes with 23 different size adjustments built in with a little bit of room for additional leather punches if needed; waist size is adjustable between 36 and 50 inches\n- QUALITY LEATHER FABRICATION: Made from top grain leather with double rivets and reinforced stitching, this leather tool belt is made to be used and is of high quality; the tool belt will be stiff upon arrival but will soften and relax with use and time\n- WIDE APPLICATION: This heavy tool belt from ToolTreaux is suitable for DIY at home, construction, electrical work, carpentry, wood working, framing and building, for plumbers, contractors and more; great gifts for men, Dad gifts, husbands, brothers and boyfriends\n- SPECIFICATIONS: Color: Tan Brown; Material: Leather; 2 Different Size Options Available\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 10-Pocket Dark Brown Leather Tool Belt",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "10",
+                "pack_size_unit": "Pocket",
+                "size": "",
+                "color": "Dark Brown",
+                "name": "Leather Tool Belt"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux Dark Brown Leather 10 Pocket Tool Pouch",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Dark Brown",
+                "name": "Leather Tool Pouch"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Heavy Duty Top Grain Leather, Adjustable 36-50 Inches, Reinforced Stitching, Carpenter Electrician",
+            "char_count": 98,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Top Grain Leather, Adjustable Waist 36-50 Inches, Reinforced Stitching, Double Rivets, Heavy Duty",
+            "char_count": 97,
+            "validation_error": null
+        }
+    }
+}

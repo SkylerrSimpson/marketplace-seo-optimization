@@ -3,14 +3,14 @@
     "asin": "B0BGYSGV1F",
     "product_type": "APRON",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:48:31+00:00",
+    "generated_at": "2026-07-21T20:12:15+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -40,20 +40,57 @@
             "asin": "B0BGYSGV1F",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux Leather Work Apron with Tool Pockets Pink",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux 36 x 25 Pink Leather Work Apron",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 42,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "36",
+                "pack_size_unit": "x 25 in",
+                "size": "",
+                "color": "Pink",
+                "name": "Leather Work Apron"
+            }
         },
-        "title_differentiation": {
-            "value": "Full Body Coverage, Spark & Liquid Resistant, 36x25 inches",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux Pink Leather Work Tool Apron With Pockets",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 52,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "36 x 25 in",
+                "color": "Pink",
+                "name": "Leather Work Tool Apron With Pockets"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Reinforced Rivets, Spark And Liquid Resistant, 2 Tool Pockets, Adjustable Nylon Straps, Woodworking And Welding",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 111,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Liquid And Spark Resistant Full Coverage 2 Tool Pockets Adjustable Nylon Straps Reinforced Rivets 36\"X25\"",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 105,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

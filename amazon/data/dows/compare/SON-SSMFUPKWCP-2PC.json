@@ -1,0 +1,60 @@
+{
+    "sku": "SON-SSMFUPKWCP-2PC",
+    "asin": "B00CJI6WC6",
+    "product_type": "MULTITOOL",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-SSMFUPKWCP-2PC\nProduct Type: MULTITOOL\nBrand (from catalog): ASR Outdoor\nExisting Title: Stainless Steel Multi-tool Utility EDC Pocket Knife with Carry Pouch\nDescription: Are you in need of a compact and reliable multi-tool for everyday carry? Then the ASR Outdoor Multi-tool Pocket Knife is a great option. Our pocket knife is constructed of high-quality stainless steel that is durable, sturdy, and won't rust so you can count on it rain or shine. In addition to functioning as a knife, it has a number of other useful functions - wood saw, fish scaler with hook disgorger, scissors, can opener, bottle opener, and flathead screwdriver. <br/><br/>Designed with safety in mind, features a secure folding mechanism that will hold the blade in place when not in use. It also has a quick-change blade mechanism so you can easily utilize and release the knife for quick deployment. The blade will lock in tightly to help prevent injury during use.<br/><br/>The ASR Outdoor folding utility knife is compact and lightweight, making it ideal for men or women. It also comes with a convenient nylon carry pouch with a belt loop so you can attach it to your belt for easy access. This is a great EDC pocket knife option.\nSearch Terms: knife pocket utility folding set stainless steel heavy duty blades multi-tool knives for men multi function\nFeatures:\n- HIGH-QUALITY CONSTRUCTION - The ASR Outdoor utility pocket knife is constructed of high-quality stainless steel that is durable, sturdy, and won't rust so you can count on it rain or shine.\n- MULTI-FUNCTION TOOL - Our utility pocket knife has 17 different functions including a blade, sharp wood saw, fish scaler with hook disgorger, scissors, can opener, bottle opener, and a flathead screwdriver, making this the perfect everyday carry tool.\n- SAFE DESIGN - This pocket knife is designed to keep the blade and tools in place when not in use. It features a secure folding mechanism that will ensure that you don't accidentally open it from within your pocket.\n- QUICK CHANGE BLADE - The pocket knife also features a quick-change blade mechanism so you can easily utilize and release the knife for quick deployment. The blade will also lock in tightly to help prevent injury during use.\n- LIGHTWEIGHT AND PORTABLE - The ASR Outdoor folding utility tool is compact and lightweight, making it ideal for men or women. It comes with a convenient nylon carry pouch with a belt loop so you can attach it to your belt for easy access.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Stainless Steel Multi-tool Pocket Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Stainless Steel",
+                "name": "Multi-tool Pocket Knife"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Stainless Steel Multi-Tool Utility EDC Pocket Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Stainless Steel Multi-Tool Utility EDC Pocket Knife"
+            },
+            "char_count": 63,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "17 Functions, Quick-Change Blade, Secure Folding, Includes Carry Pouch, Rust-Resistant",
+            "char_count": 86,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "17-In-1 Functions, Stainless Steel Construction, Quick-Change Locking Blade, Nylon Belt Pouch, Rust Resistant, Compact EDC",
+            "char_count": 122,
+            "validation_error": null
+        }
+    }
+}

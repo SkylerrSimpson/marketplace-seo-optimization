@@ -1,0 +1,56 @@
+{
+    "sku": "4SN-EYETOOLKIT-2PC-71209",
+    "asin": "B0B9VDNCH3",
+    "product_type": "EYELASH_CURLER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-EYETOOLKIT-2PC-71209\nProduct Type: EYELASH_CURLER\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Eyelash Curler and Tweezer Set Eye Makeup Eyebrow Tool Set - 2pc\nDescription: Give your eyelashes and brows a natural, beautiful look with the ToolTreaux basic eye tool kit. This kit comes with one premium eyelash curler and tweezer to curl your eyelashes for a fuller look and to keep brows trimmed and shaped to your desired look.<br/><br/>Both of these tools feature comfortable, ergonomic grip handles to provide support and prevent slippage during use to protect your eyes, lashes, and facial skin while tweezing and curling. The curler and tweezer are made of high-quality corrosion-resistant stainless steel that won't rush so you can count on them to last.<br/><br/>The set weighs just .09 pounds and will easily fit inside just about any purse, bag, or beauty tool kit, making this a great makeup tool set for on-the-go use. Keep them inside of your purse or travel bag for quick touch-ups and hair removals if needed.\nSearch Terms: eye makeup tweezer tweezer set tweezer kit eyebrow tweezer eyelash curlers eyelash brush eyelash extension supplies eyelash curlers with comb eyelash tweezers eyelash tools eyelashes fake eyelashes natural eyelashes beauty tools and accessories\nFeatures:\n- 2PC BASIC EYELASH TOOL KIT - ToolTreaux makeup tool kit comes with 2 professional tools for creating a natural, beautiful look; 1 premium eyelash curler and a set of eyebrow tweezers\n- ERGONOMIC HANDLES - Both tools feature comfortable, ergonomic handles to provide support and prevent slippage during use to protect your eyes, lashes and facial skin while curling and tweezing\n- PREMIUM DESIGN - Eyelash curler and tweezer are made of durable, high-quality corrosion-resistant stainless steel that won't rust so you can count on them to last. Make sure to disinfect and dry them immediately after each use to ensure long service life\n- COMPACT AND LIGHTWEIGHT - Set weighs just .09 pounds and will easily fit inside any beauty tool kit, purse, or bag, ideal for on-the-go use; Keep inside your travel bag for quick touch-ups and stray hair removals if needed\n- SPECIFICATIONS - Material: stainless steel; Color: chrome; Number of pieces: 2 (eyelash curler and tweezer); Weight: .09 pounds (1.44 ounces); Ideal for professionals and beginners\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 2-pc Eyelash Curler and Tweezer Set",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "2",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Eyelash Curler and Tweezer Set"
+            },
+            "char_count": 46,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": null,
+            "tokens": null,
+            "char_count": null,
+            "validation_error": "no item_name returned"
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Ergonomic Stainless Steel, Eyelash And Eyebrow Tool Kit, Portable Travel Size, Professional Grade, Anti-Rust Design",
+            "char_count": 115,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": null,
+            "char_count": null,
+            "validation_error": "no title_differentiation returned"
+        }
+    },
+    "raw": {
+        "openai": "Client error: `POST https://api.openai.com/v1/chat/completions` resulted in a `429 Too Many Requests` response:\n{\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-5.4-mini in organization org-el3QE531uTdEpv2furRUAnXD on (truncated...)\n"
+    }
+}

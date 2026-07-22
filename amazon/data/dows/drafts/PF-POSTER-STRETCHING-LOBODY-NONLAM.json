@@ -3,14 +3,14 @@
     "asin": "B074JZX5SP",
     "product_type": "PLANNER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:03:21+00:00",
+    "generated_at": "2026-07-21T19:45:10+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 3,
         "catalog": 13,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -221,20 +221,57 @@
             "asin": "B074JZX5SP",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Productive Fitness Stretching Exercise Poster 24x36 Upper Lower Body",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Productive Fitness Stretching Exercise Poster 24\" x 36\"",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "24",
+                "pack_size_unit": "x 36 in",
+                "size": "",
+                "color": "",
+                "name": "Stretching Exercise Poster"
+            }
         },
-        "title_differentiation": {
-            "value": "Non-Laminated, Step-by-Step Instructions, Home Gym Training",
+        "item_name_ai_openai": {
+            "value": "Productive Fitness Stretching Exercise Poster Upper And Lower Body",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 66,
+            "review_only": true,
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Stretching Exercise Poster Upper And Lower Body"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Upper And Lower Body, Expert-Designed, Step-by-Step Instructions, Color Photos, Home Gym Training",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 97,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Expert Designed, Step By Step Instructions, Detailed Color Photos, Home Workout Guide, 24\" X 36\", Proper Technique And Form",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 123,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

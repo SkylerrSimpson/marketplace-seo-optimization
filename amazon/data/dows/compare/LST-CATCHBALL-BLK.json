@@ -1,0 +1,60 @@
+{
+    "sku": "LST-CATCHBALL-BLK",
+    "asin": "B07T3HB7SF",
+    "product_type": "TOYS_AND_GAMES",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-CATCHBALL-BLK\nProduct Type: TOYS_AND_GAMES\nBrand (from catalog): TychoTyke\nExisting Title: TychoTyke Toss and Catch Self Stick Paddle Game Set Black\nDescription: Promote exercise during playtime with the TychoTyke Kids Sticky Catch Ball Playset.<br/><br/>This classic game is easy to play - each person places one hand through the strap on the back of their paddle and stand opposite of each other. Then one person throws the ball to the other, and he or she tries to catch the ball with their sticky paddle. Games like these will help your child improve their hand-eye coordination while promoting physical activity.<br/><br/>All of the game components are made of durable materials, so the game can be played inside or outside making this a great option for picnics, beach parties, pool parties, and outdoor events. The sticky paddle design will help reduce the risk of injuries, and there's less chance that the ball will be lost during playtime.<br/><br/>This fun game is a great idea for parents looking to get their kids off the couch and up for some exciting physical activity. It's safe for all children ages 3 and up.\nSearch Terms: catch and toss games toy ball outdoor for kids sticky playsets paddle game glove goalie exercise toys pool party\nFeatures:\n- CLASSIC CATCH BALL GAME - Super Easy and Fun to Play Game is Great for Indoor or Outdoor Play\n- STICKY PADDLES - Comes with Hook & Loop \"Sticky\" Paddles that Catch Ball | Don't Worry About Losing the Ball During Playtime\n- PROMOTES EXERCISE - Get Your Kids Off the Couch and Engaging in Fun Physical Activity\n- IMPROVE HAND-EYE COORDINATION - Catch and Toss Game Helps Improve Coordination, Balance and Stability for Young Kids\n- SAFE FOR KIDS - Durable Sticky Material Helps Prevent Injuries | Safe for Ages 3 and Up\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "TychoTyke Catch Ball Sticky Paddle Game Set Black",
+            "tokens": {
+                "brand": "TychoTyke",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Catch Ball Sticky Paddle Game Set"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "TychoTyke Black Toss and Catch Self Stick Paddle Game Set",
+            "tokens": {
+                "brand": "TychoTyke",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Toss and Catch Self Stick Paddle Game Set"
+            },
+            "char_count": 57,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Sticky Paddles, Indoor And Outdoor Play, Improves Hand-Eye Coordination, Safe For Ages 3 And Up, Promotes Exercise",
+            "char_count": 114,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Sticky Hook And Loop Paddles, Indoor And Outdoor Play, Builds Hand-Eye Coordination, Ages 3 And Up, Durable And Safe",
+            "char_count": 116,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "HWK-NYTOOLBAG-AB77",
+    "asin": "B09327P3T3",
+    "product_type": "PORTABLE_TOOL_BOX",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWK-NYTOOLBAG-AB77\nProduct Type: PORTABLE_TOOL_BOX\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Heavy Duty Tool Bag with Side Pockets Shoulder Strap 18 x 8.5 In\nDescription: Keep all of your tools and materials in one convenient place with the ToolTreaux Nylon Storage Tool Bag.<br/><br/>Our tool bag is constructed of heavy-duty, durable nylon that will keep your tools organized and ready to use whenever you need them. The bag itself measures 15\" x 9\" x 11\" when open, and has a sturdy zip closure at the top of the bag. Both sides of the bag feature side pockets so you can have easy access to your most commonly used tools and accessories.<br/><br/>The bag has 2 top carry handles, and also comes with a separate adjustable shoulder strap that you can attach to the bag for additional carrying options. The bottom of the bag is built-in, so you don't have to worry about it losing its shape over time. There is an additional storage space underneath the bag that can store heavier tools. <br/><br/>This ToolTreaux tool bag is a must-have essential for crafters, hobbyists, and hardware enthusiasts. Once you pack it up, you can easily throw it in the back of your vehicle so you'll never be too far away from your tools.\nSearch Terms: tool bags tool storage tool organization durable tool bags sturdy tool bags large tool bags tool bags for men tool bags for women gardening tool storage hardware tool storage hardware tools hardware organization storage tools supplies\nFeatures:\n- DURABLE CONSTRUCTION - The ToolTreaux tool bag is constructed of high-quality, durable nylon that will protect your tools and accessories when not in use.\n- LARGE CAPACITY - The bag measures 18\" x 8.5\" x 11\" so you can pack all of your necessary tools like a hammer, wrench, pliers, measuring tape, nails, bits and more.\n- 2 CARRY OPTIONS - The bag comes with 2 top carry handles and an additional 44\" adjustable shoulder strap so you can carry it however is most comfortable for you.\n- WORKSHOP ESSENTIAL - Tool bags are a must-have storage solution for crafters, hobbyists and hardware enthusiasts alike! You can easily store it in the back of your vehicle so you'll always have access to your tools when you need them.\n- SPECIFICATIONS - Dimensions: 18\" x 8.5\" x 11\", Color: Black/OD Green, Material: Nylon, Adjustable Strap Length: 44\", Sturdy Zip Closure\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 18x8.5in Black/OD Green Heavy Duty Tool Bag",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "18",
+                "pack_size_unit": "x8.5in",
+                "size": "",
+                "color": "Black/OD Green",
+                "name": "Heavy Duty Tool Bag"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 18-in Heavy Duty Tool Bag",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "18",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Heavy Duty Tool Bag"
+            },
+            "char_count": 36,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Large Capacity 18X85x11in, Durable Nylon, 2 Carry Handles, Adjustable Shoulder Strap, Side Pockets, Zip Closure",
+            "char_count": 111,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Durable Nylon Construction, Dual Side Pockets, 44-In Adjustable Shoulder Strap, Top Carry Handles, Sturdy Zip Closure",
+            "char_count": 117,
+            "validation_error": null
+        }
+    }
+}

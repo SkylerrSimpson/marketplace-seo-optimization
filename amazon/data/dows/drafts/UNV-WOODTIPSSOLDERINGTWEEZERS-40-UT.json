@@ -3,14 +3,14 @@
     "asin": "B0GNLMTM75",
     "product_type": "TOOLS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:41:57+00:00",
+    "generated_at": "2026-07-21T19:59:06+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,20 +27,58 @@
             "asin": "B0GNLMTM75",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Tool 40pc Wood Burning Pen Kit with Soldering Tips",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Tool 40-pc Wood Burning Pen Kit with Soldering Tips",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 61,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "40",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Wood Burning Pen Kit with Soldering Tips"
+            }
         },
-        "title_differentiation": {
-            "value": "Complete beginner pyrography set with carving, embossing & stencils for DIY crafts",
+        "item_name_ai_openai": {
+            "value": "Universal Tool 40-pc Wood Burning Pen Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 41,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "40",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Wood Burning Pen Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Beginner Pyrography Starter Set, Includes Carving And Embossing Tips, Stencils, Hot Knife, Multi-Purpose For Wood Leather And Cork",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 130,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (130 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Beginner Pyrography Set, Soldering Tips, Hot Knife Blade, Stencils, Leather And Wood Craft Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 94,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

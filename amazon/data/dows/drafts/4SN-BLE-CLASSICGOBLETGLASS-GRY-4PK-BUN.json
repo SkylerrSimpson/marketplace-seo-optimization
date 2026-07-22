@@ -3,14 +3,14 @@
     "asin": "B0H382DZXH",
     "product_type": "DRINKING_CUP",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:27:51+00:00",
+    "generated_at": "2026-07-21T19:54:53+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -45,20 +45,57 @@
             "asin": "B0H382DZXH",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille Classic Smoke Grey Goblet Water Glasses, Set of 4",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 4-pk Smoke Grey Classic Goblet Water Glasses",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "7.43oz",
+                "color": "Smoke Grey",
+                "name": "Classic Goblet Water Glasses"
+            }
         },
-        "title_differentiation": {
-            "value": "7.43oz, Dishwasher Safe, Durable Glass, Elegant Footed Design",
+        "item_name_ai_openai": {
+            "value": "Beille 4-pk 7.43oz Smoke Grey Classic Goblet Water Glasses",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 58,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "7.43oz",
+                "color": "Smoke Grey",
+                "name": "Classic Goblet Water Glasses"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Set Of 4, 743Oz, Dishwasher Safe, Durable Footed Goblet, Rolled Rim, Formal And Everyday Use",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 92,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Set Of 4, 743Oz Capacity, Dishwasher Safe, Rolled Rim, Durable Glass, Footed Goblet Design, Table Ready",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

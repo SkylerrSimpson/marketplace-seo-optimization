@@ -1,0 +1,60 @@
+{
+    "sku": "SON-SHOCKCORD-30FT-FBA",
+    "asin": "B084H5JGPT",
+    "product_type": "BUNGEE_CORD",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-SHOCKCORD-30FT-FBA\nProduct Type: BUNGEE_CORD\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Elastic Shock Cord Natural Rubber 30 Feet 3mm Diameter, Black\nDescription: Are you an avid outdoor adventurer? Then you absolutely need to add ASR Outdoor Elastic Shock Cord to your outdoor essentials. This super-strong shock cord is great for tying down outdoor gear, stringing and tethering items, tightening tarps or hammocks and more.<br/><br/>Shock cord is awesome due to its versatility. It's designed to absorb shock and holds things nicely in place, making it ideal for transporting items, making a running dog leash, tying boats to docks, fixing tents, crafting and hobbies - you name it and shock cord can do it. The ASR Outdoor Shock Cord is made of 100% natural rubber and comes with 30 feet of cord, so whether you're moving heavy stuff, kayaking, camping or hiking this is the right cord for you.<br/><br/>Our cord has a 3mm diameter and comes in a solid black color. Lightweight and strong, this cord is stretchy and has lots of give so that you can count on it in an emergency situation or even if you just need to replace your shoelaces. Make sure to keep some of this stuff around the house, in your car, on your boat or with your outdoor gear - you never know when it'll come in handy.\nSearch Terms: shock cord elastic shock cord tent shock cord bungee shock cord marine shock cord black shock cord securing elastic cord 30' storage protector craftsmen cord outdoor activities\nFeatures:\n- SHOCK ABSORBING CORD - Designed to Absorb Shock; Ideal for Transporting Heavy Items, Tying Boats, Tightening Tarps, Kayaking, Tethering and More\n- LIGHTWEIGHT AND STRONG - Made of 100% Natural Rubber for Optimal Elasticity; Stretchy Cord has Lots of Give for Emergencies or Replacing Broken Cordage\n- VERSATILE DESIGN - 3mm Diameter and Standard Black Color; Use to Make Running Dog Leash, Headbands, Repair Tents, Fix Camping Chairs, etc.\n- 30 FEET OF SHOCK CORD - Comes with 30 Feet of Cord (About 9 Meters); More than Enough for Most Repair or Transportation Jobs\n- COMPACT STORAGE - Cordage Easily Rolls Up for Storage When Not in Use; Keep in Your Car, Boat, Workshop, Kitchen, Garage or Outdoor Gear for Quick Repairs\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 30ft Black Elastic Shock Cord 3mm",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "30",
+                "pack_size_unit": "ft",
+                "size": "3mm",
+                "color": "Black",
+                "name": "Elastic Shock Cord"
+            },
+            "char_count": 45,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 30-ft 3mm Black Shock Cord",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "30",
+                "pack_size_unit": "ft",
+                "size": "3mm",
+                "color": "Black",
+                "name": "Shock Cord"
+            },
+            "char_count": 38,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "100 Natural Rubber, Shock Absorbing, Heavy Duty, Camping And Kayaking, Secure Tarps And Gear",
+            "char_count": 92,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Natural Rubber, High Stretch, Shock Absorbing, 30 Ft Roll, 3Mm Diameter, Tarp Tent Camping Use",
+            "char_count": 94,
+            "validation_error": null
+        }
+    }
+}

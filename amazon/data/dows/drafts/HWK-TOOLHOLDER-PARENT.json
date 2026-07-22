@@ -3,14 +3,14 @@
     "asin": "B0BT8L2S2T",
     "product_type": "UTILITY_HOLSTER_POUCH",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:09:07+00:00",
+    "generated_at": "2026-07-21T20:07:08+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -46,20 +46,57 @@
             "asin": "B0BT8L2S2T",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux Top Grain Leather Tool Holder with Belt Clip",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux 9 Inch Dark Brown Leather Tool Holder",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "9",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "Dark Brown",
+                "name": "Leather Tool Holder"
+            }
         },
-        "title_differentiation": {
-            "value": "9 Inch One Pocket, Dark Brown, Metal Snap Closures",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux 9-in One Pocket Dark Brown Leather Tool Holder Clip",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 62,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "9",
+                "pack_size_unit": "in",
+                "size": "One Pocket",
+                "color": "Dark Brown",
+                "name": "Leather Tool Holder Clip"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Top Grain Leather, Metal Belt Clip, Snap Closure, One Pocket, Durable Construction",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 82,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "V-Shaped Pocket, Secure Snap Closure, Built-In Metal Belt Clip, Top Grain Leather, Durable Field Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 100,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-PBBSB15MM5I-12PC-15MM-BLCK-IR-TT",
+    "asin": "B0B2XB2QK6",
+    "product_type": "BUCKLE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-PBBSB15MM5I-12PC-15MM-BLCK-IR-TT\nProduct Type: BUCKLE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Paracord Bracelet Replacement Buckle Set Camping Gear Black 12 Pack\nDescription: Repair or create your own paracord bracelets with the ASR Outdoor set of 12 paracord bracelet buckles. This set comes with 12 black paracord buckles that measure .5\" wide (15mm) which are the perfect size for standard paracord bracelets. <br/><br/>Constructed of durable, strong plastic, these buckles will not break under pressure so you can count on them for a multitude of outdoor activities like camping, hiking, backpacking, and boating. Paracord bracelets are great survival and emergency accessories because you can unravel the paracord to create a shelter or use it to ensnare small animals or fish in an emergency.<br/><br/>Since this set comes with 12 individual buckles, you can use them to create or repair 12 different paracord bracelets. The standard black color will fit nicely with any color of paracord, and each buckle comes with both male and female clips.<br/><br/>In addition to camping and hiking, paracord bracelets are great accessories for hobby crafts as well. Get creative and make your own colorful or camouflage paracord bracelets before your next outdoor adventure.\nSearch Terms: adjustable plastic quick side release replacement paracord bracelet buckles webbing straps luggage pet collar backpack black injection molded durable wear tear multifunction tactical crafts accessories flat dual repair contoured\nFeatures:\n- 12PC PARACORD BUCKLE SET - The ASR Outdoor paracord buckle set comes with 12 buckles including both male and female parts. The standard black color will pair nicely with any color of paracord.\n- DURABLE CONSTRUCTION - The paracord buckles are made of durable, high-quality plastic that won't break under pressure. The sturdy plastic material makes these replacement buckles ideal for any weather, rain, or shine.\n- COMPACT DESIGN - Each buckle measures .5\" wide (15mm) which is an ideal size for standard paracord bracelets. Make or repair up to 12 different paracord bracelets to share with friends and family.\n- VERSATILE ACCESSORIES - Although paracord bracelets are designed for outdoor activities like camping and hiking, they're also great fashion and hobby craft accessories. Get creative and make your own camouflage or colorful bracelets!\n- SPECIFICATIONS - Material: plastic; Color: black; Pack size; 12; Dimensions: .5\" wide mouth (15mm); Male and female parts; Makes or repairs up to 12 bracelets\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 80 characters.  Please include the size and color of the item in the Product Name, if available.\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 12-Pack 15MM Black Paracord Bracelet Buckles",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "12",
+                "pack_size_unit": "Pack",
+                "size": "15MM",
+                "color": "Black",
+                "name": "Paracord Bracelet Buckles"
+            },
+            "char_count": 56,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 12-pk 15mm Black Paracord Bracelet Buckles",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "12",
+                "pack_size_unit": "pk",
+                "size": "15mm",
+                "color": "Black",
+                "name": "Paracord Bracelet Buckles"
+            },
+            "char_count": 54,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "12 Buckles With Male And Female Clips, Durable Plastic, Quick Release, Replacement For DIY Paracord Bracelets, Camping And Survival Gear",
+            "char_count": 136,
+            "validation_error": "value exceeds maxLength 125 (136 chars)"
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "12 Pack, Male And Female Parts, Durable Plastic, Quick-Release Side Buckles, Fits Standard Paracord Bracelets",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

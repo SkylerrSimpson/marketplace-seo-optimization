@@ -3,14 +3,14 @@
     "asin": "B09FTPW1JK",
     "product_type": "SURVIVAL_KIT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:25:24+00:00",
+    "generated_at": "2026-07-21T20:09:38+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -40,20 +40,57 @@
             "asin": "B09FTPW1JK",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Compact Hiking Survival Kit 10pc with First Aid",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 10-pc Compact Minimalist Hiking Survival Kit",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 56,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "pc",
+                "size": "Compact",
+                "color": "",
+                "name": "Minimalist Hiking Survival Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "Lightweight 5x5 inch emergency gear, rain ponchos, blankets, multi-tool",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 10-pc Compact Hiking Survival Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 45,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Compact Minimalist Hiking Gear Survival Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "First Aid Supplies, Emergency Blankets, Rain Ponchos, Multi-tool, Lightweight, 5X5 Inch Pack",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 92,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Compact 5X5-Inch Packed Size, First Aid Kit, Rain Ponchos, Mylar Blankets, Fire Starter Compass Multi Tool",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 106,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

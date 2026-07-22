@@ -1,0 +1,60 @@
+{
+    "sku": "SVT-SOUTHWESTSOCKS-GRN-0112-FBA",
+    "asin": "B07GTBQ4TV",
+    "product_type": "SOCKS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SVT-SOUTHWESTSOCKS-GRN-0112-FBA\nProduct Type: SOCKS\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Green Southwest Navajo Mens Socks Hiking Gear Camping Accessories, 1 Pair\nDescription: Keep toes toasty when adventuring, hiking or camping in the wilderness. ASR Outdoor Aztec and Navajo inspired mens socks are made with a polyester spandex blend, making them super soft, comfortable against your skin, more durable than cotton or wool socks and of course, will keep feet warm.<br/><br/>With a nod to Navajo and Aztec design, these mens socks are timeless, classic and suitable to wear during all seasons. And, if you're not packing these socks with your hiking or camping gear, they're a comfy option for lounging at home or at the cabin or cottage; just add your favorite hot beverage or glass of whisky, a good book and cozy blanket to initiate afternoon nap sequence. These hiking socks feature 3% spandex for stretch and elasticity and will cover ankles and shins up to about ten inches; one size fits most.<br/><br/>ASR Outdoor Navajo inspired mens socks make awesome stocking stuffers or gifts for boyfriends, Dad's, brothers, or for any outdoor enthusiast in your life, whether for hiking, camping, trail running, post ski or snowboard lounging and much more.\nSearch Terms: athleisure boyfriend gifts apparel cottage southwest decor Oregon trail Nordic socks secret santa travel winter boots camp walking running shoes trekking survival gear prepper supplies\nFeatures:\n- CAMPING ACCESSORIES: Stay warm in the wilderness or on the trail with ASR Outdoors Aztec Navajo inspired mens socks; featuring a polyester spandex blend, these hiking socks are soft, comfortable, very durable and will keep feet warm\n- SOUTHWEST DESIGN: With a nod to Navajo and Aztec design patterns, these socks are timeless, classic and suitable for all seasons; available in blue, green, beige or brown colorways and will cover ankles and shins up to about 10 inches\n- STOCKING STUFFERS FOR MEN: If you're not packing these socks with your hiking or camping gear, they're a comfy option for lounging at home or at the cabin or cottage; Great stocking stuffers for men\n- ONE SIZE FITS MOST: ASR Outdoor mens socks feature 3% spandex for stretch and elasticity; they come one size fits most for standard US sizing\n- SPECIFICATIONS: Dimensions: 10 x 3.5 x 1 inches; Weight: 0.14lbs; Colors: Assorted; Care: Machine Wash Cold, Hang Dry\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Green Navajo Mens Socks",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1",
+                "pack_size_unit": "Pair",
+                "size": "One Size Fits Most",
+                "color": "Green",
+                "name": "Navajo Mens Socks"
+            },
+            "char_count": 35,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 1-Pair Mens Green Southwest Navajo Hiking Socks",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1",
+                "pack_size_unit": "Pair",
+                "size": "Mens",
+                "color": "Green",
+                "name": "Southwest Navajo Hiking Socks"
+            },
+            "char_count": 59,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Southwest Aztec Design, Polyester Spandex Blend, Soft And Durable, Hiking And Camping Gear, Stocking Stuffer",
+            "char_count": 108,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Polyester Spandex Blend, Warm And Durable, Aztec Navajo Design, One Size Fits Most, Great Stocking Stuffers",
+            "char_count": 107,
+            "validation_error": null
+        }
+    }
+}

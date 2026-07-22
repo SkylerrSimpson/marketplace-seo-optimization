@@ -1,0 +1,60 @@
+{
+    "sku": "UNV-CHPTK-BUN-34PC-STD-BLCK-BNDL",
+    "asin": "B00EIRYEV2",
+    "product_type": "TOOLS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UNV-CHPTK-BUN-34PC-STD-BLCK-BNDL\nProduct Type: TOOLS\nBrand (from catalog): Universal Hobby\nExisting Title: 34pc Complete Universal Hobby Pottery Tool Craft Set for Sculpting Molding Clay\nDescription: The 34pc Complete Pottery & Tool Kit is a great addition to any craft or hobby collection, whether you're just beginning or already know the ropes.<br/><br/>Inside of the tool box you'll find a 19pc pottery set, which is an essential collection of basic tools you'll need while creating pottery. Included are all of the tools needed for slicing clay, removing clay from your wheel, modeling tools, detail and piercing tools as well as shaving tools. In addition, we've included a 4pc stainless steel pick and hook pottery/wax carving set. These tools will help you define details and feature knurled handles for a better grip. All of these tools fit nicely inside of a canvas travel pouch.<br/><br/>Besides the basic pottery tools, we've also bundled in some other helpful items to supplement your art projects. Inside the box you'll also find a microfiber cleaning cloth to assist during clean up. It will work on any surface and can be used without the use of chemicals to protect your artwork as well as your workspace. This cloth is non-abrasive and environmentally friendly as you'll be able to re-use it for years.<br/><br/>We've also included a heavy duty snifter bottle with an easy to use nozzle. This will come in handy if you need to clean very small or intricate parts of your artwork, or just need a little drizzle of water or paint. You'll also find a 5pc set of paint brushes as well as a pair of scissors and a utility knife box cutter.<br/><br/>This complete set makes a great gift for hobbyists and crafters alike. Make sure to grab one and be prepared for any art project.\nSearch Terms: Home pottery scultpting clay kit artisan hobby set basic beginner craft tool with case\nFeatures:\n- Complete 19pc Basic Essentials Pottery Tool Set\n- Wax Carvers for Detailed Work\n- Knurled Handles for Better Grip\n- Approx Size: 5-1/2\"\n- Made in India\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Hobby 34pc Pottery Tool Sculpting Clay Kit",
+            "tokens": {
+                "brand": "Universal Hobby",
+                "pack_size": "34",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Pottery Tool Sculpting Clay Kit"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Hobby 34-Pc Pottery Sculpting Tool Set",
+            "tokens": {
+                "brand": "Universal Hobby",
+                "pack_size": "34",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Pottery Sculpting Tool Set"
+            },
+            "char_count": 48,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Complete 19Pc Pottery Set, 4Pc Wax Carvers, Canvas Pouch, Brushes, Scissors, Utility Knife",
+            "char_count": 90,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "19-Piece Basic Essentials, Wax Carvers For Detail Work, Knurled Grip Handles, Canvas Travel Pouch",
+            "char_count": 97,
+            "validation_error": null
+        }
+    }
+}

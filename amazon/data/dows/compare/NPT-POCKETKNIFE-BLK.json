@@ -1,0 +1,60 @@
+{
+    "sku": "NPT-POCKETKNIFE-BLK",
+    "asin": "B08ZWXQQZL",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: NPT-POCKETKNIFE-BLK\nProduct Type: KNIFE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 3 in 1 Hiking Camping Survival Multi Tool Fire Starter Pocket Knife\nDescription: The ASR Outdoor 3-in-1, portable 10 inch steel pocket knife is a multipurpose survival knife that also comes with a built-in robust fire starter and emergency whistle to offer you protection when camping, hiking or planning your next adventure into the great outdoors. Compact, sharp and durable, you'll be able to cut rope, gut fish, defend yourself, start a fire, attract attention with an emergency whistle and more. A tactical steel knife like this keeps you well-prepared for any emergency you may encounter on your outdoor trek. <br/><br/>More than just a pocket knife, it also comes equipped with an emergency fire starter, allowing you to spark a fire and stay warm in case an emergency situation arises. In addition to the fire starter tool, the pocket knife comes with a protective emergency whistle built in to the butt of the knife that you can use to signal help from miles away. If you are critically injured and have no hope of escaping on your own, you'll need a portable whistle that can get you the attention you need. <br/><br/>Included with the survival tool camping gear pocket knife is a protective black, nylon sheath to keep the knife blade safe and tucked away when not in use; the nylon sheath makes it easy to carry, pack and travel whether as an EDC item or outdoor tool.<br/><br/>An essential tool to any survival kit, camping gear or as part of prepper supplies or a bug out bag, pack the ASR Outdoor 3 in 1 Hiking Camping Survival Multi Tool Fire Starter Pocket Knife with Emergency Whistle and be prepared for anything on your next wilderness adventure.\nSearch Terms: outdoor pocket knives hunting camping survival gear knife kit multi tools fire starters emergency blades whistle nylon sheath portable top prepper supplies bug out bag\nFeatures:\n- 3 in 1 SURVIVAL KNIFE: This ASR Outdoor pocket knife is an essential tool to any survival kit; with this knife, you'll be able to cut rope, gut fish, defend yourself, start a fire, attract attention with an emergency whistle and more; compact, sharp and durable, this survival pocket knife will be a welcome addition to your camping gear come your next outdoor adventure\n- PORTABLE FIRE STARTER: If you ever find yourself stranded or injured in the woods, a portable fire starter can be the difference between life and death; Useful for hiking, camping or even a backcountry ski or snowboarding trip, the ASR Outdoor fire starter is built-in to the butt of the knife to keep it in excellent working condition, giving you the ability to start a fire if and when an unforeseen emergency situation arises\n- EMERGENCY WHISTLE: Whether embarking on a family camping trip or overnight backpacking hike, never leave the house without a tool to signal for help; the portable emergency whistle is built in to the knife lanyard, giving you easy and quick access; plus, it's one less item to have to worry about packing with your gear!\n- PROTECTIVE NYLON SHEATH: Included with the survival tool camping gear pocket knife is a protective black, nylon sheath to keep the knife blade safe and tucked away when not in use; the nylon sheath makes it easy to carry, pack and travel whether as an EDC item or outdoor tool\n- SPECIFICATIONS: Dimensions: 5 inch blade, 10 inch knife; Material: Steel, ABS handle; Color: Silver, Black; Nylon Sheath Included\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 10 inch Black Survival Pocket Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "inch",
+                "size": "",
+                "color": "Black",
+                "name": "Survival Pocket Knife"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 10 in Black 3 in 1 Survival Pocket Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "3 in 1 Survival Pocket Knife"
+            },
+            "char_count": 52,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "3-In-1 Multi-Tool, Built-in Fire Starter, Emergency Whistle, Steel Blade, Nylon Sheath",
+            "char_count": 86,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Built-In Fire Starter, Emergency Whistle, 5 Inch Blade, Nylon Sheath, Steel Blade, Camping And Hiking Ready",
+            "char_count": 107,
+            "validation_error": null
+        }
+    }
+}

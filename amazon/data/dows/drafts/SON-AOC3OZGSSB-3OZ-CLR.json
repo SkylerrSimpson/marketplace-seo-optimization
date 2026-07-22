@@ -3,18 +3,24 @@
     "asin": "B00E0T8AZE",
     "product_type": "BOTTLE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:35:38+00:00",
+    "generated_at": "2026-07-21T19:56:57+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
-        "fillable": 0,
+        "fillable": 1,
         "catalog": 6,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
     "attributes": {
+        "theme": {
+            "value": "gold panning",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.theme"
+        },
         "care_instructions": {
             "value": [
                 {
@@ -106,20 +112,57 @@
             "asin": "B00E0T8AZE",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 5\" Gold Snifter Bottle 3oz Clear Plastic with Nozzle",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 3oz Clear Gold Snifter Bottle with Nozzle",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "oz",
+                "size": "5 inch",
+                "color": "Clear",
+                "name": "Gold Snifter Bottle with Nozzle"
+            }
         },
-        "title_differentiation": {
-            "value": "Hand-sized, flexible clear plastic with suction tube for gold panning cleanup",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 5-in 3oz Clear Gold Snifter Bottle",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 46,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "in",
+                "size": "3oz",
+                "color": "Clear",
+                "name": "Gold Snifter Bottle"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Heavy Duty Plastic, Gold Panning Tool, Vacuum Suction, Squeeze Bottle, Prospecting Equipment, Hobbies And Crafts",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 112,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Heavy Duty Flexible Clear Plastic - 4-In Tube - Gold Prospecting - Hobbies Crafts - 3 Oz Capacity",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 97,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

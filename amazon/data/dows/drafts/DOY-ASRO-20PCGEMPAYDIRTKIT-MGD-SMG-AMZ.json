@@ -3,14 +3,14 @@
     "asin": "B0GQD4BRXK",
     "product_type": "METAL_DETECTOR",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:57:06+00:00",
+    "generated_at": "2026-07-21T20:04:32+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -51,20 +51,57 @@
             "asin": "B0GQD4BRXK",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "ASR Outdoor 5lb Rough Gemstone Paydirt Dig Kit",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 46,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "lb",
+                "size": "Rough",
+                "color": "",
+                "name": "Gemstone Paydirt Dig Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "20pc Madagascar Geodes, Identification Chart & Burlap Bag Included",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 5lb Rough Gemstone Paydirt Dig Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 46,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "lb",
+                "size": "Rough Gemstone",
+                "color": "",
+                "name": "Paydirt Dig Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "20Pc Madagascar Geodes, Sift And Find Treasure, Identification Chart Included, Amethyst Pyrite Quartz",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 101,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Genuine Rough Gemstones, Two Lb Of Stones, Identification Chart, Burlap Storage Bag, Hands On Dig Activity",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 106,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

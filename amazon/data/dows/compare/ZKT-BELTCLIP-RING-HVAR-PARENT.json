@@ -1,0 +1,60 @@
+{
+    "sku": "ZKT-BELTCLIP-RING-HVAR-PARENT",
+    "asin": "B087N9Z6M2",
+    "product_type": "CARABINER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: ZKT-BELTCLIP-RING-HVAR-PARENT\nProduct Type: CARABINER\nBrand (from catalog): Zak Tool\nExisting Title: Police Zak Tool ZT55 Tactical Stealth Black Extreme Duty Key Ring Holder\nDescription: The ZAKTOOL ZT55 Duty Belt Key Ring Clip is made for use with all uniform service duty belts up to 2.25\" wide. The ZT55 Duty Belt Key Clip is designed for law enforcement, service personal and corrections officers to have easy and quick access to the items they readily use the most attached on their belt. Items such as handcuff keys.<br/><br/>The ZT55 is made from single piece steel, forged to be dependable, reliable and ever lasting under the harshest of conditions and working environments.<br/><br/>All ZAK TOOL products are manufactured in the USA and carry a Limited Lifetime Manufacturer Warranty.<br/><br/>The ZT55 comes from factory packed in consumer sizes; single pack, two pack and four pack item package quantities. Each pack comes with a Zak Tool ZT35 1.5\" Black Steel Key Ring,\nSearch Terms: key ring holder belt tactical for home pocket\nFeatures:\n- STANDARD ISSUE: For use with all public service duty belts 1.5\" or 2.25\" inches wide\n- Ideal for Standard belts or Sam Browne belts\n- Spring clip prevents key rings from slipping off\n- Black powder coat finish | steel construction | provides reliable and secure positive retention\n- Manufacturer Lifetime Guarantee | Made in the USA\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Zak Tool ZT55 Black Tactical Duty Belt Key Ring Clip",
+            "tokens": {
+                "brand": "Zak Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Tactical Duty Belt Key Ring Clip"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Zak Tool Black Duty Belt Key Ring Clip",
+            "tokens": {
+                "brand": "Zak Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Duty Belt Key Ring Clip"
+            },
+            "char_count": 38,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Spring Clip Retention, Fits 15 Inch And 225 Inch Belts, Forged Steel Construction, Made In USA, Lifetime Warranty",
+            "char_count": 113,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Fits 15\" And 225\" Duty Belts, Spring Clip Retention, Steel Construction, Black Powder Coat, Made In USA, Lifetime Guarantee",
+            "char_count": 123,
+            "validation_error": null
+        }
+    }
+}

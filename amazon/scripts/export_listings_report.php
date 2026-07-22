@@ -242,7 +242,7 @@ function parseTsvBySku(string $tsv, string $skuColumn): array
         return [];
     }
 
-    $headers = str_getcsv(array_shift($lines), "\t");
+    $headers = str_getcsv(array_shift($lines), "\t", '"', '');
     $map     = [];
 
     foreach ($lines as $line) {
@@ -250,7 +250,7 @@ function parseTsvBySku(string $tsv, string $skuColumn): array
             continue;
         }
 
-        $cols = str_getcsv($line, "\t");
+        $cols = str_getcsv($line, "\t", '"', '');
         $row  = array_combine($headers, array_pad($cols, count($headers), ''));
 
         $sku = $row[$skuColumn] ?? '';

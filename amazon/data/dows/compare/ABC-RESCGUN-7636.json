@@ -1,0 +1,60 @@
+{
+    "sku": "ABC-RESCGUN-7636",
+    "asin": "B0BLDMTMZH",
+    "product_type": "TOY_GUN",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: ABC-RESCGUN-7636\nProduct Type: TOY_GUN\nBrand (from catalog): Kidplokio\nExisting Title: Kidplokio Camo Rescue Mission Toy Blaster with Lights Sounds Boys Ages 3 and Up\nDescription: Featuring colorful, flashing lights and awesome blaster sound effects, the Kidplokio Camo Rescue Mission Toy Blaster will have little ones engaged in hours of active pretend play. Made from durable plastic, the toy is lightweight, easy to use, comes with a shoulder strap, and installed batteries, and is ready to go right out of the box.<br/><br/>The fun begins with the fast-action trigger; upon release, the toy sets off an awesome display of colorful, flashing lights in conjunction with wild blasting firing sounds, making little heroes' rescue missions even more fun and realistic. The toy comes WITH batteries installed, so battle action can start right out of the box. No tools or complicated assembly is required.<br/><br/>A great toy to get your kids off the couch and reduce screen time away from cell phones or other devices, the pretend play toy is action-packed, boasting some seriously cool pretend play fighting features, that will have kids up on their feet in search of the next neighborhood battle. Whether it's a team rescue mission or secret agent undertaking, kids will have a blast indoors or out with this exciting Kidplokio Camouflage Toy Blaster. Made from durable plastic construction, the camo toy blaster can stand up to hours of play and lots of wear and tear.<br/><br/>Suitable for kids aged three and up.\nSearch Terms: Toys for boys birthday present Hanukkah brother Christmas gifts toys holiday toy list space shooter stocking stuffers cosplay blaster toy pistol kids toddlers playroom Halloween costumes for boys active kids toys dress up games\nFeatures:\n- PRETEND PLAY TOY: Featuring a cool camo design, lightweight with included shoulder strap, awesome sound effects, and vibrant flashing lights, kids will have a blast playing with this exhilarating toy gun, whether it be team rescue missions, secret agent undertakings or outdoor one versus one battle!\n- LIGHTS AND SOUND EFFECTS: Spectacular sound effects and fun flashing lights make pretend play even more fun and realistic for kids and toddlers! This toy comes with batteries installed, so the fun can begin right out of the box; no tools or complicated assembly is required\n- COOL CAMO DESIGN: Stealthy and covert, especially for outside games, this light-up toy Blasterfeatures a lightweight design with cool camouflage coloring and details, sure to spark any little warrior's imagination for adventurous playtime sessions\n- ACTIVE KIDS TOYS: Get kids moving and off cell phones or other devices with this exciting camo toy blaster! Physical activity and imaginative pretend play will greatly benefit kids' overall mental health, as well as their overall cognitive and social development\n- SPECIFICATIONS: Dimensions: 13 x 7 x 1.5 inches; Weight: 0.5lbs; Color: Camouflage; Ages: 3+\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Kidplokio Camo Rescue Mission Toy Blaster with Lights",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Camo",
+                "name": "Rescue Mission Toy Blaster with Lights"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Kidplokio Camouflage Toy Blaster",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Camouflage",
+                "name": "Toy Blaster"
+            },
+            "char_count": 32,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Lights And Sound Effects, Shoulder Strap Included, Batteries Installed, Ages 3 Plus, Active Play Toy",
+            "char_count": 100,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Lights And Sounds, Shoulder Strap, Batteries Included, Durable Plastic, Ages 3 Plus, Active Pretend Play",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

@@ -180,9 +180,11 @@ usort($rows, fn($a, $b) => $b['priority'] <=> $a['priority']);
 $outFile = $paths['output'] . '/listings_audit.csv';
 $fh      = fopen($outFile, 'w');
 
-fputcsv($fh, array_keys($rows[0]));
+// Escape disabled ('') for strict RFC-4180 output (double-quoted, no backslash
+// escaping) so values with backslashes/quotes round-trip through any reader.
+fputcsv($fh, array_keys($rows[0]), ',', '"', '');
 foreach ($rows as $row) {
-    fputcsv($fh, $row);
+    fputcsv($fh, $row, ',', '"', '');
 }
 
 fclose($fh);

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-UTCHDF-10-WDN-IR-TT",
+    "asin": "B0B848X5H7",
+    "product_type": "HAMMER_MALLET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-UTCHDF-10-WDN-IR-TT\nProduct Type: HAMMER_MALLET\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux 10 Inch Chasing Hammer Dual Face 6oz Jewelry Metalworking Tool\nDescription: Take control of your metalworking and jewelry projects with the ToolTreaux 10\" Heavy Duty Chasing Hammer. Designed for precision and durability, this dual-face hammer features a polished flat striking surface and a rounded end ideal for riveting, shaping, and texturing metal.<br/><br/> The solid wood handle provides a comfortable grip and balanced control, making it a reliable tool for jewelers, metalsmiths, and hobbyists alike.\nSearch Terms: chasing hammer jewelry hammer metalworking hammer riveting hammer dual face hammer jewelers tools metalsmith tools small hammer precision hammer jewelry making tools metal shaping hammer craft hammer woodworking mallet alternative\nFeatures:\n- DUAL FACE DESIGN - Flat 1-1/8\" striking surface for shaping and a 15mm rounded end perfect for riveting and detail work\n- MIRROR POLISHED FINISH - Smooth, shiny head reduces marring and delivers clean, professional results\n- PRECISION & CONTROL - Lightweight 6 oz. head offers excellent balance for fine metalworking tasks\n- DURABLE CONSTRUCTION - Built for repeated use with a solid steel head and sturdy wood handle\n- VERSATILE USE - Ideal for jewelry making, metal shaping, chasing, riveting, and craft applications\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 10 Inch Chasing Hammer Dual Face 6oz",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "10",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "",
+                "name": "Chasing Hammer Dual Face 6oz"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 10in Dual Face Chasing Hammer",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "10in",
+                "color": "",
+                "name": "Chasing Hammer"
+            },
+            "char_count": 40,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Dual Face Design, Mirror Polished, Jewelry And Metalworking, Riveting And Shaping, Solid Wood Handle",
+            "char_count": 100,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "6 Oz Balanced Steel Head, Flat And Rounded Faces, Mirror Polished Finish, Solid Wood Handle, Jewelry Metalworking",
+            "char_count": 113,
+            "validation_error": null
+        }
+    }
+}

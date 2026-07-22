@@ -3,14 +3,14 @@
     "asin": "B07SB93RY9",
     "product_type": "WAIST_PACK",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:18:02+00:00",
+    "generated_at": "2026-07-21T20:08:27+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 5,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -83,25 +83,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "Man Pack Canvas Waist Bag",
+            "value": "Man Pack",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Mens Waxed Canvas Waist Pack Fanny Bag Blue",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Mens Blue Waxed Canvas Waist Pack Fanny Bag",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Mens",
+                "color": "Blue",
+                "name": "Waxed Canvas Waist Pack Fanny Bag"
+            }
         },
-        "title_differentiation": {
-            "value": "Water Resistant, Adjustable Strap, Multi-Pocket, Travel & Hiking",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor Blue Canvas Fanny Pack",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 34,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Blue",
+                "name": "Canvas Fanny Pack"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Water Resistant Waxed Canvas, Adjustable Strap To 50 Inches, Quick Release Steel Buckle, Dual Pockets, Wear Waist Or Shoulder",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 125,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Water Resistant, Adjustable Up To 50-Inch Strap, Over Shoulder Or Waist Wear, Steel Quick Release Buckle, Dual Zip Pockets",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 122,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

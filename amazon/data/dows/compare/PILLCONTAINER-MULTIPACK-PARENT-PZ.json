@@ -1,0 +1,60 @@
+{
+    "sku": "PILLCONTAINER-MULTIPACK-PARENT-PZ",
+    "asin": "B09B1JMGM1",
+    "product_type": "PERSONAL_PILL_DISPENSER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: PILLCONTAINER-MULTIPACK-PARENT-PZ\nProduct Type: PERSONAL_PILL_DISPENSER\nBrand (from catalog): ToolTreaux\nExisting Title: Micro Key Chain Waterproof Compartment Portable Storage Container\nDescription: Keep your important valuables safe, and concealed with this Waterproof Mini Pill Holder Storage Container.<br/><br/>The Mini Key Chain Storage Container is great for a wide range of multi-purpose use, ranging in use for kids, adults and elderly to carry personal and emergency information as well as medicine pills or whatever may be of essential use. These micro key chain containers can be attached to just about any key chain, handbag, jacket or backpack. Each unit is Waterproof with an o-ring seal and have plastic slip container which is removable from within the metal canister itself.<br/><br/>The aluminum body and o-ring cap will ensure that contents stay dry during any weather. The plastic coated interior will keep items from degrading or touching the aluminum body. Make sure to keep a few of these around to organize pills, IDs and other important tiny items<br/><br/>Colors Available: Blue, Red, Black, Green, Silver or Purple\nSearch Terms: storage container food pet small clear water with lanyard camping supplies portable equipment hiking\nFeatures:\n- VERSATILE STORAGE CAPSULE - Designed to Discreetly Keep Personal and Emergency Information on Hand and While Traveling | Great for Kids, Adults, and the Elderly\n- WATERPROOF CONSTRUCTION - Capsule ID Holder made of Durable and Waterproof Aluminum | Comes with Small Plastic Storage Vial for Added Layer of Protection | Use Rain or Shine\n- CONVENIENT KEYCHAIN DESIGN - O-Ring Sealed Capsule Comes with Classic Key Chain to Easily Attach to Keys | Keep on Purse, Backpack, Travel Bag or Car Keys for Quick Access to Vital Information\n- SMALL AND LIGHT - Capsule Measures Just 1.75\" in Length with .5\" Diameter, .01lbs Weight | Won't Bulk Up Your Keys, Bag or Backpack\n- ASSORTED COLORS - Please Note that Colors Ship at Random | Color Options: Green, Silver, Purple, Red, Black or Blue\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux Micro Waterproof Pill Container Keychain",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Micro",
+                "color": "",
+                "name": "Waterproof Pill Container Keychain"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux Waterproof Mini Pill Holder Storage Container",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Waterproof Mini Pill Holder Storage Container"
+            },
+            "char_count": 56,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Waterproof Aluminum Capsule, O-Ring Sealed, Portable Storage, Keychain Attachment, Multiple Colors",
+            "char_count": 98,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Keychain Attachment, Waterproof Aluminum, Removable Inner Vial, O-Ring Seal, Travel Ready, Random Colors",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

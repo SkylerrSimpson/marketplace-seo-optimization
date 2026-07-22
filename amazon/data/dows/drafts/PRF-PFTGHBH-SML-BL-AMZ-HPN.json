@@ -3,14 +3,14 @@
     "asin": "0973126248",
     "product_type": "ABIS_BOOK",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:49:08+00:00",
+    "generated_at": "2026-07-21T19:37:00+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 9,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -164,24 +164,63 @@
             "raw_value": true
         },
         "subject_code": {
-            "value": "SPO064000",
+            "value": "HEA007000",
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "Dale Walters The Great Heavy Bag Handbook",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 41,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Dale Walters",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "The Great Heavy Bag Handbook"
+            }
         },
-        "title_differentiation": {
-            "value": "Complete training guide with punching, kicking, stance, combinations & stretching",
+        "item_name_ai_openai": {
+            "value": "Dale Walters Heavy Bag Handbook",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 31,
+            "review_only": true,
+            "tokens": {
+                "brand": "Dale Walters",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Heavy Bag Handbook"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Complete Training Guide, Hand Wrapping, Punching And Kicking Techniques, Fighters Stance, Combination Drills, Stretching Exercises",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 130,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (130 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Heavy Bag Setup, Hand Wrapping, Punches And Kicks, Fighter's Stance, Movement, Stretching, Training Combinations",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 112,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

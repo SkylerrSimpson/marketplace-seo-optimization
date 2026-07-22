@@ -3,14 +3,14 @@
     "asin": "B00DTW79VY",
     "product_type": "SPORTING_GOODS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:58:45+00:00",
+    "generated_at": "2026-07-21T19:42:37+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 3,
         "catalog": 9,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -172,20 +172,57 @@
             "asin": "B00DTW79VY",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Productive Fitness Laminated Heart Rate Chart Poster 24x36",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Productive Fitness 24\" x 36\" Laminated Heart Rate Chart",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "24",
+                "pack_size_unit": "x 36 in",
+                "size": "",
+                "color": "Laminated",
+                "name": "Heart Rate Chart"
+            }
         },
-        "title_differentiation": {
-            "value": "Expert-designed exercise guide, laminated 24x36 poster with step-by-step instructions",
+        "item_name_ai_openai": {
+            "value": "Productive Fitness Laminated Heart Rate Chart Poster",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 52,
+            "review_only": true,
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Laminated Heart Rate Chart Poster"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Expert-Designed, Laminated Poster, Step-by-Step Instructions, Home Gym Reference, Proper Exercise Form And Technique",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 116,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "24\" X 36\", Expert Designed, Step By Step Instructions, Color Photos, Home Exercise Guide",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 88,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

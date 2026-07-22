@@ -3,14 +3,14 @@
     "asin": "B0DHJCTC96",
     "product_type": "SCIENCE_FUNDAMENTALS_KIT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:39:22+00:00",
+    "generated_at": "2026-07-21T19:58:08+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 0,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,19 +27,58 @@
             "source": "usurper",
             "usurper_column": "attr.unit_count_amazon"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 5lb Madagascar Gemstone Paydirt Bag Science Kit",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 5lb Rough Madagascar Gemstone Paydirt Bag",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "lb",
+                "size": "Rough",
+                "color": "",
+                "name": "Madagascar Gemstone Paydirt Bag"
+            }
         },
-        "title_differentiation": {
-            "value": "Includes sifting instructions, ID chart, storage bag & 2lbs genuine rough gemstones",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 5-lb Madagascar Gemstone Paydirt Bag",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 48,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "lb",
+                "size": "",
+                "color": "",
+                "name": "Madagascar Gemstone Paydirt Bag"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Geology Science Kit, 2Lbs Real Gemstones, Amethyst Pyrite Quartz, Sifting Activity, Includes Identification Chart And Storage Bag",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 129,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (129 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Genuine Madagascar Rough Stones, 2 Lb Gem Yield, Burlap Storage Bag, Identification Chart, Screen-Free Science Activity",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 119,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

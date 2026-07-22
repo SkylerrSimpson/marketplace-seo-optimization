@@ -3,14 +3,14 @@
     "asin": "B098KMTK6J",
     "product_type": "BOTTLE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:06:46+00:00",
+    "generated_at": "2026-07-21T19:46:50+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 6,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -109,20 +109,57 @@
             "asin": "B098KMTK6J",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille 34oz Glass Bottle & 10oz Drinking Glass Set, Hobnail",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 5-Piece Glass Bottle and Drinking Glass Set Hobnail",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 58,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "5",
+                "pack_size_unit": "Piece",
+                "size": "34oz Bottle, 10oz Glasses",
+                "color": "",
+                "name": "Glass Bottle and Drinking Glass Set"
+            }
         },
-        "title_differentiation": {
-            "value": "5-Piece Set, Airtight Swing-Top, Leakproof, Dishwasher Safe",
+        "item_name_ai_openai": {
+            "value": "Beille 5-Pk 34oz Glass Bottle and Drinking Glass Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 52,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "5",
+                "pack_size_unit": "Pk",
+                "size": "34oz",
+                "color": "",
+                "name": "Glass Bottle and Drinking Glass Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Hobnail Design, Flip-Top Airtight Seal, Leakproof, BPA-Free, Dishwasher Safe, Entertaining And Serving",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 102,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Hobnail Texture, Airtight Swing Top, Dishwasher Safe, BPA-Free Glass, Leakproof, Eco-Friendly, 4 Glasses And Bottle",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 115,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

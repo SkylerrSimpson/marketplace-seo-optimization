@@ -1,0 +1,60 @@
+{
+    "sku": "HWK-GOLDINGMOLD-1000",
+    "asin": "B0H487V7M3",
+    "product_type": "CRAFT_MOLD",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWK-GOLDINGMOLD-1000\nProduct Type: CRAFT_MOLD\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 1000 gram DIY 35oz Cast Iron Gold Ingot Mold to Make Your Own Gold Bars\nDescription: The ASR Outdoor gold ingot mold is a great addition to any gold panner or prospector’s equipment. It is made of heavy-duty cast iron that is ideal for smelting and forming your own gold bars from your findings out in the field.<br/><br/>Each gold ingot mold holds up to 1000 grams (35 oz) of gold nuggets and flakes. Apply heat and melt your own gold bar with ease (but make sure to completely cool the mold before removing the bar). The mold measures 3.5” in length which will create a sturdy rectangular gold bar, suitable for both smaller and larger capacity smelting.<br/><br/>Although our gold ingot mold was originally designed for gold prospecting and panning, these molds are also great for jewelry making, metalworking, casting, and other professional and hobby craft projects. This is a must-have mold for panners, prospectors, and jewelry makers alike.\nSearch Terms: 1000g 1kg bullion mold graphite casting silver copper aluminum brass gold bar melting pour block refinery assaying scrap metal recovery jewelry smithing blacksmith foundry forge furnace crucible mould\nFeatures:\n- MAKE YOUR OWN INGOTS - ASR Outdoor gold ingot mold is made of heavy-duty cast iron to smelt and form your own gold bars; Great thermal conductivity ideal for gold panners and gold prospectors\n- 1000 GRAM CAPACITY - Gold ingot mold holds up to 1000 grams of gold flakes and nuggets; apply heat and melt your own gold from your gold prospecting findings; Make sure to cool completely before removal\n- RECTANGULAR BAR SHAPE - 3.5” long mold will create a sturdy, rectangle gold bar; Suitable for both small and larger capacity smelting\n- VERSATILE INGOT MOLD - Gold ingot molds are suitable for jewelry making, metalworking, smelting, metal casting, gold panning, prospecting, and other professional and hobby craft projects; Must-have mold for jewelry makers and crafters\n- SPECIFICATIONS - Dimensions: 3.5” long; Shape: rectangular bar; Capacity: up to 1000 grams; Material: heavy duty cast iron; Weight: 2.64lbs (35oz); Color: black\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 1000g Cast Iron Gold Ingot Mold",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1000",
+                "pack_size_unit": "g",
+                "size": "",
+                "color": "black",
+                "name": "Cast Iron Gold Ingot Mold"
+            },
+            "char_count": 43,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 1000g Black Cast Iron Gold Ingot Mold",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1000",
+                "pack_size_unit": "g",
+                "size": "",
+                "color": "Black",
+                "name": "Cast Iron Gold Ingot Mold"
+            },
+            "char_count": 49,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Heavy Duty Cast Iron, 1000 Gram Capacity, Rectangular Bar Shape, Jewelry Making, Metal Casting, Gold Panning",
+            "char_count": 108,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Heavy Duty Cast Iron, 1000 Gram Capacity, Rectangular 35\" Bar, Ideal For Gold Panning, Jewelry Making",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

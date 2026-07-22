@@ -1,0 +1,60 @@
+{
+    "sku": "SON-UTWBPSWAT-9PC-STD-RD-2",
+    "asin": "B00GEJC70W",
+    "product_type": "SOLDERING_IRON",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-UTWBPSWAT-9PC-STD-RD-2\nProduct Type: SOLDERING_IRON\nBrand (from catalog): Universal Tool\nExisting Title: Arts and Craft Hobby Kit 9 Piece Wood Burning Pen Burn-in Hand Tool\nDescription: Add some flare to any wood working project with the 9pc Universal Tool Wood Burning Pen & Soldering Tips Set.<br/><br/>The 9pc Wood Burning Pen & Soldering Tips Set is a great addition to your wood working or soldering tool collection. This set comes with everything you'll need for your wood working projects: a wood burning pen, 6 assorted soldering tips, hot knife chuck for hot blade and a safety stand. It has 25 watt power, 110-120V 60Hz and is UL Approved EZ14195.<br/><br/>This set is great for wood working, hobbies, crafting, home improvement and more. Make sure to grab one before your next project.\nSearch Terms: DIY art craft wood working carving tools chiseling hobby chisel tips burning tool razertip burner pyrography kit woodburning craft supplies pens interchangeable burners\nFeatures:\n- Universal Tool Wood Burning Pen & Assorted Tips Set, 9 Total Pieces - Ideal for beginner craft hobbyist. Ideal arts and craft hobby Christmas gift\n- COMPONENTS INCLUDED: Safety Stand, Hot Chuck, Wood Pen, (6) Interchangeable Tips: (2) Brass wood burning tips, (2) Steel soldering tips, (1) Steel chiseled tip, (1) Hot razor blade\n- PERFORMS MULTIPLE FUNCTIONS: Leather Burning, Wood burning, Soldering, Chiseling, Melting, Cutting\n- SPECIFICATIONS: Watts: 25w; Voltage: 110V-120V; Frequency: 60Hz; UL listed; Length: 7-3/4\" ; Long electrical cord attached for a wide range of movement\n- Great for Wood Working, Soldering, Metal Working, Hobby, Craft, Home Improvement & More!\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 9-Piece Wood Burning Pen and Soldering Tips Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "9",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "",
+                "name": "Wood Burning Pen and Soldering Tips Set"
+            },
+            "char_count": 62,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 9-pc Wood Burning Pen Soldering Tips Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "9",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Wood Burning Pen Soldering Tips Set"
+            },
+            "char_count": 55,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "6 Interchangeable Tips, Safety Stand, 25W Power, Wood Burning, Soldering, Leather Burning, Chiseling",
+            "char_count": 100,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "25W 110V-120V, 6 Interchangeable Tips, Safety Stand, Leather And Wood Burning, Soldering, Chiseling, Cutting",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

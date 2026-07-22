@@ -3,14 +3,14 @@
     "asin": "B073VZNLWF",
     "product_type": "TOYS_AND_GAMES",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:03:47+00:00",
+    "generated_at": "2026-07-21T19:45:23+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 0,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,19 +27,57 @@
             "source": "usurper",
             "usurper_column": "attr.unit_count_amazon"
         },
-        "item_name_ai_suggested": {
-            "value": "KidPlay Products Kids Golf Caddy Set 2 Pack, Ages 3-8",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "KidPlay Products 2-pk Red Kids Golf Caddy Set",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 45,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Red",
+                "name": "Kids Golf Caddy Set"
+            }
         },
-        "title_differentiation": {
-            "value": "2 Sets with Clubs, Balls & Holes | Wheeled Caddy | Hand-Eye Coordination",
+        "item_name_ai_openai": {
+            "value": "KidPlay Products 2-pk Kids Indoor Golf Club Pretend Play Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 60,
+            "review_only": true,
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Kids Indoor Golf Club Pretend Play Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "2 Complete Sets, 6 Golf Clubs, 6 Golf Balls, 4 Practice Holes, Wheeled Caddy, Hand-Eye Coordination",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 99,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Wheeled Caddy, 3 Clubs, 3 Balls, 2 Practice Holes, Builds Hand-Eye Coordination, Ages 3-8, Indoor Fun",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

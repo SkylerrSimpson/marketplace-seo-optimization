@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-FZNDIARYPOMPEN-PRP-709951FZ2-2PC",
+    "asin": "B09KBF94TR",
+    "product_type": "BLANK_BOOK",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-FZNDIARYPOMPEN-PRP-709951FZ2-2PC\nProduct Type: BLANK_BOOK\nBrand (from catalog): Disney Frozen\nExisting Title: Disney Frozen 2 Elsa Journal Diary with Lock for Girls and Pom Pom Pen, Purple, Ages 3+\nDescription: Help your little Frozen 2 fan practice her writing, jot down her ideas or practice drawing with this adorable pink hardcover diary for girls; the journal comes with a lock and 2 keys to keep all her thoughts safe and secure. Measures 5 x 7 inches and comes with a baby blue pom pom pen and 60 lined pages for all their creativity. <br/><br/>Help your little Frozen 2 fan practice her writing, jot down her ideas or practice drawing with this adorable pink hardcover diary for girls; the journal comes with a lock and 2 keys to keep all her thoughts safe and secure. Measures 5 x 7 inches and comes with a baby blue pom pom pen and 60 lined pages for all their creativity. <br/><br/>And, if she’s a Frozen fan AND happens to also love the one and only Queen Elsa, she’ll be swooning over this cute journal. Featuring a classic Frozen 2 colors and drawings of Elsa, Anna, Hans and everyone’s beloved snowman, Olaf, she’ll love doodling, writing and drawing in her spare time. Not only will this diary with lock be a special keepsake, it also encourages little ones to practice writing and written communication, creative drawing skills and more. <br/><br/>Small enough to easily stuff with other goodies, the Frozen 2 Elsa diary with lock for girls is a perfect stocking stuffer. The journal is also great for travel and to take on the go for long car rides, road trips or air travel, as it will easily fit in a backpack or in carry-on luggage.<br/><br/>Recommended Ages: 3+\nSearch Terms: kids christmas gift stocking stuffer hanukkah gifts notebooks writing pads lined paper holiday toy list 2021 learning educational toys communication drawing doodling princess locking journal school supplies\nFeatures:\n- FROZEN 2 DIARY WITH LOCK: Help your little Frozen 2 fan practice her writing, jot down her ideas or practice drawing with this adorable pink hardcover diary for girls; the journal comes with a lock and 2 keys to keep all her thoughts safe and secure! Measures 5 x 7 inches and comes with a baby blue pom pom pen and 60 lined pages for all their creativity.\n- PRETTY FROZEN 2 JOURNAL DESIGN: And, if she’s a Frozen fan AND happens to also love the one and only Queen Elsa, she’ll be swooning over this cute journal! Featuring a classic Frozen 2 colors and drawings of Elsa, Anna, Hans and everyone’s beloved snowman, Olaf, she’ll love doodling, writing and drawing in her spare time\n- LEARNING AND EDUCATION TOYS: Not only will this diary with lock be a special keepsake, it also encourages little ones to practice writing and written communication, creative drawing skills and more!\n- GREAT STOCKING STUFFER: Small enough to easily stuff with other goodies, the Frozen 2 Elsa and friends diary with lock for girls is a perfect stocking stuffer! The journal is also great for travel and to take on the go for long car rides, road trips or air travel, as it will easily fit in a backpack or carry on luggage\n- SPECIFICATIONS: Dimensions: 9.8 x 7.5 x 1 inches; Color: Purple/Blue; Warning: Choking Hazard, small parts; Weight: 0.375lbs; Ages: 3+\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Disney Frozen 2 Elsa Purple Diary with Lock and Pom Pom Pen",
+            "tokens": {
+                "brand": "Disney Frozen",
+                "pack_size": "2",
+                "pack_size_unit": "pc",
+                "size": "5x7",
+                "color": "Purple",
+                "name": "Elsa Diary with Lock and Pom Pom Pen"
+            },
+            "char_count": 59,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Disney Frozen 2 Elsa Journal Diary with Lock and Pom Pom Pen Purple",
+            "tokens": {
+                "brand": "Disney Frozen",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Purple",
+                "name": "Elsa Journal Diary With Lock And Pom Pom Pen"
+            },
+            "char_count": 67,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "2-Piece Set, Lock With 2 Keys, 60 Lined Pages, Pom Pom Pen, Portable 5X7 Inches, Ages 3, Stocking Stuffer",
+            "char_count": 105,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Practice Writing, Drawing, And Doodling, Lock And 2 Keys, 60 Lined Pages, Travel Friendly, Giftable, Ages Three Plus",
+            "char_count": 116,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-MUGPITCHSET-16272",
+    "asin": "B09RS4JQBF",
+    "product_type": "PITCHER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-MUGPITCHSET-16272\nProduct Type: PITCHER\nBrand (from catalog): Beille\nExisting Title: Beille 5pc Speckled Ivory Farmhouse Stoneware Set of Pitcher and Mugs for Beautiful Home Kitchen Decor Serving Set\nDescription: This lovely 5pc ceramic stoneware kitchen farmhouse décor set from Beille includes one 66oz water pitcher or flower vase and four large 20oz coffee cups. A great, easy to use, everyday addition to any kitchen, the kitchen décor set is neutral in color, very durable, and dishwasher safe.<br/><br/>The coffee cups included with this set are fantastic for those who love a large coffee mug. Designed with a sturdy handle and wide four-inch mouth, these large coffee cups are weighty, comfortable to grasp, and hold up to 20 ounces of your favorite hot or cold beverage. Lots of room for mochas, lattes, large coffees, herbal teas, and more that will last you more than just a few sips throughout the morning.<br/><br/>The great bonus of this set is that the water pitcher, sangria pitcher, or iced tea pitcher can also double as a flower vase too. With a classic and simple farmhouse décor design, it will look gorgeous with fresh cut flowers from the market, or as a standalone decorative object on its own too anywhere in the home. <br/><br/>And, best of all, no handwashing is needed here. This durable glazed stoneware pitcher and coffee mug set from Beille will stand up to lots of wear and tear (and heat) in the kitchen and at the table; easy to keep clean, the pitcher and coffee cups are both microwave and dishwasher safe.<br/><br/>Coffee Mugs Dimensions: 6 x 4 x 4 inches<br/>Pitcher Dimensions: 8 x 7.5 x 5.5 inches<br/>Total Product Weight: 7.5 pounds<br/>Material: Ceramic Stoneware\nSearch Terms: pitcher sets water serving dishes vases flower vase housewares dining dinnerware tabletop room dishes table decor house warming gift kitchen accessories coffee mug\nFeatures:\n- KITCHEN FARMHOUSE DÉCOR 5PC SET: This lovely 5pc ceramic stoneware kitchen farmhouse décor set includes one 66oz water pitcher or flower vase and four 20oz coffee mugs; a great everyday addition to any kitchen, the set is neutral in color, durable and dishwasher safe!\n- LARGE 20oz COFFEE CUPS: Designed with a sturdy handle and wide four inch mouth, these large coffee cups are weighty, comfortable to grasp and hold up to 20 ounces of your favorite hot or cold beverage! Lots of room for mochas, lattes, large coffees, herbal teas and more that will last you more than few sips!\n- WATER JUG AND FLOWER VASE: The great bonus of this set is that the water pitcher can double as a flower vase too! With a classic and simple farmhouse décor design, it will look gorgeous with fresh cut flowers or as a standalone decorative object on its own too\n- MICROWAVE AND DISHWASHER SAFE: No handwashing needed here! This durable glazed stoneware pitcher and coffee mug set from Beille will stand up to lots of wear and tear in the kitchen and at the table; easy to keep clean, the pitcher and coffee cups are both microwave and dishwasher safe\n- SPECIFICATIONS: Coffee Mug Dimensions: 6 x 4 x 4 inches; Pitcher Dimensions: 8 x 7.5 x 5.5 inches; Product Weight: 7.5lbs; Color: Speckled Ivory\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 5pc Speckled Ivory Farmhouse Stoneware Pitcher Set",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "5",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Speckled Ivory",
+                "name": "Farmhouse Stoneware Pitcher Set"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 5-Pc Speckled Ivory Stoneware Pitcher and Mug Set",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "5",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Speckled Ivory",
+                "name": "Stoneware Pitcher and Mug Set"
+            },
+            "char_count": 56,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "66Oz Pitcher And Four 20Oz Mugs, Dishwasher Safe, Microwave Safe, Flower Vase",
+            "char_count": 77,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "66 Oz Pitcher, Four 20 Oz Mugs, Microwave And Dishwasher Safe, Farmhouse Decor, Flower Vase Use, Stoneware",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

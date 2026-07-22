@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-BLE-CLASSICGOBLETGLASS-GRN-12PK-BUN",
+    "asin": "B0H3R57MB2",
+    "product_type": "DRINKING_CUP",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-BLE-CLASSICGOBLETGLASS-GRN-12PK-BUN\nProduct Type: DRINKING_CUP\nBrand (from catalog): Beille\nExisting Title: Beille Set of 12 Garden Green Classic Goblet Water Glasses Home Decor Glassware, 7.43oz\nDescription: Featuring a simple, classic and timeless design, these goblet water glasses from Beille are elegant enough to sit next to wine glasses or other cocktail glasses for a formal table setting, yet durable and casual enough to endure everyday use, whether for orange juice at breakfast or a refreshing glass of your favorite sparkling water on a hot summer afternoon.<br/><br/>Not too big and not too small, these perfectly sized water glasses or goblet glasses hold 7.43 fluid ounces or 20ML. Whether for wine, juice, lemonade, iced tea, water and more, these water glasses can do it all with style.<br/><br/>Exuding a casual, yet classic and stylish design, these stemmed or footed water glasses are well balanced, feature a rolled rim and are made from durable and quality glass materials. And, they’re conveniently dishwasher safe; place water glasses or wine glasses on the top rack for easy and quick kitchen clean up.<br/><br/>These classic stemmed water glasses or wine glasses from Beille will make a stylish addition to any kitchen with their no fuss, timeless design and durable glass construction. You’ll reach for these water glasses for all sorts of different occasions, and perhaps even for a dessert recipe like chocolate mousse or a mini berry trifle. Enjoy!<br/><br/>Individual Water Glass Dimensions: 6.25 x 3.25 x 3.25 inches<br/><br/>Individual Water Glass Weight: 0.54lbs<br/><br/>Sold as a set of 4, 6, 10 or 12.\nSearch Terms: Home goods glassware cocktail goblet champagne wine glasses drinkware set table décor restaurant supplies tabletop housewarming gifts for new house wedding gifts stemware wedding registry ideas bar cart orange juice lemonade water glasses set of 4 6 10 12\nFeatures:\n- CLASSIC WATER GLASSES: Featuring a simple and timeless design, these goblet water glasses from Beille are elegant enough to complement wine or other cocktail glasses for a more formal table setting, but absolutely durable enough for everyday use\n- PERFECTLY SIZED: Not too big, not too small, these perfectly sized water glasses hold 7.43oz; whether for wine, orange juice, lemonade, iced tea, water and more, these water glasses can do it all with style\n- DURABLE GOBLET GLASSES: Exuding a casual yet classic and stylish design, these footed goblet glasses are well balanced, feature a rolled rim and are made from durable and quality glass materials\n- DISHWASHER SAFE: Conveniently dishwasher safe, place water glasses or wine glasses on the top rack for an easy and quick kitchen clean up\n- SPECIFICATIONS: Dimensions: 6.25 x 3.25 x 3 inches; Individual Glass Weight: 0.54lbs\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 12-pk Garden Green Classic Goblet Water Glasses",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "12",
+                "pack_size_unit": "pk",
+                "size": "7.43oz",
+                "color": "Garden Green",
+                "name": "Classic Goblet Water Glasses"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 12-Pk 7.43oz Green Classic Goblet Water Glasses",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "12",
+                "pack_size_unit": "Pk",
+                "size": "7.43oz",
+                "color": "Green",
+                "name": "Classic Goblet Water Glasses"
+            },
+            "char_count": 54,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Set Of 12, 743Oz, Stemmed Footed Design, Dishwasher Safe, Elegant And Durable, Perfect For Wine, Juice, And Everyday Use",
+            "char_count": 120,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Set Of 12, Dishwasher Safe, Footed Goblet Design, Rolled Rim, Durable Glass, Elegant Everyday Drinkware",
+            "char_count": 103,
+            "validation_error": null
+        }
+    }
+}

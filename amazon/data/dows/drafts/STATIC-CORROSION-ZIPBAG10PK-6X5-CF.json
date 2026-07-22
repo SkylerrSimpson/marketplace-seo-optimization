@@ -3,14 +3,14 @@
     "asin": "B08TH362N7",
     "product_type": "STORAGE_BAG",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:11:20+00:00",
+    "generated_at": "2026-07-21T20:07:20+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 5,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -84,25 +84,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "Anti Static Reusable Storage Bags 10-Pack",
+            "value": "Anti Static Corrosion Storage Bag",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical Anti Static Storage Bags 10pk 6.5x5 Brown",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical 10-pk 6x5 Brown Anti Static Storage Bags",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "10",
+                "pack_size_unit": "pk",
+                "size": "6x5",
+                "color": "Brown",
+                "name": "Anti Static Storage Bags"
+            }
         },
-        "title_differentiation": {
-            "value": "Reusable Zip Closure, Electronics & Corrosion Protection, Survival Prepper",
+        "item_name_ai_openai": {
+            "value": "ASR Tactical 10-pk 6.5 x 5 in Brown Anti Static Storage Bags",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 60,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "10",
+                "pack_size_unit": "pk",
+                "size": "6.5 x 5 in",
+                "color": "Brown",
+                "name": "Anti Static Storage Bags"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Resealable, Reusable, Multipurpose, Electronics And Gun Storage, Corrosion Protection, Survival Prepper",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 103,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Resealable Zip Closure, Corrosion And Moisture Protection, Reusable Polyethylene, Electronics, Gun, And Emergency Storage",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 121,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

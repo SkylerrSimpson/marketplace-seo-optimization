@@ -1,0 +1,60 @@
+{
+    "sku": "UNV-DSSSWCCPASS-BUN-6E-SLVR-PZ-AMZ",
+    "asin": "B0CL5GWBVH",
+    "product_type": "ART_SUPPLIES",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UNV-DSSSWCCPASS-BUN-6E-SLVR-PZ-AMZ\nProduct Type: ART_SUPPLIES\nBrand (from catalog): ToolTreaux\nExisting Title: 19 Piece Dual Sided Stainless Steel Wax Clay Carving Pick and Spatula Set\nDescription: Does your next craft project need that extra something to make it extra special? This dual-sided stainless steel carving set has 19 options of picks or spatulas that will give your project what it needs.<br/><br/>Each carving tool is dual side giving you may options for craving, sculpting, molding, shaping, and more. <br/><br/>Set includes a carrying case to keep the set organized and give you a place to store your tools when they are not in use.<br/><br/>With the options of tools you can use, you will be able to sculpt, carve, create, and more.\nSearch Terms: wax carving pottery clay art\nFeatures:\n- Stainless Steel\n- Dual-Sided\n- Great For Carving, Sculpting, and More!\n- 19 Piece Set\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 19-Piece Dual Sided Stainless Steel Wax Carving Set",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "19",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "",
+                "name": "Dual Sided Stainless Steel Wax Carving Set"
+            },
+            "char_count": 62,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 19-Piece Stainless Steel Wax Clay Carving Set",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "19",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "",
+                "name": "Stainless Steel Wax Clay Carving Set"
+            },
+            "char_count": 56,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Dual-Sided Tools, Stainless Steel, Clay Sculpting And Carving, Pottery Art Supplies, Includes Carrying Case",
+            "char_count": 107,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Dual Sided Picks And Spatulas, 19 Piece Set, Stainless Steel, Carrying Case, Sculpting, Carving, Shaping",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

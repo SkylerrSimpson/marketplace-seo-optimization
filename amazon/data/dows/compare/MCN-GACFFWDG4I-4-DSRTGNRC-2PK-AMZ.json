@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-GACFFWDG4I-4-DSRTGNRC-2PK-AMZ",
+    "asin": "B09TJY24JY",
+    "product_type": "SPORTING_GOODS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-GACFFWDG4I-4-DSRTGNRC-2PK-AMZ\nProduct Type: SPORTING_GOODS\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 2pk Camouflage Gun Wrap Rifle Tape Self Cling Reusable, Desert Generic, 4” x 144” Roll\nDescription: When you need to conceal your rifle or camouflage gear without leaving behind a sticky residue, use this form fitting wrap. It is a self-adhering camouflage wrap that is removable and reusable. Use it on guns, scopes, knives, tree-stands, flashlights, whatever you're taking into the field.<br/><br/>This camo gun wrap stretches and sticks to itself, and conforms to any shape for a custom fit. When it gets dirty or wet, simply remove, wash, let dry and reapply. The heavy-duty fabric not only protects and conceals tactical gear, but it also adds grip, insulates hands from hot or cold surfaces and quiets clanking objects.<br/><br/>This roll is 4 inches wide, 12 feet in length and comes in a Desert Generic style pattern. Make sure to grab a few of these so you can camouflage your gear.\nSearch Terms: camo gun wrap camo form hunting gear hunting accessories hunting gifts for men turkey hunting gear turkey hunting rifle case rifle sling hunting camo snow camo hunting camo for men camo pants men camo pants camo netting camo jacket camo spray paint\nFeatures:\n- Adhesive-free, self-adhering camoflauge fabric wrap; protects guns and equipment from field scratches; Quiets the clanking of objects together; Conforms to Any Shape\n- Heavy duty stretch fabric wrap clings to itself; wraps and conforms to any shape; dramatically improves grip and insulates hands from hot or cold surfaces\n- Easy to cut; one 4\" x 144\" roll covers a standard rifle or shotgun\n- Improve grip and insulate hands with this versatile wrap that conforms to any shape\n- Comes in bulk packaging, no retail blister.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 2-pk 4\" x 144\" Desert Camouflage Gun Wrap",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "4\" x 144\"",
+                "color": "Desert",
+                "name": "Camouflage Gun Wrap"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 2-pk 4\" x 144\" Desert Camo Gun Wrap",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "4\" x 144\"",
+                "color": "Desert",
+                "name": "Camo Gun Wrap"
+            },
+            "char_count": 47,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Self-Adhering, Reusable, Stretches To Any Shape, Heavy-Duty Fabric, Improves Grip, Quiets Clanking, Insulates Hands",
+            "char_count": 115,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Self Cling Reusable Fabric, Adhesive-Free, Conforms To Any Shape, Improves Grip, Quiets Clanking, Insulates Hands",
+            "char_count": 113,
+            "validation_error": null
+        }
+    }
+}

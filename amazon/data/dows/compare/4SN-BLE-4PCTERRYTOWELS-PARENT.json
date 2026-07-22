@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-BLE-4PCTERRYTOWELS-PARENT",
+    "asin": "B0FLMPKYS9",
+    "product_type": "TOWEL",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-BLE-4PCTERRYTOWELS-PARENT\nProduct Type: TOWEL\nBrand (from catalog): Beille\nExisting Title: Beille 4pc 100% Cotton Terry Classic Windowpane Dish Towels Set, 26.5 x 16 inches (2 Colors)\nDescription: These aren’t just pretty dish towels—they’re made to be used! Beille’s four pack of classic checkered cotton tea towels have been designed with everyday function in mind. Woven from 100% cotton, they offer just the right balance of softness and strength to handle a variety of daily kitchen tasks. From drying dishes or polishing glassware, to wiping down countertops and handling hot cookware, these towels are the hardworking essentials any kitchen can rely on.<br/><br/>The classic blue and white or black and white grid pattern brings a clean, classic aesthetic to any kitchen or food prep space: whether folded neatly over your oven handle, stacked on open shelving, or laid out for prep, each towel is made to tackle everyday kitchen needs like cleaning up spills or keeping hands dry. Each towel measures approximately 26.5 x 16 inches, the perfect size for everyday use. The traditional checkered pattern not only adds texture, but also brings a clean, fresh and bright look to any kitchen.<br/><br/>Whether you’re a seasoned cook or just need something dependable for daily use, these 100% cotton tea towels are kitchen basics done right—functional, washable and made to be used, again and again. And, whether you're hosting, gifting, or just giving your kitchen a quick refresh, these tea towels deliver both style and substance, one wipe at a time.<br/><br/>This four pack provides a matching set that’s easy to rotate through your routine, and even easier to care for: simply machine wash cold, tumble dry low, and they’re ready to go again. Seasoned chef or a busy home cook, these cotton tea towels offer reliable performance and classic style that fit effortlessly into any kitchen.\nSearch Terms: dish towel set; kitchen towel set; tea towels; kitchen essentials basics accessories; hostess gift; food meal prep; kitchen and table linens; housewarming gifts new home; farmhouse cottage core nautical decor; sourdough bread baking supplies; cooking\nFeatures:\n- 4PC DISH TOWELS SET: Set includes four identical tea towels for a clean, coordinated look and easy rotation throughout the week! These classic windowpane tea towels from Beille are extra plush and super absorbent, quickly making them a kitchen essentials item in any home\n- 100% COTTON: Woven from 100% cotton, these dish towels offer just the right balance of softness and strength to handle daily kitchen cooking, baking and meal prep tasks; gentle and non abrasive, these tea towels are safe to use on everything from Fine China to countertops\n- CLASSIC WINDOWPANE DESIGN: Boasting a bold and crisp white and blue or white and black grid pattern, each towel measures approximately 26.5 x 16 inches; the checkered woven pattern not only adds texture, but also brings a clean, fresh and bright look to any kitchen\n- KITCHEN BASICS: From drying dishes and polishing glassware, to wiping down countertops and handling hot cookware, these tea towels are the hardworking essentials you can rely on day in and day out; perfect for busy kitchens that never skip a beat!\n- KITCHEN BASICS: From drying dishes and polishing glassware, to wiping down countertops and handling hot cookware, these tea towels are the hardworking essentials you can rely on day in and day out; perfect for busy kitchens that never skip a beat!\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 4-pc 26.5x16 Blue and White Windowpane Dish Towels",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "pc",
+                "size": "26.5x16",
+                "color": "Blue and White",
+                "name": "Windowpane Dish Towels"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 4-pk 26.5x16 in Cotton Terry Dish Towels",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "26.5x16 in",
+                "color": "",
+                "name": "Cotton Terry Dish Towels"
+            },
+            "char_count": 47,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "100 Cotton, Classic Checkered Pattern, Absorbent And Soft, Machine Washable, Kitchen Essentials",
+            "char_count": 95,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "4 Pack, 100 Percent Cotton, Super Absorbent, Windowpane Check, Machine Washable, Kitchen Drying And Cleaning",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

@@ -3,14 +3,14 @@
     "asin": "B0B7ZTM6D5",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:20:01+00:00",
+    "generated_at": "2026-07-21T20:08:51+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -33,20 +33,57 @@
             "asin": "B0B7ZTM6D5",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 500g Cast Iron Gold Ingot Mold Bar",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 500 Gram Cast Iron Gold Ingot Mold",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 46,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "500",
+                "pack_size_unit": "gram",
+                "size": "",
+                "color": "black",
+                "name": "cast iron gold ingot mold"
+            }
         },
-        "title_differentiation": {
-            "value": "Heavy-Duty Cast Iron, 6.5\" Rectangular, Gold Panning & Jewelry Making",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 500-g Cast Iron Black Gold Ingot Mold",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 49,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "500",
+                "pack_size_unit": "g",
+                "size": "Cast Iron",
+                "color": "Black",
+                "name": "Gold Ingot Mold"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Heavy Duty Cast Iron, 500 Gram Capacity, 65 Inch Rectangular Bar, Gold Panning, Jewelry Making, Metal Casting",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 109,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "500 Gram Capacity, Heavy Duty Cast Iron, Rectangular Bar Mold, Great For Gold Panning, Jewelry Casting",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 102,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

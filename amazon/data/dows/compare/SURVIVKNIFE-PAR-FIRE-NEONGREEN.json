@@ -1,0 +1,60 @@
+{
+    "sku": "SURVIVKNIFE-PAR-FIRE-NEONGREEN",
+    "asin": "B074JZSSWQ",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SURVIVKNIFE-PAR-FIRE-NEONGREEN\nProduct Type: KNIFE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 11\" Fixed Blade Paracord Survival Knife Serrated with Fire Starter - Bright Green\nDescription: Be prepared while out in the wilderness with the ASR Outdoor Full Tang Hunting Knife. <br/><br/>This sturdy blade is constructed of one solid piece of stainless steel that won't rust, so you can count on it rain or shine. It features a 5.5\" tanto blade which is designed to puncture very hard materials. The reinforced blade will ensure that you can use it without worrying about snapping, and tanto blades are known for being easy to sharpen with a stone or a ceramic rod.<br/><br/>In addition to its durability, this blade is wrapped with paracord that will add comfort to the grip during use. The paracord can even be unwrapped to use as cordage in an emergency. The knife comes with a nylon sheath that can easily be attached to most belts as well as a magnesium fire starter so you can guarantee you'll have a light and heat source at all times. Due to its versatility, this is a must-have outdoor knife for hunters, campers and adventure enthusiasts alike.\nSearch Terms: best hunting knife paracord wrap survival knvies outdoor emergency wilderness gift fixed blade tactical tanto point camping accessories gear\nFeatures:\n- SURVIVAL KNIFE: Constructed from one solid piece of 440 rust resistant stainless steel; incredible durable and designed to puncture very hard materials\n- MAGNESIUM FIRE STARTER: Hunting knife comes with 4 inch fire starter striker that ensures light and heat sources in case of emergency\n- PARACORD WRAPPED KNIFE HANDLE: This knife features a paracord wrapped handle, ideal to have in any emergency situation in case of injury, for camping gear repairs, hunting and more\n- NYLON SHEATH: Knife comes with sturdy nylon sheath that can be easily attached to most belts, backpacks or other for easy transportation and importantly, safe storage when not in use\n- SPECIFICATIONS: Blade length: 5.5 inches; overall length: 11 inches; ideal for hunting, camping, trekking and to keep with in a survival kit\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 11\" Neon Green Fixed Blade Survival Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "11",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Neon Green",
+                "name": "Fixed Blade Survival Knife"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 11-in Bright Green Fixed Blade Survival Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "11",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Bright Green",
+                "name": "Fixed Blade Survival Knife"
+            },
+            "char_count": 57,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Paracord Wrapped Handle, Tanto Blade, Magnesium Fire Starter, Full Tang Stainless Steel, Nylon Sheath",
+            "char_count": 101,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "440 Rust Resistant Steel Full Tang 55\" Tanto Blade - Paracord Handle - Magnesium Fire Starter - Nylon Sheath",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

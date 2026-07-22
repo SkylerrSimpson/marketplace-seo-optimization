@@ -1,0 +1,60 @@
+{
+    "sku": "SON-FOLDKNIFE-PAKAWD-KC7098PW",
+    "asin": "B094C59NZ6",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-FOLDKNIFE-PAKAWD-KC7098PW\nProduct Type: KNIFE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Compact Stainless Steel Pocket Knife with Pakkawood Handle, 3 Inch\nDescription: Measuring just three (3) inches when closed, featuring an attractive Pakkawood handle and sharp stainless-steel blade, this ASR Outdoor pocket knife is perfect for an EDC item, to include with your camping gear, trekking gear or hiking gear, or as part of an emergency preparedness kit or survival bag.<br/><br/>The notable features of this fold-able pocket knife point to its material construction. First the stainless-steel blade: Boasting incredible strength, resistance to corrosion or rusting and a low maintenance material, this stainless-steel blade features all of the aforementioned qualities; with a long-life cycle and 100% recyclable, this ASR Outdoor EDC pocket knife will stay sharp and durable for years to come.<br/><br/>The other construction feature to note is the beautiful Pakkawood handle: also known as staminawood, colorwood or dymondwood, Pakkawood an engineered wood and plastic composite material, making it incredibly durable, standing up to lots of wear and tear; and, even though it looks like wood, it will not warp or absorb water.<br/><br/>Lightweight, compact and constructed from incredibly durable materials, this fold-able knife will remain in tip-top shape, never requiring you to compromise on weight, space or performance.<br/><br/>HOW TO MAINTAIN: The Pakkawood handle can be maintained with tung oil or mineral oil, the same materials used for any other wooden piece, simply buff with a soft cloth; to maintain the stainless-steel blade, clean like any other knife with soap and water, or stainless-steel wipes and always dry afterwards to avoid tarnishing\nSearch Terms: multi tool pocket knife army edc asr outdoor camping gear survival bug out bag stainless steel pakawood emergency supplies gadgets equipment tools prepper roadside kit hunting backpacking trekking hiking fishing tactical first aid\nFeatures:\n- COMPACT EDC POCKET KNIFE: Measuring just three (3) inches when closed, this ASR Outdoor pocket knife is perfect as an EDC item, to include with your camping gear or as part of an emergency preparedness kit or survival bag; lightweight and compact, never requiring you to sacrifice on space or weight\n- STAINLESS STEEL BLADE: Boasting incredible strength, resistance to corrosion or rusting and a low maintenance material, this stainless-steel blade features all of the aforementioned qualities; with a long-life cycle and 100% recyclable, this ASR Outdoor EDC pocket knife will stay sharp and in tip-top shape for years to come\n- DURABLE PAKKAWOOD HANDLE: The attractive handle is of dense Pakkawood also known as staminawood, colorwood or dymondwood an engineered wood and plastic composite material, making it incredibly durable, standing up to lots of wear and tear; and, even though it looks like wood, it will not warp or absorb water\n- HOW TO MAINTAIN: The Pakkawood handle can be maintained with tung oil or mineral oil, the same materials used for any other wooden piece, simply buff with a soft cloth; to maintain the stainless-steel blade, clean like any other knife with soap and water, or stainless-steel wipes and always dry afterwards to avoid tarnishing\n- SPECIFICATIONS: Blade length: 2.25 inches; Overall Length: 5.25 inches; Closed Length: 3 inches; Material: Pakkawood, stainless steel; Color: brown, silver\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 3 Inch Brown Compact Stainless Steel Pocket Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "Inch",
+                "size": "Compact",
+                "color": "Brown",
+                "name": "Stainless Steel Pocket Knife"
+            },
+            "char_count": 61,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 3 in Compact Stainless Steel Pocket Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "3 in",
+                "color": "",
+                "name": "Pocket Knife"
+            },
+            "char_count": 53,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Pakkawood Handle, EDC Folding Knife, Corrosion Resistant, Camping And Hiking Gear, Emergency Preparedness",
+            "char_count": 105,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Pakkawood Handle, Corrosion Resistant Stainless Steel Blade, 3 Inch Closed Length, Lightweight EDC, Camping And Survival",
+            "char_count": 120,
+            "validation_error": null
+        }
+    }
+}

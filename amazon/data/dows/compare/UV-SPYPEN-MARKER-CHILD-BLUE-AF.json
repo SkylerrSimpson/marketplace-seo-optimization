@@ -1,0 +1,60 @@
+{
+    "sku": "UV-SPYPEN-MARKER-CHILD-BLUE-AF",
+    "asin": "B095FTHCFC",
+    "product_type": "MARKING_PEN",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UV-SPYPEN-MARKER-CHILD-BLUE-AF\nProduct Type: MARKING_PEN\nBrand (from catalog): ASR Federal\nExisting Title: ASR Federal UV Security Highlighter Tracking Ink Pen Permanent Marker, Blue\nDescription: If neither digital or regular written communication are a viable or safe form of communication available to you, or you just want to try writing with an invisible ink pen, look no further than the ASR Federal Security Spy UV Invisible Ink Permanent Marker Pens. The spy pens can write invisibly on almost any dry surface, including metal, wood, plastic, paper, glass, paint, skin, clothing and even currency.<br/><br/>If digital or regular written communication are not a viable form of communication available, look no further than these UV invisible ink permanent marker pens. The invisible ink pens are ideal for making and communicating sensitive information, marking personal property or monitoring theft detection. They will come in handy in all sorts of espionage or covert situations.<br/><br/>The ASR Federal Security Spy UV Invisible Ink Permanent Marker Pens are waterproof, heat-proof and non-toxic and when written with, can only be revealed when illuminated by a UV light or black light source.<br/><br/>Lastly, the invisible ink pens are also safe and harmless, the spy pens are nontoxic, waterproof, heatproof and can mark over 2500 feet in length. <br/><br/>These invisible ink pens are excellent tools for local and federal governments alike, as the markings will remain invisible until illuminated under a UV light. Election certified invisible ink pens and markers are suitable for voting stations, ballot boxes and other election related events.\nSearch Terms: cash register bank teller counterfeit pen customer service worker usd grocery store currency highlighter fraud check criminal invisible marker passing fake bills spy clerk\nFeatures:\n- INVISIBLE INK PENS: If you need to stealthily communicate covert written messages or are trying to avoid a digital footprint, look no further than the ASR Federal Security Spy UV Invisible Ink Permanent Marker Pens; Ideal for making sensitive notes, marking personal property and theft detection, the permanent marker pens will come in handy in all sorts of espionage situations\n- ELECTION CERTIFIED: Used by local and federal government agencies; election certified invisible ink pens and markers for voting stations and election related events; the markings will remain invisible until illuminated under a UV light\n- UNDETECTABLE PERSONAL SECURITY: Due to the nature of the invisible ink, you can mark some of your most valuable personal property without damage; if altered or tampered with, reveal with a UV light or black light source\n- SAFE AND RELIABLE: The security theft detector pen is heat-proof, waterproof and completely non-toxic; properly stored with the cap enclosed the pen can mark over 2500 feet of words\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Federal UV Security Invisible Ink Pen Blue Marker",
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Blue",
+                "name": "UV Security Invisible Ink Pen Marker"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Federal Blue UV Invisible Ink Permanent Marker Pen",
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Blue",
+                "name": "UV Invisible Ink Permanent Marker Pen"
+            },
+            "char_count": 54,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Invisible Ink, UV Blacklight Reveal, Waterproof, Heat-proof, Non-toxic, 2500 Feet Coverage, Election Certified",
+            "char_count": 110,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Waterproof, Heat-Proof, Non-Toxic, Invisible Until UV Light, Marks Paper, Metal, Glass, Fabric, Clothing",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

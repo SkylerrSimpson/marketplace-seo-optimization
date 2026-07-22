@@ -3,14 +3,14 @@
     "asin": "B0BSGBWZCC",
     "product_type": "PRETEND_PLAY_TOY",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:11:48+00:00",
+    "generated_at": "2026-07-21T20:07:22+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -39,20 +39,57 @@
             "asin": "B0BSGBWZCC",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Disney Minnie Mouse Bowriffic 8pc Hair Styling Playset",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Disney Minnie Mouse 8pc Pink Hair Styling Playset",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 49,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "8",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Pink",
+                "name": "Minnie Mouse Hair Styling Playset"
+            }
         },
-        "title_differentiation": {
-            "value": "8 Pieces, Pretend Play, Ages 3+, Includes Mirror, Blow Dryer & Carry Tote",
+        "item_name_ai_openai": {
+            "value": "Disney 8-pc Minnie Mouse Hair Styling Playset",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 45,
+            "review_only": true,
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "8",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Minnie Mouse Hair Styling Playset"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Includes Mirror, Comb, Hair Clips, Blow Dryer, Curler, Lipstick, Carry Tote, Ages 3 And Up",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 90,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Mirror, Comb, Clips, Pretend Blow Dryer With Sound, Curler, Lipstick, Travel Tote, Ages 3 And Up",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 96,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

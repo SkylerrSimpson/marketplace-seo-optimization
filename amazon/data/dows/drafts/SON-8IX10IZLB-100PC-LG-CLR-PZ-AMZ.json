@@ -3,14 +3,14 @@
     "asin": "B0CL5LPSN6",
     "product_type": "STORAGE_BAG",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:54:52+00:00",
+    "generated_at": "2026-07-21T20:04:00+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 4,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -71,25 +71,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "8x10-100PC",
+            "value": "Resealable Storage Bags",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux 8x10 Clear Resealable Plastic Zip Bags 100 Pack",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux 100-Pack 8x10 Inch Clear Plastic Bags",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "100",
+                "pack_size_unit": "Pack",
+                "size": "8x10 Inch",
+                "color": "Clear",
+                "name": "Plastic Bags"
+            }
         },
-        "title_differentiation": {
-            "value": "100 Count, 2mm Thick, All-Purpose Storage & Organization",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux 100-Pack 8 x 10 In Clear Resealable Plastic Bags",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 59,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "100",
+                "pack_size_unit": "Pack",
+                "size": "8 x 10 In",
+                "color": "Clear",
+                "name": "Resealable Plastic Bags"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Self-Locking Zipper, 2Mm Thick, Resealable, Food Safe, Craft Organization, Storage And Jewelry",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 94,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "2Mm Thick, Single Zipper, All Purpose Storage, Great For Crafts, Beads, Toys, And Food, 100 Count",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 97,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

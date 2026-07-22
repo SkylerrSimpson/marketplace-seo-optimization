@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-MINITAPE-PATCHES-BLK-1PK-FBA",
+    "asin": "B07P13VX2L",
+    "product_type": "ADHESIVE_TAPES",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-MINITAPE-PATCHES-BLK-1PK-FBA\nProduct Type: ADHESIVE_TAPES\nBrand (from catalog): GEAR AID\nExisting Title: GEAR AID Tenacious Tape Mini Patches for Down Jacket Repair, Black 1.5”x2.5”\nDescription: Tenacious Tape repair tapes and patches are ready for nearly any kind of slash, rip, or cut. Use it on nylon, Silnylon, neoprene, GORE-TEX fabric, and more. Choose from variety of peel-and-stick or iron-on options that are washable and weatherproof. Backed by an ultra-aggressive adhesive, this tape won’t peel off when applied to technical fabrics including nylon and vinyl. Reach for Tenacious Tape whenever a tear or rip happens.\nSearch Terms: tenacious tape; gear aid; mini; patches; repair; rain gear; down; coat; puffy; kit; black; nylon; fix; clear; hole; tear; pants; backpack; gloves; rainwear; outerwear; peel and stick; fabric; air mattress; ski pants; easy to apply\nFeatures:\n- Repair holes and tears in down jackets, tents, rain gear and other outdoor gear with this fabric, peel-and-stick patch kit\n- Use this ultra-strong adhesive tape that permanently bonds to nylon, polyester, GORE-TEX fabric, and vinyl (not for cotton, denim or natural fabrics)\n- Cut to size and apply the patches on clean puffy coats, backpacks, ski pants, or gloves; includes six 1.5” x 2.5” and sealed with a waterproof coating\n- Choose from all black nylon, all clear, or a combination of black and clear patches; nearly invisible repairs that won’t peel off during a wash\n- Packaging may vary\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "GEAR AID Tenacious Tape Mini Patches Black 1.5\"x2.5\"",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "6",
+                "pack_size_unit": "pack",
+                "size": "1.5\"x2.5\"",
+                "color": "Black",
+                "name": "Tenacious Tape Mini Patches"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID Black Mini Patches 1.5x2.5 For Down Jacket Repair",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "1.5x2.5",
+                "color": "Black",
+                "name": "Mini Patches"
+            },
+            "char_count": 58,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Peel And Stick, Waterproof, Ultra-Strong Adhesive, Nylon And Gore-Tex Repair, Washable, Six Patches",
+            "char_count": 99,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Peel And Stick, Waterproof, Ultra Strong Adhesive, Cuts To Size, Works On Nylon Polyester GORE-TEX And Vinyl",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "NPT-CHRKNIFE-HWT257CH",
+    "asin": "B0CN657MRY",
+    "product_type": "SPORTING_GOODS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: NPT-CHRKNIFE-HWT257CH\nProduct Type: SPORTING_GOODS\nBrand (from catalog): ASR Tactical\nExisting Title: ASR Tactical 8.25\" Spear Point Full Tang Hunting Knife, Chrome\nDescription: The ASR Tactical spear point style knife is great for throwing. Being symmetrical in shape, it features a sharp tip that lines up with the blade’s center and will effortlessly pierce and stab. With a blade of just 3.5” in length and an overall length of 8.25”, it can easily fit inside of a pocket, backpack, or purse for quick deployment.<br/><br/>Our full tang blade features an ergonomic handle with a finger hook and comes with a sturdy black Kydex sheath so you can store the blade safely when not in use. The blade itself is constructed of heavy-duty stainless steel so you don’t need to worry about it rusting, making it great for outdoor use too.<br/><br/>This blade is a must-have tactical and self-defense tool for anyone who values their safety either indoors or outdoors. Its decorative design also makes it a great gift for knife collectors and enthusiasts.\nSearch Terms: small pocket knife gift for men fixed blade knives clip point kydex sheath utility knife hunting bugout tactical blades full tang camping tools outdoor gift for hunters\nFeatures:\n- 8.25\" FIXED BLADE KNIFE: Constructed from one solid piece of 3CR13 stainless steel, this full tang hunting knife is incredibly sturdy and durable\n- DOUBLE EDGE KNIFE BLADE: Symmetrical in shape, this fixed blade knife is well balanced, lightweight and features a spear point that lines up through the center of the full tang handle\n- OVERALL COMPACT SIZE: Measuring in with a 3.5” blade and an overall length is 8.25” this knife is easy to store in small spaces like pockets, backpacks, bags, or purses\n- 3CR13 STAINLESS STEEL: Made from highly durable, heavy duty steel that won’t rust, this knife is great for use indoors or outdoors; easy to clean; hand wash only. The ergonomic handle features a finger hook and weight reducing cut outs\n- STRONG KYDEX SHEATH: The ASR Tactical full tang knife comes with a sturdy black slim kydex sheath that can affix to your pocket or belt\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 8.25\" Chrome Spear Point Hunting Knife",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "8.25",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Chrome",
+                "name": "Spear Point Hunting Knife"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 8.25 in Spear Point Hunting Knife Chrome",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "8.25",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Chrome",
+                "name": "Spear Point Hunting Knife"
+            },
+            "char_count": 53,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Full Tang Fixed Blade, 3CR13 Stainless Steel, Compact 35\" Blade, Kydex Sheath, Self-Defense And Throwing",
+            "char_count": 104,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Full Tang 3CR13 Stainless Steel, Double Edge Spear Point, Kydex Sheath, Pocket Friendly, Finger Hook Handle",
+            "char_count": 107,
+            "validation_error": null
+        }
+    }
+}

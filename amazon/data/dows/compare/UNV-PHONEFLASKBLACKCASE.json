@@ -1,0 +1,60 @@
+{
+    "sku": "UNV-PHONEFLASKBLACKCASE",
+    "asin": "B01BVXICH2",
+    "product_type": "HIP_FLASK",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UNV-PHONEFLASKBLACKCASE\nProduct Type: HIP_FLASK\nBrand (from catalog): HomeWetBar\nExisting Title: Hidden 4oz Cell Phone Liquor Flask with Belt Case - 2 Pack\nDescription: The cell phone flask is the perfect way to bring a drink along with you. The best part is, nobody will know that you are not just simply holding onto your cell phone, but a flask filled with your favorite liquor.<br/><br/>These clever item looks just like a cell phone but hold 4 oz. each of your favorite beverage, making them an excellent choice for the big game or any other place where your thirst needs slaking. Polished chrome stainless steel construction; includes handsome and convenient realistic looking black leather case and belt clip. This undercover flask will make you the James Bond of drinking gadgets.\nSearch Terms: hip flask stainless steel silver trekking hiking snowboarding skiing backpacking camping gear RV camp kitchen beverage tailgating ASR Outdoor whiskey water alcohol gifts wilderness adventure groomsmen boating drinking cups campfire BBQ\nFeatures:\n- Black Leather Case with Belt Clip - 2 Pack\n- Covert Flask\n- Capacity: 4 oz.\n- Dimensions: 5\" x 2\" x 3/4\"\n- Great for Sporting Events, Concerts, and More!\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "HomeWetBar 2-Pack 4oz Black Cell Phone Flask with Case",
+            "tokens": {
+                "brand": "HomeWetBar",
+                "pack_size": "2",
+                "pack_size_unit": "Pack",
+                "size": "4oz",
+                "color": "Black",
+                "name": "Cell Phone Flask with Case"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "HomeWetBar 2-pk 4 oz Black Cell Phone Flask with Belt Case",
+            "tokens": {
+                "brand": "HomeWetBar",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "4 oz",
+                "color": "Black",
+                "name": "Cell Phone Flask with Belt Case"
+            },
+            "char_count": 58,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Stainless Steel Construction, Leather Belt Case, Covert Design, Sporting Events, Tailgating, Groomsmen Gift",
+            "char_count": 107,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Covert Design, Stainless Steel Build, 4 Oz Capacity, Black Leather Case With Belt Clip, Sporting Events Ready",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

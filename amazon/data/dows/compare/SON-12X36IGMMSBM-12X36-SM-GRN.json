@@ -1,0 +1,60 @@
+{
+    "sku": "SON-12X36IGMMSBM-12X36-SM-GRN",
+    "asin": "B00L87I646",
+    "product_type": "OUTDOOR_LIVING",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-12X36IGMMSBM-12X36-SM-GRN\nProduct Type: OUTDOOR_LIVING\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Green Miners Moss Sluice Box Matting Mining Equipment for Gold Prospecting, Unbacked 10mm, 12 x 36 inch\nDescription: Catch more gold with this woven vinyl miners moss in your sluice box from ASR Outdoor.<br/><br/>Using ASR Outdoor miners moss over your ribbed carpet makes your gold panning recovery efforts simple, easy, and effortless; this sluice box matting has proven to maximize the amount of gold trapped that is washed through your sluice box or dredging operation. With the ASR Outdoor Sluice Box Miners Moss you'll surely increase your gold prospecting recovery efforts.<br/><br/>This miners moss sluice box matting is an un-backed, extruded woven vinyl mesh arranged in a random loop pattern, sometimes referred to as noodle loop or spaghetti cushion gold prospecting matting. It is widely considered the best material for trapping gold flake and gold nuggets while allowing unwanted sediment to washout. The woven vinyl loop material contains thousands of gold traps throughout the entire length of the miners moss. Gold nuggets, pickers and even some finer gold will simply get stuck in the material. Once your raw pay dirt is run through, simply washout the miners moss over a gold pan or 5 gallon bucket. This essential gold panning tool will surely increase your gold prospecting recovery efforts.<br/><br/>Each roll of ASR Outdoor Gold Prospecting Miners Moss is 10mm thick, which will fit most standard sluice boxes, and comes in 3 size and color options. You can even cut it down to size if need be, as it can be cut easily in any direction, across the grain or lengthwise, giving it a universal fit for whichever sluice box you may be using. <br/><br/>To clean ASR Outdoor Gold Prospecting Miners Moss Matting, simply shake out or hose off, and reuse.<br/><br/>Sluice matting thickness: 10mm (.39\")\nSearch Terms: sluce box mat woven vinyl paydirt classifying gold pan equipment panning kit for adults dredge mining equipment tools prospector mining panning prospecting sifting tools sluice classifier screen set gem collecting hock hounding adventure mineral\nFeatures:\n- GOLD RECOVERY SLUICE BOX MATTING: Miners moss sluice box matting is the preferred choice of gold prospectors in their sluice boxes, dredges and high banker gold prosecting operations\n- THOUSAND OF GOLD TRAPS: Catch gold nuggets, pickers and even some finer gold throughout the entire length of the woven vinyl miners moss; it really works helping to increase the efficiency and over all yield in your gold panning and prospecting recovery efforts\n- UNIVERSAL FIT FOR SLUICE BOXES: Can be cut down to size as needed with a scissor or knife; available in different sizes and colors; sluice matting thickness: 10mm (.39\")\n- MATERIAL AND DESIGN: Miners moss is an un-backed, extruded woven vinyl mesh arranged in a random loop pattern, sometimes referred to as noodle loop or spaghetti cushion gold prospecting sluice matting\n- WASH, RINSE, REUSE, REPEAT: The clean up process has never been easier. Made to be durable and long lasting the ASR Outdoor miners moss sluice box matting is designed to be reused. Simply hose down and shake out in a 5 gallon bucket; its that simple\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 12x36 Green Miners Moss Sluice Box Matting",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "12x36",
+                "pack_size_unit": "in",
+                "size": "12x36",
+                "color": "Green",
+                "name": "Miners Moss Sluice Box Matting"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 12x36 in 10mm Green Miners Moss Sluice Box Matting",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "12x36",
+                "pack_size_unit": "in",
+                "size": "10mm",
+                "color": "Green",
+                "name": "Miners Moss Sluice Box Matting"
+            },
+            "char_count": 62,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "10Mm Woven Vinyl, Gold Trapping, Unbacked, Reusable, Cuts To Size, Gold Prospecting",
+            "char_count": 83,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Woven Vinyl Loop Mesh, Unbacked 10Mm Thickness, Traps Fine Gold And Nuggets, Cut-To-Size, Wash And Reuse",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

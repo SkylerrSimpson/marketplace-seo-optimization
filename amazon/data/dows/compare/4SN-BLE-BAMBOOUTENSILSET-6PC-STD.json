@@ -1,0 +1,56 @@
+{
+    "sku": "4SN-BLE-BAMBOOUTENSILSET-6PC-STD",
+    "asin": "B0GW9VWGF3",
+    "product_type": "SPOON",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-BLE-BAMBOOUTENSILSET-6PC-STD\nProduct Type: SPOON\nBrand (from catalog): Beille\nExisting Title: Beille 6pc Bamboo Wooden Cooking Utensil Set with Holder Nonstick Safe Kitchen Tools, Dishwasher Safe\nDescription: Bring function, utility and classic style to any kitchen with this bamboo wooden cooking utensil set with holder from Beille. Designed for everyday cooking, this six piece set includes essential wooden cooking utensils that make stirring, serving and meal prep effortless, while keeping your countertop organized and clutter free.<br/><br/>The set includes five kitchen tools: a solid bamboo spatula, two solid bamboo cooking spoons, and two slotted bamboo cooking spoons, along with a matching bamboo utensil holder for convenient storage and easy access.<br/><br/>Crafted from durable, renewable bamboo, these wooden cooking utensils are non scratch and safe for nonstick cookware, making them ideal for everyday stovetop use. The non scratch surface is safe for use with nonstick cookware, helping protect your pots and pans while cooking.<br/><br/>The clean, classic design pairs seamlessly with a wide range of kitchen styles, from modern farmhouse to minimalist spaces, making it a versatile addition to any home. The included holder keeps utensils upright, visible and always within reach for efficient cooking.<br/><br/>These wooden cooking utensils are safe for nonstick cookware and help prevent scratches while offering lightweight control for stirring, serving, sautéing, and every day cooking. This set is dishwasher safe for easy cleanup, though hand washing is highly recommended to help preserve the natural finish and extend the life of kitchen utensils over time.\nSearch Terms: Wooden cooking utensils nonstick safe scratch free kitchen utensil holder countertop organizer wood spatula spoon set eco friendly natural cooking tools bamboo wooden spoon rest alternative heat resistant serve stir mix saute farmhouse kitchen decor\nFeatures:\n- WOODEN COOKING UTENSIL SET WITH HOLDER: Complete 5 piece bamboo utensil set includes essential cooking tools plus a matching countertop utensil holder for organized, clutter free kitchens\n- NONSTICK SAFE AND SCRATCH FREE DESIGN: Smooth bamboo construction is gentle on cookware, making these wooden utensils safe for nonstick pans and everyday stovetop cooking\n- EASY COUNTERTOP ORGANIZATION: Keep kitchen countertops neat and functional with included bamboo holder; container keeps kitchen utensils upright, easy to identify and quickly within reach when cooking\n- NATURAL BAMBOO DURABILITY: Made from renewable bamboo sources, these kitchen utensils feature 100% bamboo construction that resists warping and cracking; ideal for stirring sauteing mixing and serving, this set supports a wide range of kitchen cooking tasks with ease\n- SPECIFICATIONS: Dimensions: 13 x 3.0 inches; Weight: 0.72lbs; Material: Renewable Bamboo; Dishwasher Safe: Yes, however hand washing is recommended\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 6pc Bamboo Wooden Cooking Utensil Set with Holder",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "6",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Bamboo Wooden Cooking Utensil Set with Holder"
+            },
+            "char_count": 56,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": null,
+            "tokens": null,
+            "char_count": null,
+            "validation_error": "no item_name returned"
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Nonstick Safe, Scratch Free, Dishwasher Safe, Bamboo Spatula And Spoons, Countertop Organizer, Eco Friendly",
+            "char_count": 107,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": null,
+            "char_count": null,
+            "validation_error": "no title_differentiation returned"
+        }
+    },
+    "raw": {
+        "openai": "Client error: `POST https://api.openai.com/v1/chat/completions` resulted in a `429 Too Many Requests` response:\n{\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-5.4-mini in organization org-el3QE531uTdEpv2furRUAnXD on (truncated...)\n"
+    }
+}

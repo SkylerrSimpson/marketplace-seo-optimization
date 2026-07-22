@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-BLE-CHAMPAGNEFLUTES-4PK-FBA",
+    "asin": "B0FV1172XR",
+    "product_type": "DRINKING_CUP",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-BLE-CHAMPAGNEFLUTES-4PK-FBA\nProduct Type: DRINKING_CUP\nBrand (from catalog): Beille\nExisting Title: Beille 9oz Stemless Glass Champagne Flutes Glassware Barware Made in USA (Assorted Pack Sizes) (4)\nDescription: Raise a glass to style and convenience Beille’s stemless champagne flutes, crafted in the USA.<br/><br/>Designed for both everyday use and special occasions alike, these sparkling wine glasses combine modern elegance with lasting durability. The stemless design provides a sleek, contemporary look, while also offering greater stability than traditional flutes, reducing the risk of tipping or breakage during parties, brunches, or intimate celebrations. Their crystal clear glass construction highlights delicate bubbles and pretty colors of champagne, prosecco, cava or sparkling wine cocktails, making every sip feel and taste celebratory.<br/><br/>Perfect for weddings, dinner parties, bridal showers, or weekend brunch with family and friends, these dishwasher safe champagne glasses make cleanup simple while retaining their clarity and brilliance after every wash. They are equally well suited for casual entertaining or formal toasts, ensuring they become one of the most versatile pieces of glassware in your collection.<br/><br/>An essential barware item for any home, these stemless flutes are designed to fit seamlessly into your existing collection and elevate every occasion with modern and elegant sophistication. Sold in sets of 4, 8 or 16, these sparkling wine glasses are perfect for hosting or gifting. Sante!\nSearch Terms: champagne flutes; cocktail prosecco mimosa champagne glasses; glassware; sparkling wine; wedding registry must haves; wedding gifts; housewarming gifts new home; party catering restaurant supplies; barware; mimosa bar supplies; bartender accessories\nFeatures:\n- CHAMPAGNE FLUTES: Celebrate every occasion in style with these stemless champagne flutes, made in the USA; designed for durability and everyday use, these sparkling wine glasses feature a modern stemless silhouette that is both elegant and practical\n- MODERN STEMLESS DESIGN: Modern and versatile stemless shape provides stability and reduces the risk of tipping or breaking compared to traditional and unsteady stemmed flute glasses\n- ESSENTIAL BARWARE ITEM: A must have for any home bar or glassware set, these stemless flutes are a timeless addition to your entertaining essentials; perfect for serving prosecco, champagne, sparkling wine and any sparkling wine cocktails like a French 75, Mimosa, Kir Royale and more\n- PERFECT FOR CELEBRATIONS: Ideal for weddings, dinner parties, New Year’s Eve soirees, mimosas at brunch or everyday sparkling wine or sparkling wine cocktail enjoyment; sold in sets of 4, 8 or 16, perfect for hosting or gifting\n- DISHWASHER SAFE: Designed for everyday convenience, these champagne glasses are dishwasher safe for quick and effortless cleanup, so you can spend more time enjoying your drink and less time hand washing\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 4-pk 9oz Stemless Champagne Flutes",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "9oz",
+                "color": "",
+                "name": "Stemless Champagne Flutes"
+            },
+            "char_count": 41,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 4-Pk 9oz Stemless Glass Champagne Flutes",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "9oz",
+                "color": "",
+                "name": "Stemless Glass Champagne Flutes"
+            },
+            "char_count": 47,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Made In USA, Dishwasher Safe, Modern Stemless Design, Sparkling Wine Glasses, Wedding Registry Must Have",
+            "char_count": 104,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Made In USA, Dishwasher Safe, Stable Stemless Design, Ideal For Prosecco And Mimosas, Wedding Brunch Entertaining",
+            "char_count": 113,
+            "validation_error": null
+        }
+    }
+}

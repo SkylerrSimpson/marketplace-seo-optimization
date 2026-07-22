@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-HAIRNAIL-LIP-ACCESSORYKIT",
+    "asin": "B08LF1VB5C",
+    "product_type": "LIP_BALM",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-HAIRNAIL-LIP-ACCESSORYKIT\nProduct Type: LIP_BALM\nBrand (from catalog): Townley Girl\nExisting Title: Disney Frozen 2 Girls Makeup Cosmetic Hair Accessories Gift Set with Keychain Lip Balm\nDescription: The Frozen 2 Girls Cosmetics Beauty Makeup Gift Set Lip Balm Tote Bag will give your little one a perfect icy cool manicure or pedicure and beauty look in all of Arendelle. Featuring some of their favorite characters from Frozen 2, this cosmetics nail and lip kit provides all the beauty basics for any young Frozen 2 fan. <br/><br/>Included in the Frozen 2 Tote Bag Beauty Kit is an icy blue nail polish, multiple lip moisturizers and anti-tangle hair elastic, that conveniently all fit in the included handy zipper closure tote bag, making it easy and great to travel with. Each item comes adorned with some of your child’s favorite characters from Disney’s Frozen 2 movies, like Queen Elsa, Princess Anna, Olaf and the mischievous spirit of fire, Bruni.<br/><br/>The items in this cosmetic kit are completely safe and non-toxic. The water-based formula of these Disney Frozen 2 nail polishes makes for an easy clean up, no harsh nail polish remover needed. The nail polish formula dries quickly so your little princess will not have to wait to start pretending they are their own Queen Elsa or Princess Anna. Once the polish is dry, simply peel off the polish and then they are given a blank canvas to paint their next nail art masterpiece. <br/><br/>With an easy to carry tote bag provided with the great Frozen 2 beauty kit your princess will always be prepared for the icy cold weather of winter with the multiple lip care items and the no-crease spiral hair tie included. The harness clip on the Frozen 2 lip balm helps your little one not to misplace it while on their frosty adventures. The no-crease spiral hair tie prevents tangling and consequently prevents hair breakage when removed\nSearch Terms: Elsa Anna Olaf Kristoff Sven Frozen Movie Disney 2 sequel Ice princess palace Make believe dress up beauty parties sleepovers birthday gifts for girls kids Arendelle nail polish glossy finish non-toxic brush on quick dry manicure pedicure peel off\nFeatures:\n- AN ICY LOOK FOR EVERY PRINCESS: The Disney Frozen 2 Girls Cosmetics Beauty Makeup Gift Set includes an icy blue nail polish, multiple lip moisturizers, an anti-tangle hair elastic, along with a handy tote bag making this kit easy to travel with; Each beauty kit comes adorned with some of your child’s favorite characters from Disney’s Frozen II like Queen Elsa, Princess Anna, Olaf and the mischievous spirit of fire, Bruni\n- SAFE & NON-TOXIC: This Disney Frozen 2 Beauty gift set with zipper closure tote bag bag is ideal for any princess in training! The non-toxic water-based shiny nail polish makes it a breeze to clean up messes your little manicurist may have made perfecting her look; And, if your little one wants another pampering manicure or pedicure, simply peel off the dried polish to remove it from nails\n- ENCOURAGES IMAGINATIVE PLAY: Whether at a sleepover slumber party, pretending to attend a royal ball or a fun dress up play date, your little one will be ready to sparkle and enchant with Elsa and Anna using this Disney Frozen 2 Lip balm and Nail Polish Tote bag set\n- LIP BALM WITH KEYCHAIN: Keep your little one’s lips moisturized in the cold, icy months of winter with the lip care items included in this kit; The lip balm comes with a convenient backpack clip, so it is also close by when your princess is on the go at school or attending extracurricular activities; the lip balm and lip gloss feature the beloved Arendelle sisters, Queen Elsa and Princess Anna\n- SPECIFICATIONS: Nail Polish 0.14 Fl OZ; Age: 3+; Warning: Avoid Eye Contact, Do not ingest, If irritations occur discontinue use; Officially licensed product\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Townley Girl Disney Frozen 2 Cosmetics Beauty Gift Set",
+            "tokens": {
+                "brand": "Townley Girl",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Icy Blue",
+                "name": "Disney Frozen 2 Cosmetics Beauty Gift Set"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Townley Girl Frozen 2 Lip Balm Gift Set",
+            "tokens": {
+                "brand": "Townley Girl",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Frozen 2 Lip Balm Gift Set"
+            },
+            "char_count": 39,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Nail Polish, Lip Balm, Hair Elastic, Tote Bag, Non-Toxic, Water-Based, Peel-Off, Keychain Clip",
+            "char_count": 94,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Non-Toxic Lip Moisturizers, Keychain Clip, Tote Bag, Anti-Tangle Hair Elastic, Travel Friendly, Ages 3 And Up",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

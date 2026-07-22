@@ -1,0 +1,60 @@
+{
+    "sku": "SON-35IBPKDPP-SML-BLCK",
+    "asin": "B016VMCRYM",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-35IBPKDPP-SML-BLCK\nProduct Type: KNIFE\nBrand (from catalog): ASR Outdoor\nExisting Title: Small Utility Folding Pocket Knife Diamond Plate Pattern Handle Black\nDescription: Measuring just three inches when closed, boasting a textured grip with ergonomic handle and a full blackout colorway, this ASR Outdoor pocket knife is perfect for an EDC item, to include with your camping gear, trekking gear or hiking gear, or as part of an emergency preparedness kit or survival bag.<br/><br/>The notable features of this fold-able pocket knife point to its design. First, the handle: this ASR Outdoor compact fold-able pocket knife features a black, textured handle or scale for comfort and grip. The pocket knife also comes with a lock back, hole for lanyard to wrist strap, a metal clip to keep the knife secure to you, bags, pockets and more, as well as an ergonomic handle design; with two defined finger groves, to give you superior comfort and grip when handling, as well as a small guard to protect against slippage and sharp edges.<br/><br/>The second design feature we can't overlook is the full blackout colorway: Both the blade and scale of this folding lock back pocket knife are completely black, lending itself to those looking for a stealthier and streamline visual aesthetic for their EDC pocket knife. Notably, the black knife blade also features a partially serrated edge, great for cutting through smaller branches, rope and other dense or coarse material.<br/><br/>Lightweight, compact and constructed from durable materials, this fold-able knife will remain in tip-top shape, never requiring you to compromise on weight, space or performance.\nSearch Terms: EDC pocket knife folding army multi tool black camping gear accessories supplies equipment fishing hunting backpacking trekking climbing hiking survival kit first aid emergency roadside prepper bug out bag disaster stuff metal for preparedness\nFeatures:\n- COMPACT EDC POCKET KNIFE: Measuring just three (3) inches when closed, this ASR Outdoor pocket knife is perfect as an EDC item, to include with your camping gear or as part of an emergency preparedness kit or survival bag; lightweight and compact, this pocket knife will never require you to sacrifice on space or weight\n- TEXTURED HANDLE WITH METAL CLIP: This ASR Outdoor compact fold-able pocket knife features a black, textured handle or scale for comfort, grip and excellent handling; the pocket knife also comes with a lock back, hole for lanyard to wrist strap, as well as metal clip to keep the knife secure to you, bags, pockets and more\n- ERGONOMIC HANDLE DESIGN: In addition to the textured scale, this folding pocket knife also features a durable plastic handle with two defined finger groves, to give you superior comfort and grip when handling, as well as a small guard to protect against slippage and sharp edges\n- FULL BLACKOUT COLOR: Both the blade and scale of this folding lock back pocket knife are completely black, lending itself to those looking for a stealthier and streamline visual aesthetic for their EDC pocket knife; notably, the blade also comes with a partial serrated edge, great for cutting through smaller branches, rope and coarse material\n- SPECIFICATIONS: Blade Length: 2-3/8 inches; Blade Thickness: 1/32 inches; Folded Length: 3.5 inches; Product Dimensions: 2.4 x 6 x 4.2 inches; Color: Black\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Small Black Folding Pocket Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Small",
+                "color": "Black",
+                "name": "Folding Pocket Knife"
+            },
+            "char_count": 44,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Small Black Utility Folding Pocket Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Small",
+                "color": "Black",
+                "name": "Utility Folding Pocket Knife"
+            },
+            "char_count": 52,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "3 Inch EDC, Ergonomic Handle, Partially Serrated Blade, Lockback, Metal Clip, Lanyard Hole",
+            "char_count": 90,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Textured Grip, Lock Back, Partial Serrated Blade, Metal Clip, Lanyard Hole, Ergonomic Handle, Compact EDC",
+            "char_count": 105,
+            "validation_error": null
+        }
+    }
+}

@@ -3,14 +3,14 @@
     "asin": "B0GYV3JJQ7",
     "product_type": "CARRIER_BAG_CASE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:47:31+00:00",
+    "generated_at": "2026-07-21T20:01:23+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -33,20 +33,57 @@
             "asin": "B0GYV3JJQ7",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 3L Dry Sack with Roll Top, Blue Waterproof",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 3L Small Blue Waterproof Dry Sack",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 45,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "L",
+                "size": "Small",
+                "color": "Blue",
+                "name": "Waterproof Dry Sack"
+            }
         },
-        "title_differentiation": {
-            "value": "Lightweight, compact, waterproof storage for kayaking, camping, hiking",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 3-L Small Blue Dry Sack",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 35,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "L",
+                "size": "Small",
+                "color": "Blue",
+                "name": "Dry Sack"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Roll Top Closure, Lightweight Compact Design, 210T Material, Double Stitched Seams, Kayaking Camping Hiking Boating",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 115,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Waterproof Roll-Top Closure, Lightweight 210T Material, Reinforced Double-Stitched Seams, Phone Wallet Key Protection",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 117,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

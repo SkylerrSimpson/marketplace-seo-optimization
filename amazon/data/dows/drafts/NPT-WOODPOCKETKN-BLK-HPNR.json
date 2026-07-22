@@ -3,14 +3,14 @@
     "asin": "B01MEHCYMA",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:18:34+00:00",
+    "generated_at": "2026-07-21T19:51:15+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 10,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -163,25 +163,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "PBK203",
+            "value": "Buckshot PBK203",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Wartech Buckshot Spring Assisted Pocket Knife 8in Black Wood",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Wartech 8in Black Wood Pocket Knife Spring Assisted",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Wartech",
+                "pack_size": "8",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black Wood",
+                "name": "Pocket Knife Spring Assisted"
+            }
         },
-        "title_differentiation": {
-            "value": "Thumb Open, 3CR13 Stainless Steel Blade, Belt Clip, Drop Point",
+        "item_name_ai_openai": {
+            "value": "Wartech 8 in Black Spring Assisted Pocket Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 47,
+            "review_only": true,
+            "tokens": {
+                "brand": "Wartech",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "8 in",
+                "color": "Black",
+                "name": "Spring Assisted Pocket Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Spring Assisted, 3CR13 Stainless Steel Blade, Black Wood Inlay Handle, Belt Clip, Drop Point, Right Hand Thumb Open",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 115,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "3CR13 Stainless Steel Drop Point Blade, Stainless Steel Handle With Black Wood Inlay, Thumb Open, Belt Clip",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B0065MWQ0Y",
     "product_type": "TOWEL",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:42:38+00:00",
+    "generated_at": "2026-07-21T19:32:39+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 16,
         "catalog": 17,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -364,22 +364,59 @@
             "value": "Quick Dry Microfiber Towel",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Gear Aid Quick Dry Microfiber Towel, XL 35x62, Nav Green",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "GEAR AID Outgo Microfiber Towel 35 x 62 in OG Green",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "35 x 62 in",
+                "color": "OG Green",
+                "name": "Outgo Microfiber Towel"
+            }
         },
-        "title_differentiation": {
-            "value": "Compact, lightweight, fast-drying, snap loop, camping & sports",
+        "item_name_ai_openai": {
+            "value": "GEAR AID 35 x 62 in OG Green Microfiber Towel",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 45,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "35 x 62 in",
+                "color": "OG Green",
+                "name": "Microfiber Towel"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Microfiber Construction, Quick-Drying, Lightweight And Compact, Travel-Friendly, Absorbent",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 90,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Quick Drying, Super Absorbent, Lightweight, Compact, Soft Touch, Travel Ready, Easy Care, Durable, Packable",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "pesticide_marking": {
             "value": [

@@ -3,14 +3,14 @@
     "asin": "B0F259C4KJ",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:21:40+00:00",
+    "generated_at": "2026-07-21T19:52:38+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 11,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -200,7 +200,7 @@
             "value": "Stainless Steel",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
             "value": "8 Inch",
@@ -208,20 +208,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 8\" Harpoon Point Full Tang Fixed Blade Knife",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 8 Inch Harpoon Point Fixed Blade Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "",
+                "name": "Harpoon Point Fixed Blade Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "440 Stainless Steel, Wood Handle, Belt Loop Sheath, Survival & Hunting",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 8 in Harpoon Point Fixed Blade Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 48,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "8 in",
+                "color": "",
+                "name": "Harpoon Point Fixed Blade Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Full Tang, 440 Stainless Steel, Wood Handle, Belt Loop Sheath, Survival And Hunting",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 83,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Full Tang Construction, 440 Stainless Steel Blade, Wood Handle, Belt Loop Sheath, Corrosion Resistant, Thumb Ramp",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 113,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

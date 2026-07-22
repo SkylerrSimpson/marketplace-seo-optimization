@@ -3,14 +3,14 @@
     "asin": "B0CM1XLMMW",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:41:51+00:00",
+    "generated_at": "2026-07-21T19:59:04+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -31,28 +31,65 @@
             "value": "Multicolor",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
-            "value": "8.5 Inches",
+            "value": "8.5 Inch",
             "is_required": false,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 8.5\" Sand Sifting Sieve Beach Combing Tool",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 4-Pack Sand Sifting Beach Combing Sieve",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "Pack",
+                "size": "8.5 inch",
+                "color": "Multi-Color",
+                "name": "Sand Sifting Beach Combing Sieve"
+            }
         },
-        "title_differentiation": {
-            "value": "36 holes/sq inch, stackable design, 4 vibrant colors, durable plastic",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 8.5 in Sand Sifting Beach Combing Screen",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 52,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "8.5 in",
+                "color": "",
+                "name": "Sand Sifting Beach Combing Screen"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Stackable Design, 36 Holes Per Square Inch, Durable Plastic, Kids And Beginners, Blue Green Yellow Red",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 102,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "36 Holes Per Square Inch, Stackable Bucket Top Design, Rustproof Plastic, Kids And Beginner Friendly, 4 Vibrant Colors",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 118,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

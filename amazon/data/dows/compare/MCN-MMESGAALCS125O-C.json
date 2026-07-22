@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-MMESGAALCS125O-C",
+    "asin": "B002AQWOTW",
+    "product_type": "OUTDOOR_RECREATION_PRODUCT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-MMESGAALCS125O-C\nProduct Type: OUTDOOR_RECREATION_PRODUCT\nBrand (from catalog): McNett\nExisting Title: Sea Gold Anti Fog Gel and Lens Mask Visor Cleaning Solution 1.25 oz\nDescription: When you are scuba diving or snorkeling, there is nothing more annoying than a fogged-up dive mask. So why mess around with just any anti-fog treatment? De-fog with Sea Gold.<br/><br/>Sea Gold by is a powerful formula that lasts longer than other anti-fog treatments. Its highly concentrated, so a little goes a long way. And it is even effective through multiple dives. Sea Gold is easy to throw in your pocket for quick use in any water temperature and in any conditions. It is safe for glass and plastic lenses, and will not harm silicone or rubber mask frames.<br/><br/>Avid scuba divers, instructors and professional gear testers alike agree: Sea Gold is the best anti-fog treatment out there. Use Sea Gold and you will enjoy diving as it was meant to be: completely fog-free.\nSearch Terms: scuba anti fog drops defogger anti fog mask anti fog goggles\nFeatures:\n- Highly concentrated anti-fog gel\n- Powerful, long lasting formula provides fog-free protection\n- Non-abrasive; safe for all glass and plastic lenses\n- Will not harm surrounding silicone or rubber support frames\n- Works in all water temperatures\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "McNett Sea Gold Anti Fog Gel 1.25 oz",
+            "tokens": {
+                "brand": "McNett",
+                "pack_size": "1.25",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "",
+                "name": "Sea Gold Anti Fog Gel"
+            },
+            "char_count": 36,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "McNett 1.25-oz Sea Gold Anti Fog Gel",
+            "tokens": {
+                "brand": "McNett",
+                "pack_size": "1.25",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "",
+                "name": "Sea Gold Anti Fog Gel"
+            },
+            "char_count": 36,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Highly Concentrated, Long-Lasting Formula, Safe For Glass And Plastic, Works All Water Temperatures",
+            "char_count": 99,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Highly Concentrated Anti Fog Gel, Long Lasting Fog Free Protection, Safe For Glass And Plastic, Works In All Water Temperatures",
+            "char_count": 127,
+            "validation_error": "value exceeds maxLength 125 (127 chars)"
+        }
+    }
+}

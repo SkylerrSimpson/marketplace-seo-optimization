@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-GATTMCFSTP-2PC-3X5-CLR",
+    "asin": "B00W133LF0",
+    "product_type": "ADHESIVE_TAPES",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-GATTMCFSTP-2PC-3X5-CLR\nProduct Type: ADHESIVE_TAPES\nBrand (from catalog): GEAR AID\nExisting Title: Gear Aid Tenacious Tape Max Clear Flex Stretch TPU Patches UV Resistant\nDescription: Fixing heavy-duty tears on outdoor fabric and vinyl furniture has never been easier with Tenacious Tape Flex Patches. It's a durable, vinyl repair tape that won't puncture or peel. This patch kit includes two patches that are weatherproof and resistant to abrasion. The super aggressive adhesive provides a permanent bond and sticks on to almost any dry surface. As a clear, strong tape with an airtight and watertight seal, it makes an ideal vinyl repair patch for outdoor gear and furniture. When only the toughest will do, reach for Tenacious Tape Flex Patches.\nSearch Terms: Patches Repair Stretch Tenacious Tape Gear Aid\nFeatures:\n- Repair a tear in a PVC inflatable, vinyl furniture seat, air mattress, or other outdoor gear with an ultra-strong, flexible patch\n- Peel-and-stick to make nearly invisible, weatherproof repairs to all types of vinyl and synthetic fabric materials; no sewing or iron on application required\n- Use this heavy-duty patch, which stretches and flexes with fabric; resistant to punctures for a permanent repair you can count on\n- Bring this repair kit in your pack; includes two 3\" x 5\" clear, pre-cut patches and backed by a strong adhesive\n- Packaging may vary\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Gear Aid Tenacious Tape Max Clear Flex Stretch Patches",
+            "tokens": {
+                "brand": "Gear Aid",
+                "pack_size": "2",
+                "pack_size_unit": "pc",
+                "size": "3x5",
+                "color": "Clear",
+                "name": "Tenacious Tape Flex Patches"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID 3\" x 5\" Clear Flex TPU Patches",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "3\" x 5\"",
+                "color": "Clear",
+                "name": "Flex TPU Patches"
+            },
+            "char_count": 39,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "2-Pack 3X5 Inch, UV Resistant, Waterproof, Heavy-Duty Vinyl Repair, Peel-and-Stick, No Sewing Required",
+            "char_count": 102,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Weatherproof Vinyl Repair, Stretchable TPU, Strong Permanent Adhesive, Puncture Resistant, Airtight Watertight",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}

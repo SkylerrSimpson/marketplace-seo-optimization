@@ -3,14 +3,14 @@
     "asin": "B0FCQGQ76J",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:01:06+00:00",
+    "generated_at": "2026-07-21T20:05:24+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -31,28 +31,65 @@
             "value": "Plastic",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
-            "value": "16 Piece",
+            "value": "16-Piece",
             "is_required": false,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 16pc Gold Prospecting Equipment Kit with Pans",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 16pc Gold Prospecting Equipment Field Kit",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "16",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Gold Prospecting Equipment Field Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "3 Gold Pans, Classifier Screens, Magnetic Separator, Recovery Tools",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 16-pc Gold Prospecting Equipment Field Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 54,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "16",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Gold Prospecting Equipment Field Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "3 Gold Pans, Classifier Screens, Magnetic Separator, 3-In-1 Shovel, Fine Gold Recovery Tools",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 92,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Three Gold Pans, Four Stackable Classifier Screens, 16Lb Black Sand Magnet, 3-In-1 Shovel, Fine Gold Recovery Tools",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 115,
+            "review_only": true
         },
         "pesticide_marking": {
             "value": [

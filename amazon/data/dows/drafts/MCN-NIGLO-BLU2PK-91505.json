@@ -3,14 +3,14 @@
     "asin": "B08C6Z5JW1",
     "product_type": "KEYCHAIN",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:21:11+00:00",
+    "generated_at": "2026-07-21T19:52:22+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 11,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -164,20 +164,57 @@
             "asin": "B08C6Z5JW1",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "GEAR AID Ni Glo Glow in Dark Keychain, Blue, 2-Pack",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "GEAR AID Ni Glo 2-pk 2\" Blue Glow in the Dark Keychain",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "2\"",
+                "color": "Blue",
+                "name": "Glow in the Dark Keychain"
+            }
         },
-        "title_differentiation": {
-            "value": "Waterproof, Rechargeable, Glows 2 hrs, Up to 50m Depth",
+        "item_name_ai_openai": {
+            "value": "GEAR AID 2-pk 2\" Blue Glowing Keychain",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 38,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "2\"",
+                "color": "Blue",
+                "name": "Glowing Keychain"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Waterproof To 50M, Glows 25Ft, Recharges In 10Min, IPX8 Rated, Camping And SCUBA",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 80,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Glows For Hours, Charges In 10 Minutes, IPX8 Waterproof, Visible To 25 Ft, Underwater To 50 Meters, Tritium-Free",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 112,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

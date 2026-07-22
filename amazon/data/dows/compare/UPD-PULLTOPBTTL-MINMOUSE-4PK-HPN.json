@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-PULLTOPBTTL-MINMOUSE-4PK-HPN",
+    "asin": "B08YGRYHRV",
+    "product_type": "BOTTLE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-PULLTOPBTTL-MINMOUSE-4PK-HPN\nProduct Type: BOTTLE\nBrand (from catalog): Zak Designs\nExisting Title: 4-Pack Disney Minnie Mouse Star 16oz Pull-Top Squirt Water Bottles, Pink/Blue, BPA-Free\nDescription: Stay hydrated with the Minnie Mouse Pull-Top Water Bottles. Makes a great sports bottle so you can bring it you when you run, in car rides; is also a cute and handy running water bottle to bring to school for kids. The easy lid makes it practical to chug down water easily without splashing water on yourself while the wide mouth allows you to reach down with brushes for thorough cleaning. The classic pink Minnie Mouse Bottle is a cute kids water bottle to bring to school and great as a sports running bottle. A cute way to hold your water and keep it in your bedside to stay hydrated. Stuff this attractive pink Minnie Mouse water bottle in a backpack, as the size and capacity fits nicely with your things, or carry around by the easy bottle shape grip. Minnie Mouse fans will absolutely love this Pull-Top Squirt Minnie Water bottle. Ideal for Disney fans who love the cute classic fictional character, for those collecting Minnie Mouse themed merchandise and other Disney products. An attractive Disney water bottle to hold cool liquids for athletes, bikers, hikers and a durable water bottle to bring to the gym, school, or outings. The Minnie Mouse kids sport water bottle is made of durable reusable plastic that's also easy-to-clean, thanks to its wide-mouth removable lid and kid-friendly. The plastic wide mouth water bottles have a vibrant pink color featuring a cute sketch of Minnie Mouse and each can hold 16 ounces of liquid which makes it a great water bottle to keep you cool during a hot weather. Includes 1 Pink Minnie Mouse 16oz Pull-Top Squirt Water Bottles for school with a detachable wide-mouth lid plus a firm, easy to open cap on top with a comfortable grip for easy hand carrying. The pull-top water bottle features a screw-top lid with pull-out water valve for comfortable drinking, and the shape of the bottle makes it convenient to carry around or in a lunchbox.\nSearch Terms: (none)\nFeatures:\n- THE MINNIE MOUSE BOTTLE FOR KIDS COMES WITH A UNIQUE DESIGN YOU WILL LOVE - The classic pink Minnie Mouse Bottle is a cute kids water bottle to bring to school and great as a sports running bottle. A cute way to hold your water and keep it in your bedside to stay hydrated. Stuff this attractive pink Minnie Mouse water bottle in a backpack, as the size and capacity fits nicely with your things, or carry around by the easy bottle shape grip.\n- THE MINNIE MOUSE WATER BOTTLE IS FOR MINNIE MOUSE FANS - Minnie Mouse fans will absolutely love this Pull-Top Squirt Minnie Water bottle. Ideal for Disney fans who love the cute classic fictional character, for those collecting Minnie Mouse themed merchandise and other Disney products. An attractive Disney water bottle to hold cool liquids for athletes, bikers, hikers and a durable water bottle to bring to the gym, school, or outings.\n- INCLUDED WITH THE PURCHASE OF THE MINNIE MOUSE WATER BOTTLE - Includes 1 Pink Minnie Mouse 16oz Pull-Top Squirt Water Bottles for school with a detachable wide-mouth lid plus a firm, easy to open cap on top with a comfortable grip for easy hand carrying. The pull-top water bottle features a screw-top lid with pull-out water valve for comfortable drinking, and the shape of the bottle makes it convenient to carry around or in a lunchbox.\n- HIGH-QUALITY DISNEY WATER BOTTLE - The Minnie Mouse kids sport water bottle is made of durable reusable plastic that's also easy-to-clean, thanks to its wide-mouth removable lid and kid-friendly. The plastic wide mouth water bottles have a vibrant pink color featuring a cute sketch of Minnie Mouse and each can hold 16 ounces of liquid which makes it a great water bottle to keep you cool during a hot weather.\n- IDEAL USE FOR THE MINNIE MOUSE CHILDRENS WATER BOTTLE - Stay hydrated with the Minnie Mouse Pull-Top Water Bottles! Makes a great sports bottle so you can bring it you when you run, in car rides; is also a cute and handy running water bottle to bring to school for kids. The easy lid makes it practical to chug down water easily without splashing water on yourself while the wide mouth allows you to reach down with brushes for thorough cleaning.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Zak Designs 4-Pack Minnie Mouse 16oz Pull-Top Water Bottles",
+            "tokens": {
+                "brand": "Zak Designs",
+                "pack_size": "4",
+                "pack_size_unit": "Pack",
+                "size": "16oz",
+                "color": "Pink/Blue",
+                "name": "Minnie Mouse Pull-Top Water Bottles"
+            },
+            "char_count": 59,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Zak Designs 4-Pk 16oz Pink/Blue Minnie Mouse Squirt Water Bottles",
+            "tokens": {
+                "brand": "Zak Designs",
+                "pack_size": "4",
+                "pack_size_unit": "Pk",
+                "size": "16oz",
+                "color": "Pink/Blue",
+                "name": "Squirt Water Bottles"
+            },
+            "char_count": 65,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Pull-Top Squirt Lid, Wide-Mouth Design, BPA-Free, Easy-Clean, Durable Reusable Plastic",
+            "char_count": 86,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "BPA-Free Reusable Plastic, Wide-Mouth Removable Lid, Pull-Top Spill-Resistant Valve, Easy-Carry Grip",
+            "char_count": 100,
+            "validation_error": null
+        }
+    }
+}

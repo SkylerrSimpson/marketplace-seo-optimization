@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-BLE-SSCHEESEGRATER-9IN",
+    "asin": "B0CP4KJJWV",
+    "product_type": "FOOD_GRATER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-BLE-SSCHEESEGRATER-9IN\nProduct Type: FOOD_GRATER\nBrand (from catalog): Beille\nExisting Title: Beille Stainless Steel 6 Side Cheese Grater with Handle Kitchen Gadgets, 9in\nDescription: Zest, slice, grate, ribbon! The meal prep, cooking and baking possibilities are endless with Beille’s six sided stainless steel cheese grater. Featuring a sturdy top handle and non slip base, its functional design ensures a secure and comfortable grip with each and every use. And, with six versatile sides to choose from, effortlessly achieve everything from lemon zest, chocolate shavings, cheese slices or grated vegetables with just a few quick and easy swipes! Each side provides a different desired result depending on what your recipe calls for: Fine (Zester): Ideal for shredding nutmeg, Parmesan, garlic, citrus, fruit zests and more Slice: Make crisp slices from vegetables and medium sized cheeses Arc Slice: Ideal for chocolate, Parmesan and small vegetable ribbons for salad Medium: Make crisp slices from cucumbers, radishes and more Coarse: Great for shredding firm vegetables, medium & hard cheese, ginger or chocolate Square: Great for shredding hard vegetables and cheeses Made from quality stainless steel, the ginger graters material construction will ensure longevity in the kitchen; it features sharpened blades for effortless grating and maximum durability. Once you are done prepping all of your ingredients, the Beille hexagon stainless steel box grater can easily be washed with soap and water or placed on the top rack of your dishwasher. A must have home essentials item and kitchen gadget in any kitchen for the chef or home cook!\nSearch Terms: Cheese Grater\nFeatures:\n- CHEESE GRATER: Beille’s stainless steel cheese grater features a sturdy top handle and non slip base, ensuring a secure and comfortable grip; with six versatile sides to choose from, lemon zest, chocolate shavings or grated vegetables will make food prep, cooking or baking a breeze\n- STAINLESS STEEL: Made from quality stainless steel, the ginger graters material construction will ensure longevity in the kitchen; it features sharpened blades for effortless grating and maximum durability\n- VERSATILE BOX GRATER: With six different side panels to choose from, prepare both soft and hard cheeses effortlessly, extract maximum flavor from citrus with a dedicated zester side, grate breadcrumbs or ginger using finer mesh, or slice vegetables using the slicer plane\n- DISHWASHER SAFE: Beille’s six side cheese grater with handle is dishwasher safe, making for a quick and easy clean up after meal prep, cooking or baking\n- SPECIFICATIONS: Dimensions: 9 x 6 x 6 inches; Weight: 0.55lbs\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 9in Stainless Steel 6 Side Cheese Grater",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "9",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Stainless Steel",
+                "name": "6 Side Cheese Grater"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 9-in Stainless Steel 6-Side Cheese Grater",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "9",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Stainless Steel 6-Side Cheese Grater"
+            },
+            "char_count": 48,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Six Versatile Sides, Dishwasher Safe, Sharp Stainless Steel Blades, Non-Slip Base, Zester And Slicer",
+            "char_count": 100,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Six Sided Design, Sturdy Top Handle, Non-Slip Base, Sharp Stainless Steel Blades, Dishwasher Safe",
+            "char_count": 97,
+            "validation_error": null
+        }
+    }
+}

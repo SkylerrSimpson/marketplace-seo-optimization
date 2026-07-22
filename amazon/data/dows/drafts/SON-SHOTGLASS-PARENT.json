@@ -3,14 +3,14 @@
     "asin": "B099MK2G6K",
     "product_type": "DRINKING_CUP",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:54:22+00:00",
+    "generated_at": "2026-07-21T19:39:44+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 5,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -84,27 +84,65 @@
             "value": "Collapsible Camping Cup",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
-            "value": "8.5oz, 4.7oz, 2.5oz",
+            "value": "3 Sizes (8.5oz, 4.7oz, 2.5oz)",
             "is_required": false,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Collapsible Stainless Steel Camping Cup",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Stainless Steel Collapsible Camping Cup",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "Sizes",
+                "size": "",
+                "color": "Stainless Steel",
+                "name": "Collapsible Camping Cup"
+            }
         },
-        "title_differentiation": {
-            "value": "3 Sizes (2.5oz, 4.7oz, 8.5oz), Keychain Attached, Portable",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor Collapsible Stainless Steel Camping Cup",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 51,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Collapsible Stainless Steel Camping Cup"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "3 Sizes 85Oz, 47Oz, 25Oz, Portable With Keychain, Extends And Collapses With Ease, Durable Stainless Steel",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 106,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Key Chain And Key Ring, Pocket-Sized Folding Design, Durable Stainless Steel, 3 Sizes Available, Backpack Clip-On",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 113,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

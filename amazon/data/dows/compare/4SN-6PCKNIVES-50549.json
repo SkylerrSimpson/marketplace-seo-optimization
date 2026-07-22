@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-6PCKNIVES-50549",
+    "asin": "B098KMFQ9Z",
+    "product_type": "KITCHEN_KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-6PCKNIVES-50549\nProduct Type: KITCHEN_KNIFE\nBrand (from catalog): Beille\nExisting Title: Beille Stainless Steel Kitchen Cutlery Knife Set Carving Paring Utility, 6pc\nDescription: Are you looking to purchase your first full knife set, or perhaps you are ready to replace an existing kitchen knife set? Then the Beille Stainless Steel Kitchen Cutlery Knife 6 piece Set will be a great addition to your kitchen. <br/><br/>The all-in-one complete 6 piece knife set includes a 13.5\" Ham knife, 12.5\" Chef knife, 12' Carving knife, 10\" Fork knife, 8.5\" Utility knife, and 7\" Paring knife, all with ergonomic handles providing a strong, reliable grip when cutting and chopping.<br/><br/>-13.5\" Ham knife: With its long thin blade, this knife is ideal for filleting fish or thinly slicing delicate cured meats like prosciutto.<br/>-12.5\" Chef knife: The workhorse of the kitchen, the chef knife can be used for everything from mincing, slicing, and chopping fruit and vegetables to slicing lunch meat or disjointing large cuts.<br/>-12\" Carving knife: Designed with precision in mind, the carving knife is ideal for slicing thin cuts of meat like poultry, roasts, hams, and other large, cooked meats.<br/>-10\" Fork knife: This knife is used for holding food securely in place while slicing or carving meats, poultry and fish.<br/>-8.5\" Utility knife: This is a general use knife that can tackle an array of kitchen tasks like slicing meat, cutting sandwiches, chopping vegetables or slicing herbs.<br/>-7\" Paring knife: The paring knife is designed to easily and safely peeling fruits and vegetables, and other small or intricate work such as de-veining a shrimp, removing seeds from a jalapeno, or preparing small garnishes.<br/><br/>The Beille knives are constructed of high-quality durable stainless steel that is rust and corrosion resistant. The kitchen knife set is also conveniently dishwasher-safe, but as with most kitchen knives, handwashing is recommended to best preserve the integrity of the knife and the blades too.<br/><br/>Whether you're a beginner or a pro in the kitchen, this is a great set of knives for any kitchen\nSearch Terms: ham knives cutlery sets chef carving fork utility paring set stainless steel kitchen knife block baking food prep tools meal essentials\nFeatures:\n- ALL-IN-ONE KNIFE SET - The Beille cutlery knife set includes 6 of the most common and essential knives for any kitchen: 13.5\" Ham knife, 12.5\" Chef knife, 12' Carving knife, 10\" Fork knife, 8.5\" Utility knife and 7\" Paring knife. This complete set is ideal for beginner and professional chefs alike!\n- ERGONOMIC HANDLES -The handles of our knives were designed with comfort and safety in mind. Ergonomic handles ensure the minimization of finger cramps and aches, especially during prolonged usage, and prevent slippage to keep your fingers safe while slicing and cutting.\n- EASY TO CLEAN - Although the knives are dishwasher safe, we do recommend hand washing to preserve the blades. They are rust and corrosion resistant so you can count on this set of knives for years to come!\n- QUALITY CONSTRUCTION - Constructed of high quality stainless steel that won't rust, this kitchen knife set features a comprehensive collection of knives that will quickly meet all your food prep needs. The molded plastic handles and steel blades will stand the test of time!\n- SPECIFICATIONS - Material: Stainless steel (rust and corrosion resistant); 6 different types of knives; Handle color: black; Dishwasher safe\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 6-Piece Stainless Steel Kitchen Knife Set",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "6",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "",
+                "name": "Stainless Steel Kitchen Knife Set"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 6-pk Stainless Steel Kitchen Cutlery Knife Set",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "6",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Stainless Steel Kitchen Cutlery Knife Set"
+            },
+            "char_count": 53,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Chef, Carving, Paring, Utility, Ham And Fork Knives, Ergonomic Handles, Dishwasher Safe",
+            "char_count": 87,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Ham Chef Carving Fork Utility Paring Knives, Stainless Steel, Ergonomic Handles, Dishwasher Safe, Rust Resistant",
+            "char_count": 112,
+            "validation_error": null
+        }
+    }
+}

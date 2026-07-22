@@ -1,0 +1,60 @@
+{
+    "sku": "NPT-ZOMBIENARUTOTHROWINGKNIVES-3PC",
+    "asin": "B077QVVQGK",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: NPT-ZOMBIENARUTOTHROWINGKNIVES-3PC\nProduct Type: KNIFE\nBrand (from catalog): ASR Tactical\nExisting Title: Biohazard 3pc Outdoor Camping Practice Throwing Knives Set With Paracord Handle With Sheath, 7\", Black\nDescription: Practice and perfect your your skills with the 3pc Outdoor Camping Throwing Knives. With these throwing knives, you can enjoy learning the skill and technique of knife throwing.<br/><br/>Carefully balanced with the center of gravity in the middle of the knives, these blades will make even, round circles in flight. The single-edged green cord-wrapped blades will give you the option to grip them from either the handle or the blade side, and allow for more variation in throwing techniques. <br/><br/>Included is a reinforced nylon sheath that will hold all three knives. Each knife is measured about 7 inches long and has its own compartment, so you'll be able to keep them separate to resist dulling and help maintain the black finish.<br/><br/>Throwing knives can be a fun skill to learn. Impress friends and family with pin point accuracy and throwing technique.\nSearch Terms: throwing knives carrying case black martial arts stars\nFeatures:\n- Biohazard Brand 3pc Zombie Throwing Knives\n- Material: 440 Stainless Steel\n- Each Throwing Knife is about 7 Inches in Length\n- Black Nylon Sheath Included\n- Sleek and Lightweight\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 3-pc 7\" Black Throwing Knives",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "7\"",
+                "color": "Black",
+                "name": "Throwing Knives"
+            },
+            "char_count": 42,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 3-pk 7in Black Throwing Knives",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "7in",
+                "color": "Black",
+                "name": "Throwing Knives"
+            },
+            "char_count": 43,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "440 Stainless Steel, Balanced Flight, Paracord Handle, Nylon Sheath, Practice Skill Set",
+            "char_count": 87,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "440 Stainless Steel, Balanced Center Of Gravity, Paracord Wrapped Grip, Nylon Sheath Included, Sleek And Lightweight",
+            "char_count": 116,
+            "validation_error": null
+        }
+    }
+}

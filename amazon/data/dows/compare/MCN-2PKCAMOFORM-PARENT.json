@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-2PKCAMOFORM-PARENT",
+    "asin": "B07V5SVH3M",
+    "product_type": "SPORTING_GOODS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-2PKCAMOFORM-PARENT\nProduct Type: SPORTING_GOODS\nBrand (from catalog): McNett\nExisting Title: 2 Pack GEAR AID Camo Form Self-Cling Reusable Gun Wrap 2\" x 144\" Various Colors\nDescription: When you need to conceal guns or camouflage gear without leaving behind a sticky residue only one gun camo will do. Camo Form by Tactical is a self-adhering, camouflage wrap that is removable and reusable. Use it on guns, scopes, knives, tree stands, flashlights whatever you're taking into the field.<br/><br/>Camo Form stretches and sticks to itself, and conforms to any shape for a custom fit. When it gets dirty or wet, simply remove, wash, let dry and reapply. The heavy-duty fabric not only protects and conceals tactical gear, but it also adds grip, insulates hands from hot or cold surfaces and quiets clanking objects.\nSearch Terms: camouflage vinyl wrap tape reusable fabric hunting camping for and\nFeatures:\n- Stretch Fabric Wrap - Not a Tape!\n- Sticks to Itself - Not Your Gear! Reusable - Leaves No Residue!\n- Improves Grip in the Field\n- 1 Roll Covers 1 Average Shotgun, Rifle or Bow\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "McNett 2-Pack Camo Form Self-Cling Reusable Gun Wrap",
+            "tokens": {
+                "brand": "McNett",
+                "pack_size": "2",
+                "pack_size_unit": "Pack",
+                "size": "2\" x 144\"",
+                "color": "",
+                "name": "Camo Form Self-Cling Reusable Gun Wrap"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "McNett 2-Pk 2in x 144in Camo Form Reusable Gun Wrap",
+            "tokens": {
+                "brand": "McNett",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "2in x 144in",
+                "color": "Various Colors",
+                "name": "Camo Form Gun Wrap"
+            },
+            "char_count": 51,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Self-Adhering Camouflage Fabric, Reusable And No Residue, Stretches To Any Shape, Improves Grip, Hunting And Tactical Gear",
+            "char_count": 122,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Self Cling Fabric, Reusable And Washable, Leaves No Residue, Improves Grip, Quiets Gear, Insulates Hands",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

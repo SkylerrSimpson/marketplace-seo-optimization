@@ -3,14 +3,14 @@
     "asin": "B07R11HBJ2",
     "product_type": "OUTDOOR_LIVING",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:50:10+00:00",
+    "generated_at": "2026-07-21T19:29:19+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 13,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -201,20 +201,57 @@
             "asin": "B07R11HBJ2",
             "raw_value": true
         },
-        "title_differentiation": {
-            "value": "Fits 5 gallon bucket & 14 in gold pan; stackable interlocking design; ABS plastic with 304 stainless steel mesh",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 4-Piece Gold Classifier Sifting Screen Set",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8",
-            "validation_error": "requires item_name <= 75 chars"
-        },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Gold Classifier Screen Set 4-Piece Sifting Combo",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "",
+                "name": "Gold Classifier Sifting Screen Set"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 4-Pk Gold Rush Classifier Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 41,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Gold Rush Classifier Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "4 Mesh Sizes, Stackable Design, Fits 5 Gallon Bucket And 14 Inch Pan, Stainless Steel Wire",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 90,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "4 Screens, 12 In 18 In 130 In 170 In, 304 Stainless Mesh, Fits 5 Gallon Bucket, Stackable Interlocking",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 102,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

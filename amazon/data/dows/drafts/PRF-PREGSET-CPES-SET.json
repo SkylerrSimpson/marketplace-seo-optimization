@@ -3,14 +3,14 @@
     "asin": "B08VFDY6KW",
     "product_type": "WALL_ART",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:11:52+00:00",
+    "generated_at": "2026-07-21T19:48:47+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 17,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -255,20 +255,58 @@
             "asin": "B08VFDY6KW",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Productive Fitness Pregnancy Exercises Stretching Posters 2pc",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Productive Fitness Pregnancy Exercises Stretching 2pc Poster Set",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 64,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "2",
+                "pack_size_unit": "pc",
+                "size": "24\" x 36\"",
+                "color": "",
+                "name": "Pregnancy Exercises Stretching Poster Set"
+            }
         },
-        "title_differentiation": {
-            "value": "24x36 Laminated, Expert-Designed, Step-by-Step Instructions",
+        "item_name_ai_openai": {
+            "value": "Productive Fitness 2-pc Pregnancy Exercise and Stretching Poster Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 68,
+            "review_only": true,
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "2",
+                "pack_size_unit": "pc",
+                "size": "24\" x 36\"",
+                "color": "",
+                "name": "Pregnancy Exercise and Stretching Poster Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "2-Pack 24\" X 36\" Laminated Posters, Expert-Designed, Step-by-Step Instructions, Safe Prenatal Exercises And Stretching Techniques",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 129,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (129 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Laminated, 24\" X 36\", Step By Step Instructions, Written By Fitness Experts, Proper Form, Safe Stretching",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 105,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B07HRK9Z3J",
     "product_type": "LIP_BALM",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:15:45+00:00",
+    "generated_at": "2026-07-21T19:50:06+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 19,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -273,20 +273,57 @@
             "asin": "B07HRK9Z3J",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Vaseline Lip Therapy Original Lip Balm with Petroleum Jelly 3 Pack",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Vaseline Lip Therapy Original 3-Pack | 0.16 Oz",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 46,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Vaseline",
+                "pack_size": "3",
+                "pack_size_unit": "Pack",
+                "size": "0.16 Oz",
+                "color": "Original",
+                "name": "Lip Therapy"
+            }
         },
-        "title_differentiation": {
-            "value": "Moisturizing stick with Vitamin E, treats chapped & dry lips, 0.16 oz each",
+        "item_name_ai_openai": {
+            "value": "Vaseline 3-Pk 0.16 Oz Original Lip Therapy Lip Balm",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 51,
+            "review_only": true,
+            "tokens": {
+                "brand": "Vaseline",
+                "pack_size": "3",
+                "pack_size_unit": "Pk",
+                "size": "0.16 Oz",
+                "color": "Original",
+                "name": "Lip Therapy Lip Balm"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Petroleum Jelly And Vitamin E, Chapped Dry Cracked Lips, Non-Sticky Formula, Pocket-Sized, Fast-Acting Hydration",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 112,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Vitamin E And Petroleum Jelly, Non-Sticky Non-Greasy Formula, Pocket-Sized, Hydrates Dry Cracked Lips",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

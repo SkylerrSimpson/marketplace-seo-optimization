@@ -3,14 +3,14 @@
     "asin": "B0B5YLNXPS",
     "product_type": "TOOL_BELT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:46:32+00:00",
+    "generated_at": "2026-07-21T19:35:05+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 15,
         "catalog": 16,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 13
     },
@@ -343,20 +343,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux 11 Pocket Leather Tool Belt, Tan, Adjustable",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux 11 Pocket Tan Leather Tool Belt",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 42,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "11",
+                "pack_size_unit": "Pocket",
+                "size": "",
+                "color": "Tan",
+                "name": "Leather Tool Belt"
+            }
         },
-        "title_differentiation": {
-            "value": "Top Grain Leather, 11 Pockets, Adjustable 36-50\", Heavy Duty Construction",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux 11-Pocket Leather Tool Belt",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 38,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "11",
+                "pack_size_unit": "Pocket",
+                "size": "",
+                "color": "Tan Brown",
+                "name": "Leather Tool Belt"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "11 Pockets, Durable Leather, DIY And Contractor Use, Electrician And Woodworking Tools",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 86,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Heavy Duty Leather, Adjustable Fit, Tool Holders, DIY Woodworking, Electrician, Contractor Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 94,
+            "review_only": true
         },
         "item_dimensions": {
             "value": [

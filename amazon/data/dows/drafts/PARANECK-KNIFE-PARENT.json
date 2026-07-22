@@ -3,14 +3,14 @@
     "asin": "B07DLDZ23D",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:29:50+00:00",
+    "generated_at": "2026-07-21T19:55:30+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -37,22 +37,59 @@
             "value": "Stainless Steel",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical 6\" Survival Neck Knife Paracord Wrapped",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical 6\" Survival Knife with Paracord Wrapped Handle",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 59,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "6",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Survival Knife with Paracord Wrapped Handle"
+            }
         },
-        "title_differentiation": {
-            "value": "Stainless Steel Fixed Blade, 550 Paracord Handle, Includes Sheath & Neck Chain",
+        "item_name_ai_openai": {
+            "value": "ASR Tactical 6in Survival Knife with Sheath",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 43,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "6in",
+                "color": "",
+                "name": "Survival Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Fixed Blade, Stainless Steel, 550 Paracord Handle, Impact Resistant Sheath, Quick Release, Neck Chain",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 101,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Full Tang, 550 Paracord Wrapped Handle, Razor Sharp Stainless Steel Blade, Quick Release Sheath, Neck Chain",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

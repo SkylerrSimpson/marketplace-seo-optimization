@@ -3,14 +3,14 @@
     "asin": "B0CHVP8J2Z",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:19:32+00:00",
+    "generated_at": "2026-07-21T20:08:51+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,20 +27,57 @@
             "asin": "B0CHVP8J2Z",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Gold Pan 14\" Black Prospecting Sluice Tool 4-Pack",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 4-pk 14\" Black Gold Pan Prospecting Tool",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "14\"",
+                "color": "Black",
+                "name": "Gold Pan Prospecting Tool"
+            }
         },
-        "title_differentiation": {
-            "value": "Riffled traps, gravity separation, set of 4, lightweight durable plastic",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 4-Pk 14\" Black Gold Pan",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 35,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "14\"",
+                "color": "Black",
+                "name": "Gold Pan"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Riffled Traps, High Impact Flexible Plastic, Textured Bottom, Lightweight, Durable, Professional Grade, Highlights Fine Gold",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 124,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Riffled Traps, Wide Textured Bottom, High Impact Flexible Plastic, Lightweight, Fine Gold Separation, Prospecting",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 113,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

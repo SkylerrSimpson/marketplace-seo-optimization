@@ -3,14 +3,14 @@
     "asin": "B000GFZZOU",
     "product_type": "CLEANING_AGENT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:10:34+00:00",
+    "generated_at": "2026-07-21T19:48:10+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 8,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -141,19 +141,58 @@
             "asin": "B000GFZZOU",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Gear Aid Sea Gold Anti-Fog Gel for Scuba Dive Masks",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "GEAR AID Sea Gold Anti-Fog Gel Coating for Scuba Masks",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "1.25",
+                "pack_size_unit": "fl oz",
+                "size": "",
+                "color": "Gold",
+                "name": "Anti-Fog Gel Coating for Scuba Masks"
+            }
         },
-        "title_differentiation": {
-            "value": "Long-lasting coating, 1.25 fl oz, non-toxic, alcohol-free",
+        "item_name_ai_openai": {
+            "value": "GEAR AID 1.25 fl oz Sea Gold Anti-Fog Gel for Dive Masks",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 56,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "1.25",
+                "pack_size_unit": "fl oz",
+                "size": "",
+                "color": "",
+                "name": "Sea Gold Anti-Fog Gel for Dive Masks"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Long-Lasting Anti-Fog Treatment, Non-Toxic And Alcohol-Free, Works On All Glass And Plastic Lenses, Multiple Dives Per Application",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 130,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (130 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Long Lasting Anti-Fog Coating, Non-Toxic And Alcohol-Free, For Glass And Plastic Dive Mask Lenses, Multiple Dives",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 113,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

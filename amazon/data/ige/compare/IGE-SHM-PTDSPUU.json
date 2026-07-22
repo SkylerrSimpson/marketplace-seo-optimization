@@ -1,0 +1,60 @@
+{
+    "sku": "IGE-SHM-PTDSPUU",
+    "asin": "B00TG2GAY8",
+    "product_type": "OUTDOOR_RECREATION_PRODUCT",
+    "account": "IGE",
+    "generated_at": "2026-07-21T17:20:41+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: IGE-SHM-PTDSPUU\nProduct Type: OUTDOOR_RECREATION_PRODUCT\nBrand (from catalog): ASR Federal\nExisting Title: ASR Federal UV Stain Theft Detection Powder for Marking Solid Objects, Keypads, Door Knobs\nDescription: Identify your stolen or tampered items and detect the thief when you use ASR Federal UV Stain Powder.<br/><br/>The ASR Federal Professional Covert Theft Detection UV Stain Powder Security is an essential item specifically designed for thief detection and the identification of stolen or altered items. <br/><br/>Lightweight, small and easy easy to apply, the traceable UV light powder is a must-have in for anti-theft, security accessories and theft detection kits. Notably, the UV light invisible security powder is suitable for business and homeowners who want an extra layer of added protection in their commercial space or additional home security.<br/><br/>How does it work? Once applied, all you need is an UV light or UV flashlight. An article that has been marked will remain invisible to the human eye, but under the UV light, the item and anyone who touched it can be identified. Powder, once touched, remains on fingers, hands and potentially clothing. <br/><br/>The traceable UV light substance can be used a power or paste. The UV light traceable security powder is predominantly meant for indoor use and can easily be applied with a soft-tipped brush. It’s important to note a little goes a long way and you don’t have to douse an entire item for the powder to be effective. It’s best to think about how a thief would naturally move or touch an item and focus on those specific areas first. If you’re taking this powder outdoors, it’s best to mix a little of the invisible UV light security powder with Vaseline (petroleum jelly). Again, using a brush to apply is ideal if you have one on hand. <br/><br/>The best part about the ASR Federal UV Light Theft Detection Powder is not only its effectiveness, but also its versatility. The traceable UV light security powder is usable on a variety of indoor items such as a laptop, piece of jewelry, a personal safe, keyboard and much more\nSearch Terms: retail theft detection bank teller stolen merchandise counterfeit pen crime stoppers peg lock store fixture theft detector spy gadget mystery identity\nFeatures:\n- ENHANCED SECURITY: Designed for theft detection and identification of stolen or altered items. Once touched, remains on fingers and hands, invisible except under UV light\n- VERSATILITY: Packaged as a powder, this special anti-theft formula can be made into a paste by mixing with petroleum jelly then can be applied to virtually any surface including a door knob, laptop keyboard, jewelry, personal safe, locks, keypad or anything that needs an extra layer of added security; the UV light powder is recommended for indoor use and paste for outdoor use\n- INVISIBLE TO THE EYE: The traceable powder is completely invisible to the human eye until shone on by an UV light or UV flashlight; the powder readily transfers to the fingers and hands when touched leaving the subject glowing when put under UV light inspection\n- A LITTLE GOES A LONG WAY: A little invisible UV light tracing powder goes a long way; when using indoors, simply apply with a soft tipped brush to desired item or area; if using outdoors mix with petroleum jelly or Vaseline and apply where needed\n- SPECIFICATIONS: UV light powder only; 1/4 oz container; Non-toxic; Made in the USA Under License for ASR Federal; Recommended for use with the ASR Federal UV Flashlight\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Federal UV Stain Theft Detection Powder 1/4 oz",
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "1/4",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "",
+                "name": "UV Stain Theft Detection Powder"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Federal UV Stain Theft Detection Powder",
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "UV Stain Theft Detection Powder"
+            },
+            "char_count": 43,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Invisible UV Powder, Theft Detection, Anti-Theft Security, Transfers To Hands, Indoor And Outdoor Use, Made In USA",
+            "char_count": 114,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Invisible To Eye, Transfers To Fingers, Non-Toxic, Quarter Oz, Made In USA, Indoor Use, Use With UV Flashlight",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}

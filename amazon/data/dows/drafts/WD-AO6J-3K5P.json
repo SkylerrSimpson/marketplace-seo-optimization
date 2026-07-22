@@ -3,14 +3,14 @@
     "asin": "B0DVF7Z7JZ",
     "product_type": "CLEANING_BRUSH",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:14:00+00:00",
+    "generated_at": "2026-07-21T19:49:37+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -47,28 +47,65 @@
             "value": "Bamboo",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "model_name": {
-            "value": "Dish Brush and Scrub Brush Set",
+            "value": "Dish Brush with Bamboo Palm Handle",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Beille Bamboo Dish Brush with Heavy Duty Bristles",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille Multicolor Bamboo Dish Brush with Heavy Duty Bristles",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 60,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Multicolor",
+                "name": "Bamboo Dish Brush with Heavy Duty Bristles"
+            }
         },
-        "title_differentiation": {
-            "value": "Sustainable bamboo handle, high-density bristles, ergonomic grip, multi-use kitchen & bathroom",
+        "item_name_ai_openai": {
+            "value": "Beille Multicolor Bamboo Dish Brush",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 35,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Multicolor",
+                "name": "Dish Brush"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Sustainable Bamboo Handle, High Density Bristles, Ergonomic Grip, Hanging Loop, Scrub Brush Set",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 95,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Heavy Duty Bristles, Ergonomic Bamboo Handle, Hanging Loop, Multi Purpose Kitchen And Bathroom Scrubber",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "pesticide_marking": {
             "value": [

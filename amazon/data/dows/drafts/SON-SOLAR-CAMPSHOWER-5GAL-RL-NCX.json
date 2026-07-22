@@ -3,14 +3,14 @@
     "asin": "B094C4V8N5",
     "product_type": "SPORTING_GOODS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:50:23+00:00",
+    "generated_at": "2026-07-21T20:02:40+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 18
     },
@@ -51,20 +51,57 @@
             "asin": "B094C4V8N5",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 5 Gallon Solar Shower Bag for Camping & Hiking",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 5 Gallon Black Solar Shower Bag",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 43,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "Gallon",
+                "size": "",
+                "color": "Black",
+                "name": "Solar Shower Bag"
+            }
         },
-        "title_differentiation": {
-            "value": "Portable, Lightweight, Temperature Gauge, Compact Design, Heating in 3 Hours",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 5-Gal Black Solar Shower Bag",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 40,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "gal",
+                "size": "",
+                "color": "Black",
+                "name": "Solar Shower Bag"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Solar Powered, Portable Camping Shower, Temperature Gauge, Water Level Window, Includes Hose And Shower Head",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 108,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "5 Gallon Capacity, Solar Heated Water, Temperature Gauge, Water Level Window, Portable Foldable Design",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 102,
+            "review_only": true
         },
         "supplier_declared_material_regulation": {
             "value": [

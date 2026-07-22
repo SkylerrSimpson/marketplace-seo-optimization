@@ -1,0 +1,60 @@
+{
+    "sku": "SON-GC6ITNK-STD-GRN",
+    "asin": "B00ZO651YA",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-GC6ITNK-STD-GRN\nProduct Type: KNIFE\nBrand (from catalog): ASR Tactical\nExisting Title: ASR Tactical Serrated Fixed Blade Outdoor Camping Wearable Neck Knife With Sheath, 6\", Camo\nDescription: This 6 inch neck knife is the perfect tool for anyone who needs convenient yet durable cutting ability.<br/><br/>With a serrated fixed style blade, the knife is not only discrete and easy to carry at all times, it is effective in multiple ways; with a dull back, you can have precise and firm cutting or stabbing, and you can have it wherever you go. The blade itself is 3.5\" in length, and the overall length is 6\" including the handle.<br/><br/>The knife comes with a necklace style thick plastic sheath that offers protection and convenience with a lock in place pin to hold the knife handle down steadily.\nSearch Terms: small fixed blade survival knife for hunting outdoor knife with sheath\nFeatures:\n- SURVIVAL KNIFE: Total Length: 6 inches, Blade Length: 3.5 inches\n- Tanto Style Fixed Blade\n- Durable Plastic Sheath with Bead Chain Necklace\n- DIMENSIONS 6 x 2 x 1 inches\n- Color: Green Camo\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 6\" Green Camo Serrated Fixed Blade Neck Knife",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "6",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Green Camo",
+                "name": "Serrated Fixed Blade Neck Knife"
+            },
+            "char_count": 58,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 6-in Green Fixed Blade Neck Knife",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "6",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Green",
+                "name": "Fixed Blade Neck Knife"
+            },
+            "char_count": 46,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "35 Inch Tanto Blade, Durable Plastic Sheath With Bead Chain, Fixed Blade Survival Knife, Outdoor Hunting Tool",
+            "char_count": 109,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Serrated Tanto Blade, 35\" Cutting Edge, Wearable Bead Chain Sheath, Lock Pin Retention, Compact Survival Tool",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

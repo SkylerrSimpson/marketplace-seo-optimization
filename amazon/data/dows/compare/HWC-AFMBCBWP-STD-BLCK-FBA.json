@@ -1,0 +1,60 @@
+{
+    "sku": "HWC-AFMBCBWP-STD-BLCK-FBA",
+    "asin": "B01LYPQOFM",
+    "product_type": "OFFICE_PRODUCTS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWC-AFMBCBWP-STD-BLCK-FBA\nProduct Type: OFFICE_PRODUCTS\nBrand (from catalog): ASR Federal\nExisting Title: ASR Federal Minimalist Leather Memo Pad Notepad Holder Police Gear, Basketweave Black, 3x5 inch\nDescription: Yes, we all live in a digital world now but, sometimes putting pen to paper is faster, more efficient, and moreover, those notes are more likely to stick with you when written in comparison to digital note taking when you’re working in the field. The lightweight black leather notepad holders from ASR Federal are slim, compact in design, durable and the ideal EDC size to jot down notes, ideas, statements, details, appointments, drawings or reminders while on the go (easily fitting in a shirt, jacket or pant pocket). <br/> The ASR Federal leather notepad holders are a perfect fit for all standard 3x5 inch paper memo pads or scratch pads, are constructed of durable 100 genuine leather, are constructed in the USA and feature an attractive, black textured basketweave pattern or smooth plain black finish. The inside features a flap and loop to secure a paper notepad in place. <br/> And, while this notepad holder was originally intended for public and private security professionals, they’re also ideal for anyone who needs to take down notes when they’re on the move; a staple not only for police officers, cops, detectives, private investigators, FBI, CIA and correctional officers, they’re also ideal for creative writing, journalists, Emergency Medical Techs (EMTs), golfers, first responders and more. <br/> An overlooked detail from the crime scene you suddenly remember in the middle of the night; your phone is about to run of battery and you’ve got to get that address down. Whatever the scenario is, plan to carry the ASR Federal Minimalist Leather Field Notes Notepad Holder with you and never miss the opportunity to record an important thought, idea, detail or observation. <br/> Made in USA. <br/> 100% genuine leather.\nSearch Terms: pocket notebook note taking supplies travel accessories private investigator equipment security officer notebooks and writing pads journal notepad memo pad detectives creative law enforcement gear police edc leather holder tactical\nFeatures:\n- POLICE GEAR POCKET NOTEPAD HOLDER: The leather pocket notepad holder memo pad is an EDC must-have for security professionals; this lightweight black leather notepad holder is the ideal size to jot down notes, ideas, statements, details or reminders while on the go, easily fitting in a shirt, jacket or pant pocket\n- SPECIFICATIONS: Fits 3x5 inch standard paper memo pads; Overall: 3 x 5.5 inch; Color: Smooth or Basketweave black\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Federal 3x5 Black Leather Memo Pad Holder",
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "3x5",
+                "pack_size_unit": "inch",
+                "size": "3x5",
+                "color": "Black",
+                "name": "Leather Memo Pad Holder"
+            },
+            "char_count": 45,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Federal 3x5 in Black Leather Memo Pad Holder",
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "3x5 in",
+                "color": "Black",
+                "name": "Leather Memo Pad Holder"
+            },
+            "char_count": 48,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Genuine Leather, Made In USA, EDC Pocket Notepad, Police And Security Gear, Basketweave Pattern",
+            "char_count": 95,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Genuine Leather, Basketweave Texture, Fits 3X5 Inch Memo Pads, Slim Pocket Size, Secure Flap And Loop, Made In USA",
+            "char_count": 114,
+            "validation_error": null
+        }
+    }
+}

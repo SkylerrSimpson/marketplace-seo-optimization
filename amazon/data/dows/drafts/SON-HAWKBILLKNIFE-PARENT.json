@@ -3,14 +3,14 @@
     "asin": "B0B92SGD5X",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:25:25+00:00",
+    "generated_at": "2026-07-21T19:54:03+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 0,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,20 +27,57 @@
             "source": "usurper",
             "usurper_column": "attr.material_amazon"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Hawkbill Kerambit Folding Pocket Knife 6.5\"",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Hawkbill Folding Knife 4-Color Pocket Blade",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "Color",
+                "size": "",
+                "color": "",
+                "name": "Hawkbill Folding Knife Pocket Blade"
+            }
         },
-        "title_differentiation": {
-            "value": "Stainless Steel, 2.5\" Blade, Digital Camo, 4 Colors, Pocket Clip",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor Digital Camo Hawkbill Folding Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 47,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Digital Camo",
+                "name": "Hawkbill Folding Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Hawkbill Kerambit Style, Stainless Steel, 65In Overall Length, Finger Loop, Pocket Clip, Personal Protection",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 108,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Stainless Steel Blade, Finger Loop Grip, Pocket Clip, 65 Inch Overall Length, Kerambit Style, Everyday Carry",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 108,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

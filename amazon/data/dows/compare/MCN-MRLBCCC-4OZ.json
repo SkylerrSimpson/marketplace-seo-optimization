@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-MRLBCCC-4OZ",
+    "asin": "B000LGL9N0",
+    "product_type": "FOOTWEAR_CARE_KIT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-MRLBCCC-4OZ\nProduct Type: FOOTWEAR_CARE_KIT\nBrand (from catalog): GEAR AID\nExisting Title: GEAR AID Revivex Boot and Shoe Cleaner for Leather, Suede and Fabric, Concentrated, 4 fl oz (36250)\nDescription: Need to clean your dirtiest, grimiest shoes and boots? Gear Aid’s ReviveX Boot Cleaner Concentrate is up to the task. No matter where your hiking boots have been, no matter what torture you’ve put your trail shoes through, this special leather cleaner will cut through the crud to reveal their former good looks. It’s versatile enough to clean trail running shoes, hikers and boots made of leather, fabric or GORE-TEX. And it’s concentrated to clean three times as many boots as other brands. Part of the McNett family of brands, Gear Aid features trusted repair and maintenance products for outdoor gear. For over three decades McNett has been providing you with the Essentials for Adventure.\nSearch Terms: leather boot cleaner hiking shoe care kit\nFeatures:\n- Clean leather and suede boots with a concentrated gel cleaner that removes dirt and grime without harming the fabric\n- Condition several shoes with just one, powerful 4 FL oz. bottle that features a low-suds Formula ideal for all types of footwear\n- Improve the look and performance of waterproof-breathable materials including GORE-TEX fabric; also cleans nubuck and canvas\n- Restore old suede shoes and work boots with a cleaning formula that properly preps it for waterproof treatment\n- Packaging may vary\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 80 characters.  Please include the size and color of the item in the Product Name, if available.\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "GEAR AID Revivex Boot and Shoe Cleaner, 4 fl oz",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "4",
+                "pack_size_unit": "fl oz",
+                "size": "",
+                "color": "",
+                "name": "Revivex Boot and Shoe Cleaner"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID 4 fl oz Boot and Shoe Cleaner",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "4",
+                "pack_size_unit": "fl oz",
+                "size": "",
+                "color": "",
+                "name": "Boot and Shoe Cleaner"
+            },
+            "char_count": 38,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Concentrated Gel, Cleans Leather Suede Fabric, Removes Dirt And Grime, Works On GORE-TEX, Low-Suds Formula",
+            "char_count": 106,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Concentrated Gel Formula, Cleans Leather Suede Nubuck Canvas And GORE-TEX, Low-Suds, Preps For Waterproof Treatment",
+            "char_count": 115,
+            "validation_error": null
+        }
+    }
+}

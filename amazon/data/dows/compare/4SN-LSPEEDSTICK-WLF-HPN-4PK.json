@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-LSPEEDSTICK-WLF-HPN-4PK",
+    "asin": "B00J5JRCBC",
+    "product_type": "BODY_DEODORANT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-LSPEEDSTICK-WLF-HPN-4PK\nProduct Type: BODY_DEODORANT\nBrand (from catalog): Lady Speed Stick\nExisting Title: Lady Speed Stick Invisible Dry Antiperspirant & Deodorant, Wild Freesia - 1.4 oz - 4 pk\nDescription: Daylong Fragrance and Freshness<br/><br/>With fresh, natural scents the Lady Speed Stick Invisible Dry Antiperspirant & Deodorant, Wild Freesia provides you 24-hour protection. With splendid quality, it offers you great fragrance that lasts daylong while boosting your confidence further. The 'scent renewal formula' in it makes the deodorant more special. This unique formula keeps odor and sweat away for a longer period. Most importantly, it leaves no white residues and stays clear.<br/><br/> Long-lasting fragrance for 24-hour protection<br/> Dries quickly<br/> Helps reducing underarms perspiration<br/> Unique scent renewal formula<br/><br/>No wetness, no odor. It provides you a fresh feel daylong.<br/><br/>Just For You: All skin types<br/><br/>A Closer Look: Lady Speed Stick Invisible Dry Antiperspirant & Deodorant, Wild Freesia deodorant for women helps reduce underarm perspiration. Wild freesia provides a scent that keeps you fresh throughout the day.<br/><br/>Get Started: Turn the dial and apply through underarms. Replace the cap after use\nSearch Terms: (none)\nFeatures:\n(none)\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Lady Speed Stick Wild Freesia Invisible Dry Deodorant 4-pk",
+            "tokens": {
+                "brand": "Lady Speed Stick",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "1.4 oz",
+                "color": "Wild Freesia",
+                "name": "Invisible Dry Antiperspirant and Deodorant"
+            },
+            "char_count": 58,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Lady Speed Stick 4-Pk 1.4 Oz Wild Freesia Antiperspirant Deodorant",
+            "tokens": {
+                "brand": "Lady Speed Stick",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "1.4",
+                "color": "Wild Freesia",
+                "name": "Antiperspirant Deodorant"
+            },
+            "char_count": 66,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "24-Hour Protection, Invisible Dry Formula, No White Residue, Scent Renewal Technology, Quick Drying",
+            "char_count": 99,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "24-Hour Protection, Invisible Dry Formula, No White Residue, Quick Drying, Scent Renewal, Wild Freesia Scent",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

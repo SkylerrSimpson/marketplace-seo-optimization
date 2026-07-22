@@ -3,14 +3,14 @@
     "asin": "B07BHKJ1F3",
     "product_type": "BOTTLE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:35:39+00:00",
+    "generated_at": "2026-07-21T19:56:57+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 7,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -120,20 +120,57 @@
             "asin": "B07BHKJ1F3",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Ultralight Travel Bottles 3pk TSA Compliant 1oz",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 3-pk 1oz Travel Bottles Pink Blue Yellow",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "1oz",
+                "color": "Pink Blue Yellow",
+                "name": "Travel Bottles"
+            }
         },
-        "title_differentiation": {
-            "value": "Food Grade BPA Free, TSA Approved, Pink/Blue/Yellow Set",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 3-pk 1oz Travel Bottles",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 35,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "1oz",
+                "color": "",
+                "name": "Travel Bottles"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "TSA Compliant, Food Grade BPA-Free, Ultralight, Perfect For Camping Hiking And Travel",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 85,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "TSA Compliant, BPA-Free Food Grade Plastic, 1 Fl Oz Each, Pink Blue And Yellow, Ultralight Travel Size",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 102,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

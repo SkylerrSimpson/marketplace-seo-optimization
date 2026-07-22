@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-FSABRA-1OZ-CLR-3PK",
+    "asin": "B01N6ZLRIR",
+    "product_type": "SEALANT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-FSABRA-1OZ-CLR-3PK\nProduct Type: SEALANT\nBrand (from catalog): GEAR AID\nExisting Title: GEAR AID Aquaseal SR Shoe and Boot Repair Adhesive, Clear Glue, 1 oz, 3-pk\nDescription: Fix footwear permanently with Aquaseal SR, a shoe and boot repair glue that dries as a strong rubber and lasts for years. Previously known as Freesole, this durable adhesive can be used to create durable toe protectors, re-build worn out heels, and save soles from delamination. The tough formula is unaffected by heat or cold, so your shoe repair will withstand the elements at a jobsite, athletic field or mountaintop. From rubber and leather boots to tennis shoes and everything in between, repair your footwear with Aquaseal SR.\nSearch Terms: adhesive sealant marine clear aquarium silicone and & urethane repair\nFeatures:\n- Seal seams and permanently repair holes in tents, tarps, awnings, rainflys and camping gear like Thermarest® sleeping pads\n- Treat up to up to 12’ of seams (1 oz) or repair torn outdoor fabrics with an adhesive that cures into a flexible rubber seal; also available in an 8 oz tube\n- Waterproof gear with a sealant that flexes with fabric and bonds to nylon, polyester, canvas, leather and vinyl\n- Apply it to repair or re-proof gear without worrying about the seal peeling or cracking; includes two applicator brushes\n- Packaging may vary\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "GEAR AID Aquaseal SR Clear Shoe Repair Adhesive 1 oz 3-pk",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "1 oz",
+                "color": "Clear",
+                "name": "Aquaseal SR Shoe Repair Adhesive"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID 3-pk 1 oz Clear Shoe and Boot Repair Adhesive",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "1 oz",
+                "color": "Clear",
+                "name": "Shoe and Boot Repair Adhesive"
+            },
+            "char_count": 54,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Waterproof Flexible Rubber Sealant, Bonds Leather And Nylon, Heat And Cold Resistant, Includes Applicator Brushes",
+            "char_count": 113,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Flexible Waterproof Rubber Seal, Bonds Nylon Polyester Canvas Leather Vinyl, Includes Two Applicator Brushes",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

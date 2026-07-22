@@ -3,14 +3,14 @@
     "asin": "B09CF3P54H",
     "product_type": "OUTDOOR_RECREATION_PRODUCT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:56:25+00:00",
+    "generated_at": "2026-07-21T20:04:29+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 8,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -151,25 +151,62 @@
             "raw_value": true
         },
         "generic_keyword": {
-            "value": "Paw Patrol school supplies stationery set kids backpack",
+            "value": "Kids back to school stationery gift set bundle",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Paw Patrol 11-Piece School Supplies Set for Kids",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Innovative Designs Paw Patrol 11-Piece School Supplies Set",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 58,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Innovative Designs",
+                "pack_size": "11",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "",
+                "name": "Paw Patrol School Supplies Set"
+            }
         },
-        "title_differentiation": {
-            "value": "Includes notebook, folders, markers, pencil case, sharpener, ruler & eraser",
+        "item_name_ai_openai": {
+            "value": "Innovative Designs 11-Pc Paw Patrol School Supplies Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 55,
+            "review_only": true,
+            "tokens": {
+                "brand": "Innovative Designs",
+                "pack_size": "11",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "School Supplies Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Notebook, Folders, Markers, Pencil Case, Sharpener, Back To School Bundle, Ages 3 And Up",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 88,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Notebook, Folders, Pad, Pencil Case, Mechanical Pencil, Markers, Ruler, Sharpener, Eraser, Kids Ages 3 And Up",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

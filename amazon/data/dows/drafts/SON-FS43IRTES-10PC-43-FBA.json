@@ -3,14 +3,14 @@
     "asin": "B009DNAP3C",
     "product_type": "TOOLS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:05:29+00:00",
+    "generated_at": "2026-07-21T19:46:14+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 9,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 7
     },
@@ -158,7 +158,7 @@
             "value": "Metal",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
             "value": "43 inches",
@@ -166,20 +166,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Universal 43\" Flex Shaft Rotary Tool Extension with Pen Grip",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Tool 43\" Flex Shaft Rotary Tool Extension Pen Grip",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 60,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "43",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Flex Shaft Rotary Tool Extension Pen Grip"
+            }
         },
-        "title_differentiation": {
-            "value": "1/8\" Chuck, Complete Set, Dremel Compatible, Tight Spaces",
+        "item_name_ai_openai": {
+            "value": "Universal Tool 43\" Flex Shaft Rotary Tool Extension Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 55,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "43\"",
+                "color": "",
+                "name": "Flex Shaft Rotary Tool Extension Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "18 Inch Universal Fit, Pen Grip, Tight Spaces, Jewelry Making, Engraving, Grinding",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 82,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "One Eighth Inch Chuck, Comfort Grip Pen, Tight Spaces, Carving, Sanding, Polishing, Includes Adapters",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "item_weight": {
             "value": [

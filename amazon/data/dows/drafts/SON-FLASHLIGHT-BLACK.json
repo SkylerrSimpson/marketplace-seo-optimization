@@ -3,14 +3,14 @@
     "asin": "B07GSMLWNC",
     "product_type": "FLASHLIGHT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:10:58+00:00",
+    "generated_at": "2026-07-21T19:48:16+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 6,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -102,25 +102,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "Pocket Sized Key Chain Emergency Flashlight Lanyard",
+            "value": "FLASHBLACK",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 4 Inch Pocket Flashlight with Keychain Lanyard",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 4 Inch Pocket Sized Black Flashlight with Lanyard",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 61,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "Inch",
+                "size": "Pocket Sized",
+                "color": "Black",
+                "name": "Flashlight"
+            }
         },
-        "title_differentiation": {
-            "value": "45 Lumen, Compact Emergency Light, Portable Key Chain Design",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 4-in Pocket Sized Black Flashlight",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 46,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "in",
+                "size": "Pocket Sized",
+                "color": "Black",
+                "name": "Flashlight"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "45 Lumen EDC, Keychain Attachment, AAA Battery Powered, Compact Storage",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 71,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Lanyard Attachment, 45 Lumen Output, AAA Battery Required, Compact EDC Light, Easy To Store In Bag Or Glove Box",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

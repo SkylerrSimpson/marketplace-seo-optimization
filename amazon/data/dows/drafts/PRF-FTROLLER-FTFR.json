@@ -3,14 +3,14 @@
     "asin": "B08T6R6X7L",
     "product_type": "WALL_ART",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:02:20+00:00",
+    "generated_at": "2026-07-21T19:44:37+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 17,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -255,20 +255,58 @@
             "asin": "B08T6R6X7L",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Productive Fitness Foam Roller Workout Poster 18x24 Laminated",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Productive Fitness Foam Roller Workout Exercises Poster 18x24",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 61,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "18",
+                "pack_size_unit": "x24 in",
+                "size": "",
+                "color": "",
+                "name": "Foam Roller Workout Exercises Poster"
+            }
         },
-        "title_differentiation": {
-            "value": "Laminated home gym exercise guide with certified trainer demonstrations",
+        "item_name_ai_openai": {
+            "value": "Productive Fitness 18x24 Foam Roller Workout Poster",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 51,
+            "review_only": true,
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "18x24",
+                "color": "",
+                "name": "Foam Roller Workout Poster"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Laminated Wall Poster, Whole Body Foam Roller Exercises, Created With Fitness Experts, Certified Trainer Models",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 111,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Laminated, 18\" X 24\" Wall Art, Effective Foam Roller Exercises, Whole Body Workout, Fitness Expert Created, Certified Trainers",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 126,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (126 chars)"
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B0CNV15LWT",
     "product_type": "ADHESIVE_TAPES",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:46:06+00:00",
+    "generated_at": "2026-07-21T19:34:47+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 6,
         "catalog": 30,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -482,25 +482,62 @@
             "model": "claude-haiku-4-5"
         },
         "generic_keyword": {
-            "value": "outdoor repair tape gear fix rip hole tent tarp jacket vinyl nylon waterproof peel stick adhesive patch sleeping bag rain gear puffy jacket ripstop fabric repair",
+            "value": "gear repair patch, tent repair kit, fabric patch, waterproof adhesive tape, ripstop repair, outdoor gear fix, jacket patch, sleeping bag repair, tarp repair, self adhesive patch, no sew fabric fix, camping gear repair",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "GEAR AID Tenacious Tape 3\"x20\" Micro-Ripstop Repair Blue",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "GEAR AID Tenacious Tape 3\"x20\" Blue Ripstop Repair",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "1",
+                "pack_size_unit": "pk",
+                "size": "3\"x20\"",
+                "color": "Blue",
+                "name": "Tenacious Tape Ripstop Repair"
+            }
         },
-        "title_differentiation": {
-            "value": "Waterproof peel-and-stick, no heat/sewing needed, bonds to vinyl/nylon/mesh",
+        "item_name_ai_openai": {
+            "value": "GEAR AID 1-pk 3\"x20\" Blue Tenacious Tape Repair Tape",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 52,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "1",
+                "pack_size_unit": "pk",
+                "size": "3\"x20\"",
+                "color": "Blue",
+                "name": "Tenacious Tape Repair Tape"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Peel-and-Stick, No Heat Or Sewing, Micro-Ripstop Fabric, Works On Tents, Jackets, Tarps, Vinyl",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 94,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Peel And Stick, No Heat Or Sewing, Ultra-Strong Adhesive, Works On Tents Jackets Vinyl And Sleeping Bags",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 104,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

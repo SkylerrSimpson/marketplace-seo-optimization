@@ -3,14 +3,14 @@
     "asin": "B0FF6PCB28",
     "product_type": "MAGNIFIER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:53:31+00:00",
+    "generated_at": "2026-07-21T20:03:41+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
-        "fillable": 0,
+        "fillable": 2,
         "catalog": 0,
-        "ai_suggested": 3,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -18,23 +18,66 @@
         "material": {
             "value": "Plastic",
             "is_required": false,
-            "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "source": "usurper",
+            "usurper_column": "attr.material"
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Tool 25mm Jewelers Loupe Magnifier for Gemstones",
+        "size": {
+            "value": "10X",
             "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.size_amazon"
+        },
+        "item_name_ai_anthropic": {
+            "value": "Universal Tool 25mm Jewelers Loupe Magnifier",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 44,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "25",
+                "pack_size_unit": "mm",
+                "size": "",
+                "color": "",
+                "name": "Jewelers Loupe Magnifier"
+            }
         },
-        "title_differentiation": {
-            "value": "Plastic body, multiple magnification options, compact 1\" design for jewelry & hobby crafts",
+        "item_name_ai_openai": {
+            "value": "Universal Tool 25mm Jewelers Loupe",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 34,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "25mm",
+                "color": "",
+                "name": "Jewelers Loupe"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Multiple Magnification Powers 25X To 10X, Compact Plastic Body, Precision Lens, Jewelry Making And Watch Repair",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 111,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "25X-10X Magnification, 25Mm Lens, Black Plastic Body, Compact 1\" Size, For Jewelry, Watch Repair And Hobby Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 110,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

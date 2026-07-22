@@ -1,0 +1,60 @@
+{
+    "sku": "SON-NPT288-TROWEL-BLK-10PC",
+    "asin": "B0CNN6B5FJ",
+    "product_type": "SHOVEL_SPADE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-NPT288-TROWEL-BLK-10PC\nProduct Type: SHOVEL_SPADE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Pin Pointer Metal Detecting Hand Trowel Shovel with Depth Markers, 11 inch (10 Pack)\nDescription: The ASR Outdoor Metal Detector Hand Trowel is a very durable and reliable hand tool that is crafted from high abrasive ABS plastic which makes it not only strong and durable, but also lightweight and easy to use. The main benefit of using a non-metal hand trowel is that while it is a composite/plastic (no metal) design makes it great because you can use a pin-pointer metal detector on the dirt that is still in the shovel without getting false positives readings from the metal detecting pin pointer.<br/><br/>The ideal use for this is for when metal detecting in the field to get scoops out of a dug hole and then swept with a pinpointer to determine if the object that the metal detector sounded off for is in the trowel. You can't do this with a metal trowel<br/><br/>Each trowel features a 4 inch measuring scale on the scoop so you can control the depth of your digging. This hand trowel is extremely versatile and can be used in multiple types of terrain including lawn and garden applications as well as tough desert bedrock to soft sand beaches or the backyard sandbox. <br/><br/>The plastic hand trowel also features a rubberized thumb grip handle that will ensure unmatched comfort and ease of use. Be sure to have this amazing trowel with you the next time you find yourself working in the field or at home in your lawn or garden.<br/><br/>Clean up is easy with a quick rinse and you're ready to go again, each and every time\nSearch Terms: home garden gardening trowel scoop hand shovel spade soil dirt treasure hunting sand flower bed planting tulip bulbs summer project gift for mom mining pin pointer metal detector\nFeatures:\n- NO FALSE POSITIVES: Constructed from ABS plastic composite (no metal) you can use a pin-pointer metal detector on the dirt that is still in the shovel without getting false positive readings from the metal detecting pin pointer\n- DEPTH MARKER: Specially designed depth ruler is embossed into the face of the shovel pan; this will not wear off with normal use and will help control metered digging\n- DURABILITY AND LONGEVITY: Made to stand up to daily use this handheld digging tool will do the job consistently well with you\n- COMFORT AND EASE: The metal detector hand trowel features an ergonomic handle with rubber thumb grip that aides in the daily use of this tool\n- MULTIPURPOSE: Ideal for planting, weeding, gardening while cutting through grass and measuring depth as a hand shovel while digging\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 10-Pack 11in Black Metal Detector Hand Trowel",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "Pack",
+                "size": "11in",
+                "color": "Black",
+                "name": "Metal Detector Hand Trowel"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 10-Pk 11 in Black Pin Pointer Metal Detecting Hand Trowel",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "Pk",
+                "size": "11 in",
+                "color": "Black",
+                "name": "Pin Pointer Metal Detecting Hand Trowel"
+            },
+            "char_count": 69,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "No False Positives, Depth Markers, Ergonomic Rubber Grip, ABS Plastic Composite, Multipurpose Gardening Tool",
+            "char_count": 108,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "No Metal False Positives, Embossed Depth Marker, Rubber Thumb Grip, Durable ABS Plastic, Multipurpose Digging Tool",
+            "char_count": 114,
+            "validation_error": null
+        }
+    }
+}

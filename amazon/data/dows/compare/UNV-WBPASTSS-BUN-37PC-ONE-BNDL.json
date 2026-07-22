@@ -1,0 +1,60 @@
+{
+    "sku": "UNV-WBPASTSS-BUN-37PC-ONE-BNDL",
+    "asin": "B00LAIF4KW",
+    "product_type": "ART_SUPPLIES",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UNV-WBPASTSS-BUN-37PC-ONE-BNDL\nProduct Type: ART_SUPPLIES\nBrand (from catalog): Universal Tool\nExisting Title: 37pc Complete Wood Burning Pen & Assorted Soldering Tips Stencil Hobby Craft Set\nDescription: Add some flare to any wood working project with the complete 37pc Wood Burning Pen & Soldering Tips Set.<br/><br/>The 37pc Wood Burning Pen & Soldering Tips Set is a great addition to your wood working or soldering tool collection. This set comes with everything you'll need for your wood working projects:a wood burning pen, wood carving tips, wood embossing tips, soldering tips, hot knife chuck and blade, number, letter and basic symbols stencils. <br/><br/>This set is great for wood working, hobbies, crafting, home improvement and more. Make sure to grab one before your next project.\nSearch Terms: wood working carving tools chiseling hobby DIY art craft wood working carving tools chiseling hobby chisel tips burning tool razertip burner pyrography kit woodburning craft supplies pens interchangeable burners\nFeatures:\n- 37pc Wood Burning Pen & Assorted Tips Set\n- Wood Carving Tips\n- Wood Embossing Tips\n- Hot Knife Chuck & Blade\n- Number, Letter & Basic Symbols Stencils\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 37pc Wood Burning Pen and Soldering Tips Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "37",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Wood Burning Pen and Soldering Tips Set"
+            },
+            "char_count": 59,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 37-pc Wood Burning Pen And Soldering Tips Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "37",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Wood Burning Pen And Soldering Tips Set"
+            },
+            "char_count": 60,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Wood Carving And Embossing Tips, Hot Knife Chuck And Blade, Number Letter And Symbol Stencils, Pyrography Hobby Craft",
+            "char_count": 117,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Wood Carving Tips, Wood Embossing Tips, Hot Knife Chuck And Blade, Number Letter And Symbol Stencils",
+            "char_count": 100,
+            "validation_error": null
+        }
+    }
+}

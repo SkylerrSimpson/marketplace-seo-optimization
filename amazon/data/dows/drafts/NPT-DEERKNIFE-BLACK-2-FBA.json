@@ -3,14 +3,14 @@
     "asin": "B07W8V7B7R",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:12:34+00:00",
+    "generated_at": "2026-07-21T20:07:25+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 5,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 8
     },
@@ -80,22 +80,59 @@
             "value": "Stainless Steel",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 13.5\" Deer Fixed Blade Hunting Knife Black",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 13\" Black Deer Wildlife Fixed Blade Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Deer Wildlife Fixed Blade Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "440 Stainless Steel, Etched Sheath, Display & Functional",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 13-in Deer Fixed Blade Hunting Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 48,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Deer Fixed Blade Hunting Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Etched Ornamental Design, 440 Stainless Steel, Matching Sheath, Collectible Display Knife",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 89,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Etched Wildlife Handle, Stainless Steel Bowie-Style Blade, Matching Sheath, Clip Point, Display Gift For Collectors",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 115,
+            "review_only": true
         },
         "supplier_declared_material_regulation": {
             "value": [

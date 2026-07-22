@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-CUTLERYSET-7PC-44126-HPNR",
+    "asin": "B000N15XA8",
+    "product_type": "KNIFE_BLOCK_SET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-CUTLERYSET-7PC-44126-HPNR\nProduct Type: KNIFE_BLOCK_SET\nBrand (from catalog): Chef Master\nExisting Title: 7pc Cutlery Set with Wooden Storage Block\nDescription: 7-Piece cutlery set includes 3\" Paring Knife, 5\" Utility Knife, and 8\" Chef's Knife, 8'' Carving Knife, 6'' Boning knife, kitchen scissors and wooden storage block. Manufactured by Wingar Industrial Inc. We are an experienced enterprise that provides flatware and cutlery services around the world since 1997.\nSearch Terms: cutlery set wooden stainless steel reusable silver for 7 chef knife with block knives premium\nFeatures:\n- [Versatile Kitchen Set] - A set includes 1 chef knife, 1 carving knife, 1 boning knife, 1 utility knife, 1 paring knife, 1 kitchen scissors, and 1 wooden block.\n- [EverSharp Knives] -Ergonomic and comfortable handles along with specialized stainless steel blades. Sturdy construction that also resists rust, stains & corrosion.\n- [Easy care] - Hand wash under warm water with detergent, rinse and dry. Place back into storage compartment for a clean look.\n- [Perfect Gift] - Sleek and simple design fit for any kitchen arrangement. Suitable gift for any occasion (Christmas, Birthdays, Father's Day or Mother's day) and practical use for home cooks to culinary students and professional chefs alike.\n- [Customer Satisfaction Guarantee] - The best kitchen set available at this price point. If you are not satisfied with our product, you can even reach out to our manufacturer directly and we will provide you with a refund or replacement.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Chef Master 7-Piece Cutlery Set with Wooden Block",
+            "tokens": {
+                "brand": "Chef Master",
+                "pack_size": "7",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "",
+                "name": "Cutlery Set with Wooden Block"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Chef Master 7-Pc Cutlery Set with Wooden Storage Block",
+            "tokens": {
+                "brand": "Chef Master",
+                "pack_size": "7",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Cutlery Set with Wooden Storage Block"
+            },
+            "char_count": 54,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Stainless Steel Blades, Ergonomic Handles, Includes Chef Knife, Carving Knife, Boning Knife, Utility Knife, Paring Knife And Scissors",
+            "char_count": 133,
+            "validation_error": "value exceeds maxLength 125 (133 chars)"
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Stainless Steel Blades, Ergonomic Handles, Rust Resistant, Kitchen Scissors, Wooden Block, Gift For Home Chefs",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}

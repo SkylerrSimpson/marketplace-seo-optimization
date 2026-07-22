@@ -3,14 +3,14 @@
     "asin": "B087CDZPVY",
     "product_type": "CORD_ROPE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:18:49+00:00",
+    "generated_at": "2026-07-21T20:08:38+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 4,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -79,22 +79,59 @@
             "value": "Vectran",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Vectran Braided Cord 600lb Breaking Strength",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 600lb Braided Vectran Survival Cord Natural",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "600",
+                "pack_size_unit": "lb",
+                "size": "",
+                "color": "Natural",
+                "name": "Braided Vectran Survival Cord"
+            }
         },
-        "title_differentiation": {
-            "value": "High Abrasion & Moisture Resistant, Made in USA, 0.9mm Diameter",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor Natural Braided Vectran Cord 600lb",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 46,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Natural",
+                "name": "Braided Vectran Cord"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "600Lb Breaking Strength, High Abrasion Resistant, Moisture Resistant, Made In USA, Tactical EDC",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 95,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "High Abrasion Resistance Moisture Resistant 09 Mm 681774 Denier 600 Lb Break Strength Made In USA",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 97,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

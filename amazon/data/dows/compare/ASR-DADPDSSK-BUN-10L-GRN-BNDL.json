@@ -1,0 +1,60 @@
+{
+    "sku": "ASR-DADPDSSK-BUN-10L-GRN-BNDL",
+    "asin": "B01COB9UVC",
+    "product_type": "SURVIVAL_KIT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: ASR-DADPDSSK-BUN-10L-GRN-BNDL\nProduct Type: SURVIVAL_KIT\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Dry Sack Camping Survival Kit Emergency Prepper Supplies - 17pc\nDescription: The ASR Outdoor ultimate survival kit comes with 17 emergency essentials for camping, hiking, hunting, and boating that all fit neatly inside of a 40-liter dry sack to keep them safe and secure in any weather condition. The bag itself is made of durable, water-resistant terylene that seals with a sturdy plastic buckle.<br/><br/>Inside the kit, we've included some cutting and cooking tools to ensure food procurement and cooking in an emergency situation - a 4pc all-in-one camping utensil set (fork, spoon, knife, and corkscrew), a 7\" full tang tanto blade hunting knife with a magnesium fire starter and a hand wire saw, all of which will help you procure firewood, create a fire and be able to cook with your heat source.<br/><br/>Additionally, we've also included a couple of campsite must-haves to add some comfort in case of poor weather conditions - an insulated mylar sleeping bag, a one-size-fits-most emergency poncho, and 100 feet of glow-in-the-dark paracord, and 2 awning clamps to create a make-shift shelter with a tarp if necessary. We've also added in some high-visibility marking ribbon to safely secure and identify your campsite in the dark.<br/><br/>Lastly, we've added a 5-liter BPA-free water flask to store clean water that is safe for consumption, a wilderness and travel medicine guide in case of a first aid emergency, and a double-sided signaling mirror in case you are lost in the woods. Make sure to keep one of these kits in your car, truck, boat, or with your camping and emergency gear before your next outdoor adventure.\nSearch Terms: emergency kit car emergency kit roadside emergency kit survival kit but out bag survival kit prepper supplies camping accessories essentials tools gear dry sack waterproof bag first aid kit first aid supplies travel first aid kit boating accessories\nFeatures:\n- DELUXE PREPPER KIT IN WATERPROOF BAG - ASR Outdoor emergency kit comes with 17 outdoor survival essentials for camping, boating, and hiking, all fit neatly inside a 40-liter dry sack made of terylene water-resistant material that seals with a sturdy plastic buckle\n- CUTTING AND COOKING TOOLS - Kit features a 4pc all-in-one camping utensil set (knife, spoon, fork, and corkscrew) for comfortable eating and cooking out in the field; a 7\" full tang tanto blade hunting knife with magnesium fire starter to ensure access to a heat source and a hand wire saw to procure firewood\n- CAMPSITE MUST HAVES - Kit includes insulated mylar sleeping bag, emergency poncho, 2 awning clips, and 100ft of glow-in-the-dark paracord to create a shelter with a tarp. Also includes high visibility green marking ribbon to secure and identify campground\n- EMERGENCY SURVIVAL SUPPLIES - Also includes a 5-liter BPA-free water flask to hold clean water safe for consumption, wilderness and travel medicine guide for first aid treatment, and a signaling mirror in case you get lost in the woods\n- SPECIFICATIONS - Kit size: 17pc (colors and contents may vary based on availability); Materials: plastic, steel, mylar, paracord: Paracord length: 100ft (glow in the dark); Dry sack capacity: 40 liters; Water flask capacity: 5-liters\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 17pc Green Dry Sack Survival Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "17",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Green",
+                "name": "Dry Sack Survival Kit"
+            },
+            "char_count": 44,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 17-Pc 40L Green Survival Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "17",
+                "pack_size_unit": "pc",
+                "size": "40L",
+                "color": "Green",
+                "name": "Survival Kit"
+            },
+            "char_count": 40,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "40L Waterproof Bag, Hunting Knife, Fire Starter, Sleeping Bag, Paracord, Water Flask, First Aid Guide",
+            "char_count": 101,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Waterproof 40L Dry Sack, 17 Emergency Essentials, Fire Starter Knife, Mylar Sleeping Bag, 5L Water Flask, Signaling Mirror",
+            "char_count": 122,
+            "validation_error": null
+        }
+    }
+}

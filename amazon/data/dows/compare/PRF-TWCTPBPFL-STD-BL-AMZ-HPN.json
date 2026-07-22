@@ -1,0 +1,60 @@
+{
+    "sku": "PRF-TWCTPBPFL-STD-BL-AMZ-HPN",
+    "asin": "1926534549",
+    "product_type": "ABIS_BOOK",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: PRF-TWCTPBPFL-STD-BL-AMZ-HPN\nProduct Type: ABIS_BOOK\nBrand (from catalog): Productive Fitness\nExisting Title: Treadmill Poster/Chart Laminated; How to Run on a Treadmill - Treadmill Safety - Treadmill Workout - Treadmill Instructions - Indoor Running - Walking ... safety - How to use the Treadmill in your Gym\nDescription: Whether you are a complete treadmill novice or an experienced user, this poster will ensure each run, walk or jog is successful and safe. Bullet points highlight the important aspects of proper posture, safety and the use of treadmill components. If you're a complete beginner you'll learn the best way to safely get started. As well, the chart describes how to set up your workout, what muscles are being used (displayed in a colourful muscle anatomy drawing), how to select the correct heart range based on your fitness goals, and a series of safety points. This poster is the perfect guide to have mounted next to the treadmill for both motivation and explanation. 24 x 36 inch laminated poster\nSearch Terms: (none)\nFeatures:\n(none)\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Productive Fitness Treadmill Poster 24x36 inch Laminated",
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "24x36",
+                "pack_size_unit": "inch",
+                "size": "",
+                "color": "",
+                "name": "Treadmill Poster Laminated"
+            },
+            "char_count": 56,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Productive Fitness 24x36 in Treadmill Poster Chart",
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "24x36",
+                "pack_size_unit": "in",
+                "size": "24x36 in",
+                "color": "",
+                "name": "Treadmill Poster Chart"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Laminated Safety Guide, Workout Setup Instructions, Muscle Anatomy Chart, Heart Rate Training Zones, Proper Form Tips",
+            "char_count": 117,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Laminated, Safety Tips, Proper Posture, Muscle Anatomy Guide, Heart Rate Zones, Beginner Workout Instructions",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

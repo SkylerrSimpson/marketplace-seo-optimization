@@ -1,0 +1,60 @@
+{
+    "sku": "HWK-TTX-METALSIFTSET-5PC",
+    "asin": "B0BTTYTGKG",
+    "product_type": "OUTDOOR_LIVING",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWK-TTX-METALSIFTSET-5PC\nProduct Type: OUTDOOR_LIVING\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Interchangeable Fine Mesh Sieve Set Gardening Tools Gold Panning Equipment Soil Sifter, 5pc\nDescription: ToolTreaux's 5pc fine mesh sieve set makes sifting out unwanted materials easy and efficient. What's more, they're suitable for a wide variety of tasks, ranging from gardening and composting, to gold prospecting, rock hounding and much more. <br/><br/>These fine mesh soil sifting screens are great for basic tasks like seed separation, small worm casting, rock sifting or cleaning, soil mixing and more. The lightweight design helps reduce fatigue and is ideal for sifting out particles and other debris for optimum soil health.<br/><br/>In addition to gardening or compost tasks, the sifting screens are an excellent addition to any gold panning kits or gold prospecting equipment, making it quick and efficient, when working with finer materials, to sift out unwanted materials from a working deposit and get down to the good stuff. Also great for rock hounding, gem hunting and other similar hobbies. <br/><br/>Made from durable stainless steel, the sifting screens are lightweight and easy to maneuver. Sieves are ultra fine, fine, medium and coarse and can be easily swapped out with a simple two thumbed push.\nSearch Terms: gold panning kits gardening supplies rock hounding equipment gold mining gem stones rock crystals tools soil sand shark tooth sifter sifting litter box classifier screens compost fine mesh strainer garden gifts accessories adult hobby kits worm\nFeatures:\n- MESH SIEVE SET: 5pc set features x4 interchangeable stainless steel mesh sieves and x1 8 inch frame; sieves are ultra fine, fine, medium and coarse and can be easily swapped out with a simple two thumbed push\n- GARDENING SUPPLIES: Great for standard gardening tasks like seed separation, small worm castings, rock sifting or cleaning, soil mixing and more; lightweight design helps reduce fatigue and is ideal for sifting out particles and other debris for optimum soil health\n- GOLD PROSPECTING EQUIPMENT: Also ideal for gold panning or prospecting, these handy and interchangeable mesh sieves will sift out unwanted material in working deposits, allowing you to sift down to the finest of materials\n- STAINLESS STEEL: Lightweight but durable, this 5pc set is made from stainless steel, built to withstand lots of outdoor wear and tear, whether it be gardening, rock hounding, gem hunting, gold panning, compost and more\n- SPECIFICATIONS: Sieve Dimensions: 8.5 x 2 inches; Weight: 0.95lbs; Material: Stainless Steel; Color: Silver\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 5-pc Gold Panning Soil Sifter Set Silver",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "5",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Silver",
+                "name": "Gold Panning Soil Sifter Set"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 5-Pc 8 In Silver Mesh Sieve Set",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "5",
+                "pack_size_unit": "Pc",
+                "size": "8 In",
+                "color": "Silver",
+                "name": "Mesh Sieve Set"
+            },
+            "char_count": 42,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Interchangeable Mesh Sieves, Stainless Steel, Ultra Fine To Coarse, Gardening And Gold Prospecting",
+            "char_count": 98,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Interchangeable Stainless Steel Meshes, Ultra Fine To Coarse, Gardening And Gold Panning, Lightweight, Durable",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}

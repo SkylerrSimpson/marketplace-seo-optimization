@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-HOTWHEELS-TOWN-GKT869574-HPNR",
+    "asin": "B07XD6F2XK",
+    "product_type": "TOY_VEHICLE_SET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-HOTWHEELS-TOWN-GKT869574-HPNR\nProduct Type: TOY_VEHICLE_SET\nBrand (from catalog): Hot Wheels\nExisting Title: Hot Wheels City Town Center Play Set Gift Idea for Ages 4 to 8 Years, Multicolor\nDescription: Kids can drive their Hot Wheels cars and experience Hot Wheels City through iconic and recognizable city locations. There are multiple ways to play with the Hot Wheels Central City Block, starting with the main building that has 2 different sides with access from each. Kids can fix their cars in the mechanic area then test them in the roundabout. Remind them to pay attention to the traffic lights. They can drive in and out from the building, pass through the tunnel and store cars in secret places. The exclusive track pieces let kids create a new path every time. When it's time to stop kids can just drop everything in the building: the roundabout will be the top of it, sealing their special pieces for the next adventure. Each set connects directly to other Hot Wheels City sets and with Hot Wheels City grey track, still compatible with orange track, too.\nSearch Terms: cars vehicles diecast town set box carrying case creativity learning education development imagination autos race playset modular\nFeatures:\n- Designed to inspire storytelling and creativity for kids ages 4 to 8 years old with fresh, colorful and functional sets they will love.\n- Drive in and out of buildings, car repair, tunnel, roundabout, traffic lights and secret storage spots. Create a new path every time!\n- Finished playing Store everything into the building and seal with the lid for next time\n- Everything connects in Hot Wheels City and other Hot Wheels tracks and play sets (sold separately). Ages 3-6 years old.\n- Kids can go on adventures in multiple locations with this set that resembles a city block with 2 sides.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Hot Wheels City Town Center Play Set for Ages 4-8",
+            "tokens": {
+                "brand": "Hot Wheels",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Multicolor",
+                "name": "City Town Center Play Set"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Hot Wheels Multicolor City Town Center Play Set",
+            "tokens": {
+                "brand": "Hot Wheels",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Multicolor",
+                "name": "City Town Center Play Set"
+            },
+            "char_count": 47,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "2-Sided Building, Mechanic Shop, Roundabout, Tunnel, Traffic Lights, Secret Storage, Modular Connections",
+            "char_count": 104,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Two-Sided City Block, Car Repair Garage, Tunnel, Roundabout, Traffic Lights, Secret Storage, Connects To Tracks",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

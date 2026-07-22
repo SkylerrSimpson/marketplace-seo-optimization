@@ -3,14 +3,14 @@
     "asin": "B087MZ3GWD",
     "product_type": "NON_RIDING_TOY_VEHICLE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:52:59+00:00",
+    "generated_at": "2026-07-21T19:38:51+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 4,
         "catalog": 3,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -83,22 +83,59 @@
             "value": "Red, Black",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "KidPlay Products Light Up Pirate Ship Toy Boat with Sounds",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "KidPlay Products Pirate Ship Toy with Lights and Sounds",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Pirate Ship Toy with Lights and Sounds"
+            }
         },
-        "title_differentiation": {
-            "value": "Includes 3 Action Figures, Real Lights & Sounds, Ages 3+",
+        "item_name_ai_openai": {
+            "value": "KidPlay Products Light Up Toy Pirate Ship Adventure Boat",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 56,
+            "review_only": true,
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Light Up Toy Pirate Ship Adventure Boat"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Includes 3 Action Figures, Light Up And Sound Effects, Batteries Included, Ages 3 Plus",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 86,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Real Lights And Sounds, Includes 3 Pirate Figures, Battery Included, Imaginative Pretend Play, Ages 3 Plus",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 106,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

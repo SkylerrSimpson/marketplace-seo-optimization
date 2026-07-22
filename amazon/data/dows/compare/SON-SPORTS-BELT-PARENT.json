@@ -1,0 +1,60 @@
+{
+    "sku": "SON-SPORTS-BELT-PARENT",
+    "asin": "B0B843F99V",
+    "product_type": "WAIST_PACK",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-SPORTS-BELT-PARENT\nProduct Type: WAIST_PACK\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Pocket Sport Belt for Running Jogging Travel Fanny Pack Black\nDescription: The ASR Outdoor sport waist belt features one or two 8\" expanding pocket that will conveniently store your daily essentials while jogging, running, traveling, or exercising. It will easily fit most smartphones, mobile devices, cash, keys, and more.<br/><br/>Our sport belt is both adjustable and stretchy and comes with a side-release paracord buckle designed for easy one-handed release so you can grab your essentials while still moving. It adjusts from 27\" to 43\" and weighs just 2.2 ounces, making it easy to wear and carry for most men, women, and children.<br/><br/>Made of high-quality breathable materials, this belt also features reflective strips and a reinforced zipper to ensure that your items are secured, making it an ideal option for cycling, hiking, boating, and exercising in low-light conditions.\nSearch Terms: running belt running belt for men running belt for phone running waist belt money belt for travel women hidden travel money belt fanny pack fanny pack for men fanny pack crossbody bags for women waterproof fanny pack black fanny pack mens fanny pack\nFeatures:\n- EXPANDABLE POCKET - ASR Outdoor sport waist belt features 8\" expanding pocket to conveniently store your essentials while traveling, running or jogging. Fits most smartphones, keys, keychains, cash and more\n- ADJUSTABLE BELT - Sport belt features adjustable stretchy belt that comes with a side release paracord bracelet plastic buckle designed for easy one-handed release to avoid accidental uncoupling\n- LIGHTWEIGHT AND COMPACT - Waist sport belt adjusts from 27\" to 43\" and weighs just 2oz; easy to wear and carry for most men, women and children\n- REFLECTIVE STRIPS - Made of high-quality breathable materials and features reflective strips and reinforced zipper, ideal for hiking, cycling, boating and exercising in low light conditions\n- SPECIFICATIONS - Belt length: 27\" to 43\" (adjustable, one size fits most); Reflective strips; Reinforced zipper; 8\" expanding pocket; Materials: breathable; Buckle dimensions: 1.5\"; Color: black; Number of pockets: 1 or 2\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Black Running Waist Pack Sport Belt",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Running Waist Pack Sport Belt"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Black Pocket Sport Belt",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Pocket Sport Belt"
+            },
+            "char_count": 35,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Expandable 8 Inch Pocket, Adjustable 27-43 Inches, Reflective Strips, One-Handed Release Buckle, Lightweight",
+            "char_count": 108,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Expandable 8 Inch Pocket - Adjustable Stretch Fit - Reflective Strips - Lightweight 2 Oz - Reinforced Zipper",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

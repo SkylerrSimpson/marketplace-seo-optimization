@@ -1,0 +1,60 @@
+{
+    "sku": "SON-DAMVQS-BUN-6PC-2PK-SML-BLCK",
+    "asin": "B07Y2HTQT9",
+    "product_type": "CARGO_STRAP",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-DAMVQS-BUN-6PC-2PK-SML-BLCK\nProduct Type: CARGO_STRAP\nBrand (from catalog): Universal Tool\nExisting Title: 12pc D-Ring Adjustable Multi-Purpose Hook and Loop Quick Straps\nDescription: The 12pc Reusable Tie Down Strap Set is the ideal companion for electrical wires, cables, ropes, hoses and just about anything you can wrap these guys around.<br/><br/>They feature an adjustable hook and loop backing making the usable length 9-1/2\" to 16\".\nSearch Terms: arts crafts sewing fabric adhesive\nFeatures:\n- Adjustable Length: 9-1/2\" to 16\"\n- D-Ring Loop\n- Hook & Loop Closure\n- Color: Black\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 12-pc Black D-Ring Adjustable Tie Down Straps",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "12",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Black",
+                "name": "D-Ring Adjustable Tie Down Straps"
+            },
+            "char_count": 60,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 12-pc Black D-Ring Hook and Loop Straps",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "12",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Black",
+                "name": "D-Ring Hook and Loop Straps"
+            },
+            "char_count": 54,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Adjustable 95 To 16 Inches, Hook And Loop Closure, Reusable, Multi-Purpose Cable And Strap Organization",
+            "char_count": 103,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Adjustable 9-12\" To 16\", Reusable Tie Down Straps, D-Ring Loop, Secure Hook And Loop Closure, For Cables Hoses Ropes",
+            "char_count": 116,
+            "validation_error": null
+        }
+    }
+}

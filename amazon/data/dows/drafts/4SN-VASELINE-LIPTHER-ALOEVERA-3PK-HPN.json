@@ -3,14 +3,14 @@
     "asin": "B07HJY4FGT",
     "product_type": "LIP_BALM",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:44:15+00:00",
+    "generated_at": "2026-07-21T20:00:07+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 9,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -137,20 +137,57 @@
             "asin": "B07HJY4FGT",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Vaseline Lip Therapy Aloe Vera Lip Balm, 3 Pack",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Vaseline Lip Therapy Aloe Vera 3-Pack | Lip Balm",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Vaseline",
+                "pack_size": "3",
+                "pack_size_unit": "Pack",
+                "size": "0.16 Oz",
+                "color": "",
+                "name": "Lip Therapy Aloe Vera Lip Balm"
+            }
         },
-        "title_differentiation": {
-            "value": "with Vitamin E & Aloe Vera, Moisturizing Stick, Chapped & Dry Lips",
+        "item_name_ai_openai": {
+            "value": "Vaseline 3-pk 0.16 oz Aloe Vera Lip Balm",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 40,
+            "review_only": true,
+            "tokens": {
+                "brand": "Vaseline",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "0.16 oz",
+                "color": "",
+                "name": "Lip Balm"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Aloe Vera And Vitamin E, Moisturizing, Chapped And Cracked Lips, Petroleum Jelly, Non-Sticky, Pocket-Sized",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 106,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Aloe Vera And Vitamin E, Petroleum Jelly Moisturizer, Non-Sticky, Non-Greasy, Pocket-Sized, Helps Dry Chapped Lips",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 114,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

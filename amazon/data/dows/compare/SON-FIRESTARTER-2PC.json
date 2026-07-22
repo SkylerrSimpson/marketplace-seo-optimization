@@ -1,0 +1,60 @@
+{
+    "sku": "SON-FIRESTARTER-2PC",
+    "asin": "B09WJL2VFL",
+    "product_type": "SPORTING_GOODS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-FIRESTARTER-2PC\nProduct Type: SPORTING_GOODS\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Magnesium Fire Starter and Striker Camping Essential Survival Tool\nDescription: The ASR Outdoor fire starter tool set comes with a magnesium firestarter and a striker which will allow you to create a heat source while you're camping, hiking, or find yourself in an emergency survival situation.<br/><br/>The striker included with this fire starter kit features a serrated blade, which was designed to gently shave a small quantity of the magnesium into tinder. Once you have the magnesium, simply strike the magnesium with the striker to create a spark. Let the sparks fall onto the shaved magnesium to start a fire.<br/><br/>The magnesium fire starter rod features an ergonomic grip handle to prevent slippage during use, ensuring that you don't injure yourself while starting a fire. The fire starter kit comes with a nylon lanyard so you can easily attach it to your backpack, belt, or other camping and hiking gear for quick deployment when needed. It only weighs .05lbs (.8oz) so it won't add much weight or bulk to your gear.\nSearch Terms: fire starter fire starter survival tool flint fire starter fire starter kit firestarter camping accessories camping gear camping stove camping supplies camping grill survival gear survival kits survival gear and equipment fire starter survival tool\nFeatures:\n- 2PC FIRE STARTER TOOL SET - The ASR Outdoor fire starter tool set comes with a magnesium firestarter and a striker which will allow you to create a heat source while you're camping, hiking, or find yourself in an emergency survival situation.\n- SERRATED STRIKER - The striker included with this fire starter kit features a serrated blade, which was designed to gently shave a small quantity of the magnesium into tinder. Once you have the magnesium, simply strike the magnesium with the striker to create a spark. Let the sparks fall onto the shaved magnesium to start a fire.\n- EASY GRIP HANDLE - The magnesium fire starter rod features an ergonomic grip handle to prevent slippage during use, ensuring that you don't injure yourself while starting a fire.\n- COMES WITH LANYARD - The fire starter kit comes with a nylon lanyard so you can easily attach it to your backpack, belt or other camping and hiking gear for quick deployment when needed. It only weighs .05lbs (.8oz) so it won't add much weight or bulk to your gear.\n- SPECIFICATIONS - Materials: magnesium, steel, plastic, nylon; Colors: black, green; Magnesium rod dimensions: 2\" length, 3/16\" diameter; Striker blade type: serrated\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Magnesium Fire Starter with Striker",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "PC",
+                "size": "",
+                "color": "",
+                "name": "Magnesium Fire Starter with Striker"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Magnesium Fire Starter and Striker",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Magnesium Fire Starter and Striker"
+            },
+            "char_count": 46,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "2-Piece Kit, Serrated Striker Blade, Ergonomic Grip, Nylon Lanyard, Lightweight Survival Tool",
+            "char_count": 93,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Serrated Steel Striker, Ergonomic Grip Handle, Nylon Lanyard, Ultra Light, Camping And Survival Use",
+            "char_count": 99,
+            "validation_error": null
+        }
+    }
+}

@@ -3,14 +3,14 @@
     "asin": "B00VKOPHR6",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:47:29+00:00",
+    "generated_at": "2026-07-21T20:01:23+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -86,20 +86,57 @@
             "asin": "B00VKOPHR6",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical 3-Piece 440 Stainless Steel Throwing Knives",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical 3-Pc 6in Silver Throwing Knife Set",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 47,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "3",
+                "pack_size_unit": "Pc",
+                "size": "6in",
+                "color": "Silver",
+                "name": "Throwing Knife Set"
+            }
         },
-        "title_differentiation": {
-            "value": "6-inch Fixed Blade Ninja Knives with Compact Nylon Carrying Case",
+        "item_name_ai_openai": {
+            "value": "ASR Tactical 3-Pk 6in Silver Throwing Knife Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 47,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "3",
+                "pack_size_unit": "Pk",
+                "size": "6in",
+                "color": "Silver",
+                "name": "Throwing Knife Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Fixed Blade Ninja Knives, 440 Stainless Steel, Compact Nylon Case, Martial Arts Training",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 88,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "440 Stainless Steel, Forged One-Piece Construction, Nylon Carrying Case, Balanced Weight, Set Of 3 Knives",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 105,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

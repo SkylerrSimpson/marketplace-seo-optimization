@@ -3,14 +3,14 @@
     "asin": "B00A1FVBKC",
     "product_type": "TOYS_AND_GAMES",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:00:08+00:00",
+    "generated_at": "2026-07-21T19:43:17+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -84,19 +84,57 @@
             "asin": "B00A1FVBKC",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Disney Princess Best Friends 6-Piece Jewelry Set",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Disney Princess 6-Piece Best Friends Set Pink",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 45,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "6",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "Pink",
+                "name": "Best Friends Set"
+            }
         },
-        "title_differentiation": {
-            "value": "Includes 2 bracelets, 2 rings, 2 hair clips. Ages 3+",
+        "item_name_ai_openai": {
+            "value": "Disney Princess Best Friends Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 32,
+            "review_only": true,
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Princess Best Friends Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Bracelets, Rings And Hair Clips, Friendship Theme, Ages 3 Plus, Disney Princess Characters",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 90,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "6 Piece Accessory Set, 2 Beaded Bracelets, 2 Rings, 2 Hair Clips, Ages 3 Plus, Friendship Gift, Party Favor",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

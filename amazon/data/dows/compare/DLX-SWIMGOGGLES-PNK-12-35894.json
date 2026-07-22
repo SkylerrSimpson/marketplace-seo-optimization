@@ -1,0 +1,60 @@
+{
+    "sku": "DLX-SWIMGOGGLES-PNK-12-35894",
+    "asin": "B08DHP3Y27",
+    "product_type": "SAFETY_GLASSES",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DLX-SWIMGOGGLES-PNK-12-35894\nProduct Type: SAFETY_GLASSES\nBrand (from catalog): KidPlay Products\nExisting Title: Kids Swimming Goggles Childrens Swim Mask - Pink\nDescription: There's one thing all kids look forward to when the Summer season comes around - swimming. Whether you're going to the beach, an indoor pool, an outdoor pool, or a water park, you'll want to ensure your child has a trusty pair of swimming goggles to protect their eyes when swimming.<br/><br/>The Kidplokio swimming goggles feature an easy to use, quick-adjust elastic strap that kids can adjust for a perfect fit. This will not only ensure a comfortable fit but provides a snug seal to keep water out of your little one's eyes. The plastic goggles come with a soft silicone frame that won't irritate skin once adjusted properly.<br/><br/>In addition to the goggles, we've included a convenient matching carry case to store the goggles in when not in use. It comes with a lanyard so your child can wear them like a necklace, hang from a backpack or beach bag to keep them handy and organized. The vibrant color will add a fun look to any kid's swimwear. These swimming goggles are a must-have accessory this Summer.\nSearch Terms: kids girl goggles boy neon colored swim swimming childrens toddler plastic swimwear eye-wear hot fuschia case holder pool accessories summer toy bright protection carrying lanyard tie comfortable adjustable string simple safety viz visibility ocean\nFeatures:\n- EASY TO USE QUICK ADJUST STRAP - Kids can easily adjust the elastic strap for a perfect fit, which ensures a comfortable, snug seal to keep water out of eyes while swimming\n- FUN VIBRANT COLOR - The super-bright neon pink colored goggles add a cool look to any kid's swimwear, and the high-visibility color helps prevent kids from losing their goggles in the pool or at the beach\n- DESIGNED FOR INDOOR/OUTDOOR SWIMMING - Our goggles are designed to be used in both indoor and outdoor pools, and work great at the beach too!\n- SAFE MATERIAL FOR KIDS - Goggles are made of plastic with a soft silicone eye-frame to provide comfort while protecting eyes from fresh or salt water\n- CONVENIENT CARRY CASE - Our goggles come with a matching neon carry case with a lanyard, so kids can wear them around their neck, attach to their backpack or beach bag while not in use!\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "KidPlay Products Kids Swimming Goggles Pink",
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Pink",
+                "name": "Kids Swimming Goggles"
+            },
+            "char_count": 43,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "KidPlay Products Kids Pink Swimming Goggles",
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Pink",
+                "name": "Swimming Goggles"
+            },
+            "char_count": 43,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Quick Adjust Strap, Neon Pink High Visibility, Soft Silicone Frame, Includes Carry Case With Lanyard",
+            "char_count": 100,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Quick Adjust Strap, Soft Silicone Frame, Carry Case With Lanyard, Indoor Outdoor And Beach Use, High Visibility",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

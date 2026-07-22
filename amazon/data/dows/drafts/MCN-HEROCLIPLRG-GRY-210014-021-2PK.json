@@ -3,14 +3,14 @@
     "asin": "B0C6W9G3L1",
     "product_type": "CARABINER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:43:26+00:00",
+    "generated_at": "2026-07-21T19:59:50+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 15,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -229,20 +229,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "GEAR AID Heroclip Large Carabiner Clip Hook Gray 2 Pack",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "GEAR AID Heroclip Large 2-Pack Gray Carabiner Hook",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "Pack",
+                "size": "Large",
+                "color": "Gray",
+                "name": "Heroclip Carabiner Hook"
+            }
         },
-        "title_differentiation": {
-            "value": "360° Swivel, Holds 100 lbs, Aircraft Aluminum, Camping & Garage",
+        "item_name_ai_openai": {
+            "value": "GEAR AID 2-pk Large Gray HeroClip Carabiner Clip and Hook",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 57,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "Large",
+                "color": "Gray",
+                "name": "HeroClip Carabiner Clip and Hook"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "360 Swivel Hook, Holds 100 Lbs, Aircraft-Grade Aluminum, Compact Nesting Design, Camping And Gear Organization",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 110,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "3-In-1 Clip And Hook, 100 Lb Capacity, 360 Swivel Hook, Rubber Grip Foot, Aircraft-Grade Aluminum",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 97,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

@@ -1,0 +1,60 @@
+{
+    "sku": "WTB-SWBLANKKIDS-SEA",
+    "asin": "B0813YWRKD",
+    "product_type": "BLANKET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: WTB-SWBLANKKIDS-SEA\nProduct Type: BLANKET\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Southwest Navajo Fleece Throw Blanket for Camping or Travel Blue 60 Inch x 40 Inch\nDescription: Pack our ASR Outdoor Southwest Navajo Print Fleece Travel Throw Blanket on your next boating adventure, camping trip or family picnic, or keep it at home for cozy movie nights on the couch. Wherever your plans may take you, our soft fleece throw blanket is the perfect fleece throw blanket to keep you warm indoors or outdoors<br/><br/>WHY FLEECE: Yes, fleece is a synthetic material but, it actually shares many of the same qualities as wool, predominantly its excellent ability to retain heat; fleece throw blankets are also semi-permeable, meaning that they can breathe and help regular temperature but, still keep the heat your body generates under the blanket. These fleece throw blankets also repel water well and are quick drying.<br/><br/>ON-TREND DESIGN: Boasting some southwestern flair with a nod to Navajo and Aztec design, this cozy fleece throw blanket is a great piece for your home or to take with you for camping trips, backpacking and general traveling. Our large fleece throw blanket is bound together with a simple, black knit-trim edge for a clean finish that will help to prolong the blankets structural longevity.<br/><br/>GOOD FOR SUMMER AND WINTER: Couch surfing or camping in the wilderness, the ASR Outdoor fleece throw blanket will keep you warm on whatever adventures you have planned, regardless of the season. We love taking this large fleece blanket as a travel beach blanket in the summer, as a lightweight travel blanket on the airplane or folded into our ski/snowboard day pack for some extra warmth if needed. It can also be used as a pet blanket or baby blanket, providing weightless, breathable warmth.<br/><br/>GREAT GIFT IDEA: Looking for that perfect gift for your friends or family? Look no further and give the gift of warmth. Available in multiple colorways, our fleece throw blanket is perfect for everyone on your list from the bookworm to the avid outdoors-man, and for kids and pets too\nSearch Terms: home decor blanket blankets fleece throws indoor warmth outdoor camping accessories road trip snuggle throw bedding southwest style native american accent dog horse pet baby navajo beach gear laundry survival kit bug out bag summer winter wool\nFeatures:\n- SOFT, COZY & ON-TREND: Our reversible fleece blanket will keep you warm snuggled up on the couch for an all night movie marathon or as an extra cozy layer in your sleeping bag when camping; this reversible fleece throw blanket features a Southwest Navajo inspired design, making it a stylish piece for your home or to take with you on your next outdoor adventure\n- LIGHTWEIGHT FLEECE FABRIC: Created as a lightweight alternative to wool, fleece throw blankets are breathable and can retain an incredible amount of heat; Sleeping, reading or cozying up by the fire, our large fleece blankets will not only feel soft on your skin but will the heavy lifting to get and keep you warm\n- SUMMER AND WINTER: As soft as it is practical, this fleece blanket can handle any indoor or outdoor activity like camping, picnics, concerts or sporting events, airplane travel or trips to and from your favorite running trail; the throw blanket can be kept as part of your bug out bag or wilderness survival kit; It can also be used a baby blanket, cat blanket, dog blanket, horse blanket, pet blanket, travel blanket or as a kids travel blanket\n- LAUNDRY FRIENDLY: Machine washable and hang to dry, a polyester blend makes this large fleece throw blanket easy to care for; If you're on the go and need to spot clean, use warm water and soap of your choice and leave to air dry\n- MATERIALS & SPECIFICATIONS: Single ply, polyester blend; Dimensions: 60 inch x 40 inch; Includes PVC carry bag with handle\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 60x40 Blue Southwest Navajo Fleece Blanket",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "60",
+                "pack_size_unit": "x40 in",
+                "size": "60x40",
+                "color": "Blue",
+                "name": "Southwest Navajo Fleece Blanket"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 60in x 40in Blue Fleece Throw Blanket",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "60in x 40in",
+                "color": "Blue",
+                "name": "Fleece Throw Blanket"
+            },
+            "char_count": 49,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Lightweight Fleece, Machine Washable, Reversible Design, Indoor And Outdoor Use, Includes Carry Bag",
+            "char_count": 99,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Reversible Southwest Navajo Print, Lightweight Polyester Blend, Machine Washable, Carry Bag Included, Indoor Outdoor Warmth",
+            "char_count": 123,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-SLINGSHOT-2PC",
+    "asin": "B07GQC2FT8",
+    "product_type": "SPORTING_GOODS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-SLINGSHOT-2PC\nProduct Type: SPORTING_GOODS\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Adjustable Wrist Brace Slingshot with Ammo, Adult Target Practice Sling Shot for Camping and Outdoor Use\nDescription: Set up for responsible outdoor target practice with the ASR Outdoor Adjustable Wrist Brace Slingshot, a compact sling shot designed for adults who want steady control, practical portability and ready to use performance. The adjustable wrist brace helps support your grip while the adjustable draw length allows you to fine tune your setup for different practice needs.<br/><br/>\n\nBuilt with an adjustable iron frame, molded plastic finger groove handle, rubber wrist support and leather pad, this wrist rocket style slingshot is designed for controlled handling during repeated use. The compact size makes it easy to pack with camping gear, outdoor activity supplies or target practice equipment, while the included ammunition helps you get started right out of the package.<br/><br/>\nSearch Terms: slingshots for adults hunting slingshot wrist rocket slingshot sling shot wrist brace target practice ammo iron frame rubber bands glass balls camping outdoor sport catapult finger groove grip adjustable draw backyard range\nFeatures:\n- ADJUSTABLE WRIST BRACE SLINGSHOT: Designed with a supportive wrist brace and adjustable draw length for steadier control; ideal for adult target practice, camping trips, hiking breaks and outdoor recreation where permitted\n- IRON FRAME WITH FINGER GROOVE GRIP: Features an adjustable slide iron frame, molded plastic handle, rubber wrist support and leather pad; built for a controlled hold during repeated sling shot practice sessions\n- READY TO USE AMMO INCLUDED: Includes four 1/2 inch glass balls so you can set up quickly; a practical wrist rocket slingshot kit for backyard target practice, campsite recreation and field skill building\n- COMPACT OUTDOOR SLING SHOT: Overall size measures approximately 9.5 x 7.5 x 3.75 inches with 7.5 inch rubber bands; portable enough to pack with camping gear, range supplies or outdoor activity essentials\n- SAFETY FIRST TARGET PRACTICE: Always wear protective eyewear, inspect bands before use, avoid overstretching and follow local laws; this adult slingshot is not a toy and should be kept away from children\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Adjustable Wrist Brace Slingshot with Ammo",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Adjustable Wrist Brace Slingshot with Ammo"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Adjustable Wrist Brace Slingshot",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Adjustable Wrist Brace Slingshot"
+            },
+            "char_count": 44,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Adjustable Iron Frame, Wrist Support, Finger Groove Grip, 4 Glass Balls Included, Compact Portable Design",
+            "char_count": 105,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Adjustable Draw Length, Iron Frame, Finger Groove Grip, Rubber Wrist Support, 4 Glass Balls, Compact 95 Inch",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ULTRALIGHTBOTTLES-3PK-PARENT",
+    "asin": "B087CFB4Z5",
+    "product_type": "BOTTLE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ULTRALIGHTBOTTLES-3PK-PARENT\nProduct Type: BOTTLE\nBrand (from catalog): ASR Outdoor\nExisting Title: 3 Pack ASR Outdoor Ultralight Travel Bottles TSA Compliant Food Grade (2 Sizes)\nDescription: Stay hydrated on land, air or sea with the 3pk of ASR Outdoor Ultralight Bottles. These bottles come in 2 sizes: 1 oz or 3 oz capacity. They are constructed of food grade BPA free plastic, and are TSA compliant, so you can rest assured they won't be thrown out or confiscated at the air port. <br/><br/>Each set comes with one yellow bottle, one blue bottle and one pink bottle. Make sure you keep a set of these in your backpack, purse or travel bag before your next trip.\nSearch Terms: travel bottles size leak proof tsa refillable empty approved for liquids plastic lightweight\nFeatures:\n- ASR Outdoor Ultralight Travel Bottles - 3 Piece Set\n- Food Grade & BPA Free Plastic\n- Sizes Available: 1oz or 3oz\n- Colors: Pink, Blue & Yellow\n- TSA Compliant\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 3-pk Ultralight Travel Bottles TSA",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "1oz/3oz",
+                "color": "Pink, Blue, Yellow",
+                "name": "Ultralight Travel Bottles"
+            },
+            "char_count": 46,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 3-Pk Ultralight Travel Bottles",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Ultralight Travel Bottles"
+            },
+            "char_count": 42,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Food Grade BPA-Free, TSA Compliant, Leak Proof, 1Oz And 3Oz Sizes, Refillable, Lightweight",
+            "char_count": 90,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "TSA Compliant, BPA-Free Food Grade Plastic, 1 Oz And 3 Oz Sizes, Lightweight, Refillable, Leak-Resistant",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

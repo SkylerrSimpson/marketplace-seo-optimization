@@ -3,14 +3,14 @@
     "asin": "B0F2BD18NQ",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:04:14+00:00",
+    "generated_at": "2026-07-21T20:06:07+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 6,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -121,22 +121,59 @@
             "value": "Stainless Steel",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 6.25\" Mini Clip Point Fixed Blade Pocket Knife Blue",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 6.25 Inch Blue Mini Clip Point Fixed Blade Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 60,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "6.25",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "Blue",
+                "name": "Mini Clip Point Fixed Blade Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "440 Stainless Steel, Lightweight EDC, Includes Leather Sheath",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 6.25-in Blue Mini Clip Point Fixed Blade Pocket Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 65,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "6.25",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Blue",
+                "name": "Mini Clip Point Fixed Blade Pocket Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "440 Stainless Steel, 3 Inch Blade, Lightweight EDC, Includes Leather Sheath, Camping And Hiking Gear",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 100,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "440 Stainless Steel, Clip Point Tip, Faux Leather Sheath, Lightweight 006 Lbs, Compact EDC Carry, Camping And Hiking",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 116,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

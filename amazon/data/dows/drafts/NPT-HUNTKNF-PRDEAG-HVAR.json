@@ -3,14 +3,14 @@
     "asin": "B09QNW2PHM",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:57:50+00:00",
+    "generated_at": "2026-07-21T20:04:37+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -46,20 +46,57 @@
             "asin": "B09QNW2PHM",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 13.5\" Wildlife Fixed Blade Hunting Knife",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 13.5\" USA Flag Bald Eagle Hunting Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "USA Flag",
+                "name": "Bald Eagle Hunting Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "8\" 440 Stainless Steel Blade, Etched Design, Ornamental Scabbard",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 13.5in USA Flag Bald Eagle Hunting Knife with Scabbard",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 66,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "USA Flag",
+                "name": "Bald Eagle Hunting Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Fixed Blade, 8In Stainless Steel, Etched Design, Wildlife Scabbard, Collectible Ornamental, Outdoorsman Gift",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 108,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "440 Stainless Steel Blade, Acid Etched Wildlife Design, Ornamental Scabbard, 8\" Blade, 135\" Overall Length",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 106,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

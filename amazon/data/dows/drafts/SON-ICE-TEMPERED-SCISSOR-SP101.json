@@ -3,14 +3,14 @@
     "asin": "B07KBC8R1F",
     "product_type": "BEAUTY",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:48:20+00:00",
+    "generated_at": "2026-07-21T20:12:15+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -45,20 +45,58 @@
             "asin": "B07KBC8R1F",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Tool Ice Tempered Stainless Steel Barber Scissors 4.5\"",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Tool 4.5in Ice Tempered Stainless Steel Barber Scissors",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 65,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "4.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Ice Tempered Stainless Steel Barber Scissors"
+            }
         },
-        "title_differentiation": {
-            "value": "Professional Grade, Sharp Edge Retention, Comfort Thumb Rest",
+        "item_name_ai_openai": {
+            "value": "Universal Tool 4.5 in Barber Salon Hairdressing Scissors",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 56,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "4.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Barber Salon Hairdressing Scissors"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Professional Grade Ice Tempered Steel, Thumb Rest Comfort, Sharp Edge Retention, Hair Stylists And Barbers, Durable Stainless Steel",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 131,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (131 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Ice Tempered Stainless Steel, Long Edge Retention, Thumb Rest, Precision Cuts For Hair And Beard, Professional Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 114,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

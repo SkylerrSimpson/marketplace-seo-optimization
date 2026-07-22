@@ -1,0 +1,60 @@
+{
+    "sku": "DOY-STAY-DRY-KIT-DRY-SACK-BUNDLE",
+    "asin": "B075MQRD9Z",
+    "product_type": "SURVIVAL_KIT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DOY-STAY-DRY-KIT-DRY-SACK-BUNDLE\nProduct Type: SURVIVAL_KIT\nBrand (from catalog): ASR Outdoor\nExisting Title: Stay Dry Kit Dry Sack Camping\nDescription: Stay dry in the great outdoors. This kit has everything you need to stay dry and warm in case it starts to rain, hail, or snow while camping. <br/><br/>Kit includes a reusable Mylar waterproof and windproof survival blanket that reflects 90% of your body heat back to you. This can be used not only as a blanket, but as shelter or ground cover. <br/><br/>Also included is gear to start a fire to help stay warm and dry, as well as cook food. We have incorporated a 12 pack of slow burning tinder sticks that are non-toxic and water resistant. Compact and lightweight, these are great for starting fires and keeping them going. Each stick takes at least 5 minutes to burn through the exterior.<br/><br/>In order to start the fire, the 3-in-1 Water Resistant Plastic Container included acts as a match holder, fire starter, and mirror. The mirror is ideal for signalling, and the fire starter is an easy to use flint on the bottom. Finally, we included a waterproof dry sack to store all of the necessary camping supplies and keep them dry. Dry sack has a volume of 20L. <br/><br/>The bright orange color of the bag, blanket, and container ensure they are easy to spot and are ideal for emergency signalling. Don't forget this kit on your next adventure to handle everything mother nature throws at you.\nSearch Terms: waterproof gear bag keep items dry out of water camping gear accessories backpack storage bag gift outdoors camping nessecity river boat kayaking safety stow bag\nFeatures:\n- Includes a waterproof dry sack for carrying items\n- Includes a waterproof fire starter/mirror/container\n- Includes a waterproof survival blanket\n- Includes water-resistant 12 pack of tinder sticks\n- Great value!\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Stay Dry Kit Waterproof Dry Sack Bundle",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Orange",
+                "name": "Stay Dry Kit Waterproof Dry Sack Bundle"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Stay Dry Dry Sack Camping Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Stay Dry Dry Sack Camping Kit"
+            },
+            "char_count": 41,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "20L Waterproof Dry Sack, Survival Blanket, Fire Starter, 12-Pack Tinder Sticks, Emergency Signaling",
+            "char_count": 99,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "20L Waterproof Dry Sack, Mylar Survival Blanket, Water Resistant Tinder Sticks, Fire Starter Mirror Container",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

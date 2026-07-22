@@ -3,14 +3,14 @@
     "asin": "B01G2KS166",
     "product_type": "KNIFE",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:41:27+00:00",
+    "generated_at": "2026-07-21T19:28:15+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 29,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -433,20 +433,58 @@
             "asin": "B01G2KS166",
             "raw_value": true
         },
-        "title_differentiation": {
-            "value": "440 Stainless Steel 8\" Acid-Etched Blade | 13.75\" Overall | Ornamental Pommel & Full-Color Sheath",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 3-pc Patriotic Bald Eagle Dagger Collector Set",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8",
-            "validation_error": "requires item_name <= 75 chars"
-        },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 3pc Bald Eagle Etched Fixed Blade Dagger Collector Set",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 58,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Patriotic",
+                "name": "Bald Eagle Dagger Collector Set"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 3-Pc 8in Patriotic Bald Eagle Dagger Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 52,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "8in",
+                "color": "",
+                "name": "Patriotic Bald Eagle Dagger Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "8In 440 Stainless Steel Acid Etched Blades, Fixed Blade Daggers, Ornamental Pommel, Full Color Graphic Scabbard, 1375In Total Length",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 132,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (132 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "440 Stainless Steel, Acid Etched Blade, Full Color Eagle Artwork, 3 Piece Collector Set, Gift For Collectors",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 108,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

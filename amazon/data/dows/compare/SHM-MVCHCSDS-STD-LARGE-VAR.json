@@ -1,0 +1,60 @@
+{
+    "sku": "SHM-MVCHCSDS-STD-LARGE-VAR",
+    "asin": "B07WSYD47D",
+    "product_type": "SAFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SHM-MVCHCSDS-STD-LARGE-VAR\nProduct Type: SAFE\nBrand (from catalog): IGE Innovative Internet Products\nExisting Title: The Spy Bolt Covert Hidden Contents Secret Stealth Container - 3.91 Cubic Inch\nDescription: The Spy Bolt is an updated and improved version of the old Soviet KGB \"dead drop\" hollow bolt used during the Cold War. It features an O-ring seal for weather-proof storage of small valuables, communications, and anything that can fit within the hollowed out inner of the bolt.<br/><br/>The simple, ingenious design is essential for the concealable gadgets spy work calls for. The Spy Bolt fits the bill perfectly. <br/><br/>The Mega bolt is a larger version of the original Spy Bolt with double the storage capacity and comes with a single glass 1 Dram vial for added safety.<br/><br/>Beware of cheap, imitation knock offs. The original spy bolt is designed and made in the USA.\nSearch Terms: Diversion Safe Spy Secrets Hidden Money\nFeatures:\n- MEGA BOLT - Extra Large Capacity with an Included 1 Dram Glass Vial\n- WEATHER PROOF SEAL - Bolt Head Incorporates a Rubber O-Ring for an Air Tight Seal of your Contents\n- DESIGN - Reverse Threaded Bolt Head to Prevent Accidental Opening and to Foil Thieves\n- DIMENSIONS: Length: 4.4 Inches | Volume: 3.91 Cubic Inches | 15/16\" Diameter Bolt (11/16\" Inside Diameter) | High Quality Construction, Made in the USA\n- DIVERSION SAFE - Ideal for Hiding Small Valuables, Bills, Communications, Micro SD Cards and More\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "IGE Spy Bolt Mega Large Covert Hidden Container Safe",
+            "tokens": {
+                "brand": "IGE",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Mega Large",
+                "color": "",
+                "name": "Spy Bolt Covert Hidden Container Safe"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "IGE Innovative Internet Products Mega Spy Bolt Hidden Safe",
+            "tokens": {
+                "brand": "IGE Innovative Internet Products",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Mega",
+                "color": "",
+                "name": "Spy Bolt Hidden Safe"
+            },
+            "char_count": 58,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Diversion Safe, Weather-Proof O-Ring Seal, Double Capacity, Includes Glass Vial, Made In USA",
+            "char_count": 92,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Extra Large Capacity, Weather Proof O Ring Seal, Reverse Threaded Head, 1 Dram Glass Vial, Made In USA",
+            "char_count": 102,
+            "validation_error": null
+        }
+    }
+}

@@ -3,14 +3,14 @@
     "asin": "B08GYH9HGF",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:34:07+00:00",
+    "generated_at": "2026-07-21T20:11:25+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,20 +27,57 @@
             "asin": "B08GYH9HGF",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 4-Piece Gold Panning Kit with 1/2\" Classifier",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 4-Piece Gold Panning Classification Tools Kit",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 57,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "",
+                "name": "Gold Panning Classification Tools Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "Includes 2 Trowels, Classifier Screen & Glass Vial for Gold Recovery",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 4-Piece 1/2\" Gold Panning Classification Tools Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 62,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "piece",
+                "size": "1/2\"",
+                "color": "",
+                "name": "Gold Panning Classification Tools Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "12 Inch Classifier Screen, Two Trowels, Glass Vial, Rust-Free Plastic, Prospecting Equipment",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 92,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Two Heavy Duty Trowels, 12\" High Impact Classifier Screen, Glass Vial, Rust Free, Durable Screw Top Storage",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

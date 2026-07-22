@@ -3,14 +3,14 @@
     "asin": "B082ZR9W8Z",
     "product_type": "SKIN_CLEANING_AGENT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:17:48+00:00",
+    "generated_at": "2026-07-21T19:51:04+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 16,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -224,24 +224,62 @@
             "raw_value": true
         },
         "generic_keyword": {
-            "value": "moisturizing soap bar gentle cleanser beauty bar facial cleanser skin care shower body wash pink rose dermatologist recommended bulk pack 24 bar quarter moisturizing cream smooth supple skin",
+            "value": "beauty bar soap moisturizing cleanser gentle skin care shower bath pink rose scented dermatologist recommended cream soap facial body wash bar pack",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Dove Pink Beauty Bar Soap, Moisturizing Cream, 24 Pack",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Dove Pink Beauty Cream Bar Soap 24-Pack",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 39,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Dove",
+                "pack_size": "24",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "Pink",
+                "name": "Beauty Cream Bar Soap"
+            }
         },
-        "title_differentiation": {
-            "value": "Dermatologist Recommended, ¼ Moisturizing Cream, Gentle Cleanser",
+        "item_name_ai_openai": {
+            "value": "Dove 24-Pack 135g Pink Beauty Bar Soap",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 38,
+            "review_only": true,
+            "tokens": {
+                "brand": "Dove",
+                "pack_size": "24",
+                "pack_size_unit": "Pack",
+                "size": "135g",
+                "color": "Pink",
+                "name": "Beauty Bar Soap"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "1 Dermatologist Recommended, Moisturizing Formula, Gentle Cleanser, 14 Moisturizing Cream",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 89,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "One Fourth Moisturizing Cream, Gentle Facial Cleanser, Dermatologist Recommended, Smooth Moisturized Skin",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 105,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

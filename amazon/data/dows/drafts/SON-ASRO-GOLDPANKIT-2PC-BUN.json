@@ -3,14 +3,14 @@
     "asin": "B0GWRRNBVW",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:58:09+00:00",
+    "generated_at": "2026-07-21T20:04:45+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -31,28 +31,65 @@
             "value": "Carbon Steel, Plastic",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
-            "value": "2 Piece",
+            "value": "2-Piece Bundle",
             "is_required": false,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 2pc Gold Prospector Bundle Carbon Steel Trowel",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 2-Pc Gold Prospector Bundle Digger Trowel",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "Pc",
+                "size": "",
+                "color": "",
+                "name": "Gold Prospector Bundle Digger Trowel"
+            }
         },
-        "title_differentiation": {
-            "value": "13\" Digger Trowel + 8.5\" Sand Scoop, Heat-Treated Steel, Beginner-Friendly",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 2-Pk 13in Gold Prospector's Bundle",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 46,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "Pk",
+                "size": "13",
+                "color": "",
+                "name": "Gold Prospector's Bundle"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Carbon Steel Digger With Sand Scoop, 13 Inch Trowel, Beginner Gold Panning Kit, Heat-Treated Double Serrated Edge",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 113,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Heat-Treated Carbon Steel Digger, Double Serrated Edge, 78-Hole Sand Scoop, 3-Quart Capacity, Nylon Sheath",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 106,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

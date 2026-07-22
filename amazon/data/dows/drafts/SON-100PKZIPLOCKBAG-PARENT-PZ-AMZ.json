@@ -3,14 +3,14 @@
     "asin": "B0CL5LG6P1",
     "product_type": "STORAGE_BAG",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:39:44+00:00",
+    "generated_at": "2026-07-21T19:58:20+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 5,
+        "ai_suggested": 7,
         "ai_null": 0,
         "base_template": 0
     },
@@ -31,34 +31,71 @@
             "value": "Clear",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "material": {
             "value": "Plastic",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "model_name": {
-            "value": "100 Pack Resealable Clear Plastic Bags",
+            "value": "100 Pack Resealable Zip Lock Bags",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux 100 Pack Clear Plastic Resealable Zip Lock Bags",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux 100-Pack Clear Plastic Resealable Zip Lock Bags",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 58,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "100",
+                "pack_size_unit": "Pack",
+                "size": "Assorted Sizes",
+                "color": "Clear",
+                "name": "Resealable Zip Lock Bags"
+            }
         },
-        "title_differentiation": {
-            "value": "Assorted Sizes 2x2 to 8x10 inches, 2mm Thick, Reusable Storage",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux 100-pk Assorted Sizes Clear Zip Lock Bags",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 52,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "100",
+                "pack_size_unit": "pk",
+                "size": "Assorted Sizes",
+                "color": "Clear",
+                "name": "Zip Lock Bags"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Assorted Sizes 2X2 To 8X10 Inches, 2Mm Thickness, Single Track Zipper, Reusable, Jewelry Storage, Craft Organization",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 116,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "2Mm Thick, Single Track Zipper, Reusable, Jewelry Craft Food Storage, Keeps Items Organized And Secure",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 102,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B0B9HVSV2Z",
     "product_type": "SPOON",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:14:19+00:00",
+    "generated_at": "2026-07-21T20:07:47+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -45,20 +45,57 @@
             "identifying": true,
             "variation_member": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille Food-Grade Silicone Spoon Spatula Ladle Set",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 13in Spoon Spatula Ladle Kitchen Utensils Set",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Spoon Spatula Ladle Kitchen Utensils Set"
+            }
         },
-        "title_differentiation": {
-            "value": "BPA-Free, Dishwasher Safe, Heat Resistant, Ergonomic Handle",
+        "item_name_ai_openai": {
+            "value": "Beille 13in Spoon",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 17,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Spoon"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Food-Grade Silicone And Wheat Straw, BPA-Free, Dishwasher Safe, Heat Resistant, Ergonomic Handle",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 96,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "BPA-Free Food Grade, Dishwasher Safe, Heat Resistant, Ergonomic Handle, Hang Storage",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 84,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-AOFSBL-75-BRGNDY",
+    "asin": "B014TWZXEM",
+    "product_type": "OUTDOOR_RECREATION_PRODUCT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-AOFSBL-75-BRGNDY\nProduct Type: OUTDOOR_RECREATION_PRODUCT\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Ultra Soft Fleece Sleeping Bag Liner for Cold Weather Camping Warmth, 71 inches\nDescription: Get cold easily when camping outdoors? This camping sleeping bag liner insert is the solution you need;<br/><br/>It's time to cozy up and have your best sleep by adding an extra 12 degrees inside your sleeping bag on your next camping trip with this ASR Outdoor Cold Weather Fleece Sleeping Bag Liner. This soft fleece sleeping bag insert can be used on its own as a light layer, or added to most sleeping bags as an extra layer to make them warmer, making it perfect for cold camp nights. The soft polyester fleece is extremely durable and washable. The two-way full-length zipper allows you to zip and join two of these liners together. Try it with our ASR Outdoor ultra lightweight sleeping bags for a warm and cozy sleep<br/><br/>The main benefit from a sleeping bag insert is that that the liner keeps body oils out of your insulation, which will inturn protects the loft of the insulation. Your sleeping bag will last longer and work better with a liner, and provide you with your best camping experience.<br/><br/>The liner is 71 in. x 31 inches and fits into any standard sleeping bag with zippers on 3 sides, it makes getting in and out easy. It is both durable and easy to use. It can also double as a blanket by unzipping the liner and opening it and draping it over a maximum of 2 people. Camping blanket is 71 x 62 inches as it simply doubles the width of when the liner is closed.<br/><br/>This liner weighs only 1.24 pounds and folds into its own stuff sack carrying bag that is included with it; all the way down to 7 x 7 x 12 inches. With this compact design and added warmth to your current sleeping bag, you need this insert for your next adventure.<br/><br/>This ASR Outdoor Fleece Sleeping Bag Liner is a great camping item to carry with you next time you get out into the wilderness\nSearch Terms: outdoor camping personal one person washable cold weather sleeping bag liner camp site warmth essential\nFeatures:\n- UTILITY WITH A PURPOSE: Add a layer of warmth to any outdoor adventure, but also extend the life of your sleeping bag by protecting the insulated shell you sleep in by reducing the number of times you have to wash your sleeping bag by using a liner\n- UNIVERSAL FIT: Will fit into any standard one person sleeping bag. Overall shape is rectangle available in a deep red color; Burgandy 71\" x 31\"\n- SPECIFICATIONS: Adds 12 degrees F Thermal Protection | Weight: 1.24 pounds\n- MATERIAL: UltraSoft Cozy Cotton Microfiber Fleece with catch-hook zippers on 3 sides. Soft to the touch and extra comfortable with an added layer of warmth\n- STUFF SACK STORAGE BAG: Included with the sleeping bag liner is a handy drawstring carry bag with nylon drawstring and stopper that neatly allows the compacted cold weather liner to store and stow easily when not in use\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 71in Burgundy Ultra Soft Fleece Sleeping Bag Liner",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "71",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Burgundy",
+                "name": "Ultra Soft Fleece Sleeping Bag Liner"
+            },
+            "char_count": 62,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 71-in Burgundy Fleece Sleeping Bag Liner",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "71",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Burgundy",
+                "name": "Fleece Sleeping Bag Liner"
+            },
+            "char_count": 52,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Adds 12 Degrees Warmth, Washable Microfiber Fleece, Extends Sleeping Bag Life, 3-Side Zippers, Includes Stuff Sack, Lightweight",
+            "char_count": 127,
+            "validation_error": "value exceeds maxLength 125 (127 chars)"
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Adds 12 Degrees Warmth, Ultra-Soft Fleece, 3-Side Zipper, Universal Fit, Washable, Stuff Sack, Cold Weather Camping",
+            "char_count": 115,
+            "validation_error": null
+        }
+    }
+}

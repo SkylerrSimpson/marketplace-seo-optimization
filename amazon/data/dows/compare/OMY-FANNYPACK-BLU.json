@@ -1,0 +1,60 @@
+{
+    "sku": "OMY-FANNYPACK-BLU",
+    "asin": "B07SB93RY9",
+    "product_type": "WAIST_PACK",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: OMY-FANNYPACK-BLU\nProduct Type: WAIST_PACK\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Mens Fanny Pack Canvas Waist Bag Versatile Travel Multi Pocket Blue\nDescription: Travel in style with the ASR Outdoor Man Pack Waist Bag.<br/><br/>This classic fanny pack travel bag was designed with versatility in mind. It's constructed of durable waxed canvas that is water resistant so you can wear it rain or shine, protecting your belongings from the elements. It's easy to clean too - just wipe any moisture off and let it air dry.<br/><br/>The ASR Outdoor man pack features an adjustable waist strap that will extend up to 50\" in diameter, making it wearable on the waist or over the shoulder for custom comfort. It has one spacious main pocket (about 13\" x 5\" x 2\") as well as a secondary back pocket (about 8\" x 5\"), both of which will allow you to keep all of your essential items on hand like a wallet, car keys, phone and small necessities.<br/><br/>The adjustable waist strap comes with a quick release buckle constructed of sturdy steel, and both zip closures have high quality leather pull tabs that will stand the test of time. The two-tone blue and grey color design gives this bag a neutral look that can be worn with any outfit or outdoor gear, making it a great travel bag for avid hikers, campers and travelers of all kinds. This is a must-have Summer fashion accessory for outdoor enthusiasts.\nSearch Terms: man pack fanny mens travel bags outdoorsmen hiking pouch versatile canvas bag adjustable design quick release buckle waterproof waist\nFeatures:\n- DURABLE CONSTRUCTION - Made of High Quality Waxed Canvas | Water Resistant to Protect Your Essentials | Leather Zipper Pulls\n- VERSATILE DESIGN - Two-tone Blue and Grey Subtle Neutral Look | Spacious Main Pocket and Back Pocket for Smaller Items\n- ADJUSTABLE STRAP - Strap Adjusts Up To 50\" for Custom Comfort | Can Be Worn On Waist or Over Shoulder\n- QUICK RELEASE BUCKLE - Sturdy Steel Buckle Easily Releases for Quick Attachment and Removal | Ideal for Traveling, Hiking and Camping\n- EASY TO CLEAN - Just Wipe Moisture Off and Let Air Dry | Keeps Belongings Protected Rain or Shine\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Mens Blue Waxed Canvas Waist Pack Fanny Bag",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Mens",
+                "color": "Blue",
+                "name": "Waxed Canvas Waist Pack Fanny Bag"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Blue Canvas Fanny Pack",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Blue",
+                "name": "Canvas Fanny Pack"
+            },
+            "char_count": 34,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Water Resistant Waxed Canvas, Adjustable Strap To 50 Inches, Quick Release Steel Buckle, Dual Pockets, Wear Waist Or Shoulder",
+            "char_count": 125,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Water Resistant, Adjustable Up To 50-Inch Strap, Over Shoulder Or Waist Wear, Steel Quick Release Buckle, Dual Zip Pockets",
+            "char_count": 122,
+            "validation_error": null
+        }
+    }
+}

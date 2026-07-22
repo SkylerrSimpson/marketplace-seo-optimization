@@ -1,0 +1,60 @@
+{
+    "sku": "LST-SHOPCART-PARENT",
+    "asin": "B0BL64H7YH",
+    "product_type": "PRETEND_PLAY_TOY",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-SHOPCART-PARENT\nProduct Type: PRETEND_PLAY_TOY\nBrand (from catalog): Kidplokio\nExisting Title: Kidplokio Jumbo Shopping Cart Pretend Playset Play Food Kids Ages 3 and Up\nDescription: Clean up in aisle three.<br/><br/>Kids and toddlers will love Kidplokio's Adjustable Jumbo Shopping Cart Playset with lots of play food. The supermarket playset for kids comes with 27 pretend play food items like different vegetables and fruits, sweet treats, boxed food, juice, coffee, and more.<br/><br/>With this jumbo grocery cart playset, little shoppers can mimic and recreates real-life grocery experiences they see while running errands with Mom or Dad. This shopping cart playset will help little ones develop their imagination, fine motor skills, and hand-eye coordination, and learn about different types of foods, counting, colors, shapes, and more. The durable plastic wheels make it easy for little shoppers to push on both carpet and hard floor surfaces. And, this adjustable shopping cart and supermarket playset will be a long-lasting toy in any playroom, with three different positions that accommodate little ones as they grow. <br/><br/>And, what's more, this super fun jumbo adjustable shopping cart for kids has lights and sounds too. (Batteries not included). Along the handlebar, lights and sound buttons are easy for kids to see and access, and will make playtime even more fun and realistic. <br/><br/>Feed your child's creative side and have them run down the aisles of their imagination with this Jumbo Shopping Cart Supermarket Playset from Kidplokio. A perfect item for busy and active toddlers and kids that will surely provide hours of pretend play and learning opportunities too.\nSearch Terms: Shopping cart for kids birthday present sister Hanukkah Christmas gifts stocking stuffers toddler shopping cart play food set cosplay grocery cart on wheels toys for girls holiday toy list 2022 toy groceries supermarket playset for kids\nFeatures:\n- KIDS SHOPPING CART: Playtime in Aisle Three! This jumbo shopping cart adjusts to three different positions to keep grocery shopping exciting, and to adapt to your little one as they grow; the shopping cart comes with lots of play food as well as fun lights and sounds to make playtime even more fun and realistic!\n- PRETEND PLAY: Kidplokio's jumbo shopping cart comes with 27 play food accessories like different kinds of fruits and vegetables, juice, coffee, and sweet treats too! And, the durable plastic wheels make it easy for little shoppers to push on both carpet and hard floor surfaces as they play\n- FUN LIGHTS AND SOUNDS: On top of fun pretend play grocery shopping and check-out games, the shopping cart for kids comes with lights and sounds on the handle to make playtime even more fun and realistic!\n- FINE MOTOR TOYS: With this jumbo grocery cart playset, little shoppers can mimic and recreate real-life grocery experiences they see while running errands with Mom or Dad! This shopping cart playset will help little ones develop their imagination, fine motor skills, and hand-eye coordination, and learn about different types of foods, counting, colors, shapes, and more!\n- SPECIFICATIONS: Dimensions: 19 x 16 x 13 inches; Batteries: x2 AAA (not included); Colors: Pink or Blue; Weight: 2.60lbs; Warning: Choking Hazard, small parts; Ages: 3+\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Kidplokio Jumbo Shopping Cart Pretend Playset with Play Food",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Jumbo",
+                "color": "",
+                "name": "Shopping Cart Pretend Playset with Play Food"
+            },
+            "char_count": 60,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Kidplokio Jumbo Shopping Cart Pretend Playset",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Jumbo",
+                "color": "",
+                "name": "Shopping Cart Pretend Playset"
+            },
+            "char_count": 45,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "27 Play Food Pieces, Adjustable 3 Positions, Lights And Sounds, Ages 3 Plus, Develops Fine Motor Skills",
+            "char_count": 103,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "27 Play Food Accessories, Lights And Sounds, Adjustable Three-Position Cart, Durable Wheels, Ages Three And Up",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}

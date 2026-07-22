@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ICE-TEMPERED-SCISSOR-SP101",
+    "asin": "B07KBC8R1F",
+    "product_type": "BEAUTY",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ICE-TEMPERED-SCISSOR-SP101\nProduct Type: BEAUTY\nBrand (from catalog): Universal Tool\nExisting Title: Universal Tool Ice Tempered S Steel Barber Salon Hairdressing Scissor 4.5 inch\nDescription: Hair Cutting Shears for Hair Stylists, Barbers, beautician, hairdressers, cosmetologists, etc. This is a new pair of shears Great for hair stylists and barbers. The scissors are made from ice-tempered stainless steel Ice tempered steel holds an edge longer than regular stainless steel. There is also a thumb rest for your comfort and convenience. <br/><br/>Cut or trim beards, fur, hair, mustaches with ease and comfort with this item. You will enjoy the quality, function and usefulness of our Ice Tempered Stainless Steel Barber Scissors.\nSearch Terms: crafting sewing cutting fabric tailors seamstress shears tools stainless steel arts and crafts dress making art projects hobby heavy duty sewing supplies fabric cutting sharp scissors\nFeatures:\n- PREMIUM QUALITY CUTTING SHEARS: Made from professional grade Ice tempered steel which holds an edge longer than regular stainless steel\n- COMFORT AND EASE OF USE: There is a thumb rest for your comfort and convenience, helping your indivdual sense of style in every use\n- PROFESSIONAL APPLICATIONS:: Ideal for all use cases but not to be overlooked due to price by barbers, hairdressers, salons, hair stylists, beauticians, and cosmetologists\n- GREAT GIFT: Give as a party favor, gift, stocking stuffer, swag bag, conference bag, goodie bag, Easter basket filler, Christmas gift, convention bag, or Holiday gift\n- SPECIFICATIONS: 4.5 inches; ice tempered steel;\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 4.5in Ice Tempered Stainless Steel Barber Scissors",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "4.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Ice Tempered Stainless Steel Barber Scissors"
+            },
+            "char_count": 65,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 4.5 in Barber Salon Hairdressing Scissors",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "4.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Barber Salon Hairdressing Scissors"
+            },
+            "char_count": 56,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Professional Grade Ice Tempered Steel, Thumb Rest Comfort, Sharp Edge Retention, Hair Stylists And Barbers, Durable Stainless Steel",
+            "char_count": 131,
+            "validation_error": "value exceeds maxLength 125 (131 chars)"
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Ice Tempered Stainless Steel, Long Edge Retention, Thumb Rest, Precision Cuts For Hair And Beard, Professional Use",
+            "char_count": 114,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "DOY-SCOUTWBKIT-17PC-BUN",
+    "asin": "B09FNG2VKQ",
+    "product_type": "SURVIVAL_KIT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DOY-SCOUTWBKIT-17PC-BUN\nProduct Type: SURVIVAL_KIT\nBrand (from catalog): ASR Outdoor\nExisting Title: Camping Essentials Water Bottle Kit Basic Survival Supplies 17pc\nDescription: The ASR Outdoor camping essentials survival kit comes with 17 basic survival supplies that are great for kids, scouts, and beginner campers who are just learning about the outdoors. Everything included will help beginners stay safe while exploring and adventuring outdoors.<br/><br/>Inside the kit we've included 3 high visibility items that can come in handy if you find yourself stuck outside in inclement weather - one size fits most poncho, a Mylar blanket to stay warm or dry, and a survival whistle with a compass and lanyard. We've also added in a couple of multi-tools that are safe for kids and beginners to use with adult supervision - a set of compact eating utensils, a 7 function pocket knife, and an 11 function multi-tool the size of a credit card that will fit in just about any pocket or wallet for convenient and lightweight storage.<br/><br/>In addition to the above items, we've included a magnesium fire starter to ensure you have access to light and heat outside, and 10 heavy-duty zip ties that can be used to hang food packs to keep them away from animals and to attach extra items to your backpack for transport. All of the items fit neatly inside of a 25oz water bottle made of BPA-free plastic so it's safe for drinking out of daily. The bottle comes with a flip-top straw and will help keep you hydrated while camping or hiking.\nSearch Terms: bug out bag survival gear emergency kit camping supplies tools water bottles fire starter earthquake set box equipment pack prep prepper gear survivalist natural disaster boy scout starter med first aid hiking wilderness edc travel accessories car\nFeatures:\n- 3 in 1 MINI EDC POCKET KNIFE: Featuring a nail file, knife blade, scissors and keyring, this ASR Outdoor mini pocket knife is ready for adventure; great for camping, to carry as an EDC multi tool, to include in a bug out bag, with survival gear or an emergency preparedness kit, this little pocket knife does it all\n- INCLEMENT WEATHER SUPPLIES - Inside the kit we've included 3 high visibility items that can come in handy if you find yourself stuck outside in inclement weather - a one size fits most poncho, a Mylar blanket to stay warm or dry and a survival whistle with a compass and lanyard.\n- MULTI-TOOL UTENSILS - We've also added in a couple of multi-tools that are safe for kids and beginners to use with adult supervision - a set of compact eating utensils, a 7 function pocket knife and an 11 function multi tool the size of a credit card that will fit in just about any pocket or wallet for convenient and lightweight storage.\n- FIRE STARTER AND ZIP TIES - In addition to the above items, we've included a magnesium fire starter to ensure you have access to light and heat outside, and 10 heavy-duty zip ties that can be used to hang food packs to keep them away from animals and to attach extra items to your backpack for transport.\n- BPA FREE WATER BOTTLE - All of the items fit neatly inside of a 25oz water bottle made of BPA free plastic so it's safe for drinking out of daily. The bottle comes with a flip top straw and will help keep you hydrated while camping or hiking.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 17-pc Camping Essentials Water Bottle Survival Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "17",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Camping Essentials Water Bottle Survival Kit"
+            },
+            "char_count": 62,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 17-Pc Camping Survival Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "17",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Camping Survival Kit"
+            },
+            "char_count": 38,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "17 Pieces, Fire Starter, Multi-tool, Poncho, Mylar Blanket, Compass Whistle, BPA-Free Water Bottle With Straw",
+            "char_count": 109,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "BPA Free 25Oz Water Bottle, Poncho, Mylar Blanket, Whistle Compass, Fire Starter, Pocket Knife, Zip Ties",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

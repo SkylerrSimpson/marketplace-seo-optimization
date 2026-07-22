@@ -3,14 +3,14 @@
     "asin": "B007W4KLRY",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:25:10+00:00",
+    "generated_at": "2026-07-21T19:54:00+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 3,
         "catalog": 3,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -71,20 +71,57 @@
             "asin": "B007W4KLRY",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 11\" Full Tang Hunting Guthook Knife 440 Steel",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 11 inch Full Tang Hunting Guthook Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "11",
+                "pack_size_unit": "inch",
+                "size": "",
+                "color": "",
+                "name": "Full Tang Hunting Guthook Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "Drop Point Blade, 1/4\" Stainless Steel, Includes Nylon Sheath",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 11 In Full Tang Guthook Hunting Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 49,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "11 In",
+                "color": "",
+                "name": "Full Tang Guthook Hunting Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "55 Inch Drop Point Blade, 14 Inch 440 Stainless Steel, Full Tang, Ergonomic Checkered Grip, Includes Nylon Sheath",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 113,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "440 Stainless Steel Drop Point Blade, 55\" Guthook, Ergonomic Rubber Handle, Nylon Sheath, Belt Loop",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 99,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

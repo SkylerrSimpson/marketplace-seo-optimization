@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-MICKEY-FLEECECINCH-BNDL-HPN",
+    "asin": "B0DKLNQLCS",
+    "product_type": "BLANKET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-MICKEY-FLEECECINCH-BNDL-HPN\nProduct Type: BLANKET\nBrand (from catalog): Disney\nExisting Title: Disney Mickey Mouse Fleece Throw Blanket Set - Bundle with 40\" x 50\" Blanket, Tote, Stickers, Plus More for Boys and Girls | Travel Throw for Kids\nDescription: (none)\nSearch Terms: (none)\nFeatures:\n- Complete Mickey Mouse Bundle: Includes a 40\" x 50\" fleece throw blanket featuring cool Mickey designs, one Mickey Mouse tote bag, Mickey Mouse stickers, and a Beach Kids door hanger, suitable for boys and girls who love Disney\n- Soft Fleece Throw Blanket: This 45\" x 60\" fleece throw features vibrant Mickey Mouse designs and provides soft, lightweight comfort for kids and teens during any activity\n- Versatile Use for Multiple Occasions: A bedding essential for little kids who enjoy movies, TV shows, and all things Disney, including Mickey Mouse, suitable for home use, camping, or picnics\n- Convenient Portable Tote Bag: The included tote bag provides a portable option for carrying blankets and other essentials, making it easy to transport for travel and outdoor activities\n- Officially Licensed Disney Product: Authentic Mickey Mouse bedding and blankets featuring officially licensed Disney designs, ensuring quality and genuine character representation for young Disney fans\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Disney Mickey Mouse Fleece Throw Blanket Bundle Set",
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Mickey Mouse Fleece Throw Blanket Bundle Set"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Disney 40-in 40\" x 50\" Fleece Throw Blanket Set",
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "40",
+                "pack_size_unit": "in",
+                "size": "40\" x 50\"",
+                "color": "",
+                "name": "Fleece Throw Blanket Set"
+            },
+            "char_count": 47,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "40 X 50 Inch Fleece Blanket, Tote Bag, Stickers, Door Hanger, Officially Licensed",
+            "char_count": 81,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Complete Mickey Mouse Bundle, Tote Bag Stickers And Door Hanger, Soft Lightweight Fleece, Officially Licensed",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

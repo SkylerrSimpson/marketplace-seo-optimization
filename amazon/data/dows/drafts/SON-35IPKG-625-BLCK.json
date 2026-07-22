@@ -3,18 +3,30 @@
     "asin": "B071FP7DCK",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:22:20+00:00",
+    "generated_at": "2026-07-21T19:52:56+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
-        "fillable": 0,
+        "fillable": 2,
         "catalog": 9,
         "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
     "attributes": {
+        "country_of_origin": {
+            "value": "China",
+            "is_required": true,
+            "source": "usurper",
+            "usurper_column": "attr.country_of_origin"
+        },
+        "material": {
+            "value": "Stainless Steel",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.material"
+        },
         "care_instructions": {
             "value": [
                 {
@@ -138,31 +150,57 @@
             "asin": "B071FP7DCK",
             "raw_value": true
         },
-        "country_of_origin": {
-            "value": "CN",
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Small Black Pocket Knife",
             "is_required": true,
             "source": "ai",
-            "model": "claude-haiku-4-5"
-        },
-        "material": {
-            "value": "Stainless Steel",
-            "is_required": false,
-            "source": "ai",
-            "model": "claude-sonnet-4-6"
-        },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Pocket Knife 3.5\" Serrated Blade Black Stainless",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 36,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Small",
+                "color": "Black",
+                "name": "Pocket Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "Compact 6.25\", Partially Serrated Clip Point, Lock Back, Green Diamond Handle",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor Small Green Pocket Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 36,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Small",
+                "color": "Green",
+                "name": "Pocket Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "35In Partially Serrated Clip Point Blade, Lock Back, Diamond Handle, 625In Total Length",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 87,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "35\" Partially Serrated Clip Point Blade - Lock Back - Pocket Clip - Black Stainless Steel - Diamond Pattern Handle",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 114,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

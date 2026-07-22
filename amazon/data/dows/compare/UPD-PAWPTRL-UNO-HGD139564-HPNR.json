@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-PAWPTRL-UNO-HGD139564-HPNR",
+    "asin": "B098PD4DR9",
+    "product_type": "TABLETOP_GAME",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-PAWPTRL-UNO-HGD139564-HPNR\nProduct Type: TABLETOP_GAME\nBrand (from catalog): Mattel Games\nExisting Title: UNO Junior PAW Patrol Card Game with 56 Cards 2-4 Players, Gift for Kids 3 Years Old & Up,Multicolor,HGD13\nDescription: This simplified UNO Junior card game for younger players is loaded with graphics from the animated Paw Patrol movie, featuring animal heroes such as Chase, Skye, Marshall, Liberty and their human leader, Ryder. Three levels of play allow the game to keep pace with a child's development. Level One is simple matching. Level Two adds Reverse and Skip cards to the fun, and Level Three includes Draw 1 and Draw 2 cards to really pick up the pace. Just like the regular UNO game, players race to get rid of all their cards by matching them to the card shown on top of the deck, either by color, number and (especially handy for younger players) by CHARACTER. Chase matches Chase and Marshall matches Marshall. When you're down to one card, don't forget to yell \"UNO!\" Designed for kids 3 years old and up. Colors and decorations may vary.\nSearch Terms: paw patrol uno\nFeatures:\n- It's the UNO game everyone loves but simplified so kids 3 years and older can play!\n- Each of the cards features images from pre-school movie, PAW Patrol. The number cards have a matching character graphics so kids who don’t know their numbers yet can still play! Chase matches Chase, and Skye\n- Level One is simple matching, Level Two introduces action cards to the deck and Level Three adds penalty cards to the mix.\n- When a player is down to one card, they must yell 'UNO!'\n- No pup is too small! UNO Junior PAW Patrol accommodates 2 to 4 players ages 3 years and up, but its appealing dog-eared graphics will have everyone wanting to play!\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Mattel Games UNO Junior PAW Patrol Card Game, 56 Cards",
+            "tokens": {
+                "brand": "Mattel Games",
+                "pack_size": "56",
+                "pack_size_unit": "Cards",
+                "size": "",
+                "color": "Multicolor",
+                "name": "UNO Junior PAW Patrol Card Game"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Mattel Games 56-cards UNO Junior PAW Patrol Card Game",
+            "tokens": {
+                "brand": "Mattel Games",
+                "pack_size": "56",
+                "pack_size_unit": "cards",
+                "size": "",
+                "color": "",
+                "name": "UNO Junior PAW Patrol Card Game"
+            },
+            "char_count": 53,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Ages 3 And Up, 2-4 Players, Three Difficulty Levels, Character And Color Matching, Includes Chase Skye Marshall Liberty",
+            "char_count": 119,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Simplified Matching, 3 Levels Of Play, Character Matching For Pre Readers, 2 To 4 Players, Ages 3 Plus",
+            "char_count": 102,
+            "validation_error": null
+        }
+    }
+}

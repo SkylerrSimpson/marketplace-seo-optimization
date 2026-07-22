@@ -3,14 +3,14 @@
     "asin": "B07BN2LRSF",
     "product_type": "SPORTING_GOODS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:46:50+00:00",
+    "generated_at": "2026-07-21T20:01:09+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 3,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -64,20 +64,57 @@
             "asin": "B07BN2LRSF",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Companion Whistles 105dB Emergency Safety Set",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 2-Pack Bright Orange Safety Whistles",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "Bright Orange",
+                "name": "Safety Whistles"
+            }
         },
-        "title_differentiation": {
-            "value": "2-Pack, 105dB Rating, Bright Orange, 16\" Lanyard, Camping & Hiking",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 2-pk Bright Orange Companion Whistle Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 52,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Bright Orange",
+                "name": "Companion Whistle Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "105 DB Rating, Durable Plastic, 16 Inch Lanyard, Camping Hiking Emergency, Single Blow Heard",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 92,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Outdoor Emergency Safety, 105 DB Loud Signal, Durable Plastic, 16\" Lanyard, Compact 2\" X 125\", Set Of 2",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

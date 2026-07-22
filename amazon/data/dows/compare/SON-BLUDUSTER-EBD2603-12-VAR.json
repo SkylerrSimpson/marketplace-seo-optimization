@@ -1,0 +1,60 @@
+{
+    "sku": "SON-BLUDUSTER-EBD2603-12-VAR",
+    "asin": "B07NQ569PV",
+    "product_type": "DUST_REMOVAL_TOOL",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-BLUDUSTER-EBD2603-12-VAR\nProduct Type: DUST_REMOVAL_TOOL\nBrand (from catalog): ASR Outdoor\nExisting Title: Universal Home Dual Head Flex Neck Telescopic Duster Extendable Up To 46.5 Inch Adjustable Micro Fiber Head To Trap Dust Great for Allergies Lightweight Premium Store Anywhere - Blue\nDescription: This microfiber duster is unlike anything you've used before. The two heads are adjustable cutting your cleaning time in half. It also makes it easier to clean light bulbs or chandeliers. This duster extends up to 46.5\" allowing you to reach even the toughest of spots tops of bookcases, refrigerators, cabinets, Ceilings, Moldings, or Window Blinds. You could clean two blades of your ceiling fan at once or clean out that had to reach vent. <br><br>Feather dusters are essential for the home and important for keeping the house clean from dust that can contain remnants of toxic chemicals, heavy metals, and allergens such as bacteria, fungi, and dust mite particles. The debris left behind by dust mites can trigger a powerful allergic reaction, especially for your children, the most vulnerable in your household. This duster is made with microfiber which traps this toxic dust and keeping it from spreading around your house ensuring your house will be free of allergens and toxic dust. This feature makes it a must-have for those with allergies, young children, or pets. <br><br>With the extendable feature, you will have an easy reach as you dust, or you can quickly bring it down to 10 inches and easily fit it in small spaces to store it away. You could store it in your housekeeping kit or keep in the corner of your office.\nSearch Terms: home garden office dusting cleaning\nFeatures:\n- DUAL ACTION DUSTER FOR WET/DRY USE: Our duster can be used to get the best clean. You can dust your vents wet or dry. The microfiber material allows you to do this without ruining the function of the duster.\n- SUPER ABSORBENT: The microfiber material absorbs dust and traping and preventing the spread of toxic dust and allergens. Great for those with allergies, young children, and pets.\n- DUAL HEAD: The dual head makes it easy to clean objects such as light bulbs, chandeliers, or ceiling fan blades\n- TELESCOPIC HANDLE: The microfiber duster extends up to 46.5\" for hard to reach places and can collapse to 10\" for easy storage. Reach just about anywhere, tops of Bookcases, Refrigerators, Cabinets, Ceilings, Moldings, or Window Blinds.\n- EASY TO CLEAN: The microfiber material makes it easy to clean for a long life.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 46.5in Blue Dual Head Telescopic Microfiber Duster",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "46.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Blue",
+                "name": "Dual Head Telescopic Microfiber Duster"
+            },
+            "char_count": 62,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 46.5-in Blue Microfiber Duster",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "46.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Blue",
+                "name": "Microfiber Duster"
+            },
+            "char_count": 42,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Dual Head, Extends To 465 Inches, Microfiber Traps Allergens, Wet Or Dry Use, Collapses To 10 Inches",
+            "char_count": 100,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Dual Head, Telescopic Handle, Wet And Dry Use, Traps Dust And Allergens, Collapses To 10\" For Easy Storage",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

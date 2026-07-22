@@ -1,0 +1,60 @@
+{
+    "sku": "SHM-K200LBSHSSPC1000FT-BL-4",
+    "asin": "B00LEXB9MA",
+    "product_type": "CORD_ROPE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SHM-K200LBSHSSPC1000FT-BL-4\nProduct Type: CORD_ROPE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Genuine USA Kevlar Utility Cord 200lb Hobby Sport Paracord Line, 1000ft Blue\nDescription: The ASR Outdoor 200lb Survival Kevlar Cord is widely used for military, marine, sporting goods and aerospace applications. It has a high tensile strength and rated at a 200lbs breaking strength. <br/><br/> ASR Outdoor Kevlar Line is a very durable cord for use in extreme conditions, made from 100% Kevlar fiber It is lightweight, has a low-stretch and UV resistant making it ideal for survival kits, bug out bags, emergency use and everyday edc situations. ASR Outdoor Survival Cord can be rapidly deployed when compared to tradition 550 paracord and is significantly smaller and lighter, while still being strong enough to count on in an emergency. <br/><br/> The ASR Outdoor Kevlar Cord is made in the USA; constructed from 3 strands of Kevlar thread braided together and coated in a polyurethane protective coating giving added abrasion and UV resistance. ASR Outdoor Kevlar Cord is flame-resistant and also heat-resistant, allowing it to be used as a cutting tool for sawing wood, ropes, flex-cuffs while functioning as a snare wire, escape tool, fishing line ortie-down line. <br/><br/> Weighing less than a few ounces, the Kevlar Survival Cord is optimal for building emergency shelters, repairing your gear, trip wire, traps, bows, and snares. This cord is the perfect companion to every emergency kit and ideal for every day carry, edc. <br/><br/> Available in multiple lengths. Colors available: Black, Blue, Natural Yellow and Red.\nSearch Terms: survival emergency campsite perimeter alarm trip wire rope every day carry edc kevlar booby trap signaling device tactical bug out bag survival cord kite braided spear fishing line specialty braided emma best hobby paracord gimble camera utility\nFeatures:\n- KEVLAR CORD LINE: Breaking Strength: 200lbs; Diameter: .03\" (VERY THIN); Braided from 3 strands of kevlar thread\n- ENHANCED COMPOSITION: Dipped in a polyurethane coating for added flame, abrasion, corrosion and UV resistance; Kevlar cord will hold up to environmental and chemical exposure well\n- Lengths Available: 25, 50, 100, 500, 1000 feet; Colors Available: Black, Red, Blue, Natural\n- Ideal for survival and emergency kits, perimeter trip wire alarm, bug out bag, EDC, wildlife mitigation, craft and hobby\n- 100% Genuine Kevlar Cord: Made in the USA\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 1000ft Blue Kevlar Utility Cord 200lb",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1000",
+                "pack_size_unit": "ft",
+                "size": "200lb",
+                "color": "Blue",
+                "name": "Kevlar Utility Cord"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 1000-ft 200lb Blue Kevlar Utility Cord",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1000",
+                "pack_size_unit": "ft",
+                "size": "200lb",
+                "color": "Blue",
+                "name": "Kevlar Utility Cord"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "200Lb Breaking Strength, Made In USA, Flame And UV Resistant, Lightweight, Low-Stretch, EDC And Survival",
+            "char_count": 104,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "3-Strand Braided, 200 Lb Breaking Strength, Polyurethane Coated, Flame And UV Resistant, Made In USA",
+            "char_count": 100,
+            "validation_error": null
+        }
+    }
+}

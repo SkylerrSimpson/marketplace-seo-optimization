@@ -3,14 +3,14 @@
     "asin": "B0C9SG7PV9",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:35:49+00:00",
+    "generated_at": "2026-07-21T20:11:46+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,20 +27,57 @@
             "asin": "B0C9SG7PV9",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 10lb Gold Paydirt Kit with 24pc Panning Tools",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 10LB Gold Paydirt Complete 24pc Panning Kit",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "LB",
+                "size": "",
+                "color": "",
+                "name": "Gold Paydirt Complete 24pc Panning Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "Complete 24-piece prospecting set, 5-gallon bucket, intermediate-advanced paydirt",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 10lb 24pc Gold Paydirt Prospecting Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 50,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "lb",
+                "size": "24pc",
+                "color": "Gold",
+                "name": "Paydirt Prospecting Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "24-Piece Set, 5 Gallon Bucket, Gold Pans, Classifier Screens, Snifter Bottles, Magnetic Separator, Intermediate To Advanced",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 123,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Intermediate And Advanced Paydirt, 5 Gallon Bucket, Dual Riffle Pans, Classifier Screens, Complete Prospecting Tools",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 116,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

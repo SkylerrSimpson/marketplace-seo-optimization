@@ -1,0 +1,56 @@
+{
+    "sku": "EVR-CANVAS-BACKPACK-BROWN-FBA",
+    "asin": "B0FTP23NY3",
+    "product_type": "BACKPACK",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: EVR-CANVAS-BACKPACK-BROWN-FBA\nProduct Type: BACKPACK\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 30L Heavy Duty Gold Prospecting Backpack, Canvas Camping Rucksack (Brown)\nDescription: Arguably one of the most important pieces of equipment to get you from A to B and beyond, think about the wear-and-tear we put our bags through; stuffed into overhead bins, squeezing into tight corners, thrown, tossed and bursting at the seams due to that last minute packing choices. Quality and durability is key to a backpack's longevity and performance, which you will find in this hiking backpack by ASR Outdoor.<br/><br/>Meet the ASR Outdoor 30L Gold Panning large backpack. It is functional, durable, has a large capacity and designed in classic rucksack style. It will quickly become your go-to pack for everything from overnight hiking trips to long-haul air travel.<br/><br/>With 30 liters or 1830 cubic inches (volume) of packing space, the large central compartment of this rucksack can really hold it all. In addition to the huge central compartment, the rucksack features an interior draw cord compression closure, large top load lid closure, three exterior compartments and reinforced stitching throughout. Furthermore, all exterior side pockets feature both zipper and buckle closure, so you can rest assured your belongings will remain safe and secure. Lastly, adjustable carry straps provide comfort customization, as well as a top carry handle for easy maneuvering and lifting when needed. The canvas rucksack is made from 100% quality cotton, a natural, breathable and durable fiber that will perform better than other synthetic materials in the long run.<br/><br/>This backpack has been designed with gold panning and gold prospecting in mind. A great option for novice or experts alike, it will easily fit gold panning equipment like mini or folding sluice boxes, gold pans, sieves or classifiers and other small tools, so you can trek it all in one go to your field site. Built for adventure, reach for the ASR Outdoor 30L Gold Panning Hiking Backpack for your next camping trip, day hike, backpacking excursion and more. <br/><br/>Machine washable; air dry.\nSearch Terms: sluice box backpack hiking tactical drawstring military canvas mens backpacking gold prospecting equipment camping large packable fishing hunting lightweight survival women's rucksack accessories gear supplies gifts trekking bags backpacks luggage\nFeatures:\n- 30L HIKING BACKPACK: Carry everything you need and easily access all of it; (1) large top load lid closure with interior draw cord closure; (3) exterior zipper compartments with secured canvas flaps\n- FIELD TESTED & RESPECTED: Reinforced double stiching across all seams and connection points; side pockets feature secure canvas flaps with zipper; adjustable chest strap provides comfort, as well as a top carry handle for easy maneuvering and lifting\n- GREAT FOR GOLD PANNING EQUIPMENT: Easily fit all your gold prospecting equipment; aluminum folding sluice box, gold pans, classifier screens and other small tools, you can trek it all in one go to your claim\n- QUALITY CANVAS FABRIC: Made from cotton, this backpack is built to last; breathable, natural fiber cotton won't irritate skin, is of better quality and more durable than other synthetic fabrics; machine washable (hang dry)\n- SPECIFICATIONS: Dimensions: 19.5 (H) x 12.5 (L) x 7 (W) inches; Weight: 1.86lbs; Color: Brown Side Pocket Dimensions: 13 x 4 x 2.5 inches; Front Pouch Dimensions: 8 x 12\" x 2.5 inches; Capacity: 30L; Material: Cotton\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters.  Please include the size and color of the item in the Product Name, if available.\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 30L Brown Canvas Gold Panning Backpack",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "30",
+                "pack_size_unit": "L",
+                "size": "",
+                "color": "Brown",
+                "name": "Canvas Gold Panning Backpack"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": null,
+            "tokens": null,
+            "char_count": null,
+            "validation_error": "no item_name returned"
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Heavy Duty Canvas, Gold Prospecting Equipment Storage, Reinforced Double Stitching, Machine Washable, Adjustable Straps",
+            "char_count": 119,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": null,
+            "char_count": null,
+            "validation_error": "no title_differentiation returned"
+        }
+    },
+    "raw": {
+        "openai": "Client error: `POST https://api.openai.com/v1/chat/completions` resulted in a `429 Too Many Requests` response:\n{\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-5.4-mini in organization org-el3QE531uTdEpv2furRUAnXD on (truncated...)\n"
+    }
+}

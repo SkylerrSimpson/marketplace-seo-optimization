@@ -3,14 +3,14 @@
     "asin": "B00J8V5G56",
     "product_type": "BLANK_BOOK",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:56:33+00:00",
+    "generated_at": "2026-07-21T19:41:16+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 8,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -127,20 +127,57 @@
             "asin": "B00J8V5G56",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "CCS Spy Gear Disappearing Notebook Dissolving Journal 32 Sheet",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "CCS Spy Gear 32-Sheet Large Disappearing Notebook",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 49,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "CCS Spy Gear",
+                "pack_size": "32",
+                "pack_size_unit": "Sheet",
+                "size": "Large",
+                "color": "",
+                "name": "Disappearing Notebook"
+            }
         },
-        "title_differentiation": {
-            "value": "Water-Dissolving Paper, Secret Message Pad, USA Made, 5.5x8.5 Large",
+        "item_name_ai_openai": {
+            "value": "CCS Spy Gear 32-Sheet Large Disappearing Notebook",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 49,
+            "review_only": true,
+            "tokens": {
+                "brand": "CCS Spy Gear",
+                "pack_size": "32",
+                "pack_size_unit": "Sheet",
+                "size": "Large",
+                "color": "",
+                "name": "Disappearing Notebook"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Dissolves With Water, Dissolving Message Paper, Secret Confessional Journal, Made In USA, Secure And Unrecoverable",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 114,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Water Activated Dissolves Into Secure Mulch, Confidential Notes, Made In USA, Hidden Messages, Saliva Triggered",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

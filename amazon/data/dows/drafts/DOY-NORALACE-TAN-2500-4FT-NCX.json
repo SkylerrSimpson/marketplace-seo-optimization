@@ -3,14 +3,14 @@
     "asin": "B07DGMVQFN",
     "product_type": "SPORTING_GOODS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:35:19+00:00",
+    "generated_at": "2026-07-21T19:56:50+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 8,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 17
     },
@@ -143,19 +143,58 @@
             "asin": "B07DGMVQFN",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical TitanLace 2500lb Technora Boot Laces, Tan 4ft",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical TitanLace 2500 Technora Boot Lace Tan 4ft",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "4",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Tan",
+                "name": "TitanLace 2500 Technora Boot Lace"
+            }
         },
-        "title_differentiation": {
-            "value": "2500lb Breaking Strength, Made in USA, Universal Fit, Emergency Survival Cord",
+        "item_name_ai_openai": {
+            "value": "ASR Tactical 4-ft Tan Technora Boot Lace",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 40,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "4",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Tan",
+                "name": "Technora Boot Lace"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "2500Lb Breaking Strength, Heat Resistant, Military Grade Technora Cord, Heavy Duty Metal Aglet, Made In USA, Emergency Survival Cordage",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 135,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (135 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "2500 Lb Technora Cord, 4Mm Metal Aglets, PTFE Coated, Heat Resistant, Made In USA, Emergency Survival Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 105,
+            "review_only": true
         },
         "item_diameter": {
             "value": [

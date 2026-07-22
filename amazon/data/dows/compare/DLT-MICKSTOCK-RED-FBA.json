@@ -1,0 +1,60 @@
+{
+    "sku": "DLT-MICKSTOCK-RED-FBA",
+    "asin": "B081S426Q8",
+    "product_type": "HOME_FURNITURE_AND_DECOR",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DLT-MICKSTOCK-RED-FBA\nProduct Type: HOME_FURNITURE_AND_DECOR\nBrand (from catalog): Ruz\nExisting Title: Mickey Mouse Kids Felt Holiday Stocking Home Decor\nDescription: Get your child into the holiday spirit with the Mickey Mouse Kids Christmas Stocking.<br/><br/>This cute felt stocking is embossed with a seasonal snowflake print and features everyone's favorite Disney mouse - Mickey. It's constructed of soft but durable felt that will last for years to come and comes with a hang loop that can easily be attached to any mantle.<br/><br/>The stocking itself is very lightweight and measures 15.5\" in length, so you can stuff it to the brim with toys, games, and accessories before Santa arrives and it will hang safely overnight. It has a seasonal embossed snowflake pattern that will brighten up any living room or den. If your child is a Mickey fanatic, then this Christmas stocking is the perfect home decor accessory this holiday season.\nSearch Terms: disney kids holiday stocking stuffers boys girls christmas stockings holiday xmas socks kid themed felt colorful for sock large lightweight presents for grandkids\nFeatures:\n- OFFICIALLY LICENSED - Authentic Themed Kids Christmas Stocking\n- LARGE SIZE - Stocking Measures 15.5\" in Length, Boot is 9\" Wide | Stuff to the Brim with Toys, Games, Candy, Accessories and More\n- SOFT MATERIAL - Made of Felt with Embossed Snowflake Pattern | Perfect Home Decor Addition this Holiday Season\n- HANG LOOP - Sturdy Hang Loop Easily Attaches to Any Mantle | Lasts for Many Years to Come\n- LIGHTWEIGHT DESIGN - Stocking Itself Weighs Just .08 Pounds (1.28 Ounces) | Fill With Gifts and Goodies and Hang Overnight\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Ruz Mickey Mouse Red Kids Christmas Holiday Stocking",
+            "tokens": {
+                "brand": "Ruz",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "15.5 inch",
+                "color": "Red",
+                "name": "Mickey Mouse Kids Christmas Holiday Stocking"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Ruz Mickey Mouse Kids Red Felt Holiday Stocking",
+            "tokens": {
+                "brand": "Ruz",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Red",
+                "name": "Stocking"
+            },
+            "char_count": 47,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Licensed Disney Character, 155 Inch Large Felt Stocking, Embossed Snowflake Design, Hang Loop, Lightweight, Stuff With Toys And Gifts",
+            "char_count": 133,
+            "validation_error": "value exceeds maxLength 125 (133 chars)"
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Officially Licensed, 155 Inch Large, Soft Felt, Embossed Snowflake Pattern, Hang Loop, Lightweight",
+            "char_count": 98,
+            "validation_error": null
+        }
+    }
+}

@@ -3,14 +3,14 @@
     "asin": "B0BL6B1N4B",
     "product_type": "NON_RIDING_TOY_VEHICLE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:41:31+00:00",
+    "generated_at": "2026-07-21T19:58:58+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 0,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,20 +27,58 @@
             "source": "usurper",
             "usurper_column": "attr.theme_amazon"
         },
-        "item_name_ai_suggested": {
-            "value": "Kidplokio 50pc Special Forces Diecast Toy Vehicle Playset",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Kidplokio 50-pc Special Forces Micro Wheels Diecast Toy Set",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 59,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "50",
+                "pack_size_unit": "pc",
+                "size": "Micro Wheels",
+                "color": "",
+                "name": "Special Forces Diecast Toy Set"
+            }
         },
-        "title_differentiation": {
-            "value": "50 Pieces, Die-Cast Metal, Rescue Themed, Ages 3+",
+        "item_name_ai_openai": {
+            "value": "Kidplokio 50-Pc Special Forces Toy Vehicle Playset",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 50,
+            "review_only": true,
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "50",
+                "pack_size_unit": "Pc",
+                "size": "",
+                "color": "",
+                "name": "Special Forces Toy Vehicle Playset"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "50 Pieces, Die-Cast Metal And Plastic Construction, Includes Tanks Trucks Planes Helicopters And Soldiers, Free-Moving Wheels, Ages 3 Plus",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 138,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (138 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "50 Pieces, Die-Cast Metal And Plastic, Tanks Trucks Planes Helicopters, Free Rolling Wheels, Ages 3 And Up",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 106,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

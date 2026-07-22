@@ -1,0 +1,60 @@
+{
+    "sku": "SON-WATERPROOF-NOTEBOOK-IR-TT",
+    "asin": "B0B57K2FWX",
+    "product_type": "BLANK_BOOK",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-WATERPROOF-NOTEBOOK-IR-TT\nProduct Type: BLANK_BOOK\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Waterproof Notebook with Pencil Smudgeproof Mini Pocket Journal\nDescription: Ever found yourself camping or hiking and wish you could take notes, regardless of the weather? The ASR Outdoor mini waterproof notebook comes with 50 sheets of waterproof, smudge-proof, and tear-proof paper that can be used in any weather condition without worrying about sweat, water, or moisture.<br/><br/>These notebooks are made of tough, impact-resistant materials with a wire-O binding to ensure you can count on it rain or shine. It measures just 3\"x 5\" and will fit inside just about any pocket, travel bag or backpack used for outdoor activities. <br/><br/>Each notebook comes with a mini 3\" pencil that will write legibly in any weather condition. Unlike traditional pens, pencils are great for outdoor and travel because you won't have to deal with it leaking into your backpack or gear bag.<br/><br/>The spiral-notebook journal features a weatherproof and flexible cover designed to protect your notes from stains and scratches. You can count on it to record your on-the-go lists, logs, and notes in wet environments. Take it with you on your next hiking, camping, or boating trip.\nSearch Terms: waterproof notebook pencil pocket mini field spiral notebook composition notebooks notebook bulk waterproof sticker paper camping accessories gear essentials small note pad to do list notepad mini weatherproof paper waterproof bag rain gear\nFeatures:\n- NOTEBOOK WITH WATERPROOF PAPER - ASR Outdoor mini pocket journal features 50 sheets of waterproof, tear-proof, and smudge-proof paper. Use it in any weather condition without worrying about moisture, sweat, or water\n- POCKET-SIZED JOURNAL - Tough, impact-resistant spiral notebook with wire-O binding measures just 3\" x 5\" and will easily fit in just about any pocket, backpack, or travel bag. Take it with you while camping, hiking, or boating for on-the-go notetaking\n- PENCIL INCLUDED - Notebook comes with mini 3\" pencil designed to legibly write rain or shine. No ink means you don't have to deal with it leaking into your backpack, pocket, or gear bag\n- FLEXIBLE COVER - Journal features a weatherproof flexible cover that will protect your notes from scratches and stains out in the field. Count on it to record your lists, logs, ideas, and plans in wet environments\n- SPECIFICATIONS - Dimensions: 3\" x 5\"; Pencil included: yes; Colors: green, white, tan; Materials: waterproof paper, flexible cover, wood pencil; Pencil size\" 3\"; Notebook paper style: wide-ruled\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 3x5 Waterproof Notebook with Pencil",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "x5",
+                "size": "",
+                "color": "",
+                "name": "Waterproof Notebook with Pencil"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 3x5 Mini Waterproof Pocket Notebook with Pencil",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "3x5",
+                "color": "",
+                "name": "Mini Waterproof Pocket Notebook with Pencil"
+            },
+            "char_count": 59,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "50 Sheets Waterproof Paper, Smudgeproof, Tear-Proof, Pocket-Sized, Included Mini Pencil, Spiral Bound",
+            "char_count": 101,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Waterproof Tear-Proof Paper, Smudgeproof Wide-Ruled Pages, Flexible Cover, Pocket Size, Pencil Included",
+            "char_count": 103,
+            "validation_error": null
+        }
+    }
+}

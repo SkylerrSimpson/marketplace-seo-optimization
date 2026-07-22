@@ -3,30 +3,41 @@
     "asin": "B01LY2BX7O",
     "product_type": "OFFICE_PRODUCTS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:34:52+00:00",
+    "generated_at": "2026-07-21T19:56:42+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
-        "fillable": 0,
-        "catalog": 8,
-        "ai_suggested": 4,
+        "fillable": 4,
+        "catalog": 5,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
     "attributes": {
+        "country_of_origin": {
+            "value": "United States",
+            "is_required": true,
+            "source": "usurper",
+            "usurper_column": "attr.country_of_origin"
+        },
         "age_range_description": {
-            "value": [
-                {
-                    "language_tag": "en_US",
-                    "value": "Adult",
-                    "marketplace_id": "ATVPDKIKX0DER"
-                }
-            ],
+            "value": "Adult",
             "is_required": false,
-            "source": "catalog",
-            "asin": "B01LY2BX7O",
-            "raw_value": true
+            "source": "usurper",
+            "usurper_column": "attr.age_range_description_amazon"
+        },
+        "material": {
+            "value": "Leather",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.material"
+        },
+        "style": {
+            "value": "Memo Pad",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.style_name_amazon"
         },
         "binding": {
             "value": [
@@ -40,37 +51,11 @@
             "asin": "B01LY2BX7O",
             "raw_value": true
         },
-        "material": {
-            "value": [
-                {
-                    "language_tag": "en_US",
-                    "value": "Leather",
-                    "marketplace_id": "ATVPDKIKX0DER"
-                }
-            ],
-            "is_required": false,
-            "source": "catalog",
-            "asin": "B01LY2BX7O",
-            "raw_value": true
-        },
         "pattern": {
             "value": [
                 {
                     "language_tag": "en_US",
                     "value": "Solid",
-                    "marketplace_id": "ATVPDKIKX0DER"
-                }
-            ],
-            "is_required": false,
-            "source": "catalog",
-            "asin": "B01LY2BX7O",
-            "raw_value": true
-        },
-        "style": {
-            "value": [
-                {
-                    "language_tag": "en_US",
-                    "value": "Memo Cover",
                     "marketplace_id": "ATVPDKIKX0DER"
                 }
             ],
@@ -117,32 +102,64 @@
             "asin": "B01LY2BX7O",
             "raw_value": true
         },
-        "country_of_origin": {
-            "value": "US",
+        "model_name": {
+            "value": "Minimalist Memo Pad Cover",
+            "is_required": false,
+            "source": "ai",
+            "model": "claude-sonnet-5"
+        },
+        "item_name_ai_anthropic": {
+            "value": "ASR Federal 3x5 Smooth Black Leather Memo Pad Cover",
             "is_required": true,
             "source": "ai",
-            "model": "claude-haiku-4-5"
-        },
-        "model_name": {
-            "value": "AFL3X5SMBCPB",
-            "is_required": false,
-            "source": "ai",
-            "model": "claude-sonnet-4-6"
-        },
-        "item_name_ai_suggested": {
-            "value": "ASR Federal 3x5 Genuine Leather Memo Pad Cover Black",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "3",
+                "pack_size_unit": "x5",
+                "size": "3x5",
+                "color": "Smooth Black",
+                "name": "Leather Memo Pad Cover"
+            }
         },
-        "title_differentiation": {
-            "value": "100% Leather, Smooth Black, Secure Flap, EDC Notepad Holder",
+        "item_name_ai_openai": {
+            "value": "ASR Federal 3x5in Black Leather Notepad Holder",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 46,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "3x5in",
+                "color": "Black",
+                "name": "Leather Notepad Holder"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "100 Genuine Leather, Fits Standard 3X5 Memo Pads, EDC Pocket Notepad Holder, Police And Security Professional Gear, Protects Notes From Water And Stains",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 152,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (152 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Genuine Leather, Fits Standard 3X5 Memo Pads, Slim Pocket Carry, Secure Flap And Loop, Smooth Black Finish",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 106,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

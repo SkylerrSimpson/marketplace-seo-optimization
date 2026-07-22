@@ -1,0 +1,60 @@
+{
+    "sku": "NPT-CLVR-8-IN-FLD-KNF-BLCK",
+    "asin": "B076CXWJL1",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: NPT-CLVR-8-IN-FLD-KNF-BLCK\nProduct Type: KNIFE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Cleaver 8\" Assisted Open Pocket Knife with Belt Clip - Black\nDescription: This pocket knife is as cool as it looks. Slim and compact, it features an assisted-open mechanism for lighting-fast opening speeds. <br/><br/>At less than 5 inches folded, it is compact enough to fit in your back pocket whenever you need it. But don't be fooled by it's size- this knife still packs a punch with a wide 3.5 inch blade. This makes it ideal for everyday use, camping, hunting, or hiking. <br/><br/>The knife also has a belt clip so it can be hung on articles of clothing for easy access. Another highlight is this knives sleek metallic matte silver finish, and black handle grip. Don't forget this next adventure.\nSearch Terms: knife knivespocket knives camping cleaver spring assisted buckshot folding blade\nFeatures:\n- Metallic Matte Silver Finish With Black Grip\n- Less than 5\" folded\n- 8\" unfolded\n- Belt clip\n- Officially licensed by ASR Outdoor\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 8\" Black Cleaver Assisted Open Pocket Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Cleaver Assisted Open Pocket Knife"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 8-in Black Cleaver Assisted Open Pocket Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Cleaver Assisted Open Pocket Knife"
+            },
+            "char_count": 57,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Assisted Open, 35 Inch Blade, Belt Clip, Compact Folded Design, Camping And Hunting",
+            "char_count": 83,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Assisted Open Action, Matte Silver Blade, Black Grip, Belt Clip, Compact 8In Folding Design, Everyday Carry",
+            "char_count": 107,
+            "validation_error": null
+        }
+    }
+}

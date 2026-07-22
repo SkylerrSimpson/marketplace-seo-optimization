@@ -3,14 +3,14 @@
     "asin": "B014TWZXEM",
     "product_type": "OUTDOOR_RECREATION_PRODUCT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:34:59+00:00",
+    "generated_at": "2026-07-21T20:11:42+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -45,20 +45,58 @@
             "asin": "B014TWZXEM",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Ultra Soft Fleece Sleeping Bag Liner, 71\" x 31\"",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 71in Burgundy Ultra Soft Fleece Sleeping Bag Liner",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 62,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "71",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Burgundy",
+                "name": "Ultra Soft Fleece Sleeping Bag Liner"
+            }
         },
-        "title_differentiation": {
-            "value": "+12°F Warmth, Microfiber Fleece, 3-Sided Zipper, Includes Stuff Sack",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 71-in Burgundy Fleece Sleeping Bag Liner",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 52,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "71",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Burgundy",
+                "name": "Fleece Sleeping Bag Liner"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Adds 12 Degrees Warmth, Washable Microfiber Fleece, Extends Sleeping Bag Life, 3-Side Zippers, Includes Stuff Sack, Lightweight",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 127,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (127 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Adds 12 Degrees Warmth, Ultra-Soft Fleece, 3-Side Zipper, Universal Fit, Washable, Stuff Sack, Cold Weather Camping",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 115,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

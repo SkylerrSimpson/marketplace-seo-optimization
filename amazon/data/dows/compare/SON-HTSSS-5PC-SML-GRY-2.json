@@ -1,0 +1,60 @@
+{
+    "sku": "SON-HTSSS-5PC-SML-GRY-2",
+    "asin": "B097SM24BY",
+    "product_type": "TOOLS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-HTSSS-5PC-SML-GRY-2\nProduct Type: TOOLS\nBrand (from catalog): ToolTreaux\nExisting Title: 5pc Universal Tweezer Set Stainless Steel, 5\"\nDescription: This 5pc tweezer set is useful for a variety of applications.<br/><br/>These stainless steel tweezers are all between 4\" and 5\" and feature different tips for different uses. The shovel tip on the stamp tweezers is perfect for handling flat broad objects that may be too delicate for pointed tweezers. The bent tip tweezers are designed for grasping small stones and components, while the solder/utility tweezers are ideal for holding small wires in place.<br/><br/>Having 5 different tweezers makes this set quite versatile, as there is one for any situation. Whether you're beading, soldering, repairing watches or jewelry, or even simply removing a splinter, there is a tweezer in this set for you.\nSearch Terms: jewelry repair watch tools electronics\nFeatures:\n- Set includes: sharp point tweezers (4.5\"), stamp tweezers (4.75\"), general tweezers (4\"), solder/utility tweezers (4.5\"), bent tip tweezers (4.5\")\n- Lengths between 4\" - 5\"\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 5-pc Stainless Steel Tweezer Set",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "5",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Stainless Steel Tweezer Set"
+            },
+            "char_count": 43,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 5-pk 5in Universal Tweezer Set Stainless Steel",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "5",
+                "pack_size_unit": "pk",
+                "size": "5in",
+                "color": "",
+                "name": "Universal Tweezer Set Stainless Steel"
+            },
+            "char_count": 57,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "4-5 Inch, Multiple Tip Types, Jewelry Repair, Watch Repair, Soldering, Precision Handling",
+            "char_count": 89,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Sharp Point, Bent Tip, Shovel Tip, Solder Utility, Watch Repair, Jewelry Repair, Electronics, Fine Parts Handling",
+            "char_count": 113,
+            "validation_error": null
+        }
+    }
+}

@@ -3,14 +3,14 @@
     "asin": "B074K23DQN",
     "product_type": "STORAGE_BOX",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:13:17+00:00",
+    "generated_at": "2026-07-21T19:49:21+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -46,25 +46,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "Aluminum Storage Display Container Set",
+            "value": "Aluminum Storage Display Container Set & Case",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Hobby Aluminum Storage Container Set 15pc",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Hobby 15-Piece Aluminum Storage Container Set",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Hobby",
+                "pack_size": "15",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "",
+                "name": "Aluminum Storage Container Set"
+            }
         },
-        "title_differentiation": {
-            "value": "Clear Glass Lids, Twist-Off Secure Sealing, Craft Organization",
+        "item_name_ai_openai": {
+            "value": "Universal Hobby 15-pk 1 3/8 in Aluminum Storage Container Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 61,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Hobby",
+                "pack_size": "15",
+                "pack_size_unit": "pk",
+                "size": "1 3/8 in",
+                "color": "",
+                "name": "Aluminum Storage Container Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "15 Aluminum Containers, Clear Glass Lids, Twist-Off Secure Seal, Organize Small Parts, Crafts, Jewelry, Minerals",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 112,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Clear Glass Lids, Twist Off Secure Lids, Round Aluminum Containers, Organize Crafts Jewelry Minerals",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 100,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-CHRBP-SPI-ASPB-AMZ",
+    "asin": "B0C1HL63GH",
+    "product_type": "BACKPACK",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-CHRBP-SPI-ASPB-AMZ\nProduct Type: BACKPACK\nBrand (from catalog): Spider-Man\nExisting Title: Spiderman 15 Inch Travel School Backpack Adjustable Straps Boys Age 3 and Up\nDescription: Does your child love superheroes? This officially licensed kid’s backpack features one of everyone’s favorite Marvel superheroes: The Amazing Spiderman. The backpack has a large interior compartment for safely storing school supplies, padded and adjustable straps for a custom fit, and a bold, colorful Spiderman front graphic which is sure to turn heads.<br/><br/>This Spiderman backpack is incredibly lightweight and easy for little kids to carry comfortably. The straps are adjustable (14 to 29 inches) which offers extra support for most kids. Easy to clean, the vinyl-like interior can be spot cleaned and wiped down if a lunch or water bottle is spilled, and the soft exterior can also be wiped as needed. If you need a deep clean, throw it in the washing machine on the cold setting and let air dry.<br/><br/>Designed for carrying school supplies, this versatile kid’s travel bag can also be used as an overnight back for sleepovers, a travel backpack for vacations and road trips, or as a Summer camp backpack with its roomy interior compartment. Your little one will love showing off their favorite character on their brand-new backpack this year.\nSearch Terms: school backpack kids backpacks girls backpacks boys backpacks back to school supplies school supplies backpack kids kids backpacks shoulder straps elementary school backpack boys elementary school backpack for kids mini travel bags for kids\nFeatures:\n- SPIDERMAN SCHOOL BACKPACK - Officially licensed Marvel kids backpack features one of everyone’s favorite superheroes - Spiderman; Features large interior compartment, padded and adjustable shoulder straps and a bold, colorful Spiderman front graphic\n- COMFORTABLE AND LIGHTWEIGHT - Spiderman backpack is incredibly lightweight and easy for kids to carry comfortably; Straps are padded and adjustable for custom comfort (14 to 29 inches); Offers extra support and a great fit for most little kids\n- EASY TO CLEAN - Vinyl-like interior is easy to wipe down if a water bottle or lunch is spilled; Soft exterior can also be spot cleaned, or the entire backpack washed on the cold setting for a deeper clean when needed (air dry only)\n- VERSATILE TRAVEL BAG - Designed for carrying school supplies, Spiderman backpack can also be used as an overnight back for sleepovers, a travel backpack for family vacations and playdates, or as a Summer camp backpack with its large and roomy interior compartment\n- SPECIFICATIONS - Officially licensed by Marvel (Spiderman); Dimensions: 15” x 12” x 4.5”; Colors: Assorted; Washable: yes (cold setting and air dry only); Adjustable straps: yes\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters.  Please include the size and color of the item in the Product Name, if available.\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Spider-Man 15 Inch School Backpack for Kids",
+            "tokens": {
+                "brand": "Spider-Man",
+                "pack_size": "15",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "",
+                "name": "School Backpack for Kids"
+            },
+            "char_count": 43,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Spider-Man 15 in School Backpack",
+            "tokens": {
+                "brand": "Spider-Man",
+                "pack_size": "15",
+                "pack_size_unit": "in",
+                "size": "15 in",
+                "color": "",
+                "name": "School Backpack"
+            },
+            "char_count": 32,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Official Marvel Licensed, Adjustable Padded Straps, Lightweight, Washable, Versatile Travel Bag",
+            "char_count": 95,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Officially Licensed, Padded Adjustable Straps, Large Interior, Lightweight, Wipe Clean, Washable",
+            "char_count": 96,
+            "validation_error": null
+        }
+    }
+}

@@ -3,14 +3,14 @@
     "asin": "B09WXQ7HYR",
     "product_type": "COAT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:44:08+00:00",
+    "generated_at": "2026-07-21T20:00:06+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -76,20 +76,57 @@
             "asin": "B09WXQ7HYR",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Men's Camping Vest with 8 Pockets, Adjustable",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Men's Camping Vest, Large",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 37,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Large",
+                "color": "",
+                "name": "Camping Vest"
+            }
         },
-        "title_differentiation": {
-            "value": "Weather-Resistant Nylon, Reinforced Shoulders, Hunting & Fishing",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor Large Camping Vest Hunting Fishing Jacket",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 53,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Large",
+                "color": "",
+                "name": "Camping Vest"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "8 Pockets, 2 Metal Clips, Adjustable Side Straps, Weather-Resistant Nylon, Reinforced Shoulders",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 95,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Weather-Resistant Nylon, 8 Pockets, 2 Metal Clips, Adjustable Side Straps, Reinforced Shoulders, One Size Fits Most",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 115,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

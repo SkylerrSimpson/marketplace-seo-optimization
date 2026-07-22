@@ -3,14 +3,14 @@
     "asin": "B0F2CZHLMG",
     "product_type": "DRINKING_CUP",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:08:13+00:00",
+    "generated_at": "2026-07-21T19:47:23+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -38,20 +38,57 @@
             "asin": "B0F2CZHLMG",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "ASR Outdoor 304 Stainless Steel Coffee Mug Collapsible",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "Sizes",
+                "size": "",
+                "color": "",
+                "name": "Coffee Mug Collapsible"
+            }
         },
-        "title_differentiation": {
-            "value": "12oz or 22oz, Folding Handles, Camping & Hiking Essential",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 304 Stainless Steel Camping Coffee Mug",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 50,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "304 Stainless Steel Camping Coffee Mug"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "12Oz And 22Oz, Collapsible Handles, 304 Stainless Steel, Camping Essentials, Lightweight",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 88,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "304 Stainless Steel, Collapsible Handles, Rust Resistant, 12Oz And 22Oz Sizes, Lightweight, Food Safe",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

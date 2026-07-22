@@ -1,0 +1,60 @@
+{
+    "sku": "26C-PRUNSHEARS-HM-75967-96",
+    "asin": "B0BZGM6HQ3",
+    "product_type": "GARDEN_SHEAR_SCISSORS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 26C-PRUNSHEARS-HM-75967-96\nProduct Type: GARDEN_SHEAR_SCISSORS\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Gardening Tool Pruning Shears Steel Blades 6.7 Inch Ergonomic Handle\nDescription: Are you an avid gardener, or just getting started with this outdoor hobby? Every gardener, aspiring or experienced needs a durable and reliable pair of pruning shears. The ToolTreaux gardening shears are a must-have tool for pruning branches, removing dead wood, and clipping shrubs, herbs, flowers, and stems.<br/><br/>Our gardening shears feature an ergonomic handle designed to add comfort during use. The rubberized handle can help prevent slippage to protect your hands while gardening, weeding, or pruning.<br/><br/>The pruning shears feature high-quality carbon steel blades that will cut through plant and gardening materials with ease, and the weather-resistant design allows you to safely prune and garden in inclement weather. The pruners also come with a built-in spring that is easy to operate and can help reduce the pressure on your wrist during longer gardening sessions.<br/><br/>PLEASE NOTE - These gardening shears come in two colors (black or green) and the color ships at random based on availability.\nSearch Terms: gardening hand tools mothers gift gardening kit green thumb home plant lover house landscaping projects weeding patio landscaping accessories rake leaf rake\nFeatures:\n- PRUNING SHEARS - ToolTreaux pruning shears are a must-have gardening tool for any beginner or experienced gardener; Use for pruning branches, dead wood, shrubs, herbs, flowers, and stems\n- ERGONOMIC DESIGN - Gardening shears feature an ergonomic handle for added comfort during use; Rubberized handle helps prevent slippage to protect your hands while gardening, weeding, pruning, and more\n- DURABLE CONSTRUCTION - Pruning shears feature high-quality carbon steel blades that will cut through plant and gardening materials with ease; Weather-resistant design allows you to safely prune and garden in inclement weather\n- EASY TO USE - Garden pruners come with a built-in spring that is easy to operate and can help reduce the pressure on your wrist while cutting branches quickly and efficiently; Ideal for use by any adult (unisex)\n- SPECIFICATIONS - Materials: steel, rubber; Size: 6.7-inch length; Colors: black or green (assorted, ships at random); One size fits most adults\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 6.7 Inch Pruning Shears Steel Blades",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "6.7",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "",
+                "name": "Pruning Shears Steel Blades"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 6.7 in Pruning Shears",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "6.7 in",
+                "color": "",
+                "name": "Pruning Shears"
+            },
+            "char_count": 32,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Ergonomic Handle, Carbon Steel Blades, Weather-Resistant, Built-in Spring, Rubberized Grip",
+            "char_count": 90,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Carbon Steel Blades, Ergonomic Rubberized Handle, Built-In Spring, Weather Resistant, Reduced Wrist Pressure",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-100PKZIPLOCKBAG-PARENT-PZ-AMZ",
+    "asin": "B0CL5LG6P1",
+    "product_type": "STORAGE_BAG",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-100PKZIPLOCKBAG-PARENT-PZ-AMZ\nProduct Type: STORAGE_BAG\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux 100 Pack Resealable Clear Plastic Bags Crafting Supplies Organization and Storage, Assorted Sizes\nDescription: You can never be too organized. Keep small items safe and secure with ToolTreaux's clear plastic zip lock bags.<br/><br/>These resealing plastic bags measure from 2 x2 inches, up to 8 x10 inches, and have a thickness of 2mm. Each bag is resealable with a single zipper channel that is easy to open and close, making them reusable many times over.<br/><br/>The clear bags are ideal for keeping everything from jewelry, craft supplies or even food items like candy or nuts fresh, secure and organized. Completely clear in color, the storage bags make identifying contents quick and efficient, whether in your home, office, studio, warehouse or garage. <br/><br/>These clear plastic reusable storage bags are especially great for prolonging the life of fine jewelry and costume alike; single track zipper is easy to pinch shut, keeping out dirt, moisture and other free radicals that may tarnish or damage pieces if otherwise left out in the open. <br/><br/>Make sure to keep a pack of these around for household use, storage and organizational tasks, they'll always come in handy. <br/><br/>Each pack comes with 100 individual units.\nSearch Terms: plastic bags small clear storage mini reclosable resealable jewelry for beads bead bag craft self lock crafting\nFeatures:\n- CLEAR REUSABLE BAGS: Plastic zip lock bags come in assorted sizes with 2mm thickness; multipurpose, resealable and ideal for keeping everything from jewelry to candy protected, organized and secure\n- ORGANIZATION AND STORAGE: Convenient for home or office use, keep items neat and organized with ToolTreaux's clear plastic zip lock bags; clear colorway makes identification of contents quick and easy\n- CRAFTING SUPPLIES: Convenient to keep arts and craft supplies organized and together; secure beads, coins, scrapbooking supplies, stickers, nuts and bolts, stones, gems and more\n- JEWELRY ORGANIZER: Prolong the life of fine jewelry or costume jewelry alike; single track zipper is easy to pinch shut, keeping out dirt, moisture and other free radicals that may tarnish or damage jewelry\n- SPECIFICATIONS: Dimensions: Assorted; Weight: 0.10lbs; Color: Clear; Material: Plastic; Thickness: 2mm; Package includes 100 units\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 100-Pack Clear Plastic Resealable Zip Lock Bags",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "100",
+                "pack_size_unit": "Pack",
+                "size": "Assorted Sizes",
+                "color": "Clear",
+                "name": "Resealable Zip Lock Bags"
+            },
+            "char_count": 58,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 100-pk Assorted Sizes Clear Zip Lock Bags",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "100",
+                "pack_size_unit": "pk",
+                "size": "Assorted Sizes",
+                "color": "Clear",
+                "name": "Zip Lock Bags"
+            },
+            "char_count": 52,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Assorted Sizes 2X2 To 8X10 Inches, 2Mm Thickness, Single Track Zipper, Reusable, Jewelry Storage, Craft Organization",
+            "char_count": 116,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "2Mm Thick, Single Track Zipper, Reusable, Jewelry Craft Food Storage, Keeps Items Organized And Secure",
+            "char_count": 102,
+            "validation_error": null
+        }
+    }
+}

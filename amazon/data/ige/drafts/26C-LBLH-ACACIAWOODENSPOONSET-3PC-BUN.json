@@ -3,14 +3,14 @@
     "asin": "B0D4RS8F26",
     "product_type": "SPOON",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:45:41+00:00",
+    "generated_at": "2026-07-21T19:28:50+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 16,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -226,20 +226,57 @@
             "asin": "B0D4RS8F26",
             "raw_value": true
         },
-        "title_differentiation": {
-            "value": "Food-safe rounded handles, non-scratch for nonstick cookware, natural wood grain, handwash only",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Labrea Life + Home 3-Pc 12\" Acacia Wood Spoon Set",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8",
-            "validation_error": "requires item_name <= 75 chars"
-        },
-        "item_name_ai_suggested": {
-            "value": "Labrea Life + Home 3pc Acacia Wood Spoon Set, 12 Inch",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 49,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Labrea Life + Home",
+                "pack_size": "3",
+                "pack_size_unit": "Pc",
+                "size": "12\"",
+                "color": "",
+                "name": "Acacia Wood Spoon Set"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "Labrea Life + Home 3-pk 12 in Solid Acacia Wood Spoon Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 57,
+            "review_only": true,
+            "tokens": {
+                "brand": "Labrea Life + Home",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "12 in",
+                "color": "",
+                "name": "Solid Acacia Wood Spoon Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Food Safe, Non-Scratch, Natural Wood Grain, Solid Acacia, Comfortable Handles, Hand Wash Only",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 93,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Natural Acacia Wood, Food Safe, Non Scratch For Nonstick Cookware, Rounded Handles, Hand Wash Only",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 98,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B00L9G9NWA",
     "product_type": "CORD_ROPE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:45:44+00:00",
+    "generated_at": "2026-07-21T20:12:10+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 3,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -57,20 +57,57 @@
             "asin": "B00L9G9NWA",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "ASR Outdoor 550 Type III Mil-Spec Tactical Paracord Rope",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 56,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "550",
+                "pack_size_unit": "lb",
+                "size": "25ft",
+                "color": "Desert Camo",
+                "name": "Paracord Rope"
+            }
         },
-        "title_differentiation": {
-            "value": "550lb Breaking Strength, Military Grade, Multiple Lengths Available",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 25-ft Desert Camo Survival 550 Type III Paracord Rope",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 65,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "25",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Desert Camo",
+                "name": "Survival 550 Type III Mil-Spec Tactical Paracord Rope"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "US Military Grade, 550Lb Breaking Strength, 7 Strand Nylon, MIL-C-5040H Certified, Survival And Emergency Use",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 109,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "MIL-C-5040H, 550 Lb Break Strength, 220 Lb Working Load, 7 Strand Nylon, 10 Percent Stretch, Outdoor Essential",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 110,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

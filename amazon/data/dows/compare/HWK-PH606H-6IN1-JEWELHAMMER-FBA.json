@@ -1,0 +1,60 @@
+{
+    "sku": "HWK-PH606H-6IN1-JEWELHAMMER-FBA",
+    "asin": "B0F5TMK9Q8",
+    "product_type": "HAMMER_MALLET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWK-PH606H-6IN1-JEWELHAMMER-FBA\nProduct Type: HAMMER_MALLET\nBrand (from catalog): Universal Tool\nExisting Title: Universal Tool 6 in 1 Multi-head Specialty Jewelry Hammer\nDescription: When a lighter touch is desired, this is the ideal hammer for the job. This nylon headed hammer has six different shaped heads, in a \"round the handle\" pattern. You get pointed, cone, round, flat, and more. Just select the shape you want and start tapping. <br/><br/>The hammer weighs a sturdy but light .25 lbs, so your hands have control and do not feel any stress. Ten inches long overall with an ergonomic and non-slip wooden handle. Six heads on one hammer - like having six hammers in 1. <br/><br/>6 Styles of white nylon heads that include pointed, rounded, flat, and more. Great for metal shaping, crafting, hobby, clay, wax, sheet metal, jewelry making and more.\nSearch Terms: Universal Tool 6 in 1 Multi-head Nylon Hammer Metal Shaping Crafting Hobby Clay Wax Sheet Jewelry Making\nFeatures:\n- SIX HAMMERS IN ONE - Having six heads on one hammer is like having 6 hammers in 1\n- DIFFERENT STYLES - The six styles of white nylon heads that include pointed, rounded, flat, and more\n- MATERIAL - Made with an aluminum head it is meant to be softer than alloy metal allowing for better work with softer metals such as copper; will not marr metals as easily as denser alloys\n- SIZE - 9 inches long overall with an ergonomic and non-slip wooden handle\n- MULTI USE - Great for metal shaping, crafting, hobby, clay, wax, sheet metal, jewelry making and more\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 6-in-1 Jewelry Hammer Multi-Head Nylon",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "6",
+                "pack_size_unit": "in-1",
+                "size": "",
+                "color": "",
+                "name": "Jewelry Hammer Multi-Head Nylon"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 6-In-1 Multi-Head Jewelry Hammer",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "6-In-1 Multi-Head Jewelry Hammer"
+            },
+            "char_count": 47,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Six Interchangeable Nylon Heads, Metal Shaping, Jewelry Making, Crafting, Non-Slip Wooden Handle",
+            "char_count": 96,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Six Nylon Heads, Pointed Rounded Flat And More, Ergonomic Non-Slip Wooden Handle, Metal Shaping, Crafting",
+            "char_count": 105,
+            "validation_error": null
+        }
+    }
+}

@@ -3,14 +3,14 @@
     "asin": "B0C6QNQXTP",
     "product_type": "BLANK_BOOK",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:11:57+00:00",
+    "generated_at": "2026-07-21T19:48:50+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 3,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -53,19 +53,57 @@
             "asin": "B0C6QNQXTP",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Marvel Avengers 80-Page Jumbo Coloring & Activity Book",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Marvel Avengers 80pg Jumbo Coloring & Activity Book",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Marvel",
+                "pack_size": "80",
+                "pack_size_unit": "pg",
+                "size": "Jumbo",
+                "color": "",
+                "name": "Avengers Coloring and Activity Book"
+            }
         },
-        "title_differentiation": {
-            "value": "80 Pages, Puzzles & Mazes, Official Licensed Characters",
+        "item_name_ai_openai": {
+            "value": "Marvel 80pg Avengers Jumbo Coloring Activity Book",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 49,
+            "review_only": true,
+            "tokens": {
+                "brand": "Marvel",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "80pg",
+                "color": "",
+                "name": "Avengers Jumbo Coloring Activity Book"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "80 Pages, Officially Licensed, Puzzles And Mazes, Captain America, Kids Activity Pack",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 85,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Officially Licensed, 80 Pages, Captain America Art, Puzzles And Mazes, Coloring And Activity Fun For Kids",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 105,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-REVX-DWR10OZ-36215-HPNR",
+    "asin": "B0BR8JX4XV",
+    "product_type": "OUTDOOR_RECREATION_PRODUCT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-REVX-DWR10OZ-36215-HPNR\nProduct Type: OUTDOOR_RECREATION_PRODUCT\nBrand (from catalog): GEAR AID\nExisting Title: GEAR AID Revivex Durable Water Repellent (DWR) Spray for Waterproofing, Restoring Performance on Nylon Jackets, Gore-TEX, Paddle, Snow and Camping Gear, Various\nDescription: Restore the protective DWR (durable water repellency) coating on high-tech rainwear or snow gear with Revivex Durable Water Repellent. This spray-on treatment repels water, oil, and stains. It can also be used for tent reproofing. <br/><br/>Over time the DWR of outerwear and camp gear wears off. Regular reproofing treatment of jackets, tents, and other gear is highly recommended. The durable formula creates a water repellent coating that stays on even after a wash. Choose the size that's right for you (10.5 oz or 16.9 fl oz) and ensure peak performance by pre-washing garments with Revivex Pro Cleaner. <br/><br/>This formula is ideal for use on waterproof-breathable fabrics like event®, NeoShell®, and GORE-TEX® fabric. For all types of reproofing projects, use Revivex Durable Water Repellent and get protection all season long.\nSearch Terms: Water Proofing Spray gear repair Aid Revivex\nFeatures:\n- Restore water repellency on GORE-TEX® jackets, bibs, ski pants, gloves, drysuits and waders; add repellency to nylon tent flies, down jackets and backpacks\n- Apply Durable Water Repellent spray for all-season protection from water, dirt, and stains. 16.9 oz spray can treat 4-6 jackets and 10 oz spray can treat 2-4 jackets.\n- Maximize breathability and enhance performance of all types of waterproof-breathable fabrics using this DWR spray; also available in 16.9 fl oz bottle\n- Use the air-powered sprayer to easily disperse every last drop of the PFOA, PFOS and silicon free formula\n- For best performance, wash first with Revivex Pro Cleaner before applying Durable Water Repellant (DWR) Spray. Packaging may vary.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "GEAR AID Revivex Durable Water Repellent DWR Spray 10oz",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "10",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "",
+                "name": "Revivex Durable Water Repellent DWR Spray"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID Revivex Durable Water Repellent Spray 10.5 oz",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "10.5",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "",
+                "name": "Revivex Durable Water Repellent Spray"
+            },
+            "char_count": 54,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Restores GORE-TEX And Waterproof Jackets, Tents, Gear, Repels Water And Stains, Treats 2-4 Jackets, PFOA And PFOS Free",
+            "char_count": 118,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Restores DWR On GORE-TEX And Nylon Gear, Water Dirt And Stain Repellent, PFOA PFOS And Silicone Free",
+            "char_count": 100,
+            "validation_error": null
+        }
+    }
+}

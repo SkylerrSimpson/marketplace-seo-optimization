@@ -3,14 +3,14 @@
     "asin": "B097NWQ9P2",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:44:17+00:00",
+    "generated_at": "2026-07-21T20:12:09+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 3,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -57,20 +57,57 @@
             "asin": "B097NWQ9P2",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 14-Piece Gold Panning Kit with Mini Sluice Box",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 14-pc Gold Panning Kit with Mini Sluice Box",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "14",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Gold Panning Kit with Mini Sluice Box"
+            }
         },
-        "title_differentiation": {
-            "value": "Portable prospecting kit, includes mini rubber sluice box, dual pans, backpack",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 14-pc Gold Panning Kit with Mini Rubber Sluice Box",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 62,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "14",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Gold Panning Kit With Mini Rubber Sluice Box"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Portable Backpack, Dual Riffle Pans, Mini Rubber Sluice Box, Sand Scoop, Magnifying Tweezers, Sifter Classifier, Travel Ready",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 125,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Portable Drawstring Backpack, 10 And 12 Inch Pans, 30-Hole Sifter, Tweezers, Sand Scoop, Black Sand Pickup Tool",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

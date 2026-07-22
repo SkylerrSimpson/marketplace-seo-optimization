@@ -1,0 +1,60 @@
+{
+    "sku": "SON-BLUNTSCISSR-55-IR-TT",
+    "asin": "B0B83K1TJH",
+    "product_type": "SCISSORS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-BLUNTSCISSR-55-IR-TT\nProduct Type: SCISSORS\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Stainless Steel Scissors 5.5 Inch Straight Blade Blunt Point Edge\nDescription: The ToolTreaux scissors feature super-sharp 5.5\" blunt point straight blades that are ideal for precision cutting. You can count on them to cut through tougher materials like thick fabric, cardboard, and construction paper unlike other scissors of the same size. <br/><br/>Our scissors come with ergonomic and smooth finger holes to provide comfort and prevent slippage during use to protect your hands from injury while cutting. They weigh just .08lbs so you can easily store them inside your pocket, toolbox, tool belt, or crafting kit for on-the-go use. <br/><br/>Made of corrosion-resistant stainless steel, these scissors won't rust to ensure a longer service life than other standard shears. Utilize them for a variety of applications like tailoring, sewing, hobby projects, crafting, and more.\nSearch Terms: scissors kitchen scissors scissors for school kids hair scissors hair cutting scissors scissors all purpose fabric scissors herb scissors medical scissors scissors for office sewing scissors embroider scissors left handed scissors bandage scissors\nFeatures:\n- BLUNT POINT STRAIGHT BLADES - ToolTreaux scissors feature blunt point straight blade edges ideal for sharp and precise cutting. Cut through tough materials like thick fabric and construction paper\n- COMFORTABLE GRIP - Scissors provide an ergonomic comfortable grip to prevent slippage during use and protect your hands from injury while cutting\n- LIGHTWEIGHT AND PORTABLE - Scissors come with 5.5\" blades and weigh just .08lbs; easily store them inside of your pocket, toolbox, tool belt, or craft storage organizer when not in use\n- DURABLE CONSTRUCTION - Made of corrosion-resistant stainless steel that won't rust to ensure a long service life; utilize these shears for a variety of applications including tailoring, crafting, hobby projects, and more\n- SPECIFICATIONS - Material: stainless steel; Dimensions: Overall length 6.5\", Blade length 5.5\"; Weight: .08lbs (1.28oz); Blade type: blunt point straight edge; Can cut through thick materials\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 5.5 Inch Stainless Steel Blunt Point Scissors",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "5.5",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "",
+                "name": "Blunt Point Scissors"
+            },
+            "char_count": 56,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 5.5-Inch Stainless Steel Blunt Point Scissors",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "5.5",
+                "color": "",
+                "name": "Scissors"
+            },
+            "char_count": 56,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Stainless Steel, Ergonomic Grip, Cuts Thick Fabric And Cardboard, Lightweight And Portable",
+            "char_count": 90,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Blunt Point Straight Blades, Comfortable Grip, Rust Resistant Steel, Cuts Thick Fabric, Lightweight Portable",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

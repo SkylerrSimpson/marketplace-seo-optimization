@@ -3,14 +3,14 @@
     "asin": "B00E18YOH2",
     "product_type": "LAUNDRY_DETERGENT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:44:49+00:00",
+    "generated_at": "2026-07-21T19:34:04+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 11,
         "catalog": 26,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -567,20 +567,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "SOILOVE Laundry Stain Remover, 12 Pack, All Fabrics",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Nolceva 12-Pack Stain Remover",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 29,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Nolceva",
+                "pack_size": "12",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "",
+                "name": "Stain Remover"
+            }
         },
-        "title_differentiation": {
-            "value": "Removes blood, grass, grease, ink | 100% green formula | 12-pack value",
+        "item_name_ai_openai": {
+            "value": "Nolceva 30mL Male Enhancing Spray",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 33,
+            "review_only": true,
+            "tokens": {
+                "brand": "Nolceva",
+                "pack_size": "30",
+                "pack_size_unit": "mL",
+                "size": "",
+                "color": "",
+                "name": "Male Enhancing Spray"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Powerful Stain Removal, All-Fabric Safe, Pre-Treat And Wash, Laundry Detergent Booster",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 86,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Seaweed Extract, Fast-Acting Formula, Lightweight Solution, Male Balance Support, Intimate Care For Men",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

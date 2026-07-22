@@ -1,0 +1,60 @@
+{
+    "sku": "3Y-CSZT-MBTP",
+    "asin": "B0CQTZVRHL",
+    "product_type": "ROLLING_PIN",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 3Y-CSZT-MBTP\nProduct Type: ROLLING_PIN\nBrand (from catalog): Beille\nExisting Title: Beille Oak Wood Stainless Steel Barrel Classic Bakers Rolling Pin Baking Supplies Kitchen Essentials (2 Sizes)\nDescription: Classic in design but with a modern stainless steel barrel, include this bakers rolling pin from Beille with your baking supplies, suitable for just about any type of dough! (Please Note: the lengths denote the full lengths of the rolling pins, not the barrel lengths).\n<br/><br/>\nWhy choose stainless steel over wood? It’s mostly personal preference, of course, but a stainless steel barrel holds a cooler temperature, meaning this rolling pin is perfect for rolling out pie crust or other dough, that rely on deposits of chilled butter to later produce a delicate flake; chill the rolling pin in a cool area or fridge if desired to help keep dough even and consistent. \n<br/><br/>\nStainless steel has the cooling properties of marble stone but without the added bulk and heaviness, making it suitable to work with even the most delicate of pastries, fondant, cookie dough and more. The stainless steel finish also ensures a completely smooth finish for perfectly rolled dough every time! And, this classic bakers rolling pins innate stainless steel construction material will naturally ensure longevity and maximum durability in the kitchen for the effortless rolling out of all kinds of dough.\n<br/><br/>\nAnd lastly, featuring dense and durable, contoured oak wood handles, they provide a comfortable and secure grip when rolling out dough; handles attach to a full length steel axle for easy and effortless rolling. When finished using the stainless steel rolling pin, hand wash with warm, soapy water after each use and dry thoroughly; Never soak or submerge in water or put in dishwasher.\n<br/><br/>\nA great gift for any baking enthusiast or professional patissier, chef or home cook, or as a home essentials item to include with your arsenal of baking supplies!\n<br/><br/>\nChoose from 13 inch or 17 inch full length rolling pins.\n<br/><br/>\nThe 13 inch rolling pin has a barrel length of 6 inches, while the 17 inch rolling pin has a barrel length of 10 inches.\nSearch Terms: stainless steel rolling pin; baking supplies; kitchen essentials; sourdough break making supplies; cooking; food meal prep; baking supplies for home bakers; pizza dough; pastry; home and kitchen; housewarming gifts new home; mothers day gifts\nFeatures:\n- 13 OR 17 INCH ROLLING PIN: Classic in design but with a modern stainless steel barrel, include this rolling pin with your baking supplies for any dough recipe; The stainless steel surface of the cookie rolling pin is completely smooth for perfectly rolled dough every time\n- PERFECT PASTRY: Chill the rolling pin in a cool area or fridge if desired to help keep dough even and consistent; stainless steel has the cooling properties of marble stone without the bulk or heaviness, making it suitable to work with even the most delicate of pastries, fondant, cookie dough and more\n- STAINLESS STEEL: Made from stainless steel, this rolling pin is perfect for rolling out pie crust or other dough that rely on solid deposits of chilled butter to produce delicate flakes; stainless steel construction will ensure longevity and maximum durability in the kitchen\n- OAK WOOD HANDLES: Featuring dense, durable and contoured oak wood handles, they provide a comfortable and secure grip when rolling out dough; handles attach to a full length steel axle for easy and effortless rolling\n- ROLLING PIN CARE: Hand wash with warm, soapy water after each use and dry thoroughly; Never soak or submerge in water or put in dishwasher\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 13/17 in Stainless Steel Oak Wood Rolling Pin",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "13/17",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Stainless Steel",
+                "name": "Oak Wood Rolling Pin"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 13-in Rolling Pin Stainless Steel Oak Wood",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Rolling Pin"
+            },
+            "char_count": 49,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Stainless Steel Barrel, Oak Wood Handles, Perfect For Pastry And Pie Crust, Cooling Properties, Durable",
+            "char_count": 103,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Stainless Steel Barrel, Cools Dough For Pastry, Oak Wood Handles, Smooth Rolling, Hand Wash Only",
+            "char_count": 96,
+            "validation_error": null
+        }
+    }
+}

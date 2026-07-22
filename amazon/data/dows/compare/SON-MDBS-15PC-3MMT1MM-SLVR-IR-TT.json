@@ -1,0 +1,56 @@
+{
+    "sku": "SON-MDBS-15PC-3MMT1MM-SLVR-IR-TT",
+    "asin": "B0B57MMN2Q",
+    "product_type": "DRILL_BITS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-MDBS-15PC-3MMT1MM-SLVR-IR-TT\nProduct Type: DRILL_BITS\nBrand (from catalog): ToolTreaux\nExisting Title: Tooltreaux High Speed Stainless Steel Drill Bits Set 0.3 to 1 mm 15 Pieces\nDescription: Whether you're a metalworking novice or a drilling expert, you'll need a good, high-quality set of twist drill bits for home improvement and hobby craft projects. The ToolTreaux 15pc Drill Bit Set comes with 15 twist drill bits, ranging in size from .03mm to 1mm.<br/><br/>Our drill bits are made of durable, strong stainless steel that won't rust. Stainless steel is an ideal material for drill bits because it his heat and abrasion-resistant, ensuring that your drill bits will stand the test of time.<br/><br/>The ToolTreaux drill bits are stable and will not easily break. They are designed to cut holes quickly, accurately, and safely in metals and other materials The twist drill bits spiral with ease and conveniently remove debris from the hole so you can accomplish your project in a timely manner.<br/><br/>These high-speed drill bits can be used on a number of materials including cast iron, high-temperature alloy plastics, hard plastics, stainless steel, titanium alloy, wood, and other soft materials. These are must-have hobby tool essentials for metal-smithing, metalworking, and drilling. <br/><br/>The drill comes with a convenient black PVC pouch so you can store and organize them when not in use. The pouch can be folded and tucked away into your toolbox, workshop, or travel bag. Make sure to grab a set of these drill bits before your next home improvement or hobby project.\nSearch Terms: nail drill bits drill bits for nails metal bits for steel carbide drill bits diamond drill bits for nail drill nails hardware nuts tools home improvement items diy kits for adults precision screwdriver set drill guide arts and crafts for adults\nFeatures:\n- HIGH QUALITY CONSTRUCTION - The Tooltreaux twist drill bits are made of high-speed, durable stainless steel that won't rust. Stainless steel is a great material for drill bits because it's heat and abrasion resistant, ensuring your bits stand the test of time.\n- CUTS HOLES ACCURATELY - Our drill bits are stable and won't easily break. They are designed to cut holes quickly, accurately and safely in metal and other materials. The twist drill bits spiral with ease and conveniently remove debris from the hole so you can accomplish your project in a timely manner!\n- MULTI-PURPOSE TOOLS - The high-speed drill bits can be used on a number of materials including cast iron, high-temperature alloy plastics, hard plastics, stainless steel, titanium alloy, woods and other soft materials. These are must-have hobby tool essentials for metal-smithing, metalworking and drilling!\n- VARIETY OF SIZES - Our set comes with a variety of drill sizes, ranging from 1.05mm to 2mm. They all feature a universal round drill shank of 3/32\" and will fit drills with a 1/16\" shaft. Sizes included: .3mm, .35mm, .4mm, .45mm, .5mm, .55mm, .6mm, .65mm, .7mm, .75mm, .8mm, .85mm, .9mm, .95mm, 1mm\n- COMPACT AND PORTABLE - The twist drill set comes with a black PVC pouch bag that will keep the drills organized when not in use. The pouch is easily foldable so you can store them in your tool box, workshop or travel bag.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 15-Piece Stainless Steel Drill Bits Set 0.3-1mm",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "15",
+                "pack_size_unit": "Piece",
+                "size": "0.3-1mm",
+                "color": "Silver",
+                "name": "Stainless Steel Drill Bits Set"
+            },
+            "char_count": 58,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": null,
+            "tokens": null,
+            "char_count": null,
+            "validation_error": "no item_name returned"
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "High-Speed Stainless Steel, Rust-Resistant, Multi-Purpose, 15 Sizes, Includes Storage Pouch",
+            "char_count": 91,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": null,
+            "char_count": null,
+            "validation_error": "no title_differentiation returned"
+        }
+    },
+    "raw": {
+        "openai": "Client error: `POST https://api.openai.com/v1/chat/completions` resulted in a `429 Too Many Requests` response:\n{\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-5.4-mini in organization org-el3QE531uTdEpv2furRUAnXD on (truncated...)\n"
+    }
+}

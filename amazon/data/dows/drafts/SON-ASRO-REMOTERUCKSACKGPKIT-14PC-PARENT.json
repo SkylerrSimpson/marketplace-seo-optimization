@@ -3,14 +3,14 @@
     "asin": "B0FC927N57",
     "product_type": "METAL_DETECTOR",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:36:00+00:00",
+    "generated_at": "2026-07-21T19:57:09+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 1,
-        "ai_suggested": 5,
+        "ai_suggested": 7,
         "ai_null": 0,
         "base_template": 0
     },
@@ -34,16 +34,16 @@
             "raw_value": true
         },
         "material": {
-            "value": "Plastic",
+            "value": "Metal",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "model_name": {
-            "value": "Remote Adventure 30L Rucksack Gold Panning Kit",
+            "value": "Remote Rucksack Gold Panning Kit",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
             "value": "30L",
@@ -51,20 +51,58 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 14pc Gold Panning Kit with 30L Backpack",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 14pc Remote Adventure 30L Gold Panning Kit",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "14",
+                "pack_size_unit": "pc",
+                "size": "30L",
+                "color": "",
+                "name": "Remote Adventure Gold Panning Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "14 pieces, classifier screens, dual gold pans, remote hiking ready",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 14-pc 30L Rucksack Gold Panning Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 47,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "14",
+                "pack_size_unit": "pc",
+                "size": "30L",
+                "color": "",
+                "name": "Rucksack Gold Panning Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "14 Piece Set, 30L Backpack, Classifier Screens, Gold Pans, Magnetic Pick, 3-In-1 Shovel, Recovery Tools",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 103,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "30L Backpack, 3 Classifier Screens, 14 Inch Single Riffle And 12 Inch Dual Riffle Gold Pans, Magnetic Pick Up Tool, 3-In-1 Shovel",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 129,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (129 chars)"
         },
         "pesticide_marking": {
             "value": [

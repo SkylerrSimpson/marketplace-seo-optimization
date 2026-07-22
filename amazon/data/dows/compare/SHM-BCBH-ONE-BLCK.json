@@ -1,0 +1,60 @@
+{
+    "sku": "SHM-BCBH-ONE-BLCK",
+    "asin": "B009E9HER0",
+    "product_type": "BADGE_HOLDER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SHM-BCBH-ONE-BLCK\nProduct Type: BADGE_HOLDER\nBrand (from catalog): ASR Federal\nExisting Title: ASR Federal Universal Fit Leather Police Badge Holder with Metal Belt Clip, Black\nDescription: This Badge Belt Clip is constructed from durable heavy gauge leather, not some flimsy nylon that falls apart in two weeks. It secures your badge to your shirt pocket or belt with the strong, stainless steel clip. No plastic here. <br/><br/>This one will hold up to long hours in tough conditions. Made from 100% genuine leather, this high quality, lightweight, pin-back police badge holder features reinforced stitching, a strong stainless steel tension back clip and stiff stainless steel snap closure, making it highly durable and able to withstand rough and demanding conditions.<br/><br/>The classic and minimalist design of the ASR Federal police badge holder is simple, meant to hold and secure a police badge on your person (belt, waist line, or jacket pocket), so you don't have to reach for or carry a wallet, case or lanyard ID holder. This particular ASR Federal police badge holder is especially great if you're a security professional who is constantly on the move; knowing your badge is secure and within reach when you need to access it is paramount. <br/><br/>Universal badge fit; pin-back mounting.<br/><br/>NOTE: Badge NOT included with included purchase; Please see photos for measurements to ensure this badge holder will fit the specific dimensions of your own personal badge.\nSearch Terms: police gear id police badge clip FBI CIA security credential holder federal tactical gear law enforcement accessories undercover black leather badge holder SWAT CSI military private investigator equipment stainless steel ID cop EDC everyday carry\nFeatures:\n- POLICE BELT CLIP BADGE HOLDER: Universal fit for standard department issue police badges with pin clip backing\n- SIMPLE AND SECURE BADGE MOUNTING: A universal fit, the badge holder measures 4 inches tall and should work with most badge types; to mount your badge, open the snap closure, unfold the badge holder and feed the pin through the two punches and secure\n- 100% GENUINE LEATHER MATERIAL: Badge Belt Clip ID Holder is constructed from heavy gauge, genuine leather, making it a durable and long lasting\n- STAINLESS STEEL TENSION BACK CLIP: Exceptionally strong and sturdy, the back of the police badge holder features a metal tension clip so you can attach it to a belt, pant pocket or any kind of strap; it also features a stainless steel snap closure to ensure the badge holder securely closes and remains fixed\n- SPECIFICATIONS: Dimensions: 4 inches; Color: Black; Material: 100% genuine leather; Mounting: Pin-back style badges only\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Federal Black Leather Police Badge Holder Belt Clip",
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Leather Police Badge Holder Belt Clip"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Federal Black Leather Police Badge Holder",
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Leather Police Badge Holder"
+            },
+            "char_count": 45,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "100 Genuine Leather, Stainless Steel Clip, Universal Pin-Back Fit, 4 Inches, Heavy Gauge Durable",
+            "char_count": 96,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Universal Pin-Back Fit, Genuine Heavy Gauge Leather, Stainless Steel Clip And Snap, 4 Inch, Secure Belt Mount",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

@@ -3,18 +3,42 @@
     "asin": "B00QW7CQNY",
     "product_type": "SPORTING_GOODS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:58:56+00:00",
+    "generated_at": "2026-07-21T19:42:42+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
-        "fillable": 0,
+        "fillable": 4,
         "catalog": 6,
         "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
     "attributes": {
+        "country_of_origin": {
+            "value": "China",
+            "is_required": true,
+            "source": "usurper",
+            "usurper_column": "attr.country_of_origin"
+        },
+        "department": {
+            "value": "mens, womens, unisex-adult",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.department_amazon"
+        },
+        "material": {
+            "value": "Steel",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.material"
+        },
+        "target_audience": {
+            "value": "adults, men, women, Chef",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.target_audience_amazon"
+        },
         "externally_assigned_product_identifier": {
             "value": [
                 {
@@ -106,32 +130,57 @@
             "asin": "B00QW7CQNY",
             "raw_value": true
         },
-        "country_of_origin": {
-            "value": "CN",
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 6 inch Fishing Fillet Knife Floating Handle",
             "is_required": true,
             "source": "ai",
-            "model": "claude-haiku-4-5"
-        },
-        "material": {
-            "value": "Plastic",
-            "is_required": false,
-            "source": "ai",
-            "model": "claude-sonnet-4-6"
-        },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 6 Inch Fishing Fillet Knife Floating Handle",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "6",
+                "pack_size_unit": "inch",
+                "size": "",
+                "color": "Black",
+                "name": "Fishing Fillet Knife Floating Handle"
+            }
         },
-        "title_differentiation": {
-            "value": "Floating Handle, Won't Sink, Ergonomic Grip, Includes Hard Sheath",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 6 in Fishing Fillet Knife, Floating Handle, Sheath",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 62,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "6 in",
+                "color": "Black",
+                "name": "Fishing Fillet Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Floating Handle Won't Sink, Ergonomic Grip, Hard Sheath Included, 11 Inch Full Size",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 83,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Floating Plastic Handle, Ergonomic Grip, Will Not Sink, 6\" Blade, 11\" Full Size, Black Sheath, Wet Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 102,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

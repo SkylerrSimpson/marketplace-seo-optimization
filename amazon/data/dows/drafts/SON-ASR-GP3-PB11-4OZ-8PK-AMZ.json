@@ -3,14 +3,14 @@
     "asin": "B00DVPNKSU",
     "product_type": "LAB_SUPPLY",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:22:58+00:00",
+    "generated_at": "2026-07-21T20:09:04+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 12,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -200,19 +200,57 @@
             "asin": "B00DVPNKSU",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 8-Pack 4oz Gold Panning Snifter Squeeze Bottles",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 8-Pack 4oz Gold Panning Snifter Bottle",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8",
+                "pack_size_unit": "Pack",
+                "size": "4oz",
+                "color": "",
+                "name": "Gold Panning Snifter Bottle"
+            }
         },
-        "title_differentiation": {
-            "value": "4 Fluid Ounce, 5 inch Tall, Extendable Nozzle with O-Ring Seal",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 8-Pk 4oz Gold Panning Snifter Bottle",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 48,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8",
+                "pack_size_unit": "Pk",
+                "size": "4oz",
+                "color": "",
+                "name": "Gold Panning Snifter Bottle"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Fine Gold Recovery, Squeeze Nozzle Suction, 5 Inch Height, Strong O-Ring Seal, Gold Prospecting Tool",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 100,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Fine Gold Recovery, Extendable Nozzle, O-Ring Seal, Strong Suction, 4-Ounce, Compact 5-Inch Bottle, Pack Of 8",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

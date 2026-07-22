@@ -1,0 +1,60 @@
+{
+    "sku": "NPT-DRAGONKNIVES-6PC",
+    "asin": "B08ZJX848F",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: NPT-DRAGONKNIVES-6PC\nProduct Type: KNIFE\nBrand (from catalog): ASR Tactical\nExisting Title: ASR Tactical 9 inch Silver Fantasy Dragon 6pc Throwing Knives Set\nDescription: Whether you're a knife-throwing expert or just dabbling in a new hobby, this throwing knife set from ASR Tactical is a great addition to a growing collection or for new beginners. The stainless steel silver knives feature etched \"dragon bolt\" text on the face of the knife, as well as an etched dragon, giving the knife unique flair and design distinction.<br/><br/>Measuring nine inches in length each, this six-piece throwing knives set is made from military-grade stainless steel, resulting in balanced blades that feature a sharp point, feel comfortable to maneuver, and will last for years to come; the knife is solid with no perforations and therefore less prone to blade breakage over time. And, while the function of these knives is tactical and meant for throwing, they are multipurpose and can be used for knife throwing competitions, target practice, sports, survival, hunting, prepare supplies, and more.<br/><br/>Lastly, the tactical throwing knives or fixed blade knives come with a black, nylon protective sheath to keep your knives safely tucked away when not in use; travel or carry your knives with ease and confidence with individual clear plastic knife compartments and secure hook and loop closure.\nSearch Terms: fantasy dragon throwers adult practice martial tactical throwing knives blades ninja military gear sports hobby knife set collectible self defense weapons target stainless steel\nFeatures:\n- 440 STAINLESS STEEL CONSTRUCTION: Measuring nine inches in length each, this six-piece throwing knives set from ASR Tactical is made from high grade stainless steel, resulting in balanced blades that feature a sharp point, feel comfortable to maneuver and will last for years to come; the knife is solid with no perforations and therefore less prone to breakage over time\n- 6PC THROWING KNIFE SET: These best in class throwing knives can be used in and for many different situations-tactical use, knife throwing competitions, target practice, sports, for survival, hunting, prepare supplies and more; whether you're a knife throwing novice or just a beginner, you'll be ready for anything with this military grade knife set\n- UNIQUE DRAGON DESIGN: The stainless steel silver knives feature etched \"dragon bolt\" text on the face of the knife, as well as an etched dragon on each throwing knife, giving the knives unique flair and design distinction\n- PROTECTIVE BLACK NYLON SHEATH: The tactical throwing knives or fixed blade knives comes with a black, nylon protective sheath to keep your knives safely tucked away when not in use; travel or carry your knives with ease and confidence with individual clear plastic knife compartments and secure hook and loop closure\n- SPECIFICATIONS: Dimensions: 9 inch length; Material: Stainless Steel; Color: Silver; Total Pieces: six (6); Nylon sheath included\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 6-pc 9in Silver Dragon Throwing Knives",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "6",
+                "pack_size_unit": "pc",
+                "size": "9in",
+                "color": "Silver",
+                "name": "Dragon Throwing Knives"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 6-Pc 9 in Silver Fantasy Dragon Throwing Knives Set",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "6",
+                "pack_size_unit": "Pc",
+                "size": "9 in",
+                "color": "Silver",
+                "name": "Throwing Knives Set"
+            },
+            "char_count": 64,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "6 Piece Set, 9 Inch Length, 440 Stainless Steel, Dragon Etched Design, Includes Black Nylon Sheath, Target Practice And Sports",
+            "char_count": 126,
+            "validation_error": "value exceeds maxLength 125 (126 chars)"
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "440 Stainless Steel, Etched Dragon Design, Nylon Sheath Included, Balanced Blades, Target Practice, 6-Piece Set",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

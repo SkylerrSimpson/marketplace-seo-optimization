@@ -1,0 +1,60 @@
+{
+    "sku": "SON-BLE-BREAKAWAYSCISSORS-GREY-STD-FBA",
+    "asin": "B0GY2284CF",
+    "product_type": "SCISSORS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-BLE-BREAKAWAYSCISSORS-GREY-STD-FBA\nProduct Type: SCISSORS\nBrand (from catalog): Beille\nExisting Title: Beille 8 Inch Stainless Steel Scissors, Break Apart Kitchen Shears with Bone Cutter Fish Scaler Bottle Opener, Grey\nDescription: Upgrade kitchen essentials with these versatile eight inch break away kitchen scissors, designed for performance, convenience and hygiene. Crafted from durable 3mm thick stainless steel, these heavy duty shears deliver reliable cutting power for everyday meal prep and tougher kitchen tasks alike. The innovative break away design allows the scissors to separate into two individual tools, making cleaning easier and more thorough, helping prevent food buildup and maintaining a more sanitary kitchen environment.<br/><br/>Built with practicality in mind, these scissors go beyond simple cutting. The integrated bone notch provides added leverage for cutting through poultry and tougher materials, while the built in bottle opener adds convenience right where you need it. A serrated edge doubles as a fish scaler, making seafood prep faster and more efficient. The ergonomic grey handles offer a comfortable, non slip grip for improved control during use.<br/><br/>Whether you're trimming herbs, cutting proteins, opening bottles or prepping fresh fish, these all in one kitchen scissors are designed to handle it all! A practical, space saving tool that replaces multiple utensils, making it a must have addition to any modern kitchen. Designed for versatility and easy maintenance, they bring efficiency and cleanliness together in one essential kitchen companion.\nSearch Terms: kitchen shears heavy duty kitchen scissors detachable kitchen scissors break apart kitchen shears poultry shears meat scissors bone cutting scissors fish scaler kitchen tool stainless steel kitchen scissors bottle opener scissors food scissors\nFeatures:\n- 3MM THICK STAINLESS STEEL KITCHEN SCISSORS: Ultra durable stainless steel kitchen shears provide strong, precise cutting power; great for chicken, fish, bones, packaging, meal prep and everyday kitchen tasks\n- ERGONOMIC NON SLIP GREY HANDLES: Comfortable grip reduces hand fatigue and improves cutting accuracy; Designed for both right and left handed users in home or professional kitchens\n- BREAK AWAY DESIGN FOR EASY CLEANING: Innovative detachable kitchen scissors separate into two pieces for deep cleaning; prevents food buildup for a more sanitary cooking experience\n- INTEGRATED BONE NOTCH, FISH SCALER AND BOTTLE OPENER: Built in bone cutter easily handles tough cuts of meat; Serrated edge functions as a fish scaler, while convenient bottle opener adds everyday utility\n- MULTI FUNCTION KITCHEN SHEARS Upgrade your kitchen with heavy duty kitchen scissors designed for cutting meat, poultry, vegetables, herbs and more; Dishwasher safe but hand washing is always recommended\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 8 Inch Grey Stainless Steel Break Apart Scissors",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "8",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "Grey",
+                "name": "Break Apart Scissors"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 8-in Grey Break Apart Kitchen Shears",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "8",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Grey",
+                "name": "Break Apart Kitchen Shears"
+            },
+            "char_count": 43,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Heavy Duty Stainless Steel, Detachable Design, Bone Notch, Fish Scaler, Bottle Opener, Dishwasher Safe",
+            "char_count": 102,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Detachable Two Piece Design, 3Mm Thick Stainless Steel, Bone Notch, Fish Scaler, Bottle Opener, Non Slip Grip",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

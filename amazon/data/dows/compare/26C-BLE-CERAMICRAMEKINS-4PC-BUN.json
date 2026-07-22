@@ -1,0 +1,60 @@
+{
+    "sku": "26C-BLE-CERAMICRAMEKINS-4PC-BUN",
+    "asin": "B0FQQX1PDH",
+    "product_type": "CASSEROLES",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 26C-BLE-CERAMICRAMEKINS-4PC-BUN\nProduct Type: CASSEROLES\nBrand (from catalog): Beille\nExisting Title: Beille 4pc Oven Safe White Fluted Ceramic Ramekins Baking Supplies Kitchen Essentials (5oz Capacity)\nDescription: Our white ceramic ramekins are a staple for every kitchen!<br/><br/>This four piece set of small ramekins are crafted from high quality ceramic material and feature a clean, white finish with classic fluted sides. Each ceramic ramekin holds five ounces, perfect for single servings of creme brulee, custards, soufflés, dips, sauces, or mise en place for food and meal prep, cooking and baking.<br/><br/>Beyond desserts, these ramekins are a go to kitchen essentials item for everyday use: serve sauces, dips, condiments, nuts, olives and more. Designed to be oven, microwave, dishwasher, and freezer safe, their sturdy construction ensures even heat distribution for consistent results when baking or cooking. Whether you're hosting a dinner party or whipping up a quick dessert, these ramekins make your presentation look polished and professional.<br/><br/>And, with a compact and stackable design, the creme brulee ramekins are easy to store, and ideal for both casual everyday use and entertaining. Whether you’re hosting a dinner party, prepping for meal service, or simply enjoying a cozy night in, this set of ceramic ramekins will quickly become one of your most used and reliable kitchen tools.<br/><br/>Dishwasher safe.\nSearch Terms: Ceramic ramekins; kitchen essentials; home and kitchen; table setting farmhouse cottage cabin home kitchen décor; brunch supplies; house warming gifts new home; custard cups; baking supplies; ramekins oven safe; small sauce creme brulee ramekins\nFeatures:\n- 4PC CERAMIC RAMEKINS: Five ounce capacity makes these ceramic ramekins ideal for perfectly portioned individual servings of creme brulee, souffles, custards, dips, sauces, condiments, nuts and more\n- KITCHEN ESSENTIALS: Great for baking, portioning ingredients, serving appetizers or snacks; perfect for using with crudite spreads or charcuterie boards, or for mise en place food and meal prep\n- KITCHEN DÉCOR: Fluted sides and glossy white finish complement any tableware or kitchen décor, these ceramic ramekins easily fit in with any kitchen design or aesthetic\n- OVEN & MICROWAVE SAFE: High quality porcelain construction withstands high heat and ensures even baking results; the small white ceramic ramekins are also freezer and dishwasher safe\n- SPECIFICATIONS: Dimensions: 3.25 x 2.0 inches; Set Weight: 1.14lbs; Capacity: 5oz (147mL)\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 4-pc White Ceramic Ramekins 5oz",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "pc",
+                "size": "5oz",
+                "color": "White",
+                "name": "Ceramic Ramekins"
+            },
+            "char_count": 38,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 4-pk White Ceramic Ramekins",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "White",
+                "name": "Ceramic Ramekins"
+            },
+            "char_count": 34,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Oven Safe, Microwave Safe, Dishwasher Safe, Freezer Safe, Fluted Design, Stackable, Creme Brulee",
+            "char_count": 96,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "5 Oz Capacity, Oven Microwave Freezer Dishwasher Safe, Fluted Sides, Stackable, Creme Brulee Custard Dips",
+            "char_count": 105,
+            "validation_error": null
+        }
+    }
+}

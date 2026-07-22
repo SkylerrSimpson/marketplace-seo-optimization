@@ -1,0 +1,60 @@
+{
+    "sku": "SON-JEWEL-HAMMER-7",
+    "asin": "B07L9GCTJK",
+    "product_type": "HAMMER_MALLET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-JEWEL-HAMMER-7\nProduct Type: HAMMER_MALLET\nBrand (from catalog): Universal Hobby\nExisting Title: Universal Hobby 7pc Specialty Double-Ended Jewelers Hammer Set with Display Stand, Artisan Jewelry Making Tools\nDescription: A fantastic jewelers double-ended specialty hammer set for all your design and crafting needs. Beautifully organized and able to be kept tidy on the included wood display stand, it will fit right in with all your other tools in your studio, workshop or crafting area. All hammers included in the set feature a wooden handle and metal head. The hammer set is multifunctional but, is predominantly intended for jewelers and jewelry design, for texturing metal, hammering doming punches or forming small pieces of sheet metal. <br/><br/>Your jewelers double-ended specialty hammer set includes seven specialty hammers: <br/><br/>Texturing Hammer: 72 mm Long Head and Striking face Dia  18.5mm - One side Cross-Hatch Texture Design and other side flat <br/><br/>Planishing Hammer: 63mm Long Head and Striking face Dia 13mm Once Side Bowed -Domed and other side flat <br/><br/>Sharp Designer Hammer: 65mm Long Head and Sharp Flat Faces Dia 3.5mm - Pointed Flat Edges on both sides <br/><br/>Narrow Raising Hammer: 65mm Long Head and Flat Square Faces Dia 7mm - Flat square/rectangle sides <br/><br/>Narrow Rounded Raising Hammer: 65mm Long Head and Rounded Flat Faces Dia - Flat Rounded Sides <br/><br/>Embossing Hammer: 65mm Long Head and Round Striking Faces Dia - 8mm diameter Medium Rounded Side and 6mm Small Rounded Side <br/><br/>Pointed Embossing Hammer: 72 mm Long Head and Pointed Striking face Dia - 4mm and 3mm Small Narrow Pointed Sides <br/><br/> Order based off our video<br/><br/>Let the designing begin.\nSearch Terms: complete jewelry making small artisan hammers craft jewelry metal forging art gifts for women adult hobby kits artist supplies jewelry making kit arts and crafts mothers day gifts texturizing hammer for jewelry making metal forming goldsmith metalworking tools handmade\nFeatures:\n- PROFESSIONAL JEWELERS HAMMERS: Texturizing hammers set for jewelry design is a specialty hammer set jewelry making kit that includes seven unique double sided hammers; Ideal for handmade jewelry or other creative crafting projects\n- JEWELRY HAMMER SET: Seven double sided specialty hobby hammers includes (2) embossing hammers, (1) designer hammer, (1) planishing hammer, (1) wide raising hammer, (1) narrow raising hammer and (1) sharp designer hammer\n- ARTISAN METAL WORKING TOOLS: Ideal craft and hobby hammer set is intended for jewelry making, the hammer set can also be used for metal forming or metal working tools for texturing metal, hammering doming punches or forming small pieces of lightweight precious metals\n- DISPLAY SHELF: Jewelry hammer set comes with wooden display stand to keep chasing hammers and texturing hammers neatly organized; display shelf makes it easy to reach hammers for when you’re busy creating\n- SPECIFICATIONS: Dimensions: 9 x 0.5 x 0.5 inches; Weight: 2.12; Materials: Wood handle and chrome plated head\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Hobby 7-pc Jewelers Hammer Set with Display Stand",
+            "tokens": {
+                "brand": "Universal Hobby",
+                "pack_size": "7",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Jewelers Hammer Set with Display Stand"
+            },
+            "char_count": 59,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Hobby 7-Pk Double-Ended Jewelers Hammer Set with Display Stand",
+            "tokens": {
+                "brand": "Universal Hobby",
+                "pack_size": "7",
+                "pack_size_unit": "Pk",
+                "size": "",
+                "color": "",
+                "name": "Double-Ended Jewelers Hammer Set with Display Stand"
+            },
+            "char_count": 72,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Double-Ended Specialty Hammers, Texturing And Planishing, Metal Forming, Wooden Display Shelf",
+            "char_count": 93,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Seven Double-Ended Hammers, Wood Display Stand, Wood Handles, Chrome-Plated Heads, Jewelry Texturing",
+            "char_count": 100,
+            "validation_error": null
+        }
+    }
+}

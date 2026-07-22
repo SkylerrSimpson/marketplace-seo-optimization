@@ -3,14 +3,14 @@
     "asin": "B09K9176S8",
     "product_type": "WRITING_BOARD",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:31:03+00:00",
+    "generated_at": "2026-07-21T19:55:45+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 0,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -21,20 +21,57 @@
             "source": "usurper",
             "usurper_column": "attr.target_audience_amazon"
         },
-        "item_name_ai_suggested": {
-            "value": "Kidplokio Yellow Magnetic Drawing Board with Stamps, Ages 3+",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Kidplokio Yellow Magnetic Drawing Board Sketch Pad",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Yellow",
+                "name": "Magnetic Drawing Board Sketch Pad"
+            }
         },
-        "title_differentiation": {
-            "value": "Includes magic pen & heart/hexagon stamps, portable, reusable, mess-free",
+        "item_name_ai_openai": {
+            "value": "Kidplokio Yellow Kids Sketch Pad Magnetic Drawing Board",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 55,
+            "review_only": true,
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Yellow",
+                "name": "Kids Sketch Pad Magnetic Drawing Board"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Includes Magic Pen And Stamps, Portable Travel Toy, Educational Learning Tool, Ages 3, BPA-Free",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 95,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Magic Pen And 2 Stamps, Reusable No Mess Drawing, Travel Friendly, Educational Toddler Toy, Ages 3 And Up",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 105,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

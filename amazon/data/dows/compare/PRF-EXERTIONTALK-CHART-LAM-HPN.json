@@ -1,0 +1,60 @@
+{
+    "sku": "PRF-EXERTIONTALK-CHART-LAM-HPN",
+    "asin": "B01H7QQ4ZY",
+    "product_type": "PLANNER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: PRF-EXERTIONTALK-CHART-LAM-HPN\nProduct Type: PLANNER\nBrand (from catalog): ironcompany\nExisting Title: Laminated Percieved Exertion Rating Fitness Poster\nDescription: The Rating of Perceived Exertion and Talk Test Poster (CRPEL) from Productive Fitness is a 24 x 36\" laminated wall chart designed to provide tips, guidelines, and instruction for proper heart rate training zones and exertion levels during cardiovascular exercise. The Perceived Exertion and Talk Test Chart provides an easy way to tell if you are training in the correct heart rate zone without actually taking your heart rate. In simple chart format, it uses different factors to determine your intensity level, including how difficult it is to talk while exercising and your perception of how hard you are working. Use this chart to become more in tune with your body while exercising and boost your overall fitness level. It also provides informative and easy-to-follow zone graphs matching examples of cardio activity to heart rate exertion ranges for those under active care post heart attack or under treatment for cardiopulmonary stress by a family doctor, cardiologist, heart specialist, sports physician, or physical therapist.<br/><br/>The Laminated Heart Rate Fitness Poster series from Productive Fitness Publishing illustrates heart rate health tips in large, brilliant full-color format with clear instructions and colorful graphs. Each beautiful, easy to follow fitness poster is a great addition to any home gym, office, workout studio, rec center, school gymnasium, or fitness center. Choose a single workout poster or several exercise charts to help your club members, hotel guests, student athletes, or family members keep focus on proper heart rate training and safe comfort levels. Whether you are beginner who has never measured heart rate, or a more advanced fitness enthusiast or athlete training with a heart rate monitor, these posters provide the right instruction towards maintaining proper cardiopulmonary exertion levels during exercise. Waterproof for resistance against drinking fountain splash, sweat, cleaning supplies. North American Made (Made in Canada).\nSearch Terms: exercise poster women wall instruction gym warm up laminated workout productive fitness\nFeatures:\n- (1) Laminated poster 24\" W x 36\" H. Waterproof. Suitable for framing or attach directly to wall.\n- Learn to self-monitor your exercise intensity level with Rate of Perceived Exertion (RPE).\n- Includes information on performance zones, exertion levels, examples of activity, talk, heart rates.\n- Determine heart rate zone by 0-10 scale method how much effort it takes to talk while exercising.\n- Gradually increase your exercise output without compromising your performance level.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Iron Company 24x36in Laminated Perceived Exertion Rating Fitness Poster",
+            "tokens": {
+                "brand": "Iron Company",
+                "pack_size": "24x36",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Laminated Perceived Exertion Rating Fitness Poster"
+            },
+            "char_count": 71,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ironcompany Laminated Perceived Exertion Rating Fitness Poster",
+            "tokens": {
+                "brand": "ironcompany",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Laminated Perceived Exertion Rating Fitness Poster"
+            },
+            "char_count": 62,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Waterproof Wall Chart, Heart Rate Training Zones, Talk Test Method, RPE Scale, Performance Zones, Cardio Activity Examples",
+            "char_count": 122,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "RPE And Talk Test Chart, Heart Rate Training Zones, Waterproof Laminated, 24 In X 36 In, Exercise Intensity Guide",
+            "char_count": 113,
+            "validation_error": null
+        }
+    }
+}

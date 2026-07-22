@@ -3,14 +3,14 @@
     "asin": "B071ZCKL8L",
     "product_type": "CORD_ROPE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:47:04+00:00",
+    "generated_at": "2026-07-21T20:12:11+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 6,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -96,20 +96,57 @@
             "asin": "B071ZCKL8L",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 550 Paracord Rope 100ft Mil-Spec OD Green",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 100ft OD Green 550 Type III Paracord Rope",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "100",
+                "pack_size_unit": "ft",
+                "size": "550",
+                "color": "OD Green",
+                "name": "Type III Paracord Rope"
+            }
         },
-        "title_differentiation": {
-            "value": "Type III Military Grade, 550lb Breaking Strength, Tactical Survival",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 100-ft OD Green 550 Type III Paracord Rope",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 54,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "100",
+                "pack_size_unit": "ft",
+                "size": "550 Type III",
+                "color": "OD Green",
+                "name": "Paracord Rope"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Mil-Spec MIL-C-5040H, 550Lb Breaking Strength, 7 Strand Nylon, Military Grade, Survival And Emergency EDC",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 105,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "US Military Spec, 7 Strand All Nylon, 550 Lb Break Strength, 220 Lb Working Load, 532\" Diameter",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 95,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

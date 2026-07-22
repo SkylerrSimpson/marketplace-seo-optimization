@@ -3,14 +3,14 @@
     "asin": "B001EJQ7EE",
     "product_type": "HIP_FLASK",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:34:17+00:00",
+    "generated_at": "2026-07-21T19:56:28+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -95,19 +95,58 @@
             "asin": "B001EJQ7EE",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "HomeWetBar 4oz Cell Phone Hip Flask w/ Leather Case",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "HomeWetBar 4oz Silver Cell Phone Hip Flask with Case",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "HomeWetBar",
+                "pack_size": "4",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "Silver",
+                "name": "Cell Phone Hip Flask with Case"
+            }
         },
-        "title_differentiation": {
-            "value": "Disguised as phone, stainless steel, belt clip, concerts & events",
+        "item_name_ai_openai": {
+            "value": "HomeWetBar 1-pk 4oz Silver Cell Phone Flask with Belt Case",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 58,
+            "review_only": true,
+            "tokens": {
+                "brand": "HomeWetBar",
+                "pack_size": "1",
+                "pack_size_unit": "pk",
+                "size": "4 oz",
+                "color": "Silver",
+                "name": "Cell Phone Flask with Belt Case"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Stainless Steel Construction, Black Leather Belt Case, Covert Design, Portable 4Oz Capacity, Perfect For Tailgating And Events",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 126,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (126 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Hidden Design, 4 Oz Capacity, Polished Chrome Stainless Steel, Black Leather Case, Belt Clip, Sporting Events",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

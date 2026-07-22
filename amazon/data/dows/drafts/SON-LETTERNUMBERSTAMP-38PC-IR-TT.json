@@ -3,14 +3,14 @@
     "asin": "B0CDMDGNHQ",
     "product_type": "HOME",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:02:07+00:00",
+    "generated_at": "2026-07-21T20:05:43+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 4,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -70,20 +70,57 @@
             "asin": "B0CDMDGNHQ",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux 38pc Metal Letter Number Stamping Set w/Auto Punch",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux 38pc Metal Letter Number Stamping Set",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "38",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Metal Letter Number Stamping Set"
+            }
         },
-        "title_differentiation": {
-            "value": "38 Pieces, Spring-Loaded Punch, Storage Case Included",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux 38-Pc Metal Number And Letter Stamping Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 53,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "38",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Metal Number And Letter Stamping Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Spring-Loaded Punch, 26 Uppercase Letters, 0-9 Numbers, Storage Case, Marks Metal Plastic Leather Wood",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 102,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "38-Piece Set, Uppercase Letters, Numbers 0-9, Ampersand And Period, Spring-Loaded Punch, Molded Storage Case",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 108,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

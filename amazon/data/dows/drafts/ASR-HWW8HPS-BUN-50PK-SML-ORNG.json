@@ -3,14 +3,14 @@
     "asin": "B0189VJ106",
     "product_type": "APPENDAGE_WARMER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:37:21+00:00",
+    "generated_at": "2026-07-21T19:57:34+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 11,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -185,20 +185,57 @@
             "asin": "B0189VJ106",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Hand Warmers 50 Pack - 10 Hour Heat Pads",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 50-pk Small Orange Hand Warmers",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 43,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "50",
+                "pack_size_unit": "pk",
+                "size": "Small",
+                "color": "Orange",
+                "name": "Hand Warmers"
+            }
         },
-        "title_differentiation": {
-            "value": "Air-Activated, 10 Hour Duration, 124-155°F, Safe & Odorless",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 50-pk Small Orange Hand Warmers",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 43,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "50",
+                "pack_size_unit": "pk",
+                "size": "Small",
+                "color": "Orange",
+                "name": "Hand Warmers"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "10 Hour Duration, Air-Activated, 124-155F Temperature, Safe And Odorless, Camping And Hiking",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 92,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "10 Hour Heat, Air Activated, 124-155F Comfort, Odorless Non-Toxic, Camping Hiking Skiing Winter Travel",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 102,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

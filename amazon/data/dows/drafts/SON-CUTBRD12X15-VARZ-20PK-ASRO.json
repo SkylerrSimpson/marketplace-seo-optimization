@@ -3,14 +3,14 @@
     "asin": "B09BBQ4647",
     "product_type": "CUTTING_BOARD",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:55:11+00:00",
+    "generated_at": "2026-07-21T20:04:09+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 3,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -64,25 +64,63 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "Flexible Plastic Cutting Board Set 20pk",
+            "value": "Flexible Cutting Board",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 12x15 Flexible Clear Plastic Cutting Board 20pk",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 20-pk 12x15 Inch Clear Flexible Cutting Board",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 57,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "20",
+                "pack_size_unit": "pk",
+                "size": "12x15 Inch",
+                "color": "Clear",
+                "name": "Flexible Cutting Board"
+            }
         },
-        "title_differentiation": {
-            "value": "Lightweight, Dishwasher Safe, Foldable Funnel Design, Camp Cookware",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 20-Pk 12x15 In Clear Flexible Plastic Cutting Board",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 63,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "20",
+                "pack_size_unit": "Pk",
+                "size": "12x15 In",
+                "color": "Clear",
+                "name": "Flexible Plastic Cutting Board"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "20 Pack, 12X15 Inch, Lightweight And Flexible, Dishwasher Safe, Non-Porous, Space-Saving Design, Perfect For Camping And Food Prep",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 130,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (130 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Thin 05Mm Profile, Foldable Funnel Edge, Nonporous Polypropylene, Dishwasher Safe, Lightweight, Space Saving Roll Up",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 116,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

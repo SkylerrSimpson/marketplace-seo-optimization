@@ -1,0 +1,60 @@
+{
+    "sku": "LST-BAKETRAVELSET-PARENT",
+    "asin": "B0BGK5VDNS",
+    "product_type": "PLAY_WORKSTATION",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-BAKETRAVELSET-PARENT\nProduct Type: PLAY_WORKSTATION\nBrand (from catalog): Kidplokio\nExisting Title: Kidplokio Baking Cooking Kids Kitchen Playset Toddler Travel Toys 28pc\nDescription: Little kids who love to cook can take their favorite kitchen playset to go, meaning cooking, baking, and pretend play restaurant can happen anywhere, anytime. The kitchen playset for kids comes with 28 pieces of adorable play food and kitchen accessories, designed with small hands in mind, all of which fit into a cute pink or blue mini travel suitcase. <br/><br/>While little chefs will have a blast dishing out their latest creations, they'll also be engaging in significant early educational growth, like working on gross motor skills and improving cognitive development through imaginative pretend play sessions. And, what makes this kitchen playset for girls even more fun, is the light-up stove and fun sound effects which toddlers and little kids will love, enhancing cosplay and their overall playtime experience. <br/><br/>As mentioned, this adorable pretend play kitchen playset from Kidplokio is great for travel, as the pieces pack up quickly and efficiently. The durable plastic storage suitcase makes it perfect for travel with a built-in top handle, lower wheels, and side snap closures to keep play food and kitchen accessories safe and secure.\nSearch Terms: play restaurant for kids Girl toys Hanukkah Christmas gifts stocking stuffers preschool learning activities birthday present play kitchen for toddlers 1 to 3 playroom play cooking set fine motor skills kitchen set for kids\nFeatures:\n- 28PC KIDS PLAY KITCHEN: Little kids who love to cook will swoon over this adorable travel kitchen playset from Kidplokio; 28 pieces of play food and kitchen accessories, which all fit in a travel suitcase, means the cooking and baking can happen anywhere, anytime!\n- LIGHTS AND SOUNDS: To make pretend play even more fun, the kitchen playset features a light-up stove with sound effects, making cosplay with friends and family more realistic\n- DRESS UP: While little chefs will have a blast dishing out their latest creations, they'll also be engaging in significant early educational growth, like working on gross motor skills, as well as improving cognitive development through imaginative pretend play sessions\n- GREAT FOR TRAVEL: Kidplokio's kitchen playset for girls packs up quickly and efficiently; the durable plastic storage suitcase makes it perfect for travel with built-in top handle, lower wheels, and side snap closures to keep play food and kitchen accessories safe and secure\n- SPECIFICATIONS: Dimensions: 15 x 11 x 7.5 inches; Weight: 2.6lbs; Colors: Blue or Pink; Material: Plastic; Warning: Choking Hazard, small parts; Batteries not included; Recommended Ages: Girls, 3+\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Kidplokio 28pc Travel Baking Kitchen Playset Toddler Toys",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "28",
+                "pack_size_unit": "pc",
+                "size": "Travel",
+                "color": "",
+                "name": "Baking Kitchen Playset Toddler Toys"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Kidplokio 28-Pc Kids Travel Kitchen Playset",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "28",
+                "pack_size_unit": "Pc",
+                "size": "",
+                "color": "",
+                "name": "Kids Travel Kitchen Playset"
+            },
+            "char_count": 43,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "28 Pieces, Light-Up Stove, Sound Effects, Portable Suitcase, Ages 3 Plus, Educational Pretend Play",
+            "char_count": 98,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "28 Pieces, Light Up Stove, Sound Effects, Travel Suitcase With Wheels, Handle, Snap Closures, Pretend Play Learning",
+            "char_count": 115,
+            "validation_error": null
+        }
+    }
+}

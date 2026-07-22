@@ -3,14 +3,14 @@
     "asin": "B00GWS6RTM",
     "product_type": "TOOLS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:57:48+00:00",
+    "generated_at": "2026-07-21T19:42:03+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -46,25 +46,62 @@
             "raw_value": true
         },
         "color": {
-            "value": "Orange",
+            "value": "Bright Orange",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Emergency Escape Tool 6 Inch Mini Hammer Window Punch 2 Pack",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Emergency Escape Tool 2-Pack 6 Inch Bright Orange Hammer",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 56,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Emergency Escape Tool",
+                "pack_size": "2",
+                "pack_size_unit": "Pack",
+                "size": "6 Inch",
+                "color": "Bright Orange",
+                "name": "Hammer"
+            }
         },
-        "title_differentiation": {
-            "value": "Dual-sided steel points, seat belt cutter, bright orange, glove box size",
+        "item_name_ai_openai": {
+            "value": "Emergency Escape Tool 2-pk 6 in Orange Emergency Hammer",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 55,
+            "review_only": true,
+            "tokens": {
+                "brand": "Emergency Escape Tool",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "6",
+                "color": "Orange",
+                "name": "Emergency Hammer"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Dual-Sided Steel Window Punch, Seat Belt Cutter, Compact Emergency Survival Tool",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 80,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Dual Sided Hardened Steel Window Punch, Safeguarded Seat Belt Cutter, Bright Orange, Compact 6 Inch",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 99,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

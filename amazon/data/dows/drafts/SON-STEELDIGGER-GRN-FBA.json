@@ -3,14 +3,14 @@
     "asin": "B07TMM9Q89",
     "product_type": "SHOVEL_SPADE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:22:24+00:00",
+    "generated_at": "2026-07-21T19:52:57+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 13,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 23
     },
@@ -220,25 +220,62 @@
             "raw_value": true
         },
         "country_of_origin": {
-            "value": "US",
+            "value": "CN",
             "is_required": true,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 13\" Serrated Edge Digger Shovel with Carbon Steel",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 13in Serrated Edge Digger Hand Trowel",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 49,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Serrated Edge Digger Hand Trowel"
+            }
         },
-        "title_differentiation": {
-            "value": "7.5\" Double-Edge Blade, Hard Soil & Root Breaker, Metal Detecting",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 13 in Serrated Edge Digger Hand Trowel",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 50,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Serrated Edge Digger Hand Trowel"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Double Edge Serrated Blade, Carbon Steel, Metal Detecting, Hard Soil Breaking, Ergonomic Grip, Includes Nylon Sheath",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 116,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Heat Treated Carbon Steel, Double Edge Serrated Blade, Non Slip Ergonomic Grip, Nylon Sheath With Belt Loop",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "supplier_declared_material_regulation": {
             "value": [

@@ -1,0 +1,60 @@
+{
+    "sku": "NPT-ASRT-EDCMINIKNIFE-BLK",
+    "asin": "B0B78B3J5D",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: NPT-ASRT-EDCMINIKNIFE-BLK\nProduct Type: KNIFE\nBrand (from catalog): ASR Tactical\nExisting Title: ASR Tactical 2 in 1 Full Tang Fixed Blade EDC Pocket Knife with Bottle Opener, Matte Black 4.75 Inch\nDescription: If you're looking for a no fuss, quality pocket knife this might just be it. Small but mighty, this compact pocket knife from ASR Tactical features a full tang design for strength and leverage, fixed drop point blade, matte black finish and built in bottle opener; the pocket knife is made from durable, high quality stainless steel but is incredibly lightweight at 0.10lbs, meaning you can take it just about anywhere without any extra added weight or bulk. And if all that isn't enough, the EDC knife comes with a bonus built in bottle opener. Yes, this stealthy full tang knife comes with a built in bottle opener ergonomically designed into the middle of the blade; carrying this 2 in 1 pocket knife multitool now reduces the need for an additional bottle opener tool.<br/><br/>Lightweight and compact in design, this small pocket knife deserves a spot in your collection of EDC gear; space saving, multiple carrying options and practically weightless, the pocket knife is portable, easy to pack and a cinch to carry whether for a short commute or long haul plane travel.<br/><br/>Lastly, this sweet little pocket knife with bottle opener also comes with a perfectly fitted nylon sheath carry case for safe storage and protection when not in use. The sheath features a built in back tunnel loop for keychain, carabiner, belt loop or other on or off person carrying attachment as preferred.<br/><br/>Dimensions: 4.75 x 1.25 x 0.50 inches<br/>Weight: 0.10lbs<br/>Material: Stainless Steel<br/>Finish: Matte Black\nSearch Terms: everyday carry survival kits camping gear hiking hunting fishing trekking emergency preparedness items camping accessories gifts for men brother gifts stocking stuffers multitool husband birthday gift self defense tools knives\nFeatures:\n- SMALL POCKET KNIFE: This small pocket knife from ASR Tactical features a full tang design for strength and leverage, fixed drop point blade with grip, matte black finish and built in bottle opener; the pocket knife is made from durable highquality stainless steel but is incredibly lightweight at 0.10lbs, meaning you can take it just about anywhere without any extra added weight or bulk\n- BUILT IN BOTTLE OPENER: The stealthy full tang knife comes with a built in bottle opener ergonomically designed into the middle of the blade; carrying this 2 in 1 pocket knife multitool reduces the need for an additional bottle opener tool that you need to have on hand\n- PORTABLE EDC GEAR: Lightweight and compact in design, this small pocket knife deserves a spot in your collection of EDC gear; space saving, multiple carrying options and practically weightless, the pocket knife is portable, easy to pack and a cinch to carry\n- FIXED BLADE KNIFE WITH SHEATH: The tactical knife comes with a nylon knife sheath for secure storage and protection when not in use; the sheath also features a built in back tunnel loop for keychain, carabiner, belt loop or other on or off person carrying attachment as preferred\n- SPECIFICATIONS: Dimensions: 4.75 x 1.25 x 0.50 inches; Weight: 0.10lbs; Color: Black; Material: Stainless Steel; Finish: Matte\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 4.75 in Black Full Tang EDC Pocket Knife",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "4.75",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Full Tang EDC Pocket Knife"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 4.75in Black Fixed Blade EDC Pocket Knife",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "4.75in",
+                "color": "Black",
+                "name": "Fixed Blade EDC Pocket Knife"
+            },
+            "char_count": 54,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Built-in Bottle Opener, Fixed Drop Point Blade, Stainless Steel, Includes Nylon Sheath, Lightweight EDC",
+            "char_count": 103,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Full Tang Construction, Built In Bottle Opener, Stainless Steel, Matte Black Finish, Nylon Sheath, Lightweight EDC",
+            "char_count": 114,
+            "validation_error": null
+        }
+    }
+}

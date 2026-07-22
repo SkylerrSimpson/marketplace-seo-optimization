@@ -1,0 +1,60 @@
+{
+    "sku": "ASR-ETB84X-BUN-10PK",
+    "asin": "B0187VYHOI",
+    "product_type": "BLANKET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: ASR-ETB84X-BUN-10PK\nProduct Type: BLANKET\nBrand (from catalog): ASR Outdoor\nExisting Title: 10 Pack Large Emergency Outdoor Blanket Insulated Thermal Reflector Retains Body Heat\nDescription: Mylar foil assists the body in heat retention during emergency situations. Can be used as a regular blanket in cold conditions while sleeping because it's reusable it won't tear easily allowing for multiple uses in different situations. <br/><br/>Emergency blankets are individually bagged. Perfect for emergency protection in all weather conditions. Waterproof and windproof. Will not crack or shrink. Reflects 90 percent of your body heat back to you.<br/><br/>Makes sure to have this with you hiking just in case Hypothermia sets in.\nSearch Terms: Thermal Emergency Blanket Hypothermia Survival\nFeatures:\n- COMPACT FOR EASY STORAGE: Compacted Dimensions 5\" x 1\" x 1\" (LxWxH) allow you to store these in your car glove compartment, home emergency kit, first aid kit, or hiking and bug out bag\n- GREAT FOR BIG AND TALL: Unfolded Dimensions 84\" x 52\" make these blankets ideal for wrapping up in to help maximize body heat reflection or cover big and tall people in need of immediate warmth\n- MADE FOR FUNCTION AND CONVENIENCE: Individually Packaged 10 pack of Mylar Reflective Blankets with Instructional Guidelines with each blanket so you don't have to scramble in an emergency, while their flame, wind, & water retardant material is manufactured for use in outdoor survival situations\n- MAXIMUM HEAT RETENTION: Made of Mylar, these blankets reflect 90% of body heat to aid in hypothermia and shock prevention\n- VERSATILE EMERGENCY APPLICATIONS: Ideal for automotive, boating, hiking, camping, home first aid, adventure, and natural disaster kits and preparedness to name a few\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 10-pk 84x52 Emergency Thermal Blanket",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "pk",
+                "size": "84x52",
+                "color": "",
+                "name": "Emergency Thermal Blanket"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 10-Pk Large Emergency Thermal Reflector Blanket",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "pk",
+                "size": "Large",
+                "color": "",
+                "name": "Emergency Thermal Reflector Blanket"
+            },
+            "char_count": 59,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Mylar Reflective, 90 Percent Heat Retention, Waterproof Windproof, Compact 5X1 Inch, Reusable, Hypothermia Prevention",
+            "char_count": 117,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Individually Packaged, 84\" X 52\", Reflects 90 Percent Body Heat, Waterproof, Windproof, Reusable, Survival Use",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}

@@ -3,18 +3,30 @@
     "asin": "B00G3KQOQA",
     "product_type": "TOOLS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:31:43+00:00",
+    "generated_at": "2026-07-21T19:55:56+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
-        "fillable": 0,
-        "catalog": 5,
-        "ai_suggested": 2,
+        "fillable": 2,
+        "catalog": 4,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
     "attributes": {
+        "material": {
+            "value": "Metal",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.material"
+        },
+        "model_number": {
+            "value": "10MDB-1",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.mpn"
+        },
         "externally_assigned_product_identifier": {
             "value": [
                 {
@@ -38,19 +50,6 @@
                 {
                     "language_tag": "en_US",
                     "value": "Titanium",
-                    "marketplace_id": "ATVPDKIKX0DER"
-                }
-            ],
-            "is_required": false,
-            "source": "catalog",
-            "asin": "B00G3KQOQA",
-            "raw_value": true
-        },
-        "material": {
-            "value": [
-                {
-                    "language_tag": "en_US",
-                    "value": "High Speed Steel",
                     "marketplace_id": "ATVPDKIKX0DER"
                 }
             ],
@@ -88,19 +87,57 @@
             "asin": "B00G3KQOQA",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Tool 10pc Router Bits Set, High Speed Steel, Titanium Coated",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Tool 10-pc 1/8\" Titanium Router Bits",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 46,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "10",
+                "pack_size_unit": "pc",
+                "size": "1/8\"",
+                "color": "Titanium",
+                "name": "Router Bits"
+            }
         },
-        "title_differentiation": {
-            "value": "10 Piece Assorted, 1/8\" Shank, Wooden Storage Box, Dremel Compatible",
+        "item_name_ai_openai": {
+            "value": "Universal Tool 10-pk 1/8\" Mini Router Bits Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 46,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "10",
+                "pack_size_unit": "pk",
+                "size": "1/8\"",
+                "color": "",
+                "name": "Mini Router Bits Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "High Speed Steel, Titanium Coated, Dremel Compatible, Wooden Storage Box",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 72,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "High Speed Steel, Titanium Coated, 18\" Shank, Dremel Compatible, Wooden Storage Box, 10 Assorted Bits",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

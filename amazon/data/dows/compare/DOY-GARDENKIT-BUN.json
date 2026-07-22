@@ -1,0 +1,60 @@
+{
+    "sku": "DOY-GARDENKIT-BUN",
+    "asin": "B09348QJBV",
+    "product_type": "GARDEN_TOOL_SET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DOY-GARDENKIT-BUN\nProduct Type: GARDEN_TOOL_SET\nBrand (from catalog): ToolTreaux\nExisting Title: Complete 9pc Home Garden Tools Set for Mom with Fork Hoe Rake Shovel Spade Digger and Gloves\nDescription: Whether you’re clearing an overgrown flower bed, planting a new indoor succulent pot, starting a herb garden, or weeding, the 9-piece gardening set from ToolTreaux is suitable for all your indoor and outdoor gardening projects. <br/><br/>This garden kit includes a fork, hoe, rake, shovel, spade, a two in one garden hoe and rake tool (all measuring 14 inches in height and made from wood and steel), as well as a unique serrated edge, carbon steel digger tool; the digger is a multipurpose gardening tool, that will make easy work of digging, weeding, loosening soil, planting, transplanting, cutting clean and deep plugs and more. Plus, the serrated edge digger comes with a protective sheath for storage when not in use.<br/><br/>In addition to these gardening tools, the kit also includes a must-have foam mat. Used as a kneeling pad or seat cushion to keep you comfortable when gardening on a hard surface; the pad measures 15 x 7 x 0.75 inches, is water-resistant, lightweight, includes a cut-out handle for maneuverability and storage, and is made from soft but durable EVA foam material.<br/>And, a garden kit wouldn’t be complete without gardening gloves. ToolTreaux’s garden kit includes work gloves made from cow hide and durable cloth; these unisex gloves feature extended wrist coverage and a suede palm design, allowing you to extend your time spent working on yard projects that support and protect your hands from dirt, scrapes, and cuts, dehydration and more.<br/><br/>All of the above components fit easily into the included nylon storage tool bag, so you can easily tote your gardening tools from one plot, pot, or bed to the next; with top zipper closure, side pockets on both sides of the bag for easy tool access, a keychain loop, and side handles, this tote bag makes your gardening work efficient and organized\nSearch Terms: gardening gloves work tools kits supplies shovels spades knee pad garden tool organizer storage seat cushions trowels plant pots succulent plants tote bags\nFeatures:\n- INDOOR & OUTDOOR GARDEN KIT: This 9-piece ToolTreaux gardening set is suitable for both indoor and outdoor gardening projects! Wherever your green thumb may take you, you’ll be well equipped to take on any gardening project, whether it’s starting a herb garden, planting an indoor succulent pot, clearing out weeds or replanting a flower bed\n- INCLUDED GARDENING TOOLS: This garden kit includes a fork, hoe, rake, shovel, spade, a two in one garden hoe and rake tool, as well as a serrated edge, carbon steel digger; the digger is a multipurpose tool, great for digging, weeding, loosening soil, planting, transplanting, cutting clean and deep plugs, and it comes with a protective sheath for storage when not in use\n- GARDENING KNEE PAD: This tool kit wouldn’t be complete without a foam gardening mat! Used as a kneeling pad or seat cushion to keep you comfortable when gardening on a hard surface; the pad measures 15 x 7 x 0.75 inches, is water-resistant, lightweight, includes a cut-out handle for maneuverability and storage, and is made from soft but durable EVA foam material\n- DURABLE WORK GLOVES: Made from cow hide, these unisex gloves are a must-have item for anyone doing yard work or gardening; with extended wrist coverage and suede palm design, you’ll be able to extend your time spent working on yard projects with these durable work gloves to support and protect your hands from dirt, scrapes and cuts, dehydration and more\n- NYLON STORAGE TOOL BAG: All of the above components fit easily into the included nylon storage tool bag, so you can easily tote your gardening tools from one plot, pot or bed to the next; with a top zipper closure, side pockets on both sides of the bag for easy tool access, a keychain loop and side handles, this tote bag makes your gardening work efficient and organized\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 9-Piece Home Garden Tools Set with Knee Pad",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "9",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Home Garden Tools Set with Knee Pad"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 9-Pc Garden Tool Set",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "9",
+                "pack_size_unit": "Pc",
+                "size": "",
+                "color": "",
+                "name": "Garden Tool Set"
+            },
+            "char_count": 31,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Fork, Hoe, Rake, Shovel, Spade, Digger, Gloves, Storage Bag, Water-Resistant Foam Kneeling Pad",
+            "char_count": 94,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Indoor And Outdoor Gardening, Carbon Steel Digger, Foam Knee Pad, Gloves, Nylon Storage Bag, Easy Carry",
+            "char_count": 103,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "LST-KIDS-BASEBALL-SET-ASSRT",
+    "asin": "B07FSS87H9",
+    "product_type": "SPORT_BAT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-KIDS-BASEBALL-SET-ASSRT\nProduct Type: SPORT_BAT\nBrand (from catalog): KidPlay Products\nExisting Title: Kids Sports Baseball Set - Comes with Plastic Bat and Balls - Assorted Colors\nDescription: Introduce your child to Baseball with this Baseball Set (Bat and 4 Balls) <br/><br/>Your Child will be swinging for the fences with this Baseball Set. The bat is light and easy to swing, the balls are colorful, light, and easy to knock out of the ballpark. Product comes individually and a random color will be chosen to be delivered.\nSearch Terms: toys baseball outdoors sports\nFeatures:\n- Product comes with only one bat, color will be random between Blue, Orange, and Green.\n- Bat is 20\". light and easy to swing!\n- Comes with 4 light and colorful balls\n- Large barrel 3\"\n- Designed for ages 3 and up\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "KidPlay Products Kids Baseball Set - Bat and 4 Balls",
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "4",
+                "pack_size_unit": "Balls",
+                "size": "20 inch",
+                "color": "Assorted",
+                "name": "Baseball Set"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "KidPlay Products 4-Ball Kids Baseball Set",
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "4",
+                "pack_size_unit": "Balls",
+                "size": "",
+                "color": "Assorted",
+                "name": "Baseball Set"
+            },
+            "char_count": 41,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "20 Inch Bat, 4 Light Colorful Balls, 3 Inch Barrel, Ages 3 And Up, Assorted Colors",
+            "char_count": 82,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Lightweight Plastic Bat, 4 Colorful Balls, Random Blue Orange Or Green, Ages 3 And Up, 3 Inch Barrel",
+            "char_count": 100,
+            "validation_error": null
+        }
+    }
+}

@@ -3,14 +3,14 @@
     "asin": "B0BKTKSKBC",
     "product_type": "TOYS_AND_GAMES",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:02:56+00:00",
+    "generated_at": "2026-07-21T19:45:00+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 4,
         "catalog": 0,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -39,20 +39,57 @@
             "source": "usurper",
             "usurper_column": "attr.unit_count_amazon"
         },
-        "item_name_ai_suggested": {
-            "value": "Kidplokio Green Galaxy Space Sword Toy with LED Lights",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Kidplokio Green Galaxy Space Sword Interactive Toy Lights Sounds",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 64,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Green",
+                "name": "Galaxy Space Sword Interactive Toy Lights Sounds"
+            }
         },
-        "title_differentiation": {
-            "value": "Interactive lights and sounds, ages 3+, batteries included, no assembly",
+        "item_name_ai_openai": {
+            "value": "Kidplokio Green Galaxy Space Sword Toy with Lights and Sounds",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 61,
+            "review_only": true,
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Green",
+                "name": "Galaxy Space Sword Toy with Lights and Sounds"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "LED Lights, Blasting Sounds, Ages 3 Plus, Batteries Included, No Assembly, Pretend Play, Fine Motor Skills",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 106,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "LED Lights And Sounds, Interactive Pretend Play, Batteries Included, Lightweight Grip, Durable Nontoxic Plastic",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

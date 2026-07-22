@@ -3,14 +3,14 @@
     "asin": "B07HWMMD7J",
     "product_type": "CORD_ROPE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:48:48+00:00",
+    "generated_at": "2026-07-21T20:12:15+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 7,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -107,20 +107,57 @@
             "asin": "B07HWMMD7J",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Technora 400lb Survival Rope 25ft Black",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Technora 25ft Black Survival Rope 400lb",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "25",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Black",
+                "name": "Technora Survival Rope"
+            }
         },
-        "title_differentiation": {
-            "value": "8x Stronger Than Steel, PTFE Coated, UV & Chemical Resistant, USA Made",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 25-ft Black Technora Survival Cord",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 46,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "25",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Black",
+                "name": "Technora Survival Cord"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "400Lb Breaking Strength, PTFE Coated, 8X Stronger Than Steel, UV And Chemical Resistant, Made In USA",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 100,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "400Lb Break Strength, PTFE Coated, UV And Chemical Resistant, Abrasion Resistant, Made In USA",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 93,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

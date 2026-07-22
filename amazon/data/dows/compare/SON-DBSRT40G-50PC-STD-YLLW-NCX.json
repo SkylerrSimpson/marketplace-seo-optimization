@@ -1,0 +1,60 @@
+{
+    "sku": "SON-DBSRT40G-50PC-STD-YLLW-NCX",
+    "asin": "B071D8HTPD",
+    "product_type": "TOOLS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-DBSRT40G-50PC-STD-YLLW-NCX\nProduct Type: TOOLS\nBrand (from catalog): Universal Tool\nExisting Title: 50pc Diamond Burr Bit Set for Rotary Tool 40 Grit\nDescription: Tackle your next precision project with the 50pc Diamond Burr Bit Set for Rotary Tools – 40 Grit - a versatile and durable accessory kit for carving, grinding, sanding, and etching.<br/><br/>This universal set includes 50 high-quality diamond-coated round ball burrs in assorted sizes, perfect for detailed work on a wide range of materials. Whether you're working with ceramics, glass, stone, tile, wood, fiberglass, or other natural materials, these medium-grit bits offer controlled material removal for professional results.<br/><br/>Each bit features a 1/8\" shank, compatible with most rotary tools including Dremel, so you can enhance your toolkit without worrying about fit. The durable 40 grit diamond coating provides long-lasting performance, even on tough surfaces.<br/><br/>To keep your workspace organized, the set comes in a compact, sturdy case - ideal for storage and transport. Whether you're a hobbyist or a professional, this burr bit set is a must-have for fine detail work across a variety of materials.\nSearch Terms: diamond burr set, rotary tool bits, Dremel diamond bits, 1/8 inch shank burrs, diamond grinding bits, carving burr set, 40 grit burrs, rotary tool accessories, stone carving bits, glass etching tools, engraving burr set, Dremel accessories, burr bit kit\nFeatures:\n- UNIVERSAL ROTARY TOOL COMPATIBILITY - 1/8\" shank fits most rotary tools, including Dremel, making it easy to upgrade your setup.\n- ASSORTED 50PC SET - Includes 50 diamond-coated round ball burrs in various sizes for versatile shaping, carving, and detailing tasks.\n- DURABLE 40 GRIT DIAMOND COATING - Medium grit ideal for controlled material removal on hard surfaces like stone, glass, ceramic, and tile.\n- MULTI-MATERIAL USE - Perfect for engraving, grinding, sanding, and etching on wood, fiberglass, natural stone, and more.\n- COMPACT STORAGE CASE - Comes in a sturdy, portable case to keep bits organized and protected when not in use.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 50-pc Diamond Burr Bit Set 40 Grit",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "50",
+                "pack_size_unit": "pc",
+                "size": "40 Grit",
+                "color": "",
+                "name": "Diamond Burr Bit Set"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 50-pc 40 Grit Diamond Burr Bit Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "50",
+                "pack_size_unit": "pc",
+                "size": "40 Grit",
+                "color": "",
+                "name": "Diamond Burr Bit Set"
+            },
+            "char_count": 49,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "18 Inch Shank, Rotary Tool Compatible, Stone Glass Ceramic, Engraving And Etching, Compact Storage Case",
+            "char_count": 103,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "18\" Shank, 50 Assorted Sizes, 40 Grit Diamond Coating, Fits Dremel, Stone Glass Ceramic Tile Wood Fiberglass",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

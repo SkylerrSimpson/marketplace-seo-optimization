@@ -3,14 +3,14 @@
     "asin": "B079PQZNS9",
     "product_type": "PAINT_BRUSH",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:28:07+00:00",
+    "generated_at": "2026-07-21T20:10:41+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 3,
         "catalog": 11,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -183,20 +183,57 @@
             "asin": "B079PQZNS9",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Tool Acid Brush Set 12pc 6 Inch Metal Handle",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Tool 12-pc 6\" Acid Brush Set Metal Handle",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "12",
+                "pack_size_unit": "pc",
+                "size": "6\"",
+                "color": "",
+                "name": "Acid Brush Set Metal Handle"
+            }
         },
-        "title_differentiation": {
-            "value": "12-Piece Set, 6\" Length, Metal Handle, Acid & Glue Application",
+        "item_name_ai_openai": {
+            "value": "Universal Tool 12-pc 6 in Acid Brush Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 40,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "12",
+                "pack_size_unit": "pc",
+                "size": "6 in",
+                "color": "",
+                "name": "Acid Brush Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "12 Pieces, 6 Inch Length, Hard Bristles, Metal Handles, Ideal For Acid, Glues, Soldering, Cleaning",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 98,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "12 Brushes, Metal Handles, Hard Bristles, For Acid Flux, Glue, Paste, Parts Cleaning, Precision Jobs",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 100,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

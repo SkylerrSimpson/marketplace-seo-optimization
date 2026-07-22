@@ -3,14 +3,14 @@
     "asin": "B08FBM1L6H",
     "product_type": "BUCKET",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:41:52+00:00",
+    "generated_at": "2026-07-21T20:12:04+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 3,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -56,20 +56,57 @@
             "asin": "B08FBM1L6H",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 10L Collapsible Silicone Bucket Gold Panning",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 10L Grey Collapsible Bucket",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 39,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "L",
+                "size": "",
+                "color": "Grey",
+                "name": "Collapsible Bucket"
+            }
         },
-        "title_differentiation": {
-            "value": "Folds to 2 inches, BPA-Free, Multipurpose, Durable Plastic Handle",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 10 Litre Collapsible Bucket",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 39,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "Litre",
+                "size": "",
+                "color": "",
+                "name": "Collapsible Bucket"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Folds To 2 Inches, BPA-Free Silicone, Gold Panning, Multipurpose, Portable",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 74,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "BPA Free Silicone, Folds To 2 Inches, Sturdy Handle, 10L 265 Gallon Capacity, Works With Classifier Screens",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

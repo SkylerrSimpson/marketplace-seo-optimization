@@ -1,0 +1,60 @@
+{
+    "sku": "DLT-MICKEY-FLASHCARDS-2PK",
+    "asin": "B01B3H4I8S",
+    "product_type": "FLASH_CARD",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DLT-MICKEY-FLASHCARDS-2PK\nProduct Type: FLASH_CARD\nBrand (from catalog): Disney\nExisting Title: Mickey Mouse Clubhouse Child Development Learning Card Game Set Numbers Colors Shapes\nDescription: Your little one will love to learn with Mickey Mouse and friends using these Early Childhood Development Flash Cards.<br/><br/>This set comes with 2 decks of 36 cards each to help practice counting and learning numbers as well as colors and shapes. Set your child up for success with these preschool level foundational learning cards.<br/><br/>This officially licensed Disney product features images of Mickey, Minnie, Goofy, Donald Duck, Pluto and more.\nSearch Terms: flash development skills motor educational pluto goofy game circle 2 deck junior clubhouse roadster racers numbers arithmetic early childhood preschool homeschool kindergarten foundation mathematics simple basic minnie toddler baby first class\nFeatures:\n- OFFICIALLY LICENSED DISNEY CARDS - Features images of your favorite classic characters including Mickey, Minnie, Goofy, Pluto, and Donald Duck\n- FOUNDATIONAL LEARNING MATERIALS - Help to develop basic educational skills like counting, numbers for simple arithmetic, shapes, and colors\n- SIMPLE FLASH CARD FORMAT - No fancy frills, these learning game cards are quick and easy, great for memorization of essential material, and sure to keep your child's attention\n- 2 DECK SET - Two specialized decks of 36 cards, 72 total\n- AGES 3+ | Makes a great stocking stuffer\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Disney Mickey Mouse Clubhouse 2-Pack Flash Cards",
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "2",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "",
+                "name": "Mickey Mouse Clubhouse Flash Cards"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Disney Mickey Mouse Clubhouse Flash Cards",
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Mickey Mouse Clubhouse Flash Cards"
+            },
+            "char_count": 41,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "72 Total Cards, Numbers Colors Shapes, Early Childhood Development, Ages 3, Preschool Learning",
+            "char_count": 94,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "2 Decks, 72 Total Cards, Numbers Colors Shapes, Early Learning, Ages 3, Mickey Minnie Goofy Pluto Donald Duck",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

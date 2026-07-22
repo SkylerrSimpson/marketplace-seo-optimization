@@ -3,14 +3,14 @@
     "asin": "B08DL8TBZW",
     "product_type": "ABRASIVES",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:53:14+00:00",
+    "generated_at": "2026-07-21T20:03:37+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -40,31 +40,68 @@
             "raw_value": true
         },
         "material": {
-            "value": "Metal",
+            "value": "Polishing Compound",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
-            "value": "Variety Pack (4 Types)",
+            "value": "Variety Pack",
             "is_required": false,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Metal Polish Compound Stick - Remove Oxidation",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Metal Polish Compound Stick - 4 Types",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 47,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal",
+                "pack_size": "4",
+                "pack_size_unit": "Types",
+                "size": "",
+                "color": "",
+                "name": "Metal Polish Compound Stick"
+            }
         },
-        "title_differentiation": {
-            "value": "Choose #1 Hard Metal, #4 Precious Metal, #5 Light Gloss, or #6 High Gloss",
+        "item_name_ai_openai": {
+            "value": "Universal Metal Polish Compound Stick",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 37,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Metal Polish Compound Stick"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "High Gloss And Light Gloss Polish, All Metals And Precious Metals, Remove Oxidation And Corrosion, Buffing Wheel Ready",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 118,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "High Gloss Finish, Removes Oxidation, For All Metals, Regular Use, 32 Oz Or 22 Oz, Four Compound Types",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 102,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

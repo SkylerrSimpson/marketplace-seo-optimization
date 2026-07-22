@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-30OZSULLBTTL-YODA-3PK-HPN",
+    "asin": "B08L2G9274",
+    "product_type": "BOTTLE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-30OZSULLBTTL-YODA-3PK-HPN\nProduct Type: BOTTLE\nBrand (from catalog): Zak Designs\nExisting Title: [3-Pack] Star Wars \"The Child\" Baby Yoda 30oz Sullivan Sports Water Bottle, BPA-free\nDescription: Fun artwork makes hydration a blast. This bottle has a 30-ounce capacity, with a carrying loop built into the lid so you can take it on the go. The easy-open cover protects the spout when it's not being used, and everything is made of durable plastic. The bottle is completely BPA free. Hand washing is recommended; do not microwave. Zak Designs Star Wars The Child 30oz Sullivan Bottle - set of three.\nSearch Terms: (none)\nFeatures:\n- Set of 3 featuring Star Wars \"The Child\" aka Baby Yoda - officially licensed\n- Screw-on lid has built-in carrying loop\n- Made of durable BPA-Free plastic\n- 30 oz capacity with easy-open cover that keeps spout clean\n- Hand washing is recommended; do not microwave\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Zak Designs 3-Pack Star Wars Baby Yoda 30oz Water Bottle",
+            "tokens": {
+                "brand": "Zak Designs",
+                "pack_size": "3",
+                "pack_size_unit": "Pack",
+                "size": "30oz",
+                "color": "",
+                "name": "Star Wars Baby Yoda Water Bottle"
+            },
+            "char_count": 56,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Zak Designs 3-pk 30oz Star Wars The Child Sullivan Sports Water Bottle",
+            "tokens": {
+                "brand": "Zak Designs",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "30oz",
+                "color": "",
+                "name": "Sullivan Sports Water Bottle"
+            },
+            "char_count": 70,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Set Of 3, Official Star Wars Licensed, 30Oz Capacity, BPA-Free, Carrying Loop, Easy-Open Cover, Durable Plastic",
+            "char_count": 111,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Officially Licensed Star Wars The Child Artwork, 30 Oz Capacity, Built In Carry Loop, BPA-Free Plastic, Easy Open Spout Cover",
+            "char_count": 125,
+            "validation_error": null
+        }
+    }
+}

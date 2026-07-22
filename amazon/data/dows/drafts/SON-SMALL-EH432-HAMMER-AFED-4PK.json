@@ -3,14 +3,14 @@
     "asin": "B08C98H81T",
     "product_type": "AUTO_ACCESSORY",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:21:51+00:00",
+    "generated_at": "2026-07-21T20:09:02+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -39,20 +39,57 @@
             "asin": "B08C98H81T",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Federal Car Emergency Escape Hammer with Belt Cutter, 4pk",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Federal 4-pk Car Emergency Escape Hammer",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 44,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Car Emergency Escape Hammer"
+            }
         },
-        "title_differentiation": {
-            "value": "Window Breaker & Seatbelt Cutter, Reflective Head, Auto Safety Tool",
+        "item_name_ai_openai": {
+            "value": "ASR Federal 4-Pk Emergency Escape Hammer",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 40,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Emergency Escape Hammer"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Seatbelt Cutter, Window Breaker, Reflective Head, Vehicle Safety, Emergency Kit Essential",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 89,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Seatbelt Cutter, Window Breaker, Reflective Head Tag, Compact 4-Pack, For Glove Box And Emergency Kit",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

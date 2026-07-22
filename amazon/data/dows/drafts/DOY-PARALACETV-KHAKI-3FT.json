@@ -3,14 +3,14 @@
     "asin": "B0894QCDSH",
     "product_type": "SHOELACE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:32:36+00:00",
+    "generated_at": "2026-07-21T20:11:22+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 3,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -53,20 +53,57 @@
             "asin": "B0894QCDSH",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 550 Paracord Survival Hiking Boot Laces Khaki",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 550 Paracord Khaki Survival Shoelaces 3ft",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "ft",
+                "size": "3ft",
+                "color": "Khaki",
+                "name": "550 Paracord Survival Shoelaces"
+            }
         },
-        "title_differentiation": {
-            "value": "Made in USA, 550lb Breaking Strength, Multi-use EDC Gear",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 1-Pair 3 Ft Khaki Paracord Shoelaces",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 48,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1",
+                "pack_size_unit": "Pair",
+                "size": "3 Ft",
+                "color": "Khaki",
+                "name": "Paracord Shoelaces"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Made In USA, 550 Pound Breaking Strength, EDC Gear, Multi-Use Survival Tool, Pair Of 2",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 86,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "550 Lb Break Strength, 7 Strand Nylon Core, Metal Aglets, Made In USA, UV Resistant, Sold As A Pair",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 99,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

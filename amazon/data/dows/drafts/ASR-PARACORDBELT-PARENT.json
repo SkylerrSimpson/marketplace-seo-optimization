@@ -3,14 +3,14 @@
     "asin": "B0BHRQDLZK",
     "product_type": "APPAREL_BELT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:50:39+00:00",
+    "generated_at": "2026-07-21T20:02:49+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 3,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -53,20 +53,57 @@
             "asin": "B0BHRQDLZK",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 550 Paracord Belt with Stainless Buckle",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 550 Paracord Belt 52 inch Stainless Buckle",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "550",
+                "pack_size_unit": "",
+                "size": "52 inch",
+                "color": "",
+                "name": "Paracord Belt Stainless Buckle"
+            }
         },
-        "title_differentiation": {
-            "value": "110 ft Survival Cord, Universal Fit, 52 inch, Mil-Spec 550lb",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 52 in Paracord Survival Belt",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 40,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "52",
+                "color": "",
+                "name": "Paracord Survival Belt"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "110 Feet Unraveled Paracord, Mil-Spec 550Lb Breaking Strength, Universal Fit, Stainless Steel Buckle, EDC Survival Gear",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 119,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "110 Feet 550 Mil-Spec Paracord, Stainless Steel Buckle, Adjustable One Size Fit, Washable, Tactical EDC Gear",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 108,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

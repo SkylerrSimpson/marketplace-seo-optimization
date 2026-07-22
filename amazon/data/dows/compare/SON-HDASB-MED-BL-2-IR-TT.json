@@ -1,0 +1,60 @@
+{
+    "sku": "SON-HDASB-MED-BL-2-IR-TT",
+    "asin": "B0B2YMX9PP",
+    "product_type": "BATTERY",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-HDASB-MED-BL-2-IR-TT\nProduct Type: BATTERY\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Heavy Duty AAA Battery Set Alkaline Cell Batteries for Electronics 3pk\nDescription: The ToolTreaux AAA high-performance batteries are ideal for powering various electronic devices like flashlights, remotes, radios, and other household necessities. They are designed to deliver the correct amount of power to these devices and ensure optimal efficiency.<br/><br/>These batteries have an internal voltage power of 1.2V to 1.5V, and most devices that require AAA batteries are designed to work within the range of .9 to 1.5 so these batteries should work with most common electronic devices.<br/><br/>Compact in size, AAA batteries are great for keeping on hand in case of an emergency. Our 3-pack batteries come shrink-wrapped and can be used immediately as needed or stored for later. Keep them around the house or in your emergency kit to power flashlights, radios, and other power outage must-haves.<br/><br/>The heavy-duty AAA batteries are made with high-quality cadmium-free and mercury-free materials that you can use safely in your household devices, and they have a longer service life than other generic batteries. In addition to powering emergency devices, use them for other common electronics like keyboards, alarm clocks, toys, and more. <br/><br/>Please do not recharge these batteries, expose them to fire, disassemble them or mix them with other battery types. They can explode or leak if used improperly.\nSearch Terms: aaa batteries triple aaa batteries 3 pack size aaa alkaline batteries household batteries replacements electronic devices flashlights radios power outage keyboard power remote control batteries kids toys emergency prep power devices\nFeatures:\n- HIGH-PERFORMANCE AAA BATTERIES - The ToolTreaux AAA batteries are ideal for powering common electronic devices like remote controls, flashlights, radios, and other household items. They will deliver the correct amount of power to devices that require AAA batteries while providing optimal efficiency.\n- MERCURY AND CADMIUM FREE - These batteries are both mercury and cadmium free so you can use their safety in your household electronics. They have a longer service life than other generic batteries and are great for keyboards, mice, alarm clocks, and toys.\n- SHRINK-WRAPPED FOR STORAGE - Each set of 3 batteries comes shrink-wrapped so you can use them immediately or store them safely until needed. Keep them around the house or in your emergency kit to power radios, flashlights, and other power outage devices.\n- NOT RECHARGEABLE - Please note that these AAA batteries are single-use only and not rechargeable. Do not expose them to fire, use them with other battery types or disassemble them. They can explode or leak if used improperly.\n- SPECIFICATIONS - Battery size: AAA; Voltage: 1.5V; Shrink-wrapped; Pack size: 3; Mercury and cadmium free; Single use batteries (non-rechargeable)\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux AAA Alkaline Batteries 3-Pack",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "AAA",
+                "color": "",
+                "name": "Alkaline Batteries"
+            },
+            "char_count": 40,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 3-pk AAA Heavy Duty Alkaline Batteries",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "AAA",
+                "color": "",
+                "name": "Heavy Duty Alkaline Batteries"
+            },
+            "char_count": 49,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "High-Performance Alkaline, Mercury And Cadmium Free, 15V, Ideal For Remotes, Flashlights, Toys",
+            "char_count": 94,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Mercury And Cadmium Free, Shrink-Wrapped For Storage, 15V Output, Non-Rechargeable, For Remotes And Flashlights",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

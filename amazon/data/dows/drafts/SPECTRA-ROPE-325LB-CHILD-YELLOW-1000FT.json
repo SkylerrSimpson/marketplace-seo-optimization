@@ -3,14 +3,14 @@
     "asin": "B074JTGCRZ",
     "product_type": "CORD_ROPE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:10:19+00:00",
+    "generated_at": "2026-07-21T19:48:10+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 11,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -174,20 +174,57 @@
             "asin": "B074JTGCRZ",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Spectra Cord 325LB Tactical Sleeved Rope Yellow",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Spectra 1000ft Yellow 325LB Tactical Cord",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1000",
+                "pack_size_unit": "ft",
+                "size": "325LB",
+                "color": "Yellow",
+                "name": "Spectra Tactical Cord"
+            }
         },
-        "title_differentiation": {
-            "value": "1000ft, UV/Abrasion Resistant, Lightweight Survival Cordage",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 1000ft Yellow Spectra Cord",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 38,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "1000ft",
+                "color": "Yellow",
+                "name": "Spectra Cord"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Braided Polyester Sleeve, 325Lb Tensile Strength, UV And Abrasion Resistant, Survival And EDC",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 93,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "325 Lb Tensile Strength, Sleeved Polyester Jacket, UV And Abrasion Resistant, Lightweight Survival Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 102,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

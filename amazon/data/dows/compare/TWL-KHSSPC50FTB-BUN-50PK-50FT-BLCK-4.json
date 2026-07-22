@@ -1,0 +1,60 @@
+{
+    "sku": "TWL-KHSSPC50FTB-BUN-50PK-50FT-BLCK-4",
+    "asin": "B00BC1CFHM",
+    "product_type": "CORD_ROPE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: TWL-KHSSPC50FTB-BUN-50PK-50FT-BLCK-4\nProduct Type: CORD_ROPE\nBrand (from catalog): ASR Tactical\nExisting Title: ASR Tactical Braided HMPE Cord 260lb Strength Survival Cord Rope, 50ft Black\nDescription: The ASR Tactical Survival HMPE Cord is similar to kevlar cord and widely used for military, marine, sporting goods and aerospace applications. It has a high tensile working load and is rated at a 266lbs.<br/><br/>Coated in a polyethylene protective coating this survival cord is a very durable utility line for use in extreme conditions. It is lightweight, low-stretch and UV resistant making it ideal for survival kits, bug out bags, emergency use and everyday edc situations. HMPE cordage can be rapidly deployed when compared to tradition 550 paracord and is significantly smaller and lighter, while still being strong enough to count on in an emergency.<br/><br/>Weighing less than a few ounces, the mulitpurpose utility cord is optimal for perimeter trip wire applictions, building emergency shelters, repairing your gear, trip wire, traps, bows, and snares. This cord is the perfect companion to every home made emergency kit and ideal for personal SERE kits.<br/><br/>Other general applications for this HMPE cord include strain relief in optical cables recreation applications, military uses in ocean environment, single string kite flying, sewing thread, model rocket shock cords,wildfowl mitigation grid applications, tower and antenna guy lines and tow lines.<br/><br/>Available in multiple lengths. Colors available: Black\nSearch Terms: every day carry edc kevlar trip line booby trap signaling device tactical bug out bag survival cord kite braided spear fishing\nFeatures:\n- WORKING LOAD: Constructed from 3 strands of braided HMPE Line, has a high tensile working load; high strength, excellent abrasion resistance and UV resistant\n- HIGHLY RELIABLE: Used by US Navy Seals and US Air Force SERE Specialists. HMPE cord has amazing strength capabilities when compared to traditional 550 paracord\n- BENEFITS: Cut resistant; low stretch; resists raveling; UV resistant; abrasion resistant:undetectable by night vision\n- SPECIFICATIONS: Tensile Strength: 260lbs; Diameter: 0.03\" (0.82mm)\n- MADE IN THE USA: Lengths Available: 25; 50; 100; 500; 1000 feet. Colors Available: Black\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 50ft Black Braided HMPE Survival Cord",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "50",
+                "pack_size_unit": "ft",
+                "size": "50ft",
+                "color": "Black",
+                "name": "Braided HMPE Survival Cord"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 50-ft Black Braided HMPE Cord",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "50",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Black",
+                "name": "Braided HMPE Cord"
+            },
+            "char_count": 42,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "260Lb Tensile Strength, UV Resistant, Low Stretch, Cut Resistant, Military Grade, Made In USA",
+            "char_count": 93,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "260 Lb Strength, Low Stretch, UV Resistant, Cut Resistant, High Abrasion Resistance, Made In USA, Tactical Use",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}

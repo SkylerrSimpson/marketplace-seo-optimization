@@ -1,0 +1,60 @@
+{
+    "sku": "SON-OHDTS-6PC-8-ORNG",
+    "asin": "B01COB9U0S",
+    "product_type": "ANCHOR_STAKE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-OHDTS-6PC-8-ORNG\nProduct Type: ANCHOR_STAKE\nBrand (from catalog): ASR Outdoor\nExisting Title: (6 Piece) ASR Outdoor Heavy Duty Tent Pegs - Orange\nDescription: This 6-Pack of Neon Orange Tent Stakes is the ideal replacement for the tent stakes that come with your tent. It seems every outing you come back with one missing or bent because they are not made like these heavy duty after market tent stakes.<br/><br/>Constructed from heavy duty galvanized steel, these are the essential stake for the secure anchoring of tents, tarps, canopies, landscape trim, patio & garden structures.<br/><br/>The orange pull cord hook head is an added feature that is extremely useful for inserting and removing from even the hardest packed surfaces.<br/><br/>Make sure to grab a set of these before your next camping trip.\nSearch Terms: tent grow canopy camping beach pop up stakes backpacking 2 person instant play 4 bed kids fan 6 truck rooftop party canvas kit complete 3 cabin season cot teepee for poles heater screen one cat hammock 8 1 car dog suv baby shower light 20x20\nFeatures:\n- CAMPING GEAR ESSENTIAL: The ASR Outdoor camping tent stakes are an essential item to pack with your camping gear; the tent stakes feature sharp square-pointed tips, twisted metal body design, large heavy-duty PVC stoppers and a stringing eyelet on top of the plastic topper for anchoring versatility and easy installation\n- TWISTED METAL DESIGN: The tent stakes feature a deliberate twisted metal body design that easily penetrates everything from hard packed soil to sand; the tent pegs will hold strong against bad weather or heavy winds wherever you need to secure an overhead covering, canopy, tent, pergola and more\n- DURABLE GALVANIZED STEEL: The tent stakes to tent pegs are constructed from galvanized steel, meaning a protective zinc coating is placed over top of the steel in order to prevent any rusting or corrosion; the tent pegs material is incredibly durable and sturdy, sure to last through many camping seasons and backpacking adventures\n- MULTIPURPOSE TENT STAKE: Whether you are installing a tent, grow tent, canopy, camping tent, beach tent, pop up tent, tarp tent, pergola or overhead covering for a wedding, picnic, sporting event or other, the tent stakes can handle all of it and with the handy stringing eyelet on top of the plastic topper, installation will be a breeze\n- SPECIFICATIONS: Length: 10 inches; Thickness: 7mm; Material: Galvanized High Carbon Steel; Available Colors: Orange, Green or Glow in the Dark\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 6-Pack Orange Heavy Duty Tent Stakes",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "6",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "Orange",
+                "name": "Heavy Duty Tent Stakes"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 6-pk Orange Heavy Duty Tent Pegs",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "6",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Orange",
+                "name": "Tent Pegs"
+            },
+            "char_count": 44,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Galvanized Steel, Twisted Design, 10In Length, Sharp Points, Easy Pull Cord Hook, All Weather",
+            "char_count": 93,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Twisted Steel Body, Galvanized High Carbon Steel, 10 Inch Length, Sharp Point Tips, Easy Pull Cord Removal",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

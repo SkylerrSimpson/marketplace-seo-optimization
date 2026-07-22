@@ -3,14 +3,14 @@
     "asin": "B085HLN8DH",
     "product_type": "BOTTLE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:15:40+00:00",
+    "generated_at": "2026-07-21T19:50:03+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 16,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -229,20 +229,57 @@
             "asin": "B085HLN8DH",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Zak Designs Mickey Mouse Kids Water Bottle 12oz Pop-Up",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Zak Designs Mickey Mouse Kids Water Bottle Canteen 12oz",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Zak Designs",
+                "pack_size": "12",
+                "pack_size_unit": "oz",
+                "size": "Kids",
+                "color": "",
+                "name": "Mickey Mouse Water Bottle Canteen"
+            }
         },
-        "title_differentiation": {
-            "value": "BPA-Free, Leak-Proof, Built-In Straw, Carrying Strap",
+        "item_name_ai_openai": {
+            "value": "Zak Designs 12 oz Mickey Mouse Kids Water Bottle Canteen",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 56,
+            "review_only": true,
+            "tokens": {
+                "brand": "Zak Designs",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "12 oz",
+                "color": "",
+                "name": "Mickey Mouse Kids Water Bottle Canteen"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Pop-Up Lid, Built-In Straw, Leak-Proof, Carrying Strap, BPA-Free, Dishwasher Safe",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 81,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Pop Up Lid, Built-In Straw, Leak-Proof Snap Closure, Carrying Strap, BPA-Free, Top Rack Dishwasher Safe",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

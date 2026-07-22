@@ -3,14 +3,14 @@
     "asin": "B09MZWZ8J5",
     "product_type": "KARAOKE_MACHINE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:21:59+00:00",
+    "generated_at": "2026-07-21T20:09:02+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -45,20 +45,57 @@
             "asin": "B09MZWZ8J5",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "KidPlay Products Kids Portable Karaoke Machine with Keyboard",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 60,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Portable",
+                "color": "",
+                "name": "Karaoke Machine with Keyboard"
+            }
         },
-        "title_differentiation": {
-            "value": "Singing Keyboard, Built-in Microphone, Lights Up, Ages 3+, Batteries Included",
+        "item_name_ai_openai": {
+            "value": "KidPlay Products Kids Portable Singing Karaoke Machine",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 54,
+            "review_only": true,
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Kids Portable Singing Karaoke Machine"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Microphone Included, Musical Keyboard, Lights Up, Portable With Handle, Ages 3 Plus",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 83,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Built In Handle, Plug In Microphone, Musical Keyboard, Lights Up, Portable Singing Toy, Age 3 Plus, For Parties",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

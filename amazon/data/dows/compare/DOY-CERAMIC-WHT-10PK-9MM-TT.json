@@ -1,0 +1,60 @@
+{
+    "sku": "DOY-CERAMIC-WHT-10PK-9MM-TT",
+    "asin": "B0B6DV8YVH",
+    "product_type": "TOOLS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DOY-CERAMIC-WHT-10PK-9MM-TT\nProduct Type: TOOLS\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux 10-Pack Snap-off 9mm Utility Knife Ceramic Razor Blades, Ultra Sharp Craft Supplies\nDescription: Tougher than steel and unquestionably sharper, these snap off 9mm ceramic replacement razor blades from ToolTreaux will likely have you making the permanent jump to ceramic. <br/><br/>In this package you'll receive 10 replacement ceramic razor blades, which come in a handy plastic storage container to keep blades safe and secure when not in use. Durable and strong ceramic zirconia construction allows for long periods of incredible sharpness, non dulling superior edge retention, and will easily slice through foam, paper, fabric, rubber and more with speed, accuracy and precision. Notably, the pen cutter blades are rust resistant, nonmagnetic, nonmetallic and non porous too.<br/><br/>Compared to traditional metal blades, ToolTreaux's ceramic razor blades will outperform standard steel blades whether they're being used in a commercial setting or at home for arts and crafts; these ceramic razor blades will afford you a longer, more reliable and uninterrupted work flow across many different projects.<br/><br/>NOTE: These wear resistant ceramic replacement razor blades are only compatible with craft knives, hobby knives, pen cutter knives, utility knives or box cutter knives that can house a 9mm blade; not usable with a standard 18mm knife.<br/><br/>Sold as pack of 10.\nSearch Terms: art supplies scrapbooking supplies arts and crafts hobby knife blades fabric cutter sewing upholstery tools school supplies craft kits leather working tools precision knife warehouse supplies snap blade utility knife pen cutter\nFeatures:\n- CERAMIC ZIRCONIA RAZOR BLADES: In this package you'll receive 10 replacement snap off ceramic razor blades; the razor blades are non dulling, rust resistant, nonmagnetic, nonmetallic and non porous, and come in a handy plastic storage case to keep unused blades safe and secure\n- LONG LASTING BOX CUTTER BLADES: Durable and strong, ceramic zirconia construction allows for long periods of incredible sharpness, superior edge retention and will easily slice through foam, paper, fabric, rubber and more with speed, accuracy and precision\n- SHARPER THAN STEEL: ToolTreaux's ceramic razor blades will outperform standard steel blades whether they're being used in a warehouse setting or at home for craft and hobby; the razor blades will afford you a longer, more reliable and uninterrupted work flow across many different projects\n- CRAFT KNIFE COMPATIBILITY: These ceramic replacement razor blades are only compatible with craft knives or pen cutter tools that can house a 9mm blade; not compatible with a standard 18mm box cutter or utility knife\n- SPECIFICATIONS: Case Dimensions: 4 x 0.5 x 0.5 inches; 10 Pack Weight: 0.5lbs; Color: White; Material: Ceramic Zirconia; Blade Weight: 0.01lbs; Blade Dimensions: 4.25 x 0.25 x 0.06 inches\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 10-Pack 9mm White Ceramic Razor Blades",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "10",
+                "pack_size_unit": "Pack",
+                "size": "9mm",
+                "color": "White",
+                "name": "Ceramic Razor Blades"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 10-Pk 9mm Ceramic Utility Knife Blades",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "10",
+                "pack_size_unit": "Pk",
+                "size": "9mm",
+                "color": "",
+                "name": "Ceramic Utility Knife Blades"
+            },
+            "char_count": 49,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Snap-Off Design, Sharper Than Steel, Non-Dulling, Rust Resistant, Superior Edge Retention, Craft Knife Compatible",
+            "char_count": 113,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Snap-Off Ceramic Zirconia, Rust Resistant, Nonmagnetic, Long-Lasting Sharpness, Plastic Storage Case",
+            "char_count": 100,
+            "validation_error": null
+        }
+    }
+}

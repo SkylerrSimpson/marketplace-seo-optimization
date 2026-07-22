@@ -3,14 +3,14 @@
     "asin": "B07D949WYK",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:21:07+00:00",
+    "generated_at": "2026-07-21T20:08:55+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 3,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -57,20 +57,57 @@
             "asin": "B07D949WYK",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Gold Prospecting Pan Kit - 7pc with Scale",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 7pc Gold Prospecting Pan Kit",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 40,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "7",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Gold",
+                "name": "Prospecting Pan Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "10\" Green Pan, Glass Vials, Digital Scale, Pipettes",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 7-pc Green Gold Prospecting Pan Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 47,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "7",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Green",
+                "name": "Gold Prospecting Pan Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "10 Inch Green Gold Pan, Glass Vials, Digital Scale, Pipette Droppers, Portable",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 78,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "7-Piece Bundle, 10\" Dual-Riffle Gold Pan, 3 Glass Vials, Pocket Scale, 2 Pipette Droppers, Compact Field Kit",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 108,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -1,0 +1,56 @@
+{
+    "sku": "SON-LEATHERPUNCHSET-12PC",
+    "asin": "B079PB61NJ",
+    "product_type": "TOOLS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-LEATHERPUNCHSET-12PC\nProduct Type: TOOLS\nBrand (from catalog): Universal Tool\nExisting Title: Heavy-Duty 12-Piece Hollow Punch Set with Zipper Pouch\nDescription: Punch holes in leather or plastic easily with the Universal Tool Hollow Punch Set. <br/><br/>This set comes with 12 individual punch sizes that are all feature a machine diamond-patterned grip for a secure, no-slip hold. The sizes included are: 1/8\", 5/32\", 3/16\", 7/32\", 1/4\", 5/16\", 3/8\", 7/16\", 1/2\", 9/32\", 5/8\" and 3/4\". <br/><br/>All of the punches are constructed of heat-hardened high carbon steel for long lasting durability and sharpness. They come with a durable canvas zip up pouch for easy storage and transportation when not in use. Make sure to grab a set of these punches before your next leather-working project.\nSearch Terms: crafting DIY leather working hole punches carbon steel punches\nFeatures:\n- 12 Piece Hollow Punch Set: 1/8\", 5/32\", 3/16\", 7/32\", 1/4\", 5/16\", 3/8\", 7/16\", 1/2\", 9/32\", 5/8\", 3/4\"\n- Constructed of Heat-hardened High Carbon Steel for Sharpness and Durability\n- Machined Diamond-patterned Grip for Secure, No Slip Hold under Hammer\n- Punch Precise Holes in Leather or Plastic\n- Comes with Durable Canvas Zip Pouch for Easy Storage & Transportation\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": null,
+            "tokens": null,
+            "char_count": null,
+            "validation_error": "no item_name returned"
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 12-pk Hollow Punch Set with Zipper Pouch",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "12",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Hollow Punch Set"
+            },
+            "char_count": 55,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": null,
+            "char_count": null,
+            "validation_error": "no title_differentiation returned"
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Heat Hardened High Carbon Steel, Diamond Patterned Grip, 12 Sizes, Leather And Plastic, Canvas Zip Pouch",
+            "char_count": 104,
+            "validation_error": null
+        }
+    },
+    "raw": {
+        "anthropic": "{\n  \"item_name\": \"Universal Tool 12-Piece Hollow Punch Set with Pouch\",\n  \"tokens\": {\n    \"brand\": \"Universal Tool\",\n    \"pack_size\": \"12\",\n    \"pack_size_unit\": \"Piece\",\n    \"size\": \"\",\n    \"color\": \"\",\n    \"name\": \"Hollow Punch Set with Pouch\"\n  },\n  \"title_differentiation\": \"Heat-Hardened Carbon Steel, 1/8\" to 3/4\" Sizes, Diamond-Grip, Canvas Zip Pouch\"\n}"
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-HANGWORKLIGHT-ORG",
+    "asin": "B084H6114F",
+    "product_type": "TOOLS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-HANGWORKLIGHT-ORG\nProduct Type: TOOLS\nBrand (from catalog): Universal Tool\nExisting Title: Universal Tool Hanging Hook Work Light 400 Lumen Dual COB LEDs Magnetic Base\nDescription: When you need dependable, ultra-bright lighting, this 400 Lumen Dual COB LED Work Light delivers wide, even illumination exactly where you need it. Whether you're working under the sink, repairing your car, navigating a dark crawl space, or dealing with a sudden power outage, this portable utility light ensures you never work in the dark. With the Universal Tool Hanging Hook Work Light, you can ensure you'll get the job done right.<br/><br/>Our Universal Tool work light features 400 lumens and dual COB LEDs for optimum lighting, even in dark crawlspaces or under the sink. It comes in high-visibility bright orange color and measures 8.5\" x 3.5\", making it a great size for any workshop, craft room or tight space. It comes with a hanging hook and an integrated rare earth magnet on the base so you can either hang it above you or attach it to metal for a hands-free option, allowing you to focus on your project.<br/><br/>The light has an easy to use on/off switch and has a snap-shut battery compartment to keep the batteries in place during use. The light requires 3AA batteries which we've included so you can get to work right out of the box. In addition to being a workshop essential, these hanging hook magnetic work lights are great for camping, nighttime parties, automotive maintenance or even setting up a dedicated space to create artwork. They'll also come in handy if you find yourself in an emergency and out of power. Make sure you grab a few of these to keep around your house before your next project.\nSearch Terms: portable mechanic light magnetic work lamp cob inspection light handheld utility light garage flashlight emergency worklight camping repair light auto shop light under hood light battery operated shop light neon orange safety light power outage light basement attic crawl space light hanging work lamp magnet base task light roadside emergency light tool box light\nFeatures:\n- SUPER BRIGHT 400 LUMEN WORK LIGHT: Powerful dual COB LED technology delivers ultra-bright, wide-angle illumination for maximum visibility. Perfect for dark crawl spaces, under sinks, attics, basements, garages, and emergency power outages\n- HANDS-FREE MAGNETIC & HANGING DESIGN: Built-in heavy-duty rare earth magnet securely attaches to metal surfaces, while the pop-out swivel hook allows easy hanging. Ideal for automotive repair, electrical work, plumbing, and DIY projects\n- HIGH-VISIBILITY NEON ORANGE BODY: Bright safety orange finish makes it easy to locate in toolboxes, workshops, and dim environments. Compact 8.5\" x 3.5\" design fits easily in tight spaces, storage bins, or glove compartments\n- BATTERIES INCLUDED AND READY TO USE: Powered by (3) AA batteries (included) so you can start working right out of the box. No additional purchases required\n- DURABLE & VERSATILE FOR INDOOR/OUTDOOR USE: Made from high-quality impact-resistant plastic. Great for camping, roadside emergencies, car maintenance, home repairs, outdoor events, hobby crafts, and job sites\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool Hanging Work Light 400 Lumen Orange",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Orange",
+                "name": "Hanging Work Light 400 Lumen"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 8.5-in Orange Hanging Hook Work Light",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "8.5-in",
+                "color": "Orange",
+                "name": "Hanging Hook Work Light"
+            },
+            "char_count": 52,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "400 Lumen Dual COB LED, Magnetic Base, Hanging Hook, High-Visibility Orange, Batteries Included",
+            "char_count": 95,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "400 Lumen Dual COB LEDs, Magnetic Base And Swivel Hook, Batteries Included, High Visibility Orange",
+            "char_count": 98,
+            "validation_error": null
+        }
+    }
+}

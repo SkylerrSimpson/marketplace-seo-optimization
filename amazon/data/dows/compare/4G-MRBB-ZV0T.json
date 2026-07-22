@@ -1,0 +1,60 @@
+{
+    "sku": "4G-MRBB-ZV0T",
+    "asin": "B0D464XXYH",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4G-MRBB-ZV0T\nProduct Type: KNIFE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 8 inch Woodsmen Camping Pocket Knife Wood Handle, Natural\nDescription: If you're an avid hunter, camper, hiker or outdoor enthusiast, then you know how important it is to have a durable pocket knife on hand for utility purposes or in case of an emergency. The ASR Outdoor Pocket Knife is the trusty tool you need for outdoor adventuring and every day carry.<br/><br/>Our ASR Outdoor Pocket Knife is constructed of high-quality 440 stainless steel that will never rust, so you can count on it rain or shine. It has an overall length of 8\", a blade length of 3.5\" and folds down to just 4.5\" so it will easily fit in any pocket, backpack or travel bag. It features a black drop-point blade, which is designed with versatility in mind. Drop point knives are great for butchering tasks like cutting, skinning, and carving.<br/><br/>The knife has a classic wood-grain handle for an aesthetic look, and the handle also features ergonomic hand grooves to prevent slippage during use. It's designed with a thumb-assisted opening mechanism, which means you don't need to worry about the speed of deployment, making this a great self-defense tool or an emergency seat belt cutter in case of a car crash. The handle also comes with a steel pocket clip for your easy storage when not in use.<br/><br/>Included with the folding pocket knife is a sturdy nylon black carrying case that also comes with a belt loop if you'd rather wear your knife on your belt for even faster deployment. This is a must-have everyday carry tool and is also a great gift idea for a friend or loved one\nSearch Terms: pocket knife camping hiking carving whittling folding men women wood handle stainless steel natural survival clip carrying case sheath\nFeatures:\n- DURABLE DESIGN - Made of high-quality 440 stainless steel that will never rust; trusty every day carry tool, rain or shine\n- DROP POINT BLADE - Designed with versatility in mind; this pocket knife is the ideal tool for cutting, skinning and carving\n- COMPACT POCKET KNIFE - Overall Length: 8\", Blade Length: 3.5\", Folded Length: 4.5\". Easily fits in any pocket, backpack or travel bag for convenience\n- THUMB-ASSISTED OPEN - Speedy Opening Mechanism Designed for Quick Deployment; Comes with Nylon Carrying Case and Belt Loop to Protect Knife When Not in Use\n- ERGONOMIC HANDLE - Classic Wood-grain Handle with Ergonomic Hand Grooves Adds Comfort and Prevents Slippage During Use; Great Self Defense Tool in Case of Emergency\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 8 inch Woodsmen Camping Pocket Knife Wood Handle",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8",
+                "pack_size_unit": "inch",
+                "size": "",
+                "color": "Natural",
+                "name": "Woodsmen Camping Pocket Knife Wood Handle"
+            },
+            "char_count": 60,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 8in Natural Woodsmen Camping Pocket Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Natural",
+                "name": "Woodsmen Camping Pocket Knife"
+            },
+            "char_count": 53,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Drop Point Blade, 440 Stainless Steel, Thumb Assisted Open, Ergonomic Wood Grain Handle, Nylon Carrying Case",
+            "char_count": 108,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "440 Stainless Steel, Drop Point Blade, Thumb-Assisted Open, Wood Grain Handle, Nylon Sheath, Pocket Clip",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

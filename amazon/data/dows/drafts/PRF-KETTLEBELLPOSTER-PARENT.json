@@ -3,14 +3,14 @@
     "asin": "B07KSNB893",
     "product_type": "WALL_ART",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:04:03+00:00",
+    "generated_at": "2026-07-21T19:45:28+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 0,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,20 +27,57 @@
             "source": "usurper",
             "usurper_column": "attr.mpn"
         },
-        "item_name_ai_suggested": {
-            "value": "Productive Fitness Kettlebell Exercises Poster 24x36 Home Workout",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Productive Fitness Kettlebell Exercise Poster 24\" x 36\"",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "24",
+                "pack_size_unit": "x 36 in",
+                "size": "",
+                "color": "",
+                "name": "Kettlebell Exercise Poster"
+            }
         },
-        "title_differentiation": {
-            "value": "Step-by-Step Instructions, Expert-Designed, Proper Form Guide",
+        "item_name_ai_openai": {
+            "value": "Productive Fitness 24x36-in Kettlebell Exercise Poster",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 54,
+            "review_only": true,
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "24x36",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Kettlebell Exercise Poster"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Step-by-Step Instructions, Proper Form And Technique, Colorful Photos, Home Gym Training, Large 24X36 Format",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 108,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Step By Step Instructions, Color Photos, Proper Form, Easy To Follow, Ideal For Home Gym",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 88,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

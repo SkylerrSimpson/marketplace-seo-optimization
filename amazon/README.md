@@ -45,6 +45,8 @@ compliance attributes that are dangerous to write blindly.
     - [Phase 4 — product-type schema cache](#phase-4--product-type-schema-cache)
     - [Phase 5 — audit](#phase-5--audit)
     - [Phase 6 — gap-fill analysis](#phase-6--gap-fill-analysis)
+    - [Phase 6.5 — modular title generation](#phase-65--modular-title-generation)
+    - [Phase 6.6 — title review (manual)](#phase-66--title-review-manual)
     - [Phase 7 — AI-assisted draft generation](#phase-7--ai-assisted-draft-generation)
     - [Phase 8 — write-back to Amazon](#phase-8--write-back-to-amazon)
       - [Write-safety layer](#write-safety-layer)
@@ -101,7 +103,9 @@ Requires PHP 8.1+ and Composer. Two dependencies drive the pipeline:
   — the raw, Saloon-based SP-API SDK (same library Usurper wraps). The
   `SellingPartnerApi::seller(...)` connector handles refresh tokens internally.
 - [`anthropic-ai/sdk`](https://github.com/anthropic-ai/sdk) — the official
-  Anthropic PHP SDK, used by Phase 7 for AI-authored attributes.
+  Anthropic PHP SDK, used by Phase 6.5 (titles) and Phase 7 (attributes).
+- [`openai-php/client`](https://github.com/openai-php/client) — the OpenAI PHP
+  SDK, used by Phase 6.5 to generate the competing title candidates.
 
 ```bash
 composer install
@@ -112,7 +116,8 @@ Required `.env` values (US marketplace, IGE + `_DOWS` variants):
 
 - SP-API app credentials (client id/secret, refresh token, LWA), seller id,
   `AMAZON_SPAPI_MARKETPLACE_ID=ATVPDKIKX0DER`, `AMAZON_SPAPI_SANDBOX=false`.
-- `ANTHROPIC_API_KEY` — required only for Phase 7.
+- `ANTHROPIC_API_KEY` — required for Phase 6.5 (titles) and Phase 7 (attributes).
+- `OPENAI_API_KEY` — required for Phase 6.5 unless `--provider=anthropic`.
 
 `lib/bootstrap.php` defines the path constants and an `amazon_paths($account)`
 helper that returns account-scoped paths and creates directories on first use.
@@ -153,16 +158,25 @@ php amazon/scripts/fetch_product_type_schemas.php
 php amazon/scripts/audit_listings.php --account=IGE
 php amazon/scripts/analyze_gap_fill.php --account=IGE
 
-# 7 — draft (dry-run, then write)
+# 6.5 — modular titles (both providers → compare/{sku}.json + title_decisions.csv)
+php amazon/scripts/generate_titles.php --account=IGE --dry-run
+php amazon/scripts/generate_titles.php --account=IGE
+# ...or ~50% cheaper for a full account via each provider's Batch API (blocks until done;
+# --resume/--cancel recover an interrupted run from amazon/data/{account}/batch-manifest.json):
+php amazon/scripts/generate_titles.php --account=IGE --batch
+
+# 6.6 — MANUAL: open output/title_decisions.csv and set each *_pick column
+
+# 7 — draft (dry-run, then write; folds compare/ title options into the draft)
 php amazon/scripts/draft_listings.php --account=IGE --dry-run
 php amazon/scripts/draft_listings.php --account=IGE
 # → review the committed drafts/{sku}.json before writing anything to Amazon
 
-# 8 — write-back (dry-run, then apply)
-php amazon/scripts/patch_listings.php --account=IGE            # dry-run
-php amazon/scripts/patch_listings.php --account=IGE --apply
+# 8 — write-back (dry-run, then apply; --include-titles to also patch reviewed titles)
+php amazon/scripts/patch_listings.php --account=IGE                          # dry-run
+php amazon/scripts/patch_listings.php --account=IGE --apply --include-titles
 
-# 9 — project back to Usurper, then import the CSV into Usurper
+# 9 — project back to Usurper (includes reviewed titles), then import the CSV
 php amazon/scripts/project_to_usurper.php --account=IGE
 
 # 10 — variation diagnostic (any time; read-only)
@@ -206,6 +220,9 @@ Phases 0–4  fetch reference data (SP-API → disk)
 Phase 5   audit_listings.php        → listings_audit.csv        (what's missing, ranked)
    ▼
 Phase 6   analyze_gap_fill.php      → listings_gap_fill.csv     (fillable vs needs-authoring)
+   ▼
+Phase 6.5 generate_titles.php       → compare/*.json + title_decisions.csv  (Anthropic vs OpenAI)
+   │      Phase 6.6 (manual)         → reviewer sets *_pick in title_decisions.csv
    ▼
 Phase 7   draft_listings.php        → drafts/{sku}.json         (committed, human-reviewable)
    │                                        │
@@ -278,6 +295,7 @@ amazon/
 │   │   │   ├── catalog/   ← {asin}.json per-ASIN getCatalogItem snapshot
 │   │   │   │   └── errors/  ← {asin}.json structured error envelope for 404s
 │   │   │   └── usurper/   ← InventoryExport_{ts}.csv (drop Usurper dumps here)
+│   │   ├── compare/       ← {sku}.json Anthropic-vs-OpenAI title candidates (committed)
 │   │   ├── drafts/        ← {sku}.json authored attribute drafts   (committed)
 │   │   ├── backups/       ← {sku}/{ts}.json pre-change snapshots    (committed)
 │   │   ├── drift/         ← snapshot.json deterministic drift digest (committed)
@@ -290,10 +308,12 @@ amazon/
                             ComplianceAttributes, ComplianceResolvers,
                             DefaultAttributes, HighValueAttributes,
                             UsurperAttributeMap, AmazonRateLimits, …
+                            Amazon/Ai/ (PSR-4 Ige\Amazon\Ai\ — title providers,
+                            prompts, ModularTitleGenerator; Phase 6.5)
 ```
 
 **What's committed vs gitignored:** authored content is source of truth and is
-tracked — `drafts/`, `backups/`, and `drift/` are committed; so is
+tracked — `compare/`, `drafts/`, `backups/`, and `drift/` are committed; so is
 `data/schemas/` (small, high-value, reviewable, and protection against
 accidental re-downloads). Everything under `input/` and the `output/*.csv|*.txt`
 files are gitignored (regenerable, potentially large). `backups/` and `drift/`
@@ -453,6 +473,140 @@ Output: `output/listings_gap_fill.csv`, one row per SKU/attribute pair
 dump are flagged `sku_not_in_usurper` rather than silently dropped). Prints a
 summary of SKUs affected and fillable-vs-authoring counts.
 
+### Phase 6.5 — modular title generation
+
+**Use case:** produce competing, human-reviewable candidates for the two Amazon
+**modular title** attributes — `item_name` (≤75 chars) and `title_differentiation`
+(≤125 chars) — from **two** LLM providers, so a reviewer can pick the best output.
+
+For each gap-fill SKU (or a single `--sku`), the tool assembles one product context
+(brand from the catalog snapshot, the existing title, description, `bullet_point`
+features, and `generic_keyword` search terms) and asks **each provider** — Anthropic
+and OpenAI — for both attributes in a single combined call
+(`lib/Amazon/Ai/ModularTitleGenerator`). The item_name prompt drives a token format
+(`${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}`) and returns the
+parsed tokens alongside the assembled title; each candidate's char count and any
+over-cap violation are recorded.
+
+```bash
+# Requires ANTHROPIC_API_KEY and OPENAI_API_KEY (or narrow with --provider=)
+php amazon/scripts/generate_titles.php --account=IGE --dry-run
+php amazon/scripts/generate_titles.php --account=IGE
+php amazon/scripts/generate_titles.php --account=IGE --sku=SOME-SKU --provider=anthropic
+```
+
+Flags: `--provider=both|anthropic|openai` (default both), `--anthropic-model=`
+(default `claude-sonnet-5`; aliases `haiku`/`sonnet`/`opus`), `--openai-model=`
+(default `gpt-4o`), `--force` to overwrite, `--dry-run`, plus the batch flags below.
+
+#### Batch mode (`--batch`) — ~50% cheaper, for a full account
+
+By default the script makes one live API call per provider per SKU, in order.
+`--batch` instead submits **one asynchronous batch per provider** (Anthropic Message
+Batches / OpenAI Batch API), which bills at roughly half the live rate and processes
+every SKU concurrently. The command blocks, polling until the batches finish, then
+assembles the same `compare/{sku}.json` files as the live path.
+
+```bash
+# Submit both providers as batches and block until they complete.
+php amazon/scripts/generate_titles.php --account=IGE --batch --force \
+    --anthropic-model=haiku --openai-model=gpt-5.4-mini
+
+# Poll less often (default 30s) while waiting.
+php amazon/scripts/generate_titles.php --account=IGE --batch --poll-interval=60
+
+# The batch window can run for many minutes/hours; run it detached if you like:
+nohup php amazon/scripts/generate_titles.php --account=IGE --batch --force \
+    > batch.log 2>&1 &
+```
+
+On submit the script writes **`amazon/data/{account}/batch-manifest.json`** recording
+each provider's batch id, model, and the SKU↔request map, and deletes it once results
+are assembled. While that manifest exists (i.e. a run was interrupted mid-poll before
+it finished), two recovery flags act on it — no argument needed, the manifest is the
+source of truth for providers and models:
+
+```bash
+# Reattach to the still-running batches and finish (no resubmit, no double billing).
+php amazon/scripts/generate_titles.php --account=IGE --resume
+
+# Cancel the in-flight batches and remove the manifest.
+php amazon/scripts/generate_titles.php --account=IGE --cancel
+```
+
+Batch flags: `--batch`, `--resume`, `--cancel`, `--poll-interval=SECONDS` (default 30).
+Note SKUs are keyed inside the batch by a positional id (`sku-1`, `sku-2`, …) because
+Amazon SKUs can contain characters (dots, spaces) that Anthropic's `custom_id` pattern
+rejects; the manifest maps those ids back to real SKUs.
+
+Output, three artifacts:
+- `compare/{sku}.json` — both providers' candidates side by side, plus the shared
+  `prompt` that produced them (for debugging), per SKU (committed).
+- `output/title_compare.csv` — read-only report, **fully rebuilt** every run.
+- `output/title_decisions.csv` — the **editable decision sheet** (Phase 6.6). Seeded
+  from the compare files with both candidates plus an empty `*_pick` / `*_final`
+  column per attribute. Re-running **preserves** any picks already entered, so it is
+  safe to regenerate. This is the file a reviewer marks up.
+
+This phase only emits artifacts — no drafts, no writes.
+
+### Phase 6.6 — title review (manual)
+
+`output/title_decisions.csv` is a **review sheet**, one row per product (SKU). For
+each product, two AI models — Anthropic and OpenAI — proposed an **item_name** (the
+main Amazon title) and a **title_differentiation** (a short "why buy this" phrase
+Amazon appends after the title). The reviewer's job is to pick the better wording,
+or write their own. Nothing is sent to Amazon until these picks are made.
+
+**Columns** (edit only the **`_pick`** and **`_final`** columns; leave the rest and
+don't rename/reorder them):
+
+| column | meaning | edit? |
+|---|---|---|
+| `item_name_anthropic` / `item_name_openai` | the two title candidates | read-only |
+| `item_name_pick` | your choice: `anthropic` \| `openai` \| `custom` \| `skip` | **yes** |
+| `item_name_final` | your own title — used **only** when pick is `custom` | custom only |
+| `td_anthropic` / `td_openai` | the two benefit-phrase candidates | read-only |
+| `td_pick` | your choice for the benefit phrase (same four options) | **yes** |
+| `td_final` | your own benefit phrase — used **only** when pick is `custom` | custom only |
+
+**How to pick** — in a `_pick` column type exactly one of:
+
+- `anthropic` → use the Anthropic candidate
+- `openai` → use the OpenAI candidate
+- `custom` → use your own wording (type it into the matching `_final` column)
+- `skip` (or leave **blank**) → don't change this one on Amazon
+
+The title and the benefit phrase are **two independent decisions** — you can take
+the title from `anthropic` and the phrase from `openai`. A blank row is safe: it
+simply changes nothing for that product.
+
+**Worked example** — for `26C-LBLH-ACACIAPASTASPOON-1PC`, to fix the spacing on
+the Anthropic title yourself but keep OpenAI's phrase as-is:
+
+| item_name_pick | item_name_final | td_pick | td_final |
+|---|---|---|---|
+| `custom` | `Labrea Life + Home 11" Acacia Wood Pasta Spoon` | `openai` | *(blank)* |
+
+**Two length rules the system enforces for you** (you don't count characters, but a
+downstream guard silently drops a choice that breaks them — see the coupling rule
+in Phase 8):
+
+1. `item_name` must be **≤ 75 characters** — a too-long custom title is dropped.
+2. `item_name` + `title_differentiation` together must be **≤ 200 characters** — if
+   the pair is too long, the *phrase* is dropped (the title still goes through).
+
+So when writing custom text, keep the title short and the phrase concise.
+
+**Editing tips** — open it in Excel / Google Sheets, save back as **CSV** (not
+`.xlsx`). Re-running Phase 6.5 refreshes the candidate columns but **preserves
+every pick and custom value you already entered** (`TitleDecisions::rebuildSheet`),
+so your work is never clobbered.
+
+The chosen values feed both Phase 8 (`--include-titles`) and Phase 9, resolved
+through `Ige\Amazon\Ai\TitleDecisions` so the two never drift. Nothing is patched
+or projected until you make picks here.
+
 ### Phase 7 — AI-assisted draft generation
 
 **Use case:** produce a committed, human-reviewable draft per SKU. Fillable
@@ -480,18 +634,17 @@ per-attribute schema constraints. Three cost/quality controls keep spend sane
   their base SKU's context (same-ASIN/product_type guarded). `--no-data-gate`
   disables this.
 
-**Modular titles** (Amazon, effective 2026-07-27): `item_name` (≤75) plus a new
-`title_differentiation` (≤125), combined ≤200, with `title_differentiation`
-only valid when `item_name ≤ 75`. Handled **schema-driven** — length caps come
-straight from each attribute's schema `maxLength`, so this activates
-automatically once Phase 4 re-caches schemas after that date (see Phase 4).
-
-On top of that, the drafter always emits a **reviewable modular title
-suggestion** under a separate `item_name_ai_suggested` key (Opus-authored, ≤75
-chars, seeded from the existing listing → catalog → Usurper title so it condenses
-rather than invents). The live `item_name` is never overwritten. The suggestion
-carries `review_only: true`, so `patch_listings.php` shows it but **never sends
-it to Amazon** — a human picks whether to promote it.
+**Modular titles** (Amazon, effective 2026-07-27): `item_name` (≤75) and
+`title_differentiation` (≤125), combined ≤200, with `title_differentiation` only
+valid when `item_name ≤ 75`. These two are **not authored here** — Phase 6.5
+(`generate_titles.php`) writes both providers' candidates to `compare/{sku}.json`,
+and the drafter folds each into the draft under a **review-only** key
+(`item_name_ai_{provider}` / `title_differentiation_ai_{provider}`), carrying the
+provider, model, char count, parsed tokens (item_name), and any over-cap
+`validation_error`. The live `item_name` is never overwritten and nothing is
+auto-patched: a human picks the winning provider, and the coupling rule
+(`item_name ≤ 75`, pair ≤ 200) is validated at patch time. When a SKU has no
+compare file, the drafter notes it and skips the title keys.
 
 **Variation-member safety** (stakeholder rule): for an item that is part of a
 variation family, its actual variation-theme attributes (read from the item's
@@ -526,7 +679,7 @@ php amazon/scripts/draft_listings.php --account=IGE --full            # both; th
 php amazon/scripts/draft_listings.php --account=IGE --full --model=opus
 
 # Force a single model (overrides auto):
-php amazon/scripts/draft_listings.php --account=IGE --model=claude-sonnet-4-6
+php amazon/scripts/draft_listings.php --account=IGE --model=claude-sonnet-5
 
 # Single-SKU test:
 php amazon/scripts/draft_listings.php --account=IGE --sku=IGE-PENLIGHT
@@ -588,9 +741,18 @@ shrink guards.
 
 Reads `drafts/{sku}.json`, formats each attribute into an SP-API PATCH
 (`op: replace` per attribute path, so untouched attributes are left alone),
-and submits via `patchListingsItem`. Skips `null` values and any attribute
-flagged `validation_error` in Phase 7 — only clean values reach Amazon.
-Throttles and retries 429s via `AmazonRateLimits::retryWithBackoff()`.
+and submits via `patchListingsItem`. Skips `null` values, any attribute flagged
+`validation_error`, and `review_only` entries (the per-provider title candidates)
+— only clean values reach Amazon. Throttles and retries 429s via
+`AmazonRateLimits::retryWithBackoff()`.
+
+**Modular titles** (`--include-titles`): `item_name` / `title_differentiation` are
+never patched from the draft. With `--include-titles`, the reviewer's chosen values
+are read from `output/title_decisions.csv` (Phase 6.6) via `Ige\Amazon\Ai\TitleDecisions`
+and patched, subject to the coupling guard — `item_name` over 75 chars is dropped, and
+`title_differentiation` is dropped (not the whole SKU) when the effective `item_name`
+(the one being patched, else the live listing's) is over 75 or the pair exceeds 200.
+Default off, mirroring `--include-identifying`.
 
 ```bash
 # Dry-run (no API calls) — always review this first:
@@ -600,6 +762,9 @@ php amazon/scripts/patch_listings.php --account=DOWS
 # Apply (writes a pre-change backup per touched SKU, then submits):
 php amazon/scripts/patch_listings.php --account=IGE --apply
 php amazon/scripts/patch_listings.php --account=DOWS --apply
+
+# Also patch the reviewed modular titles from output/title_decisions.csv:
+php amazon/scripts/patch_listings.php --account=IGE --apply --include-titles
 
 # Single-SKU apply:
 php amazon/scripts/patch_listings.php --account=IGE --sku=IGE-PENLIGHT --apply
@@ -733,6 +898,13 @@ Usurper); `source:ai` with a known map entry → that column; `source:ai` with n
 map entry → `attr.amazon_{name}` (Usurper creates the custom attribute at
 import time).
 
+**Modular titles:** the per-provider `*_ai_{provider}` draft keys (`review_only`)
+are skipped; instead the reviewer's chosen `item_name` / `title_differentiation`
+from `output/title_decisions.csv` (Phase 6.6, via `Ige\Amazon\Ai\TitleDecisions`)
+are projected to their Usurper columns (`item_name` → `attr.title_amazon`,
+`title_differentiation` → `attr.amazon_title_differentiation`). No decision = no
+title column written.
+
 ```bash
 php amazon/scripts/project_to_usurper.php --account=IGE
 php amazon/scripts/project_to_usurper.php --account=DOWS
@@ -851,6 +1023,9 @@ it to record each drift checkpoint.
 | `data/schemas/_index.json`                                 | `{productType: {fetched_at, version, locale, source_url}}`.                                                       |
 | `output/listings_audit.csv`                                | One row per SKU: missing counts, top missing attrs, priority.                                                     |
 | `output/listings_gap_fill.csv`                             | One row per SKU/attribute: `fillable`, `usurper_column`, `usurper_value`.                                         |
+| `compare/{sku}.json`                                       | Anthropic vs OpenAI `item_name`/`title_differentiation` candidates + the shared `prompt` (Phase 6.5). Committed.  |
+| `output/title_compare.csv`                                 | Flat side-by-side of both providers' title candidates, rebuilt from `compare/`.                                  |
+| `output/title_decisions.csv`                               | Editable decision sheet (Phase 6.6): set `*_pick` per row; read by patch (`--include-titles`) + project.         |
 | `drafts/{sku}.json`                                        | Authored draft; per-attribute `value`/`is_required`/`source`. Committed.                                          |
 | `backups/{sku}/{ts}.json`                                  | Pre-change live `getListingsItem` snapshot. Committed.                                                            |
 | `output/patch_results_{ts}.csv`                            | Per-SKU write result: status, submission id, issues.                                                              |
