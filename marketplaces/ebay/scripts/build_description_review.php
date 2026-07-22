@@ -1,0 +1,516 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * build_description_review.php — assemble the DRY-RUN description review sheet
+ * (v2, 21-column schema). NO eBay writes.
+ *
+ * Two-description model (matches ebay/tools/description-generator.html):
+ *   FIRST  description = factual paragraph  (size / color / brand / material / what's
+ *                        included) -> the intro <p> after the H2.
+ *   SECOND description = sales pitch        (why you should buy it) -> the <p> at the
+ *                        bottom, just above the footer.
+ *   KEY FEATURES        = the factual LABEL: detail bullets.
+ *   PRODUCT SPECS       = auto-rendered from the listing's own aspects.
+ *   MOBILE summary      = the hidden, eBay-required <=800-char summary (human-readable,
+ *                        never an MPN/part number).
+ *   TITLE               = touched ONLY when the authoring pass flagged the current
+ *                        title as inaccurate/deficient (title_issue=true); otherwise
+ *                        left as-is (new_title blank).
+ *
+ * Inputs:
+ *   desc_source_pack.jsonl   per-listing GROUNDING content (extract_description_source.py):
+ *     {item_id, title, price, aspects, short_description, narrative[], feature_bullets[], image}
+ *     aspects here are the MERGED apply_set.json set when available (see that script).
+ *   desc_authored.jsonl      the LLM re-author answers, grounded in the pack:
+ *     {item_id, factual, sales, bullets:[...], mobile[, title_issue, new_title]}
+ *   media/{itemId}.json      current description HTML (the BEFORE column)
+ *   listings.json            item_id -> sku (the authoritative sku source)
+ *
+ * Where a listing has no authored answer it falls back to its own source pack so the
+ * sheet still covers every listing without inventing copy (title is never touched in
+ * that case — title_issue only ever comes from an authored answer).
+ *
+ * Writes:
+ *   description_review.csv        one row/listing, 23 columns (see column list below --
+ *                                  includes old/new_sales_description, the second/sales
+ *                                  paragraph, added 2026-07-07 since it previously only
+ *                                  showed up buried inside new_description/new_html)
+ *   descriptions/{itemId}.html    the full proposed HTML (easy to eyeball)
+ *
+ * Usage: php ebay/scripts/build_description_review.php --account=dows|ige
+ */
+
+require_once __DIR__ . '/../../lib/bootstrap.php';
+
+// Prop65 policy change (2026-07): the warning no longer lives as an item specific
+// (see mark_prop65_delete.php / ebay/docs/review-rules.md §3) — it lives here
+// instead, as the same generic badge image ASRoutdoor.com originally used on its own
+// product descriptions (confirmed via a live product fetch: one image, no
+// per-chemical text). Alt text matches the existing convention for this exact image
+// in shopify/scripts/apply_product_desc_image_alts.php:27.
+//
+// Image rehosted 2026-07-14: moved off the Shopify CDN to an eBay/DOWS-controlled S3
+// bucket (per user request), removing the dependency on ASRoutdoor's Shopify store
+// staying up / that asset staying at that URL indefinitely.
+//
+// EXCEPTION: Gear Aid branded items get NO Prop65 label
+// anywhere — same exception the old item-specific rule had (apply_review_rules.php's
+// former rule #2). Detected by title, same isGearAid() logic/threshold as that rule
+// (52 DOWS / 86 IGE, confirmed against items/{id}.json titles). The manual generator
+// tool (ebay/tools/description-generator.html) has a matching checkbox, default on.
+//
+// This block (consts + isGearAid()) is deliberately OUTSIDE the DESC_REVIEW_LIB_ONLY
+// guard below -- `const` can't be declared inside a conditional in PHP, and other
+// scripts that `require` this file as a library need these regardless.
+const PROP65_BADGE_URL = 'https://s3.us-east-1.amazonaws.com/DOWS_photobucket/Shopify_Prop65graphic.jpg';
+const PROP65_BADGE_ALT = 'California Proposition 65 warning';
+
+function isGearAid(string $title): bool
+{
+    $t = mb_strtolower($title);
+    return strpos($t, 'gear aid') !== false || strpos($t, 'gearaid') !== false;
+}
+
+/** Store directory — drives the header brand + Our Store link and footer, exactly
+ *  like the generator's dropdown. Slugs verified from the live listing HTML.
+ *  (Contact Us link removed.) Outside the guard so any consumer
+ *  of this file as a library gets the same mapping — no separate copy to drift. */
+function storeForAccount(string $account): array
+{
+    $stores = [
+        'dows' => ['brand' => 'Deals Only Web Store', 'slug' => 'dealsonlywebstore'],
+        'ige'  => ['brand' => 'Irongate Enterprises', 'slug' => 'irongateamericansupply'],
+    ];
+    return $stores[$account] ?? $stores['dows'];
+}
+
+// Guard so other scripts can `define('DESC_REVIEW_LIB_ONLY', true); require` this
+// file to reuse renderFull()/renderSpecs()/esc()/mobileSummary()/imageAltText()/
+// stripIdentifiers() -- the exact same template code every listing goes through --
+// without re-running this file's own CLI pipeline (which would overwrite
+// description_review.csv wholesale). See merge_legacy_template.php for the consumer.
+if (!defined('DESC_REVIEW_LIB_ONLY')) {
+
+$opts    = getopt('', ['account:', 'help']);
+if (isset($opts['help'])) { fwrite(STDOUT, "Usage: php build_description_review.php --account=dows|ige\n"); exit(0); }
+$account = strtolower((string) ($opts['account'] ?? 'dows'));
+$outDir  = ebay_dir($account, 'output');
+$mediaDir = $outDir . '/media';
+$descDir  = $outDir . '/descriptions';
+if (!is_dir($descDir)) { mkdir($descDir, 0775, true); }
+
+$store = storeForAccount($account);
+
+$packPath = $outDir . '/desc_source_pack.jsonl';
+if (!is_file($packPath)) {
+    fwrite(STDERR, "No source packs at {$packPath}. Run extract_description_source.py first.\n");
+    exit(1);
+}
+
+// authored answers (the LLM re-author pass), keyed by item_id
+$authored = [];
+$authPath = $outDir . '/desc_authored.jsonl';
+if (is_file($authPath)) {
+    foreach (file($authPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line) {
+        $a = json_decode($line, true);
+        if (is_array($a) && ($a['item_id'] ?? '') !== '') { $authored[(string) $a['item_id']] = $a; }
+    }
+}
+
+// item_id -> sku, from listings.json (the authoritative source — media/items snapshots
+// don't reliably carry sku)
+$skuMap = sourceListingSkuMap($outDir . '/listings.json');
+
+$oneLine = fn(string $s): string => trim(preg_replace('/\s+/u', ' ', $s));
+
+$rev = fopen($outDir . '/description_review.csv', 'w');
+fputcsv($rev, [
+    'item_id', 'sku', 'old_first_description', 'new_first_description',
+    'old_sales_description', 'new_sales_description',
+    'old_title', 'new_title', 'price', 'old_key_features', 'new_key_features',
+    'old_mobile_text', 'new_mobile_text', 'old_description', 'new_description',
+    'prev_html', 'new_html', 'what_changed', 'approved', 'reviewer_notes',
+    'mpn', 'upc', 'specs/values',
+]);
+
+$total = 0; $authoredCount = 0; $fallbackCount = 0; $titleChanged = 0; $titleRejected = 0;
+foreach (file($packPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line) {
+    $pack = json_decode($line, true);
+    if (!is_array($pack)) { continue; }
+    $id      = (string) ($pack['item_id'] ?? '');
+    if ($id === '') { continue; }
+
+    $title    = (string) ($pack['title'] ?? '');
+    $price    = (string) ($pack['price'] ?? '');
+    $aspects  = is_array($pack['aspects'] ?? null) ? $pack['aspects'] : [];
+    $imageUrl = (string) ($pack['image'] ?? '');
+    $sku      = $skuMap[$id] ?? '';
+
+    $media       = readJson($mediaDir . "/{$id}.json");
+    $currentHtml = (string) ($media['description'] ?? '');
+
+    // --- OLD/current columns (always derived the same way, authored answer or not) ---
+    $oldTitle = stripIdentifiers($oneLine($title));
+    $oldFirst = stripIdentifiers($oneLine((string) ($pack['short_description'] ?? '')));
+    $oldBullets = cleanBullets((array) ($pack['feature_bullets'] ?? []));
+    $oldMobile  = extractMobileSpan($currentHtml);
+
+    // old_sales_description: the listing's existing narrative/sales-style prose (the
+    // grounding source for a new sales paragraph, or the whole story when there's no
+    // authored answer yet) — distinct from old_first_description's factual lead.
+    $narr = array_map('strval', (array) ($pack['narrative'] ?? []));
+    $oldSales = stripIdentifiers($oneLine($narr[0] ?? ''));
+    if ($oldSales !== '' && $oldFirst !== '' && mb_stripos($oldFirst, mb_substr($oldSales, 0, 40)) !== false) {
+        $oldSales = stripIdentifiers($oneLine($narr[1] ?? ''));
+    }
+
+    $a = $authored[$id] ?? null;
+    $newTitle = '';
+    if ($a !== null && trim((string) ($a['factual'] ?? '')) !== '') {
+        // LLM re-author answer, grounded in the source pack
+        $factual = stripIdentifiers($oneLine((string) ($a['factual'] ?? '')));
+        $sales   = stripIdentifiers($oneLine((string) ($a['sales'] ?? '')));
+        $bullets = cleanBullets((array) ($a['bullets'] ?? []));
+        $mobile  = stripIdentifiers($oneLine((string) ($a['mobile'] ?? '')));
+        if ($mobile === '') { $mobile = $factual; }
+        $titleNote = '';
+        if (!empty($a['title_issue'])) {
+            $cand = stripIdentifiers($oneLine((string) ($a['new_title'] ?? '')));
+            if ($cand === '') {
+                // flagged but no replacement given — nothing to apply
+            } elseif (mb_strlen($cand) > 80) {
+                fwrite(STDERR, "warn: item {$id} new_title exceeds 80 chars ({$cand}) — dropped, title left as-is\n");
+                $titleRejected++;
+            } else {
+                $newTitle = $cand;
+                $titleChanged++;
+            }
+        }
+        $change  = 'Re-authored (factual + sales) + standardized' . ($newTitle !== '' ? '; title updated' : '');
+        $summary = 'Re-authored into the two-paragraph standard: a factual first paragraph '
+            . '(size/brand/material/contents) and a sales-pitch second paragraph, with the '
+            . 'factual Key Features restored from the original. Grounded in the listing; nothing invented.'
+            . ($newTitle !== '' ? ' Title flagged inaccurate/deficient and replaced.' : '');
+        $authoredCount++;
+    } else {
+        // fallback: reuse the listing's own content (no authoring), still standardized.
+        // Title is NEVER touched in the fallback path — title_issue only comes from an
+        // authored answer.
+        $factual = $oldFirst;
+        $sales   = $oldSales;
+        if ($factual === '') { $factual = $sales; $sales = stripIdentifiers($oneLine($narr[1] ?? '')); }
+        if ($factual === '') { $factual = $title; }
+        $bullets = $oldBullets;
+        $mobile  = $factual;
+        $change  = 'Standardized (copy kept; pending re-author)';
+        $summary = 'No authored answer yet — reused the listing\'s own factual summary, narrative '
+            . 'and feature bullets, re-rendered in the standard two-paragraph template.';
+        $fallbackCount++;
+    }
+
+    $showProp65Badge = !isGearAid($title);
+    $change .= $showProp65Badge ? ' + Prop65 badge' : ' + Prop65 badge withheld (Gear Aid)';
+
+    $mobile   = mobileSummary($mobile);
+    $newTitleFinal = $newTitle !== '' ? $newTitle : $title;
+    $altText  = imageAltText($factual, $newTitleFinal);
+    $proposed = renderFull($store, $newTitleFinal, $factual, $sales, $mobile, $bullets, $aspects, $imageUrl, $altText, $showProp65Badge);
+    file_put_contents($descDir . "/{$id}.html", $proposed);
+
+    $newKeyFeatures = implode(' | ', $bullets);
+    $newDescText    = $oneLine($factual . ($sales !== '' ? ' ' . $sales : '')
+                    . ($bullets !== [] ? ' Key Features: ' . $newKeyFeatures : ''));
+
+    fputcsv($rev, [
+        $id, $sku,
+        $oldFirst, $factual,
+        $oldSales, $sales,
+        $oldTitle, $newTitle,
+        $price,
+        implode(' | ', $oldBullets), $newKeyFeatures,
+        $oldMobile, extractMobileSpan($proposed),
+        $oneLine(strip_tags($currentHtml)), $newDescText,
+        $oneLine($currentHtml), $oneLine($proposed),
+        $change, '', '',
+        findAspectCI($aspects, ['mpn']), findAspectCI($aspects, ['upc']),
+        renderSpecsPlain($aspects),
+    ]);
+    $total++;
+}
+fclose($rev);
+
+echo "=== description review built: {$account} ===\n";
+printf("total listings: %d  (authored %d, fallback %d)\n", $total, $authoredCount, $fallbackCount);
+printf("titles changed: %d  (rejected for >80 chars: %d)\n", $titleChanged, $titleRejected);
+echo "  {$outDir}/description_review.csv\n  {$descDir}/{itemId}.html\n";
+
+} // end DESC_REVIEW_LIB_ONLY guard
+
+// --- renderers -----------------------------------------------------------------
+
+/**
+ * THE canonical description template — byte-for-byte what ebay/tools/description-
+ * generator.html emits. One schema.org/Product block:
+ *   hidden mobile description (eBay-required mobile summary, display:none)
+ *   store header (brand + Our Store link)
+ *   keyword H2
+ *   -> FIRST/factual intro <p>
+ *   -> Key Features (Label: detail bolds the label)
+ *   -> main image
+ *   -> Product Specifications (from aspects)
+ *   -> SECOND/sales <p>
+ *   -> store footer.
+ */
+function renderFull(array $store, string $title, string $factual, string $sales,
+    string $mobile, array $bullets, array $aspects, string $imageUrl, string $altText = '',
+    bool $showProp65Badge = true): string
+{
+    $h      = esc($title);
+    $alt    = esc($altText !== '' ? $altText : $title);
+    $mob    = esc(trim(preg_replace('/\s+/u', ' ', $mobile)));
+    // $factual/$sales may contain a blank-line-separated multi-paragraph string (e.g.
+    // the legacy-template merge's "first 2 paragraphs" rule) -- render each paragraph
+    // as its own <p> rather than collapsing them into one (HTML would otherwise
+    // whitespace-collapse the break away). A single-paragraph string is unaffected.
+    // \x02 is a placeholder the legacy-template merge (decomposeLegacy()) uses to mark
+    // "put a line break here" -- e.g. when a package-contents list gets attached to
+    // its own intro sentence ("The kit includes the following:") instead of the
+    // generic Key Features bullets, each item still needs to read on its own line.
+    // It's inserted AFTER esc() so it becomes a real <br>, not escaped text.
+    $toParas = function (string $s): string {
+        $out = '';
+        foreach (preg_split('/\n\s*\n/u', trim($s)) as $part) {
+            $part = trim($part);
+            if ($part === '') { continue; }
+            $out .= '  <p>' . str_replace("\x02", '<br>', esc($part)) . "</p>\n";
+        }
+        return $out;
+    };
+    $introP = $factual !== '' ? $toParas($factual) : '';
+    $salesP = $sales   !== '' ? $toParas($sales)   : '';
+
+    // Key Features — "Label: detail" bolds the label (matches the generator).
+    $features = '';
+    if ($bullets !== []) {
+        $li = '';
+        foreach ($bullets as $b) {
+            $b = trim(preg_replace('/\s+/u', ' ', (string) $b));
+            if ($b === '') { continue; }
+            $pos = mb_strpos($b, ':');
+            if ($pos !== false && $pos > 0) {
+                $li .= '    <li><strong>' . esc(trim(mb_substr($b, 0, $pos))) . ':</strong> '
+                    . esc(trim(mb_substr($b, $pos + 1))) . "</li>\n";
+            } else {
+                $li .= '    <li>' . esc($b) . "</li>\n";
+            }
+        }
+        if ($li !== '') {
+            $features = "  <h3 style=\"font-size:18px;margin:18px 0 8px\">Key Features</h3>\n"
+                . "  <ul style=\"padding-left:20px;margin:0 0 16px\">\n{$li}  </ul>\n";
+        }
+    }
+
+    $imageHtml = $imageUrl !== ''
+        ? '  <p style="text-align:center;margin:0 0 16px"><img src="' . esc($imageUrl)
+            . '" alt="' . $alt . '" style="max-width:100%;width:600px;height:auto"></p>' . "\n"
+        : '';
+    $specs   = renderSpecs($aspects);
+    $badgeHtml = $showProp65Badge
+        ? '  <p style="text-align:center;margin:16px 0 0"><img src="' . esc(PROP65_BADGE_URL)
+            . '" alt="' . esc(PROP65_BADGE_ALT) . '" style="display:block;margin-left:auto;margin-right:auto" height="78" width="273"></p>' . "\n"
+        : '';
+    $brand   = esc($store['brand']);
+    $storeUrl   = esc('https://www.ebay.com/str/' . $store['slug']);
+    $year    = date('Y');
+
+    // margin:0 auto centers the 800px block on the page (reverted earlier -- the
+    // margin:0 flush-left variant made the whole block stick to the left edge on wide
+    // pages instead, which read worse. Back to centered; if the header-bar box itself
+    // still looks inconsistent against the surrounding text, that's a narrower fix to
+    // the header box's own styling, not the outer wrapper's margin.
+    return <<<HTML
+<div style="font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.6;color:#222;max-width:800px;margin:0 auto" vocab="https://schema.org/" typeof="Product">
+  <div style="display:none"><span property="description">{$mob}</span></div>
+  <div style="background:#f5f5f5;padding:12px 15px;border:1px solid #e5e5e5;margin:0 0 16px">
+    <div style="font-size:18px;font-weight:bold;margin-bottom:6px">{$brand}</div>
+    <div style="font-size:13px">
+      <a href="{$storeUrl}" style="text-decoration:none;color:#333">Our Store</a>
+    </div>
+  </div>
+  <h2 style="font-size:22px;margin:0 0 12px">{$h}</h2>
+{$introP}{$features}{$imageHtml}{$specs}{$salesP}{$badgeHtml}  <p style="margin:18px 0 0;padding-top:12px;border-top:1px solid #e5e5e5;font-size:13px;color:#777;text-align:center">&copy; {$year} {$brand}</p>
+</div>
+HTML;
+}
+
+/**
+ * Alt text for the description's embedded image. eBay's native gallery has no alt-text
+ * field at all (checked the Trading SDK's PictureDetailsType — just a bare URL list), so
+ * this is the only alt attribute we control. Richer than a bare title repeat: the first
+ * grounded sentence of the authored factual paragraph, trimmed to whole words under 150
+ * chars (accessibility best practice keeps alt text concise). Falls back to the title if
+ * there's no factual paragraph to draw from.
+ */
+function imageAltText(string $factual, string $title): string
+{
+    $factual = trim(preg_replace('/\s+/u', ' ', $factual));
+    if ($factual === '') { return $title; }
+    $firstSentence = preg_split('/(?<=[.!?])\s+/u', $factual, 2)[0] ?? $factual;
+    $firstSentence = rtrim($firstSentence, '.!? ');
+    if (mb_strlen($firstSentence) <= 150) { return $firstSentence; }
+    $words = explode(' ', $firstSentence);
+    while (count($words) > 1 && mb_strlen(implode(' ', $words)) > 150) { array_pop($words); }
+    // don't end on a dangling connector word (in, with, and, made, from, a, an, the, of,
+    // for, to, by, or, its comma-separated-list remnant) — drop trailing stopwords/digits
+    // and stray punctuation so the cut reads as a clean fragment, not a hanging half-clause
+    $stop = ['in','with','and','made','from','a','an','the','of','for','to','by','or','at','on'];
+    while (count($words) > 1) {
+        $last = rtrim(mb_strtolower(end($words)), ',.');
+        if (in_array($last, $stop, true) || preg_match('/^\d+,?$/', $last)) { array_pop($words); continue; }
+        break;
+    }
+    return rtrim(implode(' ', $words), ', ');
+}
+
+/**
+ * The eBay mobile summary: tag-free plain text. eBay counts the characters in the span
+ * SOURCE — i.e. AFTER HTML-escaping (&#039; is six characters) — caps at 800, and drops
+ * the remainder. Trim whole words until the ESCAPED text fits 800.
+ */
+function mobileSummary(string $intro): string
+{
+    $t = stripIdentifiers(trim(preg_replace('/\s+/u', ' ', $intro)));
+    if (escLen($t) <= 800) { return $t; }
+    $words = explode(' ', $t);
+    while ($words !== [] && escLen(implode(' ', $words)) > 800) { array_pop($words); }
+    return rtrim(implode(' ', $words));
+}
+
+/** Length of a string once HTML-escaped — what eBay actually counts in the span. */
+function escLen(string $s): int { return mb_strlen(esc($s)); }
+
+/**
+ * A "Product Specifications" list rendered from the listing's own aspects. Matches the
+ * generator tool's fixed field order: MPN first, then UPC, then everything else.
+ */
+function renderSpecs(array $aspects): string
+{
+    $skip = ['california prop 65 warning', 'unit type', 'unit quantity', 'sku'];
+    $lower = [];
+    foreach ($aspects as $k => $v) { $lower[mb_strtolower(trim((string) $k))] = [$k, $v]; }
+
+    $li = function (string $name, $val): string {
+        return '    <li><strong>' . esc($name) . ':</strong> ' . esc($val) . "</li>\n";
+    };
+
+    $rows = '';
+    foreach (['mpn', 'upc'] as $pinned) {
+        if (!isset($lower[$pinned])) { continue; }
+        [$name, $val] = $lower[$pinned];
+        $val = trim((string) (is_array($val) ? implode(', ', $val) : $val));
+        if ($val !== '') { $rows .= $li((string) $name, $val); }
+        unset($lower[$pinned]);
+    }
+    foreach ($aspects as $name => $val) {
+        $key = mb_strtolower(trim((string) $name));
+        if ($key === 'mpn' || $key === 'upc' || !isset($lower[$key])) { continue; } // already emitted or dropped
+        $val = trim((string) (is_array($val) ? implode(', ', $val) : $val));
+        if ($val === '' || in_array($key, $skip, true)) { continue; }
+        $rows .= $li((string) $name, $val);
+    }
+    if ($rows === '') { return ''; }
+    return "  <h3 style=\"font-size:18px;margin:18px 0 8px\">Product Specifications</h3>\n"
+        . "  <ul style=\"padding-left:20px;margin:0 0 16px\">\n{$rows}  </ul>\n";
+}
+
+/** Plain-text sibling of renderSpecs(), for the CSV's specs/values column. mpn/upc are
+ *  skipped — they already get dedicated columns. */
+function renderSpecsPlain(array $aspects): string
+{
+    $skip = ['california prop 65 warning', 'unit type', 'unit quantity', 'sku', 'mpn', 'upc'];
+    $parts = [];
+    foreach ($aspects as $name => $val) {
+        $val = trim((string) (is_array($val) ? implode(', ', $val) : $val));
+        if ($val === '' || in_array(mb_strtolower((string) $name), $skip, true)) { continue; }
+        $parts[] = trim((string) $name) . ': ' . $val;
+    }
+    return implode(' | ', $parts);
+}
+
+/** Case-insensitive aspect lookup — used for mpn/upc. */
+function findAspectCI(array $aspects, array $keys): string
+{
+    $lower = [];
+    foreach ($aspects as $k => $v) { $lower[mb_strtolower(trim((string) $k))] = $v; }
+    foreach ($keys as $k) {
+        if (isset($lower[$k]) && trim((string) $lower[$k]) !== '') {
+            $v = $lower[$k];
+            return trim((string) (is_array($v) ? implode(', ', $v) : $v));
+        }
+    }
+    return '';
+}
+
+/** item_id -> sku, from listings.json — the authoritative sku source (media/items
+ *  snapshots don't reliably carry it). Mirrors build_review_sheet.php's $pSku load. */
+function sourceListingSkuMap(string $listingsPath): array
+{
+    $map = [];
+    if (!is_file($listingsPath)) { return $map; }
+    $list = json_decode((string) file_get_contents($listingsPath), true);
+    foreach ((array) $list as $l) {
+        $id = (string) ($l['item_id'] ?? '');
+        if ($id !== '') { $map[$id] = (string) ($l['sku'] ?? ''); }
+    }
+    return $map;
+}
+
+/** The hidden eBay mobile summary: the schema.org <span property="description"> inside
+ *  the display:none block, tag-stripped to plain text. Same regex as
+ *  find_mobile_desc_mismatch.py's MOBILE_SPAN, ported here so old_mobile_text/
+ *  new_mobile_text can be pulled straight from raw HTML (current or newly rendered)
+ *  without a separate extraction pass. */
+function extractMobileSpan(string $html): string
+{
+    if ($html === '' || !preg_match('/property="description"[^>]*>(.*?)<\/span>/si', $html, $m)) {
+        return '';
+    }
+    $t = strip_tags($m[1]);
+    $t = html_entity_decode($t, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    return trim(preg_replace('/\s+/u', ' ', $t));
+}
+
+/** Clean + join a raw feature_bullets list the same way for old and new columns. */
+function cleanBullets(array $raw): array
+{
+    return array_values(array_filter(array_map(
+        fn($b) => stripIdentifiers(trim(preg_replace('/\s+/u', ' ', (string) $b))), $raw),
+        fn($b) => $b !== ''));
+}
+
+/**
+ * Remove identifier labels + their values (MPN/UPC/SKU/EAN/GTIN/ISBN/Part No) from
+ * human-readable copy — machine codes are gibberish in a description and never wanted
+ * in the mobile summary. They remain in Product Specifications.
+ */
+function stripIdentifiers(string $t): string
+{
+    $t = preg_replace(
+        '/\b(MPN|UPC|EAN|GTIN|SKU|ISBN|Part\s*(?:No\.?|Number|#))\b\s*[:#]?\s*'
+        . '[A-Za-z0-9][A-Za-z0-9._\/-]*\.?/i', ' ', $t);
+    // Collapse runs of spaces/tabs, but preserve blank-line paragraph breaks -- every
+    // OTHER caller already pre-flattens its input to one line via $oneLine()/inline
+    // '/\s+/' collapse before calling this, so this is a no-op for them. Only the
+    // legacy-template merge (merge_legacy_template.php) passes multi-paragraph text
+    // straight through, and needs the blank line preserved so renderFull() can still
+    // render it as separate <p> tags instead of one run-on paragraph.
+    $t = preg_replace('/[ \t]+/u', ' ', (string) $t);
+    $t = preg_replace('/[ \t]*\n[ \t]*/u', "\n", $t);
+    $t = preg_replace('/\n{3,}/u', "\n\n", $t);
+    return trim((string) $t);
+}
+
+function esc(string $s): string { return htmlspecialchars($s, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); }
+function readJson(string $p): array { return is_file($p) ? (json_decode((string) file_get_contents($p), true) ?: []) : []; }

@@ -1,0 +1,117 @@
+TWO-PACK LISTING RULES
+
+REVIEW WORKFLOW
+- find_two_pack_candidates.php's output (two_pack_candidates.csv) IS the
+  human review step. Every row gets a computed preview (new_title,
+  new_price, new_quantity — same math the write script actually uses, so
+  the preview can't drift from reality), an `approved` column defaulting to
+  yes ("assume they're all valid from the start"), and an `issues` column
+  (free text, blank when nothing's wrong) explaining anything worth a
+  second look before approving. Send the file to whoever's reviewing
+  (Ethan/Pat); they flip specific rows to `no` and/or fix flagged issues.
+- create_two_pack_listings.php reads the `approved` column back and will
+  not touch a `no` row under any circumstance, including an explicit
+  --item/--items override — the gate can't be accidentally bypassed.
+- Known `issues` triggers today:
+    - Title had to be truncated to fit eBay's 80-char cap (see TITLE below).
+    - Source title already mentions a pack/multi-unit (e.g. "ASR Outdoor 2
+      Pack Gold Panning Pan") — 2-packing one of these means the real
+      multiplier isn't a simple 2x anymore (Ethan: "this still applies to
+      things that are already a 4 piece, now it becomes an 8pc"), so it's
+      flagged for a human to sanity-check the quantity/price math rather
+      than silently assumed correct. Found on a real DOWS run: 11 of 720
+      candidates, 5 of which wouldn't have been flagged for any other
+      reason (short enough titles to not trip the length check).
+
+CANDIDATE SELECTION
+- Any active listing priced under $20. Weight is not a factor.
+- Variation listings are included too, as long as they don't vary on price
+  across their child SKUs. A listing where children differ on price (e.g. sizes) is
+  skipped — no defined 2-pack pricing rule for that case.
+- Building a 2-pack FROM a variation source item — every variation child
+  is kept (same colors etc.), each with its own quantity halved and price
+  recomputed the same way as a plain listing. A child that floors to 0
+  quantity is kept as-is (reads as out of stock for that option); the whole
+  candidate is only skipped if EVERY child floors to 0.
+
+TITLE
+- Prefix "2 Pack " in front of the original title. Confirmed wording: "2 Pack".
+- Ethan floated "2-Pack" (hyphenated) as maybe better, but explicitly said
+  "not sure, fine tuning at that point" — not a decision, just noted here so
+  it isn't lost. Current code keeps "2 Pack " until this is actually settled.
+- Overflow past 80 characters: try an AI-assisted shrink first (preserves brand /
+  item type / key distinguishing feature, drops filler, uses natural
+  abbreviations) via ebay/scripts/lib/two_pack_title_shrink.php. Needs
+  ANTHROPIC_API_KEY configured. If that's not set, the call fails, or the
+  model's output is still too long, falls back to a blunt truncation and
+  notes it in the candidates CSV's `issues` column for a human look — never
+  blocks a run. Real-data check (2026-07-22, DOWS): 461 of 720 candidates
+  needed this — median DOWS title is already 76 characters, so most titles
+  overflow once "2 Pack " is added. The candidates file's new_title is
+  trusted verbatim by create_two_pack_listings.php (not recomputed at build
+  time), so a reviewer can also just hand-edit that cell directly.
+
+PRICE
+- New price = (2 x original price) - 20%.
+- Round to match the original price's cents ending:
+    - original ends in .X0 -> round new price to nearest $0.10
+    - original ends in .X9 -> round new price to nearest $0.09
+    - anything else -> round new price to the nearest cent value ending in
+      0 or 9, whichever is closer
+
+QUANTITY
+- New quantity = floor(original quantity / 2).
+- If that's 0 (original quantity was 0 or 1), skip that candidate — can't
+  create a listing with 0 quantity.
+
+DESCRIPTION
+- Unchanged. Copied as-is from the source listing.
+
+IMAGES
+- Reuse the source listing's exact photos as-is. This is NOT a combo of two
+  different items' photos merged together — it's 2 of the same item.
+- "2 Pack" badge stamp on the main image only, bottom-right corner:
+   — PHP's GD extension draws a proportional rounded badge on any JPEG/PNG/WebP source.
+  Working prototype at ebay/scripts/lib/image_stamp.php
+  (stampTwoPackBadge()), proven against both large (1200px) and small
+  (500px) mockups. Badge color/style (charcoal + white text) is a
+  placeholder, not a brand decision. Requires the php8.2-gd system package
+- NOT YET BUILT: actually getting a stamped image onto a listing —
+  download source image -> stamp -> upload via Trading API
+  UploadSiteHostedPictures -> swap into PictureDetails. Stamping itself
+  works; the eBay upload/swap plumbing doesn't exist yet.
+- CAVEAT: the badge has no way to detect where the product actually sits in
+  the frame, so a product that bleeds into the bottom-right corner could get
+  covered. Most real listing photos have generous white margin, but worth
+  spot-checking before a batch run.
+
+ITEM SPECIFICS
+- Copied as-is from the source listing.
+- Add one new custom specific noting it's a 2-pack (a description-only
+  specific, not a category-required aspect).
+- Name/Value (DECIDED 2026-07-22, Skyler's call, Ethan unavailable):
+  "Bundle Description" / "2 Pack". Deliberately not "Number of Items" or
+  "Pack Quantity" — those are real schema-defined aspects in some eBay
+  categories already and could collide with an existing, unrelated value on
+  the source listing (e.g. a multi-piece set). Easy to change later if
+  Pat/Ethan want different wording — ebay/scripts/create_two_pack_listings.php,
+  search "Bundle Description".
+
+GTIN / UPC
+- Reuse the source listing's UPC as-is — same item. Not treated as a
+  permanent decision; may change later if found to hurt search, but that's
+  not an active concern right now.
+
+SOURCE LISTING
+- Stays live and unchanged. The 2-pack is a new, separate listing added as
+  an additional buying option alongside the source — the source is never
+  ended, relisted, or modified by this pipeline.
+
+OTHER WORK STATUS
+- eBay descriptions, images, IGE aspects, and Walmart US listing work are
+  paused while this is being built, pending review.
+
+STILL OPEN (resolve as they come up, not blocking further build-out)
+- Whether to switch the title prefix to "2-Pack" (hyphenated) — floated, not decided.
+- Getting a stamped image onto an actual listing (UploadSiteHostedPictures +
+  swap into PictureDetails) — stamping itself works, nothing wires it up yet.
