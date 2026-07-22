@@ -16,12 +16,19 @@ __pycache__/
 .DS_Store
 *~
 
-# Amazon SP-API — regenerable per-account data (API-fetched snapshots + audit output)
-# Committed: amazon/data/schemas/, amazon/data/*/drafts/, amazon/data/*/drift/
-#   (drift/ = deterministic digest of input/ for tracking catalog drift over time)
-amazon/data/*/input/
-amazon/data/*/output/*.csv
-amazon/data/*/output/*.txt
+# --- Generated marketplace data (regenerable; keep it out of git going forward) ---
+# These rules only stop NEW pulled/generated files from accumulating. Human-authored
+# and reviewable reference data stays tracked on purpose:
+#   Amazon — data/schemas/, data/*/drafts/, data/*/drift/
+#   eBay   — data/aspects/ (Taxonomy schema cache), data/*/drafts/
+#   Shopify— data/drafts/ (authored descriptions/alts)
+marketplaces/amazon/data/*/input/
+marketplaces/amazon/data/*/output/*.csv
+marketplaces/amazon/data/*/output/*.txt
+marketplaces/ebay/data/*/output/
+marketplaces/ebay/data/*/backups/
+marketplaces/shopify/data/input/
+marketplaces/shopify/data/output/
 
 # Claude Code — not project config, no need to share
 .claude/

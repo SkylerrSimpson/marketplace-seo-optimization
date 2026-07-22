@@ -1,16 +1,17 @@
-# Marketplace SEO Optimization
+# DOWScripts
 
-PHP tooling to audit and improve the shared product dataset owned by **Irongate Enterprises (IGE)** and **Deals Only Web Store (DOWS)** across all active sales channels, and to push approved changes back to each marketplace.
+A catalog / SEO optimization **platform** for the shared product dataset owned by **Irongate Enterprises (IGE)** and **Deals Only Web Store (DOWS)** across all active sales channels — auditing gaps and pushing approved changes back to each marketplace, through a reviewable, auditable pipeline.
 
-Marketplaces (Amazon, eBay, Walmart, Shopify) continuously evolve their taxonomy trees. Each leaf node carries required and recommended attributes — descriptions, product type, image alt text, GTINs, structured-data fields, and category-specific properties — that directly affect search ranking, Buy Box eligibility, and AI-agent discoverability. This repo tracks those gaps and closes them through a reviewable, auditable pipeline.
+It has two halves: a **web app** (`web/`, a Laravel UI + queue + admin that non-devs log into) and the **marketplace CLI tooling** it drives (`marketplaces/<name>/`). The web app never reimplements marketplace logic — it shells out to the scripts. **Read [`ARCHITECTURE.md`](ARCHITECTURE.md) first** for the layout and how the two halves connect.
 
-> **If you're new here:** each marketplace folder (`shopify/`, `ebay/`) has its own
-> `README.md` with the full script inventory and run order — start there, this file is
-> just the map. Better yet, start with the walkthroughs — `shopify/docs/walkthrough.md`
-> and `ebay/docs/walkthrough.md` each trace one real product/listing through every
-> script with actual commands and actual before/after data, which is a faster way in
-> than the reference tables. `amazon/` and `walmart/` don't have tooling yet (see status
-> table below).
+Marketplaces (Amazon, eBay, Walmart, Shopify) continuously evolve their taxonomy trees. Each leaf node carries required and recommended attributes — descriptions, product type, image alt text, GTINs, structured-data fields, and category-specific properties — that directly affect search ranking, Buy Box eligibility, and AI-agent discoverability.
+
+> **If you're new here:** each marketplace folder (`marketplaces/shopify/`, `marketplaces/ebay/`)
+> has its own `README.md` with the full script inventory and run order. Better yet, the
+> walkthroughs — `marketplaces/shopify/docs/walkthrough.md` and
+> `marketplaces/ebay/docs/walkthrough.md` — each trace one real product/listing through
+> every script with actual commands and before/after data. For the web app, start with
+> `web/DEPLOYMENT.md`. `amazon/` and `walmart/` don't have tooling yet (see status table below).
 
 ---
 
@@ -19,41 +20,31 @@ Marketplaces (Amazon, eBay, Walmart, Shopify) continuously evolve their taxonomy
 ```
 .
 ├── README.md                  ← you are here
-├── composer.json / .lock      ← dependencies (Shopify SDK, eBay SDK + OAuth client, phpdotenv)
+├── ARCHITECTURE.md            ← the layout + how web/ and marketplaces/ connect (read this first)
+├── composer.json / .lock      ← script dependencies (Shopify SDK, eBay SDK + OAuth client, phpdotenv)
 ├── vendor/                    ← composer install target (gitignored)
-├── .env / .env.example        ← credentials (real .env is gitignored; goes in repo ROOT, not a subfolder)
+├── .env / .env.example        ← script credentials (real .env is gitignored; goes in repo ROOT)
 │
-├── lib/
-│   └── bootstrap.php          ← shared: autoload + .env + path constants. Every script requires this.
+├── web/                       ← the DOWScripts web app (Laravel UI + queue + admin). See web/DEPLOYMENT.md
 │
-├── docs/                      ← cross-marketplace documentation
-│   ├── geo-seo-strategy.md    ← research: how to rank in Google + AI agents (ChatGPT/Gemini/etc.)
-│   ├── key-findings.md        ← condensed findings + impact hierarchy
-│   ├── next-steps.md          ← Phase 3–5 plan (apply → validate → monitor)
-│   ├── video-indexing-runbook.md  ← the Shopify video/YouTube SEO work-stream, narrated
-│   ├── enhancement-fixes-plan.md
-│   └── original-plan.txt      ← the initial 6-phase outline
+├── marketplaces/              ← the CLI tooling the web app drives
+│   ├── lib/
+│   │   └── bootstrap.php      ← shared: autoload + .env + path constants. Every script requires this.
+│   │
+│   ├── shopify/               ← Shopify — BUILT (see marketplaces/shopify/README.md)
+│   │   ├── rules/product-metadata-rules.md   ← field rules + AI drafting prompt
+│   │   ├── scripts/           ← ~40 PHP/Python tools
+│   │   └── data/{input,drafts,output}/
+│   │
+│   ├── ebay/                  ← eBay — BUILT (aspects + descriptions pipelines; images audit-only)
+│   │   ├── docs/              ← per-pipeline detail docs (review rules, apply-bridge, description-seo)
+│   │   ├── scripts/           ← ~49 PHP/Python tools + scripts/lib/EbayClient.php + AUTHOR_PROMPT.md
+│   │   └── data/{dows,ige}/{input,output}/, data/aspects/{catId}.json
+│   │
+│   ├── amazon/                ← SP-API tooling (notifications work planned next)
+│   └── walmart/               ← placeholder (Marketplace API) — planned to mirror eBay's pipeline shape
 │
-├── shopify/                   ← Shopify — BUILT (see shopify/README.md)
-│   ├── README.md              ← full script inventory + run order, by work-stream
-│   ├── rules/product-metadata-rules.md   ← field rules + AI drafting prompt
-│   ├── scripts/                ← ~43 PHP/Python tools
-│   └── data/{input,drafts,output}/
-│
-├── ebay/                      ← eBay — BUILT (aspects + descriptions pipelines; images audit-only)
-│   ├── README.md               ← full script inventory + run order, by pipeline
-│   ├── PLAN.md                 ← superseded original planning doc, kept for history
-│   ├── docs/                   ← per-pipeline detail docs (review rules, apply-bridge, description-seo, media-audit)
-│   ├── scripts/                 ← ~31 PHP/Python tools + lib/EbayClient.php + AUTHOR_PROMPT.md
-│   ├── tools/description-generator.html  ← the canonical manual description-HTML template
-│   ├── handoff/                 ← round-trip CSVs exchanged with the human reviewer
-│   └── data/{dows,ige}/{input,output}/, data/aspects/{catId}.json, data/for_ethan/
-│
-├── amazon/   ← placeholder (SP-API) — notifications work planned next, see multi-week roadmap
-├── walmart/  ← placeholder (Marketplace API) — planned to mirror the eBay pipeline shape
-│
-└── dowscripts/   ← planned: a Laravel UI wrapper around all of the above, for non-devs.
-                     Not started — see dowscripts/PLAN.md before touching this folder.
+└── docs/                      ← cross-marketplace strategy + research notes
 ```
 
 ---
@@ -71,13 +62,16 @@ but in practice everything here has run fine on **PHP 8.1.2** with the `curl`, `
 actual 8.2-only language feature, upgrade PHP; don't assume the constraint is required
 just because composer.json says so.
 
-All scripts load config + paths from `lib/bootstrap.php`, so they can be run from
-anywhere:
+All scripts load config + paths from `marketplaces/lib/bootstrap.php`, so they can be
+run from anywhere:
 
 ```bash
-php shopify/scripts/<script>.php
-php ebay/scripts/<script>.php --account=dows
+php marketplaces/shopify/scripts/<script>.php
+php marketplaces/ebay/scripts/<script>.php --account=dows
 ```
+
+The `web/` app runs these same scripts for you from a browser — see `web/DEPLOYMENT.md`
+to run it.
 
 ---
 
@@ -99,10 +93,10 @@ A closing step across **every** marketplace touched: changes made here also need
 imported into **Usurper** (the company's internal inventory management platform) so its
 own custom attributes match what's actually live — not yet started for any marketplace.
 
-Separately: all of the above is CLI-only, which is fine for a dev but not for a non-dev
-teammate. **`dowscripts/`** is a planned Laravel web UI that wraps these same scripts (not
-a rewrite) so anyone on the team can run them from a browser. Planning only, not started
-— see **`dowscripts/PLAN.md`**.
+All of the above is CLI-only — fine for a dev, not for a non-dev teammate. **`web/`** is
+the Laravel app that wraps these same scripts (not a rewrite) so anyone on the team can
+run them from a browser, with per-user accounts, live-write confirmation gates, an admin
+area, and scheduled read-only runs. See **`web/DEPLOYMENT.md`** and **`ARCHITECTURE.md`**.
 
 ---
 
@@ -110,19 +104,19 @@ a rewrite) so anyone on the team can run them from a browser. Planning only, not
 
 - **Credentials only in `.env`** (repo root, gitignored). Never hard-code tokens. Add new
   keys to `.env.example` (placeholder values) so teammates know what's needed.
-- **Each marketplace gets its own top-level folder** with `scripts/`, `data/`, and a
-  README. Shared logic goes in `lib/`.
+- **Each marketplace gets its own folder under `marketplaces/`** with `scripts/`, `data/`,
+  and a README. Shared logic goes in `marketplaces/lib/`.
 - **Reads are safe; writes are guarded.** Audit/export scripts are read-only. Write
   scripts default to a **dry run** (and, for eBay, `VerifyOnly=true` — a real server-side
   validation that still commits nothing) and require an explicit flag (`--apply`/`--live`)
   plus, for eBay's canary script, re-typing the item id to confirm.
 - **eBay specifically: never rewrite a listing's variation-defining aspect value**
   (Size/Color/etc. — check `varied_by` in review_sheet.csv). eBay ties sales history to
-  the exact value; even a units-only reformat orphans it. See `ebay/README.md` for detail
+  the exact value; even a units-only reformat orphans it. See `marketplaces/ebay/README.md` for detail
   — every normalize/merge/write script there already guards this; any new one must too.
 - **`data/drafts/` (Shopify) is authored content** (the descriptions/alts we wrote) — treat
   it as source of truth and commit it. `data/input/` and `data/output/` are regenerable.
 - Run `php -l` on changed scripts; keep output ASCII-only (see the Shopify assembler).
 
-See **`shopify/README.md`** / **`ebay/README.md`** for each marketplace's run order, and
+See **`marketplaces/shopify/README.md`** / **`marketplaces/ebay/README.md`** for each marketplace's run order, and
 **`docs/`** for cross-marketplace strategy.

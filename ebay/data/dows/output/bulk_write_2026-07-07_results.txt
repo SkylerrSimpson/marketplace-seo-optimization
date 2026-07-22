@@ -43,54 +43,11 @@ System error.  -- 1 item(s)
   365879950547  -- Disney Pixar Toy Story 4 Days of the Week Stick On Earrings and Rings Set
 
 ------------------------------------------------------------
-NEW FINDING (found 2026-07-07, while building the post-write comparison report):
-"Product Item Specifics" silently override our values on catalog-linked listings
-------------------------------------------------------------
-
-4 listings returned Ack=Warning (NOT Failure -- invisible in the counts above) with:
-  "Some custom Item Specific(s) were overwritten by Product Item Specific(s)"
-
-These listings are associated with an eBay Catalog product. eBay silently substitutes
-its OWN catalog data for the named aspects, regardless of what we send via ReviseItem --
-our corrections for those specific fields did not take effect, even though the call
-"succeeded". Full detail (proposed vs. actual live value per aspect) is in
-eBay_DOWS_post-write-live-comparison_REVIEW.csv.
-
-  235365887228  (MCN-SCNRKFDGWPAB-2OZ-BLCK) -- overridden: MPN, Brand, Model
-  364893803702  (SON-GOLDRUSHKIT-7PC-BUNDLE) -- overridden: MPN, Brand, Type, Model
-  365879907987  (UNV-USPIIMSPGAB-BUN-55-BNDL) -- overridden: MPN, Color, Brand
-  127389838965  (SON-TCFPKCB12IX15I-BUN-4PC-4PK-CLR) -- overridden: Number of Items in
-                Set, MPN, Item Height, Item Diameter, Color, Brand, Shape, Features,
-                Material, Type, Model (found via a fresh --verify re-check today, since
-                batch 3's original per-item log wasn't retained -- see below)
-
-This may not be limited to these 4 -- only the giant run's 956 items got checked against
-fresh live data; batches 1-3 (300 items) were not individually re-verified for this
-specific warning (their original per-item logs were cleared between batches -- a process
-mistake, not a script issue). Worth deciding whether to re-verify those 300 for this
-specific issue, or treat 4-ish confirmed instances as low enough volume to handle
-one-off.
-
-------------------------------------------------------------
-ANOTHER ITEM -- unexplained, doesn't match any known pattern
-------------------------------------------------------------
-
-126473385852 (4SN-CALLUSREMOV-BLU-42121): Features/Power/Set Includes all show live
-values that don't match what we intended AND don't match the catalog-override pattern
-(a fresh --verify re-check just returned a clean Ack=Warning with only the routine
-business-policy notice, no complaint about these fields). Live currently shows values
-that don't obviously relate to our source data either. Needs manual look -- couldn't
-resolve this one with confidence in the time available.
-
-------------------------------------------------------------
 NOTE: item 364839375985 (accidental write)
 ------------------------------------------------------------
 
-This item was supposed to be excluded (Skyler: "it got hit with a policy
-violation so its dead to us now") but the --exclude flag was left off the
-final command by mistake, so it was attempted anyway.
-  Result: Ack=Warning  [Warning] Listing has policy violation.: This listing has Offering to Buy or Sell Outside of eBay Policy violation.
-  Re-pulled via Browse API afterward to check for damage: still 404
-  NOT_FOUND, same as before the write -- could not confirm one way or the
-  other whether the ItemSpecifics change actually landed, since the read
-  path that would show it is unavailable regardless.
+Result: Ack=Warning  [Warning] Listing has policy violation.: This listing has Offering to Buy or Sell Outside of eBay Policy violation.
+Re-pulled via Browse API afterward to check for damage: still 404
+NOT_FOUND, same as before the write -- could not confirm one way or the
+other whether the ItemSpecifics change actually landed, since the read
+path that would show it is unavailable regardless.
