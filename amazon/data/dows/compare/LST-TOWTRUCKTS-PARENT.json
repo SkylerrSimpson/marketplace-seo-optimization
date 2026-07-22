@@ -1,0 +1,60 @@
+{
+    "sku": "LST-TOWTRUCKTS-PARENT",
+    "asin": "B0BFC3F28K",
+    "product_type": "NON_RIDING_TOY_VEHICLE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-TOWTRUCKTS-PARENT\nProduct Type: NON_RIDING_TOY_VEHICLE\nBrand (from catalog): Kidplokio\nExisting Title: Kidplokio 2 in 1 Friction Tow Truck Toy Pull Back Cars Boys Ages 3 and Up\nDescription: If you know a little one who loves construction, police or fire truck themed toys, they'll love these 2 in 1 tow truck toys playsets from Kidplokio. Powered by friction, these pull back cars are fun and easy to use; simply pull back on the toy trucks to create tension and watch them race across the room.<br/><br/>These toy truck toy playsets, available in construction (yellow), police (blue) or fire rescue (red), come with one friction powered truck and attached trailer, and one monster truck in tow. What makes these toy cars super awesome are the fun lights and sound effects. With the push of a few buttons, your little one's playtime adventures will come to life with roaring sirens and bright flashing lights.<br/><br/>And, while little ones will be having hours of fun playing with these toy trucks and monster trucks, they'll also be engaging in important early educational activities like working their gross and fine motor skills, as well as improving cognitive development through imaginative playtime sessions solo or with friends and family.<br/><br/>Batteries are included with purchase and no complicated assembly is required, meaning playtime can start right out of the box.\nSearch Terms: monster truck toys boys pull back cars friction brother christmas birthday gifts toddler kids stocking stuffers preschool learning activities outdoor games car accessories playroom decor tow truck presents gifts boys toys boys ages 3 up\nFeatures:\n- 2PC TOW TRUCK TOY PLAYSETS - These awesome 2 in 1 tow truck toys playset from Kidplokio come with one friction powered truck and attached trailer and one monster truck; playsets are available in police, fire or construction themes, batteries included and no assembly required\n- AWESOME LIGHTS AND SOUNDS - To make playtime even more fun and bring little one's imaginative adventures to life, these toy trucks come with spectacular lights and sound effects!\n- PULL BACK CARS - These tow truck toy playsets are easy to use and come ready to play right out of the box! Simply pull back on the truck to create tension and watch the police car, construction truck or fire trucks race across the room!\n- ENDLESS PRETEND PLAY POSSIBILITIES - While little ones will be having hours of fun playing, they'll also be engaging in an important early educational activities like working their gross and fine motor skills, as well as improving cognitive development through imaginative playtime sessions\n- SPECIFICATIONS - Box dimensions: 22\" x 9.25\" x 5\"; Weight: 2.25lbs; Colors: Assorted (blue, red, or yellow); Material: Plastic; Warning: Choking hazard, small parts; Recommended age: 3 years and up\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Kidplokio 2 in 1 Friction Tow Truck Toy Pull Back Cars",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "2",
+                "pack_size_unit": "in 1",
+                "size": "",
+                "color": "",
+                "name": "Friction Tow Truck Toy Pull Back Cars"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Kidplokio Tow Truck Toy Pull Back Cars",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Tow Truck Toy Pull Back Cars"
+            },
+            "char_count": 38,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Lights And Sounds, Ages 3 Plus, Pull Back Friction Powered, Police Fire Construction Themes, Educational Motor Skills",
+            "char_count": 117,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Friction Powered, Lights And Sounds, Truck And Trailer, Monster Truck Tow, No Assembly, Ages 3 And Up",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

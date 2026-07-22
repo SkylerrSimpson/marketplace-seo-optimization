@@ -1,0 +1,60 @@
+{
+    "sku": "SON-FPCS-525X3-GRY-FBA",
+    "asin": "B072R61XBL",
+    "product_type": "ELECTRONIC_SWITCH",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-FPCS-525X3-GRY-FBA\nProduct Type: ELECTRONIC_SWITCH\nBrand (from catalog): Universal Tool\nExisting Title: Moto Tool Foot Pedal Power Tool Control Switch Flexible Shaft Grinder\nDescription: This plug and play varaible speed foot control pedal switch for sewing machines, rotary tools, scroll saws, and flexible shaft grinders. The more you press down on the spring lever pedal the faster the tool will go. Compatible with a wide range of power tools this heavy duty foot switch is a simple add on that will give you better control and feel of your tools. It has a wire length of 72 inches (180cm), a voltage: 110-120V/60Hz, and a capacity of 1.5 AMPS. Max speed 5,000 to 15,000 RPM.\n<br><br>\nJust press down the foot control and the faster your tool will go.\nSearch Terms: foot pedal control switch flexible shaft grinder power tool rotary carver dead man on off variable speed sewing machine scroll saw\nFeatures:\n- HEAVY-DUTY - Carbon resistance foot control with 3 prong plug for variable speed control of power tools such as rotary grinding tools or power tools\n- PLUG AND PLAY - Ready to use out of the box. Simply plug your tool into the socket cord and the foot controller power cord into your standard home outlet and you're up and running in less than 1 minute\n- SPECIFICATIONS - Voltage: 110-120V/60Hz; Capacity: 1.5 AMPS; Power Cord Length: 72 inches; Socket Cord Length: 24 inches\n- MAX SPEED - 5,000 to 15,000 RPM\n- UNIVERSAL APPLICATION - Works with all tools; great if you just want to have hands free operation. The more you press down the faster the tool will go\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool Foot Pedal Power Tool Control Switch Gray",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Gray",
+                "name": "Foot Pedal Power Tool Control Switch"
+            },
+            "char_count": 56,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool Foot Pedal Power Control Switch for Flexible Shaft Grinder",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Foot Pedal Power Control Switch Flexible Shaft Grinder"
+            },
+            "char_count": 73,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Variable Speed Control, 72In Cord, Heavy-Duty Carbon Resistance, Plug And Play, Universal Compatible",
+            "char_count": 100,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Variable Speed, Hands Free Operation, Heavy Duty Carbon Resistance, 3 Prong Plug, 72 Inch Cord, 110-120V",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

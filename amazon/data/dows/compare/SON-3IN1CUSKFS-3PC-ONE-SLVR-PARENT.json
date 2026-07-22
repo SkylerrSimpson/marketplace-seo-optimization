@@ -1,0 +1,60 @@
+{
+    "sku": "SON-3IN1CUSKFS-3PC-ONE-SLVR-PARENT",
+    "asin": "B0FKQMD848",
+    "product_type": "FLATWARE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-3IN1CUSKFS-3PC-ONE-SLVR-PARENT\nProduct Type: FLATWARE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Minimalist Camp Kitchen Utensil Set, Army Military Style MRE Chow Set\nDescription: Get ready for your next meal on the go with the ASR Outdoor 3 in 1 Multi Function Outdoor Utensil Set.<br/><br/>This set includes a knife, fork, and a spoon that clip together for convenience. Perfect for any camping, backpacking, or other travel situations.<br/><br/>Not only great for the outdoors, keep a set in your car, at the office, an emergency kit, or even in your pocket so you're ready to dine anytime.\nSearch Terms: camping utensil outdoor accessories gear stove cookware eating open fire cooking camp light portable table campng flatware eatting plates backpacking spoon knife spork survival roasting marshmello set\nFeatures:\n- LIGHTWEIGHT AND COMPACT: This knife, fork, and spoon camp kitchen utensil set clips together for easy storage making it ideal for lightweight camping, and hiking; No extra fluff, only the important camping gear\n- BONUS CAN OPENER FUNCTION: The knife utensil conveniently includes a can opener tool for added versatility that comes in handy in a pinch; never leave a full can of chow un-eaten with this extra convenience built in\n- DURABLE WEATHERPROOF CONSTRUCTION: Made from stainless steel, just like you these camp utensils can hold their own in the great outdoors; Will not rust or corrode under normal circumstances\n- INCLUDES CARRYING POUCH: Comes in a transparent pouch with a snap closure; doesn't add weight just extra convenience for you on your outdoor hiking trek\n- 2 PACK MRE CHOW SET: Never dine alone; this two pack of camp kitchen utensils makes sure you're always prepared for company even if you're eating an MRE on the side of a mountain\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 2-Pack Camping Utensil Set with Can Opener",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "",
+                "name": "Camping Utensil Set with Can Opener"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 2-Pk Silver 3 In 1 Camping Utensil Set",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Silver",
+                "name": "3 In 1 Camping Utensil Set"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Stainless Steel, Knife Fork Spoon, Built-in Can Opener, Lightweight Compact, Includes Carrying Pouch",
+            "char_count": 100,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Lightweight Compact Design, Stainless Steel, Built In Can Opener, Clips Together, Transparent Snap Pouch, Weatherproof",
+            "char_count": 118,
+            "validation_error": null
+        }
+    }
+}

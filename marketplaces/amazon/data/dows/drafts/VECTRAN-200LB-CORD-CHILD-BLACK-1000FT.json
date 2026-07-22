@@ -3,14 +3,14 @@
     "asin": "B074JZQHTB",
     "product_type": "CORD_ROPE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:42:36+00:00",
+    "generated_at": "2026-07-21T20:12:05+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 4,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -75,21 +75,59 @@
             "value": "Vectran",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Braided Vectran Cord 200lb 1000ft Black",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 1000ft Black Braided Vectran Cord 200lb",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1000",
+                "pack_size_unit": "ft",
+                "size": "200lb",
+                "color": "Black",
+                "name": "Braided Vectran Cord"
+            }
         },
-        "title_differentiation": {
-            "value": "High Abrasion & Moisture Resistant, Industrial Grade, Rigging & Cargo Tie-Down",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 1000-ft Black Braided Vectran Survival Sport Cord",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 61,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1000",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Black",
+                "name": "Braided Vectran Survival Sport Cord"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "High Abrasion Resistance, Moisture Resistant, 200Lb Breaking Strength, Tactical EDC Survival",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 92,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "200 Lb Breaking Strength, High Abrasion Resistance, Moisture Resistant, High Impact Resistance, Broad Temperature Stability",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 123,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

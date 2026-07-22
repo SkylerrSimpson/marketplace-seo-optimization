@@ -3,14 +3,14 @@
     "asin": "B0CN3RNBJF",
     "product_type": "HAIR_TIE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:45:26+00:00",
+    "generated_at": "2026-07-21T20:00:33+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -39,20 +39,57 @@
             "asin": "B0CN3RNBJF",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Disney Princess Purple Glitter Elastic Headband Hair Bow",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Disney Princess Purple Glitter Headband Hair Accessory",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Purple",
+                "name": "Glitter Headband Hair Accessory"
+            }
         },
-        "title_differentiation": {
-            "value": "Official licensed, ages 3+, Belle Tiana Ariel, easy stretch design",
+        "item_name_ai_openai": {
+            "value": "Disney Purple Glitter Princess Headband Hair Accessory",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 54,
+            "review_only": true,
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Purple",
+                "name": "Glitter Princess Headband Hair Accessory"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Officially Licensed, Full-Sized Elastic Headband, Belle Tiana Ariel, Ages 3 And Up, Stretchy Hair Tie",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 101,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Glitter Bow, Stretch Elastic Fit, Belle Tiana And Ariel Design, Ages 3 Plus, Party Favor Gift For Kids",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 102,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

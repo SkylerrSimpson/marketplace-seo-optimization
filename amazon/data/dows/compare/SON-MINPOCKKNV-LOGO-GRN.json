@@ -1,0 +1,60 @@
+{
+    "sku": "SON-MINPOCKKNV-LOGO-GRN",
+    "asin": "B0D9WG8P4F",
+    "product_type": "MULTITOOL",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-MINPOCKKNV-LOGO-GRN\nProduct Type: MULTITOOL\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Mini EDC Small Pocket Knife Multi Tool - LOGO (Green)\nDescription: Featuring a nail file and nail cleaner, knife blade, scissors and keyring, this ASR Outdoor mini pocket knife is ready for adventure. Great for camping, to carry as an EDC multitool, to include with a bug out bag, survival gear or an emergency preparedness kit, this little pocket knife does it all.<br/><br/>Compact and lightweight, the multitool pocket knife weights under a pound and measures just 2.25 inches when closed. Whether you're fishing, hunting, backpacking, camping or prepping gear for an outdoor survival or emergency preparedness kit, include this mini ASR Outdoor pocket knife to have alongside you on your next outdoor excursion; each tool locks in place for consistent, efficient and reliable performance, and it will never ask you to sacrifice on weight or space.<br/><br/>With the included keychain ring incorporated into the design, you can attach the pocket knife multitool to just about anything you need: backpack, wallet, belt loop camping gear and much more, depending on where work or your next camping trip or hike takes you.<br/><br/>Available Colors: Black, Red, Green, Blue\nSearch Terms: mini knives mens stocking stuffer cheap gift small pocket knife edc carry key chain mini knife for campers hunting small camping survival corkscrews nail files travel emergency prep\nFeatures:\n- 5 in 1 SMALL EDC POCKET KNIFE: Featuring a tweezer, toothpick nail file, knife blade, scissors and keyring, this ASR Outdoor mini pocket knife is ready for adventure; great for camping and every day carry on your key ring\n- COMPACT DESIGN: Small pocket knife is just 2.25 inches overall when closed; super lightweight you'll never sacrifice on space or weight\n- TASK READY: Whether you're fishing, hunting, backpacking, camping or prepping gear for an outdoor survival or emergency preparedness kit, this mini ASR Outdoor pocket knife is a great holiday gift idea for mens stocking stuffers\n- KEYCHAIN POCKET KNIFE: With an included keychain ring incorporated into the design, you can attach the mini pocket knife multitool to just about anything you need: backpack, camping gear, keys and much more\n- SPECIFICATIONS: Blade Length: 1.5 inch; Closed Length: 2.25 inch; Open Length: 5.5 inch; Color: Green; Material: Plastic, Metal; No assembly required\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Green Mini Pocket Knife Multitool",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Mini",
+                "color": "Green",
+                "name": "Pocket Knife Multitool"
+            },
+            "char_count": 45,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Green Mini Pocket Knife Multi Tool",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Green",
+                "name": "Mini Pocket Knife Multi Tool"
+            },
+            "char_count": 46,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "5-In-1 EDC, Keychain Design, Compact 225 Inch, Camping And Survival Gear",
+            "char_count": 72,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "5 In 1 EDC, Tweezer, Toothpick, Nail File, Scissors, Keyring, 225 Inch Closed, Lightweight, Camping And Everyday Carry",
+            "char_count": 118,
+            "validation_error": null
+        }
+    }
+}

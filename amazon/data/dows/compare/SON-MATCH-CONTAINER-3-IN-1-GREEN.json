@@ -1,0 +1,60 @@
+{
+    "sku": "SON-MATCH-CONTAINER-3-IN-1-GREEN",
+    "asin": "B0748M58GM",
+    "product_type": "SPORTING_GOODS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-MATCH-CONTAINER-3-IN-1-GREEN\nProduct Type: SPORTING_GOODS\nBrand (from catalog): ASR Outdoor\nExisting Title: 3 in 1 Survivalist Waterproof Match Stick Storage Container With Fire Starter and Signal Mirror\nDescription: A must have for camping, backpacking, and hiking. This is a waterproof 3 in 1 match box container with a watertight seal, a fire starter on the bottom, and a convenient mirror in the cover. <br/><br/>At just 3 inches tall, this compact storage container can easily be put in your pocket or backpack and keep your matches and other small items safe and dry. The fire starter flint on the bottom is easy to use and great for any time you need to have a fire outdoors. The mirror is ideal for signalling, but can also serve as a mirror for yourself. <br/><br/>These storage containers are extremely lightweight and durable, and are a great addition to any survival kit. Don't forget one on your next adventure.<br/><br/>These match stick containers are durable and are great for camping, hiking, hunting, or for carrying in your survival kit.\nSearch Terms: campfire matchbox outside storage box waterproof waterproof storage containers waterproof storage box waterproof matches matches box matches in a jar waterproof matches with case camping accessories camping gear camping stove campfire accessories\nFeatures:\n- Waterproof & Watertight seal\n- Mirror in Cover\n- Color: Green or Orange\n- Small Convenient Size (3\" Tall)\n- Fire Starter Flint on Bottom\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 3 in 1 Green Waterproof Match Container",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "in 1",
+                "size": "3 inches",
+                "color": "Green",
+                "name": "Waterproof Match Container"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 3in Green Match Storage Container",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "3in",
+                "color": "Green",
+                "name": "Match Storage Container"
+            },
+            "char_count": 45,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Waterproof Seal, Fire Starter Flint, Signal Mirror, Compact 3 Inch Design, Survival Kit Essential",
+            "char_count": 97,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Watertight Seal, Mirror In Cover, Flint Fire Starter, Pocket Size, Camping Hiking Survival Kit",
+            "char_count": 94,
+            "validation_error": null
+        }
+    }
+}

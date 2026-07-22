@@ -3,14 +3,14 @@
     "asin": "B084VVZRKC",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:40:43+00:00",
+    "generated_at": "2026-07-21T19:58:43+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 5,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -91,21 +91,59 @@
             "value": "Stainless Steel",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 13.5\" Dragon Fantasy Hunting Knife Stainless Steel",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 13.5\" Dragon Collector's Hunting Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Dragon Collector's Hunting Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "7\" Etched Blade, Dragon Head Pommel, Matching Scabbard, Fixed Blade",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 13.5-in Dragon Hunting Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 40,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Dragon Hunting Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "7\" Stainless Steel Blade, Dragon Head Pommel, Etched Dragon Handle, Matching Dragon Scabbard, Fixed Blade",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 105,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "7\" Acid Etched 440 Stainless Steel Blade, Dragon Head Handle, Matching Scabbard, Fixed Blade, Collector Gift",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 108,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

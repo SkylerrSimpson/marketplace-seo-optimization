@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-NAILDRYER-MINNIE-AMZ",
+    "asin": "B0BFBTYP4Y",
+    "product_type": "NAIL_DRYER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-NAILDRYER-MINNIE-AMZ\nProduct Type: NAIL_DRYER\nBrand (from catalog): Disney\nExisting Title: Townley Disney Minnie Mini Nail Dryer Set\nDescription: The Disney Minnie Mouse nail polish set will give your little one the perfect manicure or pedicure around. Featuring Mickey Mouse’s sweetheart, Minnie Mouse, your little one will find two vibrant, sparkly nail polishes in rosy red and perfectly perfect purple throughout this Nail Art Kit. Also included in the Minnie Mouse Nail Polish set are a sheet of 27 fun stick-on nail stickers and a battery-operated nail dryer (batteries not included).<br/><br/>This fun Minnie-themed nail set is a great stocking stuffer or party favor idea for any little Disney Minnie Mouse fanatic. The water-based nail polish, combined with the nail fan, makes for quick drying between coats just like being at a real nail salon. The non-toxic formula makes it easy for little princesses to apply the nail polish and quickly reapply. Simply peel off the dried polish and start again. No need for harsh nail polish removers.<br/><br/>This nail polish kit with a nail dryer is also great for pretend play as a nail manicurist, an activity during a sleepover or birthday party, and the perfect stocking stuffer for the holidays or a fun party favor for a Disney-themed party. Let the manicures and pedicures commence.\nSearch Terms: Minnie mouse girls dress up nail polish kids nontoxic nail polish for children stocking stuffer disney party favor for girls 3 and up toddler dress up gifts pretend play sets for girls bff sister gift minnie mouse holiday gift\nFeatures:\n- MINNIE MOUSE NAIL POLISH: The Disney Minnie Mouse Girls Nail Polish Set includes two nontoxic nail polish colors in rosy red and perfect purple, as well as an assortment of 27 nail stickers featuring the most glamourous mouse around, Minnie Mouse of course!\n- NON-TOXIC NAIL POLISH: The water-based formula of these Disney Minnie Mouse nail polish colors make for an easy cleanup, no harsh nail polish remover is needed; Once the polish is dry, simply peel off the polish and then they are given a blank canvas to paint their next nail art masterpiece!\n- NAIL DRYER INCLUDED: With the included Minnie Mouse battery-powered Nail Dryer, little fashionistas will love that the dry time between coats is drastically shortened, just like being at a real nail salon! This means more time for playing or changing polish colors with this quick dry nail polish\n- MANICURES AND PEDICURES: A great activity for girls to do with family and friends, this Disney Minnie Mouse nail polish set will keep little hands busy giving manicures and pedicures all day long! A great gift for girls and toddlers who love fashion, beauty, and makeup\n- SPECIFICATIONS: Package Dimensions: 5.75 x 2 x 11 inches; Weight: .425lbs; Nail Polish: 0.14oz; Batteries Not Included\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Disney Minnie Mouse Mini Nail Dryer Set",
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "Mini",
+                "pack_size_unit": "",
+                "size": "Mini",
+                "color": "",
+                "name": "Nail Dryer Set"
+            },
+            "char_count": 39,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Disney Mini Nail Dryer Set",
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Mini",
+                "color": "",
+                "name": "Nail Dryer Set"
+            },
+            "char_count": 26,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "2 Non-Toxic Nail Polish Colors, 27 Nail Stickers, Battery-Powered Dryer, Water-Based Formula",
+            "char_count": 92,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Non-Toxic Water-Based Polish, Two Colors, 27 Stickers, Battery-Powered Dryer, Quick Dry Pretend Play",
+            "char_count": 100,
+            "validation_error": null
+        }
+    }
+}

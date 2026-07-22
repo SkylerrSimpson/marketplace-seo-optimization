@@ -1,0 +1,60 @@
+{
+    "sku": "DOY-TTX-TESTNEEDLESANDSTONE-6PC",
+    "asin": "B0C95VYMRZ",
+    "product_type": "ART_AND_CRAFT_SUPPLY",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DOY-TTX-TESTNEEDLESANDSTONE-6PC\nProduct Type: ART_AND_CRAFT_SUPPLY\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux 10k 14k 18k 999S Silver and Gold Testing Kit Needles with Jewelry Testing Stone, 6pc\nDescription: Scratch testing is one of the oldest and most reliable karat and purity tests available for testing precious metal quality and content, and is ideal when used in conjunction with testing stones and acid testing solutions. ToolTreaux’s 6pc Silver and Gold Testing Kit includes 10k, 14k, 18k gold and 999S silver needles, conveniently held together for organization and safekeeping on a brass key ring. Testing stone included measures 2.0 x 1.5 x 0.25 inches, is made from natural black stone, is resistant to acidity and should always be cleaned thoroughly between each use.<br/>See below for silver and gold testing instructions. <br/>How to Test (Gold): Scratch the metal in question onto testing stone; be sure the testing stone is clean and free of any other materials. Once you have a visible line to work with, place a small drop of the closest acid solution to the karat you estimate the metal might be. If the acid solution dissolves the metal, the metal is LESS than the karat that is displayed on the acid testing solution bottle. If the metal sample stays and does not dissolve, it is at least the karat of the acid testing solution used or possibly higher.<br/>How to Test (Silver): Scratch the metal in question onto the testing stone; be sure the testing stone is clean and free of any other materials. Once you have a visible line to work with, place a small drop of the silver testing solution and look for one of the following results: Dark Red = 90-100% Purity; Light Red or Brown = 80%-90% Purity; Light Green = 65%-75% Purity; Creamy white results can indicate that the item is sterling silver; lastly, green results can indicate that the item is silver plated. <br/>Incredibly lightweight and compact, the ToolTreaux 6pc silver and gold testing kit is great for on the go testing or travel if needed. Suitable for those in jewelry sales and appraisal, jewelry making and design, to include with gold prospecting equipment and gold panning kits and more.\nSearch Terms: gold panning kits jewelry making tools sterling silver testing kit craft supplies adult hobby cleaner arts crafts prospecting equipment making precious metal verifier needle 10k 14k 18k 999S hallmark scratch\nFeatures:\n- GOLD TESTING KIT: Set of four needles from ToolTreaux includes 10k, 14k and 18k for gold purity and karat testing, as well as a 999S needle for silver testing; kit also includes testing stone to help in the identification process of precious metals\n- NEEDLES: Used as a comparison when testing gold or silver, needles and item in question should be scratched onto testing stone and treated with appropriate acid to determine karat content of jewelry, gold or other precious metals\n- TESTING STONE: Essential tool for hobbyists, jewelry makers, retailers and designers, gold prospectors and more for evaluating precious metals; made from natural black stone, is resistant to acidity and should always be cleaned thoroughly between each use\n- KEY RING: Each needle measures 1.75 inches in length; Keep silver and gold testing kit needles organized on included brass key ring; lightweight tool making it great for on the go testing or travel\n- SPECIFICATIONS: Material: brass, gold, silver, natural stone; Kit Weight: 0.10lbs; Needle Dimensions: 2.5 x 1.0 x 0.25 inches; Stone Dimensions: 2.0 x 1.5 x 0.25 inches; COO: Made in India\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 6-pc Gold and Silver Testing Kit Needles",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "6",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Gold and Silver Testing Kit Needles"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 6-Pk 10K 14K 18K 999S Gold Silver Testing Kit Stone",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "6",
+                "pack_size_unit": "Pk",
+                "size": "",
+                "color": "",
+                "name": "10K 14K 18K 999S Gold Silver Testing Kit Stone"
+            },
+            "char_count": 62,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "10K 14K 18K 999S Needles, Testing Stone, Brass Key Ring, Jewelry Appraisal, Portable",
+            "char_count": 84,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Natural Black Stone, Acid Resistant, Brass Key Ring, Lightweight Travel Ready, Organized For Easy Testing",
+            "char_count": 105,
+            "validation_error": null
+        }
+    }
+}

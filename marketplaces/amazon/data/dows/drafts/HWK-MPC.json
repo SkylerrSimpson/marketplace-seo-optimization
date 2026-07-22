@@ -3,14 +3,14 @@
     "asin": "B00HVIGWOW",
     "product_type": "ABRASIVES",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:00:17+00:00",
+    "generated_at": "2026-07-21T20:05:20+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 6,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -104,20 +104,58 @@
             "asin": "B00HVIGWOW",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "Universal Tool #4 Precious Metal Polish Compound Stick 2.2oz",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 60,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "2.2",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "",
+                "name": "Precious Metal Polish Compound Stick"
+            }
         },
-        "title_differentiation": {
-            "value": "Removes oxidation, corrosion & scratches. Solid stick for buffing wheels",
+        "item_name_ai_openai": {
+            "value": "Universal Tool Precious Metal Polish Compound Stick 2.2 Oz",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 58,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "2.2",
+                "color": "",
+                "name": "Precious Metal Polish Compound Stick"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Polishes All Precious Metals, Removes Corrosion And Scratches, Buffing Wheel Compatible, Solid Stick Format, Home And Workshop Use",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 130,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (130 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Solid 22 Oz Stick, Polishes Precious Metals, Removes Oxidation And Burs, Buffing Wheel Use, For Home Or Workshop",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 112,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

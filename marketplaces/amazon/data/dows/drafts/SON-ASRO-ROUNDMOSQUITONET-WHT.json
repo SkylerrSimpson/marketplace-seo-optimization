@@ -3,14 +3,14 @@
     "asin": "B0D4NZ9VTQ",
     "product_type": "NETTING_COVER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:30:49+00:00",
+    "generated_at": "2026-07-21T20:11:10+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -39,20 +39,57 @@
             "asin": "B0D4NZ9VTQ",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Round Mosquito Net 131\" Camping with Mounting Kit",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 131.5in White Round Mosquito Net",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 44,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "131.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "White",
+                "name": "Round Mosquito Net"
+            }
         },
-        "title_differentiation": {
-            "value": "Fine Mesh 240 holes/sq in, Includes Hooks & Cord, Portable Storage Bag",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 94.5in White Mosquito Net",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 37,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "94.5in",
+                "color": "White",
+                "name": "Mosquito Net"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "240 Mesh Holes Per Sq In, Includes Mounting Kit, Lightweight Travel Design, Camping And Backpacking Essential",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 109,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Fine Mesh 240 Holes Per Square Inch, Mounting Kit Included, Lightweight, Breathable, Reusable Storage Bag",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 105,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

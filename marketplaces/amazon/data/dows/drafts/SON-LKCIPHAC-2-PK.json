@@ -3,14 +3,14 @@
     "asin": "B075TGG5P7",
     "product_type": "PERSONAL_PILL_DISPENSER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:10:50+00:00",
+    "generated_at": "2026-07-21T20:07:18+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -57,20 +57,57 @@
             "asin": "B075TGG5P7",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Waterproof Aluminum ID Pill Holder Keychain",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Mini Waterproof Pill Holder Keychain Container",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 58,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Mini",
+                "color": "",
+                "name": "Waterproof Pill Holder Keychain Container"
+            }
         },
-        "title_differentiation": {
-            "value": "6-Pack, O-Ring Sealed, 1.75\", Assorted Colors, Lightweight Storage",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 6-Pk Mini Waterproof ID Holder Capsule",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 50,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "6",
+                "pack_size_unit": "Pk",
+                "size": "Mini",
+                "color": "",
+                "name": "Waterproof ID Holder Capsule"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Waterproof Aluminum, O-Ring Seal, ID Storage, Assorted Colors, Compact Keychain Design, Travel Ready",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 100,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Waterproof Aluminum Construction, O-Ring Seal, Keychain Attachment, Includes Plastic Vial, Assorted Colors",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 106,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

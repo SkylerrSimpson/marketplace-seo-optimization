@@ -3,14 +3,14 @@
     "asin": "B074MHKKLD",
     "product_type": "BLANK_BOOK",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:12:19+00:00",
+    "generated_at": "2026-07-21T19:49:00+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 7,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -115,20 +115,57 @@
             "asin": "B074MHKKLD",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "CCS Spy Gear Disappearing Water-Soluble Notepad 32 Sheets",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "CCS Spy Gear Disappearing Note Pad Journal 32 Sheets",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "CCS Spy Gear",
+                "pack_size": "32",
+                "pack_size_unit": "Sheets",
+                "size": "",
+                "color": "",
+                "name": "Disappearing Note Pad Journal"
+            }
         },
-        "title_differentiation": {
-            "value": "Dissolves in seconds, secret message paper, reflection journaling",
+        "item_name_ai_openai": {
+            "value": "CCS Spy Gear 32-Sheet Disappearing Note Pad Journal",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 51,
+            "review_only": true,
+            "tokens": {
+                "brand": "CCS Spy Gear",
+                "pack_size": "32",
+                "pack_size_unit": "Sheets",
+                "size": "8.5\" x 5.5\"",
+                "color": "",
+                "name": "Disappearing Note Pad Journal"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Dissolves In Water, Water-Soluble, 85X55 Inches, Made In USA, Secret Message Pad",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 80,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Water Soluble, Dissolves In Seconds, Turns To Pulp, 32 Sheets, Extra Large 85\" X 55\", Secret Notes",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 98,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

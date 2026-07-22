@@ -3,14 +3,14 @@
     "asin": "B0H1YD7CN3",
     "product_type": "TOWEL",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:19:17+00:00",
+    "generated_at": "2026-07-21T20:08:51+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -45,20 +45,57 @@
             "asin": "B0H1YD7CN3",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille 100% Cotton Kitchen Dish Cloths 10-Pack Blue",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 10-pk Blue Assorted Cotton Kitchen Dish Cloths",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "10",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Blue Assorted",
+                "name": "Cotton Kitchen Dish Cloths"
+            }
         },
-        "title_differentiation": {
-            "value": "Machine Washable, Assorted Blue Patterns, Reusable Set",
+        "item_name_ai_openai": {
+            "value": "Beille 10-Pk Blue Cotton Kitchen Dish Cloths",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 44,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "10",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Blue",
+                "name": "Cotton Kitchen Dish Cloths"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "100 Cotton, Machine Washable, Reusable, Set Of 10 With 2 Of Each Style, Farmhouse Coastal Modern Decor",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 102,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Machine Washable, Reusable Everyday Cloths, 10 Pack Value Set, Assorted Blue Patterns, Soft Absorbent",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

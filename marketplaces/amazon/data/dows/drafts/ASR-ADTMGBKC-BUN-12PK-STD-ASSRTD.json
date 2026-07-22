@@ -3,14 +3,14 @@
     "asin": "B01B8N93FA",
     "product_type": "LABEL",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:23:56+00:00",
+    "generated_at": "2026-07-21T19:53:35+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -89,20 +89,57 @@
             "asin": "B01B8N93FA",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 12 Pack Aluminum Dog Tags Keychain Assorted Colors",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 12-pk Aluminum Dog Tags Keychain Assorted",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "12",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Assorted",
+                "name": "Aluminum Dog Tags Keychain"
+            }
         },
-        "title_differentiation": {
-            "value": "Blank Engravable, 6 Colors, 3.25\" Chain, Pet & Luggage ID",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 12-pk 2\" Assorted Colors Aluminum Dog Tag Keychain",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 62,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "12",
+                "pack_size_unit": "pk",
+                "size": "2\"",
+                "color": "Assorted Colors",
+                "name": "Aluminum Dog Tag Keychain"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Blank Engraveable, 6 Assorted Colors, 325In Chain, Pet And Medication ID, Military Style",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 88,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Blank Engravable Aluminum Tags, Key Chain Included, 6 Assorted Colors, For Pets Medications Luggage",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 99,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

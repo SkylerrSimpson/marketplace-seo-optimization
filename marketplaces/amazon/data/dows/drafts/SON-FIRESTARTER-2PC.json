@@ -3,14 +3,14 @@
     "asin": "B09WJL2VFL",
     "product_type": "SPORTING_GOODS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:41:16+00:00",
+    "generated_at": "2026-07-21T19:58:56+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -46,20 +46,57 @@
             "asin": "B09WJL2VFL",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Magnesium Fire Starter 2PC Kit with Striker",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Magnesium Fire Starter with Striker",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 47,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "PC",
+                "size": "",
+                "color": "",
+                "name": "Magnesium Fire Starter with Striker"
+            }
         },
-        "title_differentiation": {
-            "value": "Serrated Striker, Ergonomic Grip, Includes Lanyard, Lightweight Survival",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor Magnesium Fire Starter and Striker",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 46,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Magnesium Fire Starter and Striker"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "2-Piece Kit, Serrated Striker Blade, Ergonomic Grip, Nylon Lanyard, Lightweight Survival Tool",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 93,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Serrated Steel Striker, Ergonomic Grip Handle, Nylon Lanyard, Ultra Light, Camping And Survival Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 99,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B0DDMG4PCV",
     "product_type": "FIRST_AID_KIT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:05:32+00:00",
+    "generated_at": "2026-07-21T19:46:18+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 5,
+        "ai_suggested": 7,
         "ai_null": 0,
         "base_template": 0
     },
@@ -31,34 +31,71 @@
             "value": "Red",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "model_name": {
             "value": "50pc Portable First Aid Kit",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
-            "value": "One Size",
+            "value": "5 x 4 x 1.25 inches",
             "is_required": false,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 50pc Portable First Aid Kit Waterproof Case",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 50pc Red Portable First Aid Kit Waterproof",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "50",
+                "pack_size_unit": "pc",
+                "size": "Portable",
+                "color": "Red",
+                "name": "First Aid Kit Waterproof"
+            }
         },
-        "title_differentiation": {
-            "value": "Compact, lightweight, lockable waterproof case with lanyard & carabiner",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 50-Pc Portable First Aid Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 40,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "50",
+                "pack_size_unit": "Pc",
+                "size": "Portable",
+                "color": "",
+                "name": "First Aid Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Waterproof Case, Lanyard And Carabiner, Emergency Supplies, Hiking Camping Survival Gear, Lightweight Travel",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 108,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Waterproof Lockable Case, 50 Pieces, Lanyard And 5Mm Carabiner, Compact Travel Emergency Supplies",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 97,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

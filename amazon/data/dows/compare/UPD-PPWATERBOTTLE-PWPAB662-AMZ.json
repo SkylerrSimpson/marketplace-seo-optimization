@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-PPWATERBOTTLE-PWPAB662-AMZ",
+    "asin": "B09C9SJQZD",
+    "product_type": "BOTTLE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-PPWATERBOTTLE-PWPAB662-AMZ\nProduct Type: BOTTLE\nBrand (from catalog): Zak Designs\nExisting Title: Paw Patrol Kids Pull Top Plastic Water Bottle School Supplies 17oz\nDescription: It’s pups to the rescue just in time for back to school with this perfectly sized kid's Paw Patrol water bottle. Just the right size for smaller hands and a snap tight drink spout, it’s everything your little Paw Patrol fan needs to stay hydrated; this Paw Patrol water bottle puts health and safety first by being non-toxic and BPA-free.<br/><br/>Hydration is a must for kids to maintain a healthy weight, improve their memory and stay focused, whether at school, playing sports, or participating in extracurricular activities; this 17-ounce water bottle is the perfect size for them to manage their water intake and easily refill if needed. And, measuring 7.5 inches tall by 2.5 inches wide, this Paw Patrol water bottle with fun Chase, Rubble, and Marshall graphic is perfect for smaller hands; kids will easily be able to open via the pull top and squeeze to drink, all while maintaining a secure grip. <br/><br/>Help your little Paw Patrols fans learn the importance of hydration with the Paw Patrol 17oz BPA Free Plastic Pull Top Squeeze Water Bottle. <br/><br/>An officially licensed Paw Patrol product.\nSearch Terms: water bottles kids bottle for school sports boys pups supplies back to cute suppplies\nFeatures:\n- PAW PATROL WATER BOTTLE: It’s pups to the rescue just in time for back to school with this perfectly sized kids Paw Patrol water bottle! Just the right size for smaller hands and a snap tight drink spout, it’s everything your little Paw Patrol fan needs to stay hydrated; this Paw Patrol water bottle puts health and safety first by being non-toxic and BPA free\n- BACK TO SCHOOL MUST-HAVE: Hydration is a must for kids to maintain a healthy weight, improve their memory and stay focused, whether at school, playing sports or participating in extracurricular activities; this 17 ounce water bottle is the perfect size for them to manage their water intake and easily refill if needed\n- PERFECT FOR SMALL HANDS: Measuring 7.5 inches tall by 2.5 inches wide, this Paw Patrol water bottle with Chase, Rubble and Marshall graphic is perfect for smaller hands; kids will easily be able to open via the pull top and squeeze to drink, all while maintaining a secure grip!\n- SNAP TIGHT DRINK SPOUT – The Paw Patrol water bottle for back to school, sports and more, comes with screw on lids that feature quick push and pull leakproof spouts, so kids can get a quick, refreshing drink without slowing down as they race between activities and when closed properly, won’t leak into backpacks, in the car or elsewhere\n- SPECIFICATIONS: Dimensions: 7.5 x 2.5 inches; Colors: Red, Blue; Material: BPA free plastic; Officially licensed Paw Patrol merchandise\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Zak Designs Paw Patrol 17oz Kids Pull Top Water Bottle",
+            "tokens": {
+                "brand": "Zak Designs",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "17oz",
+                "color": "",
+                "name": "Paw Patrol Kids Pull Top Water Bottle"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Zak Designs 17oz Paw Patrol Pull Top Water Bottle",
+            "tokens": {
+                "brand": "Zak Designs",
+                "pack_size": "17",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "",
+                "name": "Water Bottle"
+            },
+            "char_count": 49,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "BPA-Free Plastic, Leak-Proof Spout, Perfect For Small Hands, Back To School, Sports",
+            "char_count": 83,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "BPA-Free Plastic, Leakproof Snap Top, Easy-Grip For Small Hands, Officially Licensed, Red And Blue Graphics",
+            "char_count": 107,
+            "validation_error": null
+        }
+    }
+}

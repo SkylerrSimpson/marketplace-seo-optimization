@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-MMESC4OZNCB",
+    "asin": "B002DZRFIK",
+    "product_type": "BONDING_ADHESIVES",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-MMESC4OZNCB\nProduct Type: BONDING_ADHESIVES\nBrand (from catalog): GEAR AID\nExisting Title: Seal Cement - 4oz - Black Waterproof Wetsuit Seal and Repair\nDescription: Aquaseal Neo Contact Cement keeps neoprene repairs fast and simple. This flexible liquid adhesive, cures within 30 minutes and bonds permanently to stretchy fabrics including neoprene, latex as well as other coated materials. Use it to repair all kinds of gear including waterproof waders, gloves, booties, and spray skirts. It can also tackle leaky gaskets. For that unexpected waterside repair, bring Aquaseal Neo along to your next adventure.\nSearch Terms: neoprene patch sealant sealer seams\nFeatures:\n- Repair torn or ripped neoprene wetsuits and waders permanently within 30 minutes using this contact cement, which cures to a black, flexible rubber\n- Use either the 1.5 fl oz tube or 4 fl oz can to fix all types of elastic fabric including latex; also bonds to coated materials\n- Apply on high-wear areas including knees and elbows for a long-lasting repair that stretches; ideal for repairing drysuits, gloves, booties and spray skirts\n- Make water-tight seal on a leaky gasket at home or in the field with a liquid adhesive that resists scratches\n- Packaging may vary\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "GEAR AID Aquaseal Neo 4oz Black Wetsuit Seal Cement",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "4",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "Black",
+                "name": "Aquaseal Neo Wetsuit Seal Cement"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID 4 oz Black Seal Cement",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "4",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "Black",
+                "name": "Seal Cement"
+            },
+            "char_count": 31,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Waterproof Neoprene Repair, 30-Minute Cure, Flexible Rubber Bond, Waders And Gaskets, Stretch Fabric Compatible",
+            "char_count": 111,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Flexible Neoprene And Latex Bond, Cures In 30 Minutes, Waterproof Repair, Works On Waders Gloves Drysuits",
+            "char_count": 105,
+            "validation_error": null
+        }
+    }
+}

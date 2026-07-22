@@ -3,14 +3,14 @@
     "asin": "B000R961M0",
     "product_type": "SKIN_CLEANING_AGENT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:05:54+00:00",
+    "generated_at": "2026-07-21T19:46:23+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 21,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -305,19 +305,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Dove go fresh Cucumber Green Tea Beauty Bar Soap, 14 Pack",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Dove go fresh Beauty Bar Cucumber Green Tea 14-pk",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 49,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Dove",
+                "pack_size": "14",
+                "pack_size_unit": "pk",
+                "size": "4 oz",
+                "color": "",
+                "name": "go fresh Beauty Bar Cucumber Green Tea"
+            }
         },
-        "title_differentiation": {
-            "value": "4 oz bars, moisturizing cream formula, gentle cleanser for hands & face",
+        "item_name_ai_openai": {
+            "value": "Dove 14-pk 4 oz Cucumber Green Tea Beauty Bar",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 45,
+            "review_only": true,
+            "tokens": {
+                "brand": "Dove",
+                "pack_size": "14",
+                "pack_size_unit": "pk",
+                "size": "4 oz",
+                "color": "",
+                "name": "Beauty Bar"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "14 Bar Pack, 14 Moisturizing Cream, Dermatologist Recommended, Gentle Hand And Face Cleanser",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 92,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Refreshing Cucumber And Green Tea Scent, One Fourth Moisturizing Cream, Gentle Cleansing, Dermatologist Recommended",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 115,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

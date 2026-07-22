@@ -3,14 +3,14 @@
     "asin": "B00FQPHUNO",
     "product_type": "OUTDOOR_LIVING",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:50:37+00:00",
+    "generated_at": "2026-07-21T19:29:19+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 14,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -202,20 +202,57 @@
             "asin": "B00FQPHUNO",
             "raw_value": true
         },
-        "title_differentiation": {
-            "value": "Fits 5 gallon bucket & 14\" gold pan; stackable interlocking design; ABS plastic with 304 stainless steel mesh",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 1/100\" Classifier Screen Gold Panning Sieve",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8",
-            "validation_error": "requires item_name <= 75 chars"
-        },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Gold Panning Classifier Screen 1/100\" Sifting Mesh",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1",
+                "pack_size_unit": "",
+                "size": "1/100\"",
+                "color": "",
+                "name": "Classifier Screen Gold Panning Sieve"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 1/100 Classifier Screen, Gold Prospecting Mesh Sieve",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 64,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "1/100",
+                "color": "",
+                "name": "Classifier Screen"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "5 Gallon Bucket Fit, Stainless Steel Mesh, Stackable Design, Gold Prospecting, Soil Sifting, High Impact Plastic",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 112,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "304 Stainless Steel Mesh, ABS Plastic Frame, Fits 5 Gallon Bucket And 14\" Pan, Stackable Interlocking Design",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 108,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

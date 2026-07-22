@@ -3,14 +3,14 @@
     "asin": "B07D8D8FQ8",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:21:05+00:00",
+    "generated_at": "2026-07-21T20:08:55+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,20 +27,57 @@
             "asin": "B07D8D8FQ8",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 5pc Gold Prospecting Pan Kit with Testing Stone",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 5-pc Gold Rush Gold Panning Kit Green 10in",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "pc",
+                "size": "10in",
+                "color": "Green",
+                "name": "Gold Rush Gold Panning Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "10\" Green Pan, Melting Pot, Dropper, Vial & Testing Stone",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 5-pc 10in Green Gold Prospecting Pan Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 52,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "pc",
+                "size": "10\"",
+                "color": "Green",
+                "name": "Gold Prospecting Pan Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "10 Inch Pan, Testing Stone, Melting Pot, Dropper Pipette, Collection Vial, Beginner And Professional",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 100,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Green 10\" Pan, 2 Dram Glass Vial, 2\" Testing Stone, 3ML Dropper Pipette, Ceramic Melting Pot, Beginner Prospecting Set",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 118,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

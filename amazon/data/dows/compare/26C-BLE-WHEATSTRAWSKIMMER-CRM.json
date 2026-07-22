@@ -1,0 +1,60 @@
+{
+    "sku": "26C-BLE-WHEATSTRAWSKIMMER-CRM",
+    "asin": "B0D5C3XTHQ",
+    "product_type": "SPOON",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 26C-BLE-WHEATSTRAWSKIMMER-CRM\nProduct Type: SPOON\nBrand (from catalog): Beille\nExisting Title: Beille Wheat Straw Skimmer Spoon with Stainless Steel Handle Cooking Baking Kitchen Utensils, 13.5 Inch\nDescription: Skimmer spoon from Beille features innovative plant based bioplastic material called wheat straw, that mimics classic kitchen utensils without the harmful byproducts of traditional plastic. Stylish and sustainable, who says you can’t have both?<br/><br/>Wheat straw is a bioplastic that is not made from fossil fuels, making them a more sustainable and zero waste option. The skimmer spoon is of course certified BPA free and food safe for all your cooking, baking and food prep needs; importantly, the skimmer kitchen utensil is also dishwasher safe, making for quick and easy clean up. And, this wheat material won’t scratch or mark your pots and pans like other utensils can, especially where ceramic and nonstick cookware or bake ware are concerned.<br/><br/>The kitchen utensils feature sturdy handles made of durable and corrosion resistant stainless steel for durability and longevity in the kitchen. The handles comes with a built in slot for easy hanging storage if desired. The kitchen utensil is finished in a trendy and warm speckled cream color with matte finish, that make them an easy addition to any and all kitchens or food prep stations. Easy and comfortable to maneuver, the wheat straw skimmer spoon measures approximately 13.5 inches in length, providing excellent control and a comfortable grip for whatever recipe you’re taking on next!<br/><br/>With the Beille wheat straw plant based skimmer spoon, you can cook and meal prep with peace of mind, knowing you’re doing your part to protect yourself, your family, and the planet from harmful materials! A home essentials item for any home cook or professional chef. Happy cooking!\nSearch Terms: kitchen utensils set cooking baking supplies tools food meal prep slotted spoons kitchen starter set scoop serveware wedding house warming gifts new home college dorm room essentials chef restaurant equipment server wheat straw sustainable products\nFeatures:\n- SLOTTED WHEAT STRAW SKIMMER: Upgrade your kitchen utensils with this sustainable and stylish wheat straw skimmer spoon from Beille; a must have for all your cooking, meal and food prep needs, while neutral speckled cream color will fit nicely with any and all kitchens\n- PLANT BASED MATERIAL: Unique kitchen skimmer spoon is made of bioplastic wheat straw, a plant based material not made from fossil fuels making it a more sustainable choice; Innovative material is a great zero waste option\n- SOLID AND DURABLE: Beille wheat straw skimmer material construction mimics traditional plastic cooking spoons and utensils without harmful byproducts; top rack dishwasher safe\n- STAINLESS STEEL HANDLE: Sturdy handle made of durable, corrosion resistant stainless steel that are rust resistant; skimmer comes with handy slot in handle for easy hang storage if preferred\n- SPECIFICATIONS: Dimensions: 13.5 x 4 x 1 inches; Color: Speckled cream; Weight: ; Dishwasher Safe: Yes\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 13.5in Cream Wheat Straw Skimmer Spoon",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "13.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Cream",
+                "name": "Wheat Straw Skimmer Spoon"
+            },
+            "char_count": 45,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 13.5 in Speckled Cream Skimmer Spoon",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "13.5",
+                "color": "Speckled Cream",
+                "name": "Skimmer Spoon"
+            },
+            "char_count": 43,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Sustainable Plant-Based Material, Stainless Steel Handle, Dishwasher Safe, BPA-Free, Non-Scratch, Hanging Storage Slot",
+            "char_count": 118,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Plant Based Wheat Straw, Stainless Steel Handle, BPA Free, Dishwasher Safe, Nonstick Safe, Hang Hole",
+            "char_count": 100,
+            "validation_error": null
+        }
+    }
+}

@@ -3,14 +3,14 @@
     "asin": "B07RF9XG9C",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:31:55+00:00",
+    "generated_at": "2026-07-21T19:56:03+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -93,20 +93,57 @@
             "asin": "B07RF9XG9C",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 10\" Damascus Hunting Knife Gold Etched Steel",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 10 Inch Gold Damascus Hunting Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 47,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "Gold",
+                "name": "Damascus Hunting Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "Full Tang, Wood Grain Handle, Includes Nylon Sheath, Stainless Steel",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 10-in Gold Hunting Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 36,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Gold",
+                "name": "Hunting Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Full Tang Blade, Etched Damascus Design, 45 Inch Blade, Stainless Steel, Wood Grain Handle, Includes Nylon Sheath",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 113,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Full Tang Blade, Etched Damascus Style, 45\" Blade, Stainless Steel, Nylon Sheath, Wood Grain Handle",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 99,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

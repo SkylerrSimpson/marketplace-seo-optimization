@@ -3,14 +3,14 @@
     "asin": "B09ZK1F476",
     "product_type": "BOTTLE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:16:51+00:00",
+    "generated_at": "2026-07-21T19:50:31+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 9,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -141,20 +141,57 @@
             "asin": "B09ZK1F476",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Chrome Glass Water Bottle 23oz Bamboo Lid",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 23oz Chrome Glass Water Bottle with Bamboo Lid",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 58,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "23",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "Chrome",
+                "name": "Glass Water Bottle with Bamboo Lid"
+            }
         },
-        "title_differentiation": {
-            "value": "Borosilicate Glass, Leak Proof, BPA Free, Lightweight, Cold Drinks",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 23oz Chrome Finish Glass Water Bottle",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 49,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "23oz",
+                "color": "Chrome Finish",
+                "name": "Glass Water Bottle"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Borosilicate Glass, BPA-Free, Leak-Proof Bamboo Lid, Lightweight, Cold Drinks Only, Hand Wash",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 93,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Borosilicate Glass, Bamboo Airtight Lid, BPA Free, Lightweight 23 Oz Capacity, Cold Drinks Only, Hand Wash Only",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

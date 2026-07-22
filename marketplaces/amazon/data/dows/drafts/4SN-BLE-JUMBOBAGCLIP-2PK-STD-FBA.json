@@ -3,14 +3,14 @@
     "asin": "B0H1P3MHRY",
     "product_type": "HOME",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:52:20+00:00",
+    "generated_at": "2026-07-21T20:03:22+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -45,20 +45,57 @@
             "asin": "B0H1P3MHRY",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille 6 Inch Jumbo Magnetic Stainless Steel Bag Clip",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 2-pk 6 Inch Stainless Steel Magnetic Bag Clip",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "6 Inch",
+                "color": "Stainless Steel",
+                "name": "Magnetic Bag Clip"
+            }
         },
-        "title_differentiation": {
-            "value": "2-Pack, Strong Hold for Large Food Bags, Refrigerator Magnet",
+        "item_name_ai_openai": {
+            "value": "Beille 2-Pk 6 Inch Stainless Steel Magnetic Bag Clip",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 52,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "Pk",
+                "size": "6 Inch",
+                "color": "",
+                "name": "Stainless Steel Magnetic Bag Clip"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Jumbo Pantry Food Storage, Strong Grip, Built-in Magnet, Brushed Metal, Refrigerator And Freezer",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 96,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Strong Magnetic Backing, Wide Easy Grip Handle, Brushed Stainless Steel Finish, Seals Chips Coffee Cereal Pet Food Bags",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 119,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

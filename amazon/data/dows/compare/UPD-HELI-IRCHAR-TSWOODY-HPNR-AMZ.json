@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-HELI-IRCHAR-TSWOODY-HPNR-AMZ",
+    "asin": "B07ZJV8VB6",
+    "product_type": "NON_RIDING_TOY_VEHICLE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-HELI-IRCHAR-TSWOODY-HPNR-AMZ\nProduct Type: NON_RIDING_TOY_VEHICLE\nBrand (from catalog): World Tech Toys\nExisting Title: World Tech Toys Pixar Toy Story Emoji Woody IR UFO Ball Heliball Helicopter\nDescription: <p>Introducing the Pixar Toy Story Emoji Woody IR UFO Ball Helicopter! Featuring a coaxial rotor system for precise movement and increased stability when hovering. The UFO Heli Ball's body is also constructed with a durable material making it strong yet lightweight, so you don't have to worry about breaking anything when it lands a bit too rough. Using infrared motion sensitive technology, the UFO heli ball will detect nearby objects and is programmed to move away from them. Simply turn on and launch to get started, holding your hand underneath it will keep it hovering up in the air. When done flying you can try and grab it, but you can also use any IR remote control to shut down and recover safely, it's that easy! A must have for fans of helicopters, get the Pixar Toy Story Emoji Woody IR UFO Ball Helicopter today!</p><p><strong>Features:</strong></p><p>&nbsp;</p><ul><li>Pixar Disney Licensed</li><li>Electric Powered</li><li>Durable Constructed Material</li><li>Easy to Fly</li><li>Master Hand / Eye Coordination</li><li>Advanced Infrared Hover Sensor Technology</li><li>Battery Charges with USB Charger</li></ul><p>&nbsp;</p><p><strong>Includes:</strong></p><p>&nbsp;</p><ul><li>Pixar Toy Story Emoji Woody IR UFO Ball Helicopter&nbsp;</li><li>USB Charger</li></ul>\nSearch Terms: Toy Story 4, Woody, Buzz, RC, Remote Control, Helicopter, RC Helicopter, Remote Control Helicopter, Toy, Toys, Play, Kids\nFeatures:\n- TOY STORY HELICOPTER - Officially licensed Mini Copter is an excellent flying toy for kids; featuring Woody from the hit Disney Pixar movie franchise\n- DURABLE AND LIGHTWEIGHT - Made with solid and light materials that won’t break anything on a rough landing; featuring a coaxial rotor system for hovering stability and precise movements\n- INFRARED MOTION TECH - UFO copter uses infrared motion sensing technology to detect nearby objects and will automatically dodge them; Comes with USB charger and 2 spare rotors\n- EASY TO USE - Just charge it, turn it on and hold your hand underneath to keep it hovering; when you’re done, grab it or use any IR remote control to shut it down safely\n- SPECIFICATIONS - Dimensions: 10.75” x 3” x 6.3”; Weight: .35lbs; Max speed: 5mph; Recommended age: 6+; Max run time: 10mins; Max distance: 10ft; Power source: battery (1 CR2032, included)\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "World Tech Toys Woody IR UFO Ball Helicopter",
+            "tokens": {
+                "brand": "World Tech Toys",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Woody",
+                "name": "IR UFO Ball Helicopter"
+            },
+            "char_count": 44,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "World Tech Toys Woody IR UFO Ball Helicopter",
+            "tokens": {
+                "brand": "World Tech Toys",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Woody IR UFO Ball Helicopter"
+            },
+            "char_count": 44,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Toy Story Licensed, Infrared Motion Sensor, Hover Technology, Coaxial Rotor, USB Rechargeable, Ages 6 Plus",
+            "char_count": 106,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Officially Licensed Disney Pixar Toy Story, Infrared Motion Sensor, USB Charger, Coaxial Rotor Stability, Easy Flying",
+            "char_count": 117,
+            "validation_error": null
+        }
+    }
+}

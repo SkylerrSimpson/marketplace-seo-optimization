@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-BLE-COLANDERSET3PC-STD",
+    "asin": "B0FLG6ZJWW",
+    "product_type": "FOOD_STRAINER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-BLE-COLANDERSET3PC-STD\nProduct Type: FOOD_STRAINER\nBrand (from catalog): Beille\nExisting Title: Beille 3pc Stainless Steel Colander for Kitchen, Nesting Food Strainers (1.5qt, 3qt and 5qt)\nDescription: Designed to handle kitchen tasks big and small, the Beille 3pc Stainless Steel Colander Set offers durable performance in three versatile sizes: 1.5qt, 3qt, and 5qt.<br/><br/>Streamline kitchen prep with this three piece nesting colander set; designed to handle everything from rinsing fruits and vegetables to draining pasta or washing grains, these colanders offer versatile functionality in three practical sizes - perfect for everyday cooking and meal prep.<br/><br/>Each colander is crafted from high quality stainless steel for long lasting strength and resistance to rust or staining. The classic footed base ensures stability while in use, while the precision drilled perforations allow fast, even drainage without letting ingredients slip through.<br/><br/>Integrated comfort grip side handles make lifting and pouring easier, even with hot water. And when you're done, the nesting design allows all three colanders to stack neatly inside one another, saving valuable cabinet or shelf space when not in use.<br/><br/>From weekday meal prep to big batch cooking, this set is a kitchen staple you’ll reach for on the daily. Dishwasher safe for easy cleanup (although hand washing is recommended), and stylish enough for countertop, pantry or butler kitchen display, this set combines function, durability and smart storage in one essential kitchen trio.\nSearch Terms: colander; stainless steel colander; colander set; strainer; nesting bowls; drainer for food; pasta drainer; kitchen essentials; berry basket; kitchen basics; food meal prep; baking supplies; colander with handles; colanders and food strainers\nFeatures:\n- COLANDER SET: Set includes 1.5qt, 3qt and 5qt colanders to handle everything from rinsing berries to draining pasta or washing large veggies\n- NESTING DESIGN: All three colanders nest together for compact storage when not in use\n- EASY USE: Integrated side handles make for easy lifting, safe handling and effortless transport around the kitchen or prep station\n- STAINLESS STEEL: Made from durable stainless steel that resists rust and stains, designed for long term use in any kitchen\n- EVEN DRAINAGE HOLES: Precision-drilled perforations provide quick, even drainage without food slipping through, ideal for everything from produce, pasta and more\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 3pc Stainless Steel Colander Set",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Stainless Steel",
+                "name": "Colander Set"
+            },
+            "char_count": 39,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 3-Piece Stainless Steel Nesting Colander Set",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Stainless Steel Nesting Colander Set"
+            },
+            "char_count": 51,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "15Qt, 3Qt And 5Qt, Nesting Design, Stainless Steel, Even Drainage, Handles, Dishwasher Safe",
+            "char_count": 91,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Three Sizes 15Qt 3Qt 5Qt, Footed Base, Side Handles, Rust Resistant, Dishwasher Safe, Even Drainage Holes",
+            "char_count": 105,
+            "validation_error": null
+        }
+    }
+}

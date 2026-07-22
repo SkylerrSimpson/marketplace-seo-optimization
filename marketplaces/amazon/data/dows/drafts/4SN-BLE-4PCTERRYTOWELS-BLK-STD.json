@@ -3,14 +3,14 @@
     "asin": "B0FLMJL64J",
     "product_type": "TOWEL",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:30:25+00:00",
+    "generated_at": "2026-07-21T19:55:39+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -51,20 +51,57 @@
             "asin": "B0FLMJL64J",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille 4pc 100% Cotton Terry Windowpane Dish Towels, Black",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 4-pc Black Windowpane Cotton Dish Towels",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 47,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "pc",
+                "size": "26.5 x 16 inches",
+                "color": "Black",
+                "name": "Windowpane Cotton Dish Towels"
+            }
         },
-        "title_differentiation": {
-            "value": "4-Pack Set, 26.5x16 inches, Classic Checkered Pattern, Absorbent",
+        "item_name_ai_openai": {
+            "value": "Beille 4-Pk 26.5x16 In Black Cotton Terry Dish Towels",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 53,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "Pk",
+                "size": "26.5x16 In",
+                "color": "Black",
+                "name": "Cotton Terry Dish Towels"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "100 Cotton Terry, Classic Checkered Pattern, Absorbent, Machine Washable, Kitchen Essentials",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 92,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Super Absorbent, 100 Percent Cotton, Windowpane Weave, Soft And Durable, Machine Washable, Kitchen Essentials",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

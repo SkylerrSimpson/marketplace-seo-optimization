@@ -3,14 +3,14 @@
     "asin": "B0FX7W6LDL",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:26:35+00:00",
+    "generated_at": "2026-07-21T20:09:49+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 5,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -87,22 +87,59 @@
             "value": "Stainless Steel",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical Folding EDC Pocket Knife Stainless Steel Matte Black",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical Micro Folding Pocket Knife EDC Matte Black",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Micro",
+                "color": "Matte Black",
+                "name": "Folding Pocket Knife EDC"
+            }
         },
-        "title_differentiation": {
-            "value": "Compact keychain design, corrosion-resistant blade, lightweight survival tool",
+        "item_name_ai_openai": {
+            "value": "ASR Tactical Micro Matte Black Folding Pocket Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 51,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Micro",
+                "color": "Matte Black",
+                "name": "Folding Pocket Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Stainless Steel Blade, Keychain Attachment, Lightweight EDC Gear, Camping And Hiking Essential, Tactical Survival Tool",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 118,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Stainless Steel Blade, Keychain Attachment, Compact EDC Tool, Lightweight Carry, Camping And Survival Ready",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

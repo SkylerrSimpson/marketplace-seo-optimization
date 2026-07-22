@@ -3,14 +3,14 @@
     "asin": "B09R3WZW6V",
     "product_type": "SPORTING_GOODS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:53:59+00:00",
+    "generated_at": "2026-07-21T20:03:51+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -46,20 +46,57 @@
             "asin": "B09R3WZW6V",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 11pc Gold Panning Kit with Classifier Screens",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 11pc Gold Panning Kit Prospecting Equipment",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "11",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Gold Panning Kit Prospecting Equipment"
+            }
         },
-        "title_differentiation": {
-            "value": "Includes 3 dual riffle pans, 2 classifier screens, recovery tools",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 11-Piece Gold Panning Kit with Classifier Screens, Pans",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 67,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "11",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Gold Panning Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "3 Dual Riffle Pans, 2 Classifier Screens, Precision Recovery Tools, Beginner Friendly, Complete Starter Set",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 107,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "11-Piece Set, 2 Classifier Screens, 3 Dual Riffle Pans, Magnetic Separator, Tweezers, Sand Scoop, 5 Gallon Bucket Fit",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 117,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

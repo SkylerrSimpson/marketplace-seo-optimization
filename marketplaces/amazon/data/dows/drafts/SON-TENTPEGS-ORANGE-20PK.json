@@ -3,14 +3,14 @@
     "asin": "B08JHHXDNM",
     "product_type": "ANCHOR_STAKE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:45:09+00:00",
+    "generated_at": "2026-07-21T20:12:09+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,20 +27,57 @@
             "asin": "B08JHHXDNM",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 20-Pack Galvanized Twisted Tent Stakes, Orange",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 20-pk Orange Twisted Metal Tent Stakes",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "20",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Orange",
+                "name": "Twisted Metal Tent Stakes"
+            }
         },
-        "title_differentiation": {
-            "value": "Heavy-duty galvanized steel, 10\", twisted design, orange PVC toppers, camping & canopy",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 20-pk 10 in Orange Tent Stakes",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 42,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "20",
+                "pack_size_unit": "pk",
+                "size": "10 in",
+                "color": "Orange",
+                "name": "Tent Stakes"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Galvanized Steel, Heavy Duty, Twisted Design, 10 Inch, Sharp Square Tips, Rust Resistant, Easy Install",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 102,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Twisted Galvanized Steel, Sharp Square Point, PVC Topper With Eyelet, Rust Resistant, Heavy Duty, Easy Installation",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 115,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

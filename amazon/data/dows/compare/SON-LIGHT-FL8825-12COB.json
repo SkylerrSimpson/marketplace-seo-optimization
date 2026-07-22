@@ -1,0 +1,60 @@
+{
+    "sku": "SON-LIGHT-FL8825-12COB",
+    "asin": "B07Q2FP4ZZ",
+    "product_type": "ELECTRIC_LIGHT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-LIGHT-FL8825-12COB\nProduct Type: ELECTRIC_LIGHT\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 240 Lumen LED Switch Outdoor Light\nDescription: The ASR Outdoor 240 Lumens COB LED 3 Stage Switch Hanging Work Light includes a ballast point, which allows you to hang it anywhere you want conveniently. This product is especially ideal for hanging in tents. It has a 3-stage switch, including full, half, and blinking light. Portable and easy to store in backpacks. Battery powered for outdoor activities such as Camping, Hiking, Fishing, Zombie Apocalypse, EDC, Bug Out Bag, Hunting, Backpacking and Emergency Survival. Innovative design is also great for bathrooms, children's rooms, garages, closets, pantries, and tool sheds. This 3 stage switch hanging light glows 240 Lumens and is energy efficient. Perfect to fit large tool boxes, truck boxes, RV's, and campers. Have bright light wherever you want it without messy wires. With all of these fantastic features, it is without a doubt that it will be a must-have in your outdoor, camping, bug out, or garden needs.<br/><br/>Requires (3) AAA batteries.\nSearch Terms: hunting fishing camping boating survival\nFeatures:\n- THREE STAGE SWITCH - The 3-stage switch allows you to switch between including full, half, and blinking light.\n- HIGH OUTPUT - The light puts out 240 lumens COB LED.\n- USE ANYWHERE - Take this light with you while camping and place in your tent or attach to a backpack to help you see at night. The hanging ballast make this hanging light great for use in many outdoor settings as well as the work space garage and is perfect to place in closets and cupboards to help you find what you need.\n- MULTIPURPOSE - Camping, Survival, Camping, Hiking, Fishing, Zombie, Apocalypse, EDC, Bug, Out, Bag, Hunting, Backpacking, or Emergency\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 240 Lumen LED Hanging Work Light",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "240 Lumen",
+                "color": "",
+                "name": "LED Hanging Work Light"
+            },
+            "char_count": 44,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 240 Lumen COB LED Hanging Work Light",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Hanging Work Light"
+            },
+            "char_count": 48,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "3-Stage Switch, 240 Lumens COB LED, Battery Powered, Camping Hiking Fishing, Portable Tent Light",
+            "char_count": 96,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Three Stage Switch, 240 Lumen COB LED, Hanging Ballast Hook, Battery Powered, Tent Garage Backpack Use",
+            "char_count": 102,
+            "validation_error": null
+        }
+    }
+}

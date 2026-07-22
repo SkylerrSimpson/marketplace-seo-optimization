@@ -1,0 +1,60 @@
+{
+    "sku": "SON-AOPAKR-SML-SLVR-PZ",
+    "asin": "B06XDX2XVR",
+    "product_type": "KEYCHAIN",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-AOPAKR-SML-SLVR-PZ\nProduct Type: KEYCHAIN\nBrand (from catalog): ToolTreaux\nExisting Title: Tooltreaux Pull Apart Key Ring, Double-ended Keychain\nDescription: Do you find yourself fumbling with your keys because they're all stuck on one key ring? Never worry about this again with the Pull Apart Key Ring!<br/><br/>This key ring splits into 2 key rings with the quick release lock and connect, so you can keep your car keys separate from your other keys. This is super helpful if for example you have a separate key for your mail box and hate turning your car off just to get your mail. The key ring has a brass body and is nickel-plated for extra strength and quality. <br/><br/>Each split key ring has a 1\" diameter and measures just 3\" in total length. These key rings are also ideal for use with access control cards, identification, whistles, key FOBs and more! Make sure to grab a few of these to keep your keys organized!\nSearch Terms: key rings chains travel accessories camping keyring break apart 2 way car key ring split ring\nFeatures:\n- Pull Apart Key Rings - Quick Release Lock & Connect\n- Stainless Body, Nickel Plated\n- 2 Split Key Rings Diameter 1\"\n- Total Length of Key Chain: 3\"\n- Design Allows for 2 Groups of Keys to Be Carried Independently or Together\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 80 characters.  Please include the size and color of the item in the Product Name, if available.\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux Pull Apart Key Ring Silver Double-Ended",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "1 inch",
+                "color": "Silver",
+                "name": "Pull Apart Key Ring Double-Ended"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux Pull Apart Key Ring",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Pull Apart Key Ring"
+            },
+            "char_count": 30,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Quick Release Lock And Connect, Splits Into 2 Key Rings, Nickel-Plated Brass, Organize Car Keys Separately, 3 Inch Total Length",
+            "char_count": 127,
+            "validation_error": "value exceeds maxLength 125 (127 chars)"
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Quick Release Lock And Connect, Split Into 2 Independent Rings, Brass Body Nickel Plated, 1\" Rings, 3\" Total Length",
+            "char_count": 115,
+            "validation_error": null
+        }
+    }
+}

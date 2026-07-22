@@ -3,14 +3,14 @@
     "asin": "B01FN8O392",
     "product_type": "APPAREL",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:19:15+00:00",
+    "generated_at": "2026-07-21T19:51:36+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 3,
         "catalog": 3,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -77,25 +77,62 @@
             "raw_value": true
         },
         "fabric_type": {
-            "value": "100% Polyester",
+            "value": "100% Polyester Mesh",
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor High Visibility Reflective Safety Vest Green",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor High Visibility Lime Green Reflective Safety Vest",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 61,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "One Size Fits Most",
+                "color": "High Visibility Lime Green",
+                "name": "Reflective Safety Vest"
+            }
         },
-        "title_differentiation": {
-            "value": "Universal Fit, Silver Reflective Tape, Breakaway Design, Polyester Mesh",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor Universal Fit Lime Green Reflective Safety Vest",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 59,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Universal Fit",
+                "color": "Lime Green",
+                "name": "Reflective Safety Vest"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Silver Reflective Tape, Breakaway Design, Polyester Mesh, Fits Most Adults, Jogging, Biking, Construction",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 105,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "High Visibility Lime Green, Silver Reflective Tape, Breakaway Style, Durable Polyester Mesh, One Size Fits Most",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

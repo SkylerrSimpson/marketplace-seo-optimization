@@ -3,14 +3,14 @@
     "asin": "B07TMM9Q89",
     "product_type": "SHOVEL_SPADE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:40:39+00:00",
+    "generated_at": "2026-07-21T20:12:00+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 4,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -70,20 +70,57 @@
             "asin": "B07TMM9Q89",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "ASR Outdoor 13\" Serrated Edge Digger Hand Trowel",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Serrated Edge Digger Hand Trowel"
+            }
         },
-        "title_differentiation": {
-            "value": "Carbon Steel, Double Edge Blade, Hard Soil Breaking, Metal Detecting",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 13 in Serrated Edge Digger",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 38,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Serrated Edge Digger"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Double Edge Serrated Blade, Carbon Steel, 75 Inch, Ergonomic Grip, Includes Nylon Sheath, Metal Detecting And Gardening",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 119,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Double Edge Serrated Blade, Heat Treated Carbon Steel, Ergonomic Grip, Nylon Sheath, Belt Loop, Hard Soil And Roots",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 115,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

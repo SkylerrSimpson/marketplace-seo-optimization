@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-TOUCHWATCH-JOJ-56920-AMZ-2",
+    "asin": "B0CN1V4BZY",
+    "product_type": "WATCH",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-TOUCHWATCH-JOJ-56920-AMZ-2\nProduct Type: WATCH\nBrand (from catalog): Nickelodeon\nExisting Title: JoJo Siwa Pink LED Display Digital Touch Screen Watch for Girls 6 and Up\nDescription: The JoJo SiwaTouchscreen LED watch is a great addition to any child’s wardrobe. Little JoJo Siwa fans will love having their favorite Nickelodeon star with them at school or playdates. The pink encased LCD watch screen gives a digital time that is easy to read for kids who are just learning how to tell time.<br/><br/>Learning a new skill has never looked so good. This JoJo Siwa digital LED watch is a fantastic gift idea. Your child will develop the fundamental skills of telling time and time management while sporting their favorite YouTube dancer. The JoJo Siwa touchscreen watch is a fun accessory for young girls to use when playing dress-up or during pretend play but is also a staple for everyday wear. This JoJo Siwa LED watch easily pairs with dress-up costumes and pretend play jewelry and accessories.<br/><br/>The kid’s LED touch screen kids smartwatch comes with a rubber band and buckle closure that fits most kids’ wrists. The comfortable adjustable strap features iconic images of JoJo Siwa with her bow for a fun and trendy look. This is a great gift idea this holiday season for kids and JoJo fanatics.\nSearch Terms: smart watch for kids timepiece wrist watches rubber strap touchscreen fashion girls boys digital LED kids stocking stuffers gifts children comfortable touch face smart screen durable glass character cartoon adjustable fun graphic kids wristwatch\nFeatures:\n- JOJO SIWA DIGITAL TOUCHSCREEN WATCH: The JoJo Siwa touchscreen LED watch is a great addition to any child’s wardrobe. Little JoJo Siwa fans will love having their favorite Nickelodeon dancer with them at school or play dates. The pink encased LCD watch screen gives a digital time which is easy to read for kids who are just learning how to tell time.\n- LEARN TO TELL TIME: Learning a new skill has never looked so good! This JoJo Siwa digital LED watch is a fantastic gift idea. Your child will develop the fundamental skills of telling time and time management while sporting their favorite YouTube star!\n- FUN DRESS UP ACCESSORY: The JoJo Siwa touchscreen watch is a fun accessory for young girls and boys to use when playing dress-up or during pretend play but is also a staple for everyday wear! This LED watch easily pairs with dress-up costumes and pretend play jewelry and accessories.\n- ONE SIZE FITS MOST: The kid’s LED touch screen kids smartwatch comes with a rubber band and buckle closure that fits most kids’ wrists. The comfortable adjustable strap features iconic images of JoJo Siwa with her bow for a fun and trendy look.\n- SPECIFICATIONS: Face Cover Material: Plastic; Band Material: Rubber; Power Source: Battery; Wrist Circumference: Adjusts from 140mm to 240mm; Ages: 6+\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Nickelodeon JoJo Siwa Pink LED Digital Touchscreen Watch",
+            "tokens": {
+                "brand": "Nickelodeon",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Pink",
+                "name": "LED Digital Touchscreen Watch"
+            },
+            "char_count": 56,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Nickelodeon JoJo Siwa Pink Digital Touchscreen Watch",
+            "tokens": {
+                "brand": "Nickelodeon",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Pink",
+                "name": "Digital Touchscreen Watch"
+            },
+            "char_count": 52,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Touchscreen Display, Adjustable Rubber Strap, Learn To Tell Time, Ages 6 Plus, Dress-Up Accessory",
+            "char_count": 97,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Easy Read LED Display, Touch Screen Time, Adjustable Rubber Strap, One Size Fits Most, Ages 6 Plus, Character Graphic",
+            "char_count": 117,
+            "validation_error": null
+        }
+    }
+}

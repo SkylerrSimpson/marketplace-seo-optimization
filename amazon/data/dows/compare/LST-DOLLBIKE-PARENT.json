@@ -1,0 +1,60 @@
+{
+    "sku": "LST-DOLLBIKE-PARENT",
+    "asin": "B07Y8RPFFQ",
+    "product_type": "TOY_FIGURE_PLAYSET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-DOLLBIKE-PARENT\nProduct Type: TOY_FIGURE_PLAYSET\nBrand (from catalog): TychoTyke\nExisting Title: TychoTyke Pretend Play Doll Set With Bike And Sport Equipment (3 Colors)\nDescription: Have sporty playtime fun with this Doll and Bike Set. <br/><br/>This set comes with an 11 inch tall doll, decked out in sports gear. She comes with a multitude of accessories, including a bike for her to ride on, a helmet for safety, and two tennis rackets. <br/><br/>Everything in this set is vibrantly colored and makes for a fantastic holiday or birthday gift for any little one in your life.<br/><br/>3 Bike Colors Available: Yellow, Blue or Purple\nSearch Terms: doll set accessories play for girls gift motorcycle bike sports equipment\nFeatures:\n- RIDE-ON BIKE: Includes a vibrant pink bike for the doll to ride on! | Hours of playtime fun.\n- ACCESSORIES: Comes with tennis rackets, a helmet, and more!\n- GREAT GIFT: Makes a fantastic birthday or holiday gift for any young kids! | Ages 3 and up.\n- CUTE OUTFIT: Doll is dressed in a cute, sporty outfit! | Perfect to take along with on any outdoor adventure.\n- POSABLE: Features movable arms and legs. | Have hours of imaginative fun!\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "TychoTyke Doll with Bike and Sports Accessories Set",
+            "tokens": {
+                "brand": "TychoTyke",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "11 inch",
+                "color": "3 Colors",
+                "name": "Doll with Bike and Sports Accessories Set"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "TychoTyke 11 in Doll Set With Bike And Sports Accessories",
+            "tokens": {
+                "brand": "TychoTyke",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "11",
+                "color": "",
+                "name": "Doll Set"
+            },
+            "char_count": 57,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "11-Inch Doll, Ride-On Bike, Tennis Rackets, Helmet, Posable Arms And Legs, Ages 3 And Up",
+            "char_count": 88,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Posable 11 Inch Doll, Ride-On Bike, Helmet And Tennis Rackets, Sporty Outfit, Gift For Ages 3 Plus",
+            "char_count": 98,
+            "validation_error": null
+        }
+    }
+}

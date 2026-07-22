@@ -3,14 +3,14 @@
     "asin": "B074K3DJHQ",
     "product_type": "CARABINER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:41:44+00:00",
+    "generated_at": "2026-07-21T20:12:04+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 4,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -81,19 +81,58 @@
             "asin": "B074K3DJHQ",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "ASR Outdoor 2 Inch Extra Small Light Blue Carabiner",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "Inch",
+                "size": "Extra Small",
+                "color": "Light Blue",
+                "name": "Carabiner"
+            }
         },
-        "title_differentiation": {
-            "value": "Compact aluminum keychain clip, rust-resistant anodized finish, everyday carry",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 2-in Extra Small Light Blue Carabiner Key Chain",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 59,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "in",
+                "size": "Extra Small",
+                "color": "Light Blue",
+                "name": "Carabiner Key Chain"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Aluminum Keychain Clip, Anodized Weather-Resistant, Split Ring, EDC Gear Organizer, Non-Climbing, Backpack And Purse Attachment",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 127,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (127 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Ultra Compact, Anodized Aluminum, Integrated Split Key Ring, Rust Resistant, Backpack And Bag Friendly",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 102,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

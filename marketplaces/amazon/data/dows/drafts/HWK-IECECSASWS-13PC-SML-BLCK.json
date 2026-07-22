@@ -3,14 +3,14 @@
     "asin": "B00IKVFEEI",
     "product_type": "SCREWDRIVER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:47:14+00:00",
+    "generated_at": "2026-07-21T20:01:19+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 4,
         "catalog": 5,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -121,25 +121,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "HWK-IECECSASWS-13PC",
+            "value": "13SDHKS",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Craftsman 13-Piece Screwdriver and Allen Wrench Set",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Tool 13-Piece Screwdriver and Allen Wrench Set",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 56,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "13",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "",
+                "name": "Screwdriver and Allen Wrench Set"
+            }
         },
-        "title_differentiation": {
-            "value": "6 Phillips & Flathead Screwdrivers + 7 Hex Keys, Carrying Case",
+        "item_name_ai_openai": {
+            "value": "Universal Tool 13-Pc Screwdriver and Wrench Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 47,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "13",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Screwdriver and Wrench Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "6 Phillips And Flathead Screwdrivers, 7 Hex Keys, Folding Design, Carrying Case",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 79,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "6 Precision Screwdrivers, 7 Fold-Out Allen Wrenches, Phillips And Slotted Heads, Plastic Storage Case",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

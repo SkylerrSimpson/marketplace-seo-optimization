@@ -3,14 +3,14 @@
     "asin": "B077QPLYQ2",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:39:13+00:00",
+    "generated_at": "2026-07-21T19:58:08+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 7,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -131,20 +131,57 @@
             "asin": "B077QPLYQ2",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical 27\" Stainless Steel Sword & 2pc Throwing Knives",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical 27\" Red Martial Arts Sword with 2pc Throwing Knives",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 64,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "2",
+                "pack_size_unit": "pc",
+                "size": "27\"",
+                "color": "Red",
+                "name": "Martial Arts Sword with Throwing Knives"
+            }
         },
-        "title_differentiation": {
-            "value": "Full Tang 440 Stainless Steel, Red, Includes Nylon Sheath",
+        "item_name_ai_openai": {
+            "value": "ASR Tactical 2-Pk 27in Red Sword Throwing Knives Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 52,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "27\"",
+                "color": "Red",
+                "name": "Sword Throwing Knives Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Full Tang 440 Stainless Steel, Includes 5\" Throwing Knives, Nylon Carrying Case With Shoulder Strap, Practice And Training",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 122,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "440 Stainless Steel, Full Tang Construction, 27\" Sword And 2 Throwing Knives, Nylon Sheath, Shoulder Strap",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 106,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

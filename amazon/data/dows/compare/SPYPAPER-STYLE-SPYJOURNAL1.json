@@ -1,0 +1,60 @@
+{
+    "sku": "SPYPAPER-STYLE-SPYJOURNAL1",
+    "asin": "B07XV87HRJ",
+    "product_type": "BLANK_BOOK",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SPYPAPER-STYLE-SPYJOURNAL1\nProduct Type: BLANK_BOOK\nBrand (from catalog): CCS Spy Gear\nExisting Title: Disappearing Note Pad Journal 32 Sheets Dissolves In Water (Journal)\nDescription: This Disappearing Note Pad looks like ordinary paper, but is unique in that it dissolves in just seconds when contacted with liquid. This will result in a useless, non-reconstructable mulch which is far more secured than the output of any standard shredder.<br/><br/>You can write on this paper normally, but as soon as it comes into contact with liquid (even saliva) it will transform into a secure mulch. This makes it ideal for those confidential notes that may need to \"disappear\" quickly with little advance notice.<br/><br/>Another great use for this note pad is \"Reflection Paper\". These note pads have been used as part of a meditative process - write something down that has been plaguing you, and release it into running water in order to dissolve it and let it go.<br/><br/>These note pads are ideal for indoor or outdoor use, and we recommend folding the paper to protect your privacy while \"releasing\" your note in a group setting. <br/><br/>Each note pad measures 8.5\" x 5.5\", and features 32 blank sheets. Choose from these options: <br/><br/>Journal<br/>Spy Paper<br/>Spy Paper - Journal<br/>Reflection Paper<br/>Reflection Paper - Journal<br/>Blank Note Pad\nSearch Terms: spy paper dissolving paper disappearing decoder in water sheets water-soluble magic\nFeatures:\n- EXTRA LARGE PAPER - Each Notepad contains 32 Sheets of Paper\n- Dimensions: 8.5\" x 5.5\" | Extra Large Sheets of Paper\n- Made In The USA\n- TURNS TO PULP - Within 10 Seconds of Contacting Liquid the Paper Disappears Like a Magic Trick into a Pulp\n- Great for Hiding or Disposing of Secret Notes\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "CCS Spy Gear Disappearing Note Pad Journal 32 Sheets",
+            "tokens": {
+                "brand": "CCS Spy Gear",
+                "pack_size": "32",
+                "pack_size_unit": "Sheets",
+                "size": "",
+                "color": "",
+                "name": "Disappearing Note Pad Journal"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "CCS Spy Gear 32-Sheet Disappearing Note Pad Journal",
+            "tokens": {
+                "brand": "CCS Spy Gear",
+                "pack_size": "32",
+                "pack_size_unit": "Sheets",
+                "size": "",
+                "color": "",
+                "name": "Disappearing Note Pad Journal"
+            },
+            "char_count": 51,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Water-Soluble, Dissolves In 10 Seconds, Made In USA, 85 X 55 In, Secret Note Disposal",
+            "char_count": 85,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Dissolves In 10 Seconds, Turns To Pulp, 32 Sheets, 85\" X 55\", Made In USA, Great For Secret Notes",
+            "char_count": 97,
+            "validation_error": null
+        }
+    }
+}

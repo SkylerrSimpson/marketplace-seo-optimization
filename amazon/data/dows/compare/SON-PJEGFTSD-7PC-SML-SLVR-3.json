@@ -1,0 +1,60 @@
+{
+    "sku": "SON-PJEGFTSD-7PC-SML-SLVR-3",
+    "asin": "B0051QJ00O",
+    "product_type": "WATCH",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-PJEGFTSD-7PC-SML-SLVR-3\nProduct Type: WATCH\nBrand (from catalog): Jeweler's Tools\nExisting Title: 7pc Micro Precision Screwdriver Set 0.6mm - 1.6mm with Replacement Tips - Jewelry, Watch Repair, Electronics\nDescription: This set of jewelers screw drivers includes 7 precision flat tips ranging from 0.6mm - 1.6mm with a different colored corresponding swivel top for easy reference of size.<br/><br/>This set is all flat tips with an extra reversible tip within the body of the handle. The screw chuck spins off to reveal the extra tip in each handle.<br/><br/>This is the ideal set for around the home, at the office, or just to have handy to tighten your eye glasses.\nSearch Terms: screwdriver precision tools hobby eye glass repair\nFeatures:\n- Set of 7 Flat Tip Screw Drivers\n- Tip Sizes: 0.6mm, 0.7mm, 0.8mm, 1.0mm, 1.2mm, 1.5mm, 1.6mm\n- Stainless Steel\n- Screw-on Chuck\n- Replaceable Tips\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Jeweler's Tools 7-pc Micro Precision Screwdriver Set 0.6-1.6mm",
+            "tokens": {
+                "brand": "Jeweler's Tools",
+                "pack_size": "7",
+                "pack_size_unit": "pc",
+                "size": "0.6-1.6mm",
+                "color": "",
+                "name": "Micro Precision Screwdriver Set"
+            },
+            "char_count": 62,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Jeweler's Tools 7-Pc Micro Precision Screwdriver Set",
+            "tokens": {
+                "brand": "Jeweler's Tools",
+                "pack_size": "7",
+                "pack_size_unit": "pc",
+                "size": "Micro Precision",
+                "color": "Silver",
+                "name": "Screwdriver Set"
+            },
+            "char_count": 52,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Flat Tips 06Mm To 16Mm, Replaceable Tips, Stainless Steel, Watch And Jewelry Repair, Screw-on Chuck",
+            "char_count": 99,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "7 Flat Tip Drivers, 06Mm-16Mm, Stainless Steel, Screw On Chuck, Replaceable Tips, Jewelry Watch Eyeglass Repair",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

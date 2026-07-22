@@ -1,0 +1,60 @@
+{
+    "sku": "SON-AOLWSC-55E-OPQ-FBA",
+    "asin": "B00GNLP6EA",
+    "product_type": "STORAGE_BOX",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-AOLWSC-55E-OPQ-FBA\nProduct Type: STORAGE_BOX\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Hard Case Waterproof Camping First Aid Storage Container, 5.5 Inch, Clear\nDescription: The ASR Outdoor Waterproof Storage Container is a great addition to any adventurer's gear collection. Each container measures 5.5 x 3 x 1 inch, the perfect size for keeping a smart phone, pocket knife and many other essential items safe and dry. These cases are constructed of durable plastic and come with a fitted o-ring. The case has a two part hinge locking mechanism that ensures the cap and body are hinged together securely between the embedded o-ring, creating a water tight seal.<br/><br/>An attached lanyard allows for you to carry it around your neck, in your pocket, or even just your backpack. The translucent color makes it easy to find and identify your items in an emergency situation. Other great uses for this container include storing electronics, credit cards, wallets, medicine and other valuables while travelling or braving the great outdoors. This is a great gift idea for your favorite camper or hiker, and make sure not to leave home without one on your next adventure! Colors ship at random.\nSearch Terms: waterproof case id card badge holder floating sports locker hanging ring rope portable dry small box lanyard credit drivers licenses money water storage container sport carabiner\nFeatures:\n- Waterproof Storage Container: ASR Outdoor waterproof container is a great option for keeping small items and valuables safe and secure; Features O-ring lid to ensure items aren't affected by leaks or poor weather condition\n- LIghtweight and Portable: Storage container is made of translucent plastic so you can easily identify your valuables; Great for storing credit cards, money, keys, medicine, and IDs\n- Weatherproof and Waterproof: Two-part hinge locking mechanism with recessed rubber o-ring seal ensures water tight seal; Durable ABS clear plastic material will take a beating while continously protecting your contents\n- Compact Design: Storage container measures 5.25” x 3” x 1.25” and weighs 3.5 ounces so it won’t add a bunch of bulk; Easily fits inside most pockets, backpacks, and travel bags\n- Great for storing electronics, survival essentials, bandages, credit cards, medicine, valuables and more\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 5.5 Inch Clear Waterproof Storage Container",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5.5",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "Clear",
+                "name": "Waterproof Storage Container"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 5.5-in Clear Hard Case Waterproof Storage Container",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Clear",
+                "name": "Hard Case Waterproof Storage Container"
+            },
+            "char_count": 63,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "O-Ring Seal, Waterproof, Portable With Lanyard, ID Card Holder, Translucent Design",
+            "char_count": 82,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "O-Ring Seal, Two-Part Hinge Lock, Lightweight ABS, Fits Cards Keys Medicine, Waterproof And Weatherproof",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

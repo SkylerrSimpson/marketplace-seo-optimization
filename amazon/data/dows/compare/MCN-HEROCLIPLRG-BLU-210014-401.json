@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-HEROCLIPLRG-BLU-210014-401",
+    "asin": "B0913F5V8F",
+    "product_type": "CARABINER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-HEROCLIPLRG-BLU-210014-401\nProduct Type: CARABINER\nBrand (from catalog): GEAR AID\nExisting Title: HEROCLIP Carabiner Clip and Hook (Large) for Camping, Backpack, Organization, and Garage (Blue)\nDescription: Heroclip Large gear clip lets you hook and hang big backpacks from trees, duffle bags from fences, buckets from ladders, and carry-ons from bathroom stalls. This versatile gear clip hangs securely, rotates 360 degrees, and folds compactly in ways other carabiners, clips and hooks can’t, helping you keep your gear organized and exactly where you want it, no matter the activity. <br/><br/>The clip also features a wider clip gate compared to standard carabiners and hooks, and a hook with a grippy rubber tip for hanging things from flat surfaces.<br/><br/>PLEASE NOTE: This product is not designed for climbing.\nSearch Terms: twist carabiner camping hook accessory carry backpacking rotating fold grip hang outdoor recreation\nFeatures:\n- HEROCLIP is the world's first 3-in-1 clip and hook that can hang just about anything, just about anywhere!\n- HANG STUFF SECURELY: Heroclip Large can hold up to 100 lbs and the rubber tip creates optimal grip so your stuff stays secure. 40% Larger than Medium.\n- COMPACT DESIGN: Hook and clip nest together when not in use. SIZE LARGE 4.1\" wide, 5.24\" high (closed)/7.25\" (expanded).\n- COUNTLESS USES: Our Large Heroclip is ideal for bulky outdoor gear, garage organization, shopping carts, strollers and much more.\n- BUILT TO LAST: Durable Aircraft-grade aluminum. WARNING: Not for climbing or other use where disconnection may result in bodily harm or property damage.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "GEAR AID HEROCLIP Large Blue Carabiner Clip Hook",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Large",
+                "color": "Blue",
+                "name": "HEROCLIP Carabiner Clip Hook"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID Large Blue HEROCLIP Carabiner Clip and Hook",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Large",
+                "color": "Blue",
+                "name": "HEROCLIP Carabiner Clip and Hook"
+            },
+            "char_count": 52,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "360 Degree Rotating, 100 Lb Capacity, Compact Fold Design, Rubber Grip Tip, Aircraft Aluminum",
+            "char_count": 93,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "3-In-1 Clip And Hook, 100 Lb Capacity, 360 Degree Rotation, Compact Foldable, Rubber Grip Tip, Aircraft-Grade Aluminum",
+            "char_count": 118,
+            "validation_error": null
+        }
+    }
+}

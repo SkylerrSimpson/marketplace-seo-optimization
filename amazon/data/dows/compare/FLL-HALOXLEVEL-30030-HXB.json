@@ -1,0 +1,60 @@
+{
+    "sku": "FLL-HALOXLEVEL-30030-HXB",
+    "asin": "B09VP5Q8HC",
+    "product_type": "AIMING_SCOPE_SIGHT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: FLL-HALOXLEVEL-30030-HXB\nProduct Type: AIMING_SCOPE_SIGHT\nBrand (from catalog): Flatline-Ops\nExisting Title: Flatline Ops Halo-X Rigid Rifle Scope Bubble Level, 30mm Ultra Precision Shooting Optics\nDescription: The new Halo-X is a long distance accuracy improvement tool that will help you level whatever you're aiming for. This 30mm rifle scope bubble level was originally designed for Leupold's Mark 5HD enlisted optic programs, this unique and precision-engineered level is now available for every day use.<br/><br/>Made in the USA. Machined from ultra-strong 7075-T6 aircraft aluminum, this is our lightest and strongest scope mounted bubble level for rifles. Weighing less than half an ounce, and only 5/16\" wide, it's our most minimal level for crowded scope tubes with extensive vegetation. <br/><br/>Bubble Level Quality Specifications:<br/><br/>Vial-Bridge dual vial connection points and suspended bubble level with the reflective platform, allow maximum light refraction for enhanced fluid illumination and sight acquisition in all outdoor and harsh conditions<br/>Jaw bone barrel hinge point for easy installation<br/>Single top strap screw for ease of installation and access<br/>Ultra-light, high strength 7075-T6 aircraft aluminum<br/>Mil-Spec Type III hard anodizing for durability<br/>Built for left or right-handed shooters<br/><br/>PATENT-PENDING\nSearch Terms: rifle scope bubble level firearms accessories scopes thermal spotting reticle rifle sling bubble accuracy picatinny accurate first level anti cant leveling jig\nFeatures:\n- PRECISION ENGINEERED SCOPE BUBBLE LEVEL: Will fit either right hand shooters or left handed shooters; installs easily with all mounting hardware included\n- HIGH VISIBILITY ANTI CANT: Dual vial connection points and suspended bubble level with the reflective platform, allows maximum light refraction for enhanced fluid illuminated and sight acquisition. Jaw Bone barrel hinge point for easy installation.\n- SOLID, DURABLE CONSTRUCTION: Each of the bubble level for rifle scopes is machined from advanced 6061-T6 aircraft aluminum and then black hard anodized to protect it from the extremes of the outdoors\n- FEATHER LIGHT: Weighing less than half an ounce and only 5/16\" wide, this is most minimal rifle bubble level for crowded scope tubes with extensive vegetation\n- MADE IN THE USA - Bubble level fits 30mm rifle scopes; Material: 7075-T6 aircraft aluminum; Finish: Milspec Black Hard Anodized; Weight: .475oz; Width: 5/16\" (.3125 inch)\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Flatline Ops Halo-X 30mm Rifle Scope Bubble Level",
+            "tokens": {
+                "brand": "Flatline Ops",
+                "pack_size": "30",
+                "pack_size_unit": "mm",
+                "size": "",
+                "color": "",
+                "name": "Rifle Scope Bubble Level"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Flatline-Ops 30mm Rifle Scope Bubble Level",
+            "tokens": {
+                "brand": "Flatline-Ops",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "30mm",
+                "color": "",
+                "name": "Rifle Scope Bubble Level"
+            },
+            "char_count": 42,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Anti-Cant Leveling, Ultra-Light 7075-T6 Aircraft Aluminum, Made In USA, Dual Vial Design, Left And Right Hand",
+            "char_count": 109,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Anti Cant Accuracy, 7075-T6 Aircraft Aluminum, Left Or Right Hand Use, Ultra-Light, High Visibility, Made In US",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

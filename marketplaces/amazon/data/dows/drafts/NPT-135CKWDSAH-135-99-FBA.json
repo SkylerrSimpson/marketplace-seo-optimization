@@ -3,14 +3,14 @@
     "asin": "B00OM7YIBO",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:27:12+00:00",
+    "generated_at": "2026-07-21T19:54:40+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 18,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 4
     },
@@ -277,20 +277,57 @@
             "asin": "B00OM7YIBO",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 13.5in Hunting Knife Deer Etched Blade Scabbard",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 13.5in Collector Hunting Knife Deer Scabbard",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 56,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Collector Hunting Knife Deer Scabbard"
+            }
         },
-        "title_differentiation": {
-            "value": "440 Stainless Steel, 7in Etched Blade, Deer Design Handle & Sheath",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 13.5in Collector Hunting Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 42,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Collector Hunting Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Etched Stainless Steel Blade, Deer Head Design, Fixed Blade, Matching Sheath, Collectors Display Piece",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 102,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Deer Scabbard, Etched 440 Stainless Steel Blade, Collector Display Piece, 1375 Inch Overall Length",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 98,
+            "review_only": true
         },
         "item_weight": {
             "value": [

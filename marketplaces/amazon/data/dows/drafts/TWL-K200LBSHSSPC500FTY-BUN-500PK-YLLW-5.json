@@ -3,14 +3,14 @@
     "asin": "B00LEXBF24",
     "product_type": "CORD_ROPE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:11:41+00:00",
+    "generated_at": "2026-07-21T20:07:20+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 6,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -106,20 +106,57 @@
             "asin": "B00LEXBF24",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 200lb Kevlar Utility Cord 500ft Yellow",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 500ft Yellow Kevlar Utility Cord 200lb",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "500",
+                "pack_size_unit": "ft",
+                "size": "200lb",
+                "color": "Yellow",
+                "name": "Kevlar Utility Cord"
+            }
         },
-        "title_differentiation": {
-            "value": "USA-Made, UV & Flame Resistant, Low-Stretch Survival Line",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 500-ft Yellow Kevlar Utility Cord",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 45,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "500",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Yellow",
+                "name": "Kevlar Utility Cord"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Made In USA, 100 Kevlar, 200Lb Breaking Strength, Flame Resistant, UV Resistant, Lightweight, Low Stretch, EDC And Survival",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 123,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "200 Lb Breaking Strength, 3-Strand Braided, Polyurethane Coated, Flame And UV Resistant, Made In USA",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 100,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

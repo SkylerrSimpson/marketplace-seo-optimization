@@ -1,0 +1,60 @@
+{
+    "sku": "ASR-ASROUTDOORGREENGLOW",
+    "asin": "B01BFNC5LC",
+    "product_type": "SURVIVAL_KIT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: ASR-ASROUTDOORGREENGLOW\nProduct Type: SURVIVAL_KIT\nBrand (from catalog): ASR Outdoor\nExisting Title: (3 Pack) ASR Outdoor Emergency Glow Stick BOB High Visibility Safety Light\nDescription: This is the ideal light set for emergency use as well as camping and hiking in the wilderness. Whether you need to be seen or you need to find your way back, these luminescent glow sticks can be stored for up to 3 years.<br><br>These are very popular around Halloween but should be in the home at all times, just in case. They are also great to bring along on outdoor trips, hikes, festivals and road trips.<br/><br/>Package Includes: (3) Glow Sticks\nSearch Terms: glow sticks road safety universal stick\nFeatures:\n- Compact and lightweight to easily fit in any emergency kit\n- Glows for up to 12 hours!\n- Easy to use! Just snap-n-shake for instant light!\n- 6 inches long\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 3-Pack 6\" Green Glow Sticks Emergency Light",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "Pack",
+                "size": "6 inch",
+                "color": "Green",
+                "name": "Glow Sticks"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 3-Pk Green Emergency Glow Stick",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "Pk",
+                "size": "",
+                "color": "Green",
+                "name": "Emergency Glow Stick"
+            },
+            "char_count": 43,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "12-Hour Glow, Snap And Shake Activation, High Visibility Safety Light, 3-Year Storage Life",
+            "char_count": 90,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Glows Up To 12 Hours, Snap-And-Shake Instant Light, Compact Lightweight, 6 Inch Sticks, 3 Year Storage",
+            "char_count": 102,
+            "validation_error": null
+        }
+    }
+}

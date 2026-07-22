@@ -3,14 +3,14 @@
     "asin": "B077QVV1HF",
     "product_type": "SWORD",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:47:24+00:00",
+    "generated_at": "2026-07-21T19:28:58+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 15,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -231,20 +231,57 @@
             "asin": "B077QVV1HF",
             "raw_value": true
         },
-        "title_differentiation": {
-            "value": "440 Stainless Steel Full Tang | Nylon Sheath with Shoulder Strap | Extremely Sharp Blade",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical Ninja Sword with 2 Throwing Knives Green",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8",
-            "validation_error": "requires item_name <= 75 chars"
-        },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical Ninja Sword & 2 Throwing Knives Set Green",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "2",
+                "pack_size_unit": "pc",
+                "size": "27 inch",
+                "color": "Green",
+                "name": "Ninja Sword with Throwing Knives Set"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "ASR Tactical 2-Pk 27in Green Ninja Sword Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 44,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "27in",
+                "color": "Green",
+                "name": "Ninja Sword Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Full Tang 440 Stainless Steel, 27 Inch Sword And 5 Inch Knives, Nylon Carrying Sheath, Shoulder Strap",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 101,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "440 Stainless Steel, Full Tang Construction, 2 Throwing Knives, Nylon Sheath, 27\" Blade, Shoulder Strap",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

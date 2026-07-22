@@ -3,14 +3,14 @@
     "asin": "B08PD2QWTY",
     "product_type": "COAT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:52:23+00:00",
+    "generated_at": "2026-07-21T19:38:36+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 12,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -175,20 +175,57 @@
             "asin": "B08PD2QWTY",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Clear Emergency Poncho with Hood - One Size Fits Most",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Clear Emergency Poncho Rain Gear One Size",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "One Size",
+                "color": "Clear",
+                "name": "Emergency Poncho"
+            }
         },
-        "title_differentiation": {
-            "value": "Water-resistant polyethylene, attached hood & sleeves, reusable, camping & hiking",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor One Size Fits Most Clear Emergency Poncho",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 53,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "One Size Fits Most",
+                "color": "Clear",
+                "name": "Emergency Poncho"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Water-Resistant Polyethylene, Attached Hood And Sleeves, Reusable, Multi-Purpose, Men Women Children",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 100,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Water Resistant Polyethylene, Attached Hood And Sleeves, Adjustable Drawstring, Lightweight, Reusable",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

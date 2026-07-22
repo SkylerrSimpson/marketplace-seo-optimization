@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ANTI-BEAR-WILDLIFE-BELL-BLUE",
+    "asin": "B0748Z1WCM",
+    "product_type": "SPORTING_GOODS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ANTI-BEAR-WILDLIFE-BELL-BLUE\nProduct Type: SPORTING_GOODS\nBrand (from catalog): ASR Outdoors\nExisting Title: Anti Bear and Wildlife Bell with Magnetic Silencer with Strap Blue\nDescription: Survivor Series Bell ensures you are heard with every step whether you're camping, hiking, backpacking, fishing, biking, or just walking in the woods. Deters bears, cougars, and other wildlife. <br/><br/>Package includes a magnetic silencing strap that can be attached to the bell when you need it silent or while its not in use. Also includes a 2\" hook and loop strap for ease of transportation: can be attached to hiking sticks, backpacks, or clothing. <br/><br/>This is also great for pets in the outdoors- attach onto collar to ensure you can hear them, and ensure other animals hear them and keep their distance. Don't forget this on your next adventure.<br/><br/>(This product is only a deterrent. Pleases be safe and cautious in the outdoors.)\nSearch Terms: survivor series blue antibear bell magnetic silencer hook loop straps camping hiking outdoor activities heard step deters wildlife securely wrap backpack handy decorative ornament warns animals color dog collars clothing aggressive behavior\nFeatures:\n- Loud blue anti-bear and wildlife bell\n- 2\" Loop and Hook strap for attachment\n- Magnetic silencing strap\n- For backpacks, hiking sticks, clothing, and collars\n- Great for hiking, camping, and biking\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoors Blue Anti Bear Wildlife Bell with Magnetic Silencer",
+            "tokens": {
+                "brand": "ASR Outdoors",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Blue",
+                "name": "Anti Bear Wildlife Bell with Magnetic Silencer"
+            },
+            "char_count": 64,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoors Blue Anti Bear and Wildlife Bell",
+            "tokens": {
+                "brand": "ASR Outdoors",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Blue",
+                "name": "Anti Bear and Wildlife Bell"
+            },
+            "char_count": 45,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Magnetic Silencer, Hook And Loop Strap, Deters Bears And Wildlife, Hiking Camping Backpack Attachment",
+            "char_count": 101,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Magnetic Silencer Strap, 2-Inch Hook And Loop, Backpack And Collar Attachment, Hiking Camping Biking",
+            "char_count": 100,
+            "validation_error": null
+        }
+    }
+}

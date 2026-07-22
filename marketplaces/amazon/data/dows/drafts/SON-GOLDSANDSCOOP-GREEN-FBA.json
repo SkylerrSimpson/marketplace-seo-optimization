@@ -3,14 +3,14 @@
     "asin": "B0957679TW",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:07:39+00:00",
+    "generated_at": "2026-07-21T20:06:51+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 11,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -167,20 +167,57 @@
             "asin": "B0957679TW",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Metal Detector Sand Scoop 8.5 Inch Green",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 8.5\" Green Sand Scoop Metal Detector",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Green",
+                "name": "Sand Scoop Metal Detector"
+            }
         },
-        "title_differentiation": {
-            "value": "Heavy-Duty Plastic, 78 Holes, Lightweight, Beach Treasure Hunting",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 8.5-in Green Sand Scoop",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 35,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8.5",
+                "pack_size_unit": "in",
+                "size": "8.5-in",
+                "color": "Green",
+                "name": "Sand Scoop"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "78 Holes, Heavy-Duty Plastic, Non-Magnetic, Ultra-Lightweight, 6\" Wide Mouth, Beach Treasure Hunting",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 100,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Heavy-Duty Plastic, 78 Drain Holes, Ultra-Lightweight, Won't Rust Or Corrode, Beach And Riverbed Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 100,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

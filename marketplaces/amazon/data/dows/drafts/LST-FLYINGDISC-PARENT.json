@@ -3,14 +3,14 @@
     "asin": "B082P8M2V9",
     "product_type": "TOYS_AND_GAMES",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:05:39+00:00",
+    "generated_at": "2026-07-21T19:46:18+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 3,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -57,20 +57,58 @@
             "asin": "B082P8M2V9",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "TychoTyke Light Up Flying Disc 10 Inch Outdoor Toy",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "TychoTyke 10 Inch Light Up Flying Disc Outdoor Toy",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "TychoTyke",
+                "pack_size": "10",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "",
+                "name": "Light Up Flying Disc Outdoor Toy"
+            }
         },
-        "title_differentiation": {
-            "value": "LED lights up during flight, durable plastic, multiple colors, includes batteries",
+        "item_name_ai_openai": {
+            "value": "TychoTyke 10-in Light Up Flying Disc",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 36,
+            "review_only": true,
+            "tokens": {
+                "brand": "TychoTyke",
+                "pack_size": "10",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Flying Disc"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "LED Lights Up During Flight, Durable Plastic Construction, Promotes Exercise, High Visibility Colors, Includes 3 LR41 Batteries",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 127,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (127 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Durable Plastic, High Visibility Colors, Lights Up During Flight, Promotes Exercise, Great For Outdoor Play",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

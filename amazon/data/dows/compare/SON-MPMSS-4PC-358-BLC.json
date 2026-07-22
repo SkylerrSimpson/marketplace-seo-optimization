@@ -1,0 +1,60 @@
+{
+    "sku": "SON-MPMSS-4PC-358-BLC",
+    "asin": "B072Q59J8Z",
+    "product_type": "ART_SUPPLIES",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-MPMSS-4PC-358-BLC\nProduct Type: ART_SUPPLIES\nBrand (from catalog): Universal Tool\nExisting Title: 4pc Silver and Gold Metal Purity Karat Marking Stamp Set 14k 22k Gold, 958 999 Silver\nDescription: The 4 piece Gold and Silver Purity Karat Marking Stamp Set is essential for any Jewelry designer, hobbyist or artist. The stamp set is made of hardened stainless steel and is just shy of 4\" in length. They come in a small plastic organizer.<br/><br/>The stamp set includes one of each 14k, 22k gold stamp and 958, 999 silver stamp. The stamp marking is approximately 3/64\". <br/><br/>This set is ideal for rings, earrings and necklaces as it will not detract from the work and will easily fit in obscure with the help of the bend at the head as seen in the item picture.<br/><br/>This is an important additional to any metal working designers DIY tool kit.\nSearch Terms: jewelers tools purity mark karat gold silver stamp DIY ring necklace jewelry marking crafting tool silver marking stamps\nFeatures:\n- Gold and Silver Marking Stamps: 14K Gold, 22K Gold, 958 Silver, 999 Silver\n- Color: Black\n- Length: 3 5/8\"\n- Material: Hardened Stainless Steel\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 4-pc Black Metal Purity Karat Marking Stamp Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "4",
+                "pack_size_unit": "pc",
+                "size": "3 5/8\"",
+                "color": "Black",
+                "name": "Metal Purity Karat Marking Stamp Set"
+            },
+            "char_count": 62,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 4-pk 3 5/8 In Black Purity Karat Marking Stamp Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "4",
+                "pack_size_unit": "pc",
+                "size": "3 5/8 In",
+                "color": "Black",
+                "name": "Purity Karat Marking Stamp Set"
+            },
+            "char_count": 65,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "14K And 22K Gold, 958 And 999 Silver, Hardened Stainless Steel, Jewelry Designer Tool",
+            "char_count": 85,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "14K 22K 958 999 Marks, Hardened Stainless Steel, Bent Head For Hard To Reach Spots, Small Plastic Organizer",
+            "char_count": 107,
+            "validation_error": null
+        }
+    }
+}

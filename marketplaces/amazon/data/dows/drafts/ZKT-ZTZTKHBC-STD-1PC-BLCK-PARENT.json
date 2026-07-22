@@ -3,14 +3,14 @@
     "asin": "B087NGNC8H",
     "product_type": "UTILITY_HOLSTER_POUCH",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:02:46+00:00",
+    "generated_at": "2026-07-21T19:44:55+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 3,
-        "ai_suggested": 5,
+        "ai_suggested": 7,
         "ai_null": 0,
         "base_template": 0
     },
@@ -73,27 +73,65 @@
             "value": "Steel",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "model_name": {
             "value": "ZAK-54",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Zak Tool Tactical Key Ring Holder Black Duty Belt Pouch",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Zak Tool Black Key Ring Holder for Duty Belt",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 44,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Zak Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Key Ring Holder"
+            }
         },
-        "title_differentiation": {
-            "value": "Heavy-Duty Construction, One-Hand Operation, 1.75\" Belt Width, USA Made",
+        "item_name_ai_openai": {
+            "value": "Zak Tool 4-Pk Black Tactical Key Ring Holder",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 44,
+            "review_only": true,
+            "tokens": {
+                "brand": "Zak Tool",
+                "pack_size": "4",
+                "pack_size_unit": "Pk",
+                "size": "",
+                "color": "Black",
+                "name": "Tactical Key Ring Holder"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Heavy-Duty Construction, One-Hand Operation, Fits Belts To 175 Inch, Made In USA, Lifetime Guarantee",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 100,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "One Hand Operation, Heavy-Duty Construction, Positive Retention, Fits 175\" Duty Belts, Made In USA",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 98,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

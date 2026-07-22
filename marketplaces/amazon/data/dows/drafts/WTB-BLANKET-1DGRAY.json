@@ -3,14 +3,14 @@
     "asin": "B0BJ21F9DX",
     "product_type": "BLANKET",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:24:11+00:00",
+    "generated_at": "2026-07-21T19:53:38+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 3,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -64,19 +64,58 @@
             "asin": "B0BJ21F9DX",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 60x80 Southwest Navajo Fleece Throw Blanket",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 60x80 Gray Southwest Navajo Fleece Throw",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "60x80",
+                "pack_size_unit": "",
+                "size": "Queen",
+                "color": "Gray",
+                "name": "Southwest Navajo Fleece Throw Blanket"
+            }
         },
-        "title_differentiation": {
-            "value": "Ultra Soft Plush, Breathable Heat Retention, Indoor & Outdoor Use",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 60x80 Gray Southwest Fleece Throw Blanket",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 53,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "60x80",
+                "color": "Gray",
+                "name": "Southwest Fleece Throw Blanket"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Ultra Soft Plush Fleece, Lightweight And Breathable, Southwestern Navajo Design, Machine Washable, Perfect For Camping And Home Decor",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 133,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (133 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Ultra Soft Plush Fleece, Lightweight And Breathable, Retains Heat, Cabin And Camp Ready, Machine Wash Cold",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 106,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

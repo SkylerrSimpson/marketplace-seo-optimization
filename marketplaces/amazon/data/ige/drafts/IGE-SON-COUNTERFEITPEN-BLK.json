@@ -3,14 +3,14 @@
     "asin": "B084BTK3DY",
     "product_type": "OFFICE_PRODUCTS",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:41:05+00:00",
+    "generated_at": "2026-07-21T19:28:08+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 18,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -250,25 +250,62 @@
             "raw_value": true
         },
         "country_of_origin": {
-            "value": "US",
+            "value": "CN",
             "is_required": true,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "title_differentiation": {
-            "value": "Iodine ink detects fakes in seconds, mark fades in hours, no batteries needed",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Federal Counterfeit Bill Detector Pen Black",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8",
-            "validation_error": "requires item_name <= 75 chars"
-        },
-        "item_name_ai_suggested": {
-            "value": "ASR Federal Counterfeit Bill Detector Pen for US & International",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 47,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Counterfeit Bill Detector Pen"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "ASR Federal Counterfeit Bill Detector Pen",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 41,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Counterfeit Bill Detector Pen"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Iodine-Based Ink, Results In Seconds, US And International Currency, Fades Quickly, Business Protection",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 103,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Yellow Is Real, Black Is Counterfeit, Works On US And International Currency, Ink Fades In Hours, Fast Results",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 110,
+            "review_only": true
         },
         "pesticide_marking": {
             "value": [

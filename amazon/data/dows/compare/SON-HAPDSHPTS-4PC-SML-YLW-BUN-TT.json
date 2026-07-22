@@ -1,0 +1,60 @@
+{
+    "sku": "SON-HAPDSHPTS-4PC-SML-YLW-BUN-TT",
+    "asin": "B0B84C96DX",
+    "product_type": "STORAGE_HOOK",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-HAPDSHPTS-4PC-SML-YLW-BUN-TT\nProduct Type: STORAGE_HOOK\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Mini Hook and Pick Set Precision Cleaning and Hobby Tools - 4 Pieces\nDescription: The ToolTreaux versatile set of hooks and picks comes with 4 different tip types for a variety of precision and cleaning uses: angle hook, straight pick, full hook and 90 degree hook. These types of tools are ideal for accessing small and hard to reach spots like removing o-rings, cleaning and scratching.<br/><br/>All of the tips of the hooks and picks are made of durable, hardened 40 HRC steel to improve the toughness and stability. This type of durable construction comes from a heat treatment process that will ensure a long service life so you can count on these tools through many projects.<br/><br/>The hooks and picks feature soft, rubberized ergonomic grip handles that will provide comfort while preventing slippage to protect your hands during use. The handles come in a high-visiblity bright yellow color so you can easily identify them amongst your other tools in a dark tool box or storage case.<br/><br/>Pick and hook sets are great precision tools for a number of different applications and are especially useful for accessing oil filter housing, picking through cables safely, replacing delivery valve seals, vinyl cutting and placing, pottery, jewelry making and other hobby craft projects. This is a must-have variety of tools for any hobby or craft enthusiast.\nSearch Terms: hand tools gardening hand tools hand tools for mechanics garden hand tools hand tools for woodworking o ring kit cleaning tools household cleaning tools valve core removal tool grout removal tools power tools power tools combo kit\nFeatures:\n- 4 ASSORTED HOOKS AND PICKS - ToolTreaux set of hooks and picks comes with 4 different tips for a variety of precision and cleaning uses: straight pick, angle hook, full hook and 90 degree hook. Ideal tools for removing o-rings, scratching and cleaning hard to reach spots\n- HARDENED TIPS - Tips of all hooks and picks are made of durable, hardened 40 HRC to improve stability and toughness; durable construction with heat treatment ensures a long service life\n- SOFT GRIP HANDLE - Hooks and picks feature soft, rubberized ergonomic grip handles to provide comfort during use and prevent slippage to protect your hands. Handles come in high-visibility yellow to easily identify them in a dark tool box or storage case\n- VERSATILE TOOL SET - Use precision tools to pick through cables, access oil filter housing, replacing delivery valve seals, vinyl cutting and placing, hobby crafts, pottery, jewelry making and more\n- SPECIFICATIONS - Materials: hardened 40 HRC steel, rubber, Colors: black, yellow, chrome; 4 tip types: straight, anle, full, 90 degree; Handle type; rubberized soft grip; Number of pieces included: 4\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 4-Pc Mini Hook and Pick Set Yellow",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "4",
+                "pack_size_unit": "Pc",
+                "size": "Mini",
+                "color": "Yellow",
+                "name": "Hook and Pick Set"
+            },
+            "char_count": 45,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 4-pk Yellow Hook and Pick Set",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Yellow",
+                "name": "Hook and Pick Set"
+            },
+            "char_count": 40,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "4 Assorted Tips, Hardened Steel, Ergonomic Soft Grip, High-Visibility Yellow, Precision Cleaning Tools",
+            "char_count": 102,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "4 Tip Assortment, Hardened 40 HRC Steel, Soft Grip Handles, Precision Cleaning, O-Ring Removal, High-Vis Yellow",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

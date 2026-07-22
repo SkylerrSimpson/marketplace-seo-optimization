@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ALUMTENTSTAKERD-915ATP-8PK-BUN",
+    "asin": "B08XNZX2KQ",
+    "product_type": "ANCHOR_STAKE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ALUMTENTSTAKERD-915ATP-8PK-BUN\nProduct Type: ANCHOR_STAKE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 9 Inch Aircraft Grade Aluminum Camping Stakes Tent Pegs - 8 Pack\nDescription: An ASR Outdoor camping gear essential. Whether you're installing a canopy, tent, or overhead covering for a camping trip, sporting event, or other, these aluminum tent stakes can take on all of it. And, with the handy stringing eyelet at the head and sharp tip at the foot of the tent stake, the installation will be a breeze.<br/><br/>The ASR Outdoor lightweight aluminum camping gear tent stakes feature single-body construction from top to bottom and are forged from aircraft-grade 6061 aluminum; Known for their strength, workability, and resistance to corrosion, these tent pegs will see you through many camping seasons to come.<br/><br/>In addition to their formidable construction, the lightweight aluminum camping gear tent stakes feature single-body construction from top to bottom; this increases the tent pegs integrity, durability, and longevity, as well as making installation and removal more efficient. Plus, their bright orange color makes the tent stakes easy to spot for adjustments or removal, even in dim or dusk lighting.<br/><br/>Length: Dimensions: 9 inches\nSearch Terms: ground anchor tarp canopy replacement tent pegs heavy duty camping backpacking tie down metal rust free weather proof titanium\nFeatures:\n- CAMPING GEAR ESSENTIAL: Whether installing a tent, grow tent, canopy, camping tent, beach tent, pop up tent, tarp tent, pergola or overhead covering for a camping trip, sporting event or other, these aluminum tent stakes can handle all of it! And, with the handy stringing eyelet at the head and sharp tip at the foot of the tent stake, installation will be a breeze\n- AIRCRAFT GRADE ALUMINUM: These heavy-duty, durable aluminum camping tent pegs are forged from aircraft grade 6061 aluminum; Known for its strength, workability and resistance to corrosion, the ASR Outdoor tent stakes will see you through many camping seasons to come\n- SINGLE BODY CONSTRUCTION: The ASR Outdoor lightweight aluminum camping gear tent stakes feature single-body construction from top to bottom; this increases the tent pegs integrity, durability and longevity and makes installation and removal more efficient\n- HIGH VISIBILITY: The tent stakes come in a bright red color that make them easy to spot for adjustments or removal in dim and dusk lighting.\n- SPECIFICATIONS: Dimensions: 9 Inch (l); Color: Red; Material: 6061 Aircraft Grade Aluminum\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 8-pk 9 Inch Red Aluminum Tent Stakes",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8",
+                "pack_size_unit": "pk",
+                "size": "9 Inch",
+                "color": "Red",
+                "name": "Aluminum Tent Stakes"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 8-Pk 9 In Red Camping Stakes Tent Pegs",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8",
+                "pack_size_unit": "Pk",
+                "size": "9 In",
+                "color": "Red",
+                "name": "Camping Stakes Tent Pegs"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Aircraft Grade 6061 Aluminum, Single Body Construction, Heavy Duty, Rust Resistant, High Visibility Red, Easy Installation",
+            "char_count": 122,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Aircraft Grade 6061 Aluminum, Single Body Construction, Sharp Tip, Stringing Eyelet, High Visibility Red",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

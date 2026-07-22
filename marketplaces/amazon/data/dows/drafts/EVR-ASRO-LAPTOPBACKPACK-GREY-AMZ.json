@@ -3,14 +3,14 @@
     "asin": "B0CJ1XFGQJ",
     "product_type": "BACKPACK",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:42:48+00:00",
+    "generated_at": "2026-07-21T19:59:36+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 8,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -121,20 +121,57 @@
             "asin": "B0CJ1XFGQJ",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 15L Slim Laptop Backpack Water Resistant Grey",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 15L Grey Laptop Backpack 15.6 inch",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 46,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "15",
+                "pack_size_unit": "L",
+                "size": "15.6 inch",
+                "color": "Grey",
+                "name": "Laptop Backpack"
+            }
         },
-        "title_differentiation": {
-            "value": "Padded Laptop Sleeve, 9 Compartments, Lightweight Travel Carry-On",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 15L 15.6 in Grey Blue Laptop Backpack",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 49,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "15",
+                "pack_size_unit": "L",
+                "size": "15.6 in",
+                "color": "Grey Blue",
+                "name": "Laptop Backpack"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Water Resistant, Padded Laptop Sleeve, 9 Compartments, Padded Straps, Carry-On Luggage, Lightweight",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 99,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Slim Profile, Padded Laptop Sleeve, 9 Compartments, Lightweight Carry On, Padded Straps, Durable 840D Polyester",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

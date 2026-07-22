@@ -3,14 +3,14 @@
     "asin": "B081S8TRKF",
     "product_type": "HOME_FURNITURE_AND_DECOR",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:40:58+00:00",
+    "generated_at": "2026-07-21T19:58:50+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 7,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 5
     },
@@ -114,27 +114,66 @@
             "value": "100% Felt",
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "model_name": {
-            "value": "Minnie Mouse Kids Felt Holiday Stocking",
+            "value": "Minnie Mouse Stocking",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Ruz Minnie Mouse Kids Christmas Stocking, 15.5\" Felt",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Ruz Minnie Mouse Kids Pink Felt Holiday Stocking 15.5in",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Ruz",
+                "pack_size": "15.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Pink",
+                "name": "Minnie Mouse Kids Felt Holiday Stocking"
+            }
         },
-        "title_differentiation": {
-            "value": "Officially Licensed | Embossed Snowflake Pattern | Hang Loop | Stuff to Brim",
+        "item_name_ai_openai": {
+            "value": "Ruz 15.5-in Minnie Mouse Kids Felt Holiday Stocking",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 51,
+            "review_only": true,
+            "tokens": {
+                "brand": "Ruz",
+                "pack_size": "15.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Minnie Mouse Kids Felt Holiday Stocking"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Officially Licensed Disney, Large 155 Inch, Embossed Snowflake Pattern, Soft Felt, Hang Loop, Lightweight, Stuff With Toys And Candy",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 132,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (132 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Officially Licensed, Embossed Snowflake Pattern, Soft Felt, Sturdy Hang Loop, Lightweight 155-Inch, Large 9-Inch Boot",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 117,
+            "review_only": true
         },
         "required_product_compliance_certificate": {
             "value": [

@@ -3,14 +3,14 @@
     "asin": "B016VMM454",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:40:46+00:00",
+    "generated_at": "2026-07-21T19:58:43+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -98,20 +98,57 @@
             "asin": "B016VMM454",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical 6\" Serrated Tanto Neck Knife with Sheath",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical 6\" Brown Tanto Neck Knife with Sheath",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "6",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Brown",
+                "name": "Tanto Neck Knife with Sheath"
+            }
         },
-        "title_differentiation": {
-            "value": "Fixed Blade, Durable Plastic Sheath, Bead Chain Necklace, Survival Camping",
+        "item_name_ai_openai": {
+            "value": "ASR Tactical 6-in Tan Fixed Blade Neck Knife with Sheath",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 56,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "6",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Tan",
+                "name": "Fixed Blade Neck Knife with Sheath"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Fixed Blade, 35 Inch Serrated Blade, Includes Necklace Sheath, Tactical Survival EDC, Outdoor Camping Gear",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 106,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Serrated Dagger Style Blade, 35\" Cutting Edge, Bead Chain Necklace Sheath, Locking Pin, Compact Survival Carry",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 110,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-SDEPS-4PC",
+    "asin": "B00GEKIP52",
+    "product_type": "PRECISION_MEASURING",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-SDEPS-4PC\nProduct Type: PRECISION_MEASURING\nBrand (from catalog): Universal Tool\nExisting Title: 4pc Universal Tool Steel Double Ended Surgical a Jewelers Grooved Grips Pick Set\nDescription: The 4pc Steel Double Ended Pick Set is a great addition to any tool collection. Each pick features different shaped ends on both sides as well as grooved grips, allowing for durable and versatile use. <br/><br/>These picks are constructed of 403 steel and are ideal for use by jewelers, mechanics, fishermen, surgeons and more. Make sure to grab a set of these before your next precision project, or gift them to your favorite hobbyist.\nSearch Terms: utility knife bulk home hobby exacto razor blade set locking box cutter safety guard\nFeatures:\n- 4 Piece Set\n- Double Ended Picks\n- 403 Steel\n- Great for Jewelers, Crafters, Hobbyists, Surgeons, Mechanics, Fishermen & More!\n- Color: Silver\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 4-pc Silver Double Ended Surgical Pick Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "4",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Silver",
+                "name": "Double Ended Surgical Pick Set"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 4-pk Silver Steel Double Ended Pick Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Silver",
+                "name": "Steel Double Ended Pick Set"
+            },
+            "char_count": 54,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "4 Piece Set, Double Ended Picks, 403 Steel, Grooved Grips, Jewelers Mechanics Surgeons Fishermen",
+            "char_count": 96,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "4 Piece Set, 403 Steel, Grooved Grips, Double Ended Tips, For Jewelers, Mechanics, Crafters, Fishermen, Surgeons, More",
+            "char_count": 118,
+            "validation_error": null
+        }
+    }
+}

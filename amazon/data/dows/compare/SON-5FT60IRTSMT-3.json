@@ -1,0 +1,60 @@
+{
+    "sku": "SON-5FT60IRTSMT-3",
+    "asin": "B0131AXIWC",
+    "product_type": "TAPE_MEASURE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-5FT60IRTSMT-3\nProduct Type: TAPE_MEASURE\nBrand (from catalog): Universal Tool\nExisting Title: 5 Foot Retractable Compact Tailors Sewing Measuring Tape (Inches & CM)\nDescription: The Tailors Tape is a simple but essential tool for sewing, crafts, and other general purposes; it never hurts to have an extra one handy as they are used so frequently.<br/><br/>This particular unit features non-stretch, soft and flexible fiberglass fabric tape with contrasting increments in red. The vivid red color of the measurements provides a great contrast against the white background to ensure that you're getting the most accurate measurement possible.<br/><br/>The lightweight plastic case is just 2 inches in diameter. Push the red button to retract the tape back into it's case.<br/><br/>Measures inches on one side and uses the metric system on the other.\nSearch Terms: sewing supplies tools arts crafts ruler\nFeatures:\n- Tape Length: 60 Inches | 5 Feet\n- Width: 5/16 Inches\n- Inches and CM Denoted\n- Easy to Use, Read, and Accurate\n- Compact, Portable, and Self Retracting\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 5 Foot Retractable Tailors Sewing Measuring Tape",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "5",
+                "pack_size_unit": "Foot",
+                "size": "",
+                "color": "",
+                "name": "Retractable Tailors Sewing Measuring Tape"
+            },
+            "char_count": 63,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 5-Foot Retractable Tailors Sewing Measuring Tape Inches and CM",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "5-Foot",
+                "color": "",
+                "name": "Retractable Tailors Sewing Measuring Tape"
+            },
+            "char_count": 77,
+            "validation_error": "exceeds modular item_name cap of 75 chars (77)"
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "60 Inches, Inches And CM Markings, Fiberglass Fabric, Compact 2-Inch Case, Self-Retracting",
+            "char_count": 90,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Soft Flexible Fiberglass, Red Contrast Markings, Inches And CM, Self Retracting, Compact 2 Inch Case, Accurate",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}

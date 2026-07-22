@@ -3,14 +3,14 @@
     "asin": "B084298CYK",
     "product_type": "SPORTING_GOODS",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:45:24+00:00",
+    "generated_at": "2026-07-21T19:28:47+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 22,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -334,20 +334,57 @@
             "asin": "B084298CYK",
             "raw_value": true
         },
-        "title_differentiation": {
-            "value": "Machined aluminum & steel, Made in USA, reusable, includes mounting hardware & pins",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical 4-Pack Black Trip Wire Perimeter Alarm",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8",
-            "validation_error": "requires item_name <= 75 chars"
-        },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical 4-Pack Trip Wire Perimeter Alarm System",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "4",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "Black",
+                "name": "Trip Wire Perimeter Alarm"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "ASR Tactical 4-Pk Black Trip Wire Perimeter Alarm",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 49,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Black",
+                "name": "Trip Wire Perimeter Alarm"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Trip Wire Activated, Home Security System, Trespasser Alert, Reusable, Made In USA, Machined Aluminum And Steel",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 111,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Outdoor Tripwire Alert, Reusable Perimeter Defense, Includes Safety And Activator Pins, Mounting Hardware, Made In USA",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 118,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

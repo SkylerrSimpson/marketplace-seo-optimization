@@ -3,30 +3,41 @@
     "asin": "B00VN2JDWU",
     "product_type": "SCREWDRIVER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:58:33+00:00",
+    "generated_at": "2026-07-21T20:04:52+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
-        "fillable": 0,
-        "catalog": 8,
-        "ai_suggested": 4,
+        "fillable": 4,
+        "catalog": 5,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
     "attributes": {
         "color": {
-            "value": [
-                {
-                    "language_tag": "en_US",
-                    "value": "Blue",
-                    "marketplace_id": "ATVPDKIKX0DER"
-                }
-            ],
+            "value": "Blue",
             "is_required": false,
-            "source": "catalog",
-            "asin": "B00VN2JDWU",
-            "raw_value": true
+            "source": "usurper",
+            "usurper_column": "attr.color"
+        },
+        "material": {
+            "value": "Plastic",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.material_amazon"
+        },
+        "model_number": {
+            "value": "tsbc9-458",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.mpn"
+        },
+        "size": {
+            "value": "4.5\\\"",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.size"
         },
         "externally_assigned_product_identifier": {
             "value": [
@@ -77,31 +88,6 @@
             "asin": "B00VN2JDWU",
             "raw_value": true
         },
-        "material": {
-            "value": [
-                {
-                    "language_tag": "en_US",
-                    "value": "Alloy Steel",
-                    "marketplace_id": "ATVPDKIKX0DER"
-                }
-            ],
-            "is_required": false,
-            "source": "catalog",
-            "asin": "B00VN2JDWU",
-            "raw_value": true
-        },
-        "model_number": {
-            "value": [
-                {
-                    "value": "UT-028",
-                    "marketplace_id": "ATVPDKIKX0DER"
-                }
-            ],
-            "is_required": false,
-            "source": "catalog",
-            "asin": "B00VN2JDWU",
-            "raw_value": true
-        },
         "special_feature": {
             "value": [
                 {
@@ -141,30 +127,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "UTHQSHTS-6PC",
+            "value": "Swivel Head Torx Screwdriver Set",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "size": {
-            "value": "6 Piece",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Tool 6-pc Torx Screwdriver Set Blue",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-haiku-4-5"
-        },
-        "item_name_ai_suggested": {
-            "value": "Universal Tool 6-Piece Swivel Head Torx Screwdriver Set, Blue",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 45,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "6",
+                "pack_size_unit": "pc",
+                "size": "T5-T10",
+                "color": "Blue",
+                "name": "Torx Screwdriver Set"
+            }
         },
-        "title_differentiation": {
-            "value": "T5-T10 Sizes, Steel Blade, Ergonomic Grip, Includes Case",
+        "item_name_ai_openai": {
+            "value": "Universal Tool 6-Piece Blue Swivel Head Torx Screwdrivers",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 57,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "6",
+                "pack_size_unit": "pc",
+                "size": "Torx",
+                "color": "Blue",
+                "name": "Swivel Head Torx Screwdrivers"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Swivel Head, Steel Blade, Non-Slip Grip, T5-T10 Sizes, Includes Case",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 68,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "T5-T10, Steel Blade, Rubberized Non-Slip Grip, Ergonomic Handle, Includes Case, Maximum Torque, Precision Repair",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 112,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

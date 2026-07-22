@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-BLE-UTENSILSET-2PC",
+    "asin": "B0BYTQTY69",
+    "product_type": "BLADED_FOOD_PEELER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-BLE-UTENSILSET-2PC\nProduct Type: BLADED_FOOD_PEELER\nBrand (from catalog): Beille\nExisting Title: Beille 2pk Kitchen Gadgets Y Peeler and Lancashire Peeler Cooking Tools Set\nDescription: This fresh and fun kitchen toolset from Beille comes with 2 standard vegetable peelers that are the perfect first home essentials cooking utensils. These food-safe kitchen accessories feature modern design and an eye-catching block colorway finish, while thick rounded handles ensure comfortable maneuvering during all kinds of food prep.<br/><br/>The kitchen gadgets set includes one Y vegetable peeler and one Lancashire peeler; with its ergonomic design, the Y peeler can peel just about anything with ease, while the Lancashire peeler works more like a knife, is stiff and straight, ideal as a potato peeler.<br/><br/>The 2pc set from Beille is great for any budding home chef, or first-time homebuyer or simply to add to your arsenal of kitchen accessories or kitchen gadgets; let the cooking and baking begin.<br/><br/>NOTE: Each utensil features a hole at bottom of the handle if hanging storage is desired.\nSearch Terms: cooking baking utensil wooden silicone food prep college essentials house warming gifts home chef kitchen decor cookware sets bakeware organization first beverage pantry storage kitchen tools kitchen gifts home decor farmhouse decor\nFeatures:\n- 2PC COOKING UTENSILS SET: This kitchen tool set from Beille comes with x2 vegetables peelers; these great kitchen accessories feature modern design in fun, fresh colors, while thick rounded handles ensure comfortable maneuvering during food prep\n- VEGETABLE PEELER: This kitchen gadgets set includes one Y vegetable peeler and one Lancashire peeler; with its ergonomic design, the Y peeler can peel just about anything with ease, while the Lancashire peeler works more like a knife, is stiff and straight, ideal as a potato peeler\n- TRENDY STYLE - Veggie peelers features a stylish soft pastel and light wooden handle for a trendy look; Perfect fit for any modern, farmhouse, or country-style kitchen; Great housewarming gift idea\n- DURABLE DESIGN - Each kitchen gadget is made of durable, high-quality silicone and with a sturdy wooden handle; Tools are dishwasher safe for easy clean up after use\n- FOOD SAFE - Beille peelers made of food-safe materials so you can trust it for use in your kitchen, meal prep, or at backyard BBQs and parties; Tool handle features a convenient hole for hanging storage if desired\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 2-Piece Vegetable Peeler Set Kitchen Gadgets",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "",
+                "name": "Vegetable Peeler Set"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 2-Pk Y Peeler and Lancashire Peeler Kitchen Tool Set",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Y Peeler and Lancashire Peeler Kitchen Tool Set"
+            },
+            "char_count": 59,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Y Peeler And Lancashire Peeler, Ergonomic Wooden Handles, Dishwasher Safe, Food-Safe Materials, Hanging Storage",
+            "char_count": 111,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Food Safe, Dishwasher Safe, Ergonomic Wooden Handles, Hanging Holes, Y And Lancashire Peelers, Easy Grip",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

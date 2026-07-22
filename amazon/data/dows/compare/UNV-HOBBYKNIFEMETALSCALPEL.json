@@ -1,0 +1,60 @@
+{
+    "sku": "UNV-HOBBYKNIFEMETALSCALPEL",
+    "asin": "B00E801UBQ",
+    "product_type": "UTILITY_KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UNV-HOBBYKNIFEMETALSCALPEL\nProduct Type: UTILITY_KNIFE\nBrand (from catalog): Universal Hobby\nExisting Title: (5 Pack) Universal 5 Inch Hobby Knife Metal Scalpel Handle Number 3\nDescription: For precision cutting, nothing beats a craft knife scalpel. These universal tool hobby knives are made from reliable industrial metal with a bright silver finish, ensuring that you'll get the job done right. The scalpel handles will provide you with the sturdy grip you need for precision projects.<br/><br/>Take your craft to the next level with these great scalpel handles. You'll definitely want to have these knives handy around the house for the next time you tackle a precision or DIY project\nSearch Terms: scalpel knife blades handle nurse accessories for work gifts tweezers precision craft knife medical supplies scissors bag kit assistant accessories wound care products hobby knife craft knife box cutter retractable blades safety craft supplies\nFeatures:\n- Ergonomic Shape with Grooves for Better Grip\n- Extra Sharp Scalpel Craft Knife\n- Lightweight Design\n- Color: Silver\n- 5 Pack\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal 5-pk 5 Inch Silver Hobby Knife Metal Scalpel",
+            "tokens": {
+                "brand": "Universal",
+                "pack_size": "5",
+                "pack_size_unit": "pk",
+                "size": "5 Inch",
+                "color": "Silver",
+                "name": "Hobby Knife Metal Scalpel"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Hobby 5-pk 5 in Silver Hobby Knife Scalpel Handle",
+            "tokens": {
+                "brand": "Universal Hobby",
+                "pack_size": "5",
+                "pack_size_unit": "pk",
+                "size": "5 in",
+                "color": "Silver",
+                "name": "Hobby Knife Scalpel Handle"
+            },
+            "char_count": 59,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "5 Pack, Ergonomic Grip With Grooves, Extra Sharp, Precision Craft Cutting, Lightweight Metal Handle",
+            "char_count": 99,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Ergonomic Grooved Grip, Extra Sharp Precision Blade, Lightweight Metal, Fine Detail Work, Craft And DIY Projects",
+            "char_count": 112,
+            "validation_error": null
+        }
+    }
+}

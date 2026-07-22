@@ -3,14 +3,14 @@
     "asin": "B00JH21GXC",
     "product_type": "SPORTING_GOODS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:27:59+00:00",
+    "generated_at": "2026-07-21T19:54:54+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 1,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -37,21 +37,59 @@
             "value": "Camo Form",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Gear Aid Camo Pink Self-Adhesive Wrap for Hunting Gear",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "GEAR AID 8ft Pink Camo Lightweight Adhesive Wrap",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "8",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Pink",
+                "name": "Camo Lightweight Adhesive Wrap"
+            }
         },
-        "title_differentiation": {
-            "value": "8 ft. Stretch to 16 ft., Reusable, No Residue, Conceals Guns & Equipment",
+        "item_name_ai_openai": {
+            "value": "GEAR AID Pink Camo Adhesive Wrap",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 32,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Pink",
+                "name": "Camo Adhesive Wrap"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Self-Cling No Residue, Stretches To 16Ft, Reusable, Conceals Guns And Gear, Hunting And Outdoor Sports",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 102,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Self Adhering, Removable Reusable, No Residue, Stretches To 16 Ft, Grips, Insulates, Quiets Gear",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 96,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

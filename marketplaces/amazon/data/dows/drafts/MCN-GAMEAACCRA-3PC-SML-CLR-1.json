@@ -3,14 +3,14 @@
     "asin": "B001BZMGUA",
     "product_type": "SEALANT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:20:14+00:00",
+    "generated_at": "2026-07-21T20:08:51+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 13,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -330,20 +330,58 @@
             "asin": "B001BZMGUA",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Gear Aid Aquaseal FD Flexible Waterproof Repair Adhesive, 0.75oz",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Gear Aid Aquaseal FD Clear Flexible Repair Adhesive 0.75oz",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 58,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Gear Aid",
+                "pack_size": "0.75",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "Clear",
+                "name": "Aquaseal FD Flexible Repair Adhesive"
+            }
         },
-        "title_differentiation": {
-            "value": "Fast-cure with accelerator, bonds neoprene, nylon, leather, GORE-TEX, waterproof",
+        "item_name_ai_openai": {
+            "value": "GEAR AID 0.75-oz Clear Aquaseal FD Repair Adhesive",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 50,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "0.75",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "Clear",
+                "name": "Aquaseal FD Repair Adhesive"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Waterproof Flexible Urethane, Cures In 2 Hours, Bonds Neoprene, Nylon, Canvas, Leather, Rubber And Gore-Tex, Temperature Resistant",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 130,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (130 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Flexible Waterproof Urethane Rubber, Fast Two Hour Cure, Bonds Neoprene Nylon Leather And PVC, Won't Peel Or Crack",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 114,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

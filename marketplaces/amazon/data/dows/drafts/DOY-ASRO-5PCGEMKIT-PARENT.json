@@ -3,14 +3,14 @@
     "asin": "B0DZLV5BFL",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:28:26+00:00",
+    "generated_at": "2026-07-21T19:55:01+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 0,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -19,28 +19,65 @@
             "value": "Assorted",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
-            "value": "1 lb",
+            "value": "9.75 x 9.75 inches",
             "is_required": false,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 5pc Gemstone Mining Kit with 1lb Paydirt & Sifter",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 1lb Rough Gemstone Mineral Paydirt Sifting Dig Kit",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 62,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1",
+                "pack_size_unit": "lb",
+                "size": "",
+                "color": "Rough",
+                "name": "Gemstone Mineral Paydirt Sifting Dig Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "Complete dig kit, sieve, trowel, brush & tweezers included",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 5-pc 1lb Rough Gemstone Paydirt Dig Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 51,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "pc",
+                "size": "1lb",
+                "color": "Assorted",
+                "name": "Rough Gemstone Paydirt Dig Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "5-Piece Kit, Includes Sieve And Tools, Complete Prospecting Set, Educational Rockhounding",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 89,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "1Lb Assorted Gemstones, 975\" Sifting Sieve, Trowel, Brush And Magnifying Tweezers, Weather Resistant, Outdoor Prospecting",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 121,
+            "review_only": true
         },
         "pesticide_marking": {
             "value": [

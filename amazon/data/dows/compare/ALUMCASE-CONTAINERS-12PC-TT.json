@@ -1,0 +1,56 @@
+{
+    "sku": "ALUMCASE-CONTAINERS-12PC-TT",
+    "asin": "B0B5FQLRPR",
+    "product_type": "JAR",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: ALUMCASE-CONTAINERS-12PC-TT\nProduct Type: JAR\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Aluminum Jar Storage Tin, 1/2 Oz 12 Piece Container Set & Display Case for Jewelry, Cosmetics, Spices, Crafting\nDescription: Keep small parts, crafts, spices, jewelry, or minerals organized with the ToolTreaux Aluminum Storage Jar Container Set.<br/><br/>The ToolTreaux Aluminum Jar Storage Container Sets are a great addition to any craft set, hobby station, or kitchen. Featuring either 12, 15 or 20 aluminum containers with clear glass lids, you'll be able to organize all of your small items - jewelry, cosmetics, spices, crafting supplies, tool pieces, hardware, and more.<br/><br/>Each jar uses a twist off lid so you can safely secure everything inside. Because the top is constructed with a clear glass window, you'll easily be able to tell your items apart without having to label the containers. All of the jars fit conveniently within the included aluminum case, allowing for easy transportation and organization.<br/><br/>These sets make great gifts for crafters and hobbyists alike.\nSearch Terms: aluminum jar storage tin container round metal spice oz half one clear top lid organizer organization hobbies display case candles 12 arts crafts cosmetics diy portable travel food grade glass kitchen small jewelry stamps gems\nFeatures:\n- DURABLE ALUMINUM BODY - Each jar is made of lightweight and durable aluminum to ensure they are reusable and last for years\n- CLEAR TOP - The press-top lids have a clear glass window so you can easily find and organize the items you need\n- PERFECT FOR HOBBIES - These jars make a great accessory to any hobby, allowing you to store, organize, and display small parts and pieces such as gems, stamps, coins, and more\n- DISPLAY AND CARRY CASE - Each set comes with an aluminum, foam-lined case to store the jars, making it easy to display, transport, and organize with minimal space\n- SPECIFICATIONS: 12 Piece Set; Dimensions: 1.25 x 1.25 x 0.75 inches; Capacity: 0.5 fl Oz; Color: Silver; Material: Aluminum, Glass\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 12-Pc 0.5 Oz Silver Aluminum Jar Storage Tin",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "12",
+                "pack_size_unit": "Pc",
+                "size": "0.5 Oz",
+                "color": "Silver",
+                "name": "Aluminum Jar Storage Tin"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": null,
+            "tokens": null,
+            "char_count": null,
+            "validation_error": "no item_name returned"
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "12 Clear Glass Top Containers, Aluminum Case With Foam Lining, Durable Reusable, Perfect For Jewelry, Spices, Crafts, Gems, Portable Display And Organization",
+            "char_count": 157,
+            "validation_error": "value exceeds maxLength 125 (157 chars)"
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": null,
+            "char_count": null,
+            "validation_error": "no title_differentiation returned"
+        }
+    },
+    "raw": {
+        "openai": "Client error: `POST https://api.openai.com/v1/chat/completions` resulted in a `429 Too Many Requests` response:\n{\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-5.4-mini in organization org-el3QE531uTdEpv2furRUAnXD on (truncated...)\n"
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "HWK-ATESB-144PC",
+    "asin": "B009GK4MF4",
+    "product_type": "SAW_BLADE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWK-ATESB-144PC\nProduct Type: SAW_BLADE\nBrand (from catalog): ASR Tactical\nExisting Title: 144pk ASR Tactical Escape Saw Blades Outdoor Emergency and Personal Defense\nDescription: These blades are extremely flexible and perfect for cutting straight through rope and hard metals. The round back makes cutting of curves and shapes easier, and they are tempered to ensure consistency.<br/><br/>Made of a special alloy steel, these blades will ensure that you can get out of any emergency situation. They will also cut through bone, plastics, wood and pearls. Make sure to have these blades handy the next time you're camping, hiking, or adventuring through the outdoors.<br/><br/>Sold in packs of 144.\nSearch Terms: 144pk ASR Tactical Escape Saw Blades\nFeatures:\n- Useful in Emergency Situations\n- Extremely Flexible Blades\n- Cut Straight Through all Metals, Rope, Bone, Plastic, Wood, and Pearls\n- Round Back Enables Flexibility | Allows for Intricate Cutting\n- Tempered to Ensure Consistency\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 144-pk Escape Saw Blades",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "144",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Escape Saw Blades"
+            },
+            "char_count": 37,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 144-Pk Escape Saw Blades",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "144",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Escape Saw Blades"
+            },
+            "char_count": 37,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Cuts Rope, Metal, Bone And Wood, Flexible Blades, Round Back Design, Emergency Ready, Tempered Alloy Steel",
+            "char_count": 106,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Flexible Alloy Steel, Cuts Rope, Metal, Bone, Wood, And Plastic, Round Back For Curves, Tempered, Emergency Use",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

@@ -3,14 +3,14 @@
     "asin": "B079P89WPK",
     "product_type": "TOOLS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:31:27+00:00",
+    "generated_at": "2026-07-21T19:55:53+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,20 +27,57 @@
             "asin": "B079P89WPK",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Hobby 5\" Automatic Center Punch Spring-Loaded Steel Tip",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Hobby 5\" Brass Center Punch Spring-loaded Steel Tip",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 61,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Hobby",
+                "pack_size": "5",
+                "pack_size_unit": "in",
+                "size": "5\"",
+                "color": "Brass",
+                "name": "Center Punch Spring-loaded Steel Tip"
+            }
         },
-        "title_differentiation": {
-            "value": "Brass body, high tension spring, hardened steel tip, no hammer needed",
+        "item_name_ai_openai": {
+            "value": "Universal Hobby 5-in Brass Automatic Center Punch",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 49,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Hobby",
+                "pack_size": "5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Brass",
+                "name": "Automatic Center Punch"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Automatic Spring-loaded, Hardened Steel Tip, Brass Body, Knurled Grip, No Hammer Needed",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 87,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Spring-Loaded High-Tension Action, Hardened Steel Tip, Knurled Grip, Marks Wood Metal Plastic, No Hammer Needed",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -1,0 +1,60 @@
+{
+    "sku": "PRF-WEIGHTLIFTJOURNAL-UWTJ",
+    "asin": "B0CV64RFWC",
+    "product_type": "PLANNER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: PRF-WEIGHTLIFTJOURNAL-UWTJ\nProduct Type: PLANNER\nBrand (from catalog): Productive Fitness\nExisting Title: Productive Fitness The Ultimate Weight Training Journal Gym Workout Handbook\nDescription: Whether you’re new to lifting weights or a seasoned weight-lifting expert, the Ultimate Weight Lifting Journal by Productive Fitness is a great fitness journal option for you! This journal tracks one year of weightlifting workouts so you can track your progress throughout the year, and will help you set up a fitness program with weekly progress reports.<br/><br/>The fitness journal measures 8.5” by 5.5” and features spiral binding so you can easily flip through pages while working out. The compact size is great for travel and will fit inside most backpacks or gym bags.<br/><br/>This fitness diary allows you to record actual and goal body measurements, set up your own exercise program, and review incremental changes and the amount of weight lifted for personalized insight into your progress. It comes with food lists, body diagrams, weight training safety tips, stretching exercises, and aerobic training. <br/><br/>The Ultimate Weight Lifting journal also features step-by-step instructions that are easy to follow and will help you keep on track and motivated. Start small and work to build on your fitness success with this journal!\nSearch Terms: personal trainer gym equipment exercise muscle groups workout weight training planner guidebook instructions\nFeatures:\n- WEIGHT LIFTING JOURNAL - Productive Fitness “The Ultimate Weight Lifting Journal” tracks one year of weight lifting workouts so you can track your progress throughout the year; Ultimate guide to set up a fitness program with weekly progress reports\n- SPIRAL STYLE NOTEBOOK - Fitness journal measures 8.5” x 5.5” and features spiral binding so you can easily flip through pages while at the gym; Compact size is great for travel and easily fits inside most backpacks or gym bags\n- MEASURE YOUR PROGRESS - Record actual and goal body measurements, set up your own exercise program, review incremental changes in reps and sets and the amount of weight lifted for personalized insight into your fitness goals\n- COMPLETE FITNESS DIARY - Weight training journal comes with food lists, body diagrams, weight training safety tips, stretching exercises and aerobic training; Learn what you need to know about nutrition and safe weight lifting\n- STEP-BY-STEP INSTRUCTIONS - Fitness notebook features easy-to-follow step-by-step instructions throughout; Keeps you on track and motivated; Start small and work to build on your fitness success\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Productive Fitness Ultimate Weight Lifting Journal",
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "8.5 x 5.5",
+                "color": "",
+                "name": "Ultimate Weight Lifting Journal"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Productive Fitness Weight Training Journal Workout Handbook",
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Weight Training Journal"
+            },
+            "char_count": 59,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "1-Year Workout Tracker, Spiral Bound, Progress Reports, Body Measurements, Safety Tips, Nutrition Guide",
+            "char_count": 103,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "One Year Workout Log, Spiral Bound, Track Reps Sets And Weight, Body Measurements, Safety Tips, Stretching",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

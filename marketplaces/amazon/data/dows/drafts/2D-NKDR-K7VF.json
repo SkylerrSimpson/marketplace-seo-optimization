@@ -3,15 +3,15 @@
     "asin": "B000G82BI0",
     "product_type": "OUTDOOR_RECREATION_PRODUCT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:22:09+00:00",
+    "generated_at": "2026-07-21T19:52:53+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 3,
         "catalog": 10,
-        "ai_suggested": 4,
-        "ai_null": 1,
+        "ai_suggested": 5,
+        "ai_null": 2,
         "base_template": 0
     },
     "attributes": {
@@ -195,16 +195,16 @@
             "raw_value": true
         },
         "color": {
-            "value": "Multicolor",
+            "value": null,
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "material": {
             "value": "Paper",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
             "value": null,
@@ -212,20 +212,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Adventure Medical Kits Wilderness & Travel Medicine Guide Book",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Adventure Medical Kits Wilderness and Travel Medicine Guide",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 59,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Adventure Medical Kits",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Wilderness and Travel Medicine Guide"
+            }
         },
-        "title_differentiation": {
-            "value": "Comprehensive wilderness medicine reference by Dr. Eric Weiss",
+        "item_name_ai_openai": {
+            "value": "Adventure Medical Kits Wilderness And Travel Medicine Guide",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 59,
+            "review_only": true,
+            "tokens": {
+                "brand": "Adventure Medical Kits",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "A Comprehensive Guide to Wilderness and Travel Medicine"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Comprehensive Medical Reference, Wilderness Survival, Travel Health, Natural Medicine, Expert Author MD",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 103,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Wilderness Survival Guide Book, Travel Medicine Reference, Camping And Backpacking Safety, Natural Medicine",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

@@ -3,14 +3,14 @@
     "asin": "B0DV8CG6XN",
     "product_type": "SHOVEL_SPADE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:35:09+00:00",
+    "generated_at": "2026-07-21T20:11:42+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 7,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -119,20 +119,57 @@
             "asin": "B0DV8CG6XN",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille 2pc Dust Pan & Brush Set with Bamboo Handle 14in",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 2-pc 14 inch Bamboo Dust Pan and Brush Set",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 49,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "pc",
+                "size": "14 inch",
+                "color": "",
+                "name": "Dust Pan and Brush Set"
+            }
         },
-        "title_differentiation": {
-            "value": "Bamboo Handle, Snap-Together Storage, Non-Scratch Bristles",
+        "item_name_ai_openai": {
+            "value": "Beille 2-pc 14 in Dust Pan and Brush Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 40,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "pc",
+                "size": "14 in",
+                "color": "",
+                "name": "Dust Pan And Brush Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Bamboo Handle, Non-Scratch Bristles, Snap Storage, Hanging Holes, Lightweight",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 77,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Bamboo Handle, Non-Scratch Bristles, Built-In Pan Teeth, Hanging Holes, Snap-Together, Space Saving Storage",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

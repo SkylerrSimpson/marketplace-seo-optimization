@@ -1,0 +1,60 @@
+{
+    "sku": "HWK-TBPHDBSLFHAN-9P-BL-TT",
+    "asin": "B0B57PGXXG",
+    "product_type": "TOOL_BELT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWK-TBPHDBSLFHAN-9P-BL-TT\nProduct Type: TOOL_BELT\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux 9 Pocket Leather Tool Belt Large Hammer Drill Tool Pouch - Blue\nDescription: The ToolTreaux tool belt is constructed of durable yet lightweight suede leather that will ensure a long life. It features a PVC quick release buckle and 2 inch web belt so you can easily attach it and remove it when no longer needed.<br/><br/>Each tool belt comes with 9 different tool pouches designed to hold small, medium and large construction tools including a hammer, wrench, screwdriver, pliers, measuring tape, utility knife, pruners, trowels, levels and more.<br/><br/>Our leather tool belts come with a belt strap that can adjust up to 46\" in length that will fit most waists, making this a great option for both men and women. You can adjust the belt for custom comfort and make sure that your tools are handy and easy to access.<br/><br/>Although these belts were originally designed for home improvement and construction uses, they are also great for crafting, gardening and other hobby DIY projects. Keep your tools close and organized with this belt before your next project whether it's indoors or outdoors.<br/><br/>Please note: these tool belts are not customizable.\nSearch Terms: tool belt electrician tool belt leather tool belt tool pouch electrician tool pouch leather tool pouch tool holder tool box organizer truck tool box toolbox organization hammer tools and home improvement construction tools leather belt for men\nFeatures:\n- HEAVY-DUTY CONSTRUCTION - ToolTreaux heavy-duty tool belt is made of high-quality, durable and lightweight suede leather that will ensure longevity Belt features a 2 inch web belt with PVC quick release buckle to easily attach and remove\n- 9 TOOL POCKETS - Tool belt comes with 9 different tool pouches made to hold different construction and hobby tools like a hammer, measuring tape, pliers, wrench, screwdriver, box cutter, level, pruners, trowels and more\n- ONE SIZE FITS MOST - Leather tool belt comes with a belt strap that adjusts up to 46 inches in length to fit most waists. Adjust the belt for custom comfort and secure it during use to keep tools handy and easy to access\n- VERSATILE TOOL BELT - Multi-use tool belt is ideal for home improvement, crafting, gardening and hobby DIY projects. Make sure you have quick access to your tools whether you're working inside or outdoors\n- SPECIFICATIONS - Color: blue; Material: suede leather; Belt length: 46\"; Adjustable: yes; PVC quick release buckle; Weight: 1.5lbs (24oz); Number of pockets: 9; Steel hammer holder: Customizable: no\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 9 Pocket Large Blue Leather Tool Belt",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "9",
+                "pack_size_unit": "Pocket",
+                "size": "Large",
+                "color": "Blue",
+                "name": "Leather Tool Belt"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 9-Pocket Large Blue Leather Tool Belt",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "9",
+                "pack_size_unit": "Pocket",
+                "size": "Large",
+                "color": "Blue",
+                "name": "Leather Tool Belt"
+            },
+            "char_count": 48,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "9 Tool Pouches, Adjustable Up To 46 Inches, Suede Leather, Quick Release Buckle, Home Improvement And Gardening",
+            "char_count": 111,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Heavy Duty Suede Leather, 2 Inch Web Belt, Quick Release Buckle, 9 Pockets, 46 Inch Adjustable Fit",
+            "char_count": 98,
+            "validation_error": null
+        }
+    }
+}

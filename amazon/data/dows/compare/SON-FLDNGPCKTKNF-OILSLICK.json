@@ -1,0 +1,60 @@
+{
+    "sku": "SON-FLDNGPCKTKNF-OILSLICK",
+    "asin": "B0BZK8GQTD",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-FLDNGPCKTKNF-OILSLICK\nProduct Type: KNIFE\nBrand (from catalog): ASR Tactical\nExisting Title: ASR Tactical 8.5 inch Folding Pocket Knife with Belt Clip, Drop Point Multicolor Oil Slick Design\nDescription: Featuring a unique oil slick design, this ASR Tactical drop point blade folding pocket knife features a built in belt clip, spring assisted opening and linear lock. A great EDC pocket knife, it's versatile and suitable for many different tasks, and with a built in belt clip, the pocket knife is easy to carry on person if or when needed.<br/><br/>As mentioned, the pocket knife features spring assisted opening; this spring deployment mechanism allows the knife to open quickly and conveniently using just a single hand. Built into the handle of the pocket knife, the mechanism creates stored energy, in turn causing the blade to fully flip open on its own past a certain manual opening point.<br/><br/>With a strong tip and wide belly blade design, this folding pocket knife is great for many different tasks; versatile and suitable for everyday use, the pocket knife comes in a matte finish for comfortable handling and secure grip.<br/><br/>Dimensions: 8.5 x 1.5 x 0.5 inches<br/>Closed Dimensions: 4.75 inches<br/>Blade Length: 3.5 inches<br/>Material: Metal\nSearch Terms: fixed blade knife EDC gear camping accessories pocket knife for men gifts for boyfriend self defense tactical knife multi tool survival kits emergency supplies hunting hiking bug out bag fishing folding pocket knife with belt clip\nFeatures:\n- OIL SLICK POCKET KNIFE: Featuring a unique oil slick design, this drop point blade folding pocket knife features a belt clip, spring assisted opening and thumb grip\n- ASSISTED OPENING POCKET KNIFE: This pocket knife features a spring deployment mechanism, causing the blade to fully flip open; the result is a blade that you can open up quickly and conveniently with a single hand\n- EDC KNIFE WITH BELT CLIP: Handy and durable metal belt clip in black matte finish means you can easily attach to your person and access if and when needed\n- DROP POINT BLADE DESIGN: Strong tip and wide belly blade design make this folding pocket knife great for many different tasks; versatile and suitable for everyday use, the pocket knife comes in a matte finish for comfortable handling and grip\n- SPECIFICATIONS: Dimensions: 8.5 x 1.5 x 0.5 inches; Weight: 0.45lbs; Color: Multi; Closed Dimensions: 4.75 inches; Blade Length: 3.5 inches\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 8.5 inch Oil Slick Folding Pocket Knife",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "8.5",
+                "pack_size_unit": "inch",
+                "size": "",
+                "color": "Oil Slick",
+                "name": "Folding Pocket Knife"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 8.5in Multicolor Oil Slick Folding Pocket Knife",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "8.5",
+                "pack_size_unit": "in",
+                "size": "8.5in",
+                "color": "Multicolor Oil Slick",
+                "name": "Folding Pocket Knife"
+            },
+            "char_count": 60,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Spring Assisted Opening, Drop Point Blade, Belt Clip, EDC, Single Hand Operation, Matte Finish",
+            "char_count": 94,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Drop Point Blade, Spring Assisted Opening, Belt Clip, Thumb Grip, EDC Carry, Matte Finish, One Hand Use",
+            "char_count": 103,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "LST-CATCHBALL-BLK-AMZ-HVAR",
+    "asin": "B019EKC0K4",
+    "product_type": "TOYS_AND_GAMES",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-CATCHBALL-BLK-AMZ-HVAR\nProduct Type: TOYS_AND_GAMES\nBrand (from catalog): Toy Cubby\nExisting Title: Sport Ball - Paddle Catch and Toss Game Set- 7” Handheld Stick Disc - 1 Set - Manufactured by Toy Cubby!\nDescription: Catch and Toss game is a very fun and exciting games, play indoor or outdoor. The Catch and Toss Game 1 set includes 1 ball covered with touch fastener and 2 handheld stick disc paddle, the paddle is equipped with self-stick touch fastener construction that can catch/stick the ball easily, the disc is equipped with touch fastener bands in the back to keep in place. The ball is softer than the traditional ball so it’s less likely break anything like furniture, window glass or even hurt players. Toss and Catch game is a simple and a fun game, by simply tossing the ball in different direction and let your playmate catch it using the paddle. The ball measure same as a clementine, small and light a child friendly ball. Perfect for kids 3 years and up also this will benefits your child, a 2 and 1 package toy, 1st: it lets your child exercise their eyes and hands develops hand-eye coordination 2nd: lets your child enjoy the fun of tossing and catching. Perfect for beach, playground and backyard.\nSearch Terms: (none)\nFeatures:\n- Can be played indoor or outdoor. Perfect for beach, playground and backyard.\n- Catch and Toss Game includes 1 ball covered with touch fastener and 2 handheld stick disc paddle, the paddle is equipped with self-stick construction that can catch/stick the ball easily, the disc is equipped with bands in the back to keep in place.\n- Ball is softer than the traditional ball so it’s less likely break anything like furniture, window glass or even hurt players.\n- Catch ball measure same as a clementine, small and light a child friendly ball.\n- for kids 3 years and up also this will benefits your child, a 2 and 1 package toy, 1st: it lets your child exercise their eyes and hands develops hand-eye coordination 2nd: lets your child enjoy the fun of tossing and catching.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Toy Cubby Catch and Toss Game Set with 2 Paddles",
+            "tokens": {
+                "brand": "Toy Cubby",
+                "pack_size": "1",
+                "pack_size_unit": "Set",
+                "size": "7 inch",
+                "color": "Black",
+                "name": "Catch and Toss Game"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Toy Cubby 7-in Paddle Catch and Toss Game Set",
+            "tokens": {
+                "brand": "Toy Cubby",
+                "pack_size": "7",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Paddle Catch and Toss Game Set"
+            },
+            "char_count": 45,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Includes 2 Handheld Paddles, Soft Touch-Fastener Ball, Indoor Or Outdoor Play, Develops Hand-Eye Coordination, Ages 3 Plus",
+            "char_count": 122,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Indoor And Outdoor Play, Soft Fastener Ball, Easy Catch Paddle Grips, Hand-Eye Coordination, Ages 3 And Up",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

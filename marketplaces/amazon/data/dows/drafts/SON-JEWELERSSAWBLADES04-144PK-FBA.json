@@ -3,14 +3,14 @@
     "asin": "B071JWJCRW",
     "product_type": "SAW_BLADE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:19:08+00:00",
+    "generated_at": "2026-07-21T20:08:46+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 8,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 7
     },
@@ -124,25 +124,62 @@
             "raw_value": true
         },
         "size": {
-            "value": "12 Sizes (6/0 to 6)",
+            "value": "6/0 to 6",
             "is_required": false,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Tool 144pc Jewelry Piercing Saw Blades Set, 12 Sizes",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Tool 144-pc Piercing Saw Blades 12 Sizes",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "144",
+                "pack_size_unit": "pc",
+                "size": "12 Sizes",
+                "color": "",
+                "name": "Piercing Saw Blades"
+            }
         },
-        "title_differentiation": {
-            "value": "144 blades, 12 sizes (6/0-6), hardened steel, fine to coarse cuts",
+        "item_name_ai_openai": {
+            "value": "Universal Tool 144-pk 12 Sizes Grey Piercing Saw Blades",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 55,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "144",
+                "pack_size_unit": "pk",
+                "size": "12 Sizes",
+                "color": "Grey",
+                "name": "Piercing Saw Blades"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Fine To Coarse Cuts, Hardened Steel, 12 Blades Per Size, Jewelry Making, Metalworking, Woodworking, Storage Pouch",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 113,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Hardened Steel, 144 Piece Assortment, 12 Sizes Fine To Coarse, 130Mm 55\" Length, Honed Teeth, Storage Pouch",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "item_dimensions": {
             "value": [

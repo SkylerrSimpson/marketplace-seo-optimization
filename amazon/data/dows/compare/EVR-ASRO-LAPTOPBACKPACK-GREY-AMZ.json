@@ -1,0 +1,60 @@
+{
+    "sku": "EVR-ASRO-LAPTOPBACKPACK-GREY-AMZ",
+    "asin": "B0CJ1XFGQJ",
+    "product_type": "BACKPACK",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: EVR-ASRO-LAPTOPBACKPACK-GREY-AMZ\nProduct Type: BACKPACK\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 15L Slim Backpack for Men Women 15.6 inch Water Resistant Laptop Backpack with Laptop Sleeve, Grey Blue\nDescription: ASR Outdoors new travel backpack is ideal for commuting to work, or packing as carry on luggage for air travel and more. Slim profile, lightweight design, top grab handle, classic charcoal color with bright blue modern detailing, this travel backpack also features an interior padded laptop sleeve, along with eight other interior and exterior compartments, to keep belongings organized and easily accessible. <br/><br/>Perfect if you need to carry a laptop, the interior laptop sleeve is well padded on both sides to protect against scratches and scuffs, keeping it separate and secure from other personal belongings. In addition to this laptop compartment, the travel backpack also comes with two exterior pockets, one small and one large, for items you need to reach quickly and frequently. That leaves seven interior compartments for less frequently needed items, including two pen or pencil slots, allowing for ample room (15L to be exact) for other items.<br/><br/>Importantly, this ASR Outdoor travel, commuter backpack also features padded shoulder straps and a padded exterior back wall to provide support to shoulders back and neck, if and when carrying a heavy load. Lastly, we should mention the fabrication of this backpack, made from 840D polyester, making it incredibly durable and able to withstand lots of wear and tear when you're on the go.<br/><br/>SPECIFICATIONS: Dimensions: 18.5 x 12 x 4 inches; Weight: 1.26lbs; Material: 840D Polyester; Capacity: 15L; Care: Hand wash/spot clean recommended\nSearch Terms: business travel unisex computer backpack university edc indoor outdoor backpack day hiking city park mens urban fashion\nFeatures:\n- EVERY DAY BACKPACK: Ideal for air travel as carry on luggage, commuting to work, this ASR Outdoor backpack has a slim profile and lightweight design with x9 interior and exterior storage compartments\n- PADDED LAPTOP PROTECTION: Perfect for carrying a laptop, the backpack features a padded laptop sleeve to protect against scratches and scuffs, keeping it separate and secure from other personal belongings\n- STORAGE: Even with its slim profile design, this padded laptop backpack features x9 storage compartments, x2 exterior and x7 interior, to keep all belongings organized and easily accessible\n- LAPTOP BACKPACK: With padded shoulder straps and padded exterior back, as well as a padded interior laptop sleeve, this ASR Outdoor backpack provides ample support to back and shoulders\n- SPECIFICATIONS: Dimensions: 18.5 x 12 x 4 inches; Weight: 1.26lbs; Color: Charcoal Exterior, Blue Interior and Detailing; Material: 840D Polyester; Capacity: 15L\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters.  Please include the size and color of the item in the Product Name, if available.\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 15L Grey Laptop Backpack 15.6 inch",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "15",
+                "pack_size_unit": "L",
+                "size": "15.6 inch",
+                "color": "Grey",
+                "name": "Laptop Backpack"
+            },
+            "char_count": 46,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 15L 15.6 in Grey Blue Laptop Backpack",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "15",
+                "pack_size_unit": "L",
+                "size": "15.6 in",
+                "color": "Grey Blue",
+                "name": "Laptop Backpack"
+            },
+            "char_count": 49,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Water Resistant, Padded Laptop Sleeve, 9 Compartments, Padded Straps, Carry-On Luggage, Lightweight",
+            "char_count": 99,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Slim Profile, Padded Laptop Sleeve, 9 Compartments, Lightweight Carry On, Padded Straps, Durable 840D Polyester",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

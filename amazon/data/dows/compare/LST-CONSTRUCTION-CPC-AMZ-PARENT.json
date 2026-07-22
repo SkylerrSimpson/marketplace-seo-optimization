@@ -1,0 +1,60 @@
+{
+    "sku": "LST-CONSTRUCTION-CPC-AMZ-PARENT",
+    "asin": "B0CL5Q7QT5",
+    "product_type": "TOY_VEHICLE_SET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-CONSTRUCTION-CPC-AMZ-PARENT\nProduct Type: TOY_VEHICLE_SET\nBrand (from catalog): Kidplokio\nExisting Title: Kidplokio Toy Construction Truck Transport Vehicle Lights Sounds for Boys\nDescription: Does your child love fire trucks and construction toys? This fantastic toy car carrier features unique snap-close lids on both sides of the truck to display the tools and other toys neatly. It even has space for additional toy cars inside the truck so your little one can transport their favorite toys and accessories. Toy truck carriers are wonderful for transporting cars, tools and organizing other small toys to reduce clutter. <br/><br/>Designed for pretend play, this toy truck is great for inspiring creativity and imagination during play time. The sturdy carrying handle makes it easy for your child to bring with them around the house, on the go or to play dates. This is a great gift idea for your child who enjoys construction, tools and firefighting-themed toys.<br/><br/>Recommended age: 3 years and up<br/>Includes 3 x 1.5 \"LR44\" Size Batteries\nSearch Terms: toy trucks cars kids gifts boys birthday pretend play toys lights sounds vehicles transport truck firefighter fire action figures figurines men ages 3 up plastic\nFeatures:\n- TOY TRUCK CARRIER - Kidplokio kid's toy truck carrier holds your child's favorite toy cars, tools and accessories with ease\n- UNIQUE DESIGN - Car carrier features unique snap-close lids on both sides to safely store and organize toys and cars when not in use; Reduce clutter around the house\n- PRETEND PLAY TOY - Toy trucks inspire creativity and imagination during playtime; Great for children who love fire trucks and construction-themed toys; Plays sounds and lights up\n- SAFE FOR KIDS - Durable, high-quality plastic material is safe for children ages 3 and up with adult supervision; Wipe clean and air dry between uses as needed\n- SPECIFICATIONS - Color: red or yellow; Material: plastic; Recommended age: 3 years and up; Batteries included: yes (3 x 1.5 \"LR44\" Size Batteries); Lights and sounds: yes\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Kidplokio Toy Construction Truck Carrier with Lights Sounds",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Toy Construction Truck Carrier with Lights Sounds"
+            },
+            "char_count": 59,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Kidplokio Toy Construction Truck Carrier Lights and Sounds",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Toy Construction Truck Carrier"
+            },
+            "char_count": 58,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Snap-Close Lids, Holds Toy Cars And Tools, Lights And Sounds, Ages 3 Plus, Carrying Handle",
+            "char_count": 90,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Snap-Close Side Lids, Large Storage For Toy Cars And Tools, Carrying Handle, Lights And Sounds, Ages 3 And Up",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

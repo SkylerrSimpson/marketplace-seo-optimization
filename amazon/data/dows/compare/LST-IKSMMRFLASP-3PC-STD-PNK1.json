@@ -1,0 +1,60 @@
+{
+    "sku": "LST-IKSMMRFLASP-3PC-STD-PNK1",
+    "asin": "B08PTPSTKD",
+    "product_type": "KARAOKE_MACHINE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-IKSMMRFLASP-3PC-STD-PNK1\nProduct Type: KARAOKE_MACHINE\nBrand (from catalog): Kid Fun\nExisting Title: LilPals Princess Karaoke -Children's Toy Stand Up Microphone Play Set w/ Built-In MP3 Player, Speaker, Adjustable Height (Pink)\nDescription: This hands on Bedazzled Rainbow Flashing Lights and Sound Singing Machine Microphone has 9 different rythms that become interactive whenever the bedazzled, light-up gems are pushed inwith 9 Demonstration Songs is a great musical toy to get your kids in touch with their inner pop star. Children will have the confidence to get on stage and belt out their favorite songs while they are playing by themselves or in a room full of family and friends. <br/><br/> The colorful Singing Machine comes with a heart-shaped stand that includes stars, hearts, and bedazzled on/off, volume, and mode buttons. The microphone stand is also heart themed and can be adjusted to any child's height. This kids and girls karaoke machine comes in a variety of colors and styles to suit your child's special personality.<br/><br/> Don't miss out on this opportunity to get your child a toy that will let them explore their musical talent and ability to be in the spotlight.\nSearch Terms: karaoke machine singing girls toys\nFeatures:\n- Bedazzled Flashing Rainbow Lights and Sound Singing Machine with 9 Demonstration Songs for Kids\n- Hearts and stars included in design\n- Adjustable microphone stand\n- On/off, volume, and mode buttons for music and microphone\n- Perfect gift for kids and children for birthdays or during the holidays for family fun\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Kid Fun Pink Princess Karaoke Machine with Microphone Stand",
+            "tokens": {
+                "brand": "Kid Fun",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Pink",
+                "name": "Princess Karaoke Machine with Microphone Stand"
+            },
+            "char_count": 59,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Kid Fun Pink Karaoke Machine",
+            "tokens": {
+                "brand": "Kid Fun",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Pink",
+                "name": "Karaoke Machine"
+            },
+            "char_count": 28,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Adjustable Microphone Stand, Bedazzled Flashing Rainbow Lights, 9 Demo Songs, Heart Design",
+            "char_count": 90,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Bedazzled Rainbow Lights, 9 Demo Songs, Adjustable Height Stand, Built-In Speaker, Heart And Star Design",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

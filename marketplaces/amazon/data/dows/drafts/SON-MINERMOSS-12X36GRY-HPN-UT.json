@@ -3,14 +3,14 @@
     "asin": "B00JM5JVSG",
     "product_type": "STORAGE_BOX",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:06:15+00:00",
+    "generated_at": "2026-07-21T19:46:32+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 13,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -186,24 +186,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "MinerMoss 12x36",
+            "value": "Miner Moss",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Utopia Tools 36x12 Grey Storage Box 10mm Thick",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Dresmannst 12x36in Grey Storage Box 10mm Thick",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 46,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Dresmannst",
+                "pack_size": "12x36",
+                "pack_size_unit": "in",
+                "size": "10mm",
+                "color": "Grey",
+                "name": "Storage Box"
+            }
         },
-        "title_differentiation": {
-            "value": "Premium Quality, 10mm Thick, Grey Colour Sleeve",
+        "item_name_ai_openai": {
+            "value": "Dresmannst 12-in 36-in Grey Storage Sleeve",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 42,
+            "review_only": true,
+            "tokens": {
+                "brand": "Dresmannst",
+                "pack_size": "12",
+                "pack_size_unit": "in",
+                "size": "36 in",
+                "color": "Grey",
+                "name": "Storage Sleeve"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "10Mm Thick, Durable Grey Color, Premium Quality, Stackable Storage Solution",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 75,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "10Mm Thick, Premium Quality, Durable Protection, Space Saving, Easy Organization, Heavy Duty, Long Lasting",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 106,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -1,0 +1,60 @@
+{
+    "sku": "HWK-DTBSP-MED-TN",
+    "asin": "B0170GQS8Y",
+    "product_type": "UTILITY_HOLSTER_POUCH",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWK-DTBSP-MED-TN\nProduct Type: UTILITY_HOLSTER_POUCH\nBrand (from catalog): Universal Tool\nExisting Title: 10 Pocket Suede Leather Tool Bag Heavy Duty Carpenter Storage Pouch - Tan\nDescription: The suede tool storage bag has many compartments for nails, drills, hammers, or screwdrivers. Larger power tools are able to fit in the main compartments so a variety of tools can be easily carried. Specifically, there are 2 large pockets for nails and 3 pockets for small tools. In the main compartment, there is a tape holder that carries up to a 30\" tape measure and has compartment slots for smaller tools.<br/><br/>The bag also features one nickel finish metal hammer holder and reinforced corners for durability. The tool bag is an ideal companion for the Deluxe 12 Pocket Suede Tool Belt where it can attach easily for extra storage space. <br/><br/>Order this Deluxe Tool Bag to tackle all your home improvement jobs. You will have the confidence to do it yourself when all your tools are by your side and conveniently stored.\nSearch Terms: hobby organizer carry do it yourself tool bag suede utility holster bag construction leather home improvement belt worksman\nFeatures:\n- Perfectly Sized for Easy Transportation of Hefty Tools\n- Multiple Compartments\n- Ideal Companion for Deluxe 12 Pocket Tool Belt\n- Convenient Storage for Carpenters, Handy Workers, and DIY Jobs\n- Color: Tan\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 10 Pocket Tan Suede Leather Tool Bag",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "10",
+                "pack_size_unit": "Pocket",
+                "size": "",
+                "color": "Tan",
+                "name": "Suede Leather Tool Bag"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool Tan Heavy Duty Suede Leather Tool Bag",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Tan",
+                "name": "Heavy Duty Suede Leather Tool Bag"
+            },
+            "char_count": 52,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Heavy Duty Carpenter Storage, Multiple Compartments, Tape Measure Holder, Metal Hammer Loop, Reinforced Corners",
+            "char_count": 111,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "10 Pockets, 2 Large Pockets, 3 Small Tool Pockets, Hammer Holder, 30\" Tape Holder, Reinforced Corners",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

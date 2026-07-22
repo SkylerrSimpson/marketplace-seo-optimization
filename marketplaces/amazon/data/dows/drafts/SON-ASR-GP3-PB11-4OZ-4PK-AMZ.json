@@ -3,14 +3,14 @@
     "asin": "B00DVPNLJI",
     "product_type": "LAB_SUPPLY",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:38:25+00:00",
+    "generated_at": "2026-07-21T20:11:53+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 7,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -118,20 +118,57 @@
             "asin": "B00DVPNLJI",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Gold Snifter Squeeze Bottle 4oz 4-Pack",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 4-Pack 4oz Gold Snifter Bottle",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 42,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "Pack",
+                "size": "4oz",
+                "color": "Gold",
+                "name": "Snifter Bottle"
+            }
         },
-        "title_differentiation": {
-            "value": "Extendable nozzle, suction recovery tool for gold panning & prospecting",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 4-pk 4oz Gold Snifter Bottle",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 40,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "4oz",
+                "color": "Gold",
+                "name": "Snifter Bottle"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Fine Gold Recovery, Extending Squeeze Nozzle, 5 Inch, Strong Suction, Gold Panning Tool",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 87,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Gold Panning Recovery, Extendable Squeeze Nozzle, Strong Suction, Fine Flour And Flake Retrieval, 4 Oz, 4 Pack",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 110,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

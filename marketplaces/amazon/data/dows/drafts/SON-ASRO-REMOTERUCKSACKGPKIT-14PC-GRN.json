@@ -3,14 +3,14 @@
     "asin": "B0FCHFQL7V",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:12:59+00:00",
+    "generated_at": "2026-07-21T20:07:31+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 4,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -81,20 +81,57 @@
             "asin": "B0FCHFQL7V",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 14pc Gold Panning Kit with 30L Rucksack, Green",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 14pc Gold Panning Kit 30L Rucksack Green",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "14",
+                "pack_size_unit": "pc",
+                "size": "30L",
+                "color": "Green",
+                "name": "Gold Panning Kit Rucksack"
+            }
         },
-        "title_differentiation": {
-            "value": "14-piece complete kit, 30L backpack, classifier screens, dual gold pans, magnetic tools",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 14-pc 30L Green Gold Panning Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 44,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "14",
+                "pack_size_unit": "pc",
+                "size": "30L",
+                "color": "Green",
+                "name": "Gold Panning Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "14 Piece Set, 30L Backpack, Classifier Screens, Gold Pans, Magnetic Pickup Tool, 3-In-1 Shovel, Remote Prospecting",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 114,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Remote Terrain Prospecting, 30L Backpack, Classifier Screens, 14 And 12 Inch Gold Pans, Magnetic Pick Up Tool, 3 In 1 Shovel",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 124,
+            "review_only": true
         },
         "pesticide_marking": {
             "value": [

@@ -3,14 +3,14 @@
     "asin": "B0C1B9Q4N9",
     "product_type": "SCREWDRIVER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:21:18+00:00",
+    "generated_at": "2026-07-21T20:08:55+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 4,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -83,20 +83,57 @@
             "asin": "B0C1B9Q4N9",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux 16pc Ratchet Screwdriver Set T-Handle Grip",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux 16-Pc Yellow Ratchet Screwdriver Set",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 47,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "16",
+                "pack_size_unit": "Pc",
+                "size": "",
+                "color": "Yellow",
+                "name": "Ratchet Screwdriver Set"
+            }
         },
-        "title_differentiation": {
-            "value": "Magnetized Bits, Ergonomic T-Handle, 15 CRV Bits + Ratchet Handle",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux 16-Pc 1/4\" Yellow Ratchet Screwdriver Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 52,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "16",
+                "pack_size_unit": "pc",
+                "size": "1/4\"",
+                "color": "Yellow",
+                "name": "Ratchet Screwdriver Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Magnetized Bits, T-Handle Ergonomic Grip, CRV Bits, 14-Inch Interchangeable, Home And Hobby",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 91,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "T-Handle Ergonomic Grip, Magnetized CRV Bits, Interchangeable Ratchet Handle, 15 Piece Set, Home DIY",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 100,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

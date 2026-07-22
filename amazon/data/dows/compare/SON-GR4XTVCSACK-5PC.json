@@ -1,0 +1,60 @@
+{
+    "sku": "SON-GR4XTVCSACK-5PC",
+    "asin": "B013PZ7OGO",
+    "product_type": "TWEEZER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-GR4XTVCSACK-5PC\nProduct Type: TWEEZER\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Basic 5pc Fine Gold Recovery Tools Set, Gold Rush 4x Tweezer and Vial Combo Set\nDescription: The ASR Outdoor collection of fine gold recovery tools is a basic set of essential gold panning items needed in the field. In this 5pc Gold Collection Vial and Magnifying Tweezer Combo Set is the essential utilitarian tweezer for inspecting not only gold but precious gems and minerals as well.<br/><br/>The tweezers feature an optical-quality glass lens with 4x magnification, these tweezers will show fine detail without distortion. Made of stainless steel, the blades have precision needle points ideal for manipulating tiny objects. They fold up compactly to fit easily into a tool box, on-the-go kit, survival kit and much more.<br/><br/>The included 4 collection vials are essential to keeping your gems safe and contained. The vials feature a screw on lid and are made of thick boriscallite glass that is thicker and more durable than plastic vials that tend to leak and can be prone to breaking under pressue or distorting in high desert heat and UV light.\nSearch Terms: gold panning fine recovery glass vial flake collection magnifier loupe 18k nugget paydirt mat storage testing kit for adults\nFeatures:\n- Fine point optical-quality glass lens with 4x magnification, these tweezers will show fine detail of gold flakes and nugets without distortion\n- The gold collection vials feature a screw on lid and are made of thick boriscallite glass that is thicker and more durable than plastic vials\n- All components from this fine gold recovery set are compact and fold up easily to fit into a tool box, on-the-go kit, survival kit and much more\n- Gold prospecting tools each prospector and hobbyist metal detector enthusist use each day they pan for gold\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 5-pc Gold Recovery Tweezers and Vial Set",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Gold",
+                "name": "Recovery Tweezers and Vial Set"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 5-pk Gold Recovery Tweezers and Vial Combo Set",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Gold Recovery Tweezers and Vial Combo Set"
+            },
+            "char_count": 58,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "4X Magnification Glass Lens, Stainless Steel Precision Points, Borosilicate Glass Vials, Compact Folding Design",
+            "char_count": 111,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "4X Magnifying Glass Lens, Precision Stainless Steel Tips, 4 Screw-Cap Borosilicate Glass Vials, Compact Foldable Design",
+            "char_count": 119,
+            "validation_error": null
+        }
+    }
+}

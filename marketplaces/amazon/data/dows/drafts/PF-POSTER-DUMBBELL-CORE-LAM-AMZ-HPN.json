@@ -3,14 +3,14 @@
     "asin": "0973941146",
     "product_type": "ABIS_BOOK",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:49:03+00:00",
+    "generated_at": "2026-07-21T19:36:56+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 9,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -182,22 +182,59 @@
             "value": "HEA007000",
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "Productive Fitness Laminated Dumbbell Exercise Poster 24x36",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 59,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "24",
+                "pack_size_unit": "x36 in",
+                "size": "",
+                "color": "",
+                "name": "Laminated Dumbbell Exercise Poster"
+            }
         },
-        "title_differentiation": {
-            "value": "Lower Body, Core, Chest & Back | 18 Exercises | Expert-Designed",
+        "item_name_ai_openai": {
+            "value": "Productive Fitness Publishing 24x36 in Dumbbell Exercise Poster",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 63,
+            "review_only": true,
+            "tokens": {
+                "brand": "Productive Fitness Publishing",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "24x36 in",
+                "color": "",
+                "name": "Dumbbell Exercise Poster"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "18 Dumbbell Exercises, Lower Body, Core, Chest And Back, Step-by-Step Instructions, Full-Color Photos, Laminated Durability",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 123,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Laminated 24X36 Inch Wall Chart, Step By Step Photos, 18 Exercises, Core Chest Back And Legs Workout",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 100,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

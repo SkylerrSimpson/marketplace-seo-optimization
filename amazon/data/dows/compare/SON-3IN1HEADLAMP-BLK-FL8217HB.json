@@ -1,0 +1,60 @@
+{
+    "sku": "SON-3IN1HEADLAMP-BLK-FL8217HB",
+    "asin": "B08VNJY51L",
+    "product_type": "FLASHLIGHT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-3IN1HEADLAMP-BLK-FL8217HB\nProduct Type: FLASHLIGHT\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 500 Lumen COB Rechargeable Adjustable LED Headlamp with Bike Handle Bar Mount, 1200MaH\nDescription: The ASR Outdoor 3-in-1 Rechargeable Adjustable LED Camping Headlamp with Bicycle Handle Attachment comes fully loaded, making it a multipurpose tool you'll want to pack with your backpacking gear, hiking gear, camping gear, car emergency kit, bug out bag, or survival kit and more. <br/><br/>The LED headlamp features three different light modes: a 500 Lumen LED bulb with a run time of 2.5 hours, or use the 100 Lumen mode for 3 hours of run time; lastly, the flashing red emergency lights, with a run time 3.5 hours. In addition to the versatile light modes just listed, the camping headlamp is fully adjustable and comes with a comfortable and flexible head strap attachment, that should fit just about any adult head size; simply attach this piece by snapping it on to the rear of the LED light. The headlamp flashlight features a built-in rechargeable 1200 MAH battery (USB cable included), so you don't have to worry about packing any batteries. The full charge time is approximately three hours.<br/><br/>And, as if this ASR Outdoor emergency survival headlamp didn't already have enough amazing features, it ALSO comes with an attachment for your bike handles or in a pinch can be used to attach around a branch or other object that is 3/4 inch or larger. Easy to use, attach this piece by sliding it into the center groove on the rear of the head strap attachment, and use the silicone strap to adjust and mount to your bike. The last feature we have to point out is the integrated side magnet. Built-in to the side of the headlamp bike light, this headlamp now gives you the option for hand-free lighting, whether you're working in your garage, work shop, car or wherever it will magnetically latch on to.<br/><br/>Mountain biking or hiking, car camping or prepping a bug out bag, be sure to pack the ASR Outdoor 3-in-1 Rechargeable Adjustable LED Headlamp Bike Light with your gear.\nSearch Terms: headlamp rechargeable flashlight camping biking cycling fishing hunting hiking backpacking trekking equipment gadget gear supplies LED survival kit emergency preparedness bug out bag prepper dog walking light portable work\nFeatures:\n- ALL PURPOSE LED HEADLAMP: Camping, biking, backpacking, hiking, wherever your outdoor adventures take you, the fully loaded ASR Outdoor 3-in-1 Rechargeable Adjustable LED Headlamp Bike Light is the one you're going to want to pack with you\n- 3 LED LIGHT MODES: The ASR Outdoor camping headlamp or bike light features three different light modes: 500 Lumen LED bulb with a run time of 2.5 hours; a 100 Lumen COB bulb with a run time of 3 hours; and, a 100 Lumen bulb with flashing red lights, run time 3.5 hours\n- ADJUSTABLE & RECHARGEABLE: The headlamp is adjustable and comes with a head strap attachment; simply attach this piece by snapping it on to the rear of the LED light; the headlamp flashlight also comes with a built-in rechargeable 1200 MAH battery with USB cable included; full charge time is 3 hours\n- INCLUDES BIKE ATTACHMENT: As if this emergency survival headlamp didn't already have enough amazing features, it also comes with an attachment for your bike; attach this piece by sliding it into the center groove on the rear of the head strap attachment; use the silicone strap to adjust and mount to your bike\n- INTEGRATED SIDE MAGNET: Like we said, this headlamp really does have it all; in addition to all the aforementioned features, the LED light survival headlamp also comes with an integrated side magnet, giving you easy hands-free lighting in your garage, work shop or wherever it will magnetically latch on to\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 500 Lumen Rechargeable LED Headlamp",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "500 Lumen",
+                "color": "",
+                "name": "Rechargeable LED Headlamp"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Black Rechargeable LED Headlamp with Bike Mount",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Rechargeable LED Headlamp"
+            },
+            "char_count": 59,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "3-In-1 Design, Bike And Head Mount, 1200MAH Battery, Magnetic Base, Three Light Modes",
+            "char_count": 85,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "500 Lumen COB Light, 3 Modes With Red Emergency Flash, USB Rechargeable 1200MAh, Side Magnet, Adjustable Strap",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}

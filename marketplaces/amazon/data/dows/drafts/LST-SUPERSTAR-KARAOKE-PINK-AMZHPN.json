@@ -3,14 +3,14 @@
     "asin": "B07CL2DS86",
     "product_type": "KARAOKE_MACHINE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:13:27+00:00",
+    "generated_at": "2026-07-21T19:49:26+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 8,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -127,20 +127,57 @@
             "asin": "B07CL2DS86",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "Lucky Star Kids Karaoke Microphone Stand Pink",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 45,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Lucky Star",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "32 inches",
+                "color": "Pink",
+                "name": "Kids Karaoke Microphone Stand"
+            }
         },
-        "title_differentiation": {
-            "value": "Expandable to 32 inches, Built-in Speaker, Flashing Lights, Phone/MP3 Compatible",
+        "item_name_ai_openai": {
+            "value": "Lucky Star Kids Karaoke Microphone Stand Up Pink",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 48,
+            "review_only": true,
+            "tokens": {
+                "brand": "Lucky Star",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Pink",
+                "name": "Kids Karaoke Microphone Stand Up"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Expandable Stand To 32 Inches, Works With IPhone And Android, Built-in Speaker, Flashing Lights, MP3 Player Compatible",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 118,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Smartphone And MP3 Player Support, Expandable 32-Inch Stand, Flashing Lights, Built-In Speaker, 3 AA Batteries",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 110,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B0FV4Z5W5J",
     "product_type": "DRINKING_CUP",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:29:59+00:00",
+    "generated_at": "2026-07-21T19:55:34+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -45,20 +45,57 @@
             "asin": "B0FV4Z5W5J",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille 8.5oz Coupe Glasses Set of 6 - Cocktail Champagne",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 6-pc 8.5oz Crystal Coupe Glasses",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 39,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "6",
+                "pack_size_unit": "pc",
+                "size": "8.5oz",
+                "color": "Crystal",
+                "name": "Coupe Glasses"
+            }
         },
-        "title_differentiation": {
-            "value": "Set of 6, Dishwasher Safe, Etched Crystal Style, Vintage-Inspired",
+        "item_name_ai_openai": {
+            "value": "Beille 6-pk 8.5oz Coupe Glasses",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 31,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "6",
+                "pack_size_unit": "pk",
+                "size": "8.5oz",
+                "color": "",
+                "name": "Coupe Glasses"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Set Of 6, Dishwasher Safe, Vintage Style, Champagne And Cocktail Glasses, Sturdy Soda Lime Glass",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 96,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Etched Detail, Sturdy Stemmed Base, Dishwasher Safe, Vintage Style, Gift Ready, Wide Bowl For Cocktails",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "pesticide_marking": {
             "value": [

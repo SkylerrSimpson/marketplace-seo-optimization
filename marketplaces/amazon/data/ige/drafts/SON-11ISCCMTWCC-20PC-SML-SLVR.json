@@ -3,14 +3,14 @@
     "asin": "B06ZXS9JW9",
     "product_type": "MULTITOOL",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:41:24+00:00",
+    "generated_at": "2026-07-21T19:28:15+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 8,
         "catalog": 2,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -92,22 +92,59 @@
             "value": "EDC Multi-function Utility Survival Credit Card Tool",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "title_differentiation": {
-            "value": "11-in-1 stainless steel EDC tool with wrench, saw, opener & blade; includes black sheath",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 20-Pack Silver Credit Card Multi-Tool",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8",
-            "validation_error": "requires item_name <= 75 chars"
-        },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Credit Card Multitool 11-in-1 Stainless Steel 20 Pack",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 49,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "20",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "Silver",
+                "name": "Credit Card Multi-Tool"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 20-Pk Silver Credit Card Survival Multi-Tool",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 56,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "20",
+                "pack_size_unit": "Pk",
+                "size": "",
+                "color": "Silver",
+                "name": "Credit Card Survival Multi-Tool"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "11-In-1 Functions, Stainless Steel, Wallet-Sized EDC, Emergency Survival, Lightweight, Black Sheath",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 99,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "11-In-1 Functions, Stainless Steel, Wallet-Sized, Includes Sheath, Sun Compass, Wrench, Saw, Can Opener",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

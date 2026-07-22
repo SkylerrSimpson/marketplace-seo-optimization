@@ -3,14 +3,14 @@
     "asin": "B06XYWDNFN",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:27:51+00:00",
+    "generated_at": "2026-07-21T20:10:39+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -89,20 +89,57 @@
             "asin": "B06XYWDNFN",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 13.5\" Eagle Etched Stainless Steel Hunting Knife",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 13 inch White Eagle Etched Hunting Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13",
+                "pack_size_unit": "inch",
+                "size": "",
+                "color": "White",
+                "name": "Eagle Etched Hunting Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "Decorative Collector's Knife with Eagle Design Handle & Matching Scabbard",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 13-in White Decorative Eagle Hunting Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 54,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "White",
+                "name": "Decorative Eagle Hunting Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "440 Stainless Steel Blade, Eagle Head Handle Design, Matching Ornamental Scabbard, Decorative Collectors Knife",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 110,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "440 Stainless Steel, Acid Etched Blade, Eagle Handle And Scabbard, Heavy Weighted, Collector Gift",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 97,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

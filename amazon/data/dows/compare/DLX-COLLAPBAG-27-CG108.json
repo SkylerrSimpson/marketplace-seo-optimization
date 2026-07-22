@@ -1,0 +1,60 @@
+{
+    "sku": "DLX-COLLAPBAG-27-CG108",
+    "asin": "B08FSWKLW8",
+    "product_type": "BOTTLE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DLX-COLLAPBAG-27-CG108\nProduct Type: BOTTLE\nBrand (from catalog): ASR Outdoor\nExisting Title: Foldable Portable Clear Collapsible Water Bag 16.9oz\nDescription: Reusable, lightweight and compact, the ASR Outdoor Foldable Portable Clear Camping Collapsible Water Storage Bag Container Canteen is the perfect water storage carrier designed for all your outdoor and recreational activities, excursions and camping trips alike. And. while the water storage container's intended purpose is predominantly for the aforementioned outdoor pursuits, it can also be put to work for a variety of other uses too.<br/><br/>- PORTABLE: Incredibly lightweight, the foldable water carrier easily collapses to take up a fraction of the space compared to other bulky water containers; perfect for travel when space is at a premium; a great item to add to your survival kit, bug out bag or emergency preparedness tote as well.<br/><br/>- ECO-FRIENDLY: Instead of purchasing one-time use plastic water storage containers for your next outdoor adventure or camping trip, make an eco-friendly choice by using a reusable container that can easily be refilled time and time again; no need to worry about storing bulky containers, recycling and collapses easily for tidy storage when not in use.<br/><br/>- DURABLE: Made from leak-proof plastic, non-toxic BPA-free plastic, you never need to worry about breakage, leaking or spilling; the water storage canteen comes with a sturdy plastic release cap to keep water inside and secure at all times; Easy on and off spigot with controllable and steady water flow.<br/><br/>- SPACE-SAVING DESIGN: the ASR Outdoor collapsible water container is flexible and easily maneuverable for folding and packing; when rolled up the water canteen will take up virtually no space; full fluid capacity = 16.9oz.<br/><br/>And, as mentioned, while the water storage container is ideal for an abundance outdoor activities, it can be used for a variety of other purposes including: RV water storage, traveling, picnics, parties, boating, festivals, beach days or as an emergency water storage container in the event of a natural disaster to name just a few\nSearch Terms: water bottles flasks bladder bags dispenser collapsible bottle travel bag survival kits gear car kit emergency supplies camping jug hydration pack hydropack canteens\nFeatures:\n- SPACE SAVING CAMPING ESSENTIAL: Lightweight, compact and easily portable, the ASR Outdoor water storage container easily collapses or folds to be flat and will take up no space in your camping gear, backpack or vehicle; perfect for travel when space is at a premium; total fluid capacity is 16.9oz\n- MULTIPURPOSE WATER STORAGE CONTAINER: While the material and design of the water storage container is ideal for outdoor activities, it can be used for a variety of other purposes; RV water storage, traveling, picnics, parties, boating, festivals, beach days or as an emergency water storage container in the event of a natural disaster\n- ECO FRIENDLY CHOICE: Instead of purchasing one-time use plastic water storage containers for your next outdoor adventure or camping trip, make an eco-friendly choice by using a reusable container that can easily be refilled time and time again whenever your next outdoor excursion comes about; no need to worry about storing bulky containers, recycling and folds away easily for storage when not in use\n- DURABLE BPA FREE MATERIAL: Made from durable, leak proof, non toxic BPA-free plastic, you never need to worry about breakage, leaking or spilling; the water storage canteen comes with a sturdy plastic release cap to keep water inside and secure at all times; Easy on and off spigot with controllable and steady water flow\n- SPECIFICATIONS: Weight: .15lbs ; Dimensions: 8.5\" x 5\"; Material: Plastic; Color: Clear/White\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 16.9oz Clear Foldable Collapsible Water Bag",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "16.9",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "Clear",
+                "name": "Foldable Collapsible Water Bag"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 16.9-oz Clear Collapsible Water Bag",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "16.9",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "Clear",
+                "name": "Collapsible Water Bag"
+            },
+            "char_count": 47,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Portable, Space-Saving, BPA-Free, Leak-Proof, Reusable, Emergency Water Storage",
+            "char_count": 79,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "BPA-Free, Leak Proof, Fold Flat Design, Reusable, Lightweight, Easy Flow Spigot, Space Saving, Camping And RV Ready",
+            "char_count": 115,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "HWC-100GLBH-5X325-OVL-BLCK",
+    "asin": "B072M39FXC",
+    "product_type": "WALLET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWC-100GLBH-5X325-OVL-BLCK\nProduct Type: WALLET\nBrand (from catalog): ASR Federal\nExisting Title: ASR Federal Bifold Leather Wallet, Credential ID Card and Police Badge Holder, Oval\nDescription: The ASR Federal Bifold Leather Wallet has been specifically designed for carrying police or other professional private or public safety badges; this law enforcement designed wallet badge holder has a clear cover ID credential card slot and also features a recessed badge insert for a OVAL shaped badge, as well as a suede concealment flap to secure and protect badges from sight or scratches. <br/><br/>The recessed badge design compartment keeps the ID badge holders profile minimal and compact, while still carrying cash if desired. <br/><br/>Constructed from high quality, genuine and heavy gauge black leather, these police wallet ID badge holders boast a strong and sturdy construction, made for long last lasting durability. And, while the wallet may seem stiff at first, time and use will soften the leather wallets fabrication to your carrying habits.<br/><br/>Badge Attachment: Clip back pin, no screws required<br/>Maximum Badge Size: 3.5 x 2.5 inches<br/>Maximum ID Size: 2.75 x 4 inches. <br/><br/>MADE IN THE USA.<br/><br/>NOTE: Police Badge is NOT included with purchase.\nSearch Terms: law enforcement tactical gear CIA FBI spy minimalist wallet credit card id holder cop private investigator equipment security detective badge display case travel accessories criminal investigation crime scene\nFeatures:\n- POLICE BADGE HOLDER WALLET: Includes a ID credential slot; a cash compartment, a suede badge protection flap and recessed badge cut-out mount\n- RECESSED POLICE BADGE HOLDER: Designed for carrying police badges and department issued ID credentials for officers while on duty; the badge cut-out keeps the overall police badge holder profile minimal and compact; the badge attachment is a clip back pin style so no screws are required\n- GENUINE LEATHER MATERIAL: This law enforcement badge holder wallet boasts a strong and sturdy construction with reinforced stitching and a heavy gauge leather body; the badge holder will relax over time with use as it molds to your carrying habits, but will never forego its integrity and structure\n- SPECIFICATIONS: Dimensions: 4.5 x 3.5 x 1 inches; Max Card Size: 2.75\" x 4\"; Max badge size: 2.25 x 3.5 inches; Color: black; Materials: Leather; Made in USA; Badge attachment is clip-back, no screws required\n- PLEASE NOTE: Badge holder wallet does NOT come with badge\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Federal Black Leather Oval Badge Holder Wallet",
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Oval",
+                "color": "Black",
+                "name": "Leather Badge Holder Wallet"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Federal Black Oval Leather Badge Holder Wallet",
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Oval",
+                "color": "Black",
+                "name": "Leather Badge Holder Wallet"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Recessed Oval Badge Mount, ID Credential Slot, Genuine Heavy Gauge Leather, Clip-Back Pin, Made In USA",
+            "char_count": 102,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Recessed Clip-Back Badge Mount, ID Credential Slot, Suede Concealment Flap, Genuine Leather, Made In USA",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

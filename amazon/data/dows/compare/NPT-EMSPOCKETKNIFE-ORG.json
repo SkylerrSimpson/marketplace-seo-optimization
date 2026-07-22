@@ -1,0 +1,60 @@
+{
+    "sku": "NPT-EMSPOCKETKNIFE-ORG",
+    "asin": "B07PHVVCH1",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: NPT-EMSPOCKETKNIFE-ORG\nProduct Type: KNIFE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Camping EMS Emblem Pocket Knife Spring Assisted Serrated Tanto Blade Orange\nDescription: Be prepared for an emergency situation with the ASR Outdoor EMS Emblem Pocket Knife.<br/><br/>This serrated tanto blade features a belt clip, seat belt cutter and window breaker so you can escape a vehicle in case of an accident. It unfolds to about 8.375\" in length, and folds to just 5\" making it the ideal size for a pocket, purse, bag or backpack.<br/><br/>The EMS emblem creates a unique design, and the bright orange color of the handle will ensure visibility in a dark vehicle. It's constructed of durable 3CR13 stainless steel so you can ensure it wont rust. The thumb assist function makes it easy to open with one hand, and the pocket clip makes it easy to attach to your person. This is a must-have emergency and survival tool for drivers and knife collectors alike.\nSearch Terms: best hunting knife paracord wrap survival knvies outdoor emergency wilderness gift fixed blade tactical tanto point camping accessories gear\nFeatures:\n- EMERGENCY TOOL - Features Seat Belt Cutter & Glass Breaker Window Punch - Must Have for All Drivers\n- POCKET SIZED - 8.375\" Overall | 4.875\" Handle with EMS Emblem | 3.2\" Serrated Tanto Blade\n- DURABLE CONSTRUCTION - Made of 3CR13 Stainless Steel that Wont Rust\n- HIGH VISIBILITY - Bright Orange Handle Will Ensure Visibility in the Dark\n- BELT CLIP - Features Belt/Pocket Clip for Easy Travel & Storage When Not in Use\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Orange EMS Pocket Knife Serrated Tanto",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Orange",
+                "name": "EMS Pocket Knife Serrated Tanto"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Orange EMS Pocket Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Orange",
+                "name": "Pocket Knife"
+            },
+            "char_count": 35,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Spring Assisted, Seat Belt Cutter, Window Breaker, 3CR13 Stainless Steel, Belt Clip, Emergency Tool",
+            "char_count": 99,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Spring Assisted, Serrated Tanto Blade, Seat Belt Cutter, Window Breaker, Belt Clip, 3CR13 Stainless Steel",
+            "char_count": 105,
+            "validation_error": null
+        }
+    }
+}

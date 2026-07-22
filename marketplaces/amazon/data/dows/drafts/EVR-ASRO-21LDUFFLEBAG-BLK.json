@@ -3,14 +3,14 @@
     "asin": "B0DT56VQ99",
     "product_type": "DUFFEL_BAG",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:45:51+00:00",
+    "generated_at": "2026-07-21T20:12:10+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -33,20 +33,57 @@
             "asin": "B0DT56VQ99",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 18L Small Duffel Bag Travel Gym Black",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 18L Small Black Duffel Bag",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 38,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "18",
+                "pack_size_unit": "L",
+                "size": "Small",
+                "color": "Black",
+                "name": "Duffel Bag"
+            }
         },
-        "title_differentiation": {
-            "value": "600D Polyester, Lightweight, Machine Washable, Adjustable Strap",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 18-L Small Black Duffel Bag",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 39,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "18",
+                "pack_size_unit": "L",
+                "size": "Small",
+                "color": "Black",
+                "name": "Duffel Bag"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "600D Polyester, Lightweight, Machine Washable, Travel Gym Bag, Everyday Carry",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 77,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Durable 600D Polyester, Adjustable Shoulder Strap, Side Pocket, Lightweight, Machine Washable, Foldable",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B0BMQCZ1LG",
     "product_type": "SHOELACE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:46:14+00:00",
+    "generated_at": "2026-07-21T19:34:53+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 17,
         "catalog": 22,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 18
     },
@@ -432,20 +432,57 @@
             "asin": "B0BMQCZ1LG",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ParaLace 550 Paracord Hiking Boot Shoelaces, Green 45in",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ParaLace 550 Paracord Shoelaces Green 45 Inch",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 45,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ParaLace",
+                "pack_size": "550",
+                "pack_size_unit": "",
+                "size": "45 Inch",
+                "color": "Green",
+                "name": "Paracord Shoelaces"
+            }
         },
-        "title_differentiation": {
-            "value": "550lb Breaking Strength, Survival Gear, Universal Fit, Pair",
+        "item_name_ai_openai": {
+            "value": "ParaLace 45 in Green Paracord Shoelaces",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 39,
+            "review_only": true,
+            "tokens": {
+                "brand": "ParaLace",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "45 in",
+                "color": "Green",
+                "name": "Paracord Shoelaces"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Paracord Construction, Hiking And Running, Durable Emergency Cordage, 45 Inch Length",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 84,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "550 Paracord Construction, Durable Outdoor Strength, Fits Hiking Boots, Fits Running Shoes, Easy Lace Replacement",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 113,
+            "review_only": true
         },
         "supplier_declared_material_regulation": {
             "value": [

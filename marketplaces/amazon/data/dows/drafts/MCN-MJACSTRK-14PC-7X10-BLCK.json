@@ -3,14 +3,14 @@
     "asin": "B00TJVCPGI",
     "product_type": "OUTDOOR_RECREATION_PRODUCT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:48:12+00:00",
+    "generated_at": "2026-07-21T20:01:42+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 10,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -307,20 +307,57 @@
             "asin": "B00TJVCPGI",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "Gear Aid Aquaseal FD Soft Top Repair Kit, Black, 7x10",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Gear Aid",
+                "pack_size": "7",
+                "pack_size_unit": "x10",
+                "size": "7x10",
+                "color": "Black",
+                "name": "Aquaseal FD Soft Top Repair Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "Complete sew or no-sew repair kit with adhesive, tape, needles & tools",
+        "item_name_ai_openai": {
+            "value": "GEAR AID 7\" x 10\" Black Soft Top Repair Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 43,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "7\" x 10\"",
+                "color": "Black",
+                "name": "Soft Top Repair Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Sew Or No-Sew Repair, Waterproof Aquaseal FD Adhesive, Tenacious Tape, Jeep Compatible, Complete Tool Kit",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 105,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Permanent Waterproof Repairs, Sew Or No-Sew Fixes, Tenacious Tape And Aquaseal FD, For Vinyl Windows And Seats",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 110,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

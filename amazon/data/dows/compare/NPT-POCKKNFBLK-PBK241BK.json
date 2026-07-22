@@ -1,0 +1,60 @@
+{
+    "sku": "NPT-POCKKNFBLK-PBK241BK",
+    "asin": "B097JBN9RH",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: NPT-POCKKNFBLK-PBK241BK\nProduct Type: KNIFE\nBrand (from catalog): ASR Tactical\nExisting Title: Drop Point Blade Thumb Assist Pocket Knife Stainless Steel – Black\nDescription: The ASR Tactical Drop Point Blade Pocket Knife is the perfect tool for everyday carry. Constructed of durable stainless steel that won't rust, you can count on it rain or shine, making it a great option for hunters and campers.<br/><br/>The drop point blade features a convex spine that is designed to be easily controlled, so you'll get the perfect cut every time. It boasts a cool black ergonomic handle that will keep your hand steady and safe during use.<br/><br/>Our pocket knife also comes with a convenient steel pocket clip so you can easily secure it inside of your pocket when not in use to protect yourself and the blade. It features an easy-to-use thumb assist open for quick deployment. Its compact design makes this a great EDC tool without adding bulk.\nSearch Terms: pocket knives blades EDC knife every day carry tools camping hunting drop point thumb assist survival kit bug out bag emergency\nFeatures:\n- DURABLE CONSTRUCTION - Made stainless steel, the ASR Tactical pocket knife won't rust so you can count on it rain or shine. It features a sleek black ergonomic handle for safe and easy handling.\n- DROP POINT BLADE - The convex spine of drop point blades are designed to be easily controlled, making this a great blade for hunters and campers.\n- STEEL POCKET CLIP - The knife comes with a convenient black steel pocket clip so you can secure it inside of your pocket to keep it safe when not in use.\n- THUMB ASSIST OPEN - Our pocket knife features an easy-to-use thumb assist open for quick deployment. The compact design makes this a great EDC tool without adding bulk.\n- SPECIFICATIONS - Overall length: 8\"; Blade length: 3.25\"; Handle length: 4.75\"; Material: Stainless steel; Weight: 5.7 ounces/.36 pounds\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical Black Drop Point Pocket Knife Thumb Assist",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Drop Point Pocket Knife Thumb Assist"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical Black Drop Point Thumb Assist Pocket Knife",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Pocket Knife"
+            },
+            "char_count": 55,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Stainless Steel EDC, Thumb Assist Open, Steel Pocket Clip, Drop Point Blade, Compact Design",
+            "char_count": 91,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Stainless Steel Blade, Thumb Assist Open, Ergonomic Black Handle, Steel Pocket Clip, EDC, Hunting, Camping",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

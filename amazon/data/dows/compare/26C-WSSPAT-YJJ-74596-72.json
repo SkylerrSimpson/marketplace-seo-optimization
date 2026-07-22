@@ -1,0 +1,60 @@
+{
+    "sku": "26C-WSSPAT-YJJ-74596-72",
+    "asin": "B0B9HVWRS6",
+    "product_type": "FOOD_SPATULA",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 26C-WSSPAT-YJJ-74596-72\nProduct Type: FOOD_SPATULA\nBrand (from catalog): Beille\nExisting Title: Beille Cream Wheat Straw Spatula with Stainless Steel Handle Kitchen Utensils, 13 Inch\nDescription: Want to step up your cooking and meal prep game? Then you need the Beille spatula made with wheat straw. These spatulas are made with an innovative plant based material called wheat straw that mimics classic kitchen tools without the harmful byproducts of traditional plastic.<br/><br/>Wheat straw is a bioplastic that is not made from fossil fuels making it more sustainable and a great zero waste option. It’s certified BPA free and is food grade safe so you can count on it for food and meal prep. The spatula is dishwasher safe for easy clean up after use.<br/><br/>The spatula features a sturdy handle made of durable, corrosion resistant stainless steel that won’t rust so you can count on it to last. The handle comes with a slot for easy hanging storage if preferred, and it comes in a trendy and warm cream color that will fit with any kitchen decor. <br/><br/>Every kitchen needs a reliable, durable, and solid spatula. With the Beille wheat straw plant based spatula, you can cook and meal prep with peace of mind knowing you’re doing your part to protect yourself, your family, and the planet from harmful materials.\nSearch Terms: wheat straw cooking baking supplies tools chef restaurant equipment sustainable products bake food meal prep kitchen starter set wedding house warming gifts new home college dorm room essentials spatula pizza pancakes bbq accessories frittata pan\nFeatures:\n- ESSENTIAL KITCHEN SPATULA: Beille spatula is a must have kitchen tool for cooking, meal, and food prep; Large handle with a wide spatula base will quickly and safely turn food while cooking and keep your hands safe from heat\n- PLANT BASED MATERIAL: Unique kitchen spatula is made of bioplastic wheat straw; plant based material not made from fossil fuels making it more sustainable; Innovative material is a great zero waste option; Certified BPA free\n- SOLID AND DURABLE: Beille wheat straw spatula mimics traditional plastic spatulas and food turners without harmful byproducts; Solid-head spatula is dishwasher safe and can be used with both hot and cold food ingredients\n- STAINLESS STEEL HANDLE: Sturdy handle made of durable, corrosion resistant stainless steel that won’t rust so you can count on it to last; Comes with handy slot in handle for easy hang storage if preferred; Trendy cream color will fit nicely with any kitchen decor\n- SPECIFICATIONS: Colors: cream, chrome; Material: 60% wheat straw, 40% polypropylene, stainless steel; Dimensions: 13 x 3.2 inches\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 13in Cream Wheat Straw Spatula",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Cream",
+                "name": "Wheat Straw Spatula"
+            },
+            "char_count": 37,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 13-in Cream Wheat Straw Spatula",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Cream",
+                "name": "Wheat Straw Spatula"
+            },
+            "char_count": 38,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Plant-Based Wheat Straw, Stainless Steel Handle, BPA-Free, Dishwasher Safe, Eco-Friendly Kitchen Tool",
+            "char_count": 101,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Plant Based Wheat Straw, BPA Free, Dishwasher Safe, Stainless Steel Handle, Heat Safe, Rust Resistant, Zero Waste",
+            "char_count": 113,
+            "validation_error": null
+        }
+    }
+}

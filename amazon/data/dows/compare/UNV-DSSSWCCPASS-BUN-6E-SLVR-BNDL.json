@@ -1,0 +1,60 @@
+{
+    "sku": "UNV-DSSSWCCPASS-BUN-6E-SLVR-BNDL",
+    "asin": "B010HCJYUC",
+    "product_type": "PRECISION_MEASURING",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UNV-DSSSWCCPASS-BUN-6E-SLVR-BNDL\nProduct Type: PRECISION_MEASURING\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux 19pc Dual Sided Stainless Steel Wax Clay Carving Pick and Spatula Set\nDescription: Does your next craft project need that extra something to make it extra special? This dual-sided stainless steel carving set has 19 options of picks or spatulas that will give your project what it needs.<br/><br/>Each carving tool is dual side giving you may options for craving, sculpting, molding, shaping, and more. <br/><br/>Set includes a carrying case to keep the set organized and give you a place to store your tools when they are not in use.<br/><br/>With the options of tools you can use, you will be able to sculpt, carve, create, and more.\nSearch Terms: wax carving tools, clay sculpting tools, stainless steel sculpting set, double ended carving tools, pottery detail tools, jewelry making tools, modeling tools, craft carving kit, precision spatula tools, ceramic sculpting supplies\nFeatures:\n- 19 DOUBLE ENDED TOOLS/38 PRECISION TIPS - Complete deluxe set includes 19 dual-sided carving, pick, and spatula tools, giving you 38 unique tips for detailed sculpting, shaping, smoothing, and refining across a wide range of crafting applications.\n- DURABLE STAINLESS STEEL CONSTRUCTION - Crafted from high-quality, rust-resistant stainless steel for long-lasting performance with both wet and dry mediums; corrosion-resistant material ensures reliable use project after project.\n- PERFECT FOR MULTIPLE CRAFTING USES - Ideal for wax carving, clay sculpting, ceramics, jewelry making, modeling, mold detailing, cleaning small parts, and special effects work - an essential multi-tool set for hobbyists and professionals alike.\n- COMFORTABLE, NON-SLIP GRIP HANDLES - Ergonomically shaped handles provide balance, control, and comfort during precision work, helping reduce hand fatigue while preventing slipping for safer, more accurate results.\n- COMPACT & ORGANIZED STORAGE - Each tool measures approximately 6.5 inches for easy handling and fits neatly into the included PVC storage pouch, making transport and organization simple within standard craft boxes or tool kits.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 19pc Dual Sided Stainless Steel Carving Set",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "19",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Dual Sided Stainless Steel Carving Set"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 19-pc Dual Sided Stainless Steel Carving Pick and Spatula Set",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "19",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Dual Sided Stainless Steel Wax Clay Carving Pick and Spatula Set"
+            },
+            "char_count": 72,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "38 Precision Tips, Wax And Clay Sculpting, Ergonomic Handles, Storage Pouch Included",
+            "char_count": 84,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "38 Precision Tips, Rust Resistant Stainless Steel, Non Slip Grip Handles, PVC Storage Pouch, Wax Clay And Jewelry Detail",
+            "char_count": 120,
+            "validation_error": null
+        }
+    }
+}

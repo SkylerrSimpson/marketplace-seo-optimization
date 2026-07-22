@@ -3,14 +3,14 @@
     "asin": "B07QWZVG66",
     "product_type": "MUSICAL_INSTRUMENT_TOY",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:33:24+00:00",
+    "generated_at": "2026-07-21T19:56:24+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 0,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,20 +27,57 @@
             "source": "usurper",
             "usurper_column": "attr.material"
         },
-        "item_name_ai_suggested": {
-            "value": "KidPlay Products My First Guitar LED Light-Up Blue",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "KidPlay Products Blue 24in Guitar Star LED Musical Toy",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "24",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Blue",
+                "name": "Guitar Star LED Musical Toy"
+            }
         },
-        "title_differentiation": {
-            "value": "5 Demo Songs, Flashing Lights, Strap & Keys Included",
+        "item_name_ai_openai": {
+            "value": "KidPlay Products 24in Blue Light-Up Toy Guitar",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 46,
+            "review_only": true,
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "24",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Blue",
+                "name": "Light-Up Toy Guitar"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Flashing Lights And Sounds, 5 Pre-loaded Demo Songs, Includes Strap And Musical Keys, Educational Learning Toy",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 110,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Flashing Lights And Sounds, 5 Pre-Loaded Demo Songs, Musical Keys, Strap, Educational Learning Toy",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 98,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

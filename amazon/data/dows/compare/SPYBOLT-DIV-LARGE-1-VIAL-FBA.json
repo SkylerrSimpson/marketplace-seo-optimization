@@ -1,0 +1,60 @@
+{
+    "sku": "SPYBOLT-DIV-LARGE-1-VIAL-FBA",
+    "asin": "B07XBH81RS",
+    "product_type": "TOOLS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SPYBOLT-DIV-LARGE-1-VIAL-FBA\nProduct Type: TOOLS\nBrand (from catalog): IGE Innovative Internet Products\nExisting Title: MEGA BOLT Diversion Safe Hidden Contents Hollow Security Container, Large 1 Vial\nDescription: The MEGA BOLT is an updated and improved version of CLASSIC SMALL BOLT, which is a take on the old Soviet KGB \"dead drop\" hollow bolt used during the Cold War. Ideally used to hide communications on small squares of paper, this updated and improved version features an O-ring seal for weather-proof storage of small valuables, communications, cash, Micro SD Cards, Gems, Jewels and more. Additionally, the MEGA BOLT includes a inner glass vial.<br/><br/>The simple, yet ingenious design is essential for the concealable gadgets spy work calls for. Now available to the general public, The Spy Bolt is the ideal product to hide your small valuables.<br/><br/>Please note: This listing is for (1) bolt only.\nSearch Terms: Memory Card storage hidden valuables jewelry safe diamond vault\nFeatures:\n- Extra Large Capacity with an Included 1 Dram Glass Vial\n- SIze: 4 Inches | 15/16\" Diameter Bolt (11/16\" Inside Diameter)\n- Rubber O-Ring inside the Bolt Head for an Air Tight Seal of your Contents\n- The Ideal Diversion Safe for all of your Small Concealable Valuables\n- MADE IN THE USA\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "IGE Innovative Spy Bolt Large Diversion Safe Hidden Container",
+            "tokens": {
+                "brand": "IGE Innovative",
+                "pack_size": "1",
+                "pack_size_unit": "Vial",
+                "size": "Large",
+                "color": "",
+                "name": "Spy Bolt Diversion Safe Hidden Container"
+            },
+            "char_count": 61,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "IGE Innovative Internet Products Large Mega Bolt Diversion Safe",
+            "tokens": {
+                "brand": "IGE Innovative Internet Products",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Large",
+                "color": "",
+                "name": "Mega Bolt Diversion Safe"
+            },
+            "char_count": 63,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "4 Inch Hollow Bolt, Airtight O-Ring Seal, Includes Glass Vial, USA Made, Hide Valuables",
+            "char_count": 87,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Extra Large Capacity, Includes 1 Dram Glass Vial, O-Ring Airtight Seal, Weather-Resistant, Made In USA",
+            "char_count": 102,
+            "validation_error": null
+        }
+    }
+}

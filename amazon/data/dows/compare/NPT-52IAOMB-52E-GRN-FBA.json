@@ -1,0 +1,60 @@
+{
+    "sku": "NPT-52IAOMB-52E-GRN-FBA",
+    "asin": "B00C7C0UW2",
+    "product_type": "APPAREL_BELT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: NPT-52IAOMB-52E-GRN-FBA\nProduct Type: APPAREL_BELT\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Universal Fit Green Survival 550 Paracord Belt with Stainless Steel Buckle, 52 inch\nDescription: Be prepared for any adventure turned emergency situation with the ASR Outdoor 550 Survival Paracord EDC Duty Belt. Ideal for both survival and tactical applications, you never know when you'll have to improvise in the field. With over 100 feet of unraveled paracord you can rig a tent, make a fire-starter bow, set snares, go fishing, repair gear, and much more. There are many creative places to store paracord but wearing it around your waist is one of the the most practical. it can be used to tie a load to the roof of your car, hang your gear from a tree while camping or even repel off a mountain in a real emergency.<br/><br/>These belts are constructed of highly durable Milspec 550 Tactical Paracord; is made from 7 Stands of 100% Nylon genuine Mil-Spec 550lb parachute cord. The same stuff used by the US Military. It has a breaking strength of 550lbs with a working load of 220lbs. The overall thickness of the parachute cord line is 5/32\" diameter and has a consistent stretch of 10% elongation underweight in lab tests<br/><br/>Having a good, solid rope could come in handy in just about any outdoor emergency situation, so why not keep some around your waist? <br/><br/>Each belt features a stainless steel belt buckle, so you know they'll last. They are also very adjustable - no pre-made belt holes, just stick the belt clasp through the parcord weave wherever it fits most comfortably for best fit.<br/><br/>Beef up your bug out bag with the ASR Outdoor Survival 550 Type III Mil-Spec Tactical Paracord Survival Belt\nSearch Terms: carry milspec rattle tactical survival emergency survival tactical 550 paracord metal buckle paracord braclet bug out wilderness prepper outdoor mens hiking pants jean forest military situation\nFeatures:\n- UNIVERSAL FIT: One size fits all; 44 inches in total length; extra length can be tucked over in pant belt loops or cut to fit while singeing the ends\n- PARACORD BELT SPECIFICATIONS: Unraveled Length: 110 feet; Belt Waist Length: 52\" ; Belt Width: 1.5\" ; Stainless Steel Belt Buckle\n- THE ULTIMATE EDC SURVIVAL BELT: Unravel the paracord braided weave to have 550lb survival cord at your disposal to craft a weapon, build a stretcher, fasten a tourniquet, fish for food, build a shelter and much more\n- FASHIONABLE DESIGN: While being highly durable and extremely versatile the 550 tactical paracord belt can be worn everyday for when the most unexpected situations may arise\n- EASY TO MAINTAIN: Fully washable, easy to clean; Can be run through the washing machine and air dried\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 80 characters.  Please include the size and color of the item in the Product Name, if available.\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 52\" Green 550 Paracord Survival Belt",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "52",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Green",
+                "name": "550 Paracord Survival Belt"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 52-in Green Survival 550 Paracord Belt",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "52",
+                "pack_size_unit": "in",
+                "size": "52 in",
+                "color": "Green",
+                "name": "Survival 550 Paracord Belt"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "110 Feet Unraveled Paracord, Mil-Spec 550Lb Breaking Strength, Stainless Steel Buckle, Universal Fit, Washable",
+            "char_count": 110,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "110 Feet Unraveled Cord, 550-Lb Mil-Spec Nylon, Stainless Steel Buckle, Adjustable Universal Fit, Washable",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

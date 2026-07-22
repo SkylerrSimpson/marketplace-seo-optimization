@@ -1,0 +1,60 @@
+{
+    "sku": "EVR-ASRO-21LDUFFLEBAG-BLK",
+    "asin": "B0DT56VQ99",
+    "product_type": "DUFFEL_BAG",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: EVR-ASRO-21LDUFFLEBAG-BLK\nProduct Type: DUFFEL_BAG\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 18L Everyday Carry Small Duffel Bag for Travel Gym Outdoor Gear, Black\nDescription: Adventure awaits with ASR Outdoors small, durable and packable black duffel bag!<br/><br/>Made from high quality 600D polyester, this small duffel bag offers excellent resistance to wear and tear, making it ideal for daily use, travel, gym sessions or as a tools and equipment bag. The spacious main compartment provides ample room for essentials, while the additional side pocket keeps smaller items organized and easily accessible.<br/><br/>Designed with both comfort and functionality in mind, the adjustable shoulder strap ensures a comfortable carry, while the sturdy handles offer an alternate option for lifting and carrying. Whether you're heading to the gym, planning a day trip or weekend getaway, or simply need a reliable everyday carry, this small black duffel bag is your go to companion and ready for adventure!<br/><br/>Machine washable.\nSearch Terms: duffel bag for travel; gym bag; tool bag; hiking gear; outdoor gear; gold prospecting equipment; camping essentials; carry on luggage; gifts for men; small duffel bag; back to school; edc gear; everyday carry; weekender bag\nFeatures:\n- SQUARE DUFFEL BAG: 18L small duffel bag is a versatile, all purpose travel bag, gym bag, tool bag and more, suitable for all kinds of indoor or outdoor recreation\n- DURABLE 600D POLYESTER: Resistant to wear and tear for long lasting use; spacious main compartment provides ample room to fit essentials, plus small outer pocket for quick access to small necessities\n- LIGHTWEIGHT DESIGN: Weighing in at just 0.74lbs, the small duffel bag adds virtually no weight to whatever you’re packing; easily foldable material makes it great for travel\n- MACHINE WASHABLE: Small black duffel bag should be washed on cold cycle and left to hang or air dry\n- SPECIFICATIONS: Dimensions: 18 x 8 x 9 inches; Material: 600D polyester; Volume: 18L; Weight: 0.74lbs\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 18L Small Black Duffel Bag",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "18",
+                "pack_size_unit": "L",
+                "size": "Small",
+                "color": "Black",
+                "name": "Duffel Bag"
+            },
+            "char_count": 38,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 18-L Small Black Duffel Bag",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "18",
+                "pack_size_unit": "L",
+                "size": "Small",
+                "color": "Black",
+                "name": "Duffel Bag"
+            },
+            "char_count": 39,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "600D Polyester, Lightweight, Machine Washable, Travel Gym Bag, Everyday Carry",
+            "char_count": 77,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Durable 600D Polyester, Adjustable Shoulder Strap, Side Pocket, Lightweight, Machine Washable, Foldable",
+            "char_count": 103,
+            "validation_error": null
+        }
+    }
+}

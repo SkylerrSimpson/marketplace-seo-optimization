@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ASRO-SSCOFFEEMUG-PARENT",
+    "asin": "B0F2CZHLMG",
+    "product_type": "DRINKING_CUP",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ASRO-SSCOFFEEMUG-PARENT\nProduct Type: DRINKING_CUP\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 304 Stainless Steel Coffee Mug with Collapsible Handles Camping Essentials (2 Sizes)\nDescription: Enjoy your favorite brew wherever adventure takes you with the ASR Outdoor 304 Stainless Steel Camping Coffee Mug, available in 12oz or 22oz volumes. Made for morning campfire coffee, evening hot cocoa or sipping tea at the top of a mountain trial, the ASR Outdoor stainless steel mug is ready for adventure!<br/><br/>Designed with versatility in mind, use the coffee mugs for hot or cold drinks, soup, stews or chili, pack it with your RV accessories, camping or backpacking gear, campfire cooking equipment, your camp kitchen line up and more.<br/><br/>Lightweight and holding a generous 12 or 22 ounces of your favorite beverage, this camping essentials coffee mug is made from sturdy 304 stainless steel; the mugs are highly durable, corrosion and rust resistant and food safe, making them ideal for camping, hiking and many other outdoor activities, able to withstand rugged conditions for many trips and excursions to come. And, the smooth, non reactive surface resists odors and stains for easy maintenance.<br/><br/>Lastly, the coffee mug is equipped with foldable or collapsible handles for easy storage and portability; attach the coffee mug to backpacking or camping gear with a key chain or carabiner so as not to take up valuable interior packing space.<br/><br/>Built for durability and convenience, this lightweight yet sturdy stainless steel coffee mug is designed for outdoor enthusiasts, backpackers and campers who need reliable outdoor gear. Whether you're sipping a hot drink by the campfire or fueling up on the go, this 304 stainless steel camping mug from ASR Outdoor is an essential companion for every outdoor adventure.\nSearch Terms: Coffee mug; outdoor backpacking camping gear; enamel mug; camping essentials; RV accessories; cottage core decor; cabin decor; picnic; travel coffee mug; bbq; campfire cooking equipment; campfire accessories; soup mug; camp kitchen\nFeatures:\n- CAMPING COFFEE MUG: ASR Outdoor 304 stainless steel coffee mug is the perfect companion for your outdoor adventures; include it with your camping and backpacking gear, RV accessories, campfire cooking equipment, camp kitchen line up and more\n- COLLAPSIBLE HANDLES: Equipped with folding handles for easy storage and portability; attach the coffee mug to backpacking or camping gear with a key chain or carabiner so as not to take up valuable interior packing space\n- DURABLE MATERIALS: Made from sturdy 304 stainless steel, this coffee mug is highly durable, rust and corrosion resistant and food safe, making it ideal for camping, hiking, backpacking and other outdoor activities\n- CAMPING ESSENTIALS: Whether enjoying a hot cup of coffee by the campfire or sipping tea at the top of a mountain trail, this coffee mug is lightweight, easy to clean and holds a generous 12oz or 22oz of your favorite beverage\n- SPECIFICATIONS: 12oz Mug Dimensions: 3.0 x 3.5 x 3.0 inches; Weight: 0.24lbs; 22oz Dimensions: 4.0 x 4.25 x 4.0 inches; Weight: 0.32lbs\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 304 Stainless Steel Coffee Mug Collapsible",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "Sizes",
+                "size": "",
+                "color": "",
+                "name": "Coffee Mug Collapsible"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 304 Stainless Steel Camping Coffee Mug",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "304 Stainless Steel Camping Coffee Mug"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "12Oz And 22Oz, Collapsible Handles, 304 Stainless Steel, Camping Essentials, Lightweight",
+            "char_count": 88,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "304 Stainless Steel, Collapsible Handles, Rust Resistant, 12Oz And 22Oz Sizes, Lightweight, Food Safe",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

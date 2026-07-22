@@ -3,14 +3,14 @@
     "asin": "B09QP7H66B",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:54:41+00:00",
+    "generated_at": "2026-07-21T20:03:55+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 10,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 8
     },
@@ -165,22 +165,59 @@
             "value": "Stainless Steel",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 13.75\" Wolf Etched Fixed Blade Hunting Knife",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 13in Howling Wolf Etched Hunting Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Howling Wolf Etched Hunting Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "440 Stainless Steel, Decorative Scabbard, Collector's Edition",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 13-in Howling Wolf Decorative Hunting Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 55,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Howling Wolf Decorative Hunting Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Fixed Blade, 440 Stainless Steel, Acid Etched Design, Decorative Scabbard, Collectors Piece, Wildlife Art",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 105,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "440 Stainless Steel, 8\" Acid Etched Blade, Full Color Scabbard, Matching Handle, 1375\" Overall Length",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "supplier_declared_material_regulation": {
             "value": [

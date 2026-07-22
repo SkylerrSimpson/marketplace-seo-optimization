@@ -3,14 +3,14 @@
     "asin": "B0B6DYDQ15",
     "product_type": "SPORTING_GOODS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:45:22+00:00",
+    "generated_at": "2026-07-21T20:00:33+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -41,25 +41,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "Collapsible Water Carrier 20L",
+            "value": "Collapsible Water Carrier",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Collapsible Water Carrier 20L Camping Bag",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 5-Gallon Collapsible Water Carrier Bag",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "Gallon",
+                "size": "",
+                "color": "",
+                "name": "Collapsible Water Carrier Bag"
+            }
         },
-        "title_differentiation": {
-            "value": "5 Gallon Capacity, BPA Free, Foldable Design with Spigot",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 5-Gallon 20 Liter Collapsible Water Carrier",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 55,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "Gallon",
+                "size": "20 Liter",
+                "color": "",
+                "name": "Collapsible Water Carrier"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "20 Liter Capacity, Folds Flat, BPA-Free, Carry Handle, Valve Spigot, Camping Hiking Backpacking",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 95,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Folds Flat For Storage, BPA Free Plastic, Valve And Red Spigot, Carry Handle, Emergency Water Supply",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 100,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

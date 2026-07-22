@@ -1,0 +1,60 @@
+{
+    "sku": "PRF-PFSPL-STD-GRN",
+    "asin": "B01M8KLQNI",
+    "product_type": "PLANNER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: PRF-PFSPL-STD-GRN\nProduct Type: PLANNER\nBrand (from catalog): Productive Fitness\nExisting Title: Productive Fitness Sandbag Poster Home Gym Workout Area Warmups Laminated\nDescription: Learn how to safely use a sandbag with the Productive Fitness Sandbag Poster. <br/><br/>This poster was designed by professionals to help you learn techniques to maximize efficiency and safety when using a sandbag, as torso stabilization is key to proper body positioning. The poster contains 18 different sandbag exercises for developing quick explosive movement skills, useful in any sport and in life. It features easy to follow steps to ensure you get a full body workout with both upper and lower extremities exercises.<br/><br/>This poster details how to burn calories doing HIT or HIIT (High Intensity Interval Training), which is one of the best methods for burning calories quickly. It measures 24\" x 36\", the ideal size for a home gym or fitness center, and it's laminated for durability. Make sure you grab one of these posters before you start training with a sandbag.\nSearch Terms: fitness poster health planner at home gym workout excercise information womens diet nutrition exercise dumbell bodyweight ball body weight stretching\nFeatures:\n- Sandbag Poster Designed by Fitness Experts with University Degrees in Physiology & Kinetics\n- Size: 24\" x 36\"\n- Printed On Gloss Paper & Laminated for Durability\n- Learn How to Maximize Efficiency & Safety\n- Learn How to Burn Calories w/ HIT Workouts\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Productive Fitness Sandbag Poster 24\" x 36\" Laminated",
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "24",
+                "pack_size_unit": "x 36 in",
+                "size": "",
+                "color": "",
+                "name": "Sandbag Poster Laminated"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Productive Fitness 24\" x 36\" Sandbag Poster",
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "24\" x 36\"",
+                "color": "",
+                "name": "Sandbag Poster"
+            },
+            "char_count": 43,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "18 Exercises, Expert Designed, HIT Workout Guide, Full Body Training, Durable Laminated Paper",
+            "char_count": 93,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "18 Sandbag Exercises, Expert Designed, Safe Torso Stabilization, HIIT Calorie Burn, Laminated Gloss Finish",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

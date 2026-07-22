@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-MMHAIRCLIPS-12PC-MM2415-HPNR",
+    "asin": "B09JV83C17",
+    "product_type": "HAIR_CLIP",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-MMHAIRCLIPS-12PC-MM2415-HPNR\nProduct Type: HAIR_CLIP\nBrand (from catalog): U.P.D., Inc.\nExisting Title: U.P.D., Inc. Minnie 12pk Snap Clips on Card\nDescription: Get your little ones looking fashionable and stylize their hair with their first Minnie Mouse Hair Accessory Clip Set. Playing with hair styling accessories develops their creativity, eye-hand coordination and fine motor skills as they try to comb and mix and match the snap on hair clips. A truly simple but fun gift for kids who enjoy styling their hair with hair accessories for kids. Your little one will be excited playing dress up and styling their hair with this adorable Minnie Mouse Hair Girls Kit. Now your kid can practice styling their hair with their own set of Disney hair accessories for girls. Enjoy the lovely kids hair styling kit for a makeover pretend play or for a babysitting activity, a princess makeover, and as a kids party favor. Minnie Mouse fans will be thrilled to steal Minnie's iconic look with the Minnie Mouse hair clip accessories for girls. Top off your everyday look with sparkly hair clips. Simple and small gift for girls who love styling their hair with cute, glittery hair accessories and who love purple and pink. Great clip set to add to their hair salon toys for girls and makeovers. It's a great set of hair salon toys for girls who love to dress up as Minnie for pretend play. The snap on hair clips easily click open and close, so you and your girl can easily accessorize, mix and match, and try out different hair styles together at home or on-the-go. The Minnie Mouse hairstyle toy kit is made with high-quality, resistant, durable, and child-friendly materials. Set of Minnie Mouse hair accessories for little girls is carefully designed and sized for kids ages 3 and up. Includes 12 pieces of Minnie Mouse hair clips in 4 colors: pink, hot pink, purple, and blue green. 4 of the pieces have clip heads featuring cute Minnie to pair and style with other snap clicks. The Minnie Mouse hair design accessory set is the perfect gift for kids ages 3 and up. Ideal for Disney birthday party goodie bags, sleepovers, and makeover parties.\nSearch Terms: (none)\nFeatures:\n- THE MINNIE MOUSE HAIR ACCESSORIES FOR KIDS COME WITH UNIQUE DESIGN YOU WILL LOVE – Girls will be excited playing dress up and styling their hair with these adorable Minnie Mouse Hair Clips. Now your kid can practice styling their hair with their own set of Disney hair accessories for girls. Enjoy the lovely kids hair styling kit for a makeover pretend play or for a fashion activity, a princess makeover, and as a kids party favor.\n- THE CUTE SPARKLY HAIR CLIP FOR GIRLS IS FOR MINNIE MOUSE FANS – Minnie Mouse fans will be thrilled to steal Minnie's iconic look with the Minnie Mouse hair clip accessories for girls. Top off your everyday look with sparkly hair clips! Simple and small gift for girls who love styling their hair with cute, glittery hair accessories and who love purple and pink. Great clip set to add to their hair salon toys for girls and makeovers.\n- INCLUDED IN THE PURCHASE IN THE CUTE GLITTERING MINNIE MOUSE SNAP CLIPS FOR GIRLS – Includes 12 pieces of Minnie Mouse hair clips in 4 colors: pink, hot pink, purple, and blue green. 4 of the pieces have clip heads featuring cute Minnie to pair and style with other snap clicks! The Minnie Mouse hair design accessory set is the perfect gift for kids ages 3 and up. Ideal for Disney birthday party goodie bags, sleepovers, and makeover parties.\n- HIGH-QUALITY DISNEY HAIR ACCESSORIES FOR KIDS – The snap on hair clips easily click open and close, so you and your girl can easily accessorize, mix and match, and try out different hair styles together at home or on-the-go. The Minnie Mouse hairstyle toy kit is made with high-quality, resistant, durable, and child-friendly materials. Set of Minnie Mouse hair accessories for little girls is carefully designed and sized for kids ages 3 and up.\n- IDEAL USE FOR THE MINNIE MOUSE DISNEY HAIR CLIPS – Get your little ones looking fashionable and stylize their hair with their first Minnie Mouse Hair Accessory Clip Set. Playing with hair styling accessories develops their creativity, eye-hand coordination and fine motor skills as they try to comb and mix and match the snap on hair clips. A fun gift for kids who enjoy changing and styling their hair with Minnie hair accessories for kids.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "U.P.D., Inc. Minnie 12-pk Hair Snap Clips",
+            "tokens": {
+                "brand": "U.P.D., Inc.",
+                "pack_size": "12",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Hair Snap Clips"
+            },
+            "char_count": 41,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "U.P.D., Inc. Minnie 12-Pk Snap Clips",
+            "tokens": {
+                "brand": "U.P.D., Inc.",
+                "pack_size": "12",
+                "pack_size_unit": "Pk",
+                "size": "",
+                "color": "",
+                "name": "Snap Clips"
+            },
+            "char_count": 36,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "12 Pieces, PinkHot PinkPurpleBlue Green, Sparkly Minnie Design, Ages 3, Easy Snap Open And Close",
+            "char_count": 96,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "4 Colors, Glitter Finish, Easy Snap Open Close, Durable Child-Friendly Materials, Ages 3 And Up, Dress Up Play",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}

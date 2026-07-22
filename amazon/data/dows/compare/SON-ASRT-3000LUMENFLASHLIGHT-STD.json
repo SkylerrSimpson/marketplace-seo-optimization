@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ASRT-3000LUMENFLASHLIGHT-STD",
+    "asin": "B0FS9FQ3Q9",
+    "product_type": "FLASHLIGHT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ASRT-3000LUMENFLASHLIGHT-STD\nProduct Type: FLASHLIGHT\nBrand (from catalog): ASR Tactical\nExisting Title: ASR Tactical 3000 Lumen 5-Stage Rechargeable Flashlight with Adjustable Beam and SOS Mode, 7.5 Inches\nDescription: Equip yourself with the ultimate tactical flashlight designed for performance, durability and versatility in any situation. Delivering an impressive 3000 lumens and a beam distance of up to 3300 feet, this rechargeable flashlight ensures maximum visibility.<br/><br/>With five tactical lighting modes (High, Medium, Low, Strobe, and SOS), you can quickly adapt to changing environments, whether you’re navigating dark terrain, signaling for assistance, or maintaining a low light presence. The adjustable beam allows for rapid transitions between a focused spotlight for long distance visibility, and a wide floodlight for broader coverage.<br/><br/>Built with a 2600 mAh rechargeable battery, USB-C input for fast charging, and USB-A output to power your essential devices, this flashlight doubles as a critical emergency tool. Battery indicator lights keep you ready, while the compact 7.5-inch design, secure lanyard, and rugged black finish make it easy to carry, deploy, and store with the rest of your tactical gear. Perfect for operations, emergency kits, and outdoor preparedness, this flashlight delivers reliable performance when it matters most.\nSearch Terms: 3000 lumen flashlight; camping tactical gear; camping accessories essentials; emergency preparedness items; edc gear; bug out bag; flashlight rechargeable; emergency supplies; survival gear and supplies; earthquake emergency kit; tactical flashlight\nFeatures:\n- 3000 LUMEN TACTICAL FLASHLIGHT: Delivering an impressive 3000 lumens and a beam distance of up to 3300 feet for maximum visibility in any environment\n- FIVE LIGHTING MODES: High, Medium, Low, Strobe, and SOS settings offer customizable brightness and signaling options for every scenario; High mode runs for 3 hours, Medium for 5 hours, Low for 10 hours, and both Strobe & SOS modes for 4 hours each\n- RECHARGEABLE BATTERY: Built-in 2600 mAh battery with USB-C input for fast charging and USB-A output to charge phones or other devices; LED lights display remaining power at a glance so you’re never left in the dark\n- ADJUSTABLE BEAM FOCUS: Push pull head design lets you easily switch between a focused spotlight and broad floodlight for ample lighting options\n- PORTABLE DESIGN: Measuring 7.5 inches long, with a secure lanyard and lightweight build, this tactical flashlight is perfect for including with tactical gear, bug out bags, camping accessories, survival kits and more\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 3000 Lumen Rechargeable Flashlight",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "7.5 inches",
+                "color": "Black",
+                "name": "Rechargeable Flashlight"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 7.5 In Black Rechargeable Tactical Flashlight",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "7.5",
+                "color": "Black",
+                "name": "Rechargeable Tactical Flashlight"
+            },
+            "char_count": 58,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "3000 Lumens, 3300 Ft Beam, 5 Modes, Adjustable Beam, USB-C Rechargeable, SOS Mode",
+            "char_count": 81,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "3000 Lumens, 3300 Foot Beam, 5 Modes High Medium Low Strobe SOS, USB-C Rechargeable, USB-A Power Output",
+            "char_count": 103,
+            "validation_error": null
+        }
+    }
+}

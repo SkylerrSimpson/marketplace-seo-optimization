@@ -3,14 +3,14 @@
     "asin": "B0FFKP1JJT",
     "product_type": "METAL_DETECTOR",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:34:09+00:00",
+    "generated_at": "2026-07-21T20:11:25+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 4,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -65,20 +65,57 @@
             "asin": "B0FFKP1JJT",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 10pc Gold Panning Kit with Paydirt & Tools",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Gold Panning Kit 10pc Black Beginner",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Black",
+                "name": "Gold Panning Kit Beginner"
+            }
         },
-        "title_differentiation": {
-            "value": "Includes 3oz Paydirt, Dual Riffle Pans, Magnet Separator, Tweezers & Vials",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 10-pk Black Gold Panning Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 40,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Black",
+                "name": "Gold Panning Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "10 Piece Prospecting Tools, Dual Riffle Gold Pans, Hand Trowel, Magnet Separator, 3Oz Paydirt Included",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 102,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "3Oz Paydirt, Dual Riffle Pans, Black Sand Magnet, 11\" ABS Trowel, 4X Magnifier Tweezers, Vials",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 94,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

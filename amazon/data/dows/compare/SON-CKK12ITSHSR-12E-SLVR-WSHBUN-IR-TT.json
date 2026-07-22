@@ -1,0 +1,60 @@
+{
+    "sku": "SON-CKK12ITSHSR-12E-SLVR-WSHBUN-IR-TT",
+    "asin": "B0BG6FSKQ4",
+    "product_type": "KNIFE_SHARPENER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-CKK12ITSHSR-12E-SLVR-WSHBUN-IR-TT\nProduct Type: KNIFE_SHARPENER\nBrand (from catalog): Beille\nExisting Title: Beille 12 Inch Steel Sharpening Rod for Knives Knife Sharpeners Kitchen Gadgets\nDescription: High up on the list of kitchen accessories or kitchen gadgets, whether you're a professional chef or budding home cook, a honing rod or knife sharpening tool keeps knives sharp and in their best working condition, and is safer and more enjoyable to use.<br/><br/>This honing rod or knife sharpener fro, Beille is made of highly durable carbon steel, with a hardness ranking of 49HRC; the durable but fine surface of the steel rod prevents the cutting edge from damage when sharpening. The knife sharpening tool is suitable whether you are left or right-handed and features a slip-resistant plastic, ergonomic handle to keep the rod steady and in place when honing and sharpening.<br/><br/>And, with just several swipes on each side of a kitchen knife, or any knife for that matter, you are effectively pushing the edge of the knife back to the center, keeping it sharper for longer and realigning the blade; quick and easy to use. The Beille carbon steel knife sharpener comes with a convenient, built-in eyelet hole at the bottom of the handle for easy hanging storage and air drying when not in use.<br/><br/>CARE: Use a non-woven cloth soaked with cooking oil to wipe the body and dry it; if washed with water, be sure to wipe the rod dry thoroughly after washing and hang in a cool place to air dry (avoid putting the knife sharpener into the dishwasher whenever possible).\nSearch Terms: kitchen knife sharpening rod injection moulded handle hard carbon high quality stainless steel rates rockwell scale durability sharpener knives detailed dull metal edge surface length chefs home cooks hardness pleasing attractive addition cutlery\nFeatures:\n- KNIFE SHARPENERS TOOL: A must have for any professional chef or budding home cook alike, this 12 inch honing steel rod will keep your knives in their best working condition, and will be safer and more enjoyable to use\n- EFFICIENT HONING STEEL ROD: With just several swipes on each side of a kitchen knife, or any knife for that matter, you are effectively pushing the edge of the knife back to the center, keeping it sharper for longer and realigning the blade\n- DURABLE CARBON STEEL MATERIAL: The honing rod or knife sharpener is made of durable carbon steel with a ranking of 49HRC; the durable but fine surface of the steel rod prevents the cutting edge from damage when sharpening; suitable whether you are left or right handed and features a slip resistant plastic ergonomic handle to keep the rod steady and in place when honing\n- EASY STORAGE: The Beille carbon steel knife sharpener comes with convenient, built in eyelet hole on the bottom of the handle for easy hanging storage when not in use8 ounces\n- SPECIFICATIONS: Dimensions: 9.5 x 4 x 4 inches; Sharpening Surface Length: 8 inches; Weight: 0.5lbs; Color: Black, Silver; Material: Carbon Steel, Plastic\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 12 Inch Steel Knife Sharpening Rod Silver",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "12",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "Silver",
+                "name": "Steel Knife Sharpening Rod"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 12-Inch Silver Honing Steel Knife Sharpener",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "12",
+                "pack_size_unit": "in",
+                "size": "12-Inch",
+                "color": "Silver",
+                "name": "Honing Steel Knife Sharpener"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "49HRC Carbon Steel, Ergonomic Handle, Left And Right Handed, Hanging Storage, Professional Grade Honing",
+            "char_count": 103,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "49HRC Carbon Steel, Ergonomic Slip-Resistant Handle, Left And Right Hand Use, Hanging Eyelet",
+            "char_count": 92,
+            "validation_error": null
+        }
+    }
+}

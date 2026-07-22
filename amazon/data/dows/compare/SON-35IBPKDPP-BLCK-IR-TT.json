@@ -1,0 +1,60 @@
+{
+    "sku": "SON-35IBPKDPP-BLCK-IR-TT",
+    "asin": "B0BG3GDD9P",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-35IBPKDPP-BLCK-IR-TT\nProduct Type: KNIFE\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Foldable Pocket Knife with Metal Clip Steel Drop Point Blade Black\nDescription: The ToolTreaux black pocket knife is an ideal everyday carry tool. It features a drop point blade that is great for a variety of uses including chopping, woodworking and general utility work.<br/><br/>This compact camping tool folds down to just 4\" in length, and features a 2.5\" blade length once unfolded. It comes with a convenient metal pocket clip so you can easily store it in your pocket or on your belt for quick deployment and safe storage when not in use.<br/><br/>The blade itself is made of durable, high-quality stainless steel that won't rust so you can count on it in any weather situation. The handle is made of sturdy plastic and features an ergonomic grip to help prevent slippage during slicing and cutting. <br/><br/>These pocket knives have a lockback design to keep the blade safe when in your pocket and not in use. Lockback knives offer reliable strength, ambidextrous operation, and safety. They were designed to be compact and lightweight, weighing just under 2 ounces so they won't add a bunch of bulk.<br/><br/>Pocket knives are versatile tools that can be used for everyday purposes like opening packages safely. Make sure to grab one of these for yourself or a friend who can't go anywhere without a compact and reliable pocket knife.\nSearch Terms: lockback pocket knife metal clip stainless steel blade camping emergency fishing hiking handle black plastic durable lightweight compact pocket sized camping essentials tools gear hunting knives blades drop point folding edc knives\nFeatures:\n- ESSENTIAL EDC POCKET KNIFE - ToolTreaux pocket knife is ideal for everyday carry, but is also a reliable tool for camping, hunting, boating, and more. Count on it for other utility work like woodworking and chopping.\n- DROP POINT BLADE - This pocket knife features a stainless steel drop point blade so it won't rust regardless of the weather. It comes with a metal pocket clip so you can store it safely in your pocket or on your belt for quick deployment\n- LOCKBACK DESIGN - These knives feature a lockback design to keep your blade safe when not in use. This style of pocket knife offers ambidextrous operation, added safety, and reliable durability. The blade features a sturdy plastic black handle with an ergonomic grip to prevent slippage during use.\n- LIGHTWEIGHT AND COMPACT - ToolTreaux pocket knife folds down to just 4\", with a blade length of 2.5\". It weighs just under 2 ounces so it won't add bulk to your gear\n- SPECIFICATIONS - Materials: plastic, stainless steel, metal; Colors: black, chrome; Blade length: 2.5\"; Foldable length: 4\"; Weight: 1.92oz (.12lbs); Ergonomic handle; Blade type: drop point\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux Black Foldable Pocket Knife Drop Point Blade",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Foldable Pocket Knife Drop Point Blade"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux Black Drop Point Pocket Knife",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Drop Point Pocket Knife"
+            },
+            "char_count": 40,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Stainless Steel, Lockback Design, Metal Clip, EDC, Camping, Hiking, Lightweight, Compact, Ergonomic Grip",
+            "char_count": 104,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Stainless Steel Drop Point Blade, Lockback Safety, Metal Pocket Clip, Lightweight 4\" Foldable Design",
+            "char_count": 100,
+            "validation_error": null
+        }
+    }
+}

@@ -3,14 +3,14 @@
     "asin": "B077V67N1W",
     "product_type": "TOY_VEHICLE_SET",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:26:19+00:00",
+    "generated_at": "2026-07-21T19:54:23+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 0,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -21,20 +21,57 @@
             "source": "usurper",
             "usurper_column": "attr.unit_count_amazon"
         },
-        "item_name_ai_suggested": {
-            "value": "KidPlay Products 50pc Diecast Construction Vehicle Toy Car Set",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "KidPlay Products 50-Pc Diecast City Construction Toy Car Set",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 60,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "50",
+                "pack_size_unit": "Pc",
+                "size": "",
+                "color": "",
+                "name": "Diecast City Construction Toy Car Set"
+            }
         },
-        "title_differentiation": {
-            "value": "50 pieces, die cast metal, construction & city themed, includes trucks, cars, signs & helicopter",
+        "item_name_ai_openai": {
+            "value": "KidPlay Products 50-pk Die Cast Construction Toy Vehicle Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 60,
+            "review_only": true,
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "50",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Construction Toy Vehicle Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "50 Vehicles, Die Cast Metal And Plastic, Trucks, Cars, Traffic Signs, Helicopter, Multiple Colors, Indoor And Outdoor Play",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 122,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Die Cast Metal And Durable Plastic, Assorted City Construction Toys, Trucks, Cars, Signs, Helicopter, Great Gift",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 112,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

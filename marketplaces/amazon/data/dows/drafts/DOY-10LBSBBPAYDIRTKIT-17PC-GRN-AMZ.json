@@ -3,14 +3,14 @@
     "asin": "B0CBL44KD7",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:35:46+00:00",
+    "generated_at": "2026-07-21T20:11:46+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,20 +27,58 @@
             "asin": "B0CBL44KD7",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 17pc Gold Panning Kit with 50in Sluice Box",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 10lb Green Gold Panning Sluice Box Kit 17pc",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "lb",
+                "size": "50 inch",
+                "color": "Green",
+                "name": "Gold Panning Sluice Box Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "Includes 10lb Bobby Bo Paydirt, 5 Gallon Bucket, Canvas Backpack",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 10-Lb Green Gold Panning Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 40,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "lb",
+                "size": "",
+                "color": "Green",
+                "name": "Gold Panning Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "50 Inch Folding Sluice Box, 10Lb Bobby Bo Paydirt, 5 Gallon Bucket, Canvas Backpack, Gold Pans, Classifier Screens, Complete Prospecting Tools",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 142,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (142 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "17-Piece Prospecting Set, 50 Inch Folding Sluice Box, 10 Lb Bobby Bo Paydirt, Bucket, Screens And Tools",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

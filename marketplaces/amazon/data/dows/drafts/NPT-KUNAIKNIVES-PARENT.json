@@ -3,14 +3,14 @@
     "asin": "B087CBNR36",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:22:40+00:00",
+    "generated_at": "2026-07-21T20:09:04+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -33,20 +33,57 @@
             "asin": "B087CBNR36",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical 6pc Japanese Throwing Knives Set 6.5\" Kunai",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical 6-pc 6.5\" Black Dragon Throwing Knives",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "6",
+                "pack_size_unit": "pc",
+                "size": "6.5\"",
+                "color": "Black",
+                "name": "Dragon Throwing Knives"
+            }
         },
-        "title_differentiation": {
-            "value": "Full Tang 440 Stainless Steel, Cord-Wrapped Handle, Includes Nylon Sheath",
+        "item_name_ai_openai": {
+            "value": "ASR Tactical 6-pk 6.5in Black Kunai Throwing Knives Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 55,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "6",
+                "pack_size_unit": "pk",
+                "size": "6.5in",
+                "color": "Black",
+                "name": "Kunai Throwing Knives Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Set Of 6, Full Tang 440 Stainless Steel, Cord-Wrapped Handle, Balanced Flight, Includes Nylon Sheath With Belt Loop",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 115,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "440 Stainless Steel, Full Tang, Webbing Wrapped Handles, Balanced Flight, Reinforced Nylon Sheath, Finger Ring",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 110,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

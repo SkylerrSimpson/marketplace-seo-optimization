@@ -1,0 +1,60 @@
+{
+    "sku": "SON-DRYSACK15L-GRN",
+    "asin": "B0BYTPGZQ8",
+    "product_type": "CARRIER_BAG_CASE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-DRYSACK15L-GRN\nProduct Type: CARRIER_BAG_CASE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 15L Green Waterproof Dry Sack Gusseted Bottom Ripstop Nylon Bag\nDescription: Planning a camping, boating, or water sports trip this year? The ASR Outdoor waterproof dry sack is an ideal storage option for your essentials while doing outdoor activities like camping, hiking, and kayaking. This bag has a capacity of 15 liters so you can count on it to protect your gear from inclement weather and water. <br/><br/>Our dry sack is made of durable, ripstop 70D PU-coated nylon designed to protect your essentials. The inside of the bag is also coated and the entire bag comes in a bright green color for added visibility in the dark.<br/><br/>The bag features a large gusseted bottom allowing you to store even more gear. The extra pieces of fabric give the bag added strength and room: the sealed size is 14\" x 20.5\" and the gusset size is 6.5\" x 9.75\". <br/><br/>Each bag also comes with a strong buckle closure to ensure that your items are secured even during intense travel and movement. It features a D-ring ideal for attaching items you may need quick access to like keys, straps, compasses, whistles and other camping accessories. Make sure to grab one of these versatile waterproof bags before your next outdoor adventure.\nSearch Terms: waterproof bag waterproof beach bag waterproof dry bag sea to summit dry bag travel bag ripstop nylon boating accessories waterproof bags for boating camping accessories camping gear camping essentials kayaking equipment dry bags\nFeatures:\n- 15L CAPACITY DRY BAG - ASR Outdoor waterproof dry sack holds up to 15 liters of personal items; Ideal waterproof storage bag for outdoor activities where essentials may be exposed to moisture and water like boating, kayaking, and camping\n- WATERPROOF MATERIAL - Dry sack is made of durable, Ripstop 70D PU-coated nylon designed to protect your essentials from water; Inside of bag is also coated and entire bag comes in bright green color for high visibility\n- GUSSETED BOTTOM - Bag features large gusseted bottom allowing you to store more gear; Extra pieces of fabric give the bag extra strength and room; Sealed size: 14\" x 20.5\"; Gusset size: 6.5\" x 9.75\"\n- SAFE AND SECURE - Strong buckle closure ensures items are secured even during intense travel and movement; Comes with D-ring ideal for attaching items for quick access like whistles, keys, straps, and compasses\n- SPECIFICATIONS - Material: Ripstop 70D nylon; Inside: PU coated nylon; Color: bright green; Capacity: 15L; Sealed size: 14\" x 20.5\"; Gusset size: 6.5\" x 9.75\"; Closure type: buckle with D-ring\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 15L Green Waterproof Dry Sack Bag",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "15",
+                "pack_size_unit": "L",
+                "size": "",
+                "color": "Green",
+                "name": "Waterproof Dry Sack Bag"
+            },
+            "char_count": 45,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 15-L Green Waterproof Dry Sack",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "15",
+                "pack_size_unit": "L",
+                "size": "",
+                "color": "Green",
+                "name": "Waterproof Dry Sack"
+            },
+            "char_count": 42,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Ripstop Nylon, Gusseted Bottom, Buckle Closure, D-ring, High Visibility, Boating And Kayaking",
+            "char_count": 93,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Ripstop 70D PU-Coated Nylon, 15L Capacity, Gusseted Bottom, Buckle Closure, D-Ring Attachment, High Visibility Green",
+            "char_count": 116,
+            "validation_error": null
+        }
+    }
+}

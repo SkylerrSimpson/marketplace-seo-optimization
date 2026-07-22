@@ -3,14 +3,14 @@
     "asin": "B07V6TKHC7",
     "product_type": "TOOLS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:06:21+00:00",
+    "generated_at": "2026-07-21T19:46:36+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 2,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -49,7 +49,7 @@
             "value": "Metal",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
             "value": "One Size",
@@ -57,20 +57,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "CCS Spy Gear Micro SD Covert Spy Coin Secret Compartment",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 56,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "CCS Spy Gear",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Micro SD",
+                "color": "",
+                "name": "Covert Spy Coin Secret Compartment"
+            }
         },
-        "title_differentiation": {
-            "value": "Real Coin Design, Multiple Denominations, Hand-Made Secret Storage",
+        "item_name_ai_openai": {
+            "value": "CCS Spy Gear Micro SD Card Spy Coin",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 35,
+            "review_only": true,
+            "tokens": {
+                "brand": "CCS Spy Gear",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Micro SD Card Spy Coin"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Hidden Hollow Compartment, Multiple Denominations, Hand-Made From Real Coins, Tactical Microsd Storage",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 102,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Hand-Made From Real Coins, Secret Interior Compartment, Fits Micro SD Card, Hidden Hollow Design, Multiple Denominations",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 120,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

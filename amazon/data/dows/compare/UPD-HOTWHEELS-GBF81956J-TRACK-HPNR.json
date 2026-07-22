@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-HOTWHEELS-GBF81956J-TRACK-HPNR",
+    "asin": "B07RM8KGDW",
+    "product_type": "TOY_VEHICLE_SET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-HOTWHEELS-GBF81956J-TRACK-HPNR\nProduct Type: TOY_VEHICLE_SET\nBrand (from catalog): Hot Wheels\nExisting Title: Hot Wheels Rapid Raceway Champion Play Set, Multicolor\nDescription: Kids face off with friends with the Champion Track set assortment for ultimate performance-based racing, drifting, and stunting action. Kids can test their skills in 3 challenges that include a drift circuit, a drag race, and a daring hill climb. The Rapid Raceway Champion track set is a classic drag race with an awesome start gate. Pull the lever up and let go to start the countdown. When the gates open it's a race to trigger the winner's flag. Everything kids need to get racing right out of the package— orange track, side-by-side racing and launchers plus one Hot Wheel 1:64 scale vehicle. Each set connects to other Hot Wheels sets (sold separately) for a great way to build an epic world of track. Great gift idea for kids 4 to 8 years old.\nSearch Terms: hot wheels track race\nFeatures:\n- The Rapid Raceway Champion track set is a classic drag race with an awesome start gate— pull the lever up and let go to start the countdown.\n- Perfect set for revving up competition with one-on-one, side-by-side racing! The winner triggers the finishing flag.\n- Kids can start the drag race right out of the package by launching their Hot Wheels 1:64 scale car when the gate opens.\n- Sets connect to other Hot Wheels sets (sold separately) for creative racing, stunting and the vehicle play the love.\n- Perfect gift ideas for kids ages 4 to 8 years old\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Hot Wheels Rapid Raceway Champion Track Set Multicolor",
+            "tokens": {
+                "brand": "Hot Wheels",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Multicolor",
+                "name": "Rapid Raceway Champion Track Set"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Hot Wheels Rapid Raceway Champion Play Set",
+            "tokens": {
+                "brand": "Hot Wheels",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Rapid Raceway Champion Play Set"
+            },
+            "char_count": 42,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Drag Race Track With Dual Launchers, Includes 164 Scale Vehicle, Ages 4-8, Connects To Other Sets",
+            "char_count": 97,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Drag Race Start Gate, Side-By-Side Launchers, Drift Circuit, Hill Climb Challenge, Includes 1 Vehicle",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

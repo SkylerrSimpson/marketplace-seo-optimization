@@ -3,14 +3,14 @@
     "asin": "B09MGF966Q",
     "product_type": "TOY_GUN",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:52:58+00:00",
+    "generated_at": "2026-07-21T20:03:31+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -40,31 +40,68 @@
             "raw_value": true
         },
         "color": {
-            "value": "Red",
+            "value": "Red, Black",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
-            "value": "10 x 7 x 2 inches",
+            "value": "Medium",
             "is_required": false,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Kidplokio Galaxy Guardian Space Blaster Toy Gun LED Lights",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Kidplokio Galaxy Guardian Space Blaster Toy Gun",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 47,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Galaxy Guardian Space Blaster Toy Gun"
+            }
         },
-        "title_differentiation": {
-            "value": "Flashing LED Lights & Sounds, Batteries Included, Ages 3+",
+        "item_name_ai_openai": {
+            "value": "Kidplokio Galaxy Guardian Space Blaster Toy Gun",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 47,
+            "review_only": true,
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Galaxy Guardian Space Blaster Toy Gun"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Flashing LED Lights, Laser Sounds, Spinning Lights, Ages 3 Plus, Batteries Included, Indoor Outdoor Play",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 104,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Flashing LED Lights And Laser Sounds, Batteries Included, Ready To Play, Pretend Play, Indoor Or Outdoor Fun",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 108,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

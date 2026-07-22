@@ -3,14 +3,14 @@
     "asin": "B0078S63NA",
     "product_type": "SECURITY_CAMERA",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:53:57+00:00",
+    "generated_at": "2026-07-21T19:39:30+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 5,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -83,25 +83,62 @@
             "raw_value": true
         },
         "size": {
-            "value": "54 Piece",
+            "value": "54 Piece Set",
             "is_required": false,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "World Hobbies 54pc Rubber Polishing Bit Burr Set 1/8 Shank",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 58,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "World Hobbies",
+                "pack_size": "54",
+                "pack_size_unit": "pc",
+                "size": "1/8 Shank",
+                "color": "",
+                "name": "Rubber Polishing Bit Burr Set"
+            }
         },
-        "title_differentiation": {
-            "value": "Assorted Grit (80/240/600), 5 Head Shapes, Rotary Tool Compatible",
+        "item_name_ai_openai": {
+            "value": "World Hobbies 54-Pc 1/8-Inch Rubber Polishing Bit Burr Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 58,
+            "review_only": true,
+            "tokens": {
+                "brand": "World Hobbies",
+                "pack_size": "54",
+                "pack_size_unit": "pc",
+                "size": "1/8-Inch",
+                "color": "",
+                "name": "Rubber Polishing Bit Burr Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "5 Head Shapes, 3 Grit Levels 80240600, Universal 18 Collet, Storage Case, Rotary Tool Compatible",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 96,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Assorted 80 240 And 600 Grit, 5 Polishing Head Shapes, 18-Inch Shank, Storage Case, For Metal Glass Ceramic Jewelry",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 115,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

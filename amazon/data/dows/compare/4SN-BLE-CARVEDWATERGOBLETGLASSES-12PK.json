@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-BLE-CARVEDWATERGOBLETGLASSES-12PK",
+    "asin": "B0H471B4MW",
+    "product_type": "DRINKING_CUP",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-BLE-CARVEDWATERGOBLETGLASSES-12PK\nProduct Type: DRINKING_CUP\nBrand (from catalog): Beille\nExisting Title: Beille Set of 12 Clear Carved Goblet Water Glasses Home Décor Entertaining Essentials Glassware, 10oz\nDescription: A modern take on the classic goblet glass, these carved water or wine glasses from Beille bring high style, texture and elegant visual weight to any table setting. Elegant enough to complement other glassware for a more formal table setting, but absolutely durable and suitable enough for everyday use. Use the goblet glasses for everything from orange juice at brunch, to a refreshing glass of your favorite sparkling water on a hot summer afternoon, to your favorite pinot noir come the evening.<br/><br/>Not too big and not too small, these perfectly sized water glasses or goblet glasses hold 10oz or 290ML of your favorite drink. Whether for wine, juice, lemonade, iced tea, water and more, these carved goblet glasses can do it all with style. And, we should mention, weighing in at 0.85lbs per glass, these goblet glasses are hefty and weighty to hold, yet remain refined and contemporary, whether set on their own or with other glassware. The stemmed or footed water glasses are well balanced, feature a rolled rim for comfortable sipping, and are made from durable and quality food safe glass materials. The goblet glasses are conveniently dishwasher safe, so toss them on the top rack for quick and easy kitchen clean up. <br/><br/>These stemmed goblet water glasses or wine glasses from Beille will make a stylish addition to any kitchen with their timeless design and durable glass construction. You’ll reach for these water glasses for all sorts of different occasions, and perhaps even for a dessert recipe like chocolate mousse or a mini berry trifle. Sante!<br/><br/>Individual Water Glass Dimensions: 6.5 x 3.5 x 3.5 inches<br/><br/>Individual Water Glass Weight: 0.85lbs<br/><br/>Sold as a set of: 4, 6, 10 or 12\nSearch Terms: Home goods glassware cocktail goblet champagne wine glasses drinkware set table décor restaurant supplies tabletop housewarming gifts for new house wedding gifts stemware wedding registry ideas bar cart orange juice lemonade water glasses set of 4 6 10 12\nFeatures:\n- CARVED WATER GLASSES: A modern take on the classic goblet glass, these carved goblet water glasses from Beille bring style, texture and visual weight to any table setting; the goblet glasses are elegant enough to complement wine or other cocktail glasses for a more formal table setting, but absolutely durable and suitable for everyday use\n- PERFECTLY SIZED: Not too big, not too small, these perfectly sized water glasses hold 10oz or 295ML; whether for wine, orange juice, lemonade, iced tea, water and more, these stunning goblet water glasses can do it all with style\n- DURABLE GOBLET GLASSES: These footed goblet glasses are well balanced, feature a rolled rim and are made from durable and quality glass materials; weighing in at 0.85lbs each, these goblet water glasses are hefty, yet simultaneously refined and contemporary\n- DISHWASHER SAFE: Conveniently dishwasher safe, place water glasses or wine glasses on the top rack for an easy and quick kitchen clean up\n- SPECIFICATIONS: Dimensions: 6.5 x 3.5 x 3.5 inches; Individual Glass Weight: 0.85lbs\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 12-pk Clear 10oz Carved Goblet Water Glasses",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "12",
+                "pack_size_unit": "pk",
+                "size": "10oz",
+                "color": "Clear",
+                "name": "Carved Goblet Water Glasses"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 12-pk 10oz Clear Carved Goblet Water Glasses",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "12",
+                "pack_size_unit": "pk",
+                "size": "10oz",
+                "color": "Clear",
+                "name": "Carved Goblet Water Glasses"
+            },
+            "char_count": 51,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Set Of 12, Stemmed Footed Design, Rolled Rim, Dishwasher Safe, Durable Glass, Modern Goblet Style",
+            "char_count": 97,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Set Of 12, 10Oz, Dishwasher Safe, Rolled Rim, Heavyweight Glass, Footed Stem, Food Safe, Table Ready",
+            "char_count": 100,
+            "validation_error": null
+        }
+    }
+}

@@ -3,14 +3,14 @@
     "asin": "B07CWDNLZS",
     "product_type": "WRITING_INSTRUMENT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:03:16+00:00",
+    "generated_at": "2026-07-21T19:45:09+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 9,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -158,20 +158,57 @@
             "asin": "B07CWDNLZS",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Disney Pixar Incredibles 2 #2 Wood Pencils, 24-Count with Erasers",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Disney Incredibles 2 #2 Wood Pencils 4-Pack (24 Count)",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "#2",
+                "color": "",
+                "name": "Incredibles 2 Wood Pencils"
+            }
         },
-        "title_differentiation": {
-            "value": "4-Pack Bundle, 6 Pencils Per Pack, Colorful Character Graphics",
+        "item_name_ai_openai": {
+            "value": "Disney 4-Pk Incredibles 2 #2 Wood Pencils with Erasers",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 54,
+            "review_only": true,
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "#2",
+                "color": "Wood",
+                "name": "Pencils with Erasers"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "24 Total Pencils, Colorful Character Graphics, White Erasers, Officially Licensed, Perfect Party Favors",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 103,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Officially Licensed, Colorful Incredibles 2 Graphics, White Erasers, 24 Count, Great For School And Party Favors",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 112,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

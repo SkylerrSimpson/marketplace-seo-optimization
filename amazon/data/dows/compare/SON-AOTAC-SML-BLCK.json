@@ -1,0 +1,60 @@
+{
+    "sku": "SON-AOTAC-SML-BLCK",
+    "asin": "B0854C56RK",
+    "product_type": "HARDWARE_CLAMP_VISE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-AOTAC-SML-BLCK\nProduct Type: HARDWARE_CLAMP_VISE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 3.25\" x 1\" Camping Tarp Secure Grip Awning Clamps, 2pk\nDescription: The ASR Outdoor Awning Clamp is ideal for holding down tarps while camping or working on home improvement projects. They feature a secure grip with ridges to lock in place and will adjust to various thicknesses. They even attach to the edge of the tarp to provide an extra tying option. Be sure to have them ready whenever you need to use a tarp.<br/><br/>Each package includes 2 Awning Clamps.\nSearch Terms: heavy duty slide lock clamp tarp locking awning hook tie down automotive accessory for on the go camping RV road trip across USA\nFeatures:\n- SECURE GRIP: Durable Plastic ridged clamp securely locks in place. Great for locking down tarps\n- ADJUSTABLE SIZE: Will adjust to various thicknesses\n- MULTIFUNCTIONAL: Perfect for Camping, Hiking, Home Improvement Projects\n- COLOR: Black\n- DIMENSIONS: 3.25 inch x 1 inch\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 2-pk 3.25\" Black Awning Clamps",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "3.25\"",
+                "color": "Black",
+                "name": "Awning Clamps"
+            },
+            "char_count": 42,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 2-Pk 3.25in x 1in Black Tarp Clamps",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "3.25in x 1in",
+                "color": "Black",
+                "name": "Tarp Clamps"
+            },
+            "char_count": 47,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Secure Grip Ridged Clamp, Adjustable Thickness, Tarp Tie Down, Camping And Home Improvement",
+            "char_count": 91,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Ridged Secure Grip, Adjustable To Various Thicknesses, Extra Tie Point, Camping, Hiking, Home Improvement",
+            "char_count": 105,
+            "validation_error": null
+        }
+    }
+}

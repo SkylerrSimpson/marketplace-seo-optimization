@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-BLE-CHRMWBOTTLE-23OZ",
+    "asin": "B0CBNJM3XK",
+    "product_type": "SPORTING_GOODS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-BLE-CHRMWBOTTLE-23OZ\nProduct Type: SPORTING_GOODS\nBrand (from catalog): Beille\nExisting Title: Beille Silver Chrome Borosilicate Glass BPA Free Water Bottle with Bamboo Lid Hydration Health and Beauty, 23oz\nDescription: Looking to increase your daily water intake? With so many benefits for your health, including sleep, weight loss, clear skin, gut health and more, add this modern and stylish silver chrome finished borosilicate glass water bottle to your daily routine. <br/><br/>This water bottle from Beille is made of thick, durable borosilicate glass, meaning that it will keep your water cooler for longer. The glass water bottle holds up to 23 ounces (about 3 cups) of water, which will encourage you to up your daily water intake. And, since this water bottle is made of glass, you don't need to worry about harmful plastic toxins like BPA. It comes with a bamboo airtight lid that will keep your liquids safe and secure during travel, making this a great portable water bottle option.<br/><br/>Although the Beille water bottle is made of glass, it still weighs less than one pound so it won't add too much bulk to your travel bag, purse, backpack or gym bag. Pack it with you to maintain hydration throughout your work or school day.<br/><br/>PLEASE NOTE: This water bottle is hand wash only and meant for cold drinks only; dishwasher safe. Do not put in microwave.\nSearch Terms: water bottle glass bamboo with lid top 23oz kids hydroflask flask canteen large capacity big reusable ecofriendly eco friendly bikes cycling filtered travel hydration infuser coldest daily\nFeatures:\n- GLASS WATER BOTTLE: Made of BPA free borosilicate glass that will keep your water cooler for longer! Unique reflective chrome silver finish makes this water bottle a stylish and modern way to stay hydrated throughout the day\n- HEALTH AND HYDRATION: Water bottle holds up to 23 ounces or about three cups of water, which will encourage you to up your daily water intake; Staying hydrated is very important for skin and gut health, weight loss, sleep and much more\n- BPA FREE WATER BOTTLE: Since this water bottle is made of glass, you don't need to worry about harmful plastic toxins like BPA; the water bottles comes with a bamboo airtight lid that will keep your liquids safe and secure during travel\n- GREAT FOR TRAVEL: Although the Beille water bottle is made of glass, it still weighs less than one pound so it won't add too much bulk to your travel bag, purse, backpack or gym bag\n- SPECIFICATIONS: Weight: .78lbs (12.48oz); Capacity: 23oz (about 3 cups); Note: Hand wash only, for cold drinks only; Safety: Do not place in microwave\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 23oz Silver Chrome Borosilicate Glass Water Bottle",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "23oz",
+                "color": "Silver Chrome",
+                "name": "Borosilicate Glass Water Bottle"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 23oz Silver Chrome Borosilicate Glass Water Bottle",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "23",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "Silver Chrome",
+                "name": "Water Bottle"
+            },
+            "char_count": 57,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "BPA-Free Glass, Bamboo Lid, Keeps Water Cool, Lightweight Travel, Hand Wash Only",
+            "char_count": 80,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "BPA Free Borosilicate Glass, Bamboo Airtight Lid, Lightweight Travel Design, Cold Drinks Only, Hand Wash Only",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

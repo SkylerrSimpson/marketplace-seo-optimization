@@ -1,0 +1,60 @@
+{
+    "sku": "LST-FORESTTEASET-PARENT",
+    "asin": "B0BGQGH79S",
+    "product_type": "PRETEND_PLAY_TOY",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-FORESTTEASET-PARENT\nProduct Type: PRETEND_PLAY_TOY\nBrand (from catalog): Kidplokio\nExisting Title: Kidplokio Forest Tea Party Pretend Playset Girls Toys Ages 3 and Up\nDescription: Does your child absolutely tea parties? Then either mystical Tea Party Set is a wonderful gift idea. This cute forest themed set comes with everything your daughter needs to host a classic tea party with friends and stuffed animals: cups, saucers, spoons, a tea pot, and more.<br/><br/>This super-cute tea party set features vibrant colors that will engage your child and inspire them to use their imagination during playtime. Hosting tea parties is a great way to encourage kids to use their creativity, practice fine motor skills while pouring and serving tea, and also teach the importance of sharing with their tea party guests.<br/><br/>Made of durable, high-quality plastic, all of the accessories included in the set are safe for children ages 3 and up with parental supervision. The toys are easy to clean too - just wipe them down with mild soap and water, and pat or air dry in between uses. Since they're made of plastic, these toys are also okay for bath time.<br/><br/>The tea party set comes inside of a sturdy box that is ready to be gift-wrapped for birthdays, Christmas, or other special occasions. Inside the box are plastic slots for each toy so they can be safely stored and organized when not in use so you don't have to worry about a big mess after playtime. Make sure to grab one of these tea party sets for your child this holiday season.\nSearch Terms: tea party decorations set for little girls favors teacups dishes saucers pots kids dress up and pretend play grocery store for toddlers 3 to 5 food for kitchen fairytale toys for girls age 6 to 8 toys for 3 year old girls for 4 year old girls\nFeatures:\n- FOREST TEA PARTY - Kidplokio girls' tea party play set features a fun forest theme; includes all tea utensils and accessories needed for a classic tea party: cups, saucers, spoons, tea pot, sugar bowl, cream jug, butter dish and pretend play cookies\n- ENCOURAGES IMAGINATION - Cute tea party set features vibrant colors that will inspire your child's imagination; hosting tea parties encourages kids to use their creativity, fine motor skills, and teaches the importance of sharing with their friends\n- SAFE AND DURABLE - Made of durable, high-quality plastic, all accessories included are safe for children ages 3 and up; easy to clean, just wipe toys down with mild soap and pat or air dry in between uses; ok for use during bath time!\n- PORTABLE PLAY SET - Tea party accessories come inside of a sturdy box with specific slots for each toy; set can easily be packed up after use and brought over to play dates, birthday parties, or sleepovers; keep toys stored safely and organized when not in use\n- SPECIFICATIONS - Material: plastic; Colors:blue, pink; Dimensions of box: 15\" x 11\" x 2\" ; Weight: .85 pounds (13.6 ounces); Recommended age: girls ages 3 and up\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Kidplokio Forest Tea Party Pretend Play Set for Girls Ages 3+",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Forest",
+                "name": "Tea Party Pretend Play Set for Girls Ages 3+"
+            },
+            "char_count": 61,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Kidplokio Forest Tea Party Pretend Play Set",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Forest Tea Party Pretend Play Set"
+            },
+            "char_count": 43,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Complete Tea Set With Cups, Saucers, Teapot, Spoons, Fine Motor Skills, Durable Plastic, Easy Clean, Portable Storage Box",
+            "char_count": 121,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Imaginative Pretend Play, Cups Saucers Teapot Sugar Bowl Cream Jug Butter Dish Cookies, Durable Plastic, Ages 3 Plus",
+            "char_count": 116,
+            "validation_error": null
+        }
+    }
+}

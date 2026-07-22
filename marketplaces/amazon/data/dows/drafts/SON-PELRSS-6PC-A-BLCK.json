@@ -3,14 +3,14 @@
     "asin": "B071ZNBJNR",
     "product_type": "TOOLS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:13:44+00:00",
+    "generated_at": "2026-07-21T19:49:32+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 3,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -46,19 +46,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "PELRSS-6PC",
+            "value": "j-6tcp-160",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "{\"item_name\": \"Universal Tool 6pc Extended Reach Screwdriver Set Black\", \"title_differentiation\": \"6-Piece, 6\"-9\" Length, Color-Coded Handles, Ergonomic Grip\"}",
+        "item_name_ai_anthropic": {
+            "value": "Universal Tool 6-pc Extended Long Reach Screwdriver Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 55,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "6",
+                "pack_size_unit": "pc",
+                "size": "Extended Long Reach",
+                "color": "",
+                "name": "Screwdriver Set"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "Universal Tool 6-pc Black Precision Electronics Screwdriver Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 63,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "6",
+                "pack_size_unit": "pc",
+                "size": "Precision",
+                "color": "Black",
+                "name": "Electronics Screwdriver Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "6 Pieces, 6-9 Inch Lengths, Color Coded Handles, Ergonomic Grip, Slotted And Phillips Tips",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "review_only": true,
-            "note": "modular <=75 item_name for human review",
-            "validation_error": "exceeds modular item_name cap of 75 chars (159)"
+            "char_count": 90,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "3 Slotted And 3 Phillips, 6\" To 9\" Long Reach, Black Molded Finger Grip Handles, Swivel Butt Caps",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 97,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

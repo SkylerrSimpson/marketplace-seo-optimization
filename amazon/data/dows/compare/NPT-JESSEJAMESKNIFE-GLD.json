@@ -1,0 +1,60 @@
+{
+    "sku": "NPT-JESSEJAMESKNIFE-GLD",
+    "asin": "B07RM8ZCC1",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: NPT-JESSEJAMESKNIFE-GLD\nProduct Type: KNIFE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Wild West Legends Jesse James Hunting Knife Wanted Poster Design\nDescription: Add the legends of the Wild West to your knife collection with the ASR Outdoor Jesse James Wanted Folding Knife.<br/><br/>This unique blade features a rendition of Jesse James's iconic wanted poster on the handle. It's constructed of durable 440 stainless steel that wont rust, and the drop point style blade is ideal for hunting. The blade itself is about 2.75\", and the overall length unfolded is 7.5\", making it a great size to keep in your pocket, bag or backpack. The handle has an ergonomic design that will add comfort and prevent slippage during use. <br/><br/>The folding knife comes with a faux wood grain display case that opens up to reveal the legend of Jesse James on the inside of the lid. It snaps shut to keep your blade protected when not in use. This is a must-have addition to any Wild West enthusiast or hunter's knife collection.\nSearch Terms: hunting blades tools folding pocket knives collectors knife display cases\nFeatures:\n- WILD WEST LEGEND - Featuring Jesse James's Iconic Wanted Poster - Dead or Alive | Unique and Collectible Design\n- DROP POINT BLADE - Preferred Blade Style for Hunters | Eliminates Pitch Momentum\n- FOLDING POCKET KNIFE | Overall Length 7.5\" | Blade Length 2.75\" | Folded Length 4.5\" - Compact Design\n- ERGONOMIC HANDLE - Adds Comfort and Prevents Slippage During Use\n- DISPLAY CASE - Comes with Faux Wooden Box to Protect Blade When Not in Use | Inside Lid Features Jesse James Legend Story\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Jesse James Wanted Folding Hunting Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Jesse James Wanted Folding Hunting Knife"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Jesse James Wanted Folding Hunting Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Jesse James Wanted Folding Hunting Knife"
+            },
+            "char_count": 52,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Drop Point Blade, 275In, Folding Pocket Knife, 440 Stainless Steel, Ergonomic Handle, Wooden Display Case",
+            "char_count": 105,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Wild West Wanted Poster Design, 440 Stainless Steel Drop Point Blade, Ergonomic Grip, Faux Wood Display Case",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

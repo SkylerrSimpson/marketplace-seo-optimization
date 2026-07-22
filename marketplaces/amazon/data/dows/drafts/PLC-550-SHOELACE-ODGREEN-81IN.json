@@ -3,14 +3,14 @@
     "asin": "B0BMY6BTQ3",
     "product_type": "SHOELACE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:36:25+00:00",
+    "generated_at": "2026-07-21T20:11:46+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 3,
         "catalog": 7,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -129,20 +129,57 @@
             "asin": "B0BMY6BTQ3",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ParaLace 550 Paracord Hiking Boot Laces, 81 Inch Green",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ParaLace 550 Paracord Shoelaces 81in Olive Green",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ParaLace",
+                "pack_size": "550",
+                "pack_size_unit": "",
+                "size": "81in",
+                "color": "Olive Green",
+                "name": "Paracord Shoelaces"
+            }
         },
-        "title_differentiation": {
-            "value": "Survival gear, 550lbs strength, low-stretch, metal aglets, universal fit",
+        "item_name_ai_openai": {
+            "value": "ParaLace 81 In Green 550 Paracord Shoelaces",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 43,
+            "review_only": true,
+            "tokens": {
+                "brand": "ParaLace",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "81 In",
+                "color": "Green",
+                "name": "550 Paracord Shoelaces"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "550Lbs Breaking Strength, Survival Gear, Hiking And Running Shoes, Metal Aglets, Pair",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 85,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "550 Lb Strength, Low Stretch Nylon, Metal Aglets, Abrasion Resistant, Hiking Boots And Survival Gear",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 100,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

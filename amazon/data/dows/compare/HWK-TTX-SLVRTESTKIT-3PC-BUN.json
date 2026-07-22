@@ -1,0 +1,60 @@
+{
+    "sku": "HWK-TTX-SLVRTESTKIT-3PC-BUN",
+    "asin": "B09GTD7M8Z",
+    "product_type": "ART_AND_CRAFT_SUPPLY",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWK-TTX-SLVRTESTKIT-3PC-BUN\nProduct Type: ART_AND_CRAFT_SUPPLY\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Silver Testing Kit with Testing Stone, 3pc\nDescription: Easily test the purity of silver with ToolTreaux’s Silver Testing Kit. The kit includes two, 0.5 ounce (oz) bottles and one testing stone. The testing solutions are potent, effective and will see you through hundreds of tests. A must-have tool for gold panning, jewelry appraisal or other professions that work with silver, coins and other precious metals. And, housed in small, sturdy, shatterproof plastic squeeze bottles, the silver testing solution bottles are comfortable to maneuver, while also easily maintaining control over the amount of solution escaping the bottle.<br/><br/>SILVER TESTING KIT METHOD: This silver testing method is best used on silver that is yet to be smelted, due to the harsh nature of the solution that could potentially damage an already finished item; if testing fine jewelry, sterling silver items or other finished items, be sure to choose an inconspicuous spot so as not to compromise the finished piece <br/><br/>HOW THE SILVER TESTING KIT WORKS: To test silver purity, scratch the item onto the test stone leaving a visible deposit, then place a small drop of the solution over top of deposit; the purity of the silver is approximated according to the color the solution turns when it is applied to the sample; if the solution turns bright red that indicates high quality silver; if the solution turns blue or green the sample may contain brass or copper; if the sample deposit dissolves quickly, or the solution turns a dark brown or yellow, it is likely a base metal or silver plated\nSearch Terms: silver testing kit test solution precious metal verifier heavy tester coins appraisal fine jewelry gold panning equipment purity test sterling antique decor professional hobbyist silversmith\nFeatures:\n- SILVER TESTING KIT: Easily test the purity of silver with ToolTreaux’s Silver Testing Solution Kit with Testing Stone! The kit includes two, 0.5oz shatterproof plastic squeeze bottles and one testing stone; the testing solutions are potent, effective and will see you through hundreds of future tests!\n- SILVER TESTING KIT METHOD: This silver testing method is best used on silver that is yet to be smelted, due to the harsh nature of the solution that could potentially damage an already finished item; if testing fine jewelry, sterling silver items or other finished items, be sure to choose an inconspicuous spot so as not to compromise the finished piece\n- HOW THE SILVER TESTING KIT WORKS: To test silver purity, scratch the item on to test stone leaving visible deposit, then place a small drop of the over deposit; the purity of the silver is approximated depending on the color the solution turns when applied to deposit; if solution turns red that indicates high quality silver; if solution turns blue or green the sample may contain brass or copper; if sample deposit dissolves, or solution turns a dark brown, it may be a base metal\n- SPECIFICATIONS: Testing Stone Dimensions: 2 x 1.5 x 0.25 inches; Stone Weight: 0.01lbs; Bottle Dimensions: 3 x 1 x 1 inches; Bottle Weight: 0.04lbs; Bottle Material: Plastic; Solution Capacity: 0.5 ounces; Solution made in USA\n- NOTE: Keep out of reach of children; Exercise extreme caution when opening and using; Proper protective gloves and eyewear are highly recommended; Instruction pamphlet included\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux Silver Testing Kit with Testing Stone, 3pc",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Silver",
+                "name": "Testing Kit with Testing Stone"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux Silver Testing Kit with Testing Stone",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Silver Testing Kit with Testing Stone"
+            },
+            "char_count": 48,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Two 05Oz Solution Bottles, Testing Stone, Purity Verification, Precious Metal Appraisal, Jewelry And Coins",
+            "char_count": 106,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "2 Bottles, 05 Oz Each, Includes Testing Stone, Hundreds Of Tests, Silver Purity, Jewelry And Coins, Made In USA",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

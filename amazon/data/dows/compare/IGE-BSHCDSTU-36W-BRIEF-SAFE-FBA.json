@@ -1,0 +1,60 @@
+{
+    "sku": "IGE-BSHCDSTU-36W-BRIEF-SAFE-FBA",
+    "asin": "B006C8TPNM",
+    "product_type": "SAFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: IGE-BSHCDSTU-36W-BRIEF-SAFE-FBA\nProduct Type: SAFE\nBrand (from catalog): IGE Innovative Internet Products\nExisting Title: IGE Innovative Internet Products The Brief Safe Hidden Contents Travel Passport Wallet - Diversion Safe, White, Regular\nDescription: The Brief Safe is an innovative diversion safe that can hide your cash, memory cards, documents, and other small valuables from would be theft and criminal prowess, both at home and when you're traveling. Items can be hidden in plain sight with these specially designed mens underwear with secret compartment. A fly accessed hidden compartment with secure closure and realistic special markings will keep everyone at bay.<br/><br/>Leave the \"Brief Safe\" in your laundry basket or washing machine at home, in your suitcase or even on the bathroom floor in a hotel room; even the most hardened burglar or curious snoop will skid to a screeching halt as soon as they see these.<br/><br/>Each diversion safe is handmade in the USA from brand new cotton underwear.\nSearch Terms: hidden storage vault pop can hiding valuable while traveling passport safety rfid anti theft holiday gag gift white elephant present\nFeatures:\n- DIVERSION SAFE - Secret stash safe hidden pocket in the fly secures important travel documents, cash, credit cards, passport\n- SECRET STASH COMPARTMENT - Hidden compartment to stash items built into the fly that secures your valuables; Secure closure; Pocket Dimensions: 4 x 10 inches\n- SECURE CLOSURE - Hidden compartment secures your secret valuables with hook and loop, ensuring items stay hidden inside the briefs\n- HIDDEN IN PLAIN SIGHT - Hand painted realistic special markings that will deter any would be thief from going near this item while ransacking a room\n- MULTIPURPOSE USE FOR ALL - Not meant to be worn. Best used as diversion safe, can be used for holiday gag gift Christmas for him. Always a hit, works every time.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "IGE Brief Safe Hidden Compartment Travel Wallet White",
+            "tokens": {
+                "brand": "IGE",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Regular",
+                "color": "White",
+                "name": "Brief Safe Hidden Compartment Travel Wallet"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "IGE Innovative Internet Products White Diversion Safe",
+            "tokens": {
+                "brand": "IGE Innovative Internet Products",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Regular",
+                "color": "White",
+                "name": "Diversion Safe"
+            },
+            "char_count": 53,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Diversion Safe, Secret Stash Compartment, Travel Documents And Passport Storage, Handmade USA Cotton, Gag Gift",
+            "char_count": 110,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Hidden Fly Pocket, Secure Hook And Loop Closure, Realistic Markings, Stash Cash Passport And Cards",
+            "char_count": 98,
+            "validation_error": null
+        }
+    }
+}

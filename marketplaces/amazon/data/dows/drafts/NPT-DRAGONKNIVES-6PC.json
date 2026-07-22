@@ -3,14 +3,14 @@
     "asin": "B08ZJX848F",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:22:38+00:00",
+    "generated_at": "2026-07-21T20:09:04+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -33,19 +33,58 @@
             "asin": "B08ZJX848F",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical 9 Inch Silver Dragon Throwing Knives 6-Piece Set",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical 6-pc 9in Silver Dragon Throwing Knives",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "6",
+                "pack_size_unit": "pc",
+                "size": "9in",
+                "color": "Silver",
+                "name": "Dragon Throwing Knives"
+            }
         },
-        "title_differentiation": {
-            "value": "Stainless Steel, Dragon Design, Includes Nylon Sheath",
+        "item_name_ai_openai": {
+            "value": "ASR Tactical 6-Pc 9 in Silver Fantasy Dragon Throwing Knives Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 64,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "6",
+                "pack_size_unit": "Pc",
+                "size": "9 in",
+                "color": "Silver",
+                "name": "Throwing Knives Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "6 Piece Set, 9 Inch Length, 440 Stainless Steel, Dragon Etched Design, Includes Black Nylon Sheath, Target Practice And Sports",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 126,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (126 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "440 Stainless Steel, Etched Dragon Design, Nylon Sheath Included, Balanced Blades, Target Practice, 6-Piece Set",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

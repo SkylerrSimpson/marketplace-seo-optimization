@@ -1,0 +1,60 @@
+{
+    "sku": "ASR-KEVLAR-TRIP-LINE-PLACEHOLDER",
+    "asin": "B0863FK41J",
+    "product_type": "WIRE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: ASR-KEVLAR-TRIP-LINE-PLACEHOLDER\nProduct Type: WIRE\nBrand (from catalog): ASR Tactical\nExisting Title: ASR Tactical Kevlar Trip Wire 85 Feet on Spool 84lb Strength, Black (ASRTKTL85FT)\nDescription: The ASR Tactical Kevlar trip line is a high quality waxed trip line made from Kevlar cord that has a tensile strength of 85lbs. Having high flexibility and contained in a non-metallic rapid deployment spool allows greater ease of use over traditional military metal trip wire. It is difficult to cut and blends well with its surroundings. To be used in conjunction with all types of trip wire activated perimeter alarms.<br/><br/>Kevlar trip wire can be used for booby traps, setting boundaries and snares, securing gear or building survival shelter; use to sew and stitch clothing in the field or use for fishing line and food procurement; multipurpose and easily carried edc gear due to the light weight and small size<br/><br/>Ideal for SERE and survival kits, and a wide range of other applications and uses as seen fit, including first aid kits.\nSearch Terms: booby trap military tactical trip wire perimeter alarm alert trip line generic anti intruder home security system devices boobie traps catch prevent trespasser alert house reusable large game door gate device\nFeatures:\n- KEVLAR TRIP LINE: ASR Tactical kevlar trip wire can be used for booby traps, setting boundaries and snares, securing gear or building survival shelter; Multipurpose survival cord\n- Compatible with all outdoor perimeter alarm signaling devices that are trip wire activated\n- SPECIFICATIONS: 85 pound tensile strength; Color: Black; Length: 85 feet\n- Comes wound on a pop out rapid deployment spool that allows for quick and effortless tangle-free use\n- MADE IN THE USA\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 85ft Black Kevlar Trip Wire",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "85",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Black",
+                "name": "Kevlar Trip Wire"
+            },
+            "char_count": 40,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 85-ft Black Kevlar Trip Wire",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "85",
+                "pack_size_unit": "ft",
+                "size": "",
+                "color": "Black",
+                "name": "Kevlar Trip Wire"
+            },
+            "char_count": 41,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "85Lb Tensile Strength, Rapid Deployment Spool, Multipurpose Survival Cord, Perimeter Alarm Compatible",
+            "char_count": 101,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "85 Lb Tensile Strength, Waxed Kevlar Cord, Rapid Deployment Spool, Tangle Free, Perimeter Alarm Compatible, Made In USA",
+            "char_count": 119,
+            "validation_error": null
+        }
+    }
+}

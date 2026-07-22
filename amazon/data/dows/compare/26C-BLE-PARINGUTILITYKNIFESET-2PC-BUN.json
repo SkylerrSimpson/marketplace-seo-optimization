@@ -1,0 +1,60 @@
+{
+    "sku": "26C-BLE-PARINGUTILITYKNIFESET-2PC-BUN",
+    "asin": "B0FN6R92CB",
+    "product_type": "KITCHEN_KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 26C-BLE-PARINGUTILITYKNIFESET-2PC-BUN\nProduct Type: KITCHEN_KNIFE\nBrand (from catalog): Beille\nExisting Title: Beille 2pc Stainless Steel and Wheat Fiber Handle Kitchen Knives, Utility & Paring Set\nDescription: Elevate your everyday prep work with the Beille 2pc Knife Set, thoughtfully crafted to bring together precision, comfort, and sustainability in your kitchen. This versatile duo includes a 3.5-inch paring knife and a 5-inch utility knife - perfect for tackling everything from delicate peeling to hearty slicing with ease and control.<br/><br/>Each knife features a high-quality stainless steel blade that resists rust, stains, and corrosion while maintaining its sharp edge over time. Whether you’re de-veining shrimp, slicing fruit, trimming vegetables, or crafting the perfect sandwich, these blades deliver clean, accurate cuts for a smoother cooking experience.<br/><br/>Designed with a modern, eco-conscious edge, both knives are equipped with ergonomic handles made from wheat straw fiber, a biodegradable material blended with polypropylene. Lightweight yet sturdy, the handle offers a comfortable, natural grip for effortless maneuvering - even during extended prep sessions—while also helping reduce plastic waste in the kitchen.<br/><br/>From quick weekday meals to weekend culinary projects, this minimalist, dishwasher-safe knife set blends functionality, style, and sustainability for cooks of all levels. The paring knife provides nimble precision for small tasks, while the utility knife bridges the gap between paring and chef’s knives for all-around versatility.\nSearch Terms: small kitchen knife; fruit peeler; veggie prep tool; stainless steel blade; precision paring knife; sustainable handle; eco friendly cutlery; compact food prep tool; ergonomic grip; mini chef knife; food meal prep\nFeatures:\n- PRECISION PARING PERFORMANCE: Ideal for intricate tasks like peeling, trimming, and slicing fruits or vegetables; compact stainless steel blade ensures razor sharp performance and easy control for delicate food and meal prep tasks\n- 5 INCH UTILITY KNIFE: A great all purpose knife that bridges the gap between a chef’s knife and paring knife; ideal for slicing fruits, vegetables, meats, and cheeses, making it perfect for everyday kitchen prep\n- STAINLESS STEEL BLADE: Built to last with a durable, corrosion resistant stainless steel blade that maintains its edge through everyday kitchen use; designed for long lasting sharpness and performance\n- STYLISH AND MODERN LOOK: Style and sustainability meet here! Sleek, compact, and stylish, this knife set adds a clean, natural look to any kitchen\n- DISHWASHER SAFE: Designed for convenience, these knives are safe to clean in the dishwasher, making post meal clean up quick and hassle free\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 2-pc Stainless Steel Paring and Utility Knife Set",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Stainless Steel",
+                "name": "Paring and Utility Knife Set"
+            },
+            "char_count": 56,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 2-Pc Kitchen Knife Set, Utility and Paring",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Kitchen Knife Set, Utility and Paring"
+            },
+            "char_count": 49,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "35 And 5 Inch Blades, Stainless Steel, Wheat Fiber Handles, Eco-Friendly, Dishwasher Safe, Ergonomic Grip",
+            "char_count": 105,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Stainless Steel Blades, Wheat Fiber Handles, Paring And Utility Knives, Dishwasher Safe, Ergonomic Grip",
+            "char_count": 103,
+            "validation_error": null
+        }
+    }
+}

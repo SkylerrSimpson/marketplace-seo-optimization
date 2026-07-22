@@ -1,0 +1,60 @@
+{
+    "sku": "SON-TTX-ICESCRAPERGLOVE-BLK",
+    "asin": "B0BT6SJ4TM",
+    "product_type": "MOTORCYCLES",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-TTX-ICESCRAPERGLOVE-BLK\nProduct Type: MOTORCYCLES\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Ice Scraper with Fleece Lined Waterproof Glove Car Accessories, Black\nDescription: Did you wake up to a foot of snow on top of your car? Worry no more. ToolTreaux's innovative ice scraper features a warm and cozy fleece lining that allows you to quickly remove ice and frost from your car's windshield and windows with ease, and without freezing fingers. Oh, and did we mention the gloves are waterproof too? <br/><br/>The unique design of these ice scraper mittens is the interior housing of the scraper (which is removable if needed), providing better grip and more power when removing snow, frost or ice from car windshields or windows. <br/><br/>Safe to use and incredibly durable, the built in acrylic ice scraper will not scratch glass and will remove even the toughest ice and frost from vehicles; And, measuring just 13 inches in length, the ice scraper glove can easily remain in vehicle without compromising on space.<br/><br/>A great gift and must have winter car accessory for yourself, friends and family, making snowy mornings more manageable.\nSearch Terms: windshield scraper for ice and snow car ice scraper winter car accessories winter survival kit for car emergency preparedness hand tools glove automotive exterior accessories survival gear windshield cleaning tool snow removal for cars gifts for men\nFeatures:\n- ICE SCRAPER GLOVE: Remove snow and frost from cars quickly and comfortably with ToolTreaux's waterproof and fleece lined ice scraper glove; unique design houses the scraper inside the glove for better grip and power\n- FLEECE LINING: These ice scraping gloves feature soft fleece lining so fingers and hands remain comfortable, warm and mobile when removing ice, frost or snow from vehicles; And, measuring just 13 inches in length, the ice scraper glove can easily remain in vehicle without compromising on space\n- ACRYLIC EDGE: Safe to use and incredibly durable, the built in acrylic ice scraper will not scratch glass and will remove even the toughest ice and frost from vehicles; ice scraper is easily detachable from mittens if needed\n- WATERPROOF DESIGN: Waterproof material means hands stay dry and warm when scraping off ice or frost, as water will not seep through; cinched wrist also helps to keep snow and other debris out\n- SPECIFICATIONS: Dimensions: 12.75 x 7 x 0.5 inches; Weight: 0.25; Scraper Handle: 9 inches; Edge Width: 4.25 inches; Color: Black; One Size Fits All\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux Ice Scraper Glove Waterproof Fleece Lined Black",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Ice Scraper Glove Waterproof Fleece Lined"
+            },
+            "char_count": 58,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 13-in Black Ice Scraper Glove",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Ice Scraper Glove"
+            },
+            "char_count": 40,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Waterproof And Fleece Lined, Acrylic Edge Won't Scratch Glass, Removable Scraper, 13 Inches, One Size Fits All",
+            "char_count": 110,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Fleece Lined, Waterproof, Detachable Acrylic Blade, Safe On Glass, Warm Winter Car Accessory, One Size Fits All",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

@@ -3,14 +3,14 @@
     "asin": "B0CCTQC9K1",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:23:20+00:00",
+    "generated_at": "2026-07-21T20:09:04+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,20 +27,57 @@
             "asin": "B0CCTQC9K1",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 5 Piece Gold Panning Beginner Kit, 10\" Pan, Blue",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 5-Pc Gold Panning Beginners Kit, 10 inch Blue",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 57,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "Pc",
+                "size": "10 inch",
+                "color": "Blue",
+                "name": "Gold Panning Beginners Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "Dual Riffle Pan, Magnifying Tweezer, Collection Vial, Snifter Bottle",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 5-pk Blue Gold Panning Beginner Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 47,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Blue",
+                "name": "Gold Panning Beginner Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Dual Riffle Pan, Magnifying Tweezer, Gold Vial, Snifter Bottle, Complete Prospecting Set",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 88,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "10 Inch Dual Riffle Pan, Glass Gold Vial, Magnification Loupe Tweezer, 3Oz Snifter Bottle, Beginner Prospecting Tools",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 117,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

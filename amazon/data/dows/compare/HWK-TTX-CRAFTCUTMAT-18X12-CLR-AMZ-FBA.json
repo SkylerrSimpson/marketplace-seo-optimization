@@ -1,0 +1,60 @@
+{
+    "sku": "HWK-TTX-CRAFTCUTMAT-18X12-CLR-AMZ-FBA",
+    "asin": "B09KJP2HCQ",
+    "product_type": "CUTTING_BOARD",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWK-TTX-CRAFTCUTMAT-18X12-CLR-AMZ-FBA\nProduct Type: CUTTING_BOARD\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Clear Craft Cutting Mat Art Supplies Hobby Tools, 18 x 12 Inch\nDescription: This clear cutting mat from ToolTreaux provides a great work area, reliable cutting base and excellent work surface protection, whether for kids art projects, photography, drafting, architecture, sewing, scrapbooking and more. Measuring 12 x 18 inches, the cutting board provides a large work area and screened inch, metric and angled trimming guides (including 60 and 45 degree lines), that makes for accurate measuring, trimming, drawing and cutting. <br/><br/>And, made from layers of heavy duty and durable vinyl plastic, the craft mat measures 1/8 inches in thickness and will stand up to lots of wear and tear. The cutting mat provides excellent protection against blades, glue, pens, Sharpies and other craft or art supplies that might otherwise ruin the finish of a desk or tabletop.<br/><br/>The cutting mat also features a completely smooth finish, even with grid measurements screened on; when moving craft or drawing utensils across the cutting board, the finish is comfortable to work against will not disrupt workflow.<br/><br/>A must-have, hobby tools essential for all levels of creatives, crafters, artists, designers and hobbyists.\nSearch Terms: cutting mat cutting boards art supplies hobby tools drawing architecture photography drafting creative designers kids scrapbooking craft mat quilting DIY craft measuring mat hobbyist quilting art prints painting stationery origami crafting table\nFeatures:\n- CREATIVE CUTTING MAT: This cutting mat from ToolTreaux provides a great work area, reliable cutting base and excellent work surface protection, whether for kids art projects, photography, drafting, architecture, sewing, scrapbooking, DIYer and more; a hobby tools essential for all levels of creatives, crafters, artists, designers and hobbyists\n- SCREENED MEASUREMENT GUIDES: Measuring 12x18 inches, the cutting board provides a large work area and screened inch, metric and angled trimming guides (including 60 and 45 degree lines), that makes for accurate measuring, trimming, drawing and more\n- DURABLE CRAFT MAT FABRICATION: Made from layers of heavy duty and durable vinyl plastic, the craft mat measures 1/8 inches in thickness and will stand up to lots of wear and tear! The cutting mat provides excellent protection against blades, glue, pens, Sharpies and other craft or art supplies that might otherwise ruin the finish of a desk or tabletop\n- SMOOTH CUTTING MAT FINISH: The cutting mat features a completely smooth finish, even with grid measurements screened on; when moving craft or drawing utensils across the cutting board, the finish is comfortable to work against will not disrupt workflow; curl and warp resistant\n- SPECIFICATIONS: Dimensions: 12 x 18 x 1/8 inches; Color: Clear with green grid lines; Material: Vinyl Plastic\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 18 x 12 inch Clear Cutting Mat",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "18 x 12",
+                "pack_size_unit": "inch",
+                "size": "",
+                "color": "Clear",
+                "name": "Cutting Mat"
+            },
+            "char_count": 41,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 12x18 In Clear Craft Cutting Mat",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "12x18 in",
+                "color": "Clear",
+                "name": "Craft Cutting Mat"
+            },
+            "char_count": 43,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Screened Measurement Guides, Heavy Duty Vinyl, 18 Inch Thick, Self-Healing, Smooth Finish, Art Crafts Sewing",
+            "char_count": 108,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Screened Inch And Metric Grid, 45 And 60 Degree Lines, Durable Vinyl, Smooth Finish, Desk Protection",
+            "char_count": 100,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-SLUICE-BOX-1",
+    "asin": "B074CHGRP9",
+    "product_type": "METAL_DETECTOR",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-SLUICE-BOX-1\nProduct Type: METAL_DETECTOR\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Multi Riffle Plastic Sluice Box for Gold Panning with Adjustable Strap, 34 inch\nDescription: Pan for gold anywhere, anytime. The ASR Outdoor Gold Panning 34 inch Portable Gold Sluice Box is a gravity fed high recovery gold prospecting and mineral collection tool. Extremely portable with an adjustable shoulder strap allowing you to take it to the mouth of the river, high into the mountains, near the base of a waterfall or anywhere in between. Weighing only 7lbs, made from high-impact durable plastic, this sluice box will never rust and can be used even in the harshest of climates without worry. <br/><br/>Molded into the channel of the ASR Outdoor Gold Panning Sluice Box is a (4) different sets of sediment riffle traps featuring tried and true riffle designs to maximize the amount of gold that is separated from your pay dirt, they are; Hungarian, V-shape, Micro, and Square. This combination will in-turn, increase the amount of gold you separate out from your paydirt prospecting material you've collected, simplifying the separating process of your sediment and maximizing your efficiency. <br/><br/>The Gold Sluice Box is 34 inches in length with a 10 inch wide channel and has 3 inch high channel walls to keep all your valuable, high yielding gold pay dirt confined and flowing over the riffle collection traps. The mouth of the Gold Prospecting Sluice Box features a 16 inch flared opening designed to increase the volume of water entering the prospecting channel thus increasing the flow rate through the Sluice Box. The Sluice Box is manufactured from green ABS High-Impact plastic allowing for maximum clarity and easy spotting or identifying of gold flakes, nuggets, gems, or your choice mineral.<br/><br/>The 34 inch Gravity Gold Rush Sluice Box by ASR Outdoor is the ideal set-up for beginner gold panning and experienced Miner Forty-Niners alike, as there is always a need for the proper tool for the job and this Gold Panning Sluice Box will find a good home with you in the wilderness when put to good use\nSearch Terms: sluice box gold mining equipment lightweight panning kit for kids mine tools plastic sluce prospecting sifting screen classifier pan set slue classifiying screens gem collecting hock hounding adventure mineral collection outdoor gifts dad streams\nFeatures:\n- HIGH-YIELD GOLD RECOVERY: (4) Molded Riffle Collection Trap Designs are Built in Through the Sediment Channel which Help You Effortlessly Collect more Flake and Nuggets; Hungarian, V-shape, Micro, and Square\n- MAXIMUM EFFICIENCY: The Entire Gold Panning Sluice Box is 34 inches in Length with a 10-inch Wide Riffle Channel; 3-inch High Channel Walls; 16 inch Flared Opening Designed to Increase the Volume of Water Entering the Riffled Sediment Channel, While Increasing the Flow Rate though the Sluice Box\n- DURABLE CONSTRUCTION: Made to be used. Designed to be portable the sluice box for gold prospecting is lightweight made from high-impact ABS plastic. It will never rust and can withstand the harshest environments\n- EFFORTLESS USE: Ready to deploy. All you need to do is make sure your sluice box is level in the field. The multi-riffle sediment channel finds gold fast, making this Ideal for gold panning beginners\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 34in Gold Sluice Box for Prospecting",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "34",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Gold Sluice Box for Prospecting"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 34 in Multi Riffle Plastic Sluice Box for Gold Panning",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "34",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Multi Riffle Plastic Sluice Box for Gold Panning"
+            },
+            "char_count": 66,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "4 Riffle Designs, Lightweight Portable, High-Impact Durable Plastic, 10In Wide Channel, Adjustable Strap",
+            "char_count": 104,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Hungarian V Shaped Micro And Square Riffles, 16\" Flared Inlet, High Impact ABS, Rustproof, Lightweight",
+            "char_count": 102,
+            "validation_error": null
+        }
+    }
+}

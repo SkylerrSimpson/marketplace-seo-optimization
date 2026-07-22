@@ -1,0 +1,60 @@
+{
+    "sku": "SON-BLK-881-MA-HATCH-FBA",
+    "asin": "B09KWKGLMX",
+    "product_type": "AXE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-BLK-881-MA-HATCH-FBA\nProduct Type: AXE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Survival Hatchet with Hammer Pry Bar Emergency Axe Utility Tool\nDescription: The 3-in-1 Multi-Function Hatchet is useful in many situations. With a pry bar, hammer, and hatchet all in one, this tool is ideal for both construction and dismantling. Use it to cut fire wood or pry your way out of a situation. This 3-in-1 hatchet is an incredible survival/camping tool designed to help you with the various requirements of roughing it outdoors. You also will save considerable weight rather than carrying three separate tools with you in your camping/survival gear. It is made out of solid steel and you can use in a number of ways, including setting up camp and salvaging equipment. It features a long rubberized handle for superior grip.\nSearch Terms: outdoor tactical camping hiking backpacking survival gear; hand tools; survival kit; emergency preparedness item; bug out bag; hatchet; axe; multitool; pry bar\nFeatures:\n- 3-in-1 functions: crow bar, hammer, hatchet\n- Comfortable handle\n- Single piece of tough steel\n- Color: black\n- Overall length: 12.5\"\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 12.5 in Black Survival Hatchet 3-in-1",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "12.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Survival Hatchet 3-in-1"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 12.5in Black Survival Hatchet",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "12.5in",
+                "color": "Black",
+                "name": "Survival Hatchet"
+            },
+            "char_count": 41,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "3-In-1 Multi-Function, Hatchet Pry Bar Hammer, Solid Steel, Rubberized Handle, Camping Survival Tool",
+            "char_count": 100,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "3-In-1 Axe Pry Bar Hammer, Solid Steel Construction, Rubberized Grip, Camp, Survival, Emergency Tool",
+            "char_count": 100,
+            "validation_error": null
+        }
+    }
+}

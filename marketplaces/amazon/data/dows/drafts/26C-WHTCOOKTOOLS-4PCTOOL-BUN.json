@@ -3,14 +3,14 @@
     "asin": "B0BZ9XHWV2",
     "product_type": "SPOON",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:35:32+00:00",
+    "generated_at": "2026-07-21T20:11:42+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -83,20 +83,57 @@
             "asin": "B0BZ9XHWV2",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille 4pc Wheat Straw Kitchen Utensils Set - Eco Friendly",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 4-pc Wheat Straw Kitchen Utensils Set Cream",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Cream",
+                "name": "Wheat Straw Kitchen Utensils Set"
+            }
         },
-        "title_differentiation": {
-            "value": "Scoop, Peeler, Grater, Pizza Cutter | Dishwasher Safe | BPA Free",
+        "item_name_ai_openai": {
+            "value": "Beille 4-pk Standard Cream Wheat Straw Kitchen Utensil Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 58,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "Standard",
+                "color": "Cream",
+                "name": "Wheat Straw Kitchen Utensil Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Ice Cream Scoop, Pizza Cutter, Vegetable Peeler, Cheese Grater, Dishwasher Safe, BPA-Free, Sustainable",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 102,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "BPA Free, Food Safe, Dishwasher Safe, Hanging Hole Storage, Sustainable Plant-Based Material, Cream Speckled Finish",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 115,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

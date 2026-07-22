@@ -3,18 +3,24 @@
     "asin": "B0CN657MRY",
     "product_type": "SPORTING_GOODS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:52:16+00:00",
+    "generated_at": "2026-07-21T20:03:22+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
-        "fillable": 0,
+        "fillable": 1,
         "catalog": 3,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
     "attributes": {
+        "target_audience": {
+            "value": "adults, men, women, hunters",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.target_audience_amazon"
+        },
         "pattern": {
             "value": [
                 {
@@ -53,19 +59,57 @@
             "asin": "B0CN657MRY",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical 8.25\" Spear Point Full Tang Stainless Steel Knife",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical 8.25\" Chrome Spear Point Hunting Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "8.25",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Chrome",
+                "name": "Spear Point Hunting Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "Fixed blade, double edge, compact 3.5\" blade, includes Kydex sheath",
+        "item_name_ai_openai": {
+            "value": "ASR Tactical 8.25 in Spear Point Hunting Knife Chrome",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 53,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "8.25",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Chrome",
+                "name": "Spear Point Hunting Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Full Tang Fixed Blade, 3CR13 Stainless Steel, Compact 35\" Blade, Kydex Sheath, Self-Defense And Throwing",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 104,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Full Tang 3CR13 Stainless Steel, Double Edge Spear Point, Kydex Sheath, Pocket Friendly, Finger Hook Handle",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

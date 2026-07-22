@@ -3,14 +3,14 @@
     "asin": "B0BLR36SFP",
     "product_type": "CANDLE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:10:55+00:00",
+    "generated_at": "2026-07-21T19:48:14+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 9,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -144,25 +144,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "4-Wick 48 Hour Survival Storm Candle",
+            "value": "Survival Storm Candle",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 4-Wick 48 Hour Survival Emergency Candle Tin",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 4-Wick 48 Hour Survival Storm Candle Tin",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "Wick",
+                "size": "48 Hour",
+                "color": "Silver",
+                "name": "Survival Storm Candle Tin"
+            }
         },
-        "title_differentiation": {
-            "value": "48-Hour Burn Time, 4 Wicks, Portable Tin, Fire Starter",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 4-Wick 48-Hour Survival Storm Candle in Tin",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 55,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "wick",
+                "size": "48-Hour",
+                "color": "",
+                "name": "Survival Storm Candle In Tin"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Emergency Light, 48 Hour Burn Time, Compact Portable Tin, Fire Starter, Power Outage, Camping And Hiking",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 104,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "48 Hour Burn Time, Four Wicks, Compact Tin, Unscented Soy Wax, Emergency Light And Fire Starter",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 95,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

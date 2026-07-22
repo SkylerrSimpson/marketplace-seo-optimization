@@ -3,14 +3,14 @@
     "asin": "B016VYKQVG",
     "product_type": "CANDLE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:33:01+00:00",
+    "generated_at": "2026-07-21T19:56:19+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 9,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 20
     },
@@ -153,20 +153,57 @@
             "asin": "B016VYKQVG",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 48 Hour Survival Candle 4 Wick Emergency Light",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 4-Wick 48 Hour Survival Candle Emergency",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "Wick",
+                "size": "48 Hour",
+                "color": "",
+                "name": "Survival Candle Emergency"
+            }
         },
-        "title_differentiation": {
-            "value": "48-Hour Burn Time, Portable Tin, Camping & Blackout Emergency Light",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 48 Hour Survival Candle",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 35,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "48 Hour",
+                "color": "",
+                "name": "Survival Candle"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "48 Hour Burn Time, 4 Wick, Portable Tin, Fire Starter, Bug Out Bag, Power Outage, Camping Emergency Light",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 105,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "4 Wick Design, 48 Hour Burn Time, Tin Case, Emergency Fire Starter, Compact Portable",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 84,
+            "review_only": true
         },
         "supplier_declared_material_regulation": {
             "value": [

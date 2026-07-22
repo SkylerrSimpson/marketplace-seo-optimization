@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-FROZEN-FXHAIR-FZ2257INVAS-AMZ",
+    "asin": "B07XLCRKW3",
+    "product_type": "HAIR_TIE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-FROZEN-FXHAIR-FZ2257INVAS-AMZ\nProduct Type: HAIR_TIE\nBrand (from catalog): LUV HER\nExisting Title: BFF Faux Hair Braid Elastic Pony Set frozen 2\nDescription: Is your child obsessed with Frozen II? This officially licensed set of faux hair braids is the perfect dress-up hair accessory for girls who want to look just like Snow Queen Elsa and Princess Anna.<br/><br/>This set of faux braids comes with one blonde braid for Queen Elsa of Arendelle and one long brown ponytail with Princess Anna on the bow. Each hair extension features a clip so your child can easily secure their hair for an all-day look. Designed with comfort in mind, these extensions will provide effortless application with minimal pulling so your child can switch between characters without damaging their hair.<br/><br/>These faux hair extensions are safe for children ages 3 and up to use with adult supervision. They are a great gift idea as either a holiday stocking stuffer or a party favor for a Frozen or Disney Princess-themed party.\nSearch Terms: girls hair accessories girls hair clips faux braids hair extensions for kids girls costumes dress up sets pretend play gift sets girls stocking stuffers girls party favors frozen themed gifts disney stocking stuffers childrens costumes headbands\nFeatures:\n- DISNEY FROZEN HAIR ACCESSORIES - Officially licensed Disney faux hair extension set comes with 1 long blonde braid and 1 long brown ponytail so children can dress up as their favorite characters from the hit Frozen movie franchise - Snow Queen Elsa and Princess Anna\n- CUTE DRESS-UP SET - Faux braids are ideal for any Frozen-themed outfit; Great gift idea for stocking stuffers or party favors for Frozen and Disney Princess-themed birthday parties\n- EASY TO USE - Each faux hair extension comes with an easy-to-use hair clip so kids can secure their hair for an all-day look; Designed to provide effortless application with minimal pulling to avoid damaging hair\n- SAFE FOR KIDS - Both hair extension clips are made of durable, high-quality materials safe for children ages 3 and up with adult supervision; Choking hazard (small parts)\n- SPECIFICATIONS - Officially licensed Disney (Frozen II); Styles included: blonde and brunette; Hair clips included; Age recommendation: 3+ years\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "LUV HER Frozen 2 Faux Hair Braid Elastic Pony Set",
+            "tokens": {
+                "brand": "LUV HER",
+                "pack_size": "2",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Blonde and Brown",
+                "name": "Faux Hair Braid Elastic Pony Set"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "LUV HER Frozen Faux Hair Braid Pony Set",
+            "tokens": {
+                "brand": "LUV HER",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Frozen Faux Hair Braid Pony Set"
+            },
+            "char_count": 39,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Official Disney License, Elsa And Anna Hair Clips, Easy-to-Use, Safe For Ages 3 Plus, Dress-Up Costume Accessory",
+            "char_count": 112,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Officially Licensed Disney Frozen II, Elsa And Anna Styles, Clip-In, Ages Three And Up, Minimal Pulling",
+            "char_count": 103,
+            "validation_error": null
+        }
+    }
+}

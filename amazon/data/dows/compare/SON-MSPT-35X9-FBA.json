@@ -1,0 +1,60 @@
+{
+    "sku": "SON-MSPT-35X9-FBA",
+    "asin": "B00ZO64TAC",
+    "product_type": "UTILITY_MAGNET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-MSPT-35X9-FBA\nProduct Type: UTILITY_MAGNET\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 16LB Magnetic Separator Black Sand Magnet Gold Panning Recovery Tool, Large\nDescription: The ASR Outdoor Black Sand Magnetic Separator is a must have item when working with paydirt that contains ferrous material like iron ore and magnetite. By utilizing the magnetic separator pick up tool you are saving yourself from having to pan out the non-essential metal ore which is far more labor intensive.\n<br/><br/>\nEach tool features a rubberized grip pull handle that will add comfort while lifting heavy objects. The handle has a quick release that will allow you demagnatize the object you picked up quickly and effortlessly. Each pick-up tool measures 9” tall and has a diameter of 3.5” so it should fit inside most outdoor gear bags or backpacks.\n<br/><br/>\nWith a maximum weight capacity of 16lbs, this pick-up tool will grab just about any large metal object you locate while gold panning. The weight of the object should be evenly distributed across the magnetic base (the magnets are not continuous throughout the magnetic surface).\n<br/><br/>\nThis magnetic separator is also a versatile magnetic tool for other metalworking and hobby crafts. Use it to pick up metal shavings while making jewelry, sorting ferrous metal objects and workshop materials.\nSearch Terms: pick up tool handheld black sand iron removal sediment separation garage mechanic metal sweep workshop screw clean up tool equipment magnet strong auto body repair\nFeatures:\n- BLACK SAND MAGNETIC SEPARATOR: A great tool to have for separating metal objects from non-metal objects; the built-in handle makes the handheld magnet pickup tool easy to use and on works when you squeeze the handle\n- FAST EFFICIENT AND COMPACT: At just under five inches tall, this powerful and compact handheld magnet tool can grab up to 16lbs of metal material; works quickly and efficiently to separate found metal from other material or debris\n- EASY TO USE QUICK RELEASE HANDLE: Easy to use, simply pull the handle upwards for quick release of your gold or other metal finds; the magnetic pickup tool handle is rubberized making it comfortable to hold and easy to grip when releasing\n- VERSATILE MAGNET TOOL: Although designed for gold panning, these tools are great for other metalworking and hobby crafts like jewelry making, automotive, and picking up metal shavings or nuts and bolts\n- SPECIFICATIONS: Magnetic Surface Diameter Dimensions: 4 inches; Magnetic Strength: 16LB; Handle Material Rubber; Body Material: Metal; Weight: 0.55lbs\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 16LB Black Sand Magnetic Separator Gold Panning",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "16",
+                "pack_size_unit": "LB",
+                "size": "",
+                "color": "Black",
+                "name": "Magnetic Separator Gold Panning Tool"
+            },
+            "char_count": 59,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 16lb Large Black Sand Magnetic Separator Magnet",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "16",
+                "pack_size_unit": "lb",
+                "size": "Large",
+                "color": "Black",
+                "name": "Magnetic Separator"
+            },
+            "char_count": 59,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Quick Release Handle, 16LB Capacity, Gold Panning And Metal Recovery, Jewelry Making, Workshop Cleanup",
+            "char_count": 102,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Quick Release Handle, 16 Lb Pull Force, Separates Black Sand, Rubber Grip, Gold Panning, Workshop Cleanup",
+            "char_count": 105,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "ASRO-PARABRACEBUCKLE-MULTI-12PK",
+    "asin": "B074KN55CV",
+    "product_type": "BUCKLE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: ASRO-PARABRACEBUCKLE-MULTI-12PK\nProduct Type: BUCKLE\nBrand (from catalog): ASR Outdoor\nExisting Title: (12 Pack) ASR Outdoor Paracord Bracelet Buckle Set Multi-Color (20mm .75 Inch)\nDescription: Fix your old paracord bracelet with the ASR Outdoor Paracord Bracelet Buckle Set.<br/><br/>Each set comes with paracord bracelet buckles in standard black or assorted colors. Each buckle is .75\" wide (20mm), making it perfect for smaller paracord bracelets. Just select your pack size and color choice from the drop down menu.<br/><br/>Other great uses for these buckles are camping and hiking gear repair, accessories, crafting and hobbies.\nSearch Terms: 550 paracord buckle craft kit side release clips plastic buckle clasp replacement strap repair webbing backpack lanyard survival craft DIY 15mm 20mm black outdoor camping gear cordage accessories\nFeatures:\n- DURABLE HIGH QUALITY PLASTIC: Side Release Replacement Buckles Made from Injection Molded Plastic | Made to Withstand Longtime Wear and Tear\n- ASSORTED MULTI COLOR: Includes Blue, Black, Red, Yellow, Orange, and Green\n- SIZE SPECIFICATION: Overall Width for Webbing is 3/4\" Inch (20mm)\n- FIX REPLACE UPGRADE: Multi Function Side Release Buckles for all Nylon Webbing Applications including Tactical Paracord Bracelet, Backpack Straps, Fanny Packs and Dog Collars\n- MULTI FUNCTION: Side Release Buckles are Great for Easy One-Handed Release and No Accidental Uncoupling. Great for Outdoor Use, Gear Repair, Crafting, Hobbies & More\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 80 characters.  Please include the size and color of the item in the Product Name, if available.\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 12-Pack 20mm Multi-Color Paracord Bracelet Buckles",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "12",
+                "pack_size_unit": "Pack",
+                "size": "20mm",
+                "color": "Multi-Color",
+                "name": "Paracord Bracelet Buckles"
+            },
+            "char_count": 62,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 12-Pk 20mm Multi-Color Paracord Bracelet Buckles",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "12",
+                "pack_size_unit": "Pk",
+                "size": "20mm",
+                "color": "Multi-Color",
+                "name": "Paracord Bracelet Buckles"
+            },
+            "char_count": 60,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Side Release Clips, 12 Assorted Colors, Durable Plastic, Webbing Strap Repair, Outdoor Gear And Craft Projects",
+            "char_count": 110,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Injection Molded Plastic, Side Release, Fits Smaller Webbing, Easy One-Handed Use, Gear Repair, Crafting",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

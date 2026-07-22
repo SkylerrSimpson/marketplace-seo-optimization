@@ -3,14 +3,14 @@
     "asin": "B0CMVQV293",
     "product_type": "PUNCHING_BAG",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:28:07+00:00",
+    "generated_at": "2026-07-21T19:54:56+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 12,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -176,20 +176,57 @@
             "asin": "B0CMVQV293",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Marvel Avengers Jumbo 5ft Bop Bag Punching Bag Kids",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "What Kids Want! Avengers Jumbo 5ft Bop Bag",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 42,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "What Kids Want!",
+                "pack_size": "5",
+                "pack_size_unit": "ft",
+                "size": "Jumbo",
+                "color": "",
+                "name": "Avengers Bop Bag"
+            }
         },
-        "title_differentiation": {
-            "value": "XXL 5-Foot Tall, Ages 3+, Water/Sand Fill, Repair Kit Included",
+        "item_name_ai_openai": {
+            "value": "What Kids Want! Avengers Jumbo Punching Bag",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 43,
+            "review_only": true,
+            "tokens": {
+                "brand": "What Kids Want!",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Jumbo",
+                "color": "",
+                "name": "Avengers Punching Bag"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Officially Licensed Marvel, XXL Super-Sized, Freestanding Punching Bag, Ages 3 And Up, Repair Kit Included",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 106,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Officially Licensed Marvel, 5 Foot Tall Freestanding Water Or Sand Base, Repair Kit Included, Ages 3 Plus",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 105,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

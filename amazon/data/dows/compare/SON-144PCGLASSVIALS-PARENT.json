@@ -1,0 +1,60 @@
+{
+    "sku": "SON-144PCGLASSVIALS-PARENT",
+    "asin": "B0B7KQMMJ5",
+    "product_type": "LAB_SUPPLY",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-144PCGLASSVIALS-PARENT\nProduct Type: LAB_SUPPLY\nBrand (from catalog): ASR Outdoor\nExisting Title: 144pk Small Glass Vials with Screw On Cap, Hobby and Craft Lab Sample Vial Set\nDescription: These small glass vials with screw cap come case packed with 144 pieces in each vial set. They are ideal for storing liquids with their water tight screw on plastic cap or storing small items like beads, glitter, dust and other essential craft and hobby items. They will perform well in all laboratory conditions and are manufactured to the high quality standards to ensure they will work as expected each time without fail.<br/><br/>These small dram vials are made from Borosilicate glass, which is a type of glass that will not crack under extreme temperature changes like regular glass. Its durability has made it the glass of choice for laboratories, scientists, prospectors and collectors alike.<br/><br/>In addition to the glass body tube, the caps them selves which screw on are made from a thermoset plastic material known for its physical and molding properties. These caps show strength and durability with heat-resistant and insulating properties that are widely used in laboratory environments. Excellent resistance to corrosion and low moisture absorption. Making these lab sample vials able to be used with an autoclave. <br/><br/>These are the vials you want whether it is working in a laboratory or at home with your hobby and crafts, essential oils, beading or glitter. They perform the job without fail.\nSearch Terms: dram vials 1 glass vial gold prospecting equipment tools supplies mining kit crafting beading jewelry making hobby storage organization\nFeatures:\n- Borosilicate small glass vials with screw on cap; water tight liquid seal; will not crack or break under extreme temperature changes\n- Clear transparent vial body with black cap\n- 144 individual small dram glass vials with screw cap come case packed in each vial set\n- Perfect for storing small items like gold flakes, glitter, essential oils, perfume, gems, beads, and more\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 144-pk Small Glass Vials with Screw Cap",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "144",
+                "pack_size_unit": "pk",
+                "size": "Small",
+                "color": "Clear and Black",
+                "name": "Glass Vials with Screw Cap"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 144-pk Small Clear Glass Vials with Screw On Cap",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "144",
+                "pack_size_unit": "pk",
+                "size": "Small",
+                "color": "Clear",
+                "name": "Glass Vials with Screw On Cap"
+            },
+            "char_count": 60,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Borosilicate Glass, Water-Tight Seal, Temperature Resistant, Lab Grade, Essential Oils, Beads, Glitter, Gold Prospecting",
+            "char_count": 120,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Borosilicate Glass, Water Tight Screw Caps, Autoclavable, For Beads, Glitter, Essential Oils, Gold Flakes",
+            "char_count": 105,
+            "validation_error": null
+        }
+    }
+}

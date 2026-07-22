@@ -1,0 +1,60 @@
+{
+    "sku": "SHM-UV9LF-SML-BLCK",
+    "asin": "B00BC471T6",
+    "product_type": "FLASHLIGHT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SHM-UV9LF-SML-BLCK\nProduct Type: FLASHLIGHT\nBrand (from catalog): ASR Tactical\nExisting Title: ASR Federal 21 Bulb UV Light LED Flashlight Black Light Crime Scene Investigate\nDescription: The ASR Federal 21 UV Light LED Flashlight Black Light brings LED technology to the ultraviolet spectrum. Featuring 21 UV light LED light bulbs, this compact UV light LED flashlight might be small but, it shines exceptionally bright. And, with LED technology on its side, the battery life will last much longer than any other regular flashlight you might currently have in your pantry or utility drawer (three AAA batteries are included).<br/><br/>As mentioned in the product description, the ASR Federal 21 Bulb UV Light LED Flashlight Black Light emits a wavelength of 395nm. This specific wavelength is classified as Ultraviolet A, which covers the range from 315 to 400nm, also known as 'long wave' UV not absorbed by the ozone layer; this is an optimal strength of UV wavelength for inducing clear and thorough fluorescence effects.<br/><br/>Arguably one of the most convenient and multi-purpose gadgets in your home, workplace, campsite or car, UV light flashlights reveal much more than a regular flashlight ever could\nSearch Terms: retail theft detection bank teller stolen merchandise counterfeit pen crime stoppers peg lock store fixture detector spy gadget mystery identity\nFeatures:\n- 21 LED UV LIGHT BULBS: Featuring 21 UV light LED light bulbs, the ASR Federal UV light LED flashlight black light shines exceptionally bright for a small, compact carrier flashlight, emitting a wavelength of 395nm\n- MULTI-PURPOSE: The UV light LED flashlight black light is useful for crime scene investigation, detecting body fluids, identifying credit card frauds, determining counterfeit money or ID, forged printed materials, inspecting artwork and can aid in increased security through invisible inks, marks and stamps and much more\n- ULTRA COMPACT DESIGN: The ASR Federal pocket-sized UV light LED flashlight is portable, easily fits in the palm of your hand and features an anti-slip textured grip and top carrier loop for easy and convenient handling, transport or travel\n- INCREASED SECURITY: The ASR Federal 21 UV Light LED Flashlight Black Light was specifically designed to be paired with the ASR Federal UV Theft Detection Powder and ASR Federal UV Invisible Ink Marker Pens; essentials for enhanced home or business security or security professionals; a great gift for spy or espionage enthusiasts\n- SPECIFICATIONS: Powered by three AAA batteries (included); Color: black; Length: 3.9 inches; Head diameter: 1.4 inches; Wavelength: 395nm; 21 LED light UV light bulbs\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 21 LED UV Light Flashlight Black",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "21",
+                "pack_size_unit": "LED",
+                "size": "",
+                "color": "Black",
+                "name": "UV Light Flashlight"
+            },
+            "char_count": 45,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 21-Bulb Black UV Light LED Flashlight",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "21",
+                "pack_size_unit": "Bulb",
+                "size": "",
+                "color": "Black",
+                "name": "UV Light LED Flashlight"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "21 UV LED Bulbs, 395Nm Wavelength, Crime Scene Investigation, Counterfeit Detection, Compact Pocket-Sized, 3 AAA Batteries Included",
+            "char_count": 131,
+            "validation_error": "value exceeds maxLength 125 (131 chars)"
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "395Nm Long Wave UV, 21 LEDs, 3 AAA Batteries Included, Compact Pocket Size, Crime Scene And Counterfeit Detection",
+            "char_count": 113,
+            "validation_error": null
+        }
+    }
+}

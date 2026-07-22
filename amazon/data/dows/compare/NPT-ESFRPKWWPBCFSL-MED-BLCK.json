@@ -1,0 +1,60 @@
+{
+    "sku": "NPT-ESFRPKWWPBCFSL-MED-BLCK",
+    "asin": "B00JZW6NQE",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: NPT-ESFRPKWWPBCFSL-MED-BLCK\nProduct Type: KNIFE\nBrand (from catalog): Wartech\nExisting Title: Folding Pocket Knife With Window Punch Belt Cutter\nDescription: This multi-purpose rescue emergency knife includes a seat belt cutter, window punch, fire starting striker, and small light.<br/><br/>Measuring 8.5\" with the blade out, this pocket knife contains these life-saving tools in a compact form that is pleasing to the eye.<br/><br/>The semi serrated blade is made of 1065 surgical steel, and the easy to use liner lock ensures safety and functionality.\nSearch Terms: rescue knife emergency tool window punch emt search and belt cutter\nFeatures:\n- 8.5\" Folding Pocket Knife with Semi Serrated Blade\n- Seat Belt Cutter and Window Breaking Punch for Emergency Rescue Applications\n- Fire Starting Striker and Light for Survival Uses\n- Easy to Use Liner Lock for Safety\n- Color: Black | Black\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Wartech 8.5\" Black Folding Pocket Rescue Knife",
+            "tokens": {
+                "brand": "Wartech",
+                "pack_size": "8.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Folding Pocket Rescue Knife"
+            },
+            "char_count": 46,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Wartech 8.5-in Black Folding Pocket Knife",
+            "tokens": {
+                "brand": "Wartech",
+                "pack_size": "8.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Folding Pocket Knife"
+            },
+            "char_count": 41,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Seat Belt Cutter, Window Punch, Fire Starter, Light, Semi-Serrated Blade, Emergency Rescue Tool",
+            "char_count": 95,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Seat Belt Cutter, Window Punch, Fire Starter Striker, Semi Serrated 1065 Steel Blade, Liner Lock Safety",
+            "char_count": 103,
+            "validation_error": null
+        }
+    }
+}

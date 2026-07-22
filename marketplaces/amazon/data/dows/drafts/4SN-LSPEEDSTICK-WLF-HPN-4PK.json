@@ -3,14 +3,14 @@
     "asin": "B00J5JRCBC",
     "product_type": "BODY_DEODORANT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:14:50+00:00",
+    "generated_at": "2026-07-21T19:49:50+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 17,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -266,25 +266,62 @@
             "raw_value": true
         },
         "generic_keyword": {
-            "value": "women antiperspirant deodorant invisible dry wild freesia 24 hour protection scent renewal no white residue underarm sweat odor protection stick 4 pack",
+            "value": "antiperspirant deodorant women underarm sweat protection long lasting fragrance dry stick 24 hour freesia scent aluminum free odor control",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Lady Speed Stick Invisible Dry Antiperspirant Deodorant 4 Pack",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Lady Speed Stick Wild Freesia Invisible Dry Deodorant 4-pk",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 58,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Lady Speed Stick",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "1.4 oz",
+                "color": "Wild Freesia",
+                "name": "Invisible Dry Antiperspirant and Deodorant"
+            }
         },
-        "title_differentiation": {
-            "value": "Wild Freesia scent, 24-hour protection, no white residue, 1.4 oz each",
+        "item_name_ai_openai": {
+            "value": "Lady Speed Stick 4-Pk 1.4 Oz Wild Freesia Antiperspirant Deodorant",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 66,
+            "review_only": true,
+            "tokens": {
+                "brand": "Lady Speed Stick",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "1.4",
+                "color": "Wild Freesia",
+                "name": "Antiperspirant Deodorant"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "24-Hour Protection, Invisible Dry Formula, No White Residue, Scent Renewal Technology, Quick Drying",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 99,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "24-Hour Protection, Invisible Dry Formula, No White Residue, Quick Drying, Scent Renewal, Wild Freesia Scent",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 108,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

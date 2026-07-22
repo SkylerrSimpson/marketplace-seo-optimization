@@ -3,14 +3,14 @@
     "asin": "B09B1DVRWF",
     "product_type": "PERSONAL_PILL_DISPENSER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:44:29+00:00",
+    "generated_at": "2026-07-21T20:00:11+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -28,25 +28,62 @@
             "raw_value": true
         },
         "size": {
-            "value": "One Size",
+            "value": "2.75 inches",
             "is_required": false,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Waterproof Aluminum Pill Keychain Container",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Micro Keychain Waterproof Storage Container",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Micro",
+                "color": "",
+                "name": "Keychain Waterproof Storage Container"
+            }
         },
-        "title_differentiation": {
-            "value": "Portable, Micro Storage with O-Ring Seal, 6 Colors Available",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor Micro Waterproof Key Chain Storage Container",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 56,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Micro",
+                "color": "",
+                "name": "Waterproof Key Chain Storage Container"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Waterproof O-Ring Seal, Aluminum Body, 6 Colors, Portable Pill Organizer, Emergency Kit, Keychain Attachment",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 108,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Waterproof O Ring Seal, Aluminum Body, Removable Plastic Insert, Keychain Attachment, Fits Pills And IDs",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 104,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

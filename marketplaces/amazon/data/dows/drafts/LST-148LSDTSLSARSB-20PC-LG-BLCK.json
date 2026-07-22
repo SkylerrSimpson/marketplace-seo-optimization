@@ -3,14 +3,14 @@
     "asin": "B01MQGGYLF",
     "product_type": "TOY_VEHICLE_SET",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:33:36+00:00",
+    "generated_at": "2026-07-21T19:56:24+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 8,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -131,20 +131,57 @@
             "asin": "B01MQGGYLF",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "KidFun 1:48 Large Scale Train Set with Smoke Lights Sounds",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Kid Fun 20-Pc Large Scale Black Toy Train Set",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 45,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Kid Fun",
+                "pack_size": "20",
+                "pack_size_unit": "Pc",
+                "size": "Large Scale",
+                "color": "Black",
+                "name": "Toy Train Set"
+            }
         },
-        "title_differentiation": {
-            "value": "20-Piece Set, Real Smoke & Whistles, Battery Operated, Black",
+        "item_name_ai_openai": {
+            "value": "Kid Fun 1:48 Scale Black Toy Train Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 38,
+            "review_only": true,
+            "tokens": {
+                "brand": "Kid Fun",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "1:48 Scale",
+                "color": "Black",
+                "name": "Toy Train Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Real Smoke, Lights And Whistling Sounds, 148 Scale, Snap-Together Tracks, Battery Operated, Learning Tool",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 105,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Real Smoke, Working Lights, Whistling Engine, Music, Snap Together Track, 20 Piece Holiday Gift",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 95,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-COBHEADLAMP-100LUM",
+    "asin": "B08CBMB3XW",
+    "product_type": "FLASHLIGHT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-COBHEADLAMP-100LUM\nProduct Type: FLASHLIGHT\nBrand (from catalog): ASR Outdoor\nExisting Title: Black 3 Stage Switch COB LED Red Light Headlamp Headlight\nDescription: The black 3 Stage Switch COB LED Red Light Headlamp is an ASR Outdoor essential and must-have safety item for hiking, trekking, fishing, cycling, hunting, running, walking, climbing or curling up with a good book on your next camping trip. Easy to pack in your camping gear, travel bag or hiking backpack, we don't leave the house without it.<br/><br/>The headlight features three different interchangeable light modes:<br/><br/>100 LUMEN WHITE LED SPOTLIGHT: Featuring a 100 lumen white LED spotlight, this directional light stage gives you more focused lighting for activities like campfire cooking, reading or working on craft or hobby projects<br/><br/>150 LUMEN WHITE COB FLOODLIGHT: The 150 COB flood light stage increases immediate area lighting, suitable for activities like running or hiking that require greater zonal lighting<br/><br/>RED FLASH LIGHTING MODE: A fantastic feature of this adventure headlamp is the red light flash mode; this will come in handy after hours when working or walking in the dark, helping to preserve your night vision and allow your eyes to naturally adjust, but still providing some light to illuminate your surroundings<br/><br/>The LED headlamp also conveniently adjusts up to 90 degrees so you can control the direction of light. A black adjustable head strap is included to ensure comfortable positioning and reduce any potential neck fatigue.<br/><br/>Whatever outdoor activities or wilderness adventures you have on the docket this season, the ASR Outdoor 3 Stage Switch COB LED Red Light Headlamp is lightweight, easy to pack and will provide you with ample lighting when camping, hiking, running and more. Include it with your camping gear, tactical gear, fishing gear, hiking gear, camping accessories and never be caught in the dark again.<br/><br/>NOTE: Three (3) AAA batteries are required but NOT included with purchase.\nSearch Terms: outdoor hiking head lamp 200-lumen flashlight campsite safety accessory\nFeatures:\n- 3 IN 1 COB LED HEADLAMP: Hiking, camping, fishing, hunting or working in your garage or workshop, never be stuck in the dark again with the ASR Outdoor Black 3 Stage Switch COB LED headlamp; the headlight will easily switch between a white LED spotlight, a white COB flood light and a flashing red safety light\n- RELIABLE BRIGHTNESS: Featuring a 100 lumen white LED spotlight, this directional light stage gives you more focused lighting for activities like campfire cooking, reading or working on craft or hobby projects; the 150 COB flood light stage increases immediate area lighting, suitable for activities like running or hiking that require greater zonal lighting\n- RED FLASH LIGHTING MODE: A fantastic feature of this adventure headlamp is the red light flash mode; this will come in handy after hours when working or walking in the dark, helping to preserve your night vision and allow your eyes to naturally adjust, but still providing some light to illuminate your surroundings\n- 90 DEGREE HEADLAMP ADJUSTMENT: The ASR Outdoor headlamp conveniently adjusts up to 90 degrees so you can easily control the direction of light; Black adjustable head strap included to ensure a comfortable position for your head and reduce any potential neck fatigue\n- MULTIFUNCTIONAL: Whether running, cycling, climbing, hiking, camping, hunting, fishing, this ASR Outdoor headlight can handle all your activities; the LED headlamp is a must-have to include with your camping gear and camping accessories, fishing gear, hiking backpacks, tactical gear, survival gear, emergency kit and more\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Black 3 Stage COB LED Headlamp",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "3 Stage",
+                "color": "Black",
+                "name": "COB LED Headlamp"
+            },
+            "char_count": 42,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Black 3 Mode COB LED Red Light Headlamp",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Headlamp"
+            },
+            "char_count": 51,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "100 Lumen Spotlight, 150 Lumen Floodlight, Red Flash Mode, 90 Degree Adjustment",
+            "char_count": 79,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "100 Lumen Spotlight, 150 Lumen COB Floodlight, Red Flash Mode, 90 Degree Adjustable, AAA Batteries Required",
+            "char_count": 107,
+            "validation_error": null
+        }
+    }
+}

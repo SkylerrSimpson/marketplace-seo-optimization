@@ -1,0 +1,60 @@
+{
+    "sku": "SON-FPPTFEAHR-STAMP-TW535",
+    "asin": "B0BYMHGHR5",
+    "product_type": "TWEEZER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-FPPTFEAHR-STAMP-TW535\nProduct Type: TWEEZER\nBrand (from catalog): ToolTreaux\nExisting Title: 4.5 inch Flathead Stamp Precision Tweezer Non Magnetic Expert Jeweler Craft Tool\nDescription: Unwanted hairs are no match for these Expert Beauty Eyebrow and Facial Hair Removal Tweezers. The tweezers are super fine point so that hair can be removed quickly and easily. <br/><br/>These flathead stamp crimping tweezers are 4.5 inches in height, making them the perfect size for inspecting collectible stamps, minerals, gold and more. The flat head is thin and rounded, allowing for a soft but precise crimp that will not damage the object being held by the tweezers in hand.<br/><br/>Not all tweezers are the same but this one gets the job done correctly.\nSearch Terms: tweezer set precision hobbytool set stainless steel jewelry basic gem diamond inspection identification hobbyist stone watch making fine jewelry eye loupe rock hounding facial hair removal beauty fine point\nFeatures:\n- Length: 4 3/4 inches\n- TWEEZERS SIZE: # 5, Tapered Super Fine Tip\n- SPECIFICATIONS: Stainless Steel, Non-Magnetic\n- Ensure Clean Looking Facial Hair and Shaping\n- Perfect for Unshaped Eyebrows and Cosmetic Use\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 4.5 inch Flathead Stamp Precision Tweezer",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "4.5",
+                "pack_size_unit": "inch",
+                "size": "",
+                "color": "",
+                "name": "Flathead Stamp Precision Tweezer"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 4.5 in Flathead Stamp Precision Tweezer",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "4.5",
+                "color": "",
+                "name": "Flathead Stamp Precision Tweezer"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Stainless Steel, Non-Magnetic, Super Fine Point, Jewelry And Stamp Inspection, Eyebrow And Facial Hair Removal",
+            "char_count": 110,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Non Magnetic Stainless Steel, Tapered Super Fine Tip, Flat Head Crimping, Eyebrow And Facial Hair Removal",
+            "char_count": 105,
+            "validation_error": null
+        }
+    }
+}

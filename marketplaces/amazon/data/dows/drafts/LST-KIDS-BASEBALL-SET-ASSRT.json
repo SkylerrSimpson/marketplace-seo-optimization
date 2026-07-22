@@ -3,14 +3,14 @@
     "asin": "B07FSS87H9",
     "product_type": "SPORT_BAT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:54:00+00:00",
+    "generated_at": "2026-07-21T20:03:51+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 3,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -108,20 +108,57 @@
             "asin": "B07FSS87H9",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "KidPlay Products Kids Baseball Set with Bat and 4 Balls",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "KidPlay Products Kids Baseball Set - Bat and 4 Balls",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "4",
+                "pack_size_unit": "Balls",
+                "size": "20 inch",
+                "color": "Assorted",
+                "name": "Baseball Set"
+            }
         },
-        "title_differentiation": {
-            "value": "20-inch Lightweight Bat, 4 Colorful Balls, Ages 3+, Assorted Colors",
+        "item_name_ai_openai": {
+            "value": "KidPlay Products 4-Ball Kids Baseball Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 41,
+            "review_only": true,
+            "tokens": {
+                "brand": "KidPlay Products",
+                "pack_size": "4",
+                "pack_size_unit": "Balls",
+                "size": "",
+                "color": "Assorted",
+                "name": "Baseball Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "20 Inch Bat, 4 Light Colorful Balls, 3 Inch Barrel, Ages 3 And Up, Assorted Colors",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 82,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Lightweight Plastic Bat, 4 Colorful Balls, Random Blue Orange Or Green, Ages 3 And Up, 3 Inch Barrel",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 100,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

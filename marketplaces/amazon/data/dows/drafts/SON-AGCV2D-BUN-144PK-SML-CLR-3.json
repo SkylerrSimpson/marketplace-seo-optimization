@@ -3,14 +3,14 @@
     "asin": "B0B7KPP972",
     "product_type": "LAB_SUPPLY",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:20:42+00:00",
+    "generated_at": "2026-07-21T20:08:51+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -76,20 +76,57 @@
             "asin": "B0B7KPP972",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 144pk 2 Dram Glass Vials with Screw Caps",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 144-pk Small Clear Glass Dram Vials",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 47,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "144",
+                "pack_size_unit": "pk",
+                "size": "Small",
+                "color": "Clear",
+                "name": "Glass Dram Vials"
+            }
         },
-        "title_differentiation": {
-            "value": "Borosilicate, Clear with Black Cap, Water-Tight, Craft & Lab Use",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 144-Pk 2 Dram Clear Glass Vials",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 43,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "144",
+                "pack_size_unit": "pk",
+                "size": "2 Dram",
+                "color": "Clear",
+                "name": "Glass Vials"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Borosilicate Glass, Screw Cap, Water Tight Seal, Autoclave Safe, Temperature Resistant, Hobby And Lab Storage",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 109,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Borosilicate Glass, Watertight Screw Caps, Autoclave Safe, Temperature Resistant, For Liquids And Small Parts",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

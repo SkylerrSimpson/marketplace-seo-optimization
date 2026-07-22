@@ -1,0 +1,60 @@
+{
+    "sku": "HWK-ICEPACK-D8133",
+    "asin": "B07SJJ98VS",
+    "product_type": "THERAPEUTIC_THERMAL_COMPRESS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWK-ICEPACK-D8133\nProduct Type: THERAPEUTIC_THERMAL_COMPRESS\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Disposable Instant Ice Pack Emergency Breakable First Aid Kit\nDescription: You never know when someone will get a sprained ankle, bump their head or get a sudden migraine. Whether you are traveling alone, with friends, or kids it always smart to be prepared for every eventuality.<br/><br/>Use the cold therapy ice bag for acute injuries, such as sprains, or strains. It can reduce swelling, reduce bleeding into the tissues, and reduce muscle spasm and pain.<br/><br/>This instant cold pack should be stored in the glove compartment of your car, truck, or in your motorcycle.\nSearch Terms: Emergency Breakable First Aid Kit Content for Body Injuries Perfect Sports Camping Vacation Athletes Fitness Trainers Disposable Instant Cold Pack ice outdoors pain relief injury sprain strain\nFeatures:\n- SOLUTION FOR ANY INJURY – Simply squeeze to activate the “ice”. The flexible Instant Frozen Ice Pack is essential for small emergencies like sprains, bumps, and muscle spasms.\n- EXPERIENCE INSTANT PAIN RELIEF - The extra insulation keeps it cold and effective, to quickly reduce swelling and pain.\n- ESSENTIAL FOR ANY FIRST AID KIT – Whether you are an outdoorsman, sports coach or just a vigilant parent this 4.5 x7.5 inches ice therapy cold pack is an essential part of any first aid kit.\n- COMPACT, VERSATILE AND TRAVEL FRIENDLY – This one time use cold therapy can be used for muscle spasms, sprains, strains, headaches, bruises, and cramps. Take on the road, camping, hiking or to your sports game.\n- PORTABLE ICE PACK – No need to freeze in advance or take crushed ice along for the ride. Simply use the instant ice bag for cold therapy for all your injuries, accidents, aches, or pains.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Disposable Instant Ice Pack 4.5x7.5in",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "4.5x7.5in",
+                "color": "",
+                "name": "Disposable Instant Ice Pack"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Instant Cold Pack",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Instant Cold Pack"
+            },
+            "char_count": 29,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Squeeze Activation, Instant Cold Therapy, Portable First Aid, Pain Relief, Sprains And Strains, Travel Friendly",
+            "char_count": 111,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Squeeze To Activate, One Time Use, Reduces Swelling And Pain, Travel Friendly, For Sprains Strains And Bruises",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}

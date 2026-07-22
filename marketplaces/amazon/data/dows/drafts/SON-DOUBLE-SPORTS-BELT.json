@@ -3,14 +3,14 @@
     "asin": "B0749T1TYB",
     "product_type": "SPORTING_GOODS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:37:03+00:00",
+    "generated_at": "2026-07-21T19:57:29+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 3,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -64,20 +64,57 @@
             "asin": "B0749T1TYB",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Sports Belt Double Pocket 27-43 inches Black",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Sports Belt M/L Black Double Pocket",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 47,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "M/L",
+                "color": "Black",
+                "name": "Sports Belt Double Pocket"
+            }
         },
-        "title_differentiation": {
-            "value": "Expandable pockets, reflective strips, hiking running cycling",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor M/L Black Sports Belt",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 33,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "M/L",
+                "color": "Black",
+                "name": "Sports Belt"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Double Expanding Pockets, Fits 27-43 Inch Waist, Reflective Strips, Running And Hiking",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 86,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Universal Fit 27-43 Inch Waist, Double 8 Inch Expanding Pockets, Reflective Strips, Reinforced Zipper",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

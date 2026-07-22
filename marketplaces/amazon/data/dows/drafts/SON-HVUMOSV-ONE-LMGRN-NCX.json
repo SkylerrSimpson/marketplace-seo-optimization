@@ -3,14 +3,14 @@
     "asin": "B07RCCJCLM",
     "product_type": "APPAREL",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:42:07+00:00",
+    "generated_at": "2026-07-21T19:32:20+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 19,
         "catalog": 17,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 19
     },
@@ -374,25 +374,62 @@
             "raw_value": true
         },
         "fabric_type": {
-            "value": "Mesh",
+            "value": "100% Polyester Mesh",
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "Universal Lime Green High Visibility Mesh Safety Vest",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 53,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "One Size Fits All",
+                "color": "Lime Green",
+                "name": "High Visibility Mesh Safety Vest"
+            }
         },
-        "title_differentiation": {
-            "value": "Breathable mesh, hook & loop closure, one size fits most",
+        "item_name_ai_openai": {
+            "value": "Universal Tool One Size Lime Green High Visibility Mesh Safety Vest",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 67,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "One Size",
+                "color": "Lime Green",
+                "name": "High Visibility Mesh Safety Vest"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Unisex One Size, High Visibility Mesh, Reflective Strips, Breathable Design, ANSI Compliant",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 91,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Breathable Mesh, Lightweight, Unisex Fit, Quick-Dry Comfort, Easy On And Off, Safety Workwear, Indoor And Outdoor Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 117,
+            "review_only": true
         },
         "supplier_declared_material_regulation": {
             "value": [

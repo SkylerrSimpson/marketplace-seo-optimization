@@ -3,18 +3,30 @@
     "asin": "B08F338433",
     "product_type": "ELECTRIC_LANTERN",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:53:28+00:00",
+    "generated_at": "2026-07-21T20:03:41+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
-        "fillable": 0,
-        "catalog": 9,
-        "ai_suggested": 3,
+        "fillable": 2,
+        "catalog": 8,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
     "attributes": {
+        "size": {
+            "value": "8\\\\\\\\\\\\\\\"",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.size_amazon"
+        },
+        "unit_count": {
+            "value": "1.0000",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.unit_count_amazon"
+        },
         "hazmat": {
             "value": [
                 {
@@ -101,22 +113,6 @@
             "asin": "B08F338433",
             "raw_value": true
         },
-        "unit_count": {
-            "value": [
-                {
-                    "type": {
-                        "language_tag": "en_US",
-                        "value": "Count"
-                    },
-                    "value": 1,
-                    "marketplace_id": "ATVPDKIKX0DER"
-                }
-            ],
-            "is_required": false,
-            "source": "catalog",
-            "asin": "B08F338433",
-            "raw_value": true
-        },
         "unspsc_code": {
             "value": [
                 {
@@ -141,26 +137,57 @@
             "asin": "B08F338433",
             "raw_value": true
         },
-        "size": {
-            "value": "8 inches",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor LED Battery Operated Hanging Mini Lantern Black",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-haiku-4-5"
-        },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor LED Battery Hanging Mini Camping Lantern Dimmable",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 59,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Mini",
+                "color": "Black",
+                "name": "LED Battery Operated Hanging Lantern"
+            }
         },
-        "title_differentiation": {
-            "value": "180 Lumen COB, Dimmable, Foldable Hook, Includes 3 AA Batteries",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor Mini Black LED Hanging Camping Lantern",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 50,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Mini",
+                "color": "Black",
+                "name": "LED Hanging Camping Lantern"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "180 Lumen COB LED, Dimmable, Hands-Free Hanging Hook, Camping And Emergency Use",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 79,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "180 Lumen COB LED, Dimmable Front Dial, Foldable Hanging Hook, 3 AA Batteries Included, Indoor Outdoor Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 106,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

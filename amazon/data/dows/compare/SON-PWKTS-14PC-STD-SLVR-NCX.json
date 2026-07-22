@@ -1,0 +1,60 @@
+{
+    "sku": "SON-PWKTS-14PC-STD-SLVR-NCX",
+    "asin": "B009G6YGB8",
+    "product_type": "TOOLS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-PWKTS-14PC-STD-SLVR-NCX\nProduct Type: TOOLS\nBrand (from catalog): Universal Tool\nExisting Title: 14pc Universal Clock Winding Key Set for Pocket Watches, (Size: 00 to 12) Complete Set of Brass Replacement Clock Keys\nDescription: Including 14 individual watch keys on a chain, this clock key set is for the old style key wound watches with the winder on the back side of the watch. Universal Fit for most all pocket watches which will allow you to get your old pocket watch running on time again; A must-have for any watch enthusiast or hobbyist.<br/><br/>This complete vintage pocket watch key set includes 14 precision-stamped keys (sizes 00–12), designed to fit a wide variety of manufacturers of antique and vintage pocket watches. Each key is a different size and is size-stamped for precise clarifcation.<br/><br/>The keys are solid brass with a nickel finish on the barrel. Each key measures 1.5 inches in length.<br/><br/>Whether you're winding, repairing, or restoring, you'll have the right size on hand every time.<br/><br/>Crafted from solid brass with a nickel-finished barrel, these keys are built for both durability and professional quality. The compact design keeps all 14 tools conveniently attached to a single chain, so they're always organized and easy to find.<br/><br/>Perfect for collectors with many pieces, jewelers, or somebody who just wants to get grandpa's watch running again, this versatile and thoughtful set is what will get you back on time.\nSearch Terms: antique pocket watch key winding tools brass clock key watch repair tools pocket watch with chain pocket watch chain watch link removal tool kit watch band tool kit watch case opener watch opener\nFeatures:\n- Wind and set pocket watches easily; Includes 14 individual keys, each clearly marked with its size (00–12), to fit a wide range of pocket watches with accuracy\n- 14 WATCH KEY SIZES: 00, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, and 12\n- UNIVERSAL COMPATIBILITY: These universal brass clock keys are used for winding antique or old-style key-wound pocket watches\n- COMPACT AND ORGANIZED: All keys are attached to a single chain, keeping the full set together and easy to carry or store\n- SPECIFICATIONS: Number of pieces: 14; Comes with keyring; Material: solid brass; Sizes included: 00, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, and 12, Key length: 1.5\"; Weight of set: 0.15lbs (2.4oz)\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 14-pc Pocket Watch Winding Key Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "14",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Silver",
+                "name": "Pocket Watch Winding Key Set"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 14-Pc 00-12 Brass Pocket Watch Winding Key Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "14",
+                "pack_size_unit": "pc",
+                "size": "00-12",
+                "color": "Brass",
+                "name": "Pocket Watch Winding Key Set"
+            },
+            "char_count": 61,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "14 Brass Keys Sizes 00-12, Nickel Finish, Universal Fit, Antique Pocket Watch Repair, Organized Chain",
+            "char_count": 101,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "14 Keys, Sizes 00 To 12, Solid Brass, Nickel Finish, Chain Attached, Fits Antique Key-Wound Pocket Watches",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

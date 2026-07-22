@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-PCXHD-1100-BLCK-RFLCT-100FT",
+    "asin": "B092CR2S7Q",
+    "product_type": "CORD_ROPE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-PCXHD-1100-BLCK-RFLCT-100FT\nProduct Type: CORD_ROPE\nBrand (from catalog): GEAR AID\nExisting Title: GEAR AID 1100 Paracord and Carabiner, 5.5 mm Heavy-Duty Cord for Camping and Survival Black Reflective, 100 ft\nDescription: Durable and strong, the 1100 Paracord is for heavy-duty jobs because it is 5.5 mm thick and features 16-strands – making it double the strength of our 550 Paracord. Also offering less stretch, this tough cord is ideal for tying down tents, tarps, luggage, or equipment on cars and watersports gear. Make a bear hang, clothesline, lightweight anchor (20 lbs or less), and kayak towline easily using this burly cord. Whether camping, hunting, or paddling, this reflective paracord works hard all day and all night. Available in 50 ft or 100 ft, the 1100 Paracord is built for all types of adventures\nSearch Terms: carabiner paracord with rope camping clip outdoor for\nFeatures:\n(none)\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "GEAR AID 100ft 5.5mm Black Reflective 1100 Paracord",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "100",
+                "pack_size_unit": "ft",
+                "size": "5.5mm",
+                "color": "Black Reflective",
+                "name": "1100 Paracord"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID 100-ft 5.5 mm Black Reflective Paracord",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "100",
+                "pack_size_unit": "ft",
+                "size": "5.5 mm",
+                "color": "Black Reflective",
+                "name": "Paracord"
+            },
+            "char_count": 48,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Heavy-Duty 16-Strand Cord, Double Strength, Less Stretch, Camping And Survival, Reflective Design",
+            "char_count": 97,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "16-Strand Core, Double Strength Of 550 Cord, Less Stretch, Ideal For Tents Tarps Luggage And Gear",
+            "char_count": 97,
+            "validation_error": null
+        }
+    }
+}

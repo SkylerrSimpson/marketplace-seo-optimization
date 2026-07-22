@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ASRO-3LSMALLDRYSACK-BLUE",
+    "asin": "B0GYV3JJQ7",
+    "product_type": "CARRIER_BAG_CASE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ASRO-3LSMALLDRYSACK-BLUE\nProduct Type: CARRIER_BAG_CASE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 3L Dry Sack with Roll Top, Small Lightweight Waterproof Storage Bag for Kayaking Camping Hiking Boating Backpacking Travel Gear, Blue\nDescription: Keep essentials protected wherever adventure takes you with ASR Outdoors compact and lightweight 3L dry bag in blue colorway, designed for reliable waterproof storage in any environment. Whether you're kayaking, boating, hiking, camping, traveling and more, this small dry sack acts as a dependable barrier against rain, splashes and moisture, making it an essential piece of outdoor gear for keeping valuables safe and dry.<br/><br/>Engineered as a mini dry bag with space saving design, the collapsible bag is great for storing phones, wallets, keys snacks and other small essentials or accessories, without adding unnecessary bulk to a pack or outdoor gear and equipment. The roll top closure system creates a secure seal, while doubling as a convenient carry handle, that’s easily attachable.<br/><br/>Constructed from durable, water tight 210T material with reinforced double stitched seams, this waterproof gear bag is built to withstand rugged conditions across a wide range of activities, from rafting and kayaking, to fishing, hiking and beach or river outings. The bright, easy-to-spot blue color ensures quick access, while the flexible structure allows for efficient packing and storage.<br/><br/>Whether you're navigating open water or exploring the trail, this compact dry storage bag delivers dependable performance when you need it most, making it a must have item to keep valuables protected from the elements.<br/><br/>Please Note: while this dry bag is waterproof and highly water resistant, it is not intended for full submersion or use as a flotation device.\nSearch Terms: Mini dry bag waterproof pouch small waterproof bag dry bag for phone keys wallet ultralight dry sack roll top waterproof bag compact dry storage hiking backpacking travel gear waterproof pouch boating kayaking fishing gear bag\nFeatures:\n- COMPACT 3L DRY SACK: Small three liter capacity with sealed size of 8.0 x 6.0 inches is perfect for phones, wallets, keys, snacks and small gear without adding bulk to your pack\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 3L Small Blue Waterproof Dry Sack",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "L",
+                "size": "Small",
+                "color": "Blue",
+                "name": "Waterproof Dry Sack"
+            },
+            "char_count": 45,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 3-L Small Blue Dry Sack",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "L",
+                "size": "Small",
+                "color": "Blue",
+                "name": "Dry Sack"
+            },
+            "char_count": 35,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Roll Top Closure, Lightweight Compact Design, 210T Material, Double Stitched Seams, Kayaking Camping Hiking Boating",
+            "char_count": 115,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Waterproof Roll-Top Closure, Lightweight 210T Material, Reinforced Double-Stitched Seams, Phone Wallet Key Protection",
+            "char_count": 117,
+            "validation_error": null
+        }
+    }
+}

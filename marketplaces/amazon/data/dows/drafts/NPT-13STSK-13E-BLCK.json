@@ -3,14 +3,14 @@
     "asin": "B00AI55VDI",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:17:35+00:00",
+    "generated_at": "2026-07-21T19:50:57+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 6,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -111,20 +111,57 @@
             "asin": "B00AI55VDI",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical 13\" Slotted Survival Knife Glass Breaker Black",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical 13in Black Slotted Survival Knife Glass Breaker",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 60,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Slotted Survival Knife Glass Breaker"
+            }
         },
-        "title_differentiation": {
-            "value": "7.5\" Slotted Blade, Hard Rubber Handle, Glass Breaker Butt",
+        "item_name_ai_openai": {
+            "value": "ASR Tactical 13-in Black Tactical Survival Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 48,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "13-in",
+                "color": "Black",
+                "name": "Tactical Survival Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "75In Blade, Hardened 440 Steel, Hard Rubber Handle, Glass Breaker Butt, Lightweight, Emergency Tool",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 99,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "440 Steel Slotted Blade, 75 Inch Edge, Glass Breaker Butt Cap, Hard Rubber Grip, Lightweight Emergency Tool",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

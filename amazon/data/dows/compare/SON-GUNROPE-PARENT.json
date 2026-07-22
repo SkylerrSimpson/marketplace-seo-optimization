@@ -1,0 +1,60 @@
+{
+    "sku": "SON-GUNROPE-PARENT",
+    "asin": "B08X6T4F9Q",
+    "product_type": "GUN_CLEANING_KIT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-GUNROPE-PARENT\nProduct Type: GUN_CLEANING_KIT\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Compact Rope Gun Cleaning Tool (4 Caliber Sizes)\nDescription: The ASR Outdoor Compact Portable Bore Cord Pistol Gun Cleaning Rope Tool uses a three-pass cleaning system to clean out debris from the barrel of your gun, ensuring the continued safe firing and functionality of your gun(s). Employing a leader rope, followed by a cleaning rope and bronze bristle, the bore cord cleaning rope tool is a fast and efficient way to clean your gun when you're in the field or at the range away from your regular cleaning supplies and resources. <br/><br/>Caliber compatibility listed below: <br/>.22CAL Pistol Rope Cleaning compatible with.22 and 5.56MM caliber pistols<br/><br/>.44CAL Pistol Rope Cleaner compatible with 44,.45,.70, .416,.458 and .460 caliber pistols<br/><br/>.9MM CAL Pistol Rope Cleaner compatible with .357, .380,.38 and 9MM caliber pistols<br/><br/>.308CAL Pistol Rope Cleaner compatible with .308,.30-35,30-06, .300,.303 and 7.62MM caliber pistols<br/><br/>Folding up to fit in the palm of your hand, the gun rope cleaner will easily fit in any backpack, gun range bag or other; use the leader rope at the beginning of the tool to wrap around the cleaning rope and secure; this is a great tool to include with your camping, hunting or general outdoor equipment or survival gear as well as it can come in hand for other tasks. <br/><br/>Lastly, the nylon bore cleaning rope absorbs well, is machine or hand washable and reusable hundreds of times over to help maintain a consistently clean gun barrel or gun chamber; safe to use with fun cleaning solvents, solutions or oils.<br/><br/>NOTE: ALWAYS remove the clip and clear the chamber before cleaning; No assembly/disassembly is required\nSearch Terms: gun cleaning tools kits ropes oil patches mat flare bb rifle pistol backpacking travel camping accessories hunting\nFeatures:\n- QUICK AND EASY GUN CLEANING TOOL: The ASR Outdoor Compact Portable Bore Cord Pistol Gun Cleaning Rope Tool uses a three-pass cleaning system to clean out debris from the barrel of your gun, ensuring the continued safe firing and functionality of your gun(s); optimal when used with gun cleaning solutions, solvents or oils; no assembly required\n- COMPACT AND TRAVEL FRIENDLY: Folding up to fit in the palm of your hand, the gun rope cleaner will easily fit in any backpack, gun range bag or other; use the leader rope at the beginning of the tool to wrap around the cleaning rope and secure; this is a great tool to include with your camping, hunting or general outdoor equipment or survival gear as well\n- REUSEABLE AND WASHABLE: The nylon bore cleaning rope absorbs well, is machine or hand washable and reusable hundreds of times over to help maintain a consistently clean gun barrel or gun chamber; safe to use with fun cleaning solvents\n- AVAILABLE STYLES: .22CAL Pistol Rope Cleaning compatible with.22 and 5.56MM caliber pistols; .44CAL Pistol Rope Cleaner compatible with 44,.45,.70, .416,.458 and .460 caliber pistols; 9MM CAL Pistol Rope Cleaner compatible with .357, .380,.38 and 9MM caliber pistols; .308CAL Pistol Rope Cleaner compatible with .308,.30-35,30-06, .300,.303 and 7.62MM caliber pistols\n- SPECIFICATIONS: Open Length Dimensions: 58 inches; Folded Length Dimensions: 4 inches; Color: Black Multi; Material: Nylon/Polyester\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Compact Rope Gun Cleaning Tool",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "Caliber",
+                "size": "Compact",
+                "color": "Black",
+                "name": "Rope Gun Cleaning Tool"
+            },
+            "char_count": 42,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Compact Black Multi Rope Gun Cleaning Tool",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Compact",
+                "color": "Black Multi",
+                "name": "Rope Gun Cleaning Tool"
+            },
+            "char_count": 54,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "4 Caliber Sizes, Portable Bore Cord, Three-Pass System, Reusable And Washable, Travel Friendly",
+            "char_count": 94,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Three-Pass Cleaning System, Portable Palm Size, Reusable Washable Nylon, 4 Caliber Options, No Assembly Required",
+            "char_count": 112,
+            "validation_error": null
+        }
+    }
+}

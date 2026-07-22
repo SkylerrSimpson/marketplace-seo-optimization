@@ -3,18 +3,30 @@
     "asin": "B0B9HXWXXQ",
     "product_type": "SPOON",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:19:22+00:00",
+    "generated_at": "2026-07-21T20:08:51+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
-        "fillable": 0,
-        "catalog": 6,
-        "ai_suggested": 2,
+        "fillable": 2,
+        "catalog": 5,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
     "attributes": {
+        "language": {
+            "value": "English",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.language_amazon"
+        },
+        "variation_theme": {
+            "value": "StyleName-Color",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.variation_theme_amazon"
+        },
         "batteries_included": {
             "value": [
                 {
@@ -75,32 +87,57 @@
             "asin": "B0B9HXWXXQ",
             "raw_value": true
         },
-        "variation_theme": {
-            "value": [
-                {
-                    "name": "COLOR/SIZE",
-                    "marketplace_id": "ATVPDKIKX0DER"
-                }
-            ],
-            "is_required": false,
-            "source": "catalog",
-            "asin": "B0B9HXWXXQ",
-            "raw_value": true
-        },
-        "item_name_ai_suggested": {
-            "value": "Beille Wheat Straw Ladle with Stainless Steel Handle",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 13in Cream Wheat Straw Ladle with Stainless Steel",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 56,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Cream",
+                "name": "Wheat Straw Ladle with Stainless Steel Handle"
+            }
         },
-        "title_differentiation": {
-            "value": "13-inch, plant-based, BPA-free, dishwasher safe, eco-friendly",
+        "item_name_ai_openai": {
+            "value": "Beille 13 in Cream Wheat Straw Ladle",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 36,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Cream",
+                "name": "Wheat Straw Ladle"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Plant-Based Wheat Straw, BPA-Free, Dishwasher Safe, Rust-Resistant Stainless Steel Handle, Sustainable Kitchen Utensil",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 118,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Plant Based, BPA-Free, Dishwasher Safe, Stainless Steel Handle, Heat Resistant, Sustainable, Zero Waste",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

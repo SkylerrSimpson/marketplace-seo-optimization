@@ -1,0 +1,60 @@
+{
+    "sku": "SON-LED-HEADLAMP-ORANGE",
+    "asin": "B07GVS9M9V",
+    "product_type": "FLASHLIGHT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-LED-HEADLAMP-ORANGE\nProduct Type: FLASHLIGHT\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor - Adjustable Strap 4 Bulb LED Headlamp\nDescription: Headlamps are great for those tiny dark spaces or when you need a free hand while you work. You will want this when you are doing outdoor activities at night: caving, orienteering, hiking, skiing, backpacking, camping, fishing, trail running, sailing, mountaineering or mountain biking. It's essential when reading in bed, home repairs, or working on motor vesicles (car or motorcycle).<br/><br/>This product features: <br/>-4 super bright white LED bulbs<br/>-13000 MCD<br/>-Orange in Color<br/>-Plastic Body<br/>-2 Function Switch: (1) 1/2 Brightness, (2) Full Brightness<br/>-Adjustable Elastic Head Strap<br/>-Requires 3AAA batteries (Batteries NOT included)\nSearch Terms: headlamp headlight auto camping LED\nFeatures:\n- 13000 MCD\n- Adjustable Elastic Head Strap\n- 2 Function Switch: 1/2 brightness and Full Brightness\n- Requires 3AAA (Not Included)\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 4-Bulb Orange LED Headlamp",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "Bulb",
+                "size": "",
+                "color": "Orange",
+                "name": "LED Headlamp"
+            },
+            "char_count": 38,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 4-Pk Orange LED Headlamp",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "Pk",
+                "size": "",
+                "color": "Orange",
+                "name": "LED Headlamp"
+            },
+            "char_count": 36,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "13000 MCD Super Bright, Adjustable Elastic Strap, 2 Brightness Settings, Hands-Free For Camping And Outdoor Activities",
+            "char_count": 118,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "13000 MCD Brightness, Adjustable Elastic Strap, 2-Mode Switch, 4 White LEDs, 3 AAA Batteries Not Included",
+            "char_count": 105,
+            "validation_error": null
+        }
+    }
+}

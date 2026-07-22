@@ -1,0 +1,60 @@
+{
+    "sku": "SON-GUNBRUSHES3-3PC",
+    "asin": "B0845T5191",
+    "product_type": "CLEANING_BRUSH",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-GUNBRUSHES3-3PC\nProduct Type: CLEANING_BRUSH\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Gun Cleaning Brushes Soft Bristles 3pc\nDescription: Every responsible firearm owner knows the importance of keeping your weapons clean. With the ASR Outdoor 3 Piece Gun Cleaning Brush Set, you can ensure that your firearms are clean, polished, rust-free and dependable.<br/><br/>This set comes with 3 brushes, all featuring different types of bristles for a variety of cleaning options - plastic, nylon, and copper. This range of bristle options is great for cleaning materials that may need a softer or more abrasive scrubbing. The brushes can be used with paste, acid, glue and other cleaning solutions, making them a great addition to any gun cleaning kit.<br/><br/>All of the brushes are double-ended, with one large brush head (1.375\" x .344\") and one small brush head (.875\" x .094\") so you can clean even the hard to reach places. The large brush head has 3 rows of bristles, while the small brush head has just one row that can fit into small areas. The overall length of the brushes is about 6.75\" which will fit in most cleaning kits, pouches or carrying cases, ensuring that you'll have the brushes on hand whenever you need them. <br/><br/>In addition to cleaning, polishing, removing rust or removing paint from your firearms, these brushes are also great for hobbies, crafting and automotive hardware purposes. Make sure to keep a set of these brushes on hand before your next hunting trip, range session or hobby project.\nSearch Terms: gun cleaning supplies cleaninng kits firearm brushes double ended hand tools soft bristle for nylon brush plastic copper abrasive scrubbing hunting\nFeatures:\n- 3 TYPES OF BRISTLES - Soft Plastic, Nylon and Copper for Versatile Cleaning Options | Provides Range of Softer to More Abrasive Scrubbing for Different Materials\n- DOUBLE-ENDED TOOLS - Each Brush Comes with One Large Brush Head (1.375\" x .344\") and One Small Brush Head (.875\" x .094\") for Cleaning Large or Hard to Reach Pieces\n- CLEAN AND POLISH - Removes Rust, Paint, Residue and More from Your Firearm | Regular Cleaning Helps Ensure Weapon is Functioning Properly for Reliable Use\n- DURABLE CONSTRUCTION - Handles Made of High-quality Plastic Suitable for Use with Acids, Glues, Pastes and More | Great Tools for Crafting, Hobbies and Automotive\n- COMPACT DESIGN - Overall Length of Brushes is 6.75\" | Brushes Easily Fit in Most Gun Cleaning Kits, Pouches or Carrying Cases\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 3-pc Gun Cleaning Brushes Soft Bristles",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Soft Bristles",
+                "name": "Gun Cleaning Brushes"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 3-pk Soft Bristle Gun Cleaning Brushes",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Soft Bristle Gun Cleaning Brushes"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Double-Ended, Plastic Nylon Copper Bristles, Removes Rust And Paint, Fits Cleaning Kits",
+            "char_count": 87,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Plastic Nylon And Copper Bristles, Double-Ended Brush Heads, Compact 675\" Length, Removes Rust And Residue, For Firearms And Hobbies",
+            "char_count": 132,
+            "validation_error": "value exceeds maxLength 125 (132 chars)"
+        }
+    }
+}

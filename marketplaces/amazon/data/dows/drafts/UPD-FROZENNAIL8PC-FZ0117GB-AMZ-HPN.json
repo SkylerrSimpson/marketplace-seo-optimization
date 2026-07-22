@@ -3,14 +3,14 @@
     "asin": "B00LR14QBU",
     "product_type": "NAIL_POLISH",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:14:04+00:00",
+    "generated_at": "2026-07-21T19:49:38+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 3,
         "catalog": 16,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -250,19 +250,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "TownleyGirl Disney Frozen 2 Nail Polish Set, 8 Pack",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Disney Frozen 2 Nail Polish Set 8-pk",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 36,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Disney Frozen",
+                "pack_size": "8",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Nail Polish Set"
+            }
         },
-        "title_differentiation": {
-            "value": "Non-Toxic Water-Based Formula, Ages 3+, Perfect Gift",
+        "item_name_ai_openai": {
+            "value": "Disney Frozen 8-Pk Nail Polish Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 34,
+            "review_only": true,
+            "tokens": {
+                "brand": "Disney Frozen",
+                "pack_size": "8",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Nail Polish Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Non-Toxic Water Based Formula, Ages 3 And Up, Multiple Colors, Perfect Gift, Safe For Kids",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 90,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "8 Vibrant Colors, Non-Toxic Water-Based Formula, Frozen 2 Character Art, Ages 3 And Up, Giftable",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 96,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

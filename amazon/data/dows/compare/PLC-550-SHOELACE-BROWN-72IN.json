@@ -1,0 +1,60 @@
+{
+    "sku": "PLC-550-SHOELACE-BROWN-72IN",
+    "asin": "B0BMQVPCQM",
+    "product_type": "SHOELACE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: PLC-550-SHOELACE-BROWN-72IN\nProduct Type: SHOELACE\nBrand (from catalog): ParaLace\nExisting Title: ParaLace 550 Paracord Shoelaces for Hiking Boots Running Shoes, Brown 72 Inch\nDescription: ParaLace brand 550 paracord hiking boot laces are built for adventure, made to be used and designed to withstand even the most rugged of outdoor environments. Already packed on your person, these paracord shoe laces are a valuable piece of survival gear ready for action, as you take to the great outdoors. <br/><br/> While these shoe laces for hiking boots conquer the obvious, helping support you and maintain your footwear, they cross over as reliable emergency preparedness items or survival tools: use them to assist with injuries, build snare or guy lines, unravel for fishing line or sewing thread, create a sling, repair or maintain camping gear in the field, hang a hammock and more; the scope and versatility of these 550 paracord round shoe laces are boundless. <br/><br/> ParaLace wilderness survival hiking boot laces are the shoe laces you’ll want to reach down for, work or play. With a 550lbs static load strength, our shoe laces are incredibly durable, strong and will outperform regular stock shoe laces. Their incredible static tensile strength means that these laces can handle a lot of wear and tear, abrasion and recurrent exposure to harsh conditions, simply based on their robust design. These unisex shoe laces feature low nylon stretch fabrication, ensuring shoe lace knots hold in place, resulting in fewer adjustments and more comfortable movement. <br/><br/> ParaLace outdoor shoe laces are of kernmantle design. Fabricated from 9 removable inner nylon strands (kern), each made of up 3 nylon yarns, enclosed by an exterior woven nylon sheath (mantle) and capped off by 4mm black metal aglets. Our metal aglets help to prevent frayed ends, while their diameter makes them work well with casual shoes, running shoes, hiking or work boots. <br/><br/> Extreme backcountry wilderness adventurer, family camping trip or weekend warrior trail seeker, these 550 paracord shoe laces are an easy addition to include with outdoor gear that won’t weigh you down.\nSearch Terms: 550 paracord shoe laces hiking shoes women survival hunting edc gear tools bug out bag emergency kit running shoes men stocking stuffers boyfriend gifts camping accessories fashion backpacking parachute cord sports outdoors prepper supplies\nFeatures:\n- HIKING BOOT LACES: Shoelaces are made from 550 paracord and sold in pairs; highly resistant to abrasion, weather, wear and tear as well as UV deterioration, these are the round boot laces you'll want to reach down for come your next outdoor adventure or work day\n- UNIVERSAL FIT: Shoelaces are compatible with most all brands of hiking boots, running shoes, work boots, combat boots and more; Low stretch nylon fabrication ensures shoe lace knots hold, meaning fewer adjustments and more comfortable movement\n- STRONG 550 PARACORD: Designed for shoes or hiking boots, constructed from a 9 strand nylon interior kern and a nylon exterior jacket, able to withstand the pressure of up to 550lbs; the strong interior and exterior material construction make these the only shoelaces you'll need\n- SURVIVAL GEAR: ParaLace shoelaces are a resourceful survival tool in case of emergency: build a snare, make a sling, extract a fishing line, hang a hammock, secure a shelter and more, your ingenuity is the only limit\n- TECHNICAL SPECS: Sold as a pair of shoelaces; Metal Aglet: 4.2mm; Shoelace diameter: 5/32\" Breaking strength: 550 pounds; Available Lengths: 48, 54, 60, 72, 81 inches\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 80 characters.  Please include the size and color of the item in the Product Name, if available.\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ParaLace 550 Paracord Shoelaces Brown 72 Inch",
+            "tokens": {
+                "brand": "ParaLace",
+                "pack_size": "550",
+                "pack_size_unit": "",
+                "size": "72 Inch",
+                "color": "Brown",
+                "name": "Paracord Shoelaces"
+            },
+            "char_count": 45,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ParaLace 72 in Brown Paracord Shoelaces",
+            "tokens": {
+                "brand": "ParaLace",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "72 in",
+                "color": "Brown",
+                "name": "Paracord Shoelaces"
+            },
+            "char_count": 39,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Survival Gear, 550Lbs Breaking Strength, Hiking And Running Shoes, Low Stretch Nylon, Metal Aglets, Emergency Tool",
+            "char_count": 114,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "550 Pound Strength, 9 Strand Nylon Core, Low Stretch Fit, Metal Aglets, Abrasion Resistant, Survival Ready",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

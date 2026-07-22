@@ -1,0 +1,60 @@
+{
+    "sku": "SON-FS43IRTES-10PC-43",
+    "asin": "B009DNAP3C",
+    "product_type": "TOOLS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-FS43IRTES-10PC-43\nProduct Type: TOOLS\nBrand (from catalog): Universal Tool\nExisting Title: 43\" Universal 1/8 Flex Shaft Rotary Tool Extension Complete Set with Pen Grip for Dremel\nDescription: We've all struggled trying to use screwdrivers around corners, sanding an awkward gap, or making precise cuts on a detailed surface.<br/><br/>This 43\" Flex Shaft Extension allows you to work efficiently in those tight, cramped spaces that continued to defy your best efforts until now. The Flexible Shaft Rotary Tool Extension comes ready to use out of the package with all the pieces needed to make your life easier in order to complete your DIY project.<br/><br/>The 1/8 inch Flexible Chuck, Inner cable for flexible shaft motors is a universal fit for any rotary tool, electric drill or grinder that is a 3.175mm size (1/8th inch). The installation is convenient and simple, all connections are included that are needed.<br/><br/>This flexible extension attachment for 1/8 shank rotary tool fits most rotary tools with the included adapters. It is great for grinding, engraving, carving, and more. You won't want to tackle your next handyman project without having this versatile set around.\nSearch Terms: hand rotary tool jewelry making ergonomic comfort grip pen attachment flexible Ssaft adaptor Mini grinder extender durable cramped spaces confined compatible reinforced craft hobby maintenance construction toolbox multipiece sleeve\nFeatures:\n- UNIVERSAL FIT ADAPTER: Will fit all 1/8 Flexible Chuck (3.175mm) for rotary tool, electric grinder, electric power drill including for use with Dremel Rotary Tool\n- COMFORT GRIP PEN TIP: Ergonomic pen design with smooth metal surface makes easy, comfortable carving, sanding and polishing. It can used with polishing kits, drill bits, wire brushes, cut off wheels countersinks, flap wheels, mounted stones, grinding wheels, abrasive bits and more\n- WORKING IN TIGHT SPACES: Ideal for engraving and jewelry making the 43\" Flexible Shaft Rotary Tool simplifies working in cramped spaces and allows the user more freedom while working on DIY projects\n- QUALITY MACHINING AND LONG LIFE: For best performance and long life, be sure to apply a greasing lubricant to the inner flex shaft parts as needed. Like all tools proper care and attention will extend the longevity of the tool\n- OVERALL LENGTH: 43 inches\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 43\" Flex Shaft Rotary Tool Extension Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "43",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Flex Shaft Rotary Tool Extension Set"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 43 in Flex Shaft Rotary Tool Extension Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "43",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Flex Shaft Rotary Tool Extension Set"
+            },
+            "char_count": 57,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "10-Piece Complete Set, Universal 18 Chuck Fit, Ergonomic Pen Grip, Tight Spaces, Jewelry Making",
+            "char_count": 95,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Universal Fit 18 Inch Chuck, 43 Inch Flexible Shaft, Pen Grip Comfort, Engraving, Grinding, Carving",
+            "char_count": 99,
+            "validation_error": null
+        }
+    }
+}

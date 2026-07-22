@@ -1,0 +1,60 @@
+{
+    "sku": "PF-POSTER-DUMBBELL-CORE-LAM-AMZ-HPN",
+    "asin": "0973941146",
+    "product_type": "ABIS_BOOK",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: PF-POSTER-DUMBBELL-CORE-LAM-AMZ-HPN\nProduct Type: ABIS_BOOK\nBrand (from catalog): Productive Fitness Publishing\nExisting Title: Laminated Dumbbell Exercise Poster/Chart - Lower Body/Core/Chest/Back - Created by Fitness Experts with University Degrees in Exercise Physiology - Fitness Poster - Dumbbell Workout Chart\nDescription: THE LAMINATED DUMBBELL Exercises Poster-Lower Body/Core/Chest & Back features 18 different dumbbell exercises for strengthening and toning your lower body muscles.<br/>THIS FULL-COLOR exercise poster features dumbbell exercises for working the core (abs and lower back), chest, back and legs.<br/>ALL EXERCISES are clearly explained with step-by-step instructions and descriptive photos.<br/>LAMINATED WORKOUT CHART; 24 x 36 inches.<br/><br/>PLEASE READ; The reason you will find our fitness posters in Community Centers, Hospitals, Clinics, High Schools and Military installations is we work to a higher standard. Quality is important.<br/><br/>- Our posters are designed and created by fitness experts with University degrees in Exercise Physiology and Human Kinetics.<br/>- We put a lot of thought into providing safe, efficient exercises while also educating users on proper exercise technique and terminology.<br/>- For the images to be precise, we only use personal trainers or aspiring exercise physiologists who have an understanding of proper body positioning (proprioception) to be fitness models. Experience has told us you cannot replicate proper form using non-fitness models.<br/>- Posters are printed on 100lb. gloss paper and then laminated for durability.<br/>BTW: At one point we considered using DRAWINGS instead of real-life models to demonstrate exercises as a cost saving effort, but found it was difficult to convey the nuances of safe, effective body movement and positioning.\nSearch Terms: exercise poster dumbell bodyweight ball body weight stretching core dumbbell laminated training\nFeatures:\n(none)\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Productive Fitness Laminated Dumbbell Exercise Poster 24x36",
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "24",
+                "pack_size_unit": "x36 in",
+                "size": "",
+                "color": "",
+                "name": "Laminated Dumbbell Exercise Poster"
+            },
+            "char_count": 59,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Productive Fitness Publishing 24x36 in Dumbbell Exercise Poster",
+            "tokens": {
+                "brand": "Productive Fitness Publishing",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "24x36 in",
+                "color": "",
+                "name": "Dumbbell Exercise Poster"
+            },
+            "char_count": 63,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "18 Dumbbell Exercises, Lower Body, Core, Chest And Back, Step-by-Step Instructions, Full-Color Photos, Laminated Durability",
+            "char_count": 123,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Laminated 24X36 Inch Wall Chart, Step By Step Photos, 18 Exercises, Core Chest Back And Legs Workout",
+            "char_count": 100,
+            "validation_error": null
+        }
+    }
+}

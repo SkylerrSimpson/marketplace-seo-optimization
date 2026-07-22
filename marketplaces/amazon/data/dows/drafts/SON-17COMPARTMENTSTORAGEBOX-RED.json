@@ -3,14 +3,14 @@
     "asin": "B072W9ZDGS",
     "product_type": "PORTABLE_TOOL_BOX",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:10:02+00:00",
+    "generated_at": "2026-07-21T20:07:16+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 5,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -98,28 +98,65 @@
             "value": "17 Compartment Storage Container",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
-            "value": "Small",
+            "value": "12.5\" x 10\" x 2.375\"",
             "is_required": false,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Universal 17 Compartment Storage Box Organizer Red Locking Lid",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal 17 Compartment Storage Box Red Portable",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 49,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal",
+                "pack_size": "17",
+                "pack_size_unit": "Compartment",
+                "size": "",
+                "color": "Red",
+                "name": "Storage Box Portable"
+            }
         },
-        "title_differentiation": {
-            "value": "Portable plastic case with removable dividers, carry handle & locking lid",
+        "item_name_ai_openai": {
+            "value": "Universal 17 Compartment Red Storage Container",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 46,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "17 Compartment",
+                "color": "Red",
+                "name": "Storage Container"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Locking Lid, Carry Handle, Removable Dividers, Craft And Hobby Organization, Durable Plastic",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 92,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "15 Small And 2 Large Compartments, Removable Dividers, Locking Lid, Carry Handle, Durable Plastic, For Crafts And Tools",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 119,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

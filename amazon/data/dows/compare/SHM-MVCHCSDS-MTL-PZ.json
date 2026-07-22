@@ -1,0 +1,60 @@
+{
+    "sku": "SHM-MVCHCSDS-MTL-PZ",
+    "asin": "B0036QVSN8",
+    "product_type": "SAFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SHM-MVCHCSDS-MTL-PZ\nProduct Type: SAFE\nBrand (from catalog): IGE Innovative Internet Products\nExisting Title: Bolt Safe Covert Hidden Contents Clever Stealth Container - 3.5 Inch Length\nDescription: The Spy Bolt is an updated and improved version of the old Soviet KGB \"dead drop\" hollow bolt used during the Cold War. It features an O-ring seal for weather-proof storage of small valuables, communications, etc. <br/><br/>The simple, ingenious design is essential for the concealable gadgets spy work calls for. The Spy Bolt fits the bill perfectly. <br/><br/>Beware of cheap, imitation knock offs. The original spy bolt is designed and made in the USA.\nSearch Terms: Diversion Safe Spy Secrets Hidden Money\nFeatures:\n- Size: 2.8 Cubic Inch Capacity\n- Great for Hiding Small Valuables, Bills, Communications, etc.\n- O-Ring Seal\n- Reverse Threading to Prevent Accidental Opening and to Foil Thieves\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "IGE Spy Bolt 3.5 Inch Hidden Safe Diversion Container",
+            "tokens": {
+                "brand": "IGE",
+                "pack_size": "3.5",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "",
+                "name": "Spy Bolt Hidden Safe Diversion Container"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "IGE Innovative Internet Products 3.5 in Bolt Safe",
+            "tokens": {
+                "brand": "IGE Innovative Internet Products",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "3.5 in",
+                "color": "",
+                "name": "Bolt Safe"
+            },
+            "char_count": 49,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Covert Diversion Safe, O-Ring Seal Weatherproof, Reverse Threading, USA Made, Hide Money And Valuables",
+            "char_count": 102,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Hidden Storage, 28 Cubic Inch Capacity, O Ring Seal, Reverse Threading, Weather Proof, Small Valuables",
+            "char_count": 102,
+            "validation_error": null
+        }
+    }
+}

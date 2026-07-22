@@ -3,14 +3,14 @@
     "asin": "B09WBZZRVG",
     "product_type": "SCISSORS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:23:02+00:00",
+    "generated_at": "2026-07-21T20:09:04+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -83,20 +83,57 @@
             "asin": "B09WBZZRVG",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille 8 Inch Stainless Steel Kitchen Scissors Black",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 8 Inch Black Stainless Steel Kitchen Scissors",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "8",
+                "pack_size_unit": "Inch",
+                "size": "8 Inch",
+                "color": "Black",
+                "name": "Kitchen Scissors"
+            }
         },
-        "title_differentiation": {
-            "value": "Ergonomic handles, nut cracker & bottle opener, dishwasher safe",
+        "item_name_ai_openai": {
+            "value": "Beille 8 in Black Stainless Steel Kitchen Scissors",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 50,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "8 in",
+                "color": "Black",
+                "name": "Stainless Steel Kitchen Scissors"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Nut Cracker And Bottle Opener, Ergonomic Handles, Dishwasher Safe, Multipurpose Utility Shears",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 94,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Nut Cracker, Bottle Opener, Ergonomic Handles, Dishwasher Safe, All Purpose, FDA Compliant, Kitchen And Craft Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 113,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

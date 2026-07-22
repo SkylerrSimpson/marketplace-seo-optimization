@@ -1,0 +1,60 @@
+{
+    "sku": "ASR-PENFLEXIBLEWRITINGTOOL",
+    "asin": "B00KALP5Z4",
+    "product_type": "WRITING_INSTRUMENT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: ASR-PENFLEXIBLEWRITINGTOOL\nProduct Type: WRITING_INSTRUMENT\nBrand (from catalog): ASR Tactical\nExisting Title: ASR Tactical 5-Pack Mental Health Non-Lethal Flexible Ball Point Pen, Black\nDescription: The Mental Health Flexible Safety Pen is the ideal choice for safety minded institutions and agencies as there is virtually no way to utilize these bendable pens as a deadly weapon, they are essential tools for hospitals and health centers where patients may be prone to hurting themselves or others around them.<br/><br/>These mental health flexible ballpoint pens are 4.25\" in length. Are completely flexible with no hardened plastic. Can write up to 3500 feet of long term use and can be disposed or reused at your own discretion. <br/><br/>The non-lethal characteristics of the flexible office ball point writing pen is the only option for inpatient health care clinics, addiction specialists, psychology wards, and those working in any type of medical professional field. <br/><br/>These pens are reliable; made with a soft rubbery material that bends under the slightest pressure, making it nearly impossible to do lethal damage with. <br/><br/>Ink color is available in black or blue.\nSearch Terms: flexible safety writing instrument bendable prison jail pen inmate letters corrections gsa government contract writing ball point health psych inpatient clinic\nFeatures:\n- SAFETY: This flexible rubber ballpoint ink pen is a suitable writing instrument for patients in hospitals and health care centers; Pens are completely flexible with no hardened plastic\n- WRITING CAPACITY: Each pen contains a ink tube with a capacity of writing up to 3500 feet\n- BENDABLE PEN: Constructed to be flexible this ballpoint black pen will bend under the slightest pressure with the tip not exceeding more than 2mm\n- SPECIFICATIONS: Length: 4.25 inches; Weight: 0.001 ounces; Ink Color: Black\n- BULK PENS: These ink pens are available in large quantities with multiple pack sizes\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 5-Pack Black Flexible Safety Ball Point Pen",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "5",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "Black",
+                "name": "Flexible Safety Ball Point Pen"
+            },
+            "char_count": 56,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 5-Pk Black Flexible Ball Point Pen",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "5",
+                "pack_size_unit": "Pk",
+                "size": "",
+                "color": "Black",
+                "name": "Flexible Ball Point Pen"
+            },
+            "char_count": 47,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Non-Lethal, Completely Flexible, 3500 Feet Writing Capacity, Hospital And Mental Health Safe",
+            "char_count": 92,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Non Lethal Safety Design, Completely Flexible Body, 3500 Ft Writing, 425 Inch Length, Soft Rubber Build",
+            "char_count": 103,
+            "validation_error": null
+        }
+    }
+}

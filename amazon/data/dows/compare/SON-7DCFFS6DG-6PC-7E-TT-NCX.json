@@ -1,0 +1,60 @@
+{
+    "sku": "SON-7DCFFS6DG-6PC-7E-TT-NCX",
+    "asin": "B0B4TB5X67",
+    "product_type": "TOOLS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-7DCFFS6DG-6PC-7E-TT-NCX\nProduct Type: TOOLS\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux 6pc Diamond Coated Flat File Set, 40 to 600 Grit\nDescription: This hobby file set has 6 different files, varying in grit; 40 grit coarse to 600 grit fine, for an array of different jobs and tasks whether it is for models, or detailed metal work. Use diamond coated files to cut faster and leave a smoother finish rather than using a ordinary steel file which can damage wood, plastic, ceramics, metal, glass and just about anything else. Diamond dust coated hobby files by ToolTreaux get the project done right.<br/><br/>Diamond files are coated on both sides with genuine industrial diamonds adhering to nickel plated steel handles providing exceptional grit and durability. Diamond dust hobby files are deal for metal working, gold, silver, platinum, and other hard to file materials. The small handles allow for precision detail work as they are not oversize or hard to grip in your fingertips.<br/><br/>Each file is 6.5\" in length and features small 2\" rubberized handles for precision craftsmanship. This set comes with a plastic pouch for easy organization and storage.\nSearch Terms: diamond flat file set flat file set flat files diamond coat mini diamond files crafting tools hobby tool files\nFeatures:\n- 6 PIECE SET OF FLAT FILES: Constructed with high quality industrial diamond dust particles over steel with nickel-plated finish, providing durability and resistance to rust and corrosion. They are diamond coated for a smoother finish\n- ASSORTED GRIT DIAMOND FILE: Varying grits range from coarse to fine, comprised of 40, 80, 150, 240, 400 and 600 making this a great set of files for different jobs and finishing work Set of six 10mm x 8-1/2\" files embedded on four sides, heavy-duty steel with chrome finish\n- COMFORTABLE GRIP: Each file features a 2 inch rubberized handle that will provide a comfortable, non-slip grip that will keep you on the object without slipping up\n- HAND TOOL DESIGN: The 6 different files are each 7\" in length and have a 3/16\" diameter. They are 3mm thick and are embedded on all sides for added strength and durability\n- VERSATILE HOBBY TOOL: Diamond flat files are great tools for precious metal working with gold, silver, platinum and other hard to file materials like glass, marble and granite\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 6-Pc Diamond Coated Flat File Set",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "6",
+                "pack_size_unit": "Pc",
+                "size": "",
+                "color": "",
+                "name": "Diamond Coated Flat File Set"
+            },
+            "char_count": 44,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 6-pk Diamond Coated Flat File Set",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "6",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Diamond Coated Flat File Set"
+            },
+            "char_count": 44,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "40-600 Grit Assorted, Industrial Diamond Dust, Precision Hobby Tool, Metal And Jewelry Work, Includes Pouch",
+            "char_count": 107,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "40-600 Grit Range, Diamond Dust Coated, Rubberized Grip, Precision Hobby Filing, Plastic Pouch",
+            "char_count": 94,
+            "validation_error": null
+        }
+    }
+}

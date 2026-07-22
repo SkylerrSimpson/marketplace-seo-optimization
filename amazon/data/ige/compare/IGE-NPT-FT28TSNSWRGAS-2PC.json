@@ -1,0 +1,60 @@
+{
+    "sku": "IGE-NPT-FT28TSNSWRGAS-2PC",
+    "asin": "B07GY5RBTS",
+    "product_type": "SWORD",
+    "account": "IGE",
+    "generated_at": "2026-07-21T17:20:41+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: IGE-NPT-FT28TSNSWRGAS-2PC\nProduct Type: SWORD\nBrand (from catalog): ASR Tactical\nExisting Title: Full Tang 28\" Tanto Style Replica Ninja Sword with Round Guard and Sheath\nDescription: The blade includes seven silver-colored characters near the guard to give it an authentic look and features an oval guard and a pommel with lanyard hole. This solid single piece of 440 stainless steel gives you a durable, sharp blade. <br/><br/>The nylon webbing wrapped handle provides a secure, comfortable grip, so you will not lose hold of your sword even in the fiercest battle. <br/><br/>Not only is this sword great for defending yourself from ninjas, it can also be used as a machete. Blaze a trail in the forest or keep those weeds around your yard at bay. <br/><br/>Whatever the occasion, make sure you are always at the ready with this ninja sword.\nSearch Terms: cosplay samurai blade sword ninja\nFeatures:\n- Full Tang Tanto Style Blade\n- 440 Stainless Steel Construction\n- Length: Sword 28\"; Blade 19.5\"\n- Sheath Secures Sword with Nylon Strap\n- Shoulder Strap on Sheath\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 28\" Tanto Style Ninja Sword with Sheath",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "28",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Tanto Style Ninja Sword with Sheath"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 28-in Tanto Style Replica Ninja Sword",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "28",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Tanto Style Replica Ninja Sword"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Full Tang 440 Stainless Steel, Oval Guard, Nylon Webbing Handle, Includes Shoulder Strap Sheath",
+            "char_count": 95,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Full Tang 440 Stainless Steel Blade, Oval Guard, Nylon Webbing Wrapped Grip, Sheath With Shoulder Strap",
+            "char_count": 103,
+            "validation_error": null
+        }
+    }
+}

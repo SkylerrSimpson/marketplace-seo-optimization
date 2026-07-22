@@ -3,14 +3,14 @@
     "asin": "B00AY3STD8",
     "product_type": "TOOLS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:18:43+00:00",
+    "generated_at": "2026-07-21T19:51:17+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 5,
         "catalog": 1,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -58,25 +58,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "Compact Eye Glass Repair Kit 11pc",
+            "value": "RK1-135",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Universal 11pc Compact Eyeglass Repair Kit with Screwdriver",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal 11-pc Eyeglass Repair Kit with Screwdriver",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal",
+                "pack_size": "11",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Eyeglass Repair Kit with Screwdriver"
+            }
         },
-        "title_differentiation": {
-            "value": "Emergency repair tool set with screws, nose pads, grommets; pocket-sized case",
+        "item_name_ai_openai": {
+            "value": "Universal Tool 11-pc Eyeglass Repair Kit with Screwdriver",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 57,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "11",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Eyeglass Repair Kit with Screwdriver"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Compact Portable Case, Precision Screwdriver, Replacement Screws, Nose Pads, Grommets, On-the-Go Repairs",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 104,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Compact Travel Case, Precision Screwdriver, Replacement Screws, Nose Pads, Grommets, For Glasses And Electronics",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 112,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

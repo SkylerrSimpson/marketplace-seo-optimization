@@ -3,14 +3,14 @@
     "asin": "B0731MQCLL",
     "product_type": "PROTECTIVE_GLOVE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:49:18+00:00",
+    "generated_at": "2026-07-21T19:37:05+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 4,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -76,20 +76,57 @@
             "asin": "B0731MQCLL",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Tool Work Gloves 3pk Leather Palm Gardening",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Tool 3-pk Work Gloves Adult Gardening",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 47,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "Adult",
+                "color": "",
+                "name": "Work Gloves"
+            }
         },
-        "title_differentiation": {
-            "value": "Heavy Duty Leather Palms, Breathable Material, Yard Work & Repairs",
+        "item_name_ai_openai": {
+            "value": "Universal Tool 3-Pk Adult Blue Work Gloves",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 42,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "Adult",
+                "color": "Blue",
+                "name": "Work Gloves"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Leather Palms, Breathable Material, Yard Work, Gardening, Crafts, Home Repairs, Heavy Duty Protection",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 101,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "3 Pack, Protective Leather Palms, Breathable Material, Blister Protection, Gardening, Yard Work, Crafts, Repairs",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 112,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

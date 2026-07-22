@@ -3,14 +3,14 @@
     "asin": "B08432QFQB",
     "product_type": "TOOLS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:23:19+00:00",
+    "generated_at": "2026-07-21T19:53:18+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 4,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -83,25 +83,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "Assorted Diamond Burr Set 20 Piece",
+            "value": "Diamond Burr Set",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Tool 20-Piece Diamond Burr Set for Rotary Tools",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Tool 20-pc Diamond Burr Set 120-150 Grit",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "20",
+                "pack_size_unit": "pc",
+                "size": "120-150 Grit",
+                "color": "",
+                "name": "Diamond Burr Set"
+            }
         },
-        "title_differentiation": {
-            "value": "Assorted shapes, 120-150 grit, 1/8\" shank, includes storage case",
+        "item_name_ai_openai": {
+            "value": "Universal Tool 20-Piece 120-150 Grit 1/8 Inch Shank Diamond Burr Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 68,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "20",
+                "pack_size_unit": "Piece",
+                "size": "120-150 Grit",
+                "color": "",
+                "name": "Diamond Burr Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "8 Burr Types, 18 Inch Shank, Diamond Coated, Carving, Etching, Grinding, Storage Case",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 85,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Assorted Burr Heads, Diamond Coated, Rotary Tool Compatible, Ceramics Tile Glass Wood, Transparent Storage Case",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

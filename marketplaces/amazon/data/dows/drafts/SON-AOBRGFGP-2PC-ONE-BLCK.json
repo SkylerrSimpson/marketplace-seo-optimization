@@ -3,18 +3,24 @@
     "asin": "B06W5XTXLD",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:15:54+00:00",
+    "generated_at": "2026-07-21T20:08:07+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
-        "fillable": 0,
+        "fillable": 1,
         "catalog": 3,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
     "attributes": {
+        "style": {
+            "value": "Rope",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.style"
+        },
         "externally_assigned_product_identifier": {
             "value": [
                 {
@@ -58,20 +64,57 @@
             "asin": "B06W5XTXLD",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 24\" Arm Length Rubber Gloves, Medium Weight, Black",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 24\" Black Arm Length Rubber Gloves",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 46,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "24",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Arm Length Rubber Gloves"
+            }
         },
-        "title_differentiation": {
-            "value": "Full length protection, texturized grip, waterproof, fits over thermal layers",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 1-Pair Black Full Length Arm Rubber Gloves",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 54,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1",
+                "pack_size_unit": "Pair",
+                "size": "",
+                "color": "Black",
+                "name": "Full Length Arm Rubber Gloves"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Full Length Protection, Texturized Palm Grip, Industrial Lab Safety, Waterproof, Cold Water, Gold Panning, Oyster Shucking",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 122,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "24 Inch Arm Coverage, Texturized Palm Grip, Medium Weight, Waterproof, Cold Water, Seafood And Lab Protection",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

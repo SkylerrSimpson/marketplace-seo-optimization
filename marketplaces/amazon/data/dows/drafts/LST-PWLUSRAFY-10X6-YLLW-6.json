@@ -3,14 +3,14 @@
     "asin": "B0BJ6MFX6Y",
     "product_type": "TOY_FIGURE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:58:43+00:00",
+    "generated_at": "2026-07-21T19:42:37+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 0,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,20 +27,57 @@
             "source": "usurper",
             "usurper_column": "attr.unit_count_amazon"
         },
-        "item_name_ai_suggested": {
-            "value": "Kidplokio Power Warrior Super Robot Action Figure Walking Lights",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Kidplokio 10in Yellow Power Warrior Super Robot Action Figure",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 61,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "10",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Yellow",
+                "name": "Power Warrior Super Robot Action Figure"
+            }
         },
-        "title_differentiation": {
-            "value": "Walks, Talks, Lights Up, Moving Arms, Space Gun, Claw Hand",
+        "item_name_ai_openai": {
+            "value": "Kidplokio Yellow Power Warrior Super Robot Action Figure",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 56,
+            "review_only": true,
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Yellow",
+                "name": "Power Warrior Super Robot Action Figure"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Walks And Talks, Lights Up, Moving Arms And Claw, Light-Up Space Blaster, Rotating Head",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 87,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Lights Up, Walks, Talks, Moving Arms, Rotating Head, Space Blaster, Claw Hand, Robot Sounds, 3 AA Batteries",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

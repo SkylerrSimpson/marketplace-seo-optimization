@@ -3,14 +3,14 @@
     "asin": "B01KTXTG9I",
     "product_type": "TOY_FIGURE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:55:04+00:00",
+    "generated_at": "2026-07-21T19:40:10+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 18,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -261,25 +261,62 @@
             "raw_value": true
         },
         "generic_keyword": {
-            "value": "Disney Mickey Mouse stuffed animal beanbag plush toy large hangtag collectible character figure soft toy kids gift",
+            "value": "Mickey Mouse stuffed animal soft cuddly beanbag plush toy collectible gift kids stuffed character plushie huggable",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "UPD Disney Mickey Mouse 11\" Black & Red Beanbag Plush Toy",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Disney Mickey 11\" Black and Red Beanbag Plush",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 45,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "11",
+                "pack_size_unit": "in",
+                "size": "Large",
+                "color": "Black and Red",
+                "name": "Beanbag Plush"
+            }
         },
-        "title_differentiation": {
-            "value": "Large 11\" Beanbag with Hangtag, Soft Stuffed Plush",
+        "item_name_ai_openai": {
+            "value": "Disney 9-10.5in Black And Red Mickey Plush",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 42,
+            "review_only": true,
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "9-10.5in",
+                "color": "Black And Red",
+                "name": "Mickey Plush"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Large Beanbag Plush, Official Disney Character, Soft Beans Filling, Hangtag Included, Made In United States",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 107,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Large Beanbag Plush, Hangtag Included, PDQ Display Pack, Made In US, Soft Collectible Character",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 95,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

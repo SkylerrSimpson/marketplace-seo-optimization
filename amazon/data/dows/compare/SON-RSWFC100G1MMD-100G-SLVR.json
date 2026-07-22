@@ -1,0 +1,60 @@
+{
+    "sku": "SON-RSWFC100G1MMD-100G-SLVR",
+    "asin": "B01DQ2A2QU",
+    "product_type": "TOOLS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-RSWFC100G1MMD-100G-SLVR\nProduct Type: TOOLS\nBrand (from catalog): Universal Tool\nExisting Title: Universal Tool Reeled Solder with Flux Coating 100 Grams 1mm Diameter\nDescription: The Universal Tool Solder with Flux is ideal for jewelry making and repair, crafts, hobbies and much more.<br/><br/>This reeled solder has a 1mm diameter and weighs 100 grams, so you'll be able to fix up that project you've been putting off. The solder is flux coated, which will keep whatever you're working on clean.<br/><br/>The solder is stored on a convenient reel so you can easily use more if needed. Make sure to keep one of these in your hobby or crafting tool area.\nSearch Terms: solder flux craft hobby electrician soldering torch iron tips flux home improvement DIY skills self help\nFeatures:\n- Solder Diameter: 1mm\n- Solder Weight: 100 grams, Flux Coated\n- Convenient Reel for Storage\n- Great for Soldering, Electronic Repairs, Crafting & More\n- WARNING: This product can expose you to chemicals including Lead and Lead Compounds, which is known to the state of California to cause cancer and birth defects or other reproductive harm.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 100g 1mm Solder with Flux Coating",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "100",
+                "pack_size_unit": "g",
+                "size": "1mm",
+                "color": "",
+                "name": "Solder with Flux Coating"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 100-g 1mm Silver Solder",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "100",
+                "pack_size_unit": "g",
+                "size": "1mm",
+                "color": "Silver",
+                "name": "Solder"
+            },
+            "char_count": 38,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Flux Coated, 1Mm Diameter, Reeled For Easy Storage, Jewelry And Electronics Repair",
+            "char_count": 82,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Convenient Reel Storage, Flux Coated, 1Mm Diameter, Great For Jewelry Repair, Crafts, Electronics",
+            "char_count": 97,
+            "validation_error": null
+        }
+    }
+}

@@ -3,14 +3,14 @@
     "asin": "B0FZN6S2HZ",
     "product_type": "SHOELACE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:57:16+00:00",
+    "generated_at": "2026-07-21T20:04:32+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -99,20 +99,57 @@
             "asin": "B0FZN6S2HZ",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 550 Paracord Hiking Boot Laces, Glow 48in",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 48in Glow in the Dark Paracord Shoelaces",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "48",
+                "pack_size_unit": "in",
+                "size": "48in",
+                "color": "Glow in the Dark",
+                "name": "Paracord Shoelaces"
+            }
         },
-        "title_differentiation": {
-            "value": "Glow in the Dark, 550lb Breaking Strength, Made in USA, Pair",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 1-Pair 48 In Glow In The Dark Paracord Boot Laces",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 61,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1",
+                "pack_size_unit": "Pair",
+                "size": "48",
+                "color": "Glow In The Dark",
+                "name": "Paracord Boot Laces"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "550Lb Breaking Strength, 7-Strand Nylon, Made In USA, UV Resistant, Survival EDC Tool, 1 Pair",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 93,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "550Lb Break Strength, Made In USA, 7-Strand Nylon Core, Metal Aglet, EDC Survival Use, Weather And UV Resistant",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

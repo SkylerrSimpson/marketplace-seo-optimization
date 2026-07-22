@@ -1,0 +1,60 @@
+{
+    "sku": "FO-BBSRWBCA-BUN-LG-BRWN-BNDL",
+    "asin": "B00N263X5S",
+    "product_type": "GUN_SUPPORT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: FO-BBSRWBCA-BUN-LG-BRWN-BNDL\nProduct Type: GUN_SUPPORT\nBrand (from catalog): Flatline-Ops\nExisting Title: Body Bag Shooting Rest with Belt Combo Attachment\nDescription: The Body Bag is the latest product to be designed to increase accuracy and ease of use within the Shooting Rest product line by Flatline Ops.<br/><br/>The Body Bag combines over 30 different shooting bags and heights into one lightweight, adjustable, and multifunctional shooting bag. Simply rest the butt of your rifle on the Body Bag and roll or unroll for your desired height. The center-lock recoil support channel keeps the stock centered and stable before and after recoil, eliminating side-to-side movement. For micro-height adjustments, simply slide the Body Bag forward or backward on the stock.<br/><br/>This package also includes the Body Bag Belt to easily and conveniently carry the Body Bag when hiking or traveling. Fasten snap hook to the tri-ring on the shooting bag and strap it around your pack, wear it as belt or if desired a bandoleer sling.<br/><br/>Improve your ability in the field.\nSearch Terms: hunting firearms gun accessories field gear flatline\nFeatures:\n- Adjustable | Concealable | Portable | Wearable\n- Multifuncitional | Tri-Positonal\n- Recoil support channel keeps the stock centered and stable before and after recoil\n- Field tested to improve accuracy\n- Dimensions: - Unrolled: 34\" x 5.5\" - Rolled: 4.5\" x 5.5\"\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Flatline-Ops Body Bag Shooting Rest with Belt Combo",
+            "tokens": {
+                "brand": "Flatline-Ops",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Body Bag Shooting Rest with Belt Combo"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Flatline-Ops Body Bag Shooting Rest Belt Combo Attachment",
+            "tokens": {
+                "brand": "Flatline-Ops",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Body Bag Shooting Rest with Belt Combo Attachment"
+            },
+            "char_count": 57,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Adjustable Rifle Rest, Recoil Support Channel, Portable Wearable Belt, Field Tested Accuracy",
+            "char_count": 92,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Adjustable, Portable, Wearable, Tri-Positional, Recoil Support Channel, Centered Stock Stability, Carry Belt",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

@@ -3,14 +3,14 @@
     "asin": "B09TN8Y4KB",
     "product_type": "DRINKING_CUP",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:05:37+00:00",
+    "generated_at": "2026-07-21T19:46:18+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 10,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -167,20 +167,57 @@
             "asin": "B09TN8Y4KB",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille Ceramic Coffee Mugs Set of 4 with Metal Stand, 11oz",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 4-pc 11oz Pastel Coffee Mugs Set with Stand",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "pc",
+                "size": "11oz",
+                "color": "Pastel",
+                "name": "Coffee Mugs Set with Stand"
+            }
         },
-        "title_differentiation": {
-            "value": "Colorful Modern Design, Dishwasher Safe, Space-Saving Stand",
+        "item_name_ai_openai": {
+            "value": "Beille 4-Pc Modern Dipped Coffee Mugs Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 41,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "pc",
+                "size": "Modern Dipped",
+                "color": "Assorted",
+                "name": "Coffee Mugs Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Set Of 4, 11Oz Ceramic Stoneware, Dishwasher Safe, Metal Hanging Stand, Modern Design, Space-Saving Stackable",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 109,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "11Oz Stoneware, Metal Hanging Stand, Dishwasher Safe, Pastel Colors, Space Saving Storage, Comfortable Handle Grip",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 114,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

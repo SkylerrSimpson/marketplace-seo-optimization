@@ -3,14 +3,14 @@
     "asin": "B0BSGKY8B4",
     "product_type": "LIP_BALM",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:51:38+00:00",
+    "generated_at": "2026-07-21T20:03:13+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -40,20 +40,57 @@
             "asin": "B0BSGKY8B4",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Disney Princess BFF Lip Balm & Jewelry Bundle Set for Girls",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Disney Princess BFF Lip Balm and Jewelry Gift Set Bundle",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 56,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Princess BFF Lip Balm and Jewelry Gift Set Bundle"
+            }
         },
-        "title_differentiation": {
-            "value": "2 Lip Balm Sets with Tin Cases + 6pc Jewelry, Ages 3+, Non-Toxic",
+        "item_name_ai_openai": {
+            "value": "Disney 3-Pc Princess BFF Lip Balm Bundle",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 40,
+            "review_only": true,
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Princess BFF Lip Balm Bundle"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "2 Lip Balm Sets With Tin Cases, 6Pc Jewelry Set, Non-Toxic Formula, Stocking Stuffer, Ages 3 And Up",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 99,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Officially Licensed, Water-Based Nontoxic Formula, 2 Tin Carry Cases, 6-Pc Jewelry Set, Ages 3 And Up",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B0FH7KSYQ9",
     "product_type": "SPORTING_GOODS",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:44:15+00:00",
+    "generated_at": "2026-07-21T19:28:40+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 4,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -51,20 +51,57 @@
             "asin": "B0FH7KSYQ9",
             "raw_value": true
         },
-        "title_differentiation": {
-            "value": "Heat-treated steel construction with knurled grip barrel, pocket clip for quick access, and back pin for double-locking cuffs",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical Universal Handcuff Key with Pocket Clip",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8",
-            "validation_error": "requires item_name <= 75 chars"
-        },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical Universal Steel Handcuff Key with Pocket Clip",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Universal",
+                "color": "",
+                "name": "Handcuff Key with Pocket Clip"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "ASR Tactical Universal Handcuff Key with Clip",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 45,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Universal Handcuff Key with Clip"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Heat-Treated Steel, Double-Locking, Fits All Standard Handcuffs, EDC Pocket Clip, Law Enforcement",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 97,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Heat-Treated Steel, Fits Standard And Double-Lock Handcuffs, Pocket Clip, Back Pin, Knurled Grip",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 96,
+            "review_only": true
         },
         "pesticide_marking": {
             "value": [

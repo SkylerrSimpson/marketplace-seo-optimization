@@ -1,0 +1,60 @@
+{
+    "sku": "SON-SMALL-EH432-HAMMER-4PK",
+    "asin": "B07KRNPS39",
+    "product_type": "AUTO_ACCESSORY",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-SMALL-EH432-HAMMER-4PK\nProduct Type: AUTO_ACCESSORY\nBrand (from catalog): Auto Safessentials\nExisting Title: Auto Emergency Hammer With Seatbelt Cutter and Window Breaker - 4pk\nDescription: Roadside Emergency Escape Car Hammer - After a bad car accident a few seconds can mean the difference between life and death for you and your loved ones. This emergency multi tool helps you to escape quickly after a car accident. Many people fear wearing a seat belt in case they were to be trapped in a burning or sinking vehicle. Electric windows do not work without power and would need to be shattered so you could escape. The surgically sharp blade effortlessly cuts through a tangled seat belt (recessed for safety), the pointed steel head (with red plastic protective cover) shatters windows with ease. Simply keep it in your glove box or emergency kit. Perfect for a gift or stocking stuffer.\nSearch Terms: emergency hammer roadside escape tool window punch auto safety\nFeatures:\n- ESSENTIAL AUTO SAFETY TOOL - This must have car emergency hammer could be the difference between life and death for you or a loved one.\n- SEATBELT CUTTER - A recessed razor edged blade prevents cuts and allows easy escape from car restraints.\n- WINDOW BREAKER - The dual-sided hammer head shatters and breaks out car windows to assist escaping from rolled or submerged vehicles or vehicles with door damage.\n- REFLECTIVE HEAD TAG - The reflective head allows for quick and easy spotting in various emergency conditions.\n- PERFECT STOCKING STUFFER - This compact emergency hammer makes a perfect small gift for teens, loved ones, and friends.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Auto Safessentials 4-pk Emergency Hammer Window Breaker",
+            "tokens": {
+                "brand": "Auto Safessentials",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Emergency Hammer Window Breaker"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Auto Safessentials 4-pk Emergency Hammer",
+            "tokens": {
+                "brand": "Auto Safessentials",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Emergency Hammer"
+            },
+            "char_count": 40,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Seatbelt Cutter, Window Breaker, Reflective Head, Car Escape Tool, Roadside Safety Kit",
+            "char_count": 86,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Seatbelt Cutter, Window Breaker, Reflective Head Tag, Compact Auto Escape Tool, Great Stocking Stuffer",
+            "char_count": 102,
+            "validation_error": null
+        }
+    }
+}

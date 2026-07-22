@@ -1,0 +1,60 @@
+{
+    "sku": "SON-TTX-CHASINGHMMR-10INCH-WD",
+    "asin": "B099JDBPY3",
+    "product_type": "HAMMER_MALLET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-TTX-CHASINGHMMR-10INCH-WD\nProduct Type: HAMMER_MALLET\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Dual Head Steel Wood Chasing Hammer Jewelry Making Supplies, 10 inch\nDescription: Whether you are just getting started in the world of metal work or design, or are already an experienced crafter, this chasing hammer will soon become a proven asset in your creative toolbox and jewelry making supplies. <br/><br/>The ToolTreaux dual headed 10-inch chasing hammer, features a double-sided steel head design to provide multiple options for shaping. The double sided head of this metalworking chasing hammer is 2.5\" long and the diameter is 1\" on both sides providing ample surface area; the smooth flat face is for striking chasing tools or planishing metal, while the other convex side is for peening and riveting metal.<br/><br/>The ergonomic handle with a narrower neck and wider base that creates a slight spring effect. The conscious design of this chasing hammer allows some bounce-back with each strike, producing a more improved precision striking while also reducing muscle fatigue from prolonged use. <br/><br/>The chasing hammer has a wide application and can be used by jewelry makers, artisans, crafters, metal workers, for woodworking and furniture design and distressing, machinists, metal smiths and more.\nSearch Terms: chasing hammer steel wood DIY crafting art design wire work metalsmiths metalwork woodworking machinsts tools sterling silver jewelry making supplies gold necklaces bracelets rings set peening riveting metal forging\nFeatures:\n- JEWELRY MAKING SUPPLIES: An essential and necessary tool for any level of crafter, the ToolTreaux Double Sided Steel and Wood Chasing Hammer features a dual head for shaping; a smooth face for flattening or forging metal, a rounded convex face for peening and riveting\n- ERGONOMIC WOODEN HANDLE: The lightweight, 10 inch chasing hammer features an ergonomic handle with a narrower neck and wider base; The conscious design of this chasing hammer allows some bounce-back with each strike, producing a more improved control while also reducing muscle fatigue from prolonged use\n- DURABLE STEEL MATERIAL: The dual headed hammer set is made with a durable steel head, making this chasing hammer for jewelry making and other design work a reliable tool for both heavy-duty and intricate metal work\n- WIDE DESIGN APPLICATION: The chasing hammer for jewelry making can be used by jewelry makers, artisans, crafters, metalworkers, for woodworking and furniture design, machinists, metalsmiths and more\n- SPECIFICATIONS: Height: 10 inches; Weight: 6.4 ounces; Head Length: 2.5 inches; Hammer Face Diameter: 1 inch; Materials: Steel and Wood; Colors: Brown, silver, black\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 10in Dual Head Steel Wood Chasing Hammer",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "10",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Dual Head Steel Wood Chasing Hammer"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 10-in Steel Wood Chasing Hammer",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "10",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Steel Wood Chasing Hammer"
+            },
+            "char_count": 42,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Dual-Head Design, Ergonomic Wood Handle, Peening And Riveting, Jewelry Making And Metalwork, Reduces Muscle Fatigue",
+            "char_count": 115,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Dual Head, Smooth And Convex Faces, Ergonomic Wood Handle, Reduced Fatigue, Jewelry Making, Metalworking",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

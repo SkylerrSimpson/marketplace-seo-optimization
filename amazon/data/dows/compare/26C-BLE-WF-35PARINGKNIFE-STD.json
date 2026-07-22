@@ -1,0 +1,60 @@
+{
+    "sku": "26C-BLE-WF-35PARINGKNIFE-STD",
+    "asin": "B0FN67C75H",
+    "product_type": "KITCHEN_KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 26C-BLE-WF-35PARINGKNIFE-STD\nProduct Type: KITCHEN_KNIFE\nBrand (from catalog): Beille\nExisting Title: Beille 1pc Stainless Steel and Wheat Fiber Handle Paring Knife Kitchen Essentials, 7.5 Inches\nDescription: Upgrade everyday food and meal prep work in the kitchen with Beille’s 3.5 inch paring knife, thoughtfully designed with precision, comfort and sustainability in mind.<br/><br/>Whether you're peeling fruit, de-veining shrimp or trimming vegetables, the compact stainless steel blade delivers sharp, accurate cuts with every slice. The paring knife features a high quality stainless steel blade with excellent resistance to rust and corrosion, making it a reliable tool you can count on.<br/><br/>What sets this knife apart is its unique handle material: made partially from wheat straw fiber (blended with polypropylene), a biodegradable material that is naturally heat resistant, odor free and helps to reduce plastic waste. Lightweight yet sturdy, the handle provides a natural grip that supports effortless maneuvering, even during extended use.<br/><br/>With a minimalist look that complements any kitchen, this paring knife from Beille is ready for daily use! The paring knife is dishwasher safe for a quick and hassle free cleanup. Whether you're a seasoned home cook, or just starting out in the kitchen, this paring knife brings together functionality and sustainability in one beautifully minimal kitchen essentials tool.\nSearch Terms: small kitchen knife; fruit peeler; veggie prep tool; stainless steel blade; precision paring knife; sustainable handle; eco friendly cutlery; compact food prep tool; ergonomic grip; mini chef knife; food meal prep\nFeatures:\n- PRECISION PARING PERFORMANCE: Ideal for intricate tasks like peeling, trimming, and slicing fruits or vegetables; compact stainless steel blade ensures razor sharp performance and easy control for delicate food and meal prep tasks\n- WHEAT FIBER HANDLE: Crafted from a blend of sustainable wheat straw fiber and polypropylene, the lightweight handle offers a natural, textured grip that’s comfortable, ergonomic and better for the environment\n- STAINLESS STEEL BLADE: Built to last with a durable, corrosion resistant stainless steel blade that maintains its edge through everyday kitchen use; designed for long lasting sharpness and performance; blade measures 3.5 inches in length\n- STYLISH AND MODERN LOOK: Style and sustainability meet here! Sleek, compact, and stylish, this paring knife adds a clean, natural look to any kitchen\n- DISHWASHER SAFE: Designed for convenience, this paring knife is safe to clean in the dishwasher, making post meal clean up quick and hassle free\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 3.5 inch Stainless Steel Paring Knife",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "3.5",
+                "pack_size_unit": "inch",
+                "size": "",
+                "color": "",
+                "name": "Stainless Steel Paring Knife"
+            },
+            "char_count": 44,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 1-pc 7.5 In Paring Knife",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "1",
+                "pack_size_unit": "pc",
+                "size": "7.5 in",
+                "color": "",
+                "name": "Paring Knife"
+            },
+            "char_count": 31,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Wheat Fiber Handle, Eco-Friendly, Dishwasher Safe, Ergonomic Grip, Precision Blade",
+            "char_count": 82,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Rust Resistant Stainless Steel Blade, Wheat Straw Fiber Handle, Dishwasher Safe, Ergonomic Grip, Precision Cutting",
+            "char_count": 114,
+            "validation_error": null
+        }
+    }
+}

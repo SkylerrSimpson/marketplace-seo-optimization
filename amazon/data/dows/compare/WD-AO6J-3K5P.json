@@ -1,0 +1,60 @@
+{
+    "sku": "WD-AO6J-3K5P",
+    "asin": "B0DVF7Z7JZ",
+    "product_type": "CLEANING_BRUSH",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: WD-AO6J-3K5P\nProduct Type: CLEANING_BRUSH\nBrand (from catalog): Beille\nExisting Title: Beille Dish Brush with Bamboo Palm Handle and Heavy Duty Bristles Kitchen Essentials, Multicolor\nDescription: Crafted from lightweight, sustainable bamboo and equipped with durable, high density bristles, our dish brush and shower scrubber or scrub brush can easily tackle stubborn grime and grease on pots, pans, dishes and other household items like tubs, floors and grout. Versatility and a wide application make Beille’s dish brushes a must have household essentials and cleaning supplies item!<br/><br/>The dish brush features an ergonomic and sustainable bamboo palm handle, offering a comfortable and easy to hold grip when dishwashing. And, it’s thoughtful size (measure four inches in length), will take up minimal space on kitchen counters or sink periphery when not in use. Aside from cleaning dishes, the dish brush can also be used to scrub vegetables and fruits, to clean cutting boards, the kitchen sink and more.<br/><br/>If you’re looking for a little more scrubbing power, reach for the larger scrub brush (measures five inches in length), which boasts equally as strong and dense bristles as its complementary dish brush. Designed to tackle tougher cleaning jobs like grout, showers and tubs, floors, it’s also sturdy enough to tackle other projects in areas like a garage, pantry or laundry room too. The scrub brush features a hanging loop and can also rest over the side of a cleaning bucket when not in use.<br/><br/>The natural bamboo handle and confetti-like pop of color lend a modern and stylish meets organic and neutral design that we love! Whether washing delicate plates or scrubbing down tough cookware, these scrub brushes are built to handle it all, making cleaning chores easier and more efficient. The sustainable bamboo handle and sturdy bristles combine scrubbing effectiveness and sustainability all in one.<br/><br/>CARE INSTRUCTIONS: Simply rinse off dish brushes under warm water and soap to keep them looking fresh and pat dry; to maximize longevity, avoid submerging bamboo in water for extended periods\nSearch Terms: Dish brush; sponges kitchen; home and kitchen; kitchen gifts; kitchen tools; dish brush with handle; dish scrub brush; bamboo dish brush; dish cleaning brush; cleaning supplies; house warming gifts new home; new home essentials; new home gift ideas\nFeatures:\n- DISH BRUSH AND SCRUB BRUSH: Heavy duty bristles are tough on stubborn grease and grime, ensuring a thorough clean for all your dishes, pots, pans and other household items; sustainable bamboo handles and high density bristles combine scrubbing efficiency and sustainability all in one, for kitchens, bathrooms and more\n- BAMBOO HANDLE: Kitchen dish brush and shower scrubber feature ergonomic and sustainable bamboo handles, offering a comfortable and easy to hold grip for generating scrubbing pressure when cleaning; scrubber brush comes with hanging hook for easy storage and accessibility\n- WIDE APPLICATION: Designed for cleaning dishes pots and more, the dish brush is suitable for scrubbing vegetables, cleaning cutting boards, the kitchen sink and more; the scrub brush can easily handle heavier cleaning tasks like showers, tubs, grout and more\n- MODERN DESIGN: Natural bamboo handle and pop of confetti-like color lend a stylish but organic and neutral design to any kitchen, bathroom, laundry room and more; to maximize longevity, avoid submerging bamboo in water for long periods of time\n- SPECIFICATIONS: Dish Brush Dimensions: 4.0 x 2.5 inches; Scrub Brush Dimensions: 5.5 x 2.5 x 4.0 inches; Dish Brush Weight: 0.16lbs; Scrub Brush Weight: 0.34lbs\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille Multicolor Bamboo Dish Brush with Heavy Duty Bristles",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Multicolor",
+                "name": "Bamboo Dish Brush with Heavy Duty Bristles"
+            },
+            "char_count": 60,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille Multicolor Bamboo Dish Brush",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Multicolor",
+                "name": "Dish Brush"
+            },
+            "char_count": 35,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Sustainable Bamboo Handle, High Density Bristles, Ergonomic Grip, Hanging Loop, Scrub Brush Set",
+            "char_count": 95,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Heavy Duty Bristles, Ergonomic Bamboo Handle, Hanging Loop, Multi Purpose Kitchen And Bathroom Scrubber",
+            "char_count": 103,
+            "validation_error": null
+        }
+    }
+}

@@ -3,14 +3,14 @@
     "asin": "B09MGDGJQZ",
     "product_type": "TOY_FIGURE_PLAYSET",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:09:12+00:00",
+    "generated_at": "2026-07-21T20:07:09+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 3,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -71,22 +71,59 @@
             "value": "Red",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Kidplokio Pirate Ship Playset with Lights, Sounds & 3 Action Figures",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Kidplokio Pirate Ship Playset with Lights, Sounds & Figures",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 59,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Red",
+                "name": "Pirate Ship Playset with Lights, Sounds & Figures"
+            }
         },
-        "title_differentiation": {
-            "value": "Interactive lights & sounds, includes 3 pirate figures, ages 3+, batteries included",
+        "item_name_ai_openai": {
+            "value": "Kidplokio Toy Pirate Ship Ocean Adventure Playset with Lights Sounds",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 68,
+            "review_only": true,
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Toy Pirate Ship Ocean Adventure Playset with Lights Sounds"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Includes 3 Action Figures, Light And Sound Effects, Battery Operated, Ages 3, Interactive Pretend Play",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 102,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Lights And Sounds, 3 Pirate Figures, No Assembly Required, Batteries Included, Imaginative Pretend Play, Ages 3",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

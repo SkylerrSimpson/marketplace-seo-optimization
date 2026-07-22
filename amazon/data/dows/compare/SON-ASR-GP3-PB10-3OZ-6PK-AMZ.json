@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ASR-GP3-PB10-3OZ-6PK-AMZ",
+    "asin": "B0BKZJ3DDN",
+    "product_type": "BOTTLE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ASR-GP3-PB10-3OZ-6PK-AMZ\nProduct Type: BOTTLE\nBrand (from catalog): ASR Outdoor\nExisting Title: (6 Pack) ASR Outdoor 3oz Plastic Heavy Duty Gold Snifter Bottle with Extending Nozzle\nDescription: The ASR Outdoor Gold Snifter Bottles are a must-have extraction tool to include with your gold panning kits and gold prospecting equipment. This handy gold recoveryplastic snuffer bottle is perfect for extracting small gold flakes and fine gold flour from gold pans, and are available in 3 ounce capacity. Easy to use, just squeeze the bottle and use the suction to grab your new found precious metal safely into the bottle for secure keeping. <br/><br/> WHEN TO USE: The snifter is used after you’ve panned down to gold or nearly so to help with extraction from your mineral deposit <br/><br/> HOW TO USE: The ASR Outdoor small, hand sized, flexible clear plastic snifter bottle has a small tube attached to its end; simply squeeze the snifter bottle to create a vacuum inside so the submerged gold can easily be sucked up through the tube\nSearch Terms: gold panning mining snifter bottle plastic dropper prospecting outdoor sports squeeze treasure hunting classifying clear lab fine recovery prospector equipment\nFeatures:\n- Combined Size of Nozzle & Bottle: 5\" x 1\" Diameter\n- Volume: 3 fl oz\n- Tube Size: 4\" x 3/16\" Diameter\n- Tube Thickness: 1/32\"\n- Ideal for fine gold recovery clean up; strong suction squeeze bottle\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 6-Pack 3oz Gold Snifter Bottle",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "6",
+                "pack_size_unit": "Pack",
+                "size": "3oz",
+                "color": "Gold",
+                "name": "Snifter Bottle"
+            },
+            "char_count": 42,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 6-Pk 3oz Gold Snifter Bottle",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "6",
+                "pack_size_unit": "Pk",
+                "size": "3oz",
+                "color": "Gold",
+                "name": "Snifter Bottle"
+            },
+            "char_count": 40,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Fine Gold Recovery, Plastic Squeeze Bottle, Extending Nozzle, Gold Panning Tool, Prospecting Equipment, Suction Extraction",
+            "char_count": 122,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Fine Gold Recovery, Strong Suction Squeeze Bottle, Clear Plastic, Extending Nozzle, 6 Pack, For Panning Kits",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

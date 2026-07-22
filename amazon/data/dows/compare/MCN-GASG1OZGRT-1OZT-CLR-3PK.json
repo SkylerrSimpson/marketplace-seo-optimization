@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-GASG1OZGRT-1OZT-CLR-3PK",
+    "asin": "B01MY89BTS",
+    "product_type": "SEALANT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-GASG1OZGRT-1OZT-CLR-3PK\nProduct Type: SEALANT\nBrand (from catalog): GEAR AID\nExisting Title: GEAR AID Seam Grip WP Waterproof Sealant and Adhesive for Tents and Outdoor Fabric, Clear, 1 oz, 3-pk\nDescription: Seam Grip WP is a waterproof sealant that keeps you and your gear dry. Use it on tents, tarps, awnings and more to permanently repair torn gear. As a tent seam sealant, it works on all types of fabric including nylon, polyester, vinyl and canvas. Seal up to 12' of tents with just 1 oz of this urethane adhesive or apply the clear glue to repair outdoor camping gear, rv awnings and even boat seats. Seam Grip is also available in an 8 oz tube. Take the handy Seam Grip WP sealant and adhesive on your next adventure, because you never know when gear will rip, leak, or fall apart.\nSearch Terms: gear repair aid mcnett outdoor tent coat seam grip jacket sealant kit\nFeatures:\n- Seal seams and permanently repair holes in tents, tarps, awnings, rainflys and camping gear like Thermarest® sleeping pads\n- Treat up to up to 12' of seams (1 oz) or repair torn outdoor fabrics with an adhesive that cures into a flexible rubber seal; also available in an 8 oz tube\n- Waterproof gear with a sealant that flexes with fabric and bonds to nylon, polyester, canvas, leather and vinyl\n- Apply it to repair or re-proof gear without worrying about the seal peeling or cracking; includes two applicator brushes\n- Packaging may vary\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "GEAR AID Seam Grip WP Waterproof Sealant Clear 1oz 3-pk",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "1oz",
+                "color": "Clear",
+                "name": "Seam Grip WP Waterproof Sealant"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID 3-PK 1 OZ Clear Seam Grip WP Sealant and Adhesive",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "1 oz",
+                "color": "Clear",
+                "name": "Seam Grip WP Sealant and Adhesive"
+            },
+            "char_count": 58,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Waterproof Tent And Fabric Sealant, Permanent Adhesive Repair, Seals 12 Feet Per Oz, Flexible Rubber Seal, Includes Applicator Brushes",
+            "char_count": 134,
+            "validation_error": "value exceeds maxLength 125 (134 chars)"
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Waterproof Tent Seam Sealer, Flexible Rubber Cure, Bonds Nylon Polyester Canvas Vinyl, Includes 2 Brushes",
+            "char_count": 105,
+            "validation_error": null
+        }
+    }
+}

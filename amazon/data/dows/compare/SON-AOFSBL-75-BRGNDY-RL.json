@@ -1,0 +1,60 @@
+{
+    "sku": "SON-AOFSBL-75-BRGNDY-RL",
+    "asin": "B0949VVBRK",
+    "product_type": "SPORTING_GOODS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-AOFSBL-75-BRGNDY-RL\nProduct Type: SPORTING_GOODS\nBrand (from catalog): ASR Outdoor\nExisting Title: Cotton Fleece Fabric Camping Blanket Sleeping Bag Liner with Nylon Storage Bag, Red, 75 x 66 inches\nDescription: The perfect camp sleep solution does exist: the ASR Outdoor Red Cotton Fleece Camping Sleeping Bag Liner Blanket with Nylon Storage Bag. Warm enough to use on its own during summer months as a stand-alone sleeping bag, or able to be inserted to your regular sleeping bag for a layer of extra added warmth during colder camp months, this sleeping bag insert is truly an all-seasons item.<br/>In addition to its versatility, the red cotton fleece sleeping bag insert has some other great features to take note of:<br/>FIRE RETARDANT: The cotton fleece liner's fabrication is specially treated to be fire-retardant, making it not only a great addition to your camping gear, but a fantastic item to include in a bug out bag, disaster preparedness or survival kit whether for home, cabins, vehicles or even workplaces in case of emergency<br/><br/>EASY STORAGE & PACKING: Weighing in at only 1.24 pounds and measuring just 7 x 7 x12 inches when folded, the sleep sack liner is lightweight, compact and easy to pack into the included nylon mesh storage bag with drawstring; the liner also features elastic bands to help keep the blanket compressed when packing up and later stowed <br/><br/>THERMAL HEAT GENERATING BLANKET: For those cooler camp months when a pair of wool socks and a beanie just aren't quite enough to sleep warmly, add the ASR Outdoor cotton fleece liner to your regular sleeping bag for a layer of extra added warmth. The insert generates additional thermal protection of up to 12.1 degrees Fahrenheit and can be opened via three side zippers to a full-size blanket <br/><br/>QUALITY FABRICATION: made from a cotton fleece blend, this sleeping bag liner sleep sack provides moisture control, insulation, durability, lightweight comfort and is soft to the touch<br/><br/>The liner measures 71 x 31 inches and fits in all standard-sized sleeping bags.<br/><br/>Machine washable.\nSearch Terms: sleep sack baby aid summer winter sleeping bag liner kids backpacking lightweight ultralight compact cold weather camping compression girls stuff for fleece adult emergency hiking warm\nFeatures:\n- MULTIPURPOSE CAMPING ESSENTIAL: The ASR Outdoor cotton fleece liner is perfect for both warm or cold camp months, functioning as either a sleeping bag liner or stand-alone lightweight sleeping bag; the insert is also fire retardant, machine washable, features a nylon storage bag with drawstring\n- BUILT IN HEAT THERMAL BLANKET: For those cooler camp months when a pair of wool socks and a beanie just aren't quite enough to sleep warmly, add the ASR Outdoor cotton fleece liner to your regular sleeping bag for a layer of extra added warmth! The insert generates additional thermal protection of up to 12.1 degrees Fahrenheit\n- FIRE RETARDANT COTTON FLEECE FABRIC: The cotton fleece liner's fabrication is specially treated to be fire-retardant, making it not only a great addition to your camping gear\n- EASY STORAGE & PACKING: Weighing in at only 1.24 pounds and measuring just 7 x 7 x12 inches when folded, the sleep sack liner is lightweight, compact and easy to pack into the included nylon mesh storage bag with drawstring; the liner also features elastic bands to keep the blanket compressed\n- SPECIFICATIONS: Color: Red; Open Dimensions: 75 x 66 inches; Zipped Dimensions: 75 x 33 inches; Machine-washable; Meets CPAI-84 Requirements; Nylon storage bag included\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 75x66 Red Cotton Fleece Sleeping Bag Liner",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "75x66",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Red",
+                "name": "Cotton Fleece Sleeping Bag Liner"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 75x66in Red Cotton Fleece Sleeping Bag Liner Blanket",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "75 x 66 in",
+                "color": "Red",
+                "name": "Cotton Fleece Sleeping Bag Liner Blanket"
+            },
+            "char_count": 64,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Fire Retardant, Thermal Heat Up To 121 Degrees, Lightweight Compact, Includes Storage Bag, Machine Washable",
+            "char_count": 107,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Fire Retardant, Thermal Warmth Up To 121 Degree F, Lightweight 124 Lb, Machine Washable, Nylon Storage Bag Included",
+            "char_count": 115,
+            "validation_error": null
+        }
+    }
+}

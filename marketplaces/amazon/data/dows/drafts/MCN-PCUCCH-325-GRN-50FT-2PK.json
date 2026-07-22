@@ -3,14 +3,14 @@
     "asin": "B08C2985C1",
     "product_type": "CORD_ROPE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:17:45+00:00",
+    "generated_at": "2026-07-21T20:08:25+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 10,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -151,20 +151,57 @@
             "asin": "B08C2985C1",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Gear Aid 325 Paracord with Carabiner, 50 ft, Nav Green, 2-pk",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "GEAR AID 325 Paracord 50 ft Nav Green 2-pk",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 42,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "50 ft",
+                "color": "Nav Green",
+                "name": "325 Paracord"
+            }
         },
-        "title_differentiation": {
-            "value": "100% Nylon, Includes Carabiner, Camping & Hiking, Emergency Survival",
+        "item_name_ai_openai": {
+            "value": "GEAR AID 2-pk 325 Nav Green Paracord Carabiner",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 46,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "325",
+                "color": "Nav Green",
+                "name": "Paracord Carabiner"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "100 Nylon, Includes Carabiner, Lightweight Durable, Camping Hiking Hunting, Emergency Survival",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 94,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "100 Percent Nylon, 50 Ft Lightweight Cord, Included Carabiner, Tent Guyline And Tie-Down, Survival Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 102,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

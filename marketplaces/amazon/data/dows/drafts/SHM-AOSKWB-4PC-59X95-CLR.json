@@ -3,14 +3,14 @@
     "asin": "B01HQJ3L08",
     "product_type": "SURVIVAL_KIT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:07:02+00:00",
+    "generated_at": "2026-07-21T20:06:43+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -45,19 +45,57 @@
             "asin": "B01HQJ3L08",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 4pk Survival Water Bags 1.5 Pint Collapsible",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 4-pk 5.9x9.5 Clear Survival Water Bags",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "5.9x9.5",
+                "color": "Clear",
+                "name": "Survival Water Bags"
+            }
         },
-        "title_differentiation": {
-            "value": "Food Grade, Resealable, Lanyard Hole, Emergency Hydration",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 4-pk 1.5-Pint Survival Water Bags",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 45,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "1.5 Pints",
+                "color": "",
+                "name": "Survival Water Bags"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "15 Pints Each, Food Grade Plastic, Gusseted, Lanyard Holes, Waterproof Storage, Emergency Preparedness",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 102,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Food Grade Nylon And LLDPE, Flat Pack 59\" X 95\", Gusseted 32\", Reclosable, Lanyard Hole, 54 Mil, Lightweight",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 108,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

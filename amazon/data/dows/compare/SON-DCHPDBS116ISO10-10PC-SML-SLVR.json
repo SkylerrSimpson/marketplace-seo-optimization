@@ -1,0 +1,60 @@
+{
+    "sku": "SON-DCHPDBS116ISO10-10PC-SML-SLVR",
+    "asin": "B0078TCBXA",
+    "product_type": "DRILL_BITS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-DCHPDBS116ISO10-10PC-SML-SLVR\nProduct Type: DRILL_BITS\nBrand (from catalog): Universal Tool\nExisting Title: Diamond-Coated Precision Drill Bit Set - 1/16 inch\nDescription: This Universal Tool 10 Piece Drill Bit Set is ideal for tough jobs and hard surfaces.<br/><br/>Drill through solid surfaces with ease thanks to the drills' heavy duty design. <br><br>The diamond coating gives the bits extreme strength, allowing you to drill through glass, marble, tile, stone and much more! This set is a handy addition to any tool box or workshop. We know you'll want this drill set around during your next project.\nSearch Terms: construction home improvement hobby tools\nFeatures:\n- Size: 1/16\" Shank\n- Overall Length: 2\"\n- Diamond Coated Length: 15-20mm\n- Grit 120\n- Color: Silver\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 10-pc 1/16\" Silver Diamond Drill Bits",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "10",
+                "pack_size_unit": "pc",
+                "size": "1/16\"",
+                "color": "Silver",
+                "name": "Diamond Drill Bits"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 10-pk 1/16 in Silver Diamond-Coated Drill Bit Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "10",
+                "pack_size_unit": "pk",
+                "size": "1/16 in",
+                "color": "Silver",
+                "name": "Diamond-Coated Drill Bit Set"
+            },
+            "char_count": 64,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "10 Piece Set, Diamond Coated, Glass And Tile Drilling, 2 Inch Length, Grit 120",
+            "char_count": 78,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "10 Piece Set, Diamond Coated, Heavy Duty, 15-20Mm Tip Length, 120 Grit, For Glass Marble Tile Stone",
+            "char_count": 99,
+            "validation_error": null
+        }
+    }
+}

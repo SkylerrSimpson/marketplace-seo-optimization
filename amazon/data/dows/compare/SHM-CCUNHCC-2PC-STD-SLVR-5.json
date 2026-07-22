@@ -1,0 +1,60 @@
+{
+    "sku": "SHM-CCUNHCC-2PC-STD-SLVR-5",
+    "asin": "B017AEJO2S",
+    "product_type": "WIRELESS_ACCESSORY",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SHM-CCUNHCC-2PC-STD-SLVR-5\nProduct Type: WIRELESS_ACCESSORY\nBrand (from catalog): CCS Spy Gear\nExisting Title: Covert Compartment US Nickel Hidden Compartment Coin\nDescription: These Covert Coins are expertly hand-made from real coins to create a secret interior compartment within the coin. Once the coin is shut, they are impossible to tell apart from regular coins with the naked eye. Because of their tight seal, they can be handled without the chance of accidentally being opened. Each coin comes with an opening ring, without which the coin is nearly impossible to open.\nSearch Terms: spy tools hidden compartment secret card holder\nFeatures:\n- Authentic US Mint Covert Coin\n- Secret Micro SD Card Holder\n- Made in the USA\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "CCS Spy Gear Covert Compartment US Nickel Silver Coin",
+            "tokens": {
+                "brand": "CCS Spy Gear",
+                "pack_size": "2",
+                "pack_size_unit": "pc",
+                "size": "US Nickel",
+                "color": "Silver",
+                "name": "Covert Compartment Coin"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "CCS Spy Gear US Nickel Silver Hidden Compartment Coin",
+            "tokens": {
+                "brand": "CCS Spy Gear",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "US Nickel",
+                "color": "Silver",
+                "name": "Hidden Compartment Coin"
+            },
+            "char_count": 53,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Secret Micro SD Card Holder, Authentic US Mint Coin, Hand-Made, Impossible To Detect, Tight Seal, Includes Opening Ring, Made In USA",
+            "char_count": 132,
+            "validation_error": "value exceeds maxLength 125 (132 chars)"
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Authentic US Mint, Secret Micro SD Card Holder, Made In The USA, Tight Seal, Includes Opening Ring, Discreet Carry",
+            "char_count": 114,
+            "validation_error": null
+        }
+    }
+}

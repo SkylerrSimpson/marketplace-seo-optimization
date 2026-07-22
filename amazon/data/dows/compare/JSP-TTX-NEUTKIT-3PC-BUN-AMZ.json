@@ -1,0 +1,60 @@
+{
+    "sku": "JSP-TTX-NEUTKIT-3PC-BUN-AMZ",
+    "asin": "B0C4MP9TZK",
+    "product_type": "ART_AND_CRAFT_SUPPLY",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: JSP-TTX-NEUTKIT-3PC-BUN-AMZ\nProduct Type: ART_AND_CRAFT_SUPPLY\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux 3pc Testing Acid Neutralizer Solution Testing Stone Set .5oz Bottles\nDescription: If you need to test metal quality frequently, then you absolutely need a reliable set of acid neutralizers to make sure you’re cleaning your testing equipment in between tests for accurate results. The ToolTreaux acid neutralizer kit comes with 2 bottles of testing acid-neutralizing solutions and a testing stone to remove the residual testing solution from your stone in between metal testing. <br/><br/>Residual testing solutions can affect your test results, so it’s important to clean your testing equipment in between tests. Easy to use, just add the neutralizing solution to your testing stone and wipe it with a clean cloth once finished. Test solutions work best in small quantities, so it’s recommended to use the neutralizing solution in small amounts for each test. Since we’ve included 2 bottles, this amount should last through many tests.<br/><br/>The neutralizing kit with a testing stone is ideal for jewelry makers and sellers, coin collectors and sellers, and metalworking enthusiasts and appraisers alike. Each bottle contains .5 ounces of testing solution and the stone measures 2.25” x 1.75”.<br/><br/>\nSearch Terms: silver gold 10k testing test solution precious metal verify heavy tester coins appraisal fine jewelry gold panning equipment purity test sterling antique decor professional hobbyist silversmith maker jeweler repair appraise tool set\nFeatures:\n- 3PC NEUTRALIZING SET - ToolTreaux testing neutralizer set comes with 2 bottles of testing neutralizing solution and a testing stone; Neutralizer cleans your testing stone of residual testing solution in between metal testing\n- HOW TO NEUTRALIZE - Residual testing solutions can affect your test results, so it’s important to clean your testing equipment in between tests; Add the neutralizing solution to your stone and wipe with a clean cloth\n- USE IN SMALL QUANTITIES - Test solutions work best in small quantities, so it’s recommended to use the acid-neutralizing solution in small amounts for each test; 2 included bottles should last for many tests\n- VERSATILE TESTING KIT - Neutralizing solution set with testing stone is ideal for jewelry makers and sellers, coin collectors and sellers, metalworking enthusiasts, and jewelry appraisers\n- SPECIFICATIONS - Set size: 3 pieces (2 neutralizing bottles, 1 testing stone); Materials: neutralizer, stone, plastic); Bottle size: 0.5oz each bottle; Stone size: 2.25” x 1.75”; Colors: blue, yellow, black\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 3pc Acid Neutralizer Solution Testing Stone Set",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Acid Neutralizer Solution Testing Stone Set"
+            },
+            "char_count": 58,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 3pc 0.5oz Testing Acid Neutralizer Stone Set",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "0.5oz",
+                "color": "",
+                "name": "Testing Acid Neutralizer Stone Set"
+            },
+            "char_count": 55,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "2 Bottles 05Oz Each, 1 Testing Stone, Jewelry And Coin Testing, Metal Purity Verification, Professional And Hobbyist",
+            "char_count": 116,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "2 Neutralizer Bottles, Testing Stone, Removes Residual Solution, Ideal For Jewelry, Coins, Metal Testing",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

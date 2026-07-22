@@ -27,14 +27,29 @@ declare(strict_types=1);
  *      the live listing, in the draft, or via a deterministic rule, the ENTIRE
  *      SKU is blocked (nothing is written) unless --skip-compliance-block.
  *
- * Backup (Phase 10): on --apply, the live listing is fetched and written to
+ * Backup (Phase 10): --apply first re-fetches a fresh baseline for exactly the
+ *   drafted SKUs (searchListingsItems, 20 identifiers/call) and overwrites their
+ *   snapshots, so it never trusts stale on-disk state. Each SKU's fresh snapshot
+ *   (input/listings/{sku}.json) is then copied to
  *   data/{account}/backups/{sku}/{timestamp}.json BEFORE any patch, so every
- *   write is reversible via restore_listings.php. That same fetch is the
- *   authoritative baseline for the shrink/compliance guards.
+ *   write is reversible via restore_listings.php. That snapshot — the lossless
+ *   getListingsItem/searchListingsItems Item, carrying the same blocks the old
+ *   per-SKU live fetch pulled — is also the baseline for the shrink/compliance
+ *   guards. A drafted SKU Amazon does not return on the refresh has no snapshot
+ *   and is skipped, never patched without a backup.
  *
  * Attributes skipped automatically (unchanged from Phase 8):
  *   - value is null (Claude could not determine a value)
  *   - validation_error key is present (Phase 7 detected an invalid enum value)
+ *   - review_only is set (the per-provider modular-title candidates)
+ *
+ * Modular titles (item_name / title_differentiation) are never patched from the
+ * draft; with --include-titles the reviewer's chosen values are read from
+ * output/title_decisions.csv (Phase 6.5 review) and patched, subject to the
+ * coupling rule (item_name <= 75, pair <= 200). --titles-only implies
+ * --include-titles and narrows the patch to just those two attributes, so a
+ * post-review pass can push reviewed titles without re-submitting the phase-1
+ * attribute set. All guards (identifying, shrink, compliance, coupling) still apply.
  *
  * Usage:
  *   php amazon/scripts/patch_listings.php [--account=IGE|DOWS] [OPTIONS]
@@ -43,6 +58,10 @@ declare(strict_types=1);
  *   --account=IGE|DOWS          Seller account. Default: IGE.
  *   --sku=SKU                   Process a single SKU only.
  *   --apply                     Submit patches to Amazon. Required to write.
+ *   --include-titles            Patch the reviewed item_name / title_differentiation
+ *                               from output/title_decisions.csv. Default: off.
+ *   --titles-only               Patch ONLY item_name / title_differentiation
+ *                               (implies --include-titles). Post-review pass.
  *   --include-identifying[=a,b] Allow identifying attributes. Bare = allow all;
  *                               =list allows only the named attributes.
  *   --allow-shrink              Allow array attrs shorter than the baseline.
@@ -52,6 +71,7 @@ declare(strict_types=1);
  *
  * Inputs:
  *   amazon/data/{account}/drafts/{sku}.json
+ *   amazon/data/{account}/output/title_decisions.csv (with --include-titles)
  *   amazon/data/{account}/input/listings/{sku}.json  (dry-run baseline)
  *   amazon/data/schemas/{PRODUCT_TYPE}.json           (identifying + compliance scope)
  *
@@ -70,8 +90,9 @@ require __DIR__ . '/../../lib/ComplianceResolvers.php';
 
 $complianceAttrs = require __DIR__ . '/../../lib/ComplianceAttributes.php';
 
-// Data to pull for the pre-change backup / baseline fetch (mirror Phase 2).
-const BACKUP_INCLUDED_DATA = [
+// The lossless Item blocks fetched for the pre-change baseline/backup — the
+// same set Phase 2 (export_listings_items.php) mirrors to disk.
+const BASELINE_INCLUDED_DATA = [
     'attributes', 'issues', 'summaries', 'offers',
     'fulfillmentAvailability', 'procurement', 'relationships', 'productTypes',
 ];
@@ -90,6 +111,13 @@ Flags:
   --apply                     Submit patches to Amazon. Without this flag,
                               dry-run mode shows what would be patched (and what
                               the guards would hold back) but makes no API calls.
+  --include-titles            Patch the reviewed item_name / title_differentiation
+                              from output/title_decisions.csv. Default: off.
+  --titles-only               Patch ONLY item_name / title_differentiation and
+                              skip the phase-1 attribute set (implies
+                              --include-titles). Use for the post-review pass so
+                              reviewed titles are pushed without re-submitting
+                              everything else.
   --include-identifying[=a,b] Allow identifying attributes through the guard.
                               Bare allows ALL; =list allows only those named.
   --allow-shrink              Allow array attributes shorter than the baseline.
@@ -100,6 +128,8 @@ Flags:
 Safety:
   --apply is required to write. Review the dry-run output first.
   Identifying data is held back unless --include-identifying is passed.
+  Modular titles are held back unless --include-titles is passed.
+  --titles-only patches only the reviewed titles; all guards still apply.
   Attributes with null values or validation_error flags are always skipped.
 
 Rate limits:
@@ -115,6 +145,8 @@ $apply              = false;
 $includeIdentifying = false;      // false | 'all' | array of allowed attr names
 $allowShrink        = false;
 $skipComplianceBlock = false;
+$includeTitles      = false;
+$titlesOnly         = false;
 
 foreach ($argv ?? [] as $arg) {
     if (preg_match('/^--account=(.+)$/i', $arg, $m)) {
@@ -123,6 +155,11 @@ foreach ($argv ?? [] as $arg) {
         $singleSku = $m[1];
     } elseif ($arg === '--apply') {
         $apply = true;
+    } elseif ($arg === '--include-titles') {
+        $includeTitles = true;
+    } elseif ($arg === '--titles-only') {
+        $titlesOnly    = true;
+        $includeTitles = true; // titles-only implies the title-injection path
     } elseif ($arg === '--include-identifying') {
         $includeIdentifying = 'all';
     } elseif (preg_match('/^--include-identifying=(.+)$/', $arg, $m)) {
@@ -156,6 +193,9 @@ if ($allowShrink) {
 }
 if ($skipComplianceBlock) {
     echo 'Compliance block: DISABLED (--skip-compliance-block)' . PHP_EOL;
+}
+if ($titlesOnly) {
+    echo 'Mode     : TITLES ONLY (item_name / title_differentiation; phase-1 attrs skipped)' . PHP_EOL;
 }
 echo PHP_EOL;
 
@@ -192,6 +232,29 @@ if ($apply) {
 // The marketplace ID is known from the connector in apply mode; use the US
 // default for dry-run display so the patch envelope preview is accurate.
 $marketplaceId = $apply ? $amazon->marketplaceId : ($_ENV['AMAZON_SPAPI_MARKETPLACE_ID'] ?? 'ATVPDKIKX0DER');
+
+// ---------------------------------------------------------------------------
+// Baseline refresh — an --apply run MUST back up current state, so it does not
+// trust whatever snapshots happen to be on disk: it re-fetches a fresh baseline
+// for exactly the drafted SKUs (searchListingsItems, 20 identifiers/call) and
+// overwrites input/listings/{sku}.json before the loop. loadBaseline then reads
+// guaranteed-fresh snapshots and copies them to backups/. A SKU Amazon does not
+// return is left without a snapshot and skipped by the loop's no-backup guard.
+// ---------------------------------------------------------------------------
+
+if ($apply) {
+    $draftSkus = draftedSkus($draftFiles);
+    echo 'Refreshing baseline snapshots for ' . count($draftSkus) . ' SKU(s) before apply...' . PHP_EOL;
+    $refresh = refreshBaselines($draftSkus, $listingsApi, $amazon, $paths);
+    echo '  refreshed : ' . count($refresh['refreshed']) . PHP_EOL;
+    if ($refresh['missing']) {
+        $shown = array_slice($refresh['missing'], 0, 10);
+        echo '  not found on Amazon (will be skipped): ' . count($refresh['missing'])
+            . ' — ' . implode(', ', $shown)
+            . (count($refresh['missing']) > 10 ? ', …' : '') . PHP_EOL;
+    }
+    echo PHP_EOL;
+}
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -247,47 +310,113 @@ function schemaRequired(string $productType, string $schemasDir): array
     return $schemaRequiredCache[$productType] = $req;
 }
 
+/** Resolve the SKU for each draft file (the draft's own sku, else the filename). */
+function draftedSkus(array $draftFiles): array
+{
+    $skus = [];
+    foreach ($draftFiles as $file) {
+        $draft  = json_decode((string) file_get_contents($file), true) ?: [];
+        $skus[] = $draft['sku'] ?? basename($file, '.json');
+    }
+    return $skus;
+}
+
 /**
- * Load the baseline listing for a SKU.
- *   --apply : authoritative live getListingsItem, and write a pre-change backup.
- *   dry-run : the on-disk Phase 2 snapshot (approximate — may be stale).
- * Returns ['listing'=>?array, 'source'=>'live'|'snapshot'|'none', 'backup'=>?string].
+ * Fetch fresh baselines for the given SKUs and overwrite their Phase-2
+ * snapshots, so an --apply run always backs up current listing state.
+ *
+ * Uses searchListingsItems with an `identifiers` filter (max 20 SKUs/call,
+ * identifiersType=SKU) — the same lossless Item the per-SKU getListingsItem
+ * returned, but ~20x fewer calls, and scoped to exactly the drafted SKUs so
+ * the 1000-result pagination cap never applies. Snapshots are written in the
+ * same format Phase 2 uses, keeping them interchangeable.
+ *
+ * SKUs Amazon does not return (deleted / not on this account) are reported as
+ * missing and left without a snapshot; loadBaseline then yields 'none' and the
+ * loop refuses to patch them (no listing = nothing to back up or patch).
+ *
+ * @param  list<string> $skus
+ * @return array{refreshed: list<string>, missing: list<string>}
  */
-function loadBaseline(
-    string $sku,
-    bool $apply,
-    $listingsApi,
-    ?AmazonClient $amazon,
-    array $paths,
-): array {
-    if ($apply) {
-        $item = AmazonRateLimits::retryWithBackoff(
-            fn() => $listingsApi->getListingsItem(
-                sellerId:       $amazon->sellerId,
-                sku:            $sku,
-                marketplaceIds: [$amazon->marketplaceId],
-                includedData:   BACKUP_INCLUDED_DATA,
+function refreshBaselines(array $skus, $listingsApi, AmazonClient $amazon, array $paths): array
+{
+    $refreshed = [];
+    foreach (array_chunk(array_values(array_unique($skus)), 20) as $batch) {
+        $data = AmazonRateLimits::retryWithBackoff(
+            fn() => $listingsApi->searchListingsItems(
+                sellerId:        $amazon->sellerId,
+                marketplaceIds:  [$amazon->marketplaceId],
+                includedData:    BASELINE_INCLUDED_DATA,
+                identifiers:     $batch,
+                identifiersType: 'SKU',
+                pageSize:        20,
             )->json(),
-            AmazonOperationIds::GET_LISTINGS_ITEM,
+            AmazonOperationIds::SEARCH_LISTINGS_ITEMS,
         );
-        AmazonRateLimits::throttle(AmazonOperationIds::GET_LISTINGS_ITEM);
+        AmazonRateLimits::throttle(AmazonOperationIds::SEARCH_LISTINGS_ITEMS);
 
-        $dir = $paths['data'] . '/backups/' . $sku;
-        if (!is_dir($dir)) {
-            mkdir($dir, 0755, true);
+        foreach ($data['items'] ?? [] as $item) {
+            $sku = $item['sku'] ?? null;
+            if (!is_string($sku) || $sku === '') {
+                continue;
+            }
+            file_put_contents(
+                $paths['listings'] . '/' . $sku . '.json',
+                json_encode($item, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE),
+            );
+            $refreshed[] = $sku;
         }
-        $backup = $dir . '/' . date('Y-m-d-H-i-s') . '.json';
-        file_put_contents($backup, json_encode($item, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-
-        return ['listing' => is_array($item) ? $item : null, 'source' => 'live', 'backup' => $backup];
     }
 
+    return [
+        'refreshed' => $refreshed,
+        'missing'   => array_values(array_diff(array_values(array_unique($skus)), $refreshed)),
+    ];
+}
+
+/**
+ * Load the baseline listing for a SKU from the Phase-2 snapshot, and on --apply
+ * copy that snapshot into backups/ as the restorable pre-change record.
+ *
+ * The snapshot (input/listings/{sku}.json) is the lossless getListingsItem/
+ * searchListingsItems Item — the same blocks the old per-SKU live backup
+ * fetched — so it feeds the shrink/compliance/identifying guards unchanged and
+ * restore_listings.php replays it identically. It is copied byte-for-byte so
+ * the backup is bit-identical to what Phase 2 wrote.
+ *
+ * Freshness is the caller's responsibility: refresh Phase 2
+ * (export_listings_items.php --force) immediately before an --apply batch so
+ * the backup reflects state at the start of the run.
+ *
+ * Returns ['listing'=>?array, 'source'=>'snapshot'|'none', 'backup'=>?string].
+ * On --apply a SKU with no snapshot returns 'none'; the caller MUST refuse to
+ * patch it — writing without a backup is irreversible.
+ */
+function loadBaseline(string $sku, bool $apply, array $paths): array
+{
     $snap = $paths['listings'] . '/' . $sku . '.json';
-    if (is_file($snap)) {
-        $item = json_decode((string) file_get_contents($snap), true);
-        return ['listing' => is_array($item) ? $item : null, 'source' => 'snapshot', 'backup' => null];
+    if (!is_file($snap)) {
+        return ['listing' => null, 'source' => 'none', 'backup' => null];
     }
-    return ['listing' => null, 'source' => 'none', 'backup' => null];
+
+    $raw  = (string) file_get_contents($snap);
+    $item = json_decode($raw, true);
+    if (!is_array($item)) {
+        return ['listing' => null, 'source' => 'none', 'backup' => null];
+    }
+
+    if (!$apply) {
+        return ['listing' => $item, 'source' => 'snapshot', 'backup' => null];
+    }
+
+    $dir = $paths['data'] . '/backups/' . $sku;
+    if (!is_dir($dir)) {
+        mkdir($dir, 0755, true);
+    }
+    $backup = $dir . '/' . date('Y-m-d-H-i-s') . '.json';
+    file_put_contents($backup, $raw);
+
+    return ['listing' => $item, 'source' => 'snapshot', 'backup' => $backup];
 }
 
 /** Count the value slots a baseline listing holds for an attribute (0 if absent). */
@@ -319,6 +448,12 @@ $stats = [
 
 $results = []; // rows for the results CSV
 
+// Reviewed modular-title decisions (chosen item_name / title_differentiation).
+// Only consulted with --include-titles; empty when the reviewer hasn't decided.
+$titleDecisions = $includeTitles
+    ? \Ige\Amazon\Ai\TitleDecisions::load($paths['output'] . '/title_decisions.csv')
+    : [];
+
 foreach ($draftFiles as $draftFile) {
     $draft       = json_decode(file_get_contents($draftFile), true) ?? [];
     $sku         = $draft['sku']          ?? basename($draftFile, '.json');
@@ -329,48 +464,100 @@ foreach ($draftFiles as $draftFile) {
     $candidates   = [];
     $skippedAttrs = [];
 
-    foreach ($draft['attributes'] ?? [] as $attr => $entry) {
-        $value = $entry['value'] ?? null;
-        if ($value === null) {
-            $skippedAttrs[] = $attr . '(null)';
-            continue;
+    // --titles-only skips the phase-1 attribute set entirely; only the reviewed
+    // titles injected below become candidates. Guards still run on that set.
+    if (!$titlesOnly) {
+        foreach ($draft['attributes'] ?? [] as $attr => $entry) {
+            $value = $entry['value'] ?? null;
+            if ($value === null) {
+                $skippedAttrs[] = $attr . '(null)';
+                continue;
+            }
+            if (isset($entry['validation_error'])) {
+                $skippedAttrs[] = $attr . '(invalid)';
+                continue;
+            }
+            // review_only entries (e.g. item_name_ai_suggested) are human-review
+            // suggestions, not settable schema attributes — never sent to Amazon.
+            if (!empty($entry['review_only'])) {
+                $skippedAttrs[] = $attr . '(review-only)';
+                continue;
+            }
+            $candidates[$attr] = $value;
         }
-        if (isset($entry['validation_error'])) {
-            $skippedAttrs[] = $attr . '(invalid)';
-            continue;
+    }
+
+    // Inject the reviewed modular titles (behind --include-titles). The draft only
+    // carries per-provider review-only candidates; the chosen final text lives in
+    // title_decisions.csv. item_name's 75-char cap is enforced here; the
+    // title_differentiation coupling (effective item_name <= 75, pair <= 200) is a
+    // guard below, once the live baseline item_name is known.
+    $titleSkipped = [];
+    if ($includeTitles) {
+        $decidedItemName = $titleDecisions[$sku]['item_name'] ?? null;
+        if (is_string($decidedItemName) && $decidedItemName !== '') {
+            if (mb_strlen($decidedItemName) > \Ige\Amazon\Ai\TitleDecisions::ITEM_NAME_MAX) {
+                $titleSkipped[] = 'item_name(>' . \Ige\Amazon\Ai\TitleDecisions::ITEM_NAME_MAX . ')';
+            } else {
+                $candidates['item_name'] = $decidedItemName;
+            }
         }
-        // review_only entries (e.g. item_name_ai_suggested) are human-review
-        // suggestions, not settable schema attributes — never sent to Amazon.
-        if (!empty($entry['review_only'])) {
-            $skippedAttrs[] = $attr . '(review-only)';
-            continue;
+        $decidedTd = $titleDecisions[$sku]['title_differentiation'] ?? null;
+        if (is_string($decidedTd) && $decidedTd !== '') {
+            $candidates['title_differentiation'] = $decidedTd; // coupling guard below
         }
-        $candidates[$attr] = $value;
     }
 
     if (!$candidates) {
-        echo '[SKIP] ' . $sku . ' — no patchable attributes (all null or invalid)' . PHP_EOL;
+        $reason = $titlesOnly
+            ? 'no reviewed titles for this SKU in title_decisions.csv'
+            : 'all null or invalid';
+        echo '[SKIP] ' . $sku . ' — no patchable attributes (' . $reason . ')' . PHP_EOL;
         $stats['skipped']++;
         continue;
     }
 
-    // --- Baseline (live fetch + backup on --apply; disk snapshot on dry-run) ---
-    try {
-        $baseline = loadBaseline($sku, $apply, $listingsApi, $amazon, $paths);
-    } catch (\Throwable $e) {
-        echo '[SKIP] ' . $sku . ' — baseline fetch failed: ' . $e->getMessage() . PHP_EOL;
+    // --- Baseline (Phase-2 snapshot; copied to a pre-change backup on --apply) ---
+    $baseline    = loadBaseline($sku, $apply, $paths);
+    $baseListing = $baseline['listing'];
+
+    // Invariant: on --apply, never write without a restorable backup. A drafted
+    // SKU with no snapshot cannot be backed up, so it is skipped rather than
+    // patched blind (the batch precondition above warns when this will happen).
+    if ($apply && $baseline['source'] === 'none') {
+        echo '[SKIP] ' . $sku . ' — Amazon returned no listing on the baseline refresh; '
+            . 'refusing to patch without a backup baseline' . PHP_EOL;
         $stats['failed']++;
-        $results[] = AmazonPatch::resultRow($sku, $asin, $productType, 0, 'ERROR', '', 0, 'baseline fetch: ' . $e->getMessage())
+        $results[] = AmazonPatch::resultRow($sku, $asin, $productType, 0, 'ERROR', '', 0, 'no snapshot baseline')
             + ['skipped_identifying' => '', 'skipped_shrink' => '', 'compliance_block' => ''];
         continue;
     }
-    $baseListing = $baseline['listing'];
 
     echo '[' . $sku . ']' . ($productType ? ' ' . $productType : '') . PHP_EOL;
-    if (!$apply && $baseline['source'] !== 'snapshot') {
+    if ($baseline['source'] === 'none') {
         echo '  note: no on-disk baseline snapshot — shrink/compliance preview limited' . PHP_EOL;
-    } elseif (!$apply) {
-        echo '  note: shrink/compliance preview based on possibly-stale snapshot' . PHP_EOL;
+    } else {
+        echo '  baseline: snapshot' . ($apply ? ' (copied to backup)' : ' (dry-run preview; may be stale)') . PHP_EOL;
+    }
+
+    // --- Guard 0: modular-title coupling ---
+    // title_differentiation is only valid when the effective item_name (the one
+    // being patched, else the live listing's) is <= 75 chars and the pair is
+    // <= 200. Drop title_differentiation (not the whole SKU) when it can't hold.
+    if ($includeTitles && isset($candidates['title_differentiation'])) {
+        $liveItemName = (string) ($baseListing['attributes']['item_name'][0]['value'] ?? '');
+        $couplingErr  = \Ige\Amazon\Ai\TitleDecisions::couplingError(
+            $candidates['item_name'] ?? null,
+            $candidates['title_differentiation'],
+            $liveItemName !== '' ? $liveItemName : null,
+        );
+        if ($couplingErr !== null) {
+            unset($candidates['title_differentiation']);
+            $titleSkipped[] = 'title_differentiation (' . $couplingErr . ')';
+        }
+    }
+    if ($titleSkipped) {
+        echo '  titles held back: ' . implode(', ', $titleSkipped) . PHP_EOL;
     }
 
     // --- Guard 1: identifying ---
@@ -559,9 +746,10 @@ if ($results) {
         AmazonPatch::RESULT_COLUMNS,
         ['skipped_identifying', 'skipped_shrink', 'compliance_block'],
     );
-    fputcsv($fh, $cols);
+    // Escape disabled ('') for strict RFC-4180 output.
+    fputcsv($fh, $cols, ',', '"', '');
     foreach ($results as $row) {
-        fputcsv($fh, array_map(fn($c) => $row[$c] ?? '', $cols));
+        fputcsv($fh, array_map(fn($c) => $row[$c] ?? '', $cols), ',', '"', '');
     }
 
     fclose($fh);

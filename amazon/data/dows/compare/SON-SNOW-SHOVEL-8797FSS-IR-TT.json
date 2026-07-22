@@ -1,0 +1,60 @@
+{
+    "sku": "SON-SNOW-SHOVEL-8797FSS-IR-TT",
+    "asin": "B0B57N8HCQ",
+    "product_type": "SHOVEL_SPADE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-SNOW-SHOVEL-8797FSS-IR-TT\nProduct Type: SHOVEL_SPADE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Collapsible Snow Shovel Alloy Steel Foam Grip Camping Tool 36 Inch\nDescription: The ASR Outdoor collapsible snow shovel is a must-have camping adventure tool. Use it to clean paths while camping and hiking, shoveling snow, digging holes and fire pits at your campsite. It comes with a plastic blade and iron handle to provide extra comfort during use.<br/><br/>Our snow shovel is designed to be lightweight and compact. Weighing just over 2lbs, this shovel is ideal for traveling and can be taken apart to fit inside of your car or truck. You can remove the iron handle from the shovel head, and easily screw the handle back on when you need to use it.<br/><br/>The handle of the shovel features a 5” foam grip to prevent slippage during use. The non-slip grip is a great sweat absorber so you can shovel for longer periods of time than with other standard snow shovels.<br/><br/>The snow shovel head and handle are both made of high-quality alloy steel and the iron handle will not rust. The corrosion-resistant material will ensure that your shovel won’t be deformed easily and can be counted on in any weather conditions.\nSearch Terms: snow shovel garden shovel camping shovel folding shovel survival shovel sand shovel camping accessories gear essentials campsite camping gear must haves survival gear kits and equipment hiking backpack gear accessories shovels for digging\nFeatures:\n- ESSENTIAL CAMPING TOOL - ASR Outdoor collapsible snow shovel is a must-have outdoor adventure tool ideal for clearing paths, shoveling snow, gardening and digging holes and fire pits while camping. Comes with a plastic blade and iron handle to provide comfort during use.\n- COLLAPSIBLE DESIGN - Snow shovel is designed to be compact and lightweight. Remove the iron handle from the shovel head to fit easily inside your car or truck while traveling. Easily screw the handle back on when you need to use it\n- COMFORTABLE GRIP - Handle features 5” foam grip to provide extra comfort and prevent slippage during use. Non-slip grip is a great sweat absorber so you can shovel for longer periods of time than with a standard snow shovel\n- DURABLE CONSTRUCTION - Snow shovel head and handle are made of high-quality alloy steel and the iron handle won’t rust. Corrosion resistant metal ensures the shovel wont be deformed easily and can be used in any weather condition\n- SPECIFICATIONS: Dimensions: Overall length: 36”, Handle width: 4”; Blade dimensions: 9.5” x 12.75” x 2.5”; Rod diameter: 1”; Grip length: 5”; Colors: chrome, black; Materials: alloy steel, non-slip foam, iron; Weight: 2lbs\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 36 Inch Collapsible Snow Shovel Alloy Steel",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "36",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "",
+                "name": "Collapsible Snow Shovel Alloy Steel"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 36-in Collapsible Snow Shovel",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "36",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Collapsible Snow Shovel"
+            },
+            "char_count": 41,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Lightweight Compact Design, High Quality Alloy Steel, 5 Inch Foam Grip, Corrosion Resistant, Camping And Hiking Tool",
+            "char_count": 116,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Compact Folding Design, 5\" Foam Grip, Rust-Resistant Alloy Steel, Lightweight 2-Lb Travel-Friendly Shovel",
+            "char_count": 105,
+            "validation_error": null
+        }
+    }
+}

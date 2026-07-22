@@ -3,14 +3,14 @@
     "asin": "B004DON3I0",
     "product_type": "GUN_CLEANING_KIT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:01:50+00:00",
+    "generated_at": "2026-07-21T20:05:39+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 4,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -86,21 +86,59 @@
             "value": "AOCPCK-8PC",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "UTOPIA TOOLS 8-Piece Pistol Cleaning Kit",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 40,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "UTOPIA TOOLS",
+                "pack_size": "8",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "",
+                "name": "Pistol Cleaning Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "8-Piece Set, Professional Grade, All Essential Tools Included",
+        "item_name_ai_openai": {
+            "value": "UTOPIA TOOLS Pistol Cleaning Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 32,
+            "review_only": true,
+            "tokens": {
+                "brand": "UTOPIA TOOLS",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Pistol Cleaning Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "8-Piece Set, Premium Quality, Complete Pistol Maintenance, Professional Grade",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 77,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Premium Quality, Handgun Cleaning Tools, Durable Construction, Compact Storage Case, Easy Maintenance",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

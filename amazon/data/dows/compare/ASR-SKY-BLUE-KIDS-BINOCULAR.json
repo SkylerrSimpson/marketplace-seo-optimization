@@ -1,0 +1,60 @@
+{
+    "sku": "ASR-SKY-BLUE-KIDS-BINOCULAR",
+    "asin": "B0G3WDJHM6",
+    "product_type": "BINOCULAR",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: ASR-SKY-BLUE-KIDS-BINOCULAR\nProduct Type: BINOCULAR\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 8x Sporting Binoculars - Sky Blue\nDescription: Help kids discover the outdoors like never before with the real ASR Outdoor kids binoculars, fully functional compact binoculars designed specifically for little adventurers. They’re easy to use, durable, and sized perfectly for small hands, making them a great gift for boys and girls.<br/><br/>Equip your young adventurer with the ASR Outdoor Blue Kids Binoculars, designed for real outdoor exploration with durable, high-performance optics. Built for ages 3 -12, these compact binoculars are lightweight, shockproof, and offer crystal-clear 8X magnification - perfect for birdwatching, hiking, stargazing, and discovering the world up close!<br/><br/>Crafted with high-resolution BAK-4 FMC prism lenses and a 7.2-degree wide viewing angle, these binoculars deliver vibrant, sharp images with reduced glare and enhanced color. The non-slip ergonomic grip and soft rubber eyepieces provide both comfort and safety. At the same time, the rugged exterior protects against drops and falls, making it ideal for active hands and rough terrain.<br/><br/>Whether it's a trip to the mountains, a family hike, or simply exploring the backyard, these real working binoculars are built to handle it all. Easy to adjust, comfortable to carry, and designed for real adventure!<br/><br/>Give your child the tools to see the world with a sense of wonder - clearly and safely with the ASR Outdoor Kids Binoculars!<br/><br/>A Fun, Educational Gift for Young Explorers (Ages 3–12)\nSearch Terms: childrens gift real optics outdoor adventure binoculars for children high resolution binoculars for boys girls 8x magnification bird watching hiking travel compact durable shockproof explorer gear camping nature\nFeatures:\n- High-Quality Optics: 8X Magnification: Lets kids see faraway objects clearly; BaK-4 Prism and FMC Coating: Produces bright, sharp, true-to-color images without distortion\n- Adjustable Fit: Twist-up eyecups make it comfortable for all users, including kids who wear glasses; adjustable eye distance for proper alignment\n- Compact, Lightweight and Portable: Mini size: 5 x 3.5 x 3 inches; Weight: 170g (very light and easy for children to carry)\n- Built for Kids: Shockproof rubber coating absorbs impact from drops and bumps; Soft rubber eyepieces protect children’s eyes and face; Non-slip grip makes them easier for kids to hold securely\n- Specifications: Made from durable natural rubber and BaK-4 optical glass; Objective Lens Diameter: 22mm; Eyepiece Diameter: 12mm; Field of View: 122m at 1000m (wide field for easier viewing)\n\nLow-light vision (not night vision): Works well at dusk or in shaded areas.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Sky Blue Kids Binoculars 8X Magnification",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8",
+                "pack_size_unit": "X",
+                "size": "",
+                "color": "Sky Blue",
+                "name": "Kids Binoculars"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 8x Sky Blue Sporting Binoculars",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "8x",
+                "color": "Sky Blue",
+                "name": "Sporting Binoculars"
+            },
+            "char_count": 43,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "8X Magnification, BAK-4 Prism, Shockproof, Ages 3-12, Lightweight Compact, Wide Viewing Angle",
+            "char_count": 93,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "BaK-4 FMC Optics, 8X Magnification, Shockproof Rubber Armor, Lightweight 170G, Ages 3-12, Soft Eyepieces",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

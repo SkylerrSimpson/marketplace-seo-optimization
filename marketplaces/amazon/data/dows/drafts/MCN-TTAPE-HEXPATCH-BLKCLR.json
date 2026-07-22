@@ -3,14 +3,14 @@
     "asin": "B09V3DYCTG",
     "product_type": "FABRIC_APPLIQUE_PATCH",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:44:27+00:00",
+    "generated_at": "2026-07-21T20:00:10+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 9,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -136,22 +136,59 @@
             "value": "Tenacious Tape Repair Patches",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "GEAR AID Tenacious Tape Hex Repair Patches, Black/Clear",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "GEAR AID Tenacious Tape Hex Patch 2.5in Black/Clear 4pk",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "2.5in",
+                "color": "Black/Clear",
+                "name": "Tenacious Tape Hex Patch"
+            }
         },
-        "title_differentiation": {
-            "value": "2.5\" Hex Shape, Peel-and-Stick, No Sewing, 4-Pack",
+        "item_name_ai_openai": {
+            "value": "GEAR AID 4-pk 2.5 in Black Clear Hex Repair Patches",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 51,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "2.5 in",
+                "color": "Black Clear",
+                "name": "Hex Repair Patches"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Peel And Stick Repair, No Sewing Or Ironing, Waterproof Seal, Nylon And GORE-TEX Compatible, Washable",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 101,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Peel And Stick Repair, Waterproof Hold, No Sewing Or Ironing, Works On Nylon Polyester GORE-TEX Vinyl",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

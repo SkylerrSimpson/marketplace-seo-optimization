@@ -1,0 +1,60 @@
+{
+    "sku": "SON-FLITWHISTLE-FS387BB",
+    "asin": "B08PCVD5LB",
+    "product_type": "SPORTING_GOODS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-FLITWHISTLE-FS387BB\nProduct Type: SPORTING_GOODS\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 3in1 Flint Fire Starter Whistle- Black\nDescription: The design for the 3 in 1 Flint Rod Striker Fire Starter Whistle makes it easy for you to use guiding you to place your thumb in the perfect spot to create the most leverage when gripping the striker. A whistle is integrated within the fire starter allowing you to signal other individuals in cases of emergency. The key-ring allow for you to carry your keys, lanyard, carabiners and/or paracords along with the flint whistle to ensure that it will not be lost. <br/><br/>You'll undoubtedly want the flint striker in cases of an emergency. You don't want to be caught without it when you are stranded in the middle of the woods. Sure you might have matches, but matches get wet, and once they are wet they are useless. The striker can easily be used when wet. Lighters work well, but they eventually run out of fuel and outlive their usefulness whereas the flint can be used for many years. It's a must-have in any pack.<br/><br/>This has many different uses Emergency Preparedness, Doomsday Prepper, Backpacking, Survival, Camping, Every Day Carry, Boating, Hiking, Bug out Bag, or Zombie Apocalypse. It also makes an excellent gift for Christmas, Valentines Day, Stocking Stuffer, Anniversary, Easter, Birthday, or Fathers Day.\nSearch Terms: firestarter ferro rod lighter candle lighter grill lighter lighter for grill flint and steel flint fire starter whistle whistle emergency survival gear survival gear and equipment camping accessories camping gear camping stove camping essentials\nFeatures:\n- ERGONOMIC - The design makes it easy to use guiding you to place your thumb in the perfect spot to create the most leverage when gripping the striker.\n- WHISTLE - A whistle is integrated within the fire starter allowing you to signal other individuals in cases of emergency.\n- EVERY DAY CARRY - The key-ring allow for you to carry your keys, lanyard, carabiners and/or paracords along with the flint whistle.\n- EMERGENCY USE - Emergency Preparedness, Doomsday Prepper, Backpacking, Survival, Camping, Every Day Carry, Boating, Hiking, Bug out Bag, or Zombie Apocalypse.\n- GREAT GIFT - Christmas, Valentines Day, Stocking Stuffer, Anniversary, Easter, Birthday, or Fathers Day.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 3in1 Flint Fire Starter Whistle Black",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "in1",
+                "size": "",
+                "color": "Black",
+                "name": "Flint Fire Starter Whistle"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Black 3-in-1 Flint Fire Starter Whistle",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "3-in-1 Flint Fire Starter Whistle"
+            },
+            "char_count": 51,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Ergonomic Ferro Rod, Emergency Whistle, Keyring Carabiner, Waterproof, Survival Camping Gear",
+            "char_count": 92,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Ergonomic Grip, Integrated Emergency Whistle, Key Ring Attachment, Works Wet, EDC Survival Gear, Camping, Backpacking",
+            "char_count": 117,
+            "validation_error": null
+        }
+    }
+}

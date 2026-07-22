@@ -1,0 +1,60 @@
+{
+    "sku": "ASR-AOCSK-BUN-30PC-8X5-ASSRTD-BNDL",
+    "asin": "B017SLVW50",
+    "product_type": "SURVIVAL_KIT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: ASR-AOCSK-BUN-30PC-8X5-ASSRTD-BNDL\nProduct Type: SURVIVAL_KIT\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Camping Survival Safety and Emergency Preparedness Kit, 12pc\nDescription: There are a lot of survival kits on the market and they are mixed with every variety of survival gear; some are useful and some are useless. <br/><br/>This Essential Wilderness Kit is our spin on the survival kit based on our most popular outdoor products and our customers' reviews.<br/><br/>We have included some crucial quality items such as a 7\" full tang survival knife with magnesium fire starter. Other key items include an emergency blanket, floating whistle and multi tool. <br/><br/>Additionally you'll find a McNett Outgo Microfiber towel. This towel will hold up to 7 times its weight in water, and measures 20\" x 40\". The towel has endless uses, and everything fits neatly inside a mesh carry pouch.<br/><br/>Make sure to keep one of these in your bug out back, camping gear or car in case of an emergency.\nSearch Terms: hiking gear backpacking accesories camping supplies emergency survival kit\nFeatures:\n- McNett Outgo Microfiber Towel; 20\" x 40\"; Holds 7X Its Weight in Water\n- 7\" Full Tang Hunting Knife; Magnesium Fire Starter; Nylon Sheath\n- High Visibility Orange Floating Whistle\n- Multipurpose Safety Pins; 11 Function Credit Card Multi Tool\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Camping Survival Safety Emergency Preparedness Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Camping Survival Safety Emergency Preparedness Kit"
+            },
+            "char_count": 62,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 12-Pk Camping Survival Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "12",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Camping Survival Kit"
+            },
+            "char_count": 38,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "7 Inch Full Tang Knife, Magnesium Fire Starter, Microfiber Towel, Whistle, Multi Tool",
+            "char_count": 85,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Full Tang Knife And Fire Starter, Emergency Blanket, Floating Whistle, Multitool, Microfiber Towel",
+            "char_count": 98,
+            "validation_error": null
+        }
+    }
+}

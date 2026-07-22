@@ -1,0 +1,60 @@
+{
+    "sku": "NPT-GRAPHOOK-AMZ-HPN",
+    "asin": "B07YGDVKG4",
+    "product_type": "SPORTING_GOODS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: NPT-GRAPHOOK-AMZ-HPN\nProduct Type: SPORTING_GOODS\nBrand (from catalog): Shinobi and .com\nExisting Title: Ninja Equpiments Outdoor Climbing Ninja Grappling Hook\nDescription: Bring out the ninja within you with this fully functional ninja climbing set. It features a ninja hook, foot spikes, and climbing claws. The tools are made of 440 Stainless Steel to ensure you get the best strength when climbing. While also great for climbing the claws and foot spikes can function as a self defense item. Specially designed ninja hook can be adjusted to be flat for your best convenience. Keeping this gear in hand will allow you to achieve the ways of the ninja. Good for your outdoor activity.<br/><br/>Ninja Grappling Hook With Cord<br/><br/>9.5\" overall length - Hook Spike: 8\" Length <br/>Stainless Steel<br/>Black Nylon Cord<br/>Free Paracord that hold 300 lbs<br/>Ninja Foot Spike<br/><br/>4.5\" Overall Length<br/>Stainless Steel<br/>Comes in pair<br/>Free Paracord that hold 300 lbs<br/>Ninja Hand Claws<br/><br/>4.75\" overall length<br/>Stainless Steel <br/>Adjustable Wrist Strap That Will Fit Almost Everyone<br/>Comes in pair<br/>Free Paracord that hold 300 lbs<br/>Ninja Combo: <br/><br/>Grappling Hook, Foot Spikes, Hand Claws<br/>All in one combo<br/>Free Paracord that hold 300 lbs\nSearch Terms: grappling hook with rope climbing ninja black light that pulls you up paracord hooks for adults gifts dad accessories\nFeatures:\n- Ninja Grappling Hook With Nylon Rope\n- 8\" x 8\" x 9.5\" overall length With 33' Nylon rope\n- Light Weight Hook. Not for Climbing.\n- When you're making camp and need to pull and haul logs for a shelter or fire, the grappling hook with Rope is a dependable tool for the job\n- For Camping, outdoor use\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Shinobi Ninja Grappling Hook Black Climbing Outdoor Gear",
+            "tokens": {
+                "brand": "Shinobi",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Ninja Grappling Hook Climbing Outdoor Gear"
+            },
+            "char_count": 56,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Shinobi and .com 8in Black Ninja Grappling Hook With Rope",
+            "tokens": {
+                "brand": "Shinobi and .com",
+                "pack_size": "8",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Ninja Grappling Hook With Rope"
+            },
+            "char_count": 57,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "440 Stainless Steel, 33Ft Paracord Included, Adjustable Hook, Lightweight, Outdoor Camping And Climbing",
+            "char_count": 103,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "33 Foot Nylon Rope, 440 Stainless Steel, Compact Camping Tool, Adjustable Flat Hook, Not For Climbing",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

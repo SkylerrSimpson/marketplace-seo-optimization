@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-BLE-RICECOOKER-WHT",
+    "asin": "B09V4GWXQM",
+    "product_type": "RICE_COOKERS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-BLE-RICECOOKER-WHT\nProduct Type: RICE_COOKERS\nBrand (from catalog): Beille\nExisting Title: Beille 16 Cup Rice Cooker Kitchen Gadgets Home Appliance Food Safe, White\nDescription: The Beille Home Kitchen Rice Cooker will make 16 total cups of cooked rice, with a dry weight capacity of eight cups of rice.<br/><br/>Featuring a simple and easy to use one-touch operation, warming setting, a non-stick aluminum inner pot, and glass lid with steam vent, this large capacity rice cooker or rice steamer will soon be a go to cooking staple in your kitchen. Multipurpose and easy clean make this rice cooker a must-have in your arsenal of small kitchen appliances.<br/><br/>The stand-out feature of Beille's rice cooker is its one-touch operation cooking process; set it and forget it for perfect rice each and every time, while you focus on further food prep or other tasks. And, not only can the rice be used to cook perfect, fluffy rice with each use, it's also great for creating jambalaya dishes, making or warming soup, chili, and other one-pot cooker meals; the cooking possibilities are endless and just as creative as you are. <br/><br/>And last but least, featuring a food-safe aluminum nonstick finish inner pot, cleaning and maintaining the rice cooker will be a breeze; not only is it reducing your time and attention when cooking so you can focus on other food prep tasks, but you can also rest assured that clean will be just as easy. The inner pot is dishwasher safe.<br/><br/>Happy cooking. <br/><br/>Note: Small plastic scoop and cup included with package\nSearch Terms: rice cooker steamer appliance gadget food prep college essentials house warming gifts home chef kitchen decor cookware sets bakeware organization first beverage pantry storage\nFeatures:\n- 16 CUP RICE COOKER: With a 8 cup dry rice capacity you''ll be able to make 16 total cups of cooked rice, ready to serve; a non-stick aluminum inner pot and glass lid with steam vent, this large capacity rice cooker or rice steamer will soon become a go to cooking staple in your kitchen;\n- ONE TOUCH OPERATION RICE COOKER: Set it and forget about it; perfect rice each and every time while you focus on further food preparation and other kitchen tasks\n- MULTIPURPOSE KITCHEN APPLIANCE: Not only can the rice be used to cook perfect, fluffy rice with each use, it's also great for creating jambalaya dishes, making or warming soup, chili and other one pot cooker meals; the cooking possibilities are as creative as you are\n- EASY TO CLEAN RICE COOKER: Featuring a food safe aluminum nonstick finish inner pot, cleaning and maintaining the rice cooker will be a breeze; not only is it reducing your time and attention when cooking so you can focus on other food prep tasks, you can rest assured that clean will be just as easy!; Inner pot is dishwasher safe\n- SPECIFICATIONS: Dimensions: 14 x 9.5 inches; Weight: 4.95lbs; Color: White; Power: 120V, 500W; Note: Scoop and cup included; Food Safe: Yes; Materials: Glass, Plastic\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 16 Cup Rice Cooker, White",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "16",
+                "pack_size_unit": "Cup",
+                "size": "",
+                "color": "White",
+                "name": "Rice Cooker"
+            },
+            "char_count": 32,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 16-Cup White Rice Cooker",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "16",
+                "pack_size_unit": "Cup",
+                "size": "",
+                "color": "White",
+                "name": "Rice Cooker"
+            },
+            "char_count": 31,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "One-Touch Operation, Nonstick Aluminum Inner Pot, Dishwasher Safe, Multipurpose Steamer, Food Safe",
+            "char_count": 98,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "One Touch Operation, 8 Cup Dry 16 Cup Cooked Capacity, Nonstick Inner Pot, Glass Lid, Dishwasher Safe",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

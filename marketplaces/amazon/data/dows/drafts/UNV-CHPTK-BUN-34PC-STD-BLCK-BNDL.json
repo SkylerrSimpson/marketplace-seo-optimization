@@ -3,14 +3,14 @@
     "asin": "B00EIRYEV2",
     "product_type": "TOOLS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:38:44+00:00",
+    "generated_at": "2026-07-21T19:57:57+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -51,20 +51,57 @@
             "asin": "B00EIRYEV2",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Hobby 34pc Pottery Tool Set with Sculpting & Clay Tools",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Hobby 34pc Pottery Tool Sculpting Clay Kit",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Hobby",
+                "pack_size": "34",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Pottery Tool Sculpting Clay Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "19pc pottery tools, 4pc carving picks, brushes, knife, canvas pouch",
+        "item_name_ai_openai": {
+            "value": "Universal Hobby 34-Pc Pottery Sculpting Tool Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 48,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Hobby",
+                "pack_size": "34",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Pottery Sculpting Tool Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Complete 19Pc Pottery Set, 4Pc Wax Carvers, Canvas Pouch, Brushes, Scissors, Utility Knife",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 90,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "19-Piece Basic Essentials, Wax Carvers For Detail Work, Knurled Grip Handles, Canvas Travel Pouch",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 97,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

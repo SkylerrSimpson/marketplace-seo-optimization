@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-BARBIE-STYLING-HEAD-20PC-HVAR2",
+    "asin": "B07KKNRRQ1",
+    "product_type": "TOY_FIGURE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-BARBIE-STYLING-HEAD-20PC-HVAR2\nProduct Type: TOY_FIGURE\nBrand (from catalog): Barbie\nExisting Title: Barbie Girls Hair Styling Head Doll, Blonde Hair Barbie- 7pc Set\nDescription: The Barbie fab friends styling head is full of styling fun. Barbie thick flowing hair is perfect for brushing, twisting, and pinning into trendy designs. use the hair ties to give Barbie a fancy up-do. For a more polished look, brush Barbie hair back with the cute pink brush and use the hair ties to fashion her locks into a sleek top bun. You can even customize her hair with the included headband, with your help, Barbie will be the most stylish girl in town.  <br/><br/>Please Note: All merchandise listed for sale is officially licensed, 100% authentic for worldwide distribution<br/><br/>Ages 3+\nSearch Terms: 2024 barbie movie black barbie dolls pretend play dress up styling head doll for girls hair kids barbie gift for girls under 13\nFeatures:\n- The Barbie fab friends styling head is full of styling fun! Barbie thick flowing hair is perfect for brushing, twisting, and pinning into trendy designs!\n- Brush Barbies hair with the cute pink brush\n- Give Barbie fashionable up-dos with the hair ties\n- Includes: one Barbie styling head, three Hair bands\n- Share all your own hair accessories to dress up Barbie however you want\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Barbie Blonde Hair Styling Head Doll with Accessories",
+            "tokens": {
+                "brand": "Barbie",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Blonde",
+                "name": "Hair Styling Head Doll with Accessories"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Barbie 7-pc Blonde Hair Styling Head Doll",
+            "tokens": {
+                "brand": "Barbie",
+                "pack_size": "7",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Blonde",
+                "name": "Hair Styling Head Doll"
+            },
+            "char_count": 41,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Includes Pink Brush And Hair Ties, Pretend Play Hair Styling, Creative Hair Design, Perfect Gift For Girls Ages 3 Plus",
+            "char_count": 118,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Thick Blonde Hair, Brush And Style Fun, Includes Pink Brush And Hair Ties, Customizable Up Dos, Ages 3 And Up",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

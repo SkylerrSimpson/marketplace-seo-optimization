@@ -3,14 +3,14 @@
     "asin": "B07DLCJH27",
     "product_type": "CORD_ROPE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:37:07+00:00",
+    "generated_at": "2026-07-21T20:11:51+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 4,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -69,21 +69,59 @@
             "value": "Vectran",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "ASR Outdoor Braided Vectran Cord 200lb Breaking Strength",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 56,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Braided Vectran Cord"
+            }
         },
-        "title_differentiation": {
-            "value": "High abrasion resistance, moisture resistant, .9mm diameter, rigging & tie-downs",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor Braided Vectran Cord 200lb",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 38,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Braided Vectran Cord"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "200Lb Breaking Strength, High Abrasion Resistant, Moisture Resistant, Tactical Survival Rope",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 92,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "High Abrasion Resistance, Moisture Resistant, High Impact Strength, 200Lb Breaking Strength, Rigging, Tie-Downs",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

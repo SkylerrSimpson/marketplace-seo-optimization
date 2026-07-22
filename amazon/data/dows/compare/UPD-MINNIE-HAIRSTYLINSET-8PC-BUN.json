@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-MINNIE-HAIRSTYLINSET-8PC-BUN",
+    "asin": "B0BSGBWZCC",
+    "product_type": "PRETEND_PLAY_TOY",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-MINNIE-HAIRSTYLINSET-8PC-BUN\nProduct Type: PRETEND_PLAY_TOY\nBrand (from catalog): Disney\nExisting Title: Minnie Mouse 8pc Bowriffic Hair Styling Toys Pretend Play Set Girls Age 3 and Up\nDescription: Does your little gal love Disney, Minnie Mouse, makeup and dress up? Then this Minnie Mouse Bowtique Bowriffic hair styling tools playset is an excellent gift idea for your little one. This pretend play playset comes with everything your little stylist in training will need to practice doing their hair just like Mom or an older sister: a mirror, comb, hair clips, pretend blow dryer that makes noise, a hair curler and lipstick.<br/><br/>Pretend play sets are great for encouraging creativity and imagination during playtime. Young girls can learn how to groom their hair and practice role playing, which can assist with educational expression and improve fine motor skills too. <br/><br/>All of the items included in this play set are made of durable, high quality plastic that are safe for children ages 3 and up with adult supervision. They are easy to clean too, just wipe them down and let them air dry in between uses.<br/><br/>The Disney Minnie Mouse Bowriffic hair styling set also comes with a cute carry tote to keep toys organized and stored when not in use or for travel. Girls can bring their hair styling set along to play dates and slumber parties for styling with friends.<br/><br/>Officially licensed product.\nSearch Terms: toys for girls dress up and pretend play girls fashion christmas sister gifts minnie mouse toys hair accessories for girls stocking stuffers for kids toddlers cosplay fine motor skills toys for 3 year old Disneyland kids hair salon playset birthday\nFeatures:\n- MINNIE’S BOWTIQUE HAIR STYLING PLAYSET: Officially licensed Disney Minnie Mouse “Bowtique Bowriffic” hair styling set comes with pretend play toys for girls to practice doing their hair just like Mom: a mirror, comb, hair clips, pretend blow drier, hair curler and lipstick\n- PRETEND PLAY: Pretend play toys are great for encouraging creativity and imagination during playtime; Girls can learn how to groom their hair and practice role-playing which can assist with educational expression and improving fine motor skills\n- SAFE FOR TODDLERS & KIDS: All items included are made of durable, high-quality plastic that is safe for kids ages 3 and up with adult supervision; Easy to clean, just wipe down and let air dry in between uses\n- CUTE TRAVEL CARRY TOTE: Bowriffic hair styling set comes with matching carry tote to keep toys organized and stored when not in use; Girls can bring their pretend play toy set with them to play dates and slumber parties for on-the-go fun\n- SPECIFICATIONS: Dimensions: 12 x 12 x 3 inches; Color: Pink; Number of Pieces: 8, Material: plastic; Ages: 3+\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Disney Minnie Mouse 8pc Pink Hair Styling Playset",
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "8",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Pink",
+                "name": "Minnie Mouse Hair Styling Playset"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Disney 8-pc Minnie Mouse Hair Styling Playset",
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "8",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Minnie Mouse Hair Styling Playset"
+            },
+            "char_count": 45,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Includes Mirror, Comb, Hair Clips, Blow Dryer, Curler, Lipstick, Carry Tote, Ages 3 And Up",
+            "char_count": 90,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Mirror, Comb, Clips, Pretend Blow Dryer With Sound, Curler, Lipstick, Travel Tote, Ages 3 And Up",
+            "char_count": 96,
+            "validation_error": null
+        }
+    }
+}

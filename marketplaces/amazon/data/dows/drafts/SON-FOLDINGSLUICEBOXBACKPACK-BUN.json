@@ -3,18 +3,24 @@
     "asin": "B07HXR9JXN",
     "product_type": "METAL_DETECTOR",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:38:33+00:00",
+    "generated_at": "2026-07-21T20:11:53+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
-        "fillable": 0,
-        "catalog": 7,
-        "ai_suggested": 2,
+        "fillable": 1,
+        "catalog": 6,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
     "attributes": {
+        "style": {
+            "value": "Backpack Sluice Box Kit",
+            "is_required": false,
+            "source": "usurper",
+            "usurper_column": "attr.style_name_amazon"
+        },
         "batteries_included": {
             "value": [
                 {
@@ -83,19 +89,6 @@
             "asin": "B07HXR9JXN",
             "raw_value": true
         },
-        "style": {
-            "value": [
-                {
-                    "language_tag": "en_US",
-                    "value": "Backpack Sluice Box Kit",
-                    "marketplace_id": "ATVPDKIKX0DER"
-                }
-            ],
-            "is_required": false,
-            "source": "catalog",
-            "asin": "B07HXR9JXN",
-            "raw_value": true
-        },
         "unspsc_code": {
             "value": [
                 {
@@ -108,20 +101,57 @@
             "asin": "B07HXR9JXN",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "ASR Outdoor 50\" Aluminum Folding Sluice Box Gold Panning Backpack",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 65,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "50",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Aluminum Folding Sluice Box Gold Panning Backpack"
+            }
         },
-        "title_differentiation": {
-            "value": "Portable 30L Canvas Backpack Kit, Folds to 15\", Includes Miners Moss & Gold Carpet",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 50-in Aluminum Black Folding Sluice Box Backpack Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 64,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "50",
+                "pack_size_unit": "in",
+                "size": "Aluminum",
+                "color": "Black",
+                "name": "Folding Sluice Box Backpack Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Portable Gold Prospecting Kit, 30L Canvas Backpack, Folds To 15 Inches, Rust-Free, Pre-Installed Miners Moss",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 108,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "30L Canvas Backpack - Preinstalled Miners Moss And Gold Carpet - Rigid Locking Foldable Sluice - Rust-Free Aluminum",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 115,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

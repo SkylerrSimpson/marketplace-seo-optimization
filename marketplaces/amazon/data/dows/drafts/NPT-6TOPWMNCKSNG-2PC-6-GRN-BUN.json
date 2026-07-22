@@ -3,14 +3,14 @@
     "asin": "B0FXYFVB2Q",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:44:28+00:00",
+    "generated_at": "2026-07-21T20:00:10+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -33,20 +33,57 @@
             "asin": "B0FXYFVB2Q",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 6\" Fixed Blade Neck Knife Paracord Handle Green",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 6\" Neon Green Fixed Blade Neck Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "6\"",
+                "color": "Neon Green",
+                "name": "Fixed Blade Neck Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "Stainless Steel, Survival Paracord Wrap, Neck Chain Sheath",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 6-in Neon Green Fixed Blade Neck Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 50,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "6",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Neon Green",
+                "name": "Fixed Blade Neck Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Stainless Steel Blade, Paracord Handle, Neck Chain Sheath, Survival Knife, Compact Hunting Knife",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 96,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Stainless Steel Blade, Paracord Wrapped Handle, Survival Cord Can Unwind, Neck Chain Sheath, Compact Outdoor Carry",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 114,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

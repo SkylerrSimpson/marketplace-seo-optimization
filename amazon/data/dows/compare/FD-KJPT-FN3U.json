@@ -1,0 +1,60 @@
+{
+    "sku": "FD-KJPT-FN3U",
+    "asin": "B004QYW60S",
+    "product_type": "SHOVEL_SPADE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: FD-KJPT-FN3U\nProduct Type: SHOVEL_SPADE\nBrand (from catalog): ASR Outdoor\nExisting Title: Heavy Duty Tri-Fold Emergency Recovery Shovel for Automotive & Outdoor Multi-Use\nDescription: The Tri Fold Recovery Shovel is a fully functional collapsible shovel that features two serrated edges for cutting or digging. The heavy duty black powder coated body is 22 inches when open and folds down to 9 inches for compact storage in the included sheath. It can be stowed easily in any vehicle, but is still rugged enough for the toughest of jobs. This type of item was most commonly used in the military but has many civilian applications, ranging from automotive use to camping and hiking daily use.\nSearch Terms: gerber shovel\nFeatures:\n- Tri-Fold Construction\n- Heavy Duty\n- Full Length: 22\" (Compact Length: 9\")\n- Canvas Sheath Included\n- Ideal for automotive use as well as camping and hiking daily use.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Heavy Duty Tri-Fold Emergency Recovery Shovel",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "22 inch",
+                "color": "Black",
+                "name": "Tri-Fold Emergency Recovery Shovel"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 22in Black Recovery Shovel",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "22 in",
+                "color": "Black",
+                "name": "Recovery Shovel"
+            },
+            "char_count": 38,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Collapsible Design, Serrated Edges, 22In Open To 9In Compact, Canvas Sheath, Military-Grade, Automotive And Camping",
+            "char_count": 115,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Tri-Fold Construction, Serrated Cutting Edges, 22-Inch Open Length, Folds To 9-Inch Compact Size, Canvas Sheath Included",
+            "char_count": 120,
+            "validation_error": null
+        }
+    }
+}

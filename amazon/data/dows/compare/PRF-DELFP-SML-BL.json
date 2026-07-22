@@ -1,0 +1,60 @@
+{
+    "sku": "PRF-DELFP-SML-BL",
+    "asin": "B00DTZB1TM",
+    "product_type": "PLANNER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: PRF-DELFP-SML-BL\nProduct Type: PLANNER\nBrand (from catalog): Productive Fitness\nExisting Title: Dumbbell Exercises Laminated Fitness Poster 4 Pack\nDescription: Work out at home with the Productive Fitness Series Posters! <br><br>Written and designed by experts, these posters are intended to help you learn proper exercise technique and form. Each is detailed with easy to follow step by step instructions, as well as descriptive color photos. <br><br>Each poster is 24\" x 36\", so it'll fit anywhere you intend to exercise. They are ideal for home use, so you'll never have to worry about going all the way to the gym! <br><br>Includes three posters demonstrating dumbbell exercises and one poster showing a detailed body muscle diagram.\nSearch Terms: home gym dumbbell exercise exercise home workout\nFeatures:\n- Dimensions: 24\" x 36\"\n- Written & Designed by Fitness Experts\n- Intended to Teach Proper Exercise Technique & Form\n- Detailed w/ Easy To Follow Step by Step Instructions\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Productive Fitness Dumbbell Exercises Laminated Poster 4-pk",
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "24\" x 36\"",
+                "color": "",
+                "name": "Dumbbell Exercises Laminated Poster"
+            },
+            "char_count": 59,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Productive Fitness 4-Pk Dumbbell Exercises Laminated Fitness Poster",
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Dumbbell Exercises Laminated Fitness Poster"
+            },
+            "char_count": 67,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "4-Pack, 24\" X 36\", Expert-Designed, Step-by-Step Instructions, Includes Muscle Diagram",
+            "char_count": 86,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "4 Posters, 24\" X 36\", Expert Designed, Step-By-Step Instructions, Color Photos, Proper Exercise Form, Home Gym",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}

@@ -3,14 +3,14 @@
     "asin": "B0CLBLLKFM",
     "product_type": "APPAREL",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:25:38+00:00",
+    "generated_at": "2026-07-21T19:54:16+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 7,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -104,20 +104,57 @@
             "asin": "B0CLBLLKFM",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Universal 16 LED Flashing Safety Vest with Reflective Strips",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Tool 16 LED Yellow Reflective Safety Vest",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Yellow",
+                "name": "16 LED Reflective Safety Vest"
+            }
         },
-        "title_differentiation": {
-            "value": "Red LED Lights, Yellow Reflective, Lightweight Mesh, Battery Operated",
+        "item_name_ai_openai": {
+            "value": "Universal Tool Yellow Safety Vest",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 33,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Yellow",
+                "name": "Safety Vest"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "16 Red Flashing LEDs, 2 Inch Reflective Strips, Lightweight Mesh, Battery Operated, High Visibility",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 99,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "16 Red Flashing LEDs, 2\" Reflective Strips, 3 AA Battery Operation, Lightweight Mesh, ANSI Materials",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 100,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

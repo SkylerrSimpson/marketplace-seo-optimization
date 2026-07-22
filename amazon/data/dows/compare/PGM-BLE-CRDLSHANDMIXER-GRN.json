@@ -1,0 +1,60 @@
+{
+    "sku": "PGM-BLE-CRDLSHANDMIXER-GRN",
+    "asin": "B09JMC7GTV",
+    "product_type": "FOOD_MIXER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: PGM-BLE-CRDLSHANDMIXER-GRN\nProduct Type: FOOD_MIXER\nBrand (from catalog): Beille\nExisting Title: Beille Home Kitchen 3 Speed Cordless Hand Mixer with 2 Stainless Steel Whisks for Baking, Green\nDescription: Hands free, cordless mixing? Yes please. Home kitchen baking has never been such a breeze<br/><br/>Do you hate whisking by hand? Step up your mixing game with Beille's lightweight, rechargeable and easy to maneuver cordless hand mixer. The hand mixer features two mixer attachments, a clean and modern design, easy USB charging and three mixing speeds, able to handle all culinary, baking, cooking and ingredient prepping needs.<br/><br/>From frothing milk for a whipped coffee beverage, to whisking butter for a brownie or cookie mix, the Beille cordless hand mixer comes with two durable stainless steel mixers (one small, on large), tackling all your ingredients with efficiency. Furthermore, it features three mixing speeds to best suit the recipe at hand. slow, medium and fast, this wireless hand mixer allows for speed and control when mixing or adding in ingredients.<br/><br/>A kitchen gadgets essential, leave hand whisking behind and prep ingredients faster and more efficiently with this cordless hand mixer. Giving you complete mobile freedom when mixing ingredients in the kitchen, never worry about cords, outlets and maneuvering around other small kitchen appliances again. And, the cordless hand mixer's small, portable size, means it won't take up a lot of storage room in drawers, a pantry or cupboard when you're finished with it; the hand mixer also comes with a built in hook for convenient hanging in smaller spaces.<br/><br/>Wireless, portable, rechargeable, modern, space-saving, made from quality materials and finished in a fresh and trendy sage green color, this hand mixer from Beille really does take the cake.\nSearch Terms: home house cooking baking food prep culinary turbo beater stainless steel whisks bake cooking pastry chef coffee bubble tea smoothies icing electric mixer cakes cookies compact design rechargeable mixer small appliances frother kitchen gadgets\nFeatures:\n- CORDLESS HAND MIXER: Step up your mixing game with Beille's lightweight, rechargeable and easy to maneuver cordless hand mixer; The hand mixer features 2 mixer attachments, a modern design, USB charging and 3 mixing speeds, able to handle all culinary, baking, cooking and ingredient prepping needs, hands free!\n- KITCHEN BAKING ESSENTIAL: Leave manual hand whisking behind and prep ingredients faster and more efficiently with this cordless hand mixer; Giving you complete mobile freedom when mixing ingredients, never worry about cords, outlets and maneuvering around other small kitchen appliances again!\n- 3 MIXING SPEEDS: Featuring 3 mixing speeds, slow, medium and fast, the hand mixer allows for speed control when mixing or adding in ingredients; whether beating eggs, cream, pancake batter and more, the cordless hand mixer can do it all; double click to start\n- STAINLESS STEEL FOOD GRADE WHISKS: Our hand mixer comes with (2) easy to swap out high quality, food grade stainless steel whisk attachments that will allow you to mix, stir, whip and bring all your favorite recipes to life; dishwasher safe\n- SPECIFICATIONS: Dimensions: 8 x 3.75 x 2.5 inches; Color: Green; Material: Plastic, Stainless Steel; Rated Power: 20W; Note: Red light indicates charging, blue light indicates fully charged\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille Green Cordless Hand Mixer with Stainless Steel Whisks",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Green",
+                "name": "Cordless Hand Mixer with Stainless Steel Whisks"
+            },
+            "char_count": 60,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille Cordless Hand Mixer Green",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Green",
+                "name": "Cordless Hand Mixer"
+            },
+            "char_count": 32,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "3 Speed, USB Rechargeable, 2 Food Grade Stainless Steel Whisks, Cordless And Portable, Dishwasher Safe",
+            "char_count": 102,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "3 Speed Control, USB Rechargeable, 2 Stainless Steel Whisks, Lightweight, Portable, Dishwasher Safe",
+            "char_count": 99,
+            "validation_error": null
+        }
+    }
+}

@@ -3,14 +3,14 @@
     "asin": "B07V5SVH3M",
     "product_type": "SPORTING_GOODS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:13:04+00:00",
+    "generated_at": "2026-07-21T19:49:18+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 2,
-        "ai_suggested": 5,
+        "ai_suggested": 7,
         "ai_null": 0,
         "base_template": 0
     },
@@ -49,13 +49,13 @@
             "value": "Fabric",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "model_name": {
             "value": "Camo Form",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
             "value": "2\" x 144\"",
@@ -63,20 +63,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "McNett Tactical Camo Form Self-Cling Gun Wrap, 2-Pack",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "McNett 2-Pack Camo Form Self-Cling Reusable Gun Wrap",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "McNett",
+                "pack_size": "2",
+                "pack_size_unit": "Pack",
+                "size": "2\" x 144\"",
+                "color": "",
+                "name": "Camo Form Self-Cling Reusable Gun Wrap"
+            }
         },
-        "title_differentiation": {
-            "value": "Reusable, self-adhering, no residue, 2\" x 144\" per roll",
+        "item_name_ai_openai": {
+            "value": "McNett 2-Pk 2in x 144in Camo Form Reusable Gun Wrap",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 51,
+            "review_only": true,
+            "tokens": {
+                "brand": "McNett",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "2in x 144in",
+                "color": "Various Colors",
+                "name": "Camo Form Gun Wrap"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Self-Adhering Camouflage Fabric, Reusable And No Residue, Stretches To Any Shape, Improves Grip, Hunting And Tactical Gear",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 122,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Self Cling Fabric, Reusable And Washable, Leaves No Residue, Improves Grip, Quiets Gear, Insulates Hands",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 104,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

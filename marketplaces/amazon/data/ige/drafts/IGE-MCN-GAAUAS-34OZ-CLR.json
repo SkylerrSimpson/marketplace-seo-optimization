@@ -3,14 +3,14 @@
     "asin": "B001XUMBIA",
     "product_type": "SEALANT",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:50:04+00:00",
+    "generated_at": "2026-07-21T19:29:19+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 30,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -586,25 +586,63 @@
             "raw_value": true
         },
         "generic_keyword": {
-            "value": "wader repair adhesive wetsuit glue waterproof sealant inflatable patch PVC vinyl repair outdoor gear fix neoprene fabric adhesive urethane rubber cement flexible durable clear glue abrasion resistant",
+            "value": "wader repair kit, wetsuit glue, neoprene adhesive, vinyl repair glue, waterproof sealant, PVC patch glue, tent repair adhesive, dry bag repair, boot glue, rubber cement, urethane sealant, gear repair, drysuit repair, inflatable repair, kayak patch glue",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "title_differentiation": {
-            "value": "Waterproof urethane rubber; bonds neoprene, nylon, canvas, leather, GORE-TEX; cures in 8-12 hours",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "GEAR AID Aquaseal FD Clear Flexible Repair Adhesive 0.75oz",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8",
-            "validation_error": "requires item_name <= 75 chars"
-        },
-        "item_name_ai_suggested": {
-            "value": "GEAR AID Aquaseal FD Waterproof Flexible Fabric Repair Adhesive",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 58,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "1",
+                "pack_size_unit": "pack",
+                "size": "0.75oz",
+                "color": "Clear",
+                "name": "Aquaseal FD Flexible Repair Adhesive"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "GEAR AID 0.75-oz Clear Aquaseal FD Repair Adhesive",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 50,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "0.75",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "Clear",
+                "name": "Aquaseal FD Repair Adhesive"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Waterproof Fabric Sealant, Flexible Urethane Rubber, Waders And Wetsuit Repair, 8-12 Hour Cure, Neoprene And GORE-TEX Compatible",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 128,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (128 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Waterproof Flexible Urethane Rubber, Bonds Neoprene Nylon Canvas Leather And GORE-TEX, Abrasion Resistant",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 105,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

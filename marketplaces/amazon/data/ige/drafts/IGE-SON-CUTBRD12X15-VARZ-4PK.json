@@ -3,14 +3,14 @@
     "asin": "B00BOUUX6G",
     "product_type": "CUTTING_BOARD",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:47:30+00:00",
+    "generated_at": "2026-07-21T19:28:58+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 24,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -382,20 +382,57 @@
             "asin": "B00BOUUX6G",
             "raw_value": true
         },
-        "title_differentiation": {
-            "value": "Dishwasher safe, flexible design, will not dull knives, protects countertops, easy roll-up storage",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 4-Pack 12\" x 15\" Clear Flexible Cutting Boards",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8",
-            "validation_error": "requires item_name <= 75 chars"
-        },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Flexible Plastic Cutting Boards, 12\" x 15\", 4 Pack",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 58,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "Pack",
+                "size": "12\" x 15\"",
+                "color": "Clear",
+                "name": "Flexible Cutting Boards"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 4-pk 12\" x 15\" Clear Flexible Plastic Cutting Boards",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 64,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "12\" x 15\"",
+                "color": "Clear",
+                "name": "Flexible Plastic Cutting Boards"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Dishwasher Safe, BPA-Free Polypropylene, Folds For Easy Storage, Non-Slip, Food Safe, Multi-Purpose",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 99,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Dishwasher Safe, BPA-Free Polypropylene, Non-Porous, Knife Friendly, Roll Up Storage, Hanging Hole",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 98,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

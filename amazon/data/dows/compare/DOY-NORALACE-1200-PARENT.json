@@ -1,0 +1,60 @@
+{
+    "sku": "DOY-NORALACE-1200-PARENT",
+    "asin": "B087CD3BQN",
+    "product_type": "SHOELACE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DOY-NORALACE-1200-PARENT\nProduct Type: SHOELACE\nBrand (from catalog): ASR Tactical\nExisting Title: ASR Tactical TitanLace 1200 Technora Work Boot Lace (Multiple Sizes and Colors)\nDescription: These ASR Tactical Boot Laces made with 1200lb Technora cord are perfect for high-stress environments, such as outdoor survival, camping, work sites, hiking, and much more. <br/><br/>These Technora cord laces can be used as an emergency supply of Technora to use in many different ways including securing tents to making a rescue line. The heavy duty aglets prevent splits in the shoelace and will make the lace last much longer than your average shoelace. <br/><br/>The lace sizes measure 36\", 48\", 60\", 72\", 84\", 96\" and 108\" long and will be perfect for any boots or shoes. Make sure to grab your Technora boot lace before you get caught in an emergency situation.<br/><br/>Shoelace Lengths: <br/>36\" - 92cm - 4-5 Eyelets<br/>48\" - 122cm - 6-7 Eyelets<br/>60\" - 153cm - 7-8 Eyelets<br/>72\" - 183cm - 8-9 Eyelets <br/>84\" - 213cm - 9-10 Eyelets <br/>96\" - 244cm - 10-11 Eyelets <br/>108\" - 274cm - 11-12 Eyelets<br/><br/>Disclaimer: Shoelace aglet is 4mm in diameter, make sure your eyelets are the correct size before ordering.\"\nSearch Terms: every day carry edc kevlar trip line booby trap signaling device tactical bug out bag survival cord kite braided spear fishing\nFeatures:\n- UNIVERSAL FIT: Ideal replacement emergency cord laces for hiking boots and duty boots with 4mm metal aglet; Available Lengths: 36\", 48\", 60\", 72\", 84\", 96\", 108\"\n- Includes (1) Pair of Universal Upgrade Technora Laces for Standard Shoe Laces and Utility Boot Laces\n- Breaking Strength: 1200lbs with PTFE Protective Coating\n- Ideal for Work Boots, Backpacking, Camping, Outdoors, Hunting and Everyday Use\n- Made in the USA\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 80 characters.  Please include the size and color of the item in the Product Name, if available.\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical TitanLace 1200 Technora Boot Lace",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "1200",
+                "pack_size_unit": "lb",
+                "size": "",
+                "color": "",
+                "name": "TitanLace Technora Boot Lace"
+            },
+            "char_count": 46,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical TitanLace Technora Work Boot Laces",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "TitanLace Technora Work Boot Laces"
+            },
+            "char_count": 47,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "1200Lb Breaking Strength, USA Made, Multiple Lengths 36-108In, Emergency Survival Cord, Heavy Duty Metal Aglets",
+            "char_count": 111,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "1200 Lb Break Strength, PTFE Coated, 4 Mm Metal Aglets, Made In USA, Emergency Utility Cord, Hiking Camping Hunting EDC",
+            "char_count": 119,
+            "validation_error": null
+        }
+    }
+}

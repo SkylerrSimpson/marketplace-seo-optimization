@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-TTAPEOUTDOOR-BLK",
+    "asin": "B079L4BVQH",
+    "product_type": "FABRIC_APPLIQUE_PATCH",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-TTAPEOUTDOOR-BLK\nProduct Type: FABRIC_APPLIQUE_PATCH\nBrand (from catalog): GEAR AID\nExisting Title: GEAR AID Tenacious Tape Gear Patches for Jacket, Tent and Outerwear Repair, Outdoor, 3”x20”\nDescription: Quickly make a jacket, tent or outerwear repair and say goodbye to holes and tears with Tenacious Tape Gear Patches. This versatile black nylon repair tape requires no heat or sewing skills. Simply peel the backing and apply to the surface with pressure; it won't peel or lift even after a wash. The various shapes and sizes make jacket repair fun and personal. Stick it on almost anything made of synthetic fabrics including rainwear, ski pants, gloves and backpacks without the gooey residue (not for cotton, denim, or natural fabrics). When sewing and ironing isn't an option, use Tenacious Tape Gear Patches for a unique and speedy repair that lasts all year long.\nSearch Terms: fabric repair tape awning tent vinyl patches patch sail nylon clear waterproof cloth canopy\nFeatures:\n- Fix a tent, jacket or outerwear fast with peel-and-stick Tenacious Tape Gear Patches; no heat required, just remove backing and apply\n- Stick on to synthetic fabrics including nylon, vinyl, GORE-TEX® fabric, and polyester; patches are backed with ultra-strong adhesive (not for cotton, denim, or natural fabrics)\n- Use these washable patches to repair holes and tears on outdoor gear including backpacks, sleeping bags, and gloves; won't peel back over time\n- Cover up stains or personalize your puffy coat and gear with fun shapes for water bottles, helmets and luggage\n- Packaging may vary\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "GEAR AID Tenacious Tape Black Nylon Repair Patches 3\"x20\"",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "3",
+                "pack_size_unit": "\"x20\"",
+                "size": "",
+                "color": "Black",
+                "name": "Tenacious Tape Nylon Repair Patches"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID 3-in Black Tenacious Tape Gear Patches",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "3",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Tenacious Tape Gear Patches"
+            },
+            "char_count": 47,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Peel And Stick, No Heat Or Sewing Required, Waterproof, Washable, Synthetic Fabrics, Outdoor Gear Repair",
+            "char_count": 104,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Peel And Stick, No Heat Or Sewing, Washable, Works On Nylon Vinyl And Polyester, Ultra-Strong Adhesive",
+            "char_count": 102,
+            "validation_error": null
+        }
+    }
+}

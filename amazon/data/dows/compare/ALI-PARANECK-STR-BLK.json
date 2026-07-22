@@ -1,0 +1,60 @@
+{
+    "sku": "ALI-PARANECK-STR-BLK",
+    "asin": "B09HW5M14N",
+    "product_type": "SURVIVAL_KIT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: ALI-PARANECK-STR-BLK\nProduct Type: SURVIVAL_KIT\nBrand (from catalog): ASR Outdoor\nExisting Title: Paracord Necklace with Straight Blade Fire Starter Striker Tool - Black\nDescription: The ASR Outdoor Fire Starter Necklace is a must-have emergency tool. Each necklace comes with a straight blade metal fire starter striker so you can ensure you have access to a heat and light source in case of an outdoor emergency.<br/><br/>The necklace also comes with a mini ferrocerium rod that can be used with the striker to easily create sparks, allowing you to start a fire without any other tools. It will work at any altitude and in any weather condition, so you can rest assured you'll have access to heat rain, or shine. The striker features a straight blade that will assist with striking the mini ferro rod to create flame sparks. It can also be used as a sturdy cutting device in a pinch.<br/><br/>The necklace itself is constructed of durable 550 paracord and can be adjusted for custom comfort. It has an overall length of 16\", and can be taken apart to double the length of paracord in an emergency. This is a great EDC, camping, hiking, or backpacking emergency tool.\nSearch Terms: paracord fire starter bracelet campfire knots tactical 550 cord kit rope emergency outdoor prep prepper tools camping hiking survival striker surivalist wilderness cordage utility accessories necklace flint adjustable scraper spark tinder\nFeatures:\n- EMERGENCY FIRE STARTER - The ASR Outdoor Fire Starter Necklace is a must-have emergency tool. Each necklace comes with a straight blade metal fire starter striker so you can ensure you have access to a heat and light source in case of an outdoor emergency.\n- MINI FERRO ROD - The necklace also comes with a mini ferrocerium rod that can be used with the striker to easily create sparks, allowing you to start a fire without any other tools. It will work at any altitude and in any weather condition, so you can rest assured you'll have access to heat rain or shine.\n- STRAIGHT BLADE - The striker features a straight blade that will assist with striking the mini ferro rod to create flame sparks. It can also be used as a sturdy cutting device in a pinch!\n- ADJUSTABLE NECKLACE - The necklace itself is constructed of durable 550 paracord and can be adjusted for custom comfort. It has an overall length of 16\", and can be taken apart to double the length of paracord in an emergency.\n- SPECIFICATIONS: Color: black; Material: steel/550 paracord/ferrocerium; Blade style: straight; Paracord length: 16\"; Blade width: 1\"\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Black Paracord Necklace Fire Starter Striker",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Paracord Necklace Fire Starter Striker"
+            },
+            "char_count": 56,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Black Paracord Fire Starter Necklace",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Paracord Fire Starter Necklace"
+            },
+            "char_count": 48,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Mini Ferro Rod, Straight Blade, 550 Paracord, Adjustable 16 Inch, Emergency EDC Tool",
+            "char_count": 84,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Mini Ferro Rod, Straight Blade Striker, Adjustable 550 Paracord, Emergency Fire Starting, Camping Hiking EDC",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

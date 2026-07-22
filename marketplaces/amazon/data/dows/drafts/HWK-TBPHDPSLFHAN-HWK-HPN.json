@@ -3,14 +3,14 @@
     "asin": "B00VUGOQ3A",
     "product_type": "TOOL_BELT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:17:28+00:00",
+    "generated_at": "2026-07-21T20:08:19+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 7,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -125,20 +125,57 @@
             "asin": "B00VUGOQ3A",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Raven 7 Pocket Tool Belt Pink Double Pouch Nylon Adjustable",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "RAVEN Pink 7 Pocket Double Tool Belt",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 36,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "RAVEN",
+                "pack_size": "7",
+                "pack_size_unit": "Pocket",
+                "size": "",
+                "color": "Pink",
+                "name": "Double Tool Belt"
+            }
         },
-        "title_differentiation": {
-            "value": "Metal Hammer Holder, Tape Measure Holder, Quick Release Buckle, Fits 28-50\"",
+        "item_name_ai_openai": {
+            "value": "RAVEN Pink Tool Belt",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 20,
+            "review_only": true,
+            "tokens": {
+                "brand": "RAVEN",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Pink",
+                "name": "Tool Belt"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Adjustable 28-50 Inch Waist, Hammer And Tape Measure Holders, Quick Release Buckle, Double Stitched",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 99,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Quick Release Nylon Belt, Hammer Holder And Tape Holder, Knife Sheath, Pen Pockets, Double Stitched",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 99,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

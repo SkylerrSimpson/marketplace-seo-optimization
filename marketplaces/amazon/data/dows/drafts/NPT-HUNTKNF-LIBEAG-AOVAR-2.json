@@ -3,14 +3,14 @@
     "asin": "B09QP4PBTC",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:27:57+00:00",
+    "generated_at": "2026-07-21T20:10:41+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 4,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -71,20 +71,57 @@
             "asin": "B09QP4PBTC",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 13.75\" Liberty Eagle Fixed Blade Hunting Knife",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 13in Liberty Eagle Etched Hunting Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Liberty Eagle Etched Hunting Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "440 Stainless Steel, Acid Etched, Decorative Scabbard & Handle, Collector's Edition",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 13-in Liberty Eagle Etched Hunting Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 52,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Liberty Eagle Etched Hunting Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Fixed Blade, 440 Stainless Steel, Acid Etched Design, Ornamental Scabbard, Collectors Piece",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 91,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "440 Stainless Steel, 8\" Acid Etched Blade, Full Color Sheath And Handle, 1375\" Overall, Collectible Display",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B07DLDXYNK",
     "product_type": "TRANSPORT_RACK",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:46:36+00:00",
+    "generated_at": "2026-07-21T20:01:04+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -37,21 +37,59 @@
             "value": "Steel",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Heininger Hitchmate Steel Cargo Stabilizer Bar Ratchet",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Heininger Hitchmate Cargo Stabilizer Bar",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 40,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Heininger",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Hitchmate Cargo Stabilizer Bar"
+            }
         },
-        "title_differentiation": {
-            "value": "Heavy-Duty Ratcheting System, Rubber Feet, Commercial Grade, No Tools",
+        "item_name_ai_openai": {
+            "value": "Heininger Hitchmate Cargo Stabilizer Bar",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 40,
+            "review_only": true,
+            "tokens": {
+                "brand": "Heininger",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Hitchmate Cargo Stabilizer Bar"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Heavy-Duty Ratcheting System, Rubber Feet, Truck Bed Stabilizer, Prevents Sliding, Commercial Grade",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 99,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Heavy Duty Ratcheting, Adjustable Expandable, Rubber Feet No Scrape, Stable Load Support, Commercial Grade",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 106,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

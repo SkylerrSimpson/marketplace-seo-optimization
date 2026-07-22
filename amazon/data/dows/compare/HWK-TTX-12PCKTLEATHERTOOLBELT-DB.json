@@ -1,0 +1,60 @@
+{
+    "sku": "HWK-TTX-12PCKTLEATHERTOOLBELT-DB",
+    "asin": "B0D8515NPB",
+    "product_type": "TOOL_BELT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWK-TTX-12PCKTLEATHERTOOLBELT-DB\nProduct Type: TOOL_BELT\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux 12 Pocket Heavy Duty Oil Tanned Genuine Leather Tool Belt, Fully Adjustable, Dark Brown\nDescription: Featuring top grain 100% genuine leather fabrication, easy waist belt adjustments (up to 51 inches) and twelve pockets for primary and secondary tool storage and organization, this oil tanned leather tool belt from ToolTreaux is made to be used, and is ready for any job or project.<br/><br/>Featuring x4 large front pockets, x1 smaller center pocket, x2 hammer holds (one fixed and one swivel), and x6 smaller pockets for pencils and other small accessories, this leather tool belt can carry your most used and valuable hand tools, eliminating multiple trips back to the shop, tool box or truck. Applicable within and for many different industries, the leather tool belt is suitable for at home DIY projects or home renovation, construction, electrical work, carpentry, wood working, framing and roofing, for plumbers, contractors and more.<br/><br/>The oil tanned leather tool belt features heavy duty rivet reinforcements and double stitched corners for extra added strength; designed for long lasting performance, this tool belt is made to be used and while stiff upon arrival, it will soften and relax with time and use. Expect all day comfort and stability with the tool belts adjustable belt with webbing and premium fabrication that molds to your person and your tools, making it reliable partner for every project.<br/><br/>Please Note: customization or personalization are not available for this item\nSearch Terms: electrician carpenter leather tool belt framing wood working welding construction roofing plumbing power hand tools gifts for dad husband boyfriend brother tool pouch home renovation items tool organization hammer holder DIY tool bag contractor\nFeatures:\n- 12 POCKET LEATHER TOOL BELT: Heavy duty leather tool belt features x4 large front pockets, x1 small center pocket, x2 hammer holders, one swivel and one fixed, and x6 smaller pockets, to carry your most important hand tools and accessories for any project\n- TOP QUALITY 100% GENUINE LEATHER: High quality oil tanned leather tool belt features duty rivet reinforcements and double stitched corners for added strength; designed for long lasting performance, this tool belt is made to be used and while stiff upon arrival, will soften and relax with time and use\n- WIDE APPLICATION: This heavy tool belt is suitable for DIY projects at home, construction, electrical work, carpentry, wood working, framing and building, for plumbers, contractors and more; also makes a great gift for men, Dads, husbands, brothers, boyfriends and more!\n- ADJUSTABLE LEATHER TOOL BELT: Two inch wide webbing belt with double metal needles and roller buckle comes with 12 different size adjustments and can accommodate up to a 51 inch waist size\n- SPECIFICATIONS: Dimensions: 24 x 10 x 3.0 inches; Belt Weight: 3.26lbs; Color: Dark Brown\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 12 Pocket Dark Brown Genuine Leather Tool Belt",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "12",
+                "pack_size_unit": "Pocket",
+                "size": "",
+                "color": "Dark Brown",
+                "name": "Genuine Leather Tool Belt"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 12 Pocket Dark Brown Heavy Duty Leather Tool Belt",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "12",
+                "pack_size_unit": "Pocket",
+                "size": "",
+                "color": "Dark Brown",
+                "name": "Heavy Duty Leather Tool Belt"
+            },
+            "char_count": 60,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Heavy Duty Oil Tanned Leather, Adjustable Up To 51 Inches, Rivet Reinforced, Hammer Holders",
+            "char_count": 91,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Adjustable To 51 Inches, 12 Pockets, 2 Hammer Holds, Oil Tanned Genuine Leather, Rivet Reinforced, Double Stitched Corners",
+            "char_count": 122,
+            "validation_error": null
+        }
+    }
+}

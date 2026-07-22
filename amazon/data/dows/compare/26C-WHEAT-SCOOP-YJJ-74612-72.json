@@ -1,0 +1,60 @@
+{
+    "sku": "26C-WHEAT-SCOOP-YJJ-74612-72",
+    "asin": "B0BZ6B4DN5",
+    "product_type": "FOOD_SCOOP",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 26C-WHEAT-SCOOP-YJJ-74612-72\nProduct Type: FOOD_SCOOP\nBrand (from catalog): Beille\nExisting Title: Beille Cream Wheat Straw Material Ice Cream Scoop Kitchen Utensils Home Goods\nDescription: A sustainable ice cream scoop, what could be sweeter?<br/>Beille’s wheat straw ice cream scooper features a thick, rounded handle with a speckled matte finish for a comfortable and controlled grip when digging into your favorite frozen sweet treat. <br/><br/>And, while this ice cream scoop is perfect for scooping ice cream, sorbet, or frozen yogurt, the ice cream scooper can also be used for other cooking or baking tasks in the kitchen like scooping out seeds, filling muffin or cupcake liners or stuffing peppers before oven roasting. <br/><br/>As mentioned, Beille’s ice cream scooper is made from wheat straw, an eco-friendly bioplastic. An alternative plant-based material to other less forgiving solid plastics, the material, and therefore the scooper, is renewable and sustainable and of course, food-safe and certified BPA Free.<br/><br/>No kitchen is complete without an ice cream scoop. A must-have home and kitchen tool, upgrade your current ice cream scooper to a sustainable one, or gift one as a hostess or housewarming gift with other items from Beille’s wheat straw kitchen collection.<br/><br/>Top rack dishwasher safe.\nSearch Terms: ice cream scooper wheat straw utensils baking supplies tools cooking chef restaurant equipment sustainable products bake food meal prep kitchen starter set wedding house warming gifts new home college dorm room essentials dessert apple pie home\nFeatures:\n- ICE CREAM SCOOP - A sustainable ice cream scoop, what could be sweeter? Perfect for scooping ice cream, sorbet, frozen yogurt, and more, Beille’s wheat straw ice cream scooper features a thick, rounded handle with a speckled matte finish for a comfortable and controlled grip\n- WHEAT STRAW - Beille’s ice cream scooper is made of bioplastic wheat straw, an alternative plant-based material to other less forgiving solid plastics; renewable and sustainable, Beille’s ice cream scooper is food safe and certified BPA Free\n- KITCHEN GADGETS - No kitchen is complete without an ice cream scoop! A must-have home and kitchen tool, upgrade your current ice cream scooper to a sustainable one, or gift one as a hostess or housewarming gift with other items from Beille’s wheat straw kitchen collection\n- DISHWASHER SAFE - Beille wheat straw ice cream scoops mimic traditional plastic measuring tools without harmful byproducts, which makes them top rack dishwasher safe for a quick and easy clean up\n- SPECIFICATIONS - Dimensions: 7.28 x 1.77 inches x 1.0. inches; Weight: ; Material: Wheat Straw; Color: Cream\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille Cream Wheat Straw Ice Cream Scoop",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Cream",
+                "name": "Wheat Straw Ice Cream Scoop"
+            },
+            "char_count": 40,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille Cream Wheat Straw Ice Cream Scoop",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Cream",
+                "name": "Ice Cream Scoop"
+            },
+            "char_count": 40,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Sustainable Wheat Straw, BPA-Free, Dishwasher Safe, Ergonomic Handle, Eco-Friendly Bioplastic",
+            "char_count": 93,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Wheat Straw, BPA-Free, Top Rack Dishwasher Safe, Comfortable Grip, Multipurpose Kitchen Tool, Eco-Friendly",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

@@ -3,14 +3,14 @@
     "asin": "B00BIQWAGW",
     "product_type": "BUCKLE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:22:29+00:00",
+    "generated_at": "2026-07-21T19:53:02+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 8,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -150,24 +150,62 @@
             "raw_value": true
         },
         "fabric_type": {
-            "value": "Plastic",
+            "value": "100% Plastic",
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Gear Aid Ellipse Cord Lock Kit, 3/16\" Black Plastic",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Gear Aid Ellipse Cord Lock Kit 2-Pack Black",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 43,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Gear Aid",
+                "pack_size": "2",
+                "pack_size_unit": "Pack",
+                "size": "3/16 inch",
+                "color": "Black",
+                "name": "Ellipse Cord Lock Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "No-Sew Replacement, Fits Up to 3/16\" Cord, 2-Pack",
+        "item_name_ai_openai": {
+            "value": "GEAR AID 2-pk 3/16-in Black Cord Lock Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 41,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "3/16-in",
+                "color": "Black",
+                "name": "Cord Lock Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "No-Sew Replacement, Fits Cords Up To 316 Inch, Durable Plastic, Quick Fastening, Jackets Backpacks Sleeping Bags",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 112,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "No-Sew Replacement, Fits 316\" Cord, Tightens Elastic And Paracord, Durable Plastic, For Jackets Backpacks Sleeping Bags Shoes",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 125,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

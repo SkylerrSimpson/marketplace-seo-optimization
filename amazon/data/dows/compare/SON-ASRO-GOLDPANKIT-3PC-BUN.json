@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ASRO-GOLDPANKIT-3PC-BUN",
+    "asin": "B0GWS1HTZJ",
+    "product_type": "OUTDOOR_LIVING",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ASRO-GOLDPANKIT-3PC-BUN\nProduct Type: OUTDOOR_LIVING\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 3pc Gemstone Prospecting Kit with Trowel Sieve and Gem ID Chart\nDescription: Discover hidden treasures with the ASR Outdoor 3pc Sieve and Shovel Set, a complete gemstone prospecting bundle for beginners and hobbyists alike. This set combines a durable digging tool, an efficient sand sifter, and a handy gemstone ID chart so you can find, sort, and identify your discoveries with ease.<br/><br/>The bright orange 11\" heavy-duty trowel makes digging through soil, gravel, and paydirt quick and effortless. Its sturdy construction ensures reliable use in the field, while the vibrant color makes it easy to spot.<br/><br/>Included is a stackable sand sifter sieve with 36 holes per square inch, perfect for separating dirt and sand to reveal gemstones hidden in your rough mix. Each sieve measures 9.75\" in diameter, is built to last, and comes in a random color for added fun.<br/><br/>To help identify your finds, the set includes a laminated gemstone ID chart, compact and portable for field use. Learn to identify precious gems with confidence, whether you’re exploring streams, riverbeds, or paydirt bags.<br/><br/>This lightweight, easy-to-carry set is perfect for gemstone hunting adventures, outdoor education, or family fun in the field. Start your gem-hunting journey today with the ASR Outdoor 3pc Sieve and Shovel Set.\nSearch Terms: gold panning prospecting sifting tools gold pans classifier screen gold panning kit beginner prospecting starter set sluice equipment mining hobby paydirt recovery river creek dredge classifier snuffer bottle collection vial field gear outdoors adventure treasure\nFeatures:\n- HEAVY DUTY 11” TROWEL - Bright orange trowel is designed for high visibility out in the field, perfect for digging soil, gravel, and paydirt with ease.\n- STACKABLE SAND SIFTER SIEVE - Durable 9.75\" sieve with 36 holes per square inch for efficient sorting of gems and minerals. Please note that sifter colors ship at random.\n- LAMINATED GEMSTONE ID CHART - Take this portable chart with you to quickly and accurately identify gemstones in the field.\n- IDEAL FOR BEGINNERS AND HOBBYISTS - Compact, lightweight, and easy to carry, perfect for gemstone hunting adventures, educational projects, or outdoor fun.\n- COMPLETE 3-PIECE BUNDLE - Everything you need to dig, sift, and identify gemstones in one convenient kit.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 3pc Gemstone Prospecting Kit Trowel Sieve",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Gemstone Prospecting Kit Trowel Sieve"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 3-pc Orange Gemstone Prospecting Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Orange",
+                "name": "Gemstone Prospecting Kit"
+            },
+            "char_count": 48,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "11 Inch Heavy Duty Trowel, 975 Inch Stackable Sieve, Laminated ID Chart, Beginner Prospecting Set",
+            "char_count": 97,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "11\" Heavy-Duty Trowel, 975\" 36-Hole Sieve, Laminated Gem ID Chart, Beginner-Friendly, Field Use",
+            "char_count": 95,
+            "validation_error": null
+        }
+    }
+}

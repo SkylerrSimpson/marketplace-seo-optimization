@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-FROZEN2-ANNAFAUX-HAIR-HPN-LH",
+    "asin": "B07XRX185W",
+    "product_type": "HAIR_TIE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-FROZEN2-ANNAFAUX-HAIR-HPN-LH\nProduct Type: HAIR_TIE\nBrand (from catalog): Luv Her\nExisting Title: Frozen 2 Girls Princess Anna Faux Hair Braid with Bow\nDescription: LUV HER children's accessories are made with non-toxic materials and designed to ensure a safe and ouchless experience. It is important to teach kids hygiene and grooming and there's no better way for them to learn but through play.<br/><br/>Frozen 2 Girls Anna Faux Hair Braid with Bow, a cosplay accessory to finish your little girl's Frozen themed look<br/><br/>Now both of you can have fun playing, grooming and learning at the same time.\nSearch Terms: (none)\nFeatures:\n- IN THE BOX: Luv Her Frozen 2 Girls Anna Faux Hair Braid with Bow includes Anna's braided wig with bow, a cosplay accessory to finish your little girl's Frozen themed look; safe to wear and designed to minimize pulling so you're little girl will look and feel like a princess without damaging her hair\n- FUN AND FUNCTIONAL. Disney Frozen princess vanity set is beautiful and useful at the same time. These cute frozen toys neatly keep your little one's hair in place so she can enjoy playing with her friends comfortably. A must have hair accessory kit perfect for your kids restless nature.\n- SAFE HAIR ACCESSORY. This charming girls vanity collection is safe for your kid's skin. So you can let your little girl experience the magic of these Disney princess hair accessories and styling assortment without any worries.\n- LESSON IN STYLE. Its never too early to teach your little ones to look after their appearance. With our lovely hair styling set, they will have fun playing with their friends while learning about grooming like a true princess.\n- GIFT FIT FOR A PRINCESS. From watching movies to dressing up, every girl imagines being a princess. This Frozen party favor will bring your child closer to this fantasy and surely put a smile on her face. Grab our children's vanity playset, and make the most special girl in your life happy.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Luv Her Frozen 2 Anna Faux Hair Braid with Bow",
+            "tokens": {
+                "brand": "Luv Her",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Frozen 2 Anna Faux Hair Braid with Bow"
+            },
+            "char_count": 46,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Luv Her Frozen 2 Anna Faux Hair Braid with Bow",
+            "tokens": {
+                "brand": "Luv Her",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Anna Faux Hair Braid with Bow"
+            },
+            "char_count": 46,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Disney Princess Cosplay Accessory, Ouchless Design, Non-toxic Materials, Hair Styling Play Set, Perfect Gift",
+            "char_count": 108,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Safe Ouchless Design, Disney Frozen 2 Anna Cosplay Accessory, Braided Wig With Bow, Hair-Friendly, Gift Ready",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

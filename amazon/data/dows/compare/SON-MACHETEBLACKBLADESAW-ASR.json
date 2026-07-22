@@ -1,0 +1,60 @@
+{
+    "sku": "SON-MACHETEBLACKBLADESAW-ASR",
+    "asin": "B08P266XBB",
+    "product_type": "SWORD",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-MACHETEBLACKBLADESAW-ASR\nProduct Type: SWORD\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 15.5 inch Full Tang Machete with Recurved Blade and Zigzag Serrated Spine, Black\nDescription: Blaze trails while you're hunting or camping with the ASR Outdoor ASR155SB 15.5\" Fixed Blade Recurved Serrated Spine Machete.<br/><br/>This full tang machete is constructed from 440 stainless steel in full black and features a recurved zigzag serrated spine on the back of blade. The overall length of the machete is 15.5 inches, with the usable length of the blade being 9.5 inches and 3mm thick. The curved handle is wrapped with black paracord which can be useful in an emergency situation as a means to tie, pull, hang or secure just about anything using the paracord.<br/><br/>The blade comes with a black fitted nylon sheath with hook and loop belt fastener, and there's also a lanyard hole with lanyard for easy carrying when not in use.\nSearch Terms: full tang handheld long blade garden machete tactical fixed every day carry out trail clearing bushwhacking jungle cutter small brush and tree shrubs ninja dagger\nFeatures:\n- Light weight full tang machete one-piece construction with recurved blade and serrated spine;  solidly made from a high-quality 420 stainless steel treated for optimal edge retention and resistance to rust and corrosion\n- Overall Length: 15.5 inches; Blade Length: 9 inches; Blade Thickness: 3mm; Color: Black\n- Paracord wrapped handle; one-piece construction; nylon sheath included\n- Ideal for camping and outdoor adventures but also practical around the house or out in the field for everyday use\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 15.5 inch Black Recurved Serrated Machete",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "15.5",
+                "pack_size_unit": "inch",
+                "size": "",
+                "color": "Black",
+                "name": "Recurved Serrated Machete"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 15.5-in Black Machete",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "15.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Machete"
+            },
+            "char_count": 33,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Full Tang Fixed Blade, 440 Stainless Steel, Paracord Wrapped Handle, Nylon Sheath Included, Ideal For Camping And Bushwhacking",
+            "char_count": 126,
+            "validation_error": "value exceeds maxLength 125 (126 chars)"
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Full Tang Construction, Recurved Serrated Spine, 440 Stainless Steel, Paracord Wrapped Handle, Nylon Sheath",
+            "char_count": 107,
+            "validation_error": null
+        }
+    }
+}

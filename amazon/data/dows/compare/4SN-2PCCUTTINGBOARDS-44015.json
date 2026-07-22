@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-2PCCUTTINGBOARDS-44015",
+    "asin": "B098KN8QSF",
+    "product_type": "CUTTING_BOARD",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-2PCCUTTINGBOARDS-44015\nProduct Type: CUTTING_BOARD\nBrand (from catalog): Beille\nExisting Title: Beille Plastic Kitchen Cutting Board Set Textured Non-slip Surface, Set of 2\nDescription: When it comes to a high-quality, reliable cutting board set, the Beille 2-piece Kitchen Plastic Cutting Board set checks all the boxes. Crafted with high-density polypropylene plastic, our multi-pack set of cutting boards provide a durable, non-porous, and odor-resistant material (unlike wood or bamboo cutting boards). These sturdy kitchen cutting boards are not flimsy and the non-slip design on the cutting board surface prevents food items from slipping during cutting. <br/><br/>The 2-piece cutting board kitchen set contains a large cutting board (10 inches x 14 inches) and a small cutting board (8 inches X 12 inches), allowing you to prepare multiple types of food items without the fear of cross-contamination or the hassle of cleaning and sanitizing between ingredients.<br/><br/>Our cutting boards are double-sided and are ideal for cutting fruits, vegetables, bread, fish and meat alike. Every kitchen needs a good set of quality cutting boards that will stand the test of time. This set is also a great gift idea for newlyweds, college students, first-time homeowners, and cooking enthusiasts.\nSearch Terms: cutting boards cutting mats multi pack cutting boards plastic cutting boards food safe plastic dishwasher safe cutting boards stain resistant cutting boards kitchen essentials kitchen cutting boards heat resistant cutting boards chopping mats\nFeatures:\n- HIGH QUALITY MATERIAL - Our cutting boards are made of food-safe polypropylene material. The Beille 2-piece cutting board set is non-porous, (unlike wood and bamboo) so it is dishwasher safe, stain-resistant and will not degrade over time.\n- 2 SIZE MULTI-PACK: This cutting board set comes with a large board (10x14\") and small board (8X12\") that will allow you to prepare multiple types of food at the same time without the fear of cross contamination, keeping your kitchen and counter tops clean and safe.\n- TEXTURED SURFACE - These boards were designed with safety in mind! The textured surface provides a non-slip experiencing and will keep your ingredients on the board and off of your countertops. These cutting boards are ideal for slicing and preparing vegetables, fruits and meat alike.\n- EASY TO CLEAN - To clean these durable cutting boards, simply rinse under water and wash with dish soap or place it in your dishwasher for quick and easy cleanup after food preparation.\n- CARRYING HOLE: Designed to be easily stored, each board comes with a handy carrying hole on the top so you can easily store them on a hook when not in use. They will also fit inside most standard kitchen drawers.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 2-Piece Plastic Cutting Board Set Non-Slip",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "",
+                "name": "Plastic Cutting Board Set Non-Slip"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 2-pk Plastic Kitchen Cutting Board Set",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Plastic Kitchen Cutting Board Set"
+            },
+            "char_count": 45,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Set Of 2, Textured Non-Slip Surface, Dishwasher Safe, Stain Resistant, Food Safe, Large 10X14in And Small 8X12in",
+            "char_count": 112,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Textured Non-Slip Surface, Food Safe Polypropylene, Dishwasher Safe, Odor And Stain Resistant, Double-Sided, Hanging Hole",
+            "char_count": 121,
+            "validation_error": null
+        }
+    }
+}

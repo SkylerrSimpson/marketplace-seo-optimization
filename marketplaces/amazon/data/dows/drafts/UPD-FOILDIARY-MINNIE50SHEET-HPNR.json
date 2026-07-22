@@ -3,14 +3,14 @@
     "asin": "B08NRJLCVN",
     "product_type": "BLANK_BOOK",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:06:25+00:00",
+    "generated_at": "2026-07-21T19:46:39+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 3,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -54,24 +54,63 @@
             "raw_value": true
         },
         "generic_keyword": {
-            "value": "Disney Minnie Mouse diary journal foil print padlock key poly bag girls gift birthday stocking stuffer kids ages 3 friendship lined notebook",
+            "value": "diary journal notebook lock key girls kids gift birthday stocking stuffer poly bag foil printing cute character book",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Minnie Mouse Diary with Lock and Key, Foil Design",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Licensed Minnie Mouse Diary with Foil Printing",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 46,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Licensed",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Minnie Mouse Diary with Foil Printing"
+            }
         },
-        "title_differentiation": {
-            "value": "Officially Licensed, Includes Padlock & Key, Perfect Birthday Gift",
+        "item_name_ai_openai": {
+            "value": "Licensed Minnie Mouse Diary 5.5 x 0.5 x 9 in",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 44,
+            "review_only": true,
+            "tokens": {
+                "brand": "Licensed",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "5.5 x 0.5 x 9 in",
+                "color": "",
+                "name": "Minnie Mouse Diary"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Officially Licensed Disney, Includes Padlock And Key, Fun Friendship Design, Perfect Gift For Ages 3 Plus",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 105,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Officially Licensed Disney, Padlock And Key, Foil Print, Friendship Design, Ages 3 And Up, Great Gift For Birthdays Or Stockings",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 128,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (128 chars)"
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

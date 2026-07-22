@@ -3,14 +3,14 @@
     "asin": "B00BC471T6",
     "product_type": "FLASHLIGHT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:23:14+00:00",
+    "generated_at": "2026-07-21T19:53:15+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 7,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -124,20 +124,58 @@
             "asin": "B00BC471T6",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical 21 LED UV Flashlight Black Light 395nm",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical 21 LED UV Light Flashlight Black",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 45,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "21",
+                "pack_size_unit": "LED",
+                "size": "",
+                "color": "Black",
+                "name": "UV Light Flashlight"
+            }
         },
-        "title_differentiation": {
-            "value": "21 UV LED Bulbs, Crime Scene Investigation, Compact Pocket Size, 3 AAA Batteries Included",
+        "item_name_ai_openai": {
+            "value": "ASR Tactical 21-Bulb Black UV Light LED Flashlight",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 50,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "21",
+                "pack_size_unit": "Bulb",
+                "size": "",
+                "color": "Black",
+                "name": "UV Light LED Flashlight"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "21 UV LED Bulbs, 395Nm Wavelength, Crime Scene Investigation, Counterfeit Detection, Compact Pocket-Sized, 3 AAA Batteries Included",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 131,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (131 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "395Nm Long Wave UV, 21 LEDs, 3 AAA Batteries Included, Compact Pocket Size, Crime Scene And Counterfeit Detection",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 113,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

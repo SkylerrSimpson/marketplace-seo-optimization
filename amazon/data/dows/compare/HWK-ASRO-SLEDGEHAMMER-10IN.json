@@ -1,0 +1,60 @@
+{
+    "sku": "HWK-ASRO-SLEDGEHAMMER-10IN",
+    "asin": "B0DDMX3ZWK",
+    "product_type": "HAMMER_MALLET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWK-ASRO-SLEDGEHAMMER-10IN\nProduct Type: HAMMER_MALLET\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 1lb Steel Sledge Hammer with Non Slip Rubber Grip, 10 Inch\nDescription: ASR Outdoors sledge hammer combines strength, precision striking and durability, all into a compact ten inches of forged steel. Constructed from high quality materials, this hammer is designed to withstand rigorous use, ensuring long lasting performance, making it a dependable addition to any tool bag or tool belt. The double sided sledge hammer features one inch smooth striking heads on both sides, and a three inch overall head length.<br/><br/>Equipped with a non slip, ergonomically designed handle, this sledge hammer provides a comfortable grip and reduces the risk of slippage. The handle’s durability ensures it will withstand repeated impacts without compromising on integrity.<br/><br/>Ideal for both trade professionals, serious DIYers or craft hobbyists, this two tone 10 inch sledge hammer is useable across a wide range of applications: geology, rock hounding, masonry, fossils, archeology, paleontology, woodworking, leatherworking, striking cold chisels, brick chisels, punches, spikes and more. Despite its compact size, this sledge hammer has been made to be used; its balanced weight distribution minimizes user fatigue, making it ideal for extended use across many different projects.\nSearch Terms: rock hammer geology tools gold prospecting rockhounding equipment for adults fossils for kids paleontology archeology construction hobby mining woodworking masonry tools mini sledge hammer cold chisel DIY home improvement tool bag craft supplies\nFeatures:\n- 10 INCH SLEDGE HAMMER: Double sided hammer features one inch smooth striking heads and a three inch overall head length; the sledge hammers compact size allows for precise strikes while delivering the necessary force to get tasks done efficiently\n- ERGONOMIC RUBBER HANDLE: Featuring an ergonomically designed rubber handle, this sledge hammer offers an excellent non slip grip and comfort that allows for control and precision with every swing; minimal vibration and maximum impact\n- DURABLE STEEL CONSTRUCTION: Constructed from high quality forged steel, this hammer is designed to withstand rigorous use, ensuring long lasting performance, making it a dependable addition to any tool bag or tool belt\n- MULTIDISCIPLINARY HAMMER: Ideal for both professionals, DIY or hobbyists, this two tone 10 inch sledge hammer is ideal for a wide range of applications; geology, rock hounding, masonry, fossils, archeology, paleontology, woodworking, striking cold chisels, brick chisels, punches, spikes and more\n- SPECIFICATIONS: Dimensions: 10 x 3 x 1.5 inches; Weight: 1.36lbs\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 10 Inch Steel Sledge Hammer Non Slip Grip",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "",
+                "name": "Steel Sledge Hammer Non Slip Grip"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 10-in 1lb Steel Sledge Hammer",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "in",
+                "size": "1lb",
+                "color": "",
+                "name": "Steel Sledge Hammer"
+            },
+            "char_count": 41,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Double Sided Head, Ergonomic Rubber Handle, Forged Steel, Rockhounding, Geology, Masonry, Woodworking",
+            "char_count": 101,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Non Slip Rubber Grip, Forged Steel Construction, Double Sided Heads, Balanced Control, Masonry And Geology Use",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}

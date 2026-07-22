@@ -3,14 +3,14 @@
     "asin": "B00BZAVFP8",
     "product_type": "TOOLS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:23:25+00:00",
+    "generated_at": "2026-07-21T19:53:20+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -46,25 +46,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "UT10G1MM",
+            "value": "UTSF-1-836",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Tool 10g 1mm Flux Coated Lead Free Solder",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Tool 10g 1mm Flux Coated Solder Lead Free",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "10",
+                "pack_size_unit": "g",
+                "size": "1mm",
+                "color": "",
+                "name": "Flux Coated Solder Lead Free"
+            }
         },
-        "title_differentiation": {
-            "value": "Flux coated, lead free, ideal for jewelry, electronics, crafts & repairs",
+        "item_name_ai_openai": {
+            "value": "Universal Tool 10-g 1mm Flux Coated Solder",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 42,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "10",
+                "pack_size_unit": "g",
+                "size": "1mm",
+                "color": "",
+                "name": "Solder"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "1Mm Diameter, Flux Coated, Lead Free, Soldering Iron, Computer Repairs, Jewelry, Crafts",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 87,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Flux Coated, Lead Free, Jewelry Repair, Computer Repairs, Crafts, Hobbies, 1Mm Diameter, 10 Gram Tube",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B0CZGS5BJC",
     "product_type": "WRENCH",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:20:31+00:00",
+    "generated_at": "2026-07-21T19:52:02+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -39,20 +39,57 @@
             "asin": "B0CZGS5BJC",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "ToolTreaux 2 in 1 Reversible Ratchet Torque Wrench Black",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 56,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "2",
+                "pack_size_unit": "in 1",
+                "size": "",
+                "color": "Black",
+                "name": "Reversible Ratchet Torque Wrench"
+            }
         },
-        "title_differentiation": {
-            "value": "Reversible, 4.5 inch, Rubber Handle, Tight Spaces",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux 2 In 1 Black Reversible Ratchet Torque Wrench",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 56,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "2 In 1",
+                "color": "Black",
+                "name": "Reversible Ratchet Torque Wrench"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Reversible Forward And Reverse, 45 Inch Compact, Rubber Handle, Hard To Reach Areas, Toggle Slide Function",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 106,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Compact 45 Inch Design, Toggle Forward And Reverse, Removable Thumb Wheel, Rubber Grip, Quarter Inch Bit Holder",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

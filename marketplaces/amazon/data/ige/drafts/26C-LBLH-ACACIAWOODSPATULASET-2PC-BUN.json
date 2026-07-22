@@ -3,14 +3,14 @@
     "asin": "B0D4RQG5WR",
     "product_type": "FOOD_SPATULA",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:46:25+00:00",
+    "generated_at": "2026-07-21T19:28:51+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 15,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -217,20 +217,57 @@
             "asin": "B0D4RQG5WR",
             "raw_value": true
         },
-        "title_differentiation": {
-            "value": "Food safe & non-scratch; won't damage ceramic or non-stick cookware; comfortable rounded handle; handwash only",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Labrea Life + Home 2-pc Acacia Wood Spatula Set 12.5 in",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8",
-            "validation_error": "requires item_name <= 75 chars"
-        },
-        "item_name_ai_suggested": {
-            "value": "Labrea Life + Home 2pc Acacia Wood Spatula Set - 12.5 Inch",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Labrea Life + Home",
+                "pack_size": "2",
+                "pack_size_unit": "pc",
+                "size": "12.5 in",
+                "color": "",
+                "name": "Acacia Wood Spatula Set"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "Labrea Life + Home 2-pk 12.5 in Acacia Wood Spatulas",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 52,
+            "review_only": true,
+            "tokens": {
+                "brand": "Labrea Life + Home",
+                "pack_size": "2",
+                "pack_size_unit": "pc",
+                "size": "12.5",
+                "color": "",
+                "name": "Acacia Wood Spatulas"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Food Safe, Won't Scratch Non-Stick Cookware, Natural Wood Grain, Solid Acacia, Hand Wash Only",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 93,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Natural Wood Grain, Food Safe, Non Scratch For Non Stick And Ceramic Cookware, Rounded Handle, Hand Wash Only",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-EMERGCYHMMR-LG-2PK-HVAR-4PK",
+    "asin": "B0819GZLJ5",
+    "product_type": "AUTO_ACCESSORY",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-EMERGCYHMMR-LG-2PK-HVAR-4PK\nProduct Type: AUTO_ACCESSORY\nBrand (from catalog): Emergency Escape Tool\nExisting Title: Seatbelt Cutter Window Breaker Escape Bright Orange 4pk - Large\nDescription: The Emergency Hammer is a tool every driver should have. It is designed to help prevent being trapped in a wrecked or submerged vehicle.<br/><br/>Should the doors become jammed shut or a seat belt locked after an accident, the double-sided steel hammer points allow the driver to easily shatter side and rear windows, while a safeguarded razor blade cuts easily through safety belts for a quick escape.<br/><br/>This emergency hammer includes a black mounting bracket for quick access installation to a roof, dash, or console. The bright orange plastic body make the hammer easy to find and a glow-in-the-dark pin helps spotting in the dark or murky water easier.\nSearch Terms: emergency survival escape tool car accident\nFeatures:\n- Dual-Sided Hardened Steel Impact Points Shatters Car Windows in Emergency Situations\n- Safeguarded Razor Blade Cuts Trough Seat Belts to Help Free You and Your Passengers\n- Black Mounting Bracket to Keep Hammer In Reach & Glow-in-the-Dark Button For Easy Spotting in the Dark\n- Strong Bright Orange Plastic Body\n- Light and Compact\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Emergency Escape Tool 4-Pack Large Bright Orange Hammer",
+            "tokens": {
+                "brand": "Emergency Escape Tool",
+                "pack_size": "4",
+                "pack_size_unit": "Pack",
+                "size": "Large",
+                "color": "Bright Orange",
+                "name": "Hammer"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Emergency Escape Tool 4-pk Large Orange Seatbelt Cutter Window Breaker",
+            "tokens": {
+                "brand": "Emergency Escape Tool",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "Large",
+                "color": "Orange",
+                "name": "Seatbelt Cutter Window Breaker"
+            },
+            "char_count": 70,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Dual-Sided Steel Window Breaker, Seatbelt Cutter, Glow-in-Dark Pin, Mounting Bracket",
+            "char_count": 84,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Dual Sided Hardened Steel Points, Seat Belt Cutter, Mounting Bracket, Glow In The Dark Pin, Compact Design",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

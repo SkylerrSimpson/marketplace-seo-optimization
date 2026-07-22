@@ -1,0 +1,60 @@
+{
+    "sku": "SON-5PC-ARTSPATULA-TT",
+    "asin": "B0933PQRCS",
+    "product_type": "PALETTE_PUTTY_KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-5PC-ARTSPATULA-TT\nProduct Type: PALETTE_PUTTY_KNIFE\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Steel and Polished Wood Assorted Soft Medium Sculpting Painting Spatula Tools Set, 5pc\nDescription: This 5 piece Spatula Palette Knife Set is ideal for anyone. whether a professional artist, hobbyist pottery sculpting or painting enthusiast as a new hobby, the Steel and Polished Wood Assorted Soft Medium Sculpting Painting Spatula Tools Set from ToolTreaux is a must-have tool set for any artist, professional or beginner, working with acrylic or oil-based paints for canvas painting, as well as with other materials plaster, putty, gels, resins, fillers, clay and more, particularly those artistic projects which employ thick paint palette knife techniques.<br/><br/>Sometimes you'll be in the studio for hours-time flies-which is why you need a spatula tool set that's comfortable, easy on the hands and can stand up to ongoing creative wear-and-tear; the handles of this set are made from solid wood and then polished, providing a smooth finish that you'll find easy to maneuver, but still substantial enough to provide engaged control when working on your piece(s). The handle lengths measure in at approximately 4.25 inches.<br/><br/>In addition to the comfortable wood handles, the tips of the spatula tools are made from durable steel, are smooth to the touch and offer a diverse size range for working with different materials; whether you're mixing, sculpting, spreading, scumbling, molding and more, the blades are sturdy but still flexible and lightweight, allowing you to easily apply or shape whatever materials you're currently working with.<br/><br/>Five spatulas with the following assorted blade lengths: 1-1/4, 2-1/4, 2-3/4, 3 and 3-3/4 inches. Often times used for 3d printer item removal, these palette knives are an excellent accessory for ever artisans creations.<br/><br/>To clean, hand wash is preferred with soap and water and if needed, a little paint thinner to get rid of stubborn, dry paint; pat or air dry as desired.<br/>Let the creating begin.\nSearch Terms: medium soft sculpture sculp tools sculpting tool set sculptin clay kit pottery kits and supplies hand jewelry multi sets making storage bag carving ceramic knife knives plaster wax putty brush art for kids adults wire case wood vase plant pot artist\nFeatures:\n- VERSATILE SOFT MEDIUM SPATULA ART TOOLS: The assorted five-piece spatula set from ToolTreaux is a must-have tool set for any artist, professional or beginner, working with acrylic or oils for canvas painting, as well as working with paints, plaster, putty, gels, resins, fillers, clay and more, using thick paint palette knife techniques\n- COMFORTABLE HANDLING: Hours can fly by when in studio, which is why you need a spatula tool set that's comfortable, easy on the hands and can stand up to ongoing creative wear-and-tear; the handles of this set are made from solid wood and then polished, providing a smooth finish that you'll find easy to maneuver, but still substantial enough to provide engaged control when working on your piece(s); handle length is 4.25 inches\n- DURABLE STEEL HEAD CONSTURCTION: The tips of the spatula tools are made from durable steel, are smooth to the touch and offer a diverse size range for working with different materials; whether you're mixing, sculpting, spreading, scumbling, molding and more, the blades are sturdy but still flexible and lightweight, allowing you to easily apply or shape whatever materials you're currently working with\n- SPATULA SET INCLUDES: Five spatulas with the following assorted blade lengths: 1-1/4, 2-1/4, 2-3/4, 3 and 3-3/4 inches; hand wash is preferred with soap and water, pat or air dry\n- SPECIFICATIONS: Product Dimensions: 5.9 x 11.9 x 6 inches; Color: Silver, Brown; Material: Wood, Steel;\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 5-pc Soft Medium Steel Sculpting Spatula Set",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "5",
+                "pack_size_unit": "pc",
+                "size": "Medium",
+                "color": "Silver, Brown",
+                "name": "Sculpting Spatula Set"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 5-pc Assorted Silver Brown Palette Putty Knife Set",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "5",
+                "pack_size_unit": "pc",
+                "size": "Assorted",
+                "color": "Silver Brown",
+                "name": "Palette Putty Knife Set"
+            },
+            "char_count": 61,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "5 Assorted Blade Sizes, Polished Wood Handles, Durable Steel, Painting And Clay Sculpting, Professional Artist Tool",
+            "char_count": 115,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Durable Steel Tips, Polished Wood Handles, 5 Assorted Sizes, For Acrylic Oil Clay Plaster And Putty",
+            "char_count": 99,
+            "validation_error": null
+        }
+    }
+}

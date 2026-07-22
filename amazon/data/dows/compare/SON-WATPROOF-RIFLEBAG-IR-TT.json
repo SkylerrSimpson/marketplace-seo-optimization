@@ -1,0 +1,60 @@
+{
+    "sku": "SON-WATPROOF-RIFLEBAG-IR-TT",
+    "asin": "B0B57M8KHY",
+    "product_type": "WEAPON_CASE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-WATPROOF-RIFLEBAG-IR-TT\nProduct Type: WEAPON_CASE\nBrand (from catalog): ASR Tactical\nExisting Title: ASR Tactical Waterproof Rifle Bag 500D Tarpaulin Transparent Case 64 x 12 Inch\nDescription: The ASR Tactical rifle bag is designed to protect your firearm from moisture in inclement weather so you can count on it rain or shine. It is constructed of heavy duty 500D PVC waterproof tarpaulin to keep your rifle safely stored during transportation and when not in use.<br/><br/>The bag itself measures 64\" x 12\" with an in use size of 60\" x 12\" making it the ideal size for storing large rifles. It is transparent so you can easily identify your different firearms and comes with a convenient cary handle for easy transportation between your vehicle and the shooting range or field.<br/><br/>Our rifle bag comes with a secure buckle and nylon strap to ensure your firearm is secured when not in use. Just grip and roll down the nylon strap until the firearm is properly sealed and firmly hold down the strap and buckle to secure it.\nSearch Terms: rifle bag range bag gun range bag shooting bag gun case gun case rifles rifle case air rifle rifle sling shooting accessories gun range accessories long gun safe hunting gear hunting gifts for men hunting accessories hunting equipment kit\nFeatures:\n- DURABLE WATERPROOF MATERIAL - ASR Tactical rifle bag is made of heavy duty 500D PVC tarpaulin that will protect your firearm from moisture in inclement weather. Use it to safely carry and store your rifle indoors or outdoors\n- LARGE FIREARM STORAGE BAG - Bag measures 64\" x 12\" with an in use size of 60\" x 12\", ideal for storing standard and large rifles\n- TRANSPARENT BODY - Transparent rifle bag is ideal for easily identifying your firearms. Comes with convenient carry handle for easy transportation between your vehicle and the field or shooting range\n- SECURE YOUR FIREARM - Bag comes with nylon strap and secure buckle to safely secure your rifle when not in use. Grip and roll down the nylon strap 4 times or until the firearm is properly sealed, then firmly hold down the rolled strap and buckle to secure\n- SPECIFICATIONS - Material: 500D PVC tarpaulin; Dimensions: 64\" x 12\" (in use size 60\" x 12\"); Color: transparent; Waterproof: yes; Carry handle, nylon strap and buckle included; Fits most standard rifles\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 64\" x 12\" Transparent Waterproof Rifle Bag",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "64",
+                "pack_size_unit": "in",
+                "size": "64\" x 12\"",
+                "color": "Transparent",
+                "name": "Waterproof Rifle Bag"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 64-in Transparent Waterproof Rifle Bag",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "64",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Transparent",
+                "name": "Waterproof Rifle Bag"
+            },
+            "char_count": 51,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "500D PVC Tarpaulin, Waterproof Protection, Secure Buckle And Nylon Strap, Carry Handle, Fits Standard And Large Rifles",
+            "char_count": 118,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "500D PVC Tarpaulin, Transparent Body, Secure Buckle And Nylon Strap, Carry Handle, 64-Inch Long Gun Storage",
+            "char_count": 107,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "UNV-L5ISPSNP-BUN-4PK-5-CHRM-AMZ",
+    "asin": "B0988BFZSM",
+    "product_type": "SHARP_PIN",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UNV-L5ISPSNP-BUN-4PK-5-CHRM-AMZ\nProduct Type: SHARP_PIN\nBrand (from catalog): Universal Tool\nExisting Title: 4pc Large 5 Inch Safety Pin Set 1.7mm Thickness Craft Hobby Repair Tools\nDescription: Repair your crafts easily with the Large Safety Pin 4pc Set.<br/><br/>This set includes four 5\" chrome-colored safety pins. The pins are nickel-plated and each pin is about 1.7mm thick. <br/><br/>These pins are perfect for organizing or repairing crafts, quilting, and heavy-weight fabric. Make sure to keep a few of these handy for DIY fixes around the house.\nSearch Terms: craft repairs hobby tools gear repair home DIY heavy duty safety pin large jewelry necklace giant decorative trailer jumbo assortment\nFeatures:\n- JUMBO SAFETY PINS - Each Pin is 5\" in length, making it a great option for organizing and repairing crafts, quilting and heavy-weight fabric.\n- HEAVY DUTY CONSTRUCTION - The pins are made of nickel-plated metal and are about 1.7mm thick, so you can count on them for heavy-duty projects and repairs.\n- CHROME COLORED - The sleek chrome color of these safety pins makes them ideal for crafting projects and repairs.\n- MULTI-USE TOOLS - Our set of 4 pins has many uses including quilting, repairs, DIY, crafting, hobby tools, and storage.\n- SPECIFICATIONS: 4 piece set; Color: Chrome, Size: 5\" Length; Thickness: 1.77mm,.07\"; Material: Nickel-plated metal\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 4-pc 5 Inch Chrome Safety Pin Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "4",
+                "pack_size_unit": "pc",
+                "size": "5 Inch",
+                "color": "Chrome",
+                "name": "Safety Pin Set"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 4-pk 5 in Chrome Safety Pin Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "5 in",
+                "color": "Chrome",
+                "name": "Safety Pin Set"
+            },
+            "char_count": 46,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Heavy Duty 17Mm Thick, Nickel-Plated Metal, Perfect For Quilting And Crafts",
+            "char_count": 75,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Heavy Duty, Nickel-Plated Metal, 17Mm Thick, Jumbo, Quilting, Heavy Fabric, Craft Repair, DIY, 4 Count",
+            "char_count": 102,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "LST-CREATEPLAY-KP-PARENT",
+    "asin": "B0BM51RFMS",
+    "product_type": "TOY_VEHICLE_SET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-CREATEPLAY-KP-PARENT\nProduct Type: TOY_VEHICLE_SET\nBrand (from catalog): Kidplokio\nExisting Title: Kidplokio Tractor Set Create and Play Builder DIY Tools Toy Ages 3 and Up\nDescription: The Kidplokio Create and Play DIY Tool Toy Sets are unique gifts for kids that encourage developing minds and motor skills. Your child can learn about how their toys are put together and taken apart with the DIY construct your toys tools that come with both the Farm Tractor and Construction Dump Truck playsets.<br/><br/>These sets come with kids assembly tools to put the toys together so that they can think like a little engineer. Not only will your little one be occupied for hours with this engaging playset, half the fun of it is putting the whole kit together with friends and family.<br/><br/>With this toy set kids will be engaging in crucial early educational activities, like working their fine motor and gross motor skills, as well as exercising their cognitive problem solving through these DIY building and imaginative pretend play sessions.<br/><br/>Lastly, all the play pieces of this construction toys kit, fit neatly in the included storage box for easy organization, and to ensure pieces aren't lost along the way. The plastic storage box with handle makes this a great toy for boys to travel with, as everything can be tucked away and safely stowed when not in use.<br/><br/>Let the construction begin.<br/><br/>Warning: Choking Hazard, small parts <br/><br/>Recommended Ages: 3+\nSearch Terms: toys for boys holiday toy list 2021 christmas gift hanukkah gifts stocking stuffer learning and education toys pretend play cosplay roleplay gifts under 50 dollars toddlers kids learning development create construct tractor trucks\nFeatures:\n(none)\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Kidplokio Tractor Set Create and Play Builder DIY Toy",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Tractor Set Create and Play Builder DIY Toy"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Kidplokio DIY Tractor And Dump Truck Toy Set",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "DIY Tractor And Dump Truck Toy Set"
+            },
+            "char_count": 44,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "DIY Assembly Tools, Fine Motor Skills, Ages 3 And Up, Storage Box, Educational Pretend Play",
+            "char_count": 91,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "DIY Assembly Tools, Buildable Tractor And Dump Truck, Storage Box, Fine Motor Skills, Pretend Play, Ages 3 And Up",
+            "char_count": 113,
+            "validation_error": null
+        }
+    }
+}

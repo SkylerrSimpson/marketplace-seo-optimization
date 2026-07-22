@@ -1,0 +1,60 @@
+{
+    "sku": "IGE-ASR-SHM-UHK-05PK-FBA",
+    "asin": "B00M4LD0EG",
+    "product_type": "SPORTING_GOODS",
+    "account": "IGE",
+    "generated_at": "2026-07-21T17:20:41+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: IGE-ASR-SHM-UHK-05PK-FBA\nProduct Type: SPORTING_GOODS\nBrand (from catalog): ASR Tactical\nExisting Title: ASR Tactical 5-Pack American Universal Handcuff Keys Standard Issue Law Enforcement\nDescription: This high quality universal handcuff key from ASR Tactical is made to open virtually all models of professional handcuffs that use a standard key. Universal handcuff keys are an essential everday carry item for personal protection and safety that can be easily carried on keyrings, necklaces or attached to duty belt clips throughout your gear. <br/><br/>The ASR Tactical universal handcuff key is constructed from stainless steel with a nickel-plated covering for strength and durability. Always reliable, these standard issue handcuff keys do not get much simpler than this. If you're corrections or law enforcement these handcuff keys are a direct replacement key, working with your department issued handcuffs and all leading professional brands of double locking steel handcuffs.<br/><br/>Extremely durable these handcuff keys are made to be used daily and are the same standard issue police handcuff keys issued by departments.<br/><br/>Length: 1.75 inches; color: silver\nSearch Terms: adult handcuffs police handcuff keys standard issue duty belt bulk hand cuff key pack every day carry edc keyring corrections jailer army mp\nFeatures:\n- Universal handcuff key with back pin for double locking handcuffs\n- Standard issue law enforcement police handcuff key; 1.75 inches in length; Color: Silver\n- Light and Portable: Handcuff keys are magnetic, easy to handle and locate when needed; This is an essential everday item for personal protection and safety\n- Made from high grade stainless steel with a chrome nickel-plating; these universal handcuff keys are strong and reliable handcuff key set that will work for all leading professional handcuff brands when you need it most\n- Package includes: (1) Key Ring, (5) Handcuff Keys\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 5-Pack Silver Universal Handcuff Keys",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "5",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "Silver",
+                "name": "Universal Handcuff Keys"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 5-Pk Standard Issue Universal Handcuff Keys",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "5",
+                "pack_size_unit": "Pk",
+                "size": "",
+                "color": "",
+                "name": "Standard Issue Universal Handcuff Keys"
+            },
+            "char_count": 56,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Standard Issue Law Enforcement, Stainless Steel Nickel-Plated, Universal Double Lock, EDC Keyring, 5 Keys With Ring",
+            "char_count": 115,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Stainless Steel, Nickel-Plated, Double Lock Back Pin, EDC Keyring, Duty Belt Carry, 175 Inch",
+            "char_count": 92,
+            "validation_error": null
+        }
+    }
+}

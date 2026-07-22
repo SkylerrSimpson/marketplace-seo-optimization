@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ATPHSMDW-14-BLCK",
+    "asin": "B01KIWNR1S",
+    "product_type": "METAL_DETECTOR",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ATPHSMDW-14-BLCK\nProduct Type: METAL_DETECTOR\nBrand (from catalog): ASR Tactical\nExisting Title: ASR Tactical Professional Handheld Security Metal Detector Wand 14\" 2 Modes\nDescription: Locate metal easily with the 14\" ASR Tactical Handheld Security Metal Detector.<br/><br/>This professional metal detector is designed with security in mind. The speaker will sound when metal is detected, and it features 2 modes: Audible & Silent. The green LED will indicate when the unit is on, and the red LED will light up when metal is detected. There is also a sensitivity screw that will allow you to adjust the detection strength.<br/><br/>This detector requires a 9V battery (not included). It is about 14\" long and has a 360 degree detection area. <br/><br/>This is a great tool for law enforcement, security officers and people who enjoy metal detection as a hobby.\nSearch Terms: metal detecting security law enforcement police tools personal\nFeatures:\n- 2 Modes: Audible & Silent\n- 360 Degree Detection Area\n- 9V Battery Required (Not Included)\n- Ring Dimensions: 6\" x 1\" x 1\"\n- Overall Dimensions: 14\" x 1.5\" x 1\"\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 14\" Black Handheld Security Metal Detector",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "14",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Handheld Security Metal Detector"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 14-in Black Handheld Security Metal Detector Wand",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "14",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Handheld Security Metal Detector Wand"
+            },
+            "char_count": 62,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "2 Modes Audible And Silent, 360 Degree Detection, LED Indicators, Adjustable Sensitivity, Professional Grade",
+            "char_count": 108,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Audible And Silent Modes, 360 Degree Detection, Adjustable Sensitivity, Green And Red LED Indicators, 9V Battery Required",
+            "char_count": 121,
+            "validation_error": null
+        }
+    }
+}

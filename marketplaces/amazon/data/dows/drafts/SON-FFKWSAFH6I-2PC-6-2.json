@@ -3,18 +3,24 @@
     "asin": "B001N0SBBG",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:05:22+00:00",
+    "generated_at": "2026-07-21T19:46:10+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
-        "fillable": 0,
+        "fillable": 1,
         "catalog": 8,
-        "ai_suggested": 3,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
     "attributes": {
+        "country_of_origin": {
+            "value": "China",
+            "is_required": true,
+            "source": "usurper",
+            "usurper_column": "attr.country_of_origin"
+        },
         "care_instructions": {
             "value": [
                 {
@@ -139,25 +145,57 @@
             "asin": "B001N0SBBG",
             "raw_value": true
         },
-        "country_of_origin": {
-            "value": "CN",
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 6 Inch Fishing Fillet Knife with Floating Handle",
             "is_required": true,
             "source": "ai",
-            "model": "claude-haiku-4-5"
-        },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 6\" Fishing Fillet Knife with Floating Handle",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 60,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "6",
+                "pack_size_unit": "Inch",
+                "size": "6 Inch",
+                "color": "Black",
+                "name": "Fishing Fillet Knife with Floating Handle"
+            }
         },
-        "title_differentiation": {
-            "value": "Floating Handle, Won't Sink, Ergonomic Grip, Includes Black Sheath",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 6-in Fishing Fillet Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 37,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "6",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Fishing Fillet Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Floating Handle Prevents Loss, 11 Inch Full Size, Ergonomic Grip, Black Sheath Included, Wet Hand Safe",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 102,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Floating Handle, Will Not Sink, Black Sheath, Ergonomic Grip, 6\" Tapered Blade, Wet-Use Control",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 95,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-RAMEKINS-50255-4PC",
+    "asin": "B09YN9BXMN",
+    "product_type": "CASSEROLES",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-RAMEKINS-50255-4PC\nProduct Type: CASSEROLES\nBrand (from catalog): Beille\nExisting Title: Beille 4pc Traditional French Porcelain Creme Brulee Ramekins Cups Baking Supplies Dessert Bowl Set, White 4oz\nDescription: If you love being in the kitchen like we do, and cooking or baking is a favorite pastime or hobby, you know how much you rely on ramekins and pinch bowls to keep ingredients organized, and how they useful they are for presentation or individually sized servings, especially as dessert cups. In short, they're a must have kitchen accessory.<br/><br/>Whether for baking, garnishing, cooking, mis en place, charcuterie boards, as condiment cups for dips, dressings or sauces, desserts like chocolate lava cake or mini berry crumbles, or for just simply snacking, Beille's 4pc white ribbed porcelain ramekins will come in handy for just about everything in the kitchen. <br/><br/>Made from durable porcelain, the ramekins are BPA free and of course, food safe. The dessert cups are easy to maintain and will not warp, stain or absorb existing odors or flavors. The condiment cups are dishwasher safe and stackable by design, saving you space in cupboards, drawers or in the pantry; additionally, the ramekins are conveniently oven, microwave and freezer safe.<br/><br/>This bowl set comes with four individual porcelain white ribbed ramekins, perfect to include with baking supplies and your next kitchen recipe. Available in a four or eight piece set.\nSearch Terms: serving bowls housewares wedding gifts housewarming new house gifts baking supplies cooking meal prep container creme brulee ramekins kitchen accessories pinch bowls condiment cups spice containers small snack bowls appetizer cups charcuterie boards\nFeatures:\n- 4PC RAMEKINS SET: Whether for baking, garnishing, snacks or meal prep, these white ribbed porcelain ramekins are a must have in any kitchen; use as dessert cups, condiment cups, for charcuterie board presentation and so much more!\n- CREME BRULEE RAMEKINS: This baking supplies set is perfect for making creme brulee! The small ramekins are oven safe, easily withstanding high temperature heat and are also microwave safe too; perfect for souffles, mousses, custards and other desserts too\n- DURABLE BOWL SET: Made from durable porcelain, the ramekins are BPA free and food safe; the condiment cups are easy to maintain and will not warp, stain or absorb existing odors or flavors; dishwasher and freezer safe\n- STACKABLE DESIGN: Multipurpose and space saving in design, the ramekins conveniently stack within one another; measuring just 3.25 inches in diameter, the condiment cups are easy to store and will take up minimal space in kitchen cupboards, drawers or pantry\n- SPECIFICATIONS: Overall Dimensions: 3.25 x 1.75 inches; Material: Porcelain; Color: White with Ribbing Detail\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 4-pc White Porcelain Creme Brulee Ramekins",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "pc",
+                "size": "4oz",
+                "color": "White",
+                "name": "Creme Brulee Ramekins"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 4-Pk 4oz White Ramekins",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "Pk",
+                "size": "4oz",
+                "color": "White",
+                "name": "Ramekins"
+            },
+            "char_count": 30,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Set Of 4, 4Oz, Oven Safe, Microwave Safe, Dishwasher Safe, Stackable, Porcelain, BPA-Free, Food Safe",
+            "char_count": 100,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Oven Microwave And Freezer Safe, Dishwasher Safe, Stackable Design, BPA-Free Porcelain, Ribbed Detail",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

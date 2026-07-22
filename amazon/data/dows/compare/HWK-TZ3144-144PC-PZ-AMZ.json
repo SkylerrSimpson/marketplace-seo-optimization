@@ -1,0 +1,60 @@
+{
+    "sku": "HWK-TZ3144-144PC-PZ-AMZ",
+    "asin": "B0CQ21FNH1",
+    "product_type": "SAW_BLADE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HWK-TZ3144-144PC-PZ-AMZ\nProduct Type: SAW_BLADE\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux 144pc Assorted Size Jewelers Saw Blades for Hobby and Craft\nDescription: Assortment of 144 blades, 12 units of each size 6,5,4,3,2,1, 1/0, 2/0, 3/0, 4/0, 5/0, 6/0 standard jewelers length of 6 inches long.<br/><br/>These blades are extremely flexible and perfect for cutting straight through ceramic and precious metals. The round back makes cutting of curves and shapes easier, while being tempered to provide consistency in cutting of materials.<br/><br/>Made of specialty alloy steel, these replacement jeweler blades will ensure that you can make a good clean cut. <br/><br/>Sold in packs of 144.\nSearch Terms: frame saw blade jewelers blades jewelry jeweler tools tool steel metal wood plastic coping mini piercing making supplies womens mens kit handmade for women woodworking clamps and accessories carving metalworking hobby arts craft craftsmen DIY studio\nFeatures:\n- 144 replacement jewelers saw blades\n- 12 Assorted Sizes: 6,5,4,3,2,1, 1/0, 2/0, 3/0, 4/0, 5/0, 6/0 standard\n- Overall Dimensions: 6 inches in length\n- Used to cut through precious metals such as gold, silver and copper. Can be used on pearls and delicate items with ease\n- Round back enables flexibility, allowing for intricate cutting\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 144-pc Assorted Jewelers Saw Blades",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "144",
+                "pack_size_unit": "pc",
+                "size": "Assorted",
+                "color": "",
+                "name": "Jewelers Saw Blades"
+            },
+            "char_count": 46,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 144-pc Assorted Jewelers Saw Blades",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "144",
+                "pack_size_unit": "pc",
+                "size": "Assorted",
+                "color": "",
+                "name": "Jewelers Saw Blades"
+            },
+            "char_count": 46,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "12 Sizes, 6 Inch Length, Precious Metals And Ceramics, Round Back, Specialty Alloy Steel, Flexible Cutting",
+            "char_count": 106,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "144 Assorted Sizes, Flexible Round Back, Cuts Precious Metals, Gold Silver Copper, 6 Inch Tempered Steel",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

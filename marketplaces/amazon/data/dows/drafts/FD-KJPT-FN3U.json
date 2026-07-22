@@ -3,14 +3,14 @@
     "asin": "B004QYW60S",
     "product_type": "SHOVEL_SPADE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:03:33+00:00",
+    "generated_at": "2026-07-21T19:45:16+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 11,
-        "ai_suggested": 6,
+        "ai_suggested": 8,
         "ai_null": 0,
         "base_template": 0
     },
@@ -200,34 +200,71 @@
             "value": "Black",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "model_name": {
-            "value": "Tri-Fold Emergency Recovery Shovel",
+            "value": "Tri-Fold Recovery Shovel",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
-            "value": "22 inches (open) / 9 inches (folded)",
+            "value": "22 inches (Open) / 9 inches (Folded)",
             "is_required": false,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Heavy Duty Tri-Fold Recovery Shovel 22in",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Heavy Duty Tri-Fold Emergency Recovery Shovel",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 57,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "22 inch",
+                "color": "Black",
+                "name": "Tri-Fold Emergency Recovery Shovel"
+            }
         },
-        "title_differentiation": {
-            "value": "Collapsible to 9in, Serrated Edges, Includes Canvas Sheath",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 22in Black Recovery Shovel",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 38,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "22 in",
+                "color": "Black",
+                "name": "Recovery Shovel"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Collapsible Design, Serrated Edges, 22In Open To 9In Compact, Canvas Sheath, Military-Grade, Automotive And Camping",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 115,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Tri-Fold Construction, Serrated Cutting Edges, 22-Inch Open Length, Folds To 9-Inch Compact Size, Canvas Sheath Included",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 120,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

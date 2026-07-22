@@ -35,6 +35,7 @@ declare(strict_types=1);
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';
+require __DIR__ . '/../../lib/UsurperExport.php';
 
 // ---------------------------------------------------------------------------
 // Config
@@ -73,52 +74,37 @@ if (!is_dir($usurperDir)) {
     mkdir($usurperDir, 0755, true);
 }
 
-$usurperFiles = glob($usurperDir . '/*.csv') ?: [];
+$usurperFile = usurper_latest_export($usurperDir);
 
-if (!$usurperFiles) {
+if ($usurperFile === null) {
     fwrite(STDERR, "No CSV found in {$usurperDir}.\n");
     fwrite(STDERR, "Drop the Usurper InventoryExport CSV there and re-run.\n");
     exit(1);
 }
 
-// Use the most-recently modified file if multiple exist
-usort($usurperFiles, fn($a, $b) => filemtime($b) <=> filemtime($a));
-$usurperFile = $usurperFiles[0];
-
 echo 'Usurper file: ' . basename($usurperFile) . PHP_EOL;
 
-// Auto-detect delimiter: count tabs vs commas on the first line
-$probe     = fopen($usurperFile, 'r');
-$firstLine = fgets($probe);
-fclose($probe);
-$delimiter = substr_count($firstLine, "\t") > substr_count($firstLine, ',') ? "\t" : ',';
-
-$fhU    = fopen($usurperFile, 'r');
-$header = fgetcsv($fhU, 0, $delimiter);
-
-if (!$header) {
-    fwrite(STDERR, "Could not read headers from Usurper file.\n");
-    exit(1);
-}
-
-$header = array_map('trim', $header);
-
-$usurper = []; // [sku => [col => val]]
-
-while (($row = fgetcsv($fhU, 0, $delimiter)) !== false) {
-    if (count($row) !== count($header)) {
-        continue;
-    }
-    $record = array_combine($header, $row);
-    $sku    = trim($record['sku'] ?? '');
-    if ($sku !== '') {
-        $usurper[$sku] = $record;
-    }
-}
-
-fclose($fhU);
+// Load via the shared reader (strict RFC-4180: escape disabled). Hand-rolling
+// fgetcsv here with the default backslash escape silently desynced quote state
+// on rows whose values contain backslashes (e.g. mangled inch marks `3\"`),
+// dropped them on the width check, and then mislabeled every SKU in them as
+// 'sku_not_in_usurper'. usurper_load_export reports such rows instead of
+// hiding them.
+$loaded    = usurper_load_export($usurperFile);
+$usurper   = $loaded['records']; // [sku => [col => val]]
+$malformed = $loaded['malformed'];
 
 echo 'Usurper records loaded: ' . count($usurper) . PHP_EOL;
+
+if ($malformed) {
+    fwrite(STDERR, sprintf(
+        "WARNING: %d Usurper row(s) could not be parsed (field count != header) and were skipped.\n",
+        count($malformed),
+    ));
+    foreach ($malformed as $badSku => $count) {
+        fwrite(STDERR, "  - {$badSku} ({$count} fields)\n");
+    }
+}
 
 // ---------------------------------------------------------------------------
 // Step 2: Load attribute map
@@ -278,9 +264,11 @@ if (!$rows) {
 $outFile = $paths['output'] . '/listings_gap_fill.csv';
 $fhOut   = fopen($outFile, 'w');
 
-fputcsv($fhOut, array_keys($rows[0]));
+// Escape disabled ('') so output is strict RFC-4180 and round-trips through any
+// standards reader — matching how UsurperExport.php reads.
+fputcsv($fhOut, array_keys($rows[0]), ',', '"', '');
 foreach ($rows as $row) {
-    fputcsv($fhOut, $row);
+    fputcsv($fhOut, $row, ',', '"', '');
 }
 
 fclose($fhOut);

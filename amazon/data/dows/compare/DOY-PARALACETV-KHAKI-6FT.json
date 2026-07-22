@@ -1,0 +1,60 @@
+{
+    "sku": "DOY-PARALACETV-KHAKI-6FT",
+    "asin": "B08955VJS3",
+    "product_type": "SHOELACE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DOY-PARALACETV-KHAKI-6FT\nProduct Type: SHOELACE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 550 Paracord Hiking Boot Laces Replacement Shoelaces, Khaki 1 Pair\nDescription: Meet your forever laces; the ASR Outdoor TraversaLace 550 Paracord Survival Replacement Shoe Laces for Hiking Boots. Constructed from a seven-strand nylon inner core (kern) and exterior nylon jacket (mantle), the paracord survival laces are the ones you'll want to reach down for and tie up when preparing for your next outdoor adventure expedition or work day. Made in the USA, these survival hiking boot laces are highly resistant to abrasion, weather and regular wear and tear, while also being UV resistant, amounting to an incredibly strong, durable and reliable product, sure to outlast any other shoe or boot laces that you're currently using.<br/><br/>Here are the specs you'll want to note:<br/>- Made in USA<br/>- Sold as a pair (or set of two laces)<br/>- 4.2mm metal aglet (included)<br/>- 550LB (pound) breaking point (or 249 kilos)<br/>- 5/32\" paracord diameter<br/>- multi-functional across a variety of industries <br/>- essential survival and everyday carry tool <br/><br/>Outside of being both reliable and durable laces for your shoes or hiking boots, the 550 paracord survival laces can double as an invaluable and essential survival tool, emergency preparedness item and everyday carry basic. A must-have in your emergency kit, bug out bag, survival kit or hiking or camping gear, the survival laces are versatile and can be used for a myriad of tasks: assist with temporary shelter construction, gear maintenance and repair, wound bandaging, splint or sling support, unraveled for fishing line or sewing string, strap gear attachment, as a tourniquet to cease bleeding and more when faced with unexpected backwoods emergencies. In short, you can pull your laces taught and then some. For those wilderness adventurers looking for multi-purpose outdoor and survival gear, the 550 paracord survival laces serve just that purpose\nSearch Terms: edc gear mens hiking boot laces replacement paracord shoelace extra long laces survival shoelaces survival tool 2022 outdoor products review\nFeatures:\n- OUTDOOR HIKING BOOT LACES: Meet your almost forever laces, these rugged shoelaces are made from 550 paracord; highly resistant to abrasion, weather, wear and tear as well as UV deterioration\n- 550 PARACORD: Designed for shoes or hiking boots, constructed from a 7-strand nylon interior kern and a nylon exterior jacket, able to withstand the pressure of up to 550 pounds; the strong interior and exterior material construction make these the only replacement shoelaces you will need\n- EDC GEAR ACCESSORY: These hiking boot laces are an essential everyday item to have on you at all times as they make a usable companion to your your survival kit, emergency kit, bug out bag and camping gear as a cross functional tool; used for building a temporary shelter, bandaging a wound, supporting a splint or unravel to make a fishing line\n- MULTI INDUSTRY BOOT OR SHOE LACES: 550 Paracord replacement boot laces are not just for hiking but used by a variety of different industries from police officers, firefighters, and EMTs to construction workers, machine operators and military due to their toughness and longevity\n- SPECIFICATIONS: Sold as a pair or set of two; Paracord laces made in USA; Metal aglet: 4.2mm; Metal aglet material: copper; Paracord lace diameter: 5/32\"; Breaking point: 550 pounds; Available in eight different colors; Available Lengths: 36\", 48\", 60\", 72\", 84\", 96\", 108\"\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 80 characters.  Please include the size and color of the item in the Product Name, if available.\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 550 Paracord Khaki 6ft Hiking Boot Laces",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "6",
+                "pack_size_unit": "ft",
+                "size": "6ft",
+                "color": "Khaki",
+                "name": "550 Paracord Hiking Boot Laces"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 1-Pair 6 Ft Khaki Paracord Boot Laces",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1",
+                "pack_size_unit": "Pair",
+                "size": "6 Ft",
+                "color": "Khaki",
+                "name": "Paracord Boot Laces"
+            },
+            "char_count": 49,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "550Lb Breaking Strength, Made In USA, EDC Survival Tool, UV Resistant, Metal Aglet Included, 1 Pair",
+            "char_count": 99,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Made In USA, 550 Lb Paracord, 7 Strand Nylon Core, Abrasion Resistant, UV Resistant, Copper Aglets",
+            "char_count": 98,
+            "validation_error": null
+        }
+    }
+}

@@ -3,14 +3,14 @@
     "asin": "B08F1BMR81",
     "product_type": "STORAGE_BAG",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:50:01+00:00",
+    "generated_at": "2026-07-21T20:02:25+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -40,25 +40,62 @@
             "raw_value": true
         },
         "material": {
-            "value": "Polyethylene",
+            "value": "Low Density Polyethylene (LDPE)",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Universal Home Essentials 100pk Self Locking Plastic Storage Bags",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Universal Home Essentials 100-pk Clear Plastic Storage Bags",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 59,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Universal Home Essentials",
+                "pack_size": "100",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Clear",
+                "name": "Plastic Storage Bags"
+            }
         },
-        "title_differentiation": {
-            "value": "2mm Thick, Clear, Reusable Zipper Bags, Multiple Sizes Available",
+        "item_name_ai_openai": {
+            "value": "Universal Home Essentials 100-pk 2mm Clear Self Locking Plastic Bags",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 68,
+            "review_only": true,
+            "tokens": {
+                "brand": "Universal Home Essentials",
+                "pack_size": "100",
+                "pack_size_unit": "pk",
+                "size": "2mm",
+                "color": "Clear",
+                "name": "Self Locking Plastic Bags"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "2Mm Thick, Self-Locking Zipper, Reusable, Clear Plastic, Organize Small Objects",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 79,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "100 Count, 2Mm Thick, Reclosable Zipper, Clear Storage, Ideal For Beads, Crafts, Organization And Small Parts",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

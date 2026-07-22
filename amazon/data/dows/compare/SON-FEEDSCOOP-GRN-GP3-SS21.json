@@ -1,0 +1,60 @@
+{
+    "sku": "SON-FEEDSCOOP-GRN-GP3-SS21",
+    "asin": "B08FQR3X6M",
+    "product_type": "OUTDOOR_LIVING",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-FEEDSCOOP-GRN-GP3-SS21\nProduct Type: OUTDOOR_LIVING\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 2-Cup Large Feed Scoop, Plastic Hand Trowel - Green\nDescription: The ASR Outdoor Green Plastic Gold Panning Feeder Sand Scoop Shovel is a must-have gold panning essential to include in your arsenal of gold prospecting equipment, alongside a metal detector, sluice box, gold pans, sieves and more, to help increase your gold recovery efforts. Whether you're a seasoned gold prospector or just poking around in your local riverbed for the first time with friends or family, this plastic gold panning sand scoop shovel will help you to increase your gold recovery efforts, especially when used in conjunction with a metal detector. <br/><br/>The ASR Outdoor plastic gold rush gold panning gold prospecting sand scoop or shovel is made from reinforced, heavy duty, single-piece construction plastic; the shovel is non-metallic, rust-free and corrosion-free, allowing you to use and reuse the gold recovery tool for many gold panning seasons to come. In addition to the sand scoop's formidable construction, the shovel also boasts a bright and vibrant green color. The vivid color choice is purposeful, as it will greatly aid in your gold recovery efforts to help sort and spot and gold among other particles in your mineral deposit.<br/><br/>And, when you're not using the gold panning tool alongside your gold rush sluice box, metal detector, gold pans, sieves and other gold prospecting equipment, the hand shovel can be used in your backyard for gardening purposes, as a pooper scooper tool to pick up after pet, for scooping feed or seed and many other daily household chores, tasks and activities. The sand scoop of shovel also includes a lanyard hole at the top of the handle, giving you many convenient carrying options\nSearch Terms: gold panning recovery prospecting kit supplies rush bar equipment feed scoops dirt scoop gardening trowel outdoor sand scooper hobby\nFeatures:\n- GOLD PANNING FEEDER SCOOP: With a capacity up to two (2) cups, this ASR Outdoor green gold panning scoop shovel trowel is an essential tool in your arsenal of gold prospecting equipment; the shovel incorporates a built-in interior depth gauge etched on the scoop for precise measurements, a ridged handle for comfortable handling, as well as hole at the top of the handle for easy storage, a lanyard or hanging loop\n- HEAVY DUTY PLASTIC: Constructed from single-piece ABS plastic, this handheld feeder scoop shovel is durable and will not rust or corrode; the non-metallic scoop also makes it easier to find metal when scanning your metal detector over it\n- DEEP GREEN COLOR: The deep and vibrant green color provides an excellent backdrop for your gold, precious metal, gem stone and other mineral recovery efforts, allowing even small gold flakes to stand out from your deposit\n- MULTIPURPOSE TOOL: When you're not using the ASR Outdoor green shovel sand scoop trowel for gold panning or gold mining, you can utilize the scoop for gardening, as a pooper scooper, to scoop feed or seed, as a kid's scoop at the beach and a wide variety of other daily household tasks and chores\n- SPECIFICATIONS: Dimensions: 4.5 inches x 12 inches x 12.2 inches; Weight: 0.12lbs; Color: Green; Material: Plastic\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 2-Cup Green Plastic Gold Panning Scoop",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "Cup",
+                "size": "",
+                "color": "Green",
+                "name": "Plastic Gold Panning Scoop"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 2-Cup Large Green Feed Scoop",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "Cup",
+                "size": "Large",
+                "color": "Green",
+                "name": "Feed Scoop"
+            },
+            "char_count": 40,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Heavy Duty ABS Plastic, Non-Metallic, Rust-Free, Built-In Depth Gauge, Lanyard Hole, Multipurpose Tool",
+            "char_count": 102,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Heavy Duty ABS Plastic, Non Metallic, Rust Free, Interior Depth Gauge, Lanyard Hole, Multipurpose Garden Scoop",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}

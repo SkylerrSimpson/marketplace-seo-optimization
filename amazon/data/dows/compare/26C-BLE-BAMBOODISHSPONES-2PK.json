@@ -1,0 +1,56 @@
+{
+    "sku": "26C-BLE-BAMBOODISHSPONES-2PK",
+    "asin": "B0DP5KHP89",
+    "product_type": "UTILITY_SPONGE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 26C-BLE-BAMBOODISHSPONES-2PK\nProduct Type: UTILITY_SPONGE\nBrand (from catalog): Beille\nExisting Title: Beille 100% Bamboo Dish Sponges Kitchen Essentials Cleaning Supplies 2pk\nDescription: Plant based. Plastic free. 100% sustainable and natural bamboo. Chlorine free. Dye free. Fragrance free. Hypoallergenic. Need we say more? If you’re looking for green cleaning supplies, look no further than Beille’s Bamboo Dish Sponges! This set includes two reusable sponges that combine versatility, performance and sustainability all in one product, setting a new standard for cleanliness in any home.<br/><br/>Tackle your dishwashing tasks with the power of nature. Designed for all kinds of cleaning, they effectively remove grease, grime, dirt, food particles and more, without damaging cookware, dishware or countertops, while also featuring superior absorbency. And, naturally more hygienic than other traditional kitchen sponges, these 100% plant based bamboo dish sponges will last longer, keep unpleasant odors at bay and require less frequent replacement.<br/><br/>Designed for durability, Beille’s bamboo sponges are perfect for long term use, making them a socially responsible choice, while helping to discourage single use products. Plastic free, these are a greener choice for all your kitchen cleaning tasks and a more sustainable option to traditional synthetic kitchen sponges.<br/><br/>Beille’s 100% bamboo dishwashing sponges are a small change that makes a big difference! Say goodbye to plastic and embrace a greener, more sustainable way to clean. With Beille’s bamboo multipurpose sponges, you can enjoy a cleaner home without compromising on style or sustainability. <br/><br/>When needed, these bamboo dish sponges can be run through a washing machine and left to air dry for repeated use.<br/><br/>Sold in packs of two.\nSearch Terms: kitchen sponges\nFeatures:\n- 100% BAMBOO DISH SPONGES: These dish sponges are 100% bamboo, odor free, chlorine free, dye and fragrance free, hypoallergenic and highly absorbent! Reusable and safe for all surfaces, these sponges are the perfect combination of sustainability and performance in any home\n- SUSTAINABLE PRODUCTS: Bamboo dishwashing sponges are designed for long term use, making them a socially responsible choice to reduce waste; plastic free, these are a greener choice for all your kitchen cleaning tasks and a more sustainable option to traditional synthetic kitchen sponges\n- CLEANING SUPPLIES: Safe for dishware, counters, cookware, baking supplies and more, take on even the grimiest of messes, these bamboo dishwashing sponges can handle it; when needed, these bamboo dish sponges can be run through a washing machine and left to air dry for repeated use\n- HYGIENIC DISHWASHING SPONGE: Naturally more hygienic than other traditional kitchen sponges, these 100% plant based bamboo dish sponges will last longer, keep unpleasant odors at bay and require less frequent replacement\n- SPECIFICATIONS: Individual Sponge Dimensions: 5 x 3 x 1.0 inches; Weight: 0.10lbs; Color: White\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 2-pk White Bamboo Dish Sponges",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "White",
+                "name": "Bamboo Dish Sponges"
+            },
+            "char_count": 37,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": null,
+            "tokens": null,
+            "char_count": null,
+            "validation_error": "no item_name returned"
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "100 Bamboo, Plastic Free, Reusable, Hypoallergenic, Machine Washable, Eco-Friendly",
+            "char_count": 82,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": null,
+            "char_count": null,
+            "validation_error": "no title_differentiation returned"
+        }
+    },
+    "raw": {
+        "openai": "Client error: `POST https://api.openai.com/v1/chat/completions` resulted in a `429 Too Many Requests` response:\n{\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-5.4-mini in organization org-el3QE531uTdEpv2furRUAnXD on (truncated...)\n"
+    }
+}

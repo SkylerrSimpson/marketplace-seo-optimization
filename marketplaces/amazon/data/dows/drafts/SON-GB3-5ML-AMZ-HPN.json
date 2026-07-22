@@ -3,14 +3,14 @@
     "asin": "B00HHE9A4Y",
     "product_type": "BEAUTY",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:51:19+00:00",
+    "generated_at": "2026-07-21T19:38:15+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 14,
-        "ai_suggested": 6,
+        "ai_suggested": 8,
         "ai_null": 0,
         "base_template": 0
     },
@@ -237,7 +237,7 @@
             "raw_value": true
         },
         "country_of_origin": {
-            "value": "IN",
+            "value": "CN",
             "is_required": true,
             "source": "ai",
             "model": "claude-haiku-4-5"
@@ -246,33 +246,71 @@
             "value": "Clear",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "generic_keyword": {
-            "value": "glass vials small bottles sample vials mini glass bottles empty vials with caps perfume vials laboratory vials storage bottles",
+            "value": "glass vials, small glass bottles, mini vials, refillable cosmetic containers, sample bottles, empty glass jars, tiny bottles with caps, DIY containers",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "model_name": {
-            "value": "GB3-5ML",
+            "value": "BX113/4",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "JSP Glass Vials 5ml Clear Bottles Pack of 144",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "JSP Glass Vials 144-Pack",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 24,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "JSP",
+                "pack_size": "144",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "",
+                "name": "Glass Vials"
+            }
         },
-        "title_differentiation": {
-            "value": "Small glass bottles, bulk pack, essential oils, lab use, storage",
+        "item_name_ai_openai": {
+            "value": "JSP 144-pk Glass Vials",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 22,
+            "review_only": true,
+            "tokens": {
+                "brand": "JSP",
+                "pack_size": "144",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Glass Vials"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Pack Of 144, Small Glass Bottles, Laboratory Grade, Durable Glass, Bulk Supply",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 78,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Clear Glass, Small Vials For Sample Storage, Craft Projects, Lab Use, Easy Organization, Travel Friendly",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 104,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

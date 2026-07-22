@@ -1,0 +1,60 @@
+{
+    "sku": "SON-35STORK-SCISSORS-IR-TT",
+    "asin": "B0B84LYCZJ",
+    "product_type": "SCISSORS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-35STORK-SCISSORS-IR-TT\nProduct Type: SCISSORS\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Straight Blade Stainless Steel Stork Embroidery Scissors - 3.5 Inch\nDescription: The ToolTreaux Stork scissors feature super sharp-tipped straight blades that are designed for precision cutting, making them ideal for thinner fabric materials, sewing, and embroider projects with thread. They are not meant for use with thicker fabric materials or yarn.<br/><br/>The cute stork-themed scissors weigh just .1lbs and measure only 3.5\" in length so they are a great portable scissor option. You can easily store them in your pocket, tool belt, sewing box, or craft storage container to keep them handy for on-the-go use. <br/><br/>The scissor handle is made of durable alloy steel and the straight edge blades are made of corrosion-resistant stainless steel to ensure longer service life. Keep the blades sharp and count on them for many sewing and hobby craft uses.<br/><br/>Although these scissors were originally designed with embroidery and sewing projects in mind, they are also great for a variety of other precision projects like dressmaking, needlework, tailoring, and cutting delicate fishing lines. Keep a pair of these compact scissors on hand - you never know when you'll need them.\nSearch Terms: embroidery scissors small scissors beauty scissors sewing scissors sewing scissors for fabric cutting embroidery thread thread for sewing sewing thread embroidery kit embroidery floss crafting supplies hair shears shears trauma shears fishing line\nFeatures:\n- STRAIGHT BLADE SCISSORS - ToolTreaux scissors feature super-sharp tipped straight blade edges that ensure precise cutting, ideal for thin fabric materials and embroidery projects with thread. Not designed for heavy fabric materials or yarn\n- LIGHTWEIGHT AND COMPACT - Cute stork-design scissors weigh just .1lbs and measure 3.5\" in length, making them ideal for travel. Easily store them in your pocket, sewing box or craft storage when not in use; keep them handy for on the go use\n- DURABLE CONSTRUCTION - Scissor handle is made of durable alloy steel and the blades are made of corrosion-resistant stainless steel that won't rust to provide a longer service life. Keep the blades sharp for many crafting and sewing uses\n- VERSATILE HOBBY TOOL - Originally designed for embroidery and sewing, these scissors are also useful for a wide variety of projects like needlework, dressmaking, tailoring and cutting delicate fishing lines\n- SPECIFICATIONS - Materials: alloy steel (handle), stainless steel (blades); Design: stork, portable (pocket size); Dimensions: 3.5\" x 1.63\" x .15\"; Weight: .1lbs (1.6oz); Color: chrome\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 3.5 Inch Stork Embroidery Scissors Stainless Steel",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "3.5",
+                "pack_size_unit": "Inch",
+                "size": "3.5 Inch",
+                "color": "Chrome",
+                "name": "Stork Embroidery Scissors"
+            },
+            "char_count": 61,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 3.5-in Chrome Stork Embroidery Scissors",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "3.5",
+                "pack_size_unit": "in",
+                "size": "3.5",
+                "color": "chrome",
+                "name": "Stork Embroidery Scissors"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Sharp Straight Blade, Lightweight Portable Design, Corrosion-Resistant Stainless Steel, Precision Thread Cutting",
+            "char_count": 112,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Straight-Tipped Blades, Precision Cutting, Lightweight Pocket Size, Stainless Steel Blades, Alloy Steel Handle",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}

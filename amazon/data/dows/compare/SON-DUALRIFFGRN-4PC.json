@@ -1,0 +1,60 @@
+{
+    "sku": "SON-DUALRIFFGRN-4PC",
+    "asin": "B08X6WJH76",
+    "product_type": "OUTDOOR_LIVING",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-DUALRIFFGRN-4PC\nProduct Type: OUTDOOR_LIVING\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 4pc Dual Riffle Green Gold Pan Set for Gold Prospecting\nDescription: Whether you're dabbling in your local riverbed for the first time with family and friends, or planning an advanced gold panning excursion, dual riffle gold pans should be one of the top gold recovery tools on your list of equipment and gold prospecting essentials. <br/><br/>What makes these gold pans so effective is the dual riffle design. The gold pans included in this four-piece combo set feature four separate gold panning zones, a compact micro riffle, a flat sidewall, a deep 3.25-inch riffle area and 1/8 inch deep round base. The versatile riffles and complementary zones work together to optimize gold recovery, increasing surface area for faster and more efficient sifting and sorting of any potential gold nuggets or gold flakes.<br/><br/>In addition to the unique dual riffle pan design, the material construction and colors are also important to note. The four-piece gold panning pan sets are available in a solid black or deep green color, which helps to create a high contrast visual working environment against your working mineral deposit; the high contrast colors will make it easier to frame and spot recovered gold, gems or other high value minerals when sifting and sorting.<br/><br/>An essential gold mining and gold recovery tool, be sure to pack these lightweight, dual riffle gold pans for your next gold panning adventure. Good luck and happy prospecting; we hope you strike it rich.\nSearch Terms: fine gold flake nugget plastic washing pan black sand clean out recovery mining equipment prospector mine claim bulk sluice box tools classifier screen camping hobby sluice box metal detector accessories miners moss alaskian paydirt paydirt\nFeatures:\n- ESSENTIAL GOLD PROSPECTING EQUIPMENT: You wont find gold without the right tool to efficiently separate gold nuggets, black sand, gold flakes and other materials from your working gold claim\n- DUAL RIFFLE GOLD PAN: The dual riffle gold pan perform above and beyond other gold pans; with compact micro riffles on one side, a flat sidewall, complemented by deep 3.25-inch riffles on the other side, plus a 1/8-inch-deep round base, these incorporated zones work together to optimize gold recovery.\n- HIGH CONTRAST PAN COLORS: Made from UV resistant plastic the high contrast colors will not fade, making it easier to frame and spot recovered gold, gems or other high value minerals when working your paydirt\n- LIGHTWEIGHT DURABLE GOLD PAN: Made from high-impact, flexible ABS plastic, these dual riffle gold pans are corrosion and rust-resistant. They will last you many seasons\n- SPECIFICATIONS: Diameters: 8, 10, 12 and 14 inches; Material: Plastic; Colors Available: Deep Green or Solid Black\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 4-Pc Green Gold Pan Set for Prospecting",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "Pc",
+                "size": "",
+                "color": "Green",
+                "name": "Gold Pan Set for Prospecting"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 4-pk Green Dual Riffle Gold Pan Set",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Green",
+                "name": "Dual Riffle Gold Pan Set"
+            },
+            "char_count": 47,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Dual Riffle Design, 8-14 Inch Diameters, High Contrast Color, Optimized Gold Recovery, Durable ABS Plastic",
+            "char_count": 106,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "8-14 Inch Pan Sizes, Micro Riffles, Deep 325-Inch Riffle Area, UV Resistant ABS Plastic, High Contrast Green",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

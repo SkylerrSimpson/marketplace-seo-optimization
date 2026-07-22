@@ -1,0 +1,60 @@
+{
+    "sku": "LST-984255-TOY-TRUCK-AMZ",
+    "asin": "B0BN517QN1",
+    "product_type": "TOY_VEHICLE_SET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-984255-TOY-TRUCK-AMZ\nProduct Type: TOY_VEHICLE_SET\nBrand (from catalog): Kidplokio\nExisting Title: Kidplokio Friction Power Semi Truck Toy Cargo Carrier with 6 ATV Off Road Cars, Boys Ages Three and Up (Blue or Red, Colors Ship at Random)\nDescription: Kidplokio friction powered semi toy truck cargo carrier with fun lights and sounds effects, and moves all on its own with just a little help from the kids. Simply push and pull the toy truck back and forth and then watch as you let it zoom across the room, making playtime super fun and engaging.<br/><br/>The playset comes with three fun colored ATV's and three off road vehicles, that kids can play with alongside the toy truck. The smaller toy vehicles slide out the back of the truck through a flip down door and, when kids are done playing, the smaller play vehicles fit perfectly inside the large semi truck for neat and tidy storage.<br/><br/>The best part about the Kidplokio friction-powered semi toy truck cargo carriers are the fun flashing lights and sound effects. Kids will have an absolute blast pushing the buttons on the side of the cargo carrier toy truck, boosting little ones' playtime to the next level as they rev the engine, honk the horn or drive to fun music. No assembly is needed, so playtime can begin right out of the box.<br/><br/>Colors (blue or red) ship at random.\nSearch Terms: toy truck trucks semi carriers car cars best selling\nFeatures:\n- PULL BACK CARS: Kidplokio toy truck with ATV and off road vehicle toys travels on its own, simply give the truck a few pulls to watch it zoom across the room! For optimal performance the wheels work best on a smooth surface\n- AWESOME LIGHTS AND SOUND EFFECTS: Playtime just got even more fun and exciting with this semi truck cargo carrier that features flashing lights and fun sound effects! Drive to music, honk the horn or rev the engine!\n- TOYS FOR BOYS: With easy to use friction power, six removable mini off road cars and ATVs, durable quality and fun driving details, the toy truck makes a great gift for boys aged three and up! Plus, no assembly is required, meaning playtime can begin right out of the box!\n- DOUBLE LAYER TRANSPORT TRUCK: This toy truck feature two layers that can fit and transport all six of the toy cars included; the tail of the trailer pulls out and down making loading and unloading easy and fun\n- SPECIFICATIONS: Dimensions: 22 x 7 x 3 inches; Weight: 1.6lbs; Ages: 3+; Note: Colors ship at random\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Kidplokio Friction Power Semi Truck Toy with 6 Cars",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "6",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Friction Power Semi Truck Toy with Cars"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Kidplokio Semi Truck Toy Cargo Carrier",
+            "tokens": {
+                "brand": "Kidplokio",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Semi Truck Toy Cargo Carrier"
+            },
+            "char_count": 38,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Lights And Sounds, Pull Back Action, 6 Removable ATVs And Off Road Vehicles, Double Layer Transport, Ages 3 Plus",
+            "char_count": 112,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Pull Back Friction Power, Lights And Sounds, 6 Removable ATV And Off Road Vehicles, Double Layer Storage, Ages 3",
+            "char_count": 112,
+            "validation_error": null
+        }
+    }
+}

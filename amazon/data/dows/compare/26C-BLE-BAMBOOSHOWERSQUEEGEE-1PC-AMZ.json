@@ -1,0 +1,60 @@
+{
+    "sku": "26C-BLE-BAMBOOSHOWERSQUEEGEE-1PC-AMZ",
+    "asin": "B0DV7X293V",
+    "product_type": "SQUEEGEE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 26C-BLE-BAMBOOSHOWERSQUEEGEE-1PC-AMZ\nProduct Type: SQUEEGEE\nBrand (from catalog): Beille\nExisting Title: Beille 1pc Bamboo and TPR Rubber Blade Shower Squeegee for Glass Doors Bathroom Cleaning Supplies Household Essentials, Multicolor\nDescription: Tired of water spots, soap scum and unwanted streaks taking over your shower? Keep windows and glass surfaces sparkling clean with Beille’s Shower Squeegee! Featuring a nine inch smooth and flexible TPR rubber blade, it effectively removes water, ensuring a streak free finish on smooth surfaces.<br/><br/>The ergonomic bamboo handle offers a comfortable, natural grip for effective cleaning. Perfect for use on windows, mirrors, glass shower doors and more, this squeegee combines functionality with sustainable design, making it a household essentials item and cleaning tool for any home. The shower squeegee comes with a built in hanging loop for convenient accessibility when not in use, while also helping to keep storage areas tidy and organized.<br/><br/>The natural bamboo handle finish and pop of confetti-like color lend a stylish but organic and neutral design to bathroom, laundry room, garage and more; to maximize longevity, avoid submerging bamboo in water for long periods of time.<br/><br/>Elevate your cleaning routine with this modern and stylish cleaning tool that combines practicality with sustainability all in one tool!<br/><br/>CARE INSTRUCTIONS: Simply rinse off dish brush under warm water and soap of choice to keep it looking fresh; to maximize longevity, avoid submerging bamboo in water for extended periods\nSearch Terms: Shower squeegee; home and kitchen; bathroom cleaning supplies; house warming gifts new home; new home essentials; new home gift ideas; window cleaner; window squeegee; shower glass cleaner; household essentials; cleaning tools\nFeatures:\n- SHOWER SQUEEGEE: Equipped with a nine inch, non scratch TPR rubber blade and sustainable bamboo handle, the squeegee ensures durable performance and a streak free finish on smooth surfaces; tackle glass shower doors, windows, mirrors and more with ease and efficiency\n- SUSTAINABLE BAMBOO HANDLE: Ergonomic handle and lightweight design makes for a comfortable grip when cleaning; made from sustainable bamboo, our squeegee combines effective cleaning power with sustainability, all in one cleaning tool\n- CONVENIENT STORAGE: Shower squeegee comes with a built in hanging loop for convenient accessibility when not in use, while also helping to keep storage areas tidy and organized\n- MODERN DESIGN: Natural bamboo handle and pop of confetti-like color lend a stylish but organic and neutral design to any kitchen, bathroom, laundry room and more; to maximize longevity, avoid submerging bamboo in water for long periods of time\n- SPECIFICATIONS: Dimensions: 9 x 9 x 2 inches; Weight: 0.16lbs\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille Bamboo Shower Squeegee with TPR Rubber Blade",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "1",
+                "pack_size_unit": "pc",
+                "size": "9 inch",
+                "color": "Multicolor",
+                "name": "Shower Squeegee"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 1-pc Multicolor Bamboo Shower Squeegee",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "1",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Multicolor",
+                "name": "Bamboo Shower Squeegee"
+            },
+            "char_count": 45,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "9 Inch TPR Rubber Blade, Sustainable Bamboo Handle, Streak-Free, Hanging Loop, Glass Doors And Windows",
+            "char_count": 102,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "9-Inch TPR Rubber Blade, Streak-Free Glass Cleaning, Ergonomic Bamboo Handle, Hanging Loop, For Windows And Mirrors",
+            "char_count": 115,
+            "validation_error": null
+        }
+    }
+}

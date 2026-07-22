@@ -1,0 +1,60 @@
+{
+    "sku": "SON-BEACHDIGGER-22PC-BUN",
+    "asin": "B08GFWV2WD",
+    "product_type": "METAL_DETECTOR",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-BEACHDIGGER-22PC-BUN\nProduct Type: METAL_DETECTOR\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Serrated Digger Beach Combing Metal Detector Accessories Backpack Kit, 22 Piece\nDescription: This ASR Outdoor Deluxe Beach Digger Metal Detector Kit is comprehensive set of metal detecting accessories and hand tools for beginners and seasoned treasure hunters alike. This kit includes a multi-purpose, collapsible silicone bucket, a sand scoop and sand digger, as well as a 30L backpack, so you can tote all your equipment and tools with you for beach days, camping trips, family excursions and much more. <br/><br/>The beach digger kit includes 22 pieces to help you in your recovery efforts of hidden treasure below the surface:<br/><br/>- x1 khaki 30L 100% cotton backpack<br/>- x1 collapsible silicone bucket<br/>- x1 1/70\" Mesh Classifier Sifting Pan<br/>- x1 orange sand scoop/shovel/trowel<br/>- x1 16lbs pick up tool<br/>- x1 pen separator<br/>- x4 plastic pipettes<br/>- x2 magnifier tweezers<br/>- x1 green steel sand digger<br/>- x6 glass vials<br/>- x2 plastic snifter bottle<br/>- x1 large black sand scooper\nSearch Terms: hand held metal detector sand scoop gold prospecting equipment accessories metal detecting kit pin pointer probe digging shovels probe panning scooper gardening gift for dad\nFeatures:\n- METAL DETECTOR SAND KIT: Get ready to find treasure and gold at the beach or lake shore with the ASR Outdoor Deluxe Beach Digger Metal Detector Kit; this metal detector and accessories kit has everything you need for treasure recovery and storage, making it an accessible and comprehensive assortment of sand scoop tools for beginners or seasoned beach combers alike\n- METAL DETECTOR ACCESSORIES: 30L canvas backpack, 1/70 classifier screen, sand scoop, large sand scoop, 16lbs pick up tool, pen separator, four plastic pipettes, two magnifier tweezers, green steel sand digger, six glass vials, two small plastic snifter bottle and collapsible silicone bucket with handle; 22 total pieces\n- PERFECT FOR TREASURE HUNTING: Take this metal detector kit to your local beach, lake shore or riverbed to find lost gems and precious metals; three different sand scoops or trowels, a handy collapsible silicone bucket and durable plastic classifier screen\n- 30 LITER CANVASS BACKPACK: All kit components conveniently fit into the large 30 liter backpack, featuring a top load opening cover and a draw string closure to keep everything secure. (3) large side compartments with a zipper closure to hold smaller items. This backpack can also be used for everything from backpacking and trekking, to hunting, camping, school and much more\n- TOP GEAR EQUIPMENT: All the equipment in this beach digging kit is made from quality material; from the high impact, durable plastic classifier screen and sand scoops, to the metal magnifying tweezers, green steel digger shovel and sturdy backpack; all the components will see you through many seasons to come\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 22-Piece Beach Digger Metal Detector Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "22",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "",
+                "name": "Beach Digger Metal Detector Kit"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 22-pc Beach Digger Metal Detector Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "22",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Beach Digger Metal Detector Kit"
+            },
+            "char_count": 49,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "30L Backpack, Sand Scoop, Classifier Screen, Pick Up Tool, Magnifier Tweezers, Glass Vials, Gold Prospecting",
+            "char_count": 108,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "30L Canvas Backpack, Collapsible Silicone Bucket, Sand Scoops, Classifier Screen, Tweezers, Vials, Pick Up Tool",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

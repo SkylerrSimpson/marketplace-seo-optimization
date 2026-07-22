@@ -1,0 +1,60 @@
+{
+    "sku": "SON-CLOCKKEY-PARENT",
+    "asin": "B0BN6ZKNT9",
+    "product_type": "HARDWARE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-CLOCKKEY-PARENT\nProduct Type: HARDWARE\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Brass Universal Antique Grandfather Clock Key (Even and Odd)\nDescription: The 5 way clock key can be used to wind grandfather clocks and other antique clocks so your antique clock can be both beautiful and functional. The key can also serve as a replacement or back up of original clock keys that are often lost with older antique grandfather clocks. The key is made of durable brass material and will last a lifetime.\nSearch Terms: clock winding key for bronze mantel accessory pendulum brass odd number\nFeatures:\n- 5 Way Brass Clock Winding Key\n- Even Numbers (2, 4, 6, 8, 10)\n- (2) 2.75mm, 7/64in (4) 3.25mm, 1/8in (6) 3.75mm, 0.14in (8) 4.25mm,11/64in (10) 4.75mm, 3/16in\n- Odd Numbers (3, 5, 7, 9, 11)\n- Size Diameters in Order: 1/8\" 3mm, 9/64\" 3.5mm, 5/32\" 4mm, .174\" 4.5mm, 13/64\" 5mm\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux Brass Universal Antique Grandfather Clock Key",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Universal",
+                "color": "Brass",
+                "name": "Antique Grandfather Clock Key"
+            },
+            "char_count": 56,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux Brass Universal Antique Grandfather Clock Key",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Universal",
+                "color": "Brass",
+                "name": "Clock Key"
+            },
+            "char_count": 56,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "5-Way Design, Even And Odd Numbers, Durable Brass Construction, Fits Multiple Clock Sizes, Replacement Key",
+            "char_count": 106,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "5-Way Clock Winding Key, Fits Even And Odd Sizes, Durable Brass, Replacement Or Backup For Antique Clocks",
+            "char_count": 105,
+            "validation_error": null
+        }
+    }
+}

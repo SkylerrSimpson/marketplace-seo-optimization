@@ -3,14 +3,14 @@
     "asin": "B004G9VRGM",
     "product_type": "SPORTING_GOODS",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:44:06+00:00",
+    "generated_at": "2026-07-21T19:28:38+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 19,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -292,20 +292,57 @@
             "asin": "B004G9VRGM",
             "raw_value": true
         },
-        "title_differentiation": {
-            "value": "Stainless steel with backpin for double locking; knurled grip; corrosion resistant",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical Universal Handcuff Key with Clip",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8",
-            "validation_error": "requires item_name <= 75 chars"
-        },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical Universal Handcuff Key Stainless Steel 5-Pack",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 45,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Universal Handcuff Key with Clip"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "ASR Tactical 2-Pk Universal Handcuff Key with Clip",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 50,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Universal Handcuff Key with Clip"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "5-Pack, Double Locking, Stainless Steel, Law Enforcement, EDC Tactical, Clip Attachment",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 87,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Fits All Standard And Double Locking Handcuffs, Stainless Steel, Low Profile Knurled Grip, Backpin For Double Locking",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 117,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

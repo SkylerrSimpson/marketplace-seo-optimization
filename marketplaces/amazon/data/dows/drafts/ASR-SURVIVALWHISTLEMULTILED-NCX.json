@@ -3,14 +3,14 @@
     "asin": "B0184DT23K",
     "product_type": "SURVIVAL_KIT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T20:45:03+00:00",
+    "generated_at": "2026-07-21T19:34:13+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 17,
         "catalog": 23,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 28
     },
@@ -574,20 +574,57 @@
             "asin": "B0184DT23K",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 7-in-1 Kids Survival Kit Multi-Tool with Whistle",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 7-in-1 Green Survival Whistle Multitool",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "7",
+                "pack_size_unit": "in-1",
+                "size": "",
+                "color": "Green",
+                "name": "Survival Whistle Multitool"
+            }
         },
-        "title_differentiation": {
-            "value": "Waterproof, LED Flashlight, Compass, Magnifier, Thermometer, Signal Mirror",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor Kids Survival Multitool Whistle Compass LED Flashlight Green",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 72,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Green",
+                "name": "Kids Survival Multitool Whistle Compass LED Flashlight"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Compass, LED Flashlight, Whistle, Multitool, Emergency Survival Kit, Portable, Lightweight",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 90,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "7 In 1 Multi Tool, Pocket Size, Loud Emergency Whistle, Directional Compass, Bright LED Light, Kids Camping",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "item_diameter": {
             "value": [

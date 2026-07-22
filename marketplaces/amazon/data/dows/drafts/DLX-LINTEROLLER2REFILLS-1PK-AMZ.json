@@ -3,14 +3,14 @@
     "asin": "B0FBCNRDWJ",
     "product_type": "LINT_REMOVER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:54:21+00:00",
+    "generated_at": "2026-07-21T20:03:54+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -45,20 +45,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Beille Lint Roller Set with 3 Adhesive Rollers & Handle",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 3-pc Lint Roller with 2 Refills",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 38,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Lint Roller with 2 Refills"
+            }
         },
-        "title_differentiation": {
-            "value": "3-Piece Set, 30 Sheets Total, Pet Hair & Dust Removal, Travel-Friendly",
+        "item_name_ai_openai": {
+            "value": "Beille 3-Pc Lint Roller Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 27,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "3",
+                "pack_size_unit": "Pc",
+                "size": "",
+                "color": "",
+                "name": "Lint Roller Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "10 Sheets Per Roll, Removes Pet Hair And Dust, Travel Friendly, Multi-Surface Safe",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 82,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "2 Refills, 10 Sheets Per Roll, Adhesive Lint And Pet Hair Remover, Travel Friendly, For Clothes And Furniture",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

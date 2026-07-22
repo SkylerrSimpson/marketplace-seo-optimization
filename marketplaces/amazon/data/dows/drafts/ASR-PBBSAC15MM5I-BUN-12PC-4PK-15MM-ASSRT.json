@@ -3,15 +3,15 @@
     "asin": "B01E0EA9PW",
     "product_type": "BUCKLE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:16:30+00:00",
+    "generated_at": "2026-07-21T20:08:13+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 4,
-        "ai_suggested": 3,
-        "ai_null": 0,
+        "ai_suggested": 4,
+        "ai_null": 1,
         "base_template": 0
     },
     "attributes": {
@@ -78,25 +78,62 @@
             "raw_value": true
         },
         "fabric_type": {
-            "value": "Plastic",
+            "value": null,
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Paracord Bracelet Buckles 48pc Assorted Colors",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 48-Pack Paracord Bracelet Buckles Assorted",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "48",
+                "pack_size_unit": "Pack",
+                "size": "15mm",
+                "color": "Assorted",
+                "name": "Paracord Bracelet Buckles"
+            }
         },
-        "title_differentiation": {
-            "value": "48-Pack, 20mm Wide, 6 Colors, Side Release, Gear Repair",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 48-Pk 20mm Assorted Colors Paracord Bracelet Buckle Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 67,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "48",
+                "pack_size_unit": "pk",
+                "size": "20mm",
+                "color": "Assorted Colors",
+                "name": "Paracord Bracelet Buckle Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "48 Pieces, 15Mm Side Release, Assorted Colors, Durable Plastic, Multi-Use Tactical Gear And Crafts",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 98,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Injection Molded Plastic, Side Release, Easy One-Handed Release, Fits Nylon Webbing, Gear Repair, Crafts",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 104,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

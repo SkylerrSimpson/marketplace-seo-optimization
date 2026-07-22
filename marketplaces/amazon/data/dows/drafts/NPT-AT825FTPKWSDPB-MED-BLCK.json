@@ -3,14 +3,14 @@
     "asin": "B06XYVRMRG",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:29:38+00:00",
+    "generated_at": "2026-07-21T19:55:27+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 7,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -118,20 +118,57 @@
             "asin": "B06XYVRMRG",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical 8.25\" Paracord Survival Knife Drop Point Blade",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical 8.25\" Medium Black Paracord Survival Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 55,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "8.25",
+                "pack_size_unit": "in",
+                "size": "Medium",
+                "color": "Black",
+                "name": "Paracord Survival Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "Full Tang, 440 Stainless Steel, Stonewash Finish, Nylon Sheath",
+        "item_name_ai_openai": {
+            "value": "ASR Tactical 8.25 in Black Paracord Survival Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 50,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "8.25 in",
+                "color": "Black",
+                "name": "Paracord Survival Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "4\" Drop Point Blade, Stonewash Finish, Full Tang, 440 Stainless Steel, Nylon Sheath With Belt Loop",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 98,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "4\" Drop Point Stonewashed Blade, Full Tang 440 Stainless Steel, Paracord Wrapped Handle, Nylon Sheath With Belt Loop",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 116,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

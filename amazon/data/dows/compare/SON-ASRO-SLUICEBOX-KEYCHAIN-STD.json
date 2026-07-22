@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ASRO-SLUICEBOX-KEYCHAIN-STD",
+    "asin": "B0GVPWLTBL",
+    "product_type": "CARABINER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ASRO-SLUICEBOX-KEYCHAIN-STD\nProduct Type: CARABINER\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 1pc Stainless Steel Gold Prospecting Carabiner Keychain Lightweight Durable EDC Split Ring Key Holder, Sluice Box\nDescription: Carry your passion for gold prospecting or gold panning wherever you go, with our Gold Panner or Sluice Box Stainless Steel Carabiner Keychains. Designed for outdoor enthusiasts and hobbyists, these keychains feature detailed, prospecting-inspired silhouettes that reflect the tools and lifestyle of real gold seekers. Whether you’re in the field or just want a subtle nod to your favorite outdoor hobby, these designs bring character to your everyday carry.<br/><br/>Made from durable stainless steel, each keychain is built to handle rugged environments without rusting or wearing down, meaning they’ll stand up to use around water, dirt and changing outdoor conditions. The solid construction ensures long-lasting performance, whether clipped to your gear during a day at the river or used daily with your keys.<br/><br/>The integrated carabiner allows for quick and secure attachment to gear, belt loops, keys, backpacks or bags, giving you easy access. The included split ring keeps your keys organized and firmly in place, making it a practical addition to your everyday carry setup or outdoor kit.<br/><br/>Choose from two styles: Gold Panner or Sluice Box\nSearch Terms: gold prospecting keychain gold panning gear miner gift sluice box accessory prospector tool edc clip outdoor key holder camping hiking survival kit gear gold miner accessory mining themed keychain metal carabiner key ring prospecting equipment gift\nFeatures:\n- UNIQUE GOLD PROSPECTING KEYCHAINS: Choose from detailed sluice box or gold panner silhouettes, making these keychains a perfect everyday carry item for gold prospectors to attach to keys or outdoor gear\n- DURABLE STAINLESS STEEL: Constructed from corrosion resistant stainless steel for long lasting performance in rugged outdoor environments\n- INTEGRATED CARABINER CLIP: Quickly attach to backpacks, belt loops, backpacks, bags or keyrings with built in carabiner for convenient access and secure carry\n- SPLIT RING INCLUDED: Comes with a sturdy metal split ring, making it easy to organize keys, small tools or accessories without additional hardware\n- LIGHTWEIGHT EVERYDAY CARRY: Compact and easy to carry without adding bulk; unique and original gift for miners and prospectors\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Stainless Steel Gold Prospecting Sluice Box Carabiner",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Stainless Steel",
+                "name": "Gold Prospecting Sluice Box Carabiner Keychain"
+            },
+            "char_count": 65,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 1-pk Sluice Box Stainless Steel Carabiner Keychain",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "1",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Sluice Box Stainless Steel Carabiner Keychain"
+            },
+            "char_count": 62,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Durable Stainless Steel, Integrated Carabiner Clip, Split Ring Included, EDC Keychain, Gold Panning Gear",
+            "char_count": 104,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Stainless Steel, Corrosion Resistant, Split Ring Included, Quick Attach Carabiner, Lightweight EDC Key Holder",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

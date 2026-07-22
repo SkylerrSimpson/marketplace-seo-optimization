@@ -3,14 +3,14 @@
     "asin": "B0749YY1ND",
     "product_type": "FLASHLIGHT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:12:08+00:00",
+    "generated_at": "2026-07-21T19:48:54+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 6,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -107,7 +107,7 @@
             "value": "1 Watt LED Headlamp",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
             "value": "One Size",
@@ -115,19 +115,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 1 Watt 100 Lumen LED Headlamp with Adjustable Strap",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 1 Watt LED Head Lamp",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 32,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "1 Watt LED Head Lamp"
+            }
         },
-        "title_differentiation": {
-            "value": "3-Way Switch, 100 Lumens, Adjustable Elastic Strap, Compact Aluminum",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 1 Watt LED Head Lamp",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 32,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "LED Head Lamp"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "100 Lumens, 3-Way Switch, Adjustable Strap, Hiking Camping Running",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 66,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "100 Lumen Brightness, 3-Way Switch, Adjustable Elastic Strap, Compact Aluminum Body, AAA Batteries Required",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

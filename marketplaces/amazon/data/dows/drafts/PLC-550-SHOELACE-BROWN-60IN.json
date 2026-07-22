@@ -3,14 +3,14 @@
     "asin": "B0BMQF8JTZ",
     "product_type": "SHOELACE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:36:17+00:00",
+    "generated_at": "2026-07-21T20:11:46+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 3,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -105,20 +105,57 @@
             "asin": "B0BMQF8JTZ",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ParaLace 550 Paracord Shoelaces, Brown 60 Inch Hiking Boot",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ParaLace 550 Paracord Shoelaces Brown 60in",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 42,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ParaLace",
+                "pack_size": "550",
+                "pack_size_unit": "",
+                "size": "60in",
+                "color": "Brown",
+                "name": "Paracord Shoelaces"
+            }
         },
-        "title_differentiation": {
-            "value": "550lbs strength, survival gear, universal fit, metal aglets",
+        "item_name_ai_openai": {
+            "value": "ParaLace 60 in Brown Paracord Shoelaces",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 39,
+            "review_only": true,
+            "tokens": {
+                "brand": "ParaLace",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "60 in",
+                "color": "Brown",
+                "name": "Paracord Shoelaces"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "550Lbs Breaking Strength, Survival Gear, Hiking Boots, Universal Fit, Low Stretch Nylon, Metal Aglets",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 101,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "550 Lb Strength, Low Stretch Nylon, Metal Aglets, Abrasion Resistant, UV Resistant, Survival Ready, Fits Boots And Shoes",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 120,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-8-PIN-PUNCH-ST1032B",
+    "asin": "B07KCMMXKK",
+    "product_type": "HOLE_PUNCH",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-8-PIN-PUNCH-ST1032B\nProduct Type: HOLE_PUNCH\nBrand (from catalog): Universal Tool\nExisting Title: Universal Tool 8pc Brass Tool Pin Punch Set for Metal Crafting Hobby in Assorted Sizes\nDescription: The Universal Tool 8Pc Brass Pin Punch Set Hobby Craft are handy tools to accurately and precisely tap or punch objects out or away from a gun or wood. <br/><br/>A punch is a hard metal rod with a shaped top at one end and a blunt butt at the other, which is usually struck by a hammer. Pin punches are typically used with ball-peen hammers to either drive objects, such as nails or to form an impression of the tip on a work piece.<br/><br/>The diameters of the punches in this set are 1/16\", 3/32\", 1/8\", 5/32\", 3/16\", 7/32\", 1/4\", and 5/16\". To make this set even better, Univeral Tool provides a convenient and durable storage pouch so that organization and transportation of your punches very convenient.<br/><br/>We are sure that you will be able to enjoy this Universal Tool 8PC Brass Pin Punch Set for all of your crafting, woodwork, and DIY needs.\nSearch Terms: crafting DIY pin punch metalworking aluminum brass center punches woodworking tools gunsmithing tools awls home improvement wood working\nFeatures:\n- BRASS PIN PUNCH SET DIAMETER: 1/16\", 3/32\", 1/8\", 5/32\", 3/16\", 7/32\", 1/4\", 5/16\"\n- BENEFIT AND USES: Pin punches are used to form an impression of the tip on a work piece to better drive objects, such as nails or tacs through the object being worked on.\n- PRECISION PUNCH TOOL SET: brass pin punches are great for accurately and precisely punching materials out of wood, ideal for crafting and home improvement projects including woodworking\n- STORAGE POUCH INCLUDED: Brass punch set come with convenient PVC carrying pouch to store and organize your tools when not in use. Entire set easily fits inside most tool belt pockets, tool boxes and storage crafting organizers\n- Ideal for professionals and hobbyists; whether for professional gunsmiths, woodworkers, or DIY enthusiasts, this brass pin punch set is an essential tool for precise and safe work\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 8-pc Brass Pin Punch Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "8",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Brass",
+                "name": "Pin Punch Set"
+            },
+            "char_count": 39,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 8-Pc Brass Pin Punch Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "8",
+                "pack_size_unit": "Pc",
+                "size": "Brass",
+                "color": "",
+                "name": "Pin Punch Set"
+            },
+            "char_count": 39,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "8 Assorted Sizes, Precision Crafting, Woodworking, DIY, Storage Pouch Included, Professionals And Hobbyists",
+            "char_count": 107,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Precision Brass Punches, 8 Sizes From 116\" To 516\", PVC Carry Pouch, For Woodworking, DIY And Hobby",
+            "char_count": 99,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-LIPBALM2PK-MICKEY-AMZ",
+    "asin": "B0BS3HWKM3",
+    "product_type": "LIP_BALM",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-LIPBALM2PK-MICKEY-AMZ\nProduct Type: LIP_BALM\nBrand (from catalog): Disney\nExisting Title: Disney Mickey and Minnie Lip Balm Bundle with 4 Lip Balms in Assorted Flavors - Bonus 1 Assorted Dis\nDescription: The Mickey Mouse 2pc flavored lip balm set with Mickey’s ear-shaped caps will give your little one the most perfect lip protection when on their own extraordinary adventures. Featuring everyone’s favorite Disney mouse, the multiple-piece set includes fun lip balm flavors: Cheerful Cherry and Bubblegum.<br/><br/>Whether at a sleepover slumber party, sporting event, school, or a fun play date, your little one’s lips will stay hydrated and avoid painful chapping and dryness with the proper use of this lip balm. The water-based, nontoxic formula is safe for children with adult supervision, and will keep their lips hydrated regardless of the season.<br/><br/>Disney Mickey Mouse lip balm is a great birthday, Christmas, or stocking stuffer gift for the little Disney fan in your life.\nSearch Terms: girls lip balm kids lip treatment set nontoxic lip balm for children mickey mouse stocking stuffer disney party favor for girls 3 and up toddler dress up gifts pretend play sets for girls bff sister gift mickey mouse holiday gift girls makeup\nFeatures:\n- MICKEY MOUSE LIP BALM - Officially licensed Disney lip balm set features Mickey Mouse; Each lip balm is adorned with unique Mickey ear-shaped cap for a fun look\n- KEEP LIPS HYDRATED - Perfect for children, flavored lip balms are safe for kids ages 3 and up and assist with keeping lips hydrated; Great option for traveling and use in all seasons\n- FUN KIDS MAKEUP - Ideal for dress up, pretend play, and sleepovers, kids will love showing off their very own makeup just like Mom!; 2 flavors included: Cheerful Cherry & Bubblegum\n- EASY CLEAN UP - Water-based, nontoxic formula is safe and effective for kids; Can be easily removed with soap and water if needed\n- SPECIFICATIONS - Lip balm tubes: .14oz; Recommended age: 3+ years; Avoid eye contact; Do not ingest; Formula: nontoxic, water-based (easy to clean); 2 flavors: cheerful cherry, bubble gum\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Disney Mickey Mouse 2-Pack Lip Balm Set",
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "2",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "",
+                "name": "Mickey Mouse Lip Balm Set"
+            },
+            "char_count": 39,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Disney 2-Pk Mickey Mouse Lip Balm Set",
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Mickey Mouse Lip Balm Set"
+            },
+            "char_count": 37,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Mickey Ear-Shaped Caps, 2 Flavors, Nontoxic Water-Based, Ages 3 And Up, Hydrating",
+            "char_count": 81,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Cheerful Cherry And Bubblegum Flavors, Ear Shaped Caps, Water Based Nontoxic Formula, Ages 3, Travel Friendly",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

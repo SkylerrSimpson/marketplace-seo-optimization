@@ -1,0 +1,60 @@
+{
+    "sku": "HGR-PTU6FBPP",
+    "asin": "B00VS302AG",
+    "product_type": "UMBRELLA",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: HGR-PTU6FBPP\nProduct Type: UMBRELLA\nBrand (from catalog): Heininger\nExisting Title: Destination Gear 6ft Whiskey Brown Palapa Tiki Umbrella for Patio with Tilt Shade\nDescription: Bring the island vibe straight to your backyard with the Destination Gear 6ft Whiskey Brown Palapa Tiki Umbrella. Designed for both style and durability, this tropical-inspired umbrella features a sturdy aluminum push-up frame and a generous 6-foot canopy to keep you cool and shaded on sunny days. The realistic palapa-style cover is made from long-lasting, UV-resistant polypropylene that maintains its rich color season after season.<br/><br/>Whether you're relaxing poolside, hosting a backyard luau, or enjoying a beach day, the convenient 3-position tilt lets you easily adjust your shade throughout the day. Built for performance and designed for atmosphere, this tiki umbrella is the perfect blend of function and island flair.\nSearch Terms: tiki umbrella, patio umbrella 6ft, palapa umbrella, outdoor beach umbrella, tropical patio decor, tilt umbrella, pool umbrella shade, backyard tiki umbrella, UV resistant umbrella, island style umbrella, whiskey brown umbrella, small patio shade\nFeatures:\n- TROPICAL PALAPA DESIGN - Instantly elevate your outdoor space with a stylish tiki-inspired umbrella, perfect for patios, pools, beaches, and backyard gatherings\n- DURABLE ALUMINUM FRAME - Lightweight yet strong push-up frame provides reliable support and easy setup for everyday use\n- 6 FOOT SHADE COVERAGE - Generous canopy size delivers ample sun protection while keeping your seating area cool and comfortable\n- 3 POSITION TILT FUNCTION - Easily adjust the umbrella angle to block sunlight from multiple directions throughout the day\n- UV RESISTANT POLYPROPYLENE CANOPY - Long-lasting, fade-resistant material maintains its rich whiskey brown color season after season\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Heininger 6ft Whiskey Brown Palapa Tiki Umbrella",
+            "tokens": {
+                "brand": "Heininger",
+                "pack_size": "6",
+                "pack_size_unit": "ft",
+                "size": "6ft",
+                "color": "Whiskey Brown",
+                "name": "Palapa Tiki Umbrella"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Heininger 6ft Whiskey Brown Tiki Umbrella",
+            "tokens": {
+                "brand": "Heininger",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "6ft",
+                "color": "Whiskey Brown",
+                "name": "Tiki Umbrella"
+            },
+            "char_count": 41,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "3-Position Tilt, UV Resistant Polypropylene, Aluminum Frame, Tropical Island Style, Patio Pool Shade",
+            "char_count": 100,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Palapa Style Canopy, Aluminum Push-Up Frame, 3 Position Tilt, UV Resistant Polypropylene, Patio Pool Beach Shade",
+            "char_count": 112,
+            "validation_error": null
+        }
+    }
+}

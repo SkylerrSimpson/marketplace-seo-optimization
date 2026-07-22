@@ -1,0 +1,60 @@
+{
+    "sku": "SON-STEPDRILLBITS-3PC",
+    "asin": "B078PW6FS9",
+    "product_type": "DRILL_BITS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-STEPDRILLBITS-3PC\nProduct Type: DRILL_BITS\nBrand (from catalog): Universal Tool\nExisting Title: Universal Tool High Speed Steel Step Drill Bits Locking Shank Assorted Sizes 3pc\nDescription: Punch perfect holes in just about any material with the Universal Tool Step Drill Bit Set. <br/><br/>This set of steel step drill bits comes with 3 different bits, all with a number of assorted stepping ranges. These ranges include the 6 step bit (inches) - 3/16, 1/4, 5/16, 3/8, 7/16, 1/2, the 9 step bit (inches) - 1/4, 5/16, 3/8, 7/16, 1/2, 9/16, 5/8, 11/16, 3/4 and the 13 step bit (inches) - 1/8, 5/32, 3/16, 7/32, 1/4, 9/32, 5/16, 11/32, 3/8, 13/32, 7/16, 15/32, 1/2. <br/><br/>The drill bits are constructed of durable steel so they will stand the test of time through many uses. This quality steel is ideal for punching holes through steel plates, sheet metal, stainless steel, aluminum, wood, copper, brass, plastic and more. Since the bit stops with each step, you will be able to prevent drilling larger holes than intended. The titanium coat on the bits will lessen the heat and friction caused during drilling. Make sure to grab this set before your next project.\nSearch Terms: tools hardware drilling rotary drill bits\nFeatures:\n- High Speed Step Drill Set - 3 Sizes\n- 6 step bit: 3/16, 1/4, 5/16, 3/8, 7/16, 1/2 | 9 step bit - 1/4, 5/16, 3/8, 7/16, 1/2, 9/16, 5/8, 11/16, 3/4 | 13 step bit - 1/8, 5/32, 3/16, 7/32, 1/4, 9/32, 5/16, 11/32, 3/8, 13/32, 7/16, 15/32, 1/2\n- Constructed of Titanium Coated Steel\n- Reduces Heat & Friction Caused During Drilling\n- Stops w/ Each Step to Prevent Drilling Larger Holes than Intended\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 3-pc Step Drill Bits High Speed Steel",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Step Drill Bits High Speed Steel"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 3-pk High Speed Steel Step Drill Bits",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Step Drill Bits"
+            },
+            "char_count": 52,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Titanium Coated, 6 And 9 And 13 Step Bits, Reduces Heat And Friction, Steel Metal Wood Plastic",
+            "char_count": 94,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Titanium Coated Steel, 3 Sizes, Reduces Heat And Friction, Step Stops Prevent Oversized Holes, For Metal And Wood",
+            "char_count": 113,
+            "validation_error": null
+        }
+    }
+}

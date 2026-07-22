@@ -3,14 +3,14 @@
     "asin": "B07RG7PX8Y",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:51:07+00:00",
+    "generated_at": "2026-07-21T20:02:59+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -47,20 +47,57 @@
             "asin": "B07RG7PX8Y",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Folding Knife Clip Point Blade Eagle Design",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor Collectible Folding Knife Eagle Design",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Gold",
+                "name": "Collectible Folding Knife Eagle Design"
+            }
         },
-        "title_differentiation": {
-            "value": "3\" Blade, Folds to 4.75\", 440 Stainless Steel, Includes Display Case",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 8in Gold Folding Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 34,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "8in",
+                "color": "Gold",
+                "name": "Folding Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Clip Point Blade, 3 Inch, Folds To 475 Inch, 440 Stainless Steel, Includes Display Case",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 87,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Clip Point Blade, 440 Stainless Steel, Eagle Artwork, Faux Wood Display Case, Ergonomic Non-Slip Handle",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

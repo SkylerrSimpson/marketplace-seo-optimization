@@ -1,0 +1,60 @@
+{
+    "sku": "IGE-ASRO-CERAMIC-FIRESTARTER",
+    "asin": "B07FTCC9XG",
+    "product_type": "OUTDOOR_RECREATION_PRODUCT",
+    "account": "IGE",
+    "generated_at": "2026-07-21T17:20:41+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: IGE-ASRO-CERAMIC-FIRESTARTER\nProduct Type: OUTDOOR_RECREATION_PRODUCT\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Ceramic Micro Striker Create Sparks Emergency Fire Starter\nDescription: Create a fire in a pinch with the ASR Outdoor Ceramic Ferro Rod Micro Striker. This tiny fire starter survival tool is easy to carry and possibly the simplest, wearable edc gear that has a useful intended purpose while being completely out of the way when fashioned into a zipper pull or fire starter necklace using 550 paracord. Easily start a camp fire with one good scratch from this ceramic fire striker by creating sparks against a ferro rod or magnesium. Unlike traditional fire steel that can corrode with oxidation or rust if it gets wet and not cared for. This lightweight emergency fire starter is made from extremely hard zirconia ceramic material that will continuously create sparks without absorbing heat; it will not dull, wear out or rust. It will produce a shower of super-hot sparks capable of igniting almost any tinder in most all conditions, wet, damp or dry. Weighing next to nothing and taking up very little room in your hiking backpack proves the ASR Outdoor fire striker is a must have camping survival tool for your wilderness survival kit creating endless sparks from ferrocerium or for shaving and scraping magnesium. Effective fire starting must start with a spark and this is a top priority while prepping for emergency survival.\nSearch Terms: fire starter fire starting device survival tools lighters bug out bag micro striker scraper accessory\nFeatures:\n- EMERGENCY FIRE STARTER - Designed to never fail you when you must build a fire to survival, this ferro rod and magnesium scraper can be used thousands of times\n- LIGHTWEIGHT SURVIVAL EDC - Built from Zirconia Ceramic this emergency fire starter striker is super hard (like diamond); will never dull, rust or wear out\n- CAMPING GEAR ACCESSORY - Fashion on 550 paracord as a zipper pull, fire starter necklace, or key ring for easy access\n- EMERGENCY SURVIVAL KIT - Pair together with a ferro rod and magnesium to create a lightweight EDC camping survival kit\n- Will not absorb heat created from sparks; continuously scrape out hot sparks until you get your fire started\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Ceramic Micro Striker Fire Starter",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "Micro",
+                "color": "",
+                "name": "Ceramic Striker Fire Starter"
+            },
+            "char_count": 46,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Ceramic Micro Striker Fire Starter",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Ceramic Micro Striker Fire Starter"
+            },
+            "char_count": 46,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Zirconia Ceramic, Never Dulls Or Rusts, Emergency Survival EDC, Lightweight Camping Gear, Ferro Rod Compatible",
+            "char_count": 110,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Zirconia Ceramic, Never Rusts Or Dulls, Super-Hot Sparks, Works With Ferro Rod And Magnesium, Lightweight EDC",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

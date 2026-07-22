@@ -1,0 +1,60 @@
+{
+    "sku": "SON-POCKETKNIFE-BLK-1",
+    "asin": "B0CYFY112B",
+    "product_type": "KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-POCKETKNIFE-BLK-1\nProduct Type: KNIFE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 7 Inch Folding Camping Pocket Knife with 440 Drop Point Blade, Black\nDescription: Minimalist and austere, this black folding pocket knife from ASR Outdoor is a great EDC knife to add to your hiking, backpacking, fishing, hunting, backcountry or camping gear. Specifications are listed below:\n<br/><br/>\nWith a tough aluminum body and 440 stainless steel blade, this folding pocket knife is compact and lightweight, and also features a back locking mechanism to keep the blade in place. Measuring just 4 inches in length when closed, and weighing in at just 0.2lbs, this folding pocket knife will be easy to pack on your person, via landyard hole or belt clip, or keep with your outdoor gear, ready for your next adventure.\nSearch Terms: pocket knife for men; small mini edc gear knife; backpack hunting knife; camping folding knife; utility tanto knife\nFeatures:\n- COMPACT POCKET KNIFE: This minimalist folding pocket knife from ASR Outdoor features a stealthy all black finish, 3 inch drop point 440 stainless steel blade, pocket or belt clip and more, making it an easy addition to any and all of your outdoor or EDC gear\n- EDC GEAR: Serrated thumb grover, pocket clip or lanyard hole make this knife quick, efficient and easy to access when needed; easily attach to your person, backpack or other outdoor gear\n- STAINLESS STEEL BLADE: Drop point 440 stainless steel knife blade; comes sharpened out of the package ready to use; lightweight, compact and portable this knife also features a back locking mechanism to secure blade\n- ALL BLACK FOLDING POCKET KNIFE: Full aluminum body finished in a anodized deep black colorway, this folding pocket knife from ASR Outdoor boasts an austere aesthetic for those who prefer a more inconspicuous design\n- SPECIFICATIONS: Overall Length: 7 inches; Closed Length: 4 inches; Weight: 0.2lbs; Color: Black; Blade Length: 3 inches; Blade Type: Drop Point; Blade Material: 440 Stainless Steel\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 7 Inch Black Folding Pocket Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "7",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "Black",
+                "name": "Folding Pocket Knife"
+            },
+            "char_count": 45,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 7-in Black Folding Pocket Knife",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "7",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Folding Pocket Knife"
+            },
+            "char_count": 43,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "440 Stainless Steel Drop Point Blade, Back Locking, EDC, Compact 4 Inch Closed, Aluminum Body, Pocket Clip",
+            "char_count": 106,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "440 Stainless Steel Drop Point Blade, Back Locking Mechanism, Pocket Clip And Lanyard Hole, Lightweight EDC",
+            "char_count": 107,
+            "validation_error": null
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-FOLDING-SHOVEL-87950MS",
+    "asin": "B07KMLY823",
+    "product_type": "SHOVEL_SPADE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-FOLDING-SHOVEL-87950MS\nProduct Type: SHOVEL_SPADE\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Collapsible Folding Handheld Shovel (2 Styles) (16-inch Prospector Folding Shovel wtih Pick)\nDescription: ASR Outdoor is proud to present our 16\" 3 IN 1 Emergency Preparedness Mini Folding Shovel Pick and Saw. This is a must-have for every outdoor enthusiast and your emergency preparedness and survival kits. Our shovel folds down to a compact size with a carrying case so that you can easily take it, pack, and carry it in your gear or emergency preparedness and survival kit. It includes a shovel, pick, and saw.<br/><br/>Features of our 3-IN-1 Emergency Mini Folding Shovel with Carrying Case includes a Serrated edge to cut through packed dirt, roots, and tough foliage\nSearch Terms: compact folding shovel pick axe backpacking gold prospecting equipment hobbyist trench shovel bug out bag prepper emergency preparedness backpacking field gear\nFeatures:\n- LIGHTWEIGHT OUTDOOR GEAR: Extremely versatile 2pc collapsible hand shovel;  Serrated shovel blade with reverse end pick to help break up hard ground while backpacking, at a camping site, or gold claim; Can be used to saw small timber, cut line and much more\n- COMPACT AND PORTABLE: Can be folded down and stored in the nylon sheath, easy to carry;  when space is a concern this tool can always make room; Handle can be taken apart into 2 pieces while the head unlocks with a twist at the neck to lock ensuring a snug fit that will not loosen with extended use\n- BACKPACK PROSPECTING EQUIPMENT TOOL: A staple of any backpacking sluice box kit; this small hand shovel is excellent for classifying raw materials, feeding a mini sluice box or river sluice in the field; the hollow handle allows you room to store your gold collection vials safely when working in a stream\n- HIKING SURVIVAL TOOL: Outdoor camping and survival gear that you can rely on; made from alloy steel with black powder coating to help ensure weather resistant durability; Overall Weight: 0.96lbs\n- COMFORTABLE RUBBER GRIP: Built in non-slip soft rubber grip around the collapsible handle gives a highly desirable comfortable grip that helps ensure a firm grip that assists in moving raw material away from your digging or trenching area\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 16\" Folding Shovel with Pick and Saw",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "16",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Folding Shovel with Pick and Saw"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 16-in Folding Shovel with Pick",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "16",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Folding Shovel with Pick"
+            },
+            "char_count": 42,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "3-In-1 Tool, Compact Portable Design, Serrated Blade, Emergency Preparedness, Gold Prospecting, Lightweight Alloy Steel",
+            "char_count": 119,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "3-In-1 Shovel Pick And Saw, Serrated Blade, Compact Folding Design, Alloy Steel, Nylon Sheath, Rubber Grip",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

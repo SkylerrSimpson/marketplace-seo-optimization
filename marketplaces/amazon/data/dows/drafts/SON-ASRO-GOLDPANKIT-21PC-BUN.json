@@ -3,14 +3,14 @@
     "asin": "B0GY9VXCQ8",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:53:23+00:00",
+    "generated_at": "2026-07-21T20:03:41+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -28,31 +28,68 @@
             "raw_value": true
         },
         "material": {
-            "value": "ABS Plastic, Steel",
+            "value": "Plastic, Steel",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
         "size": {
-            "value": "21 Piece",
+            "value": "32 inch Sluice Box",
             "is_required": false,
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 21pc Gold Prospecting Kit with Sluice Box",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 21pc Gold Sluice Box and Prospecting Kit",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "21",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Gold Sluice Box and Prospecting Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "32\" Sluice Box, 3 Gold Pans, Shovel, Magnet Tool, 12 Vials",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 21pc Gold Sluice Box Prospecting Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 48,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "21",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Gold",
+                "name": "Sluice Box Prospecting Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "32 Inch Sluice Box, Three Gold Pans, Black Sand Magnet, Snifter Bottle, 10X Loupe, 12 Collection Vials",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 102,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "3 Gold Pans, Tri-Fold Shovel, High Visibility Scoop, Black Sand Magnet, Snifter Bottle, Loupe, 12 Vials",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

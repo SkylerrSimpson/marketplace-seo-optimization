@@ -3,14 +3,14 @@
     "asin": "B074JN6TDQ",
     "product_type": "PLANNER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:09:05+00:00",
+    "generated_at": "2026-07-21T19:47:50+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 11,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -190,20 +190,57 @@
             "asin": "B074JN6TDQ",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Productive Fitness Home Gym Exercises Poster 24x36",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Productive Fitness Home Gym Exercise Poster 24x36",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 49,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "24",
+                "pack_size_unit": "x36in",
+                "size": "",
+                "color": "",
+                "name": "Home Gym Exercise Poster"
+            }
         },
-        "title_differentiation": {
-            "value": "Laminated or Non-Laminated, Expert-Designed, Step-by-Step Instructions",
+        "item_name_ai_openai": {
+            "value": "Productive Fitness 24x36 Home Gym Exercises Poster",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 50,
+            "review_only": true,
+            "tokens": {
+                "brand": "Productive Fitness",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "24x36",
+                "color": "",
+                "name": "Home Gym Exercises Poster"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Expert-Designed, Step-by-Step Instructions, Proper Form Technique, Colorful Photos, Laminated Or Non-Laminated",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 110,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Fitness Expert Written, Step By Step Instructions, Proper Technique And Form, Color Photos, 24 X 36, Home Use",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

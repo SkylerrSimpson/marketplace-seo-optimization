@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-MOMUAQDGTMGX-2PC",
+    "asin": "B002YPLU12",
+    "product_type": "TOWEL",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-MOMUAQDGTMGX-2PC\nProduct Type: TOWEL\nBrand (from catalog): GEAR AID\nExisting Title: Microsuede Ultra Absorbent Quick Dry Gym Towel - Moss Green XL\nDescription: Use our Quick Dry Microfiber Towels to wick away water and perspiration fast. Perfect as a travel towel, it's ultra-compact and lightweight for easy packing in backpacks and workout bags. This high-performance towel absorbs five times its weight in water and dries faster than standard towels. Your next adventure just got a lot cooler with the GEAR AID Microfiber Travel Towel.\nSearch Terms: microfiber towel green fitness gym\nFeatures:\n- Dry off quickly while camping or swimming with this super absorbent microfiber towel; the attached snap loop lets you easily hang it for fast drying whether at camp or at home\n- Select either large or XL, this microfiber bath towel is compact and lightweight, packing up to the size of a water bottle and weighing under 12 oz; make it your go-to towel for hiking or backpacking\n- Stays fresh longer between washes; use it for sports, fitness, yoga, and exercise\n- Pack in the dual-pocket storage bag, along with your toiletries or sunscreen, and bring it camping, backpacking, hiking, or to the beach, pool, or gym\n- Packaging may vary\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "GEAR AID Microsuede Quick Dry Gym Towel - Moss Green XL",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "XL",
+                "color": "Moss Green",
+                "name": "Microsuede Quick Dry Gym Towel"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID XL Moss Green Gym Towel",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "XL",
+                "color": "Moss Green",
+                "name": "Gym Towel"
+            },
+            "char_count": 32,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Ultra Absorbent Microfiber, Fast Drying, Compact And Lightweight, Snap Loop, Storage Bag Included",
+            "char_count": 97,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Super Absorbent Microfiber, Quick Dry, Snap Loop, Compact Lightweight, Dual-Pocket Storage Bag, Camping And Gym",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

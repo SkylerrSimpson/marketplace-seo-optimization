@@ -3,14 +3,14 @@
     "asin": "B07KX7BY2Y",
     "product_type": "KEYCHAIN",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:30:41+00:00",
+    "generated_at": "2026-07-21T19:55:42+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 13,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -193,20 +193,58 @@
             "asin": "B07KX7BY2Y",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "GEAR AID Ni Glo Glow in Dark Keychain, Yellow, Waterproof",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "GEAR AID Ni Glo 2\" Yellow Glow in the Dark Keychain",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "in",
+                "size": "2\"",
+                "color": "Yellow",
+                "name": "Glow in the Dark Keychain"
+            }
         },
-        "title_differentiation": {
-            "value": "Rechargeable, glows 2 hrs bright then all night, waterproof to 50m, camping & diving",
+        "item_name_ai_openai": {
+            "value": "GEAR AID 2-Inch Yellow Glow Keychain",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 36,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "2",
+                "color": "Yellow",
+                "name": "Glow Keychain"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Waterproof To 50M, Glows 25Ft Away, Reusable Mini Glow Stick, Charges In 10 Minutes, IPX8 Rated, Camping And SCUBA Gear Marker",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 126,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (126 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "IPX8 Waterproof, Glows For Hours, Charges In 10 Minutes, Visible To 25 Ft, Tritium Free, Lightweight",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 100,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

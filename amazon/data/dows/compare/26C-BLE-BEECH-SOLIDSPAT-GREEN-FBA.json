@@ -1,0 +1,60 @@
+{
+    "sku": "26C-BLE-BEECH-SOLIDSPAT-GREEN-FBA",
+    "asin": "B0G8VLYBPP",
+    "product_type": "FOOD_SPATULA",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 26C-BLE-BEECH-SOLIDSPAT-GREEN-FBA\nProduct Type: FOOD_SPATULA\nBrand (from catalog): Beille\nExisting Title: Beille 1pc Solid Spatula Beech Wood and Silicone Kitchen Utensils Meal Prep Cooking Baking Supplies Home Essentials, Olive Green\nDescription: Bring functionality and modern style to your kitchen with this thoughtfully designed collection of silicone and beech wood kitchen utensils from Beille.<br/><br/>This collection includes combinations of kitchen essentials, solid cooking spoon, skimmer spoon, ladle with embossed mL measurements, solid spatula and slotted spatula, each built to handle everyday tasks with ease. The silicone is odor resistant, freezer safe and dishwasher safe, so cleanup is always quick and convenient.<br/><br/>Whether you're shopping the full five piece set, or selecting a smaller bundle tailored to your cooking, baking or meal prep needs, each kitchen utensil features a soft coral colored 100% food grade silicone head, paired with sturdy, smooth beech wood handles, crafted for everyday performance. Featuring with smooth edges to protect nonstick surfaces, each piece is heat resistant up to 400°F, making these kitchen utensils perfect for sautéing, flipping, stirring, serving and more!<br/><br/>Easy and comfortable to maneuver, these beech wood and silicone kitchen utensils measure approximately 13 inches in length, providing excellent control and a comfortable grip over whatever recipe you’re taking on next! The kitchen tools feature a matte silicone finish, while each utensil comes with a top handle hole design if hanging storage or display is preferred.<br/><br/>From weeknight dinners to weekend baking sessions, this collection brings timeless design and reliable function to any kitchen. The notable versatility, durability and high heat resistance of these silicone kitchen utensils make each piece a great investment for any kitchen, and an absolute home essentials item for any baker, professional chef or home cook.\nSearch Terms: Kitchen utensils set; silicone cooking utensils set; home kitchen essentials; home and kitchen; meal prep; baking supplies; wedding gifts; housewarming gifts new home; apartment decor; spatula; ladle; skimmer spoon; silicone spoon; slotted spatula\nFeatures:\n- SOLID SILICONE SPATULA: Great for stirring, scraping and sautéing, the solid spatula offers a sturdy, flexible edge that glides along cookware without scratching, perfect for all kinds of cooking tasks and easy on nonstick surfaces\n- 100% FOOD GRADE SILICONE: Made from 100% food grade silicone, these utensils are odor resistant and non reactive, ensuring safe cooking without leaching or altering the taste of food\n- HEAT RESISTANT TO 400°F: Silicone heads are heat resistant up to 400°F, making them perfect for stirring, sautéing, and serving hot foods without warping, melting, or damaging nonstick cookware\n- STURDY BEECH WOOD HANDLES: Natural wood handles offer a comfortable and ergonomic grip with a durable, classic look that complements any kitchen aesthetic\n- DISHWASHER SAFE: Each silicone kitchen utensil is dishwasher safe for quick, effortless cleanup; no need to hand wash or worry about lingering food odors\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille Solid Spatula Beech Wood Silicone 13in Green",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "1",
+                "pack_size_unit": "pc",
+                "size": "13in",
+                "color": "Green",
+                "name": "Solid Spatula Beech Wood Silicone"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 1-pc 13 in Olive Green Solid Spatula",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "1",
+                "pack_size_unit": "pc",
+                "size": "13 in",
+                "color": "Olive Green",
+                "name": "Solid Spatula"
+            },
+            "char_count": 43,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Food Grade Silicone, Heat Resistant To 400F, Dishwasher Safe, Nonstick Safe, Ergonomic Beech Wood Handle",
+            "char_count": 104,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Food Grade Silicone, Heat Resistant To 400 F, Odor Resistant, Dishwasher Safe, Nonstick Safe, Beech Wood Handle",
+            "char_count": 111,
+            "validation_error": null
+        }
+    }
+}

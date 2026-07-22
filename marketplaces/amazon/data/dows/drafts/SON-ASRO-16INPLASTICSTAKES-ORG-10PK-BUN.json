@@ -3,14 +3,14 @@
     "asin": "B0D2S14YF4",
     "product_type": "ANCHOR_STAKE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:47:09+00:00",
+    "generated_at": "2026-07-21T20:12:11+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -27,20 +27,58 @@
             "asin": "B0D2S14YF4",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 16in Heavy Duty ABS Plastic Tent Stakes 10pk Orange",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 10-pk 16in Orange Heavy Duty Tent Stakes",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 52,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "pk",
+                "size": "16in",
+                "color": "Orange",
+                "name": "Heavy Duty Tent Stakes"
+            }
         },
-        "title_differentiation": {
-            "value": "Lightweight unibody construction, multipurpose ground anchors for camping and landscaping",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 10-pk 16 in Orange ABS Plastic Tent Stakes",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 54,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "10",
+                "pack_size_unit": "pk",
+                "size": "16 in",
+                "color": "Orange",
+                "name": "ABS Plastic Tent Stakes"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Unibody ABS Plastic, Lightweight Design, Multipurpose Ground Anchor, Easy Installation, Suitable For Grass, Dirt, Gravel And Sand",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 129,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (129 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Unibody ABS Construction, Pointed Tips, String Eyelets, High Visibility Orange, Lightweight, Grass Dirt Sand Gravel",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 115,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

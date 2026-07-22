@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-3PCBOWLSET-MNT-AMZ-BUN",
+    "asin": "B0C3NHSTWV",
+    "product_type": "DISHWARE_BOWL",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-3PCBOWLSET-MNT-AMZ-BUN\nProduct Type: DISHWARE_BOWL\nBrand (from catalog): Beille\nExisting Title: Beille Porcelain Enamel Mixing Bowls Set Kitchen Baking Stackable 3pc - Mint\nDescription: The Beille mixing bowl set comes with 3 stackable bowls that fit neatly inside of each other, making them ideal for storage when not in use. The 3 sizes included are large (4qt), medium (3.3qt), and small (2.4qt). <br/><br/>These bowls are made of high-luster porcelain enamel interior and exterior that is designed for easy cleaning, making them great for baking and preparing sticky batter, dough, and more. <br/><br/>Each bowl comes with a matching snap-tight lid that fits snugly, so you can also use the bowls to store unused dough or other foods in your refrigerator to extend the shelf life of your food prep. <br/><br/>These bowls are designed to not only mix but to store, so you can count on them to keep your food safe in either the refrigerator or the freezer. Please note: we advised that you hand-wash these only to maintain the enamel and the seal on the airtight lids. <br/><br/>The Beille stackable mixing bowls come in a trendy, pastel mint color, making them a great housewarming gift, wedding gift or baking gift for your favorite baking enthusiast.\nSearch Terms: mixing bowls sets large porcelain enamel with lids baking supplies pans set cookies kids baking kitchen organization decor gadgets cookware sets utensils essentials home and kitchen organizer storage containers cooking essentials pots pans\nFeatures:\n- STACKING MIXING BOWLS SET - The Beille mixing bowl set comes with 3 stackable bowls that fit neatly inside of each other, making them ideal for storage when not in use. The 3 sizes included are large (4qt), medium (3.3qt), and small (2.4qt).\n- ENAMEL INTERIOR AND EXTERIOR - These bowls are made of high-luster porcelain enamel interior and exterior that is designed for easy cleaning, making them great for baking and preparing sticky batter, dough, and more.\n- AIRTIGHT LIDS INCLUDED - Each bowl comes with a matching snap-tight lid that fits snugly, so you can also use the bowls to store unused dough or other foods in your refrigerator to extend the shelf life of your food prep.\n- REFRIGERATOR AND FREEZER SAFE - These bowls are designed to not only mix but to store, so you can count on them to keep your food safe in either the refrigerator or the freezer. Please note: we advised that you hand-wash these only to maintain the enamel and the seal on the airtight lids.\n- SPECIFICATIONS - Pieces included: 3 bowls, 3 lids; Material: Porcelain enamel and plastic; Color: mint; Sizes: 4qt, 3.3qt, 2.4qt; Washing recommendation: hand wash only: Design: stackable\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 3-Pc Mint Porcelain Enamel Mixing Bowls Set",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "3",
+                "pack_size_unit": "Pc",
+                "size": "",
+                "color": "Mint",
+                "name": "Porcelain Enamel Mixing Bowls Set"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 3-Pc Mint Mixing Bowls Set",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Mint",
+                "name": "Mixing Bowls Set"
+            },
+            "char_count": 33,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Stackable Design, Airtight Lids Included, Refrigerator And Freezer Safe, High-Luster Enamel, Easy Cleaning",
+            "char_count": 106,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Stackable Nesting Bowls, Porcelain Enamel, Snap-Tight Lids, Refrigerator And Freezer Safe, Hand Wash Only",
+            "char_count": 105,
+            "validation_error": null
+        }
+    }
+}

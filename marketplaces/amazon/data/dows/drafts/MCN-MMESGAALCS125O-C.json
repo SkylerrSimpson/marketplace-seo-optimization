@@ -3,14 +3,14 @@
     "asin": "B002AQWOTW",
     "product_type": "OUTDOOR_RECREATION_PRODUCT",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:19:00+00:00",
+    "generated_at": "2026-07-21T20:08:45+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 3,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -64,24 +64,63 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "Sea Gold Anti Fog Gel",
+            "value": "Sea Gold",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "mEssentials Sea Gold Anti-Fog Gel for Dive Masks 1.25oz",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "McNett Sea Gold Anti Fog Gel 1.25 oz",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 36,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "McNett",
+                "pack_size": "1.25",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "",
+                "name": "Sea Gold Anti Fog Gel"
+            }
         },
-        "title_differentiation": {
-            "value": "Long-lasting formula, safe for glass & plastic lenses, works all water temps",
+        "item_name_ai_openai": {
+            "value": "McNett 1.25-oz Sea Gold Anti Fog Gel",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 36,
+            "review_only": true,
+            "tokens": {
+                "brand": "McNett",
+                "pack_size": "1.25",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "",
+                "name": "Sea Gold Anti Fog Gel"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Highly Concentrated, Long-Lasting Formula, Safe For Glass And Plastic, Works All Water Temperatures",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 99,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Highly Concentrated Anti Fog Gel, Long Lasting Fog Free Protection, Safe For Glass And Plastic, Works In All Water Temperatures",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 127,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (127 chars)"
         },
         "california_proposition_65": {
             "value": [

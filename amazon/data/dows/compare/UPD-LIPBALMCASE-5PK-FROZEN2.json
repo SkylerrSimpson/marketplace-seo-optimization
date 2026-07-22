@@ -1,0 +1,60 @@
+{
+    "sku": "UPD-LIPBALMCASE-5PK-FROZEN2",
+    "asin": "B08L75DVBF",
+    "product_type": "LIP_BALM",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: UPD-LIPBALMCASE-5PK-FROZEN2\nProduct Type: LIP_BALM\nBrand (from catalog): Townley Girl\nExisting Title: Frozen 5 Pack Flavored Lip Balm Set with Decorative Portable Glitter Filled Carrying Case\nDescription: Begin your day by dressing just like your favorite Disney Queen, Elsa. This officially licensed Frozen lip balm pack comes with 5 fun-packed flavors: Berry, Cotton Candy, Strawberry, Watermelon, and Blueberry; as well as a glitter filled plastic carrying case decorated with your favorite Frozen artwork. This is a perfect gift for any Frozen fan. Recommended ages 3+.\nSearch Terms: lip balm colorful flavored scented portable carrying winter girls play makeup metal tin art pretty girly cute elsa anna olaf lipstick gel lips foundation\nFeatures:\n- FIVE FUN FLAVORS - Lip balms come in Berry, Cotton Candy, Strawberry, Watermelon, and Blueberry flavors\n- GLITTER CARRYING CASE - Includes a colroful glitter filled plastic carrying case decorated in Frozen artwork so you can always keep your lip balms with you no matter where you go\n- OFFICIALLY LICENSED - Dress up just like your favorite Disney Queen with these officially licensed Disney lipbalms featuring your favorite characters Elsa, Anna, and Olaf\n- HYDRATE AND PROTECT - Keep your lips hydrated and protected with Lip Balm\n- AGES 3 AND UP - Recommended ages 3+\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Townley Girl Frozen 5-Pack Flavored Lip Balm with Glitter Case",
+            "tokens": {
+                "brand": "Townley Girl",
+                "pack_size": "5",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "",
+                "name": "Flavored Lip Balm with Glitter Case"
+            },
+            "char_count": 62,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Townley Girl 5-pk Frozen Lip Balm Set",
+            "tokens": {
+                "brand": "Townley Girl",
+                "pack_size": "5",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Frozen",
+                "name": "Lip Balm Set"
+            },
+            "char_count": 37,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Five Fun Flavors, Officially Licensed Disney Frozen, Glitter Filled Carrying Case, Hydrating And Protective, Ages 3 And Up",
+            "char_count": 122,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Five Flavors Berry Cotton Candy Strawberry Watermelon Blueberry, Glitter Carrying Case, Officially Licensed, Ages 3 Plus",
+            "char_count": 120,
+            "validation_error": null
+        }
+    }
+}

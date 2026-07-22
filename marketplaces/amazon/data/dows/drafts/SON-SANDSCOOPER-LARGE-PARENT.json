@@ -3,14 +3,14 @@
     "asin": "B0873VJ7YJ",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:07:48+00:00",
+    "generated_at": "2026-07-21T20:06:53+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 0,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -21,20 +21,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "ASR Outdoor 8.5\" Heavy Duty Sand Scooper for Metal Detecting",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 60,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8.5",
+                "pack_size_unit": "in",
+                "size": "Large",
+                "color": "",
+                "name": "Sand Scooper"
+            }
         },
-        "title_differentiation": {
-            "value": "Plastic Construction, 3-Quart Capacity, Metal Detector Safe",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 8.5-in Heavy Duty Large Plastic Sand Scooper",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 56,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8.5",
+                "pack_size_unit": "in",
+                "size": "Heavy Duty Large",
+                "color": "",
+                "name": "Sand Scooper"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "3 Quart Capacity, 78 Holes, ABS Plastic, Metal Detector Accessory, Beach Combing, Gold Panning, Treasure Hunting",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 112,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Heavy Duty ABS Plastic, 3 Quart Capacity, 78 Drain Holes, 05\" Openings, Lanyard Hole, No False Readings",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 103,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

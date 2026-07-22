@@ -3,14 +3,14 @@
     "asin": "B00THKAD4W",
     "product_type": "LIP_BALM",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:18:54+00:00",
+    "generated_at": "2026-07-21T19:51:21+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 25,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -352,19 +352,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Vaseline Lip Therapy Cocoa Butter Lip Balm, 3-Pack",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Vaseline Lip Therapy Cocoa Butter .25 oz Pack of 3",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Vaseline",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": ".25 oz",
+                "color": "Cocoa Butter",
+                "name": "Lip Therapy"
+            }
         },
-        "title_differentiation": {
-            "value": "Moisturizing cocoa butter formula, .25 oz per jar, locks in moisture",
+        "item_name_ai_openai": {
+            "value": "Vaseline 3-pk .25 oz Cocoa Butter Lip Therapy",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 45,
+            "review_only": true,
+            "tokens": {
+                "brand": "Vaseline",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": ".25 oz",
+                "color": "Cocoa Butter",
+                "name": "Lip Therapy"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Locks In Moisture, Prevents Chapped Lips, Non-Sticky Formula, Long-Lasting Moisturization, Natural Glossy Shine",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 111,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Locks In Moisture, Non-Sticky Non-Greasy Formula, Glossy Shine, Helps Relieve Dry Cracked Lips, Pure Vaseline Jelly",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 115,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

@@ -3,14 +3,14 @@
     "asin": "B0FLS7RSCZ",
     "product_type": "TOWEL",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:02:14+00:00",
+    "generated_at": "2026-07-21T20:05:43+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 4,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 3
     },
@@ -70,20 +70,57 @@
             "asin": "B0FLS7RSCZ",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille 5pc 100% Cotton Oversized Dish Towels 28x22 Blue",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 5pc 28x22 Oversized Cotton Dish Towels Blue",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "5",
+                "pack_size_unit": "pc",
+                "size": "28x22",
+                "color": "Blue",
+                "name": "Oversized Cotton Dish Towels"
+            }
         },
-        "title_differentiation": {
-            "value": "5-Piece Set, Oversized, Ultra-Absorbent, Machine Washable",
+        "item_name_ai_openai": {
+            "value": "Beille 5-pk 28x22 in Blue Dish Towel Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 40,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "5",
+                "pack_size_unit": "pk",
+                "size": "28x22 in",
+                "color": "Blue",
+                "name": "Dish Towel Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "100 Cotton, Absorbent, Machine Washable, Linen-Like Texture, Hanging Loop, Kitchen Decor",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 88,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "5 Piece Set, 100 Percent Cotton, Oversized 28 X 22 Inch, Absorbent, Hanging Loop, Machine Washable",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 98,
+            "review_only": true
         },
         "age_range_description": {
             "value": [

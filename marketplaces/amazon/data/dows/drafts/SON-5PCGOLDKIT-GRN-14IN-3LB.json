@@ -3,14 +3,14 @@
     "asin": "B0FCQHMTQG",
     "product_type": "OUTDOOR_LIVING",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:20:34+00:00",
+    "generated_at": "2026-07-21T20:08:51+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 1,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -39,20 +39,57 @@
             "asin": "B0FCQHMTQG",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 14\" Gold Panning Kit, 3LB Paydirt & Tools, Green",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 3LB 14in Green Gold Panning Kit",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 43,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "LB",
+                "size": "14in",
+                "color": "Green",
+                "name": "Gold Panning Kit"
+            }
         },
-        "title_differentiation": {
-            "value": "5-Piece Beginner Set with Dual Riffle Pan, Snifter Bottle & Recovery Tools",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 3-LB 14in Green Gold Panning Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 44,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "lb",
+                "size": "14in",
+                "color": "Green",
+                "name": "Gold Panning Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Dual Riffle Pan, 3LB Paydirt, Snifter Bottle, Gold Recovery Tools, Beginner Prospecting Equipment",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 97,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "3 Lb Gold Paydirt With Fine And Coarse Flakes, 14 Inch Dual Riffle Pan, Snifter Bottle, Vials, Loupe, Tweezers",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 110,
+            "review_only": true
         },
         "pesticide_marking": {
             "value": [

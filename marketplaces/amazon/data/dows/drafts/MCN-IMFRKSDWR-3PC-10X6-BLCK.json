@@ -3,14 +3,14 @@
     "asin": "B000GT471S",
     "product_type": "ADHESIVE_TAPES",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:12:49+00:00",
+    "generated_at": "2026-07-21T19:49:14+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 7,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -112,20 +112,58 @@
             "asin": "B000GT471S",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "GEAR AID Tenacious Tape Iron-On Neoprene Patch 10x6 Black",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "GEAR AID Tenacious Tape Neoprene Patch 10x6 Black",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 49,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "10x6",
+                "pack_size_unit": "in",
+                "size": "10x6",
+                "color": "Black",
+                "name": "Tenacious Tape Neoprene Patch"
+            }
         },
-        "title_differentiation": {
-            "value": "Heat-Activated Wetsuit Repair, Permanent Fix for Tears & Seams",
+        "item_name_ai_openai": {
+            "value": "GEAR AID 10\" x 6\" Black Neoprene Patch Kit",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 42,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "10\" x 6\"",
+                "color": "Black",
+                "name": "Neoprene Patch Kit"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Iron-On Fabric Patch, Permanent Wetsuit And Wader Repair, Heat Activated, Flexible Black Rubber, Reinforces Seams And High-Wear Areas",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 133,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (133 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Heat Activated Iron-On Repair, Fixes Wetsuits Gloves Waders, Reinforces Seams And High Wear Areas",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 97,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-WASH-IN-10-OZ-AMZ",
+    "asin": "B00XCHNCE4",
+    "product_type": "CLEANING_AGENT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-WASH-IN-10-OZ-AMZ\nProduct Type: CLEANING_AGENT\nBrand (from catalog): GEAR AID\nExisting Title: Gear Aid Wash-in Water Repellent, Concentrated Formula for Outerwear, 10 Ounce\nDescription: Restore or add durable water repellency (DWR) to several outdoor garments at once with Revivex Wash-In Water Repellent. Treat ski and rain gear with this concentrated water repellent all season long. As a fluorocarbon-free formula it's effective to use on all high-performance gear including GORE-TEX jackets and pants. Just add one ounce per garment to your sink or washing machine and do not rinse garments after treatment. Tumble dry for maximum effectiveness. Outerwear will shed water without impacting breathability. With Revivex Wash-In Water Repellent it's easy to stay warm and dry.\nSearch Terms: gear repair aid waterproof water repellent cleaner\nFeatures:\n- Restore DWR to multiple garments simultaneously to keep ski and rain gear repelling water and snow all season long with this concentrated formula\n- Shed water like new with a fluorocarbon-free wash for technical gear including soft shells and fleece; 10 fl oz pouch treats 10 jackets\n- Protect outerwear and gloves with no insulation or lining with this wash-in formula; air dry or heat set in the dryer\n- Add water repellency without inhibiting performance of waterproof-breathable garments including GORE-TEX® jackets and pants\n- Packaging may vary\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Gear Aid Revivex Wash-In Water Repellent, 10 oz",
+            "tokens": {
+                "brand": "Gear Aid",
+                "pack_size": "10",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "",
+                "name": "Revivex Wash-In Water Repellent"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Gear Aid 10 Oz Wash-In Water Repellent",
+            "tokens": {
+                "brand": "Gear Aid",
+                "pack_size": "10",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "",
+                "name": "Wash-In Water Repellent"
+            },
+            "char_count": 38,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Fluorocarbon-Free, Restores DWR, Treats 10 Jackets, GORE-TEX Compatible, Concentrated Formula",
+            "char_count": 93,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Restores DWR, Fluorocarbon-Free Formula, Treats 10 Jackets, Safe For GORE-TEX, Heat Set In Dryer",
+            "char_count": 96,
+            "validation_error": null
+        }
+    }
+}

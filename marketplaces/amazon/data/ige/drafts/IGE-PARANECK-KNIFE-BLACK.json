@@ -3,14 +3,14 @@
     "asin": "B074KLWDCJ",
     "product_type": "KNIFE",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:39:14+00:00",
+    "generated_at": "2026-07-21T19:27:42+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 18,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -280,7 +280,7 @@
             "raw_value": true
         },
         "country_of_origin": {
-            "value": "CN",
+            "value": "US",
             "is_required": true,
             "source": "ai",
             "model": "claude-haiku-4-5"
@@ -289,22 +289,59 @@
             "value": "Stainless Steel",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "title_differentiation": {
-            "value": "Stainless steel fixed blade, quick-release impact-resistant sheath, unravels for emergencies",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical 6in Black Neck Chain Knife Paracord",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8",
-            "validation_error": "requires item_name <= 75 chars"
-        },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical 6\" Neck Knife Paracord Wrapped Stainless Steel Black",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "6",
+                "pack_size_unit": "in",
+                "size": "6in",
+                "color": "Black",
+                "name": "Neck Chain Knife Paracord"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "ASR Tactical 6 in Black Neck Chain Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 40,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "6 in",
+                "color": "Black",
+                "name": "Neck Chain Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Stainless Steel Fixed Blade, Survival Paracord Wrapped Handle, Quick Release Sheath, Covert Protection, Razor Sharp Edge",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 120,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Stainless Steel Fixed Blade, Paracord Wrapped Handle, Quick Release Sheath, 12\" Neck Chain",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 90,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

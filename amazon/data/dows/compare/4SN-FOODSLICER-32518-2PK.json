@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-FOODSLICER-32518-2PK",
+    "asin": "B09N5YW346",
+    "product_type": "FOOD_SLICER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-FOODSLICER-32518-2PK\nProduct Type: FOOD_SLICER\nBrand (from catalog): Beille\nExisting Title: Beille 2pk Quick Banana Fruit Slicer Chopper Stainless Steel Blades\nDescription: This easy-to-use Beille Quick Handheld Fruit and Vegetable Slicer slices not only your eggs, bananas, and strawberries but can also manage other hard-to-cut food items such as mushrooms, soft cheeses, kiwis, tomatoes and more. To use, just hold over a bowl or plate and squeeze the handle for perfect uniform slices. It features durable stainless steel that won't rust and an ergonomic handle designed with both comfort and safety in mind. <br/><br/>The manual food slicer makes food preparation faster and helps food ingredients cook more evenly, while also making your meals more visually appealing. Parents and guardians love the Beille Quick Food Slicer Chopper that helps whip up a quick snack for babies, toddlers and school-age children alike. Maybe you even have a young chef just starting out in the kitchen; This food prep slicer will allow little ones to work independently to make a snack or meal but with the safely enclosed stainless steel blades, you can rest assured little hands and fingers are safe from painful cuts and accidents. <br/><br/>The high-quality handheld slicer is a quick way to add healthy fruits to breakfast cereal, slice vegetables for a salad, or pack some protein with sliced hard-boiled eggs. The Beille fruit and vegetable slicer makes it easy to add nutritious foods to any meal, promoting a healthy diet and lifestyle. Clean-up is easy too - it's dishwasher safe, so just add it to your dishwasher's top rack when you're done. This slicer is a great gift idea for new homeowners, college students, newlyweds, parents and more.\nSearch Terms: food chopper vegetable fruit slicer banana veggie stainless steel kitchen tools dishwasher safe prep baby toddler meal grade ware snack time\nFeatures:\n- ESSENTIAL KITCHEN TOOL - Featuring durable stainless steel blades that won't rust, the Beille Fruit and Vegetable Slicer provides a quick solution to tedious food preparation tasks. Easily and rapidly slice your hard boiled eggs, bananas, mushrooms, strawberries, kiwis and so much more! Simply hold the handheld food slicer over any bowl or plate with the desired food nestled next to the stainless steel blades and squeeze the handle for uniform slices.\n- PROMOTES A HEALTHY DIET - Our high quality handheld slicer is the perfect tool for adding healthy fruits to breakfast cereal, slicing vegetables for a salad or packing in protein with sliced hard-boiled eggs. The Beille fruit and vegetable slicer makes it easy to add nutritious foods to any meal.\n- GREAT FOR BEGINNER CHEFS - Help your little one grow confidence in the kitchen (with supervision) with this easy-to-use food slicer. With the dull but effective stainless steel blades, little hands and fingers will be safe from painful cuts and accidents. Your child will be preparing their own snacks in no time!\n- EASY TO CLEAN: The Beille Quick Food Slicer is dishwasher safe so clean up is a breeze. Simply put it on the top-rack of your dishwasher after you're done prepping meals and snacks!\n- SPECIFICATIONS: Material: Food grade PP & stainless steel blades; Item Size: 7 Inch; Color: Yellow Handle and Silver Blades\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 2-pk Quick Banana Fruit Slicer Stainless Steel",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Quick Banana Fruit Slicer Stainless Steel"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 2-pk 7 in Yellow Banana Slicer",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "7 in",
+                "color": "Yellow",
+                "name": "Banana Slicer"
+            },
+            "char_count": 37,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Dishwasher Safe, Ergonomic Handle, Safe For Kids, Slices Fruits And Vegetables, Easy Food Prep",
+            "char_count": 94,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Stainless Steel Blades, Dishwasher Safe, Uniform Slices, Ergonomic Handle, Great For Eggs, Fruit, Veggies",
+            "char_count": 105,
+            "validation_error": null
+        }
+    }
+}

@@ -3,14 +3,14 @@
     "asin": "B0FKQMD848",
     "product_type": "FLATWARE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:20:32+00:00",
+    "generated_at": "2026-07-21T20:08:51+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 3,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -57,20 +57,57 @@
             "asin": "B0FKQMD848",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 3-in-1 Camping Utensil Set with Can Opener",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 2-Pack Camping Utensil Set with Can Opener",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "",
+                "name": "Camping Utensil Set with Can Opener"
+            }
         },
-        "title_differentiation": {
-            "value": "Stainless Steel, Clips Together, Includes Pouch, 2 Pack",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 2-Pk Silver 3 In 1 Camping Utensil Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 50,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Silver",
+                "name": "3 In 1 Camping Utensil Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Stainless Steel, Knife Fork Spoon, Built-in Can Opener, Lightweight Compact, Includes Carrying Pouch",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 100,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Lightweight Compact Design, Stainless Steel, Built In Can Opener, Clips Together, Transparent Snap Pouch, Weatherproof",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 118,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

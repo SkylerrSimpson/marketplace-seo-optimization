@@ -3,14 +3,14 @@
     "asin": "B087M6NZ2T",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:34:54+00:00",
+    "generated_at": "2026-07-21T19:56:42+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -52,20 +52,57 @@
             "asin": "B087M6NZ2T",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 8\" Drop Point Pocket Knife Thumb Assist Matte Black",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 8\" Drop Point Pocket Knife Matte Black",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Matte Black",
+                "name": "Drop Point Pocket Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "Spring-Assisted, Stainless Steel, 3.25\" Blade, Compact EDC with Pocket Clip",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 8 in Matte Black Pocket Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 41,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "8",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Matte Black",
+                "name": "Pocket Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Thumb Assisted, Stainless Steel, 325\" Blade, Pocket Clip, Ergonomic Handle, Quick Deploy",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 88,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Drop Point Blade, Thumb Assisted, Stainless Steel, Pocket Clip, 325\" Blade, Ergonomic Handle",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 92,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

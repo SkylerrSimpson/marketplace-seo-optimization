@@ -3,14 +3,14 @@
     "asin": "B07HX3KHSQ",
     "product_type": "SPORTING_GOODS",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:49:06+00:00",
+    "generated_at": "2026-07-21T19:29:08+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 3,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -61,21 +61,59 @@
             "value": "Silver",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "title_differentiation": {
-            "value": "Durable stainless steel with back pin for double locking handcuffs; includes key ring and 25 keys",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical 25-Pack Universal Handcuff Key",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8"
-        },
-        "item_name_ai_suggested": {
-            "value": "ASR Tactical Universal Handcuff Keys 25-Pack Stainless Steel",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 43,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "25",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "",
+                "name": "Universal Handcuff Key"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "ASR Tactical 25-Pk Universal Handcuff Key",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 41,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "25",
+                "pack_size_unit": "Pk",
+                "size": "",
+                "color": "",
+                "name": "Universal Handcuff Key"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Standard Issue Law Enforcement, Stainless Steel, Universal Fit, Double Locking, Includes Key Ring",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 97,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "25-Pack, High Grade Stainless Steel, Back Pin For Double-Locking Handcuffs, Key Ring Included, Law Enforcement Issue",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 116,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

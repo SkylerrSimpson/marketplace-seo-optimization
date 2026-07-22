@@ -1,0 +1,60 @@
+{
+    "sku": "SON-ASRO-GOLDPANKIT-2PC-BUN",
+    "asin": "B0GWRRNBVW",
+    "product_type": "OUTDOOR_LIVING",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-ASRO-GOLDPANKIT-2PC-BUN\nProduct Type: OUTDOOR_LIVING\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 2pc Gold Prospector’s Bundle with Carbon Steel Digger Trowel and Sand Scoop\nDescription: Hit the riverbed or creek with confidence using this 2pc Gold Prospector Bundle, designed for beginners and seasoned gold hunters alike. This compact, powerful set combines precision digging with efficient sand sifting to make every prospecting adventure more productive.<br/><br/>The 13\" Gold Rush Prospector’s Digger Trowel is built for performance: heat-treated carbon steel with a double serrated edge cuts through soil, gravel, and roots with ease. The ergonomic grip with a 5\" handle ensures comfortable use for hours, and the included nylon sheath keeps your trowel protected and portable.<br/><br/>Paired with the 8.5\" Large Plastic Sand Scoop, this set lets you quickly collect and sift through river sand or paydirt. Featuring 78 holes per scoop for rapid drainage, a 3-quart capacity, and ultra-lightweight single-piece construction, it’s easy to handle even in tight spaces. Its durable plastic design and bright green color make it both practical and easy to spot outdoors.<br/><br/Compact, lightweight, and ready for adventure, this bundle is perfect for gold panning, rock hounding, beach prospecting, or outdoor exploration. Start discovering gold today with tools designed to last and built to perform.\nSearch Terms: gold panning prospecting sifting tools gold pans classifier screen gold panning kit beginner prospecting starter set sluice equipment mining hobby paydirt recovery river creek dredge classifier snuffer bottle collection vial field gear outdoors adventure treasure\nFeatures:\n- HEAVY DUTY 13” CARBON STEEL DIGGER - Heat-treated steel with double serrated edge for cutting through soil, roots, and gravel; Ergonomic 5\" handle and protective nylon sheath included.\n- LARGE 8.5” PLASTIC SAND SCOOP - Ultra-lightweight (8oz) and durable plastic construction with 78 holes for fast sifting and a 3-quart capacity.\n- ERGONOMIC AND PORTABLE DESIGN - Both tools are easy to carry and use, making them ideal for creek, river, or backyard gold prospecting adventures.\n- EFFICIENT SIFTING AND DIGGING - Perfect for separating sand, gravel, and paydirt, speeding up gold recovery and enhancing your outdoor experience.\n- IDEAL FOR BEGINNERS AND HOBBYISTS - A compact, practical kit for anyone interested in gold panning, rock hounding, or outdoor treasure hunting.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 2-Pc Gold Prospector Bundle Digger Trowel",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "Pc",
+                "size": "",
+                "color": "",
+                "name": "Gold Prospector Bundle Digger Trowel"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 2-Pk 13in Gold Prospector's Bundle",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "Pk",
+                "size": "13",
+                "color": "",
+                "name": "Gold Prospector's Bundle"
+            },
+            "char_count": 46,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Carbon Steel Digger With Sand Scoop, 13 Inch Trowel, Beginner Gold Panning Kit, Heat-Treated Double Serrated Edge",
+            "char_count": 113,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Heat-Treated Carbon Steel Digger, Double Serrated Edge, 78-Hole Sand Scoop, 3-Quart Capacity, Nylon Sheath",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

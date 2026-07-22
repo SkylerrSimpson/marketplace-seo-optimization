@@ -1,0 +1,60 @@
+{
+    "sku": "SON-SIFTCLASSKIT-14PC-BUN-PARENT",
+    "asin": "B0CV65MWGB",
+    "product_type": "OUTDOOR_LIVING",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-SIFTCLASSKIT-14PC-BUN-PARENT\nProduct Type: OUTDOOR_LIVING\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 14pc Beginner Gold Panning Kit with Bucket Classifier Screens, Gold Recovery Tools and Drawstring Backpack\nDescription: A portable and comprehensive set of gold prospecting equipment, suitable for all skill levels, that allows for classification, panning, extraction and storage of any found gold. This ASR Outdoor 14pc kit includes a deep dish 5 gallon bucket stackable classifier screen with handles, (3) dual riffle gold pans, (2) pipettes, (3) collection vials, (2) snifter bottles, magnifying tweezers, mini funnel and ASR Outdoor drawstring backpack. <br/><br/> The newest addition to ASR Outdoor classifier collection included in this kit, is the large, six inch deep plastic stackable sifting screen with built in handles, ideal for sifting out medium raw material. Importantly, this heavy duty plastic sifting screen is able to be stacked on top of a five gallon bucket, and is also compatible with all other sizes of ASR Outdoor stainless steel mesh classifiers. <br/><br/> This kit also includes (1) 10, 12 and 14 inch dual riffle gold pans, ideal for panning paydirt after classification. The gold pans are UV and rust resistant, buoyant in water and feature both shallow and deep side wall riffle zones; all gold pans come in a high contrast green colorway, making it easier to spot gold flakes or nuggets when gold panning. <br/><br/> Lastly, this gold panning kit includes gold prospecting tools and accessories for extraction like snifter bottles, magnifying tweezers, glass storage vials, pipettes and a clear mini funnel. All these gold prospecting tools easily fit in the included ASR Outdoor drawstring backpack, keeping everything together and organized. Good luck!\nSearch Terms: gold prospecting equipment sluice box accessories classifier screens with handles beach digging stackable sieve rock screen gold pan set\nFeatures:\n- 14PC GOLD PANNING KIT: Comprehensive gold panning kit includes deep stackable plastic sifter, (3) dual riffle gold pans, (2) pipettes, (3) collection vials, magnifying tweezers, mini funnel, (2) snifter bottles and ASR Outdoor drawstring backpack\n- DEEP DISH CLASSIFIER SCREEN: 6 inch depth and heavy duty side handles, this sifting sieve is ideal to use at the beginning of the classification process working with medium coarse materials; highly durable construction allows for large amounts of material processing; stackable on top of a 5 gallon bucket\n- GOLD PANS: Gold panning kit comes with (3) high contrast green plastic dual riffle gold pans in 10, 12 and 14 inch diameters, ideal for gold panning classified pay dirt\n- COLLECTION TOOLS: Kit includes glass vials for storing gold flakes, snifter bottles and mini funnel for easily sorting your findings; kit also includes pair of magnifying tweezers with 4x magnification\n- DURABLE CONSTRUCTION: All gold prospecting tools and accessories included are made of durable ABS plastic and metal; High quality materials are ideal for use in all types of weather; Rinse and air dry between uses\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 14pc Gold Panning Kit with Classifier Screen",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "14",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Gold Panning Kit with Classifier Screen"
+            },
+            "char_count": 56,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 14-Pc Beginner Gold Panning Kit",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "14",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Beginner Gold Panning Kit"
+            },
+            "char_count": 43,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Stackable Sifter, 3 Dual Riffle Pans, Collection Tools, Drawstring Backpack, Complete Prospecting Set",
+            "char_count": 101,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Deep Stackable 5 Gallon Bucket Classifier Screen, 3 Dual Riffle Gold Pans, Vials, Snifter Bottles, Backpack",
+            "char_count": 107,
+            "validation_error": null
+        }
+    }
+}

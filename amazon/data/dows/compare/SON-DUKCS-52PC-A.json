@@ -1,0 +1,60 @@
+{
+    "sku": "SON-DUKCS-52PC-A",
+    "asin": "B004V4OYC6",
+    "product_type": "UTILITY_KNIFE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-DUKCS-52PC-A\nProduct Type: UTILITY_KNIFE\nBrand (from catalog): Universal Tool\nExisting Title: 52pc Deluxe Utility Knife Complete Modeling Scrapbooking Set Hobby and Craft\nDescription: Hobby knives are great, but the biggest pain in the butt is not having that perfect blade for whatever it is you need it for. Well, never again- with this robust 52 piece set, you'll never need to go searching for more blades. <br/><br/>These knives are sharp, and are great for pruning models, slicing paper, or anything else you may need them for. Includes: 7 Knife handles 37 Unique blades 5 Prove blades 1 Sharpening stone 1 Glue 1 Carrying case.\nSearch Terms: utility knives utility knife blades folding razor blades edc retractable box cutter blades knives safety hobby knife set blades precision tools knives blades set clay modeling tools plastic fixed blade knife cutting tools mats set arts and crafts\nFeatures:\n- A BLADE FOR EVERY TASK: Precision Hobby Knife Set with an Assortment of Blade Types and Utility Handles for Detail Cutting, Slicing, Whittling and Scraping of all Craft, Hobby, and Industrial Design U\n- SET INCLUDES: 41 Blades; (7) Assorted Slim Metal Handles; (1) Large Grip PVC Handle; (1) Sharpening Stone\n- ORGANIZED STORAGE: Comes Organized In A Molded PVC Plastic Claim Shell Case for Easy Storage and Portability as well as Helping to Cut Down on Clean up Time\n- SPECIFICATIONS: 52 Total Pieces | Overall Case Dimensions: 10 x 1.5 x 7\" | Weight: 1.1 lbs | Color: Blue\n- The Ideal Set for All DIY Craft and Hobbyist Starter and Experts Alike\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 52pc Deluxe Utility Knife Set Blue",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "52",
+                "pack_size_unit": "pc",
+                "size": "Deluxe",
+                "color": "Blue",
+                "name": "Utility Knife Set"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 52-pc Hobby Knife Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "52",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "",
+                "name": "Hobby Knife Set"
+            },
+            "char_count": 36,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "41 Blades, 7 Handles, Sharpening Stone, Carrying Case, Precision Hobby Knife, Arts And Crafts",
+            "char_count": 93,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "7 Knife Handles, 37 Precision Blades, Sharpening Stone, Carrying Case, For Craft And Modeling Projects",
+            "char_count": 102,
+            "validation_error": null
+        }
+    }
+}

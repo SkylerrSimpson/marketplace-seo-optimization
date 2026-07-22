@@ -3,14 +3,14 @@
     "asin": "B01LZOVV6L",
     "product_type": "BADGE_HOLDER",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:44:22+00:00",
+    "generated_at": "2026-07-21T19:28:41+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 12,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -186,20 +186,57 @@
             "source": "ai",
             "model": "claude-haiku-4-5"
         },
-        "title_differentiation": {
-            "value": "Genuine leather, double-sided design, clear ID window, secure pin-back badge mount, detachable beaded neck chain",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Federal Black Leather Police ID Badge Holder",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8",
-            "validation_error": "requires item_name <= 75 chars"
-        },
-        "item_name_ai_suggested": {
-            "value": "ASR Federal Leather Police Badge ID Holder with Neck Chain Black",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 48,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Leather Police ID Badge Holder"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "ASR Federal 3-in-1 Black Leather Police ID Badge Holder",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 55,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Federal",
+                "pack_size": "3",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Leather Police ID Badge Holder"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Dual-Sided Design, Genuine Leather, Neck Chain And Belt Clip, Compact Tactical Gear",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 83,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Clear ID Window, Pin-Back Badge Mount, Detachable Neck Chain, Belt Clip, Genuine Leather, Compact Design",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 104,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -3,14 +3,14 @@
     "asin": "B00449BOBM",
     "product_type": "BLANKET",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:14:21+00:00",
+    "generated_at": "2026-07-21T19:49:45+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 9,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -143,24 +143,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "Emergency Mylar Thermal Blanket 4-Pack",
+            "value": "Space Blanket",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Emergency Mylar Thermal Blanket 4-Pack",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 4-Pack 84x52 Emergency Thermal Blanket",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "Pack",
+                "size": "84x52",
+                "color": "",
+                "name": "Emergency Thermal Blanket"
+            }
         },
-        "title_differentiation": {
-            "value": "84x52 inches, Heat Reflective, Waterproof, Reusable Survival Gear",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 4-pk Emergency Mylar Blanket",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 40,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Emergency Mylar Blanket"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Mylar Heat Reflector, Waterproof And Windproof, Reflects 90 Body Heat, Reusable Survival Gear, Compact Design",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 109,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "4 Pack, 84\" X 52\", Reflects Body Heat, Waterproof, Windproof, Reusable, Compact, Individually Packaged, Survival Gear",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 117,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

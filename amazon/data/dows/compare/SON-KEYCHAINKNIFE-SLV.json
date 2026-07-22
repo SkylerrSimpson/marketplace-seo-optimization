@@ -1,0 +1,60 @@
+{
+    "sku": "SON-KEYCHAINKNIFE-SLV",
+    "asin": "B07YCTVJ68",
+    "product_type": "MULTITOOL",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-KEYCHAINKNIFE-SLV\nProduct Type: MULTITOOL\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Multi-Function Key Chain Knife Tool\nDescription: Make sure you're prepared while on the go with the ASR Outdoor Multi-Function Key Chain Knife.<br/><br/>This handy tool comes with 3 different useful everyday functions - it can be used as a knife, a screwdriver or a can and bottle opener. From the closed position, rotate the knife piece 90 degrees to lock the screwdriver into place. From this position rotate the knife piece another 90 degrees and it will lock into place so you can keep the knife sturdy while in use. <br/><br/>In the opened or closed position, you can use this key chain as a bottle or can opener. The whole keychain is constructed of durable stainless steel that won't rust, so you can count on it rain or shine. It even comes with a convenient keychain hole so you can easily attach it to your keys, wallet, purse or backpack. The overall length of the keychain is just 3.25\" long, and it unfolds to just 4.75\" so it won't take up too much space or make your keys bulky. This is a must-have everyday carry tool - don't get caught in an emergency without one.\nSearch Terms: multi tool key chains under $5 compact screwdriver pocket knives function tools 3 in 1 keychains flathead screwdrivers bottle opener can EDC chain stainless steel blades emergency preparedness cord cutter on the go\nFeatures:\n- MULTI-USE TOOL - Can Be Used as Knife, Screwdriver or Can/Bottle Opener - Great Everyday Carry Tool\n- COMPACT DESIGN - Closed Length: 3.25\" | Open Length: 4.75\" | Small Size Wont Take Up Too Much Space | Easy to Carry\n- DURABLE CONSTRUCTION - Made of Sturdy Stainless Steel that Won't Rust | Use in an Emergency Rain or Shine\n- KEYCHAIN COMPATIBLE - Comes with Built In Keychain Hole to Easily Attach to Your Keys, Backpack, Purse or Belt\n- STURDY LOCKING FUNCTION - Rotate Once 90 Degrees to Open and Lock in Screwdriver Tool | Open Another 90 Degrees to Lock Knife into Place to Ensure Grip During Use\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Multi-Function Key Chain Knife Tool",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Multi-Function Key Chain Knife Tool"
+            },
+            "char_count": 47,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Multi-Function Key Chain Knife Tool",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Multi-Function Key Chain Knife Tool"
+            },
+            "char_count": 47,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "3-In-1 Knife, Screwdriver And Bottle Opener, Compact 325 Inches, Stainless Steel, EDC",
+            "char_count": 85,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "3 In 1 Knife Screwdriver And Bottle Opener, Stainless Steel, Compact EDC, Keychain Hole, Locking Blade",
+            "char_count": 102,
+            "validation_error": null
+        }
+    }
+}

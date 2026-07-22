@@ -1,0 +1,60 @@
+{
+    "sku": "LST-CDEPPS-7PC-STD-WHT",
+    "asin": "B01COB9E1I",
+    "product_type": "PRETEND_PLAY_TOY",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: LST-CDEPPS-7PC-STD-WHT\nProduct Type: PRETEND_PLAY_TOY\nBrand (from catalog): KidFun Products\nExisting Title: Kidplokio 7pc Pretend Play Doctor Kit for Kids with Stethoscope, Storage Bin, Girls Ages 3-8, Pink\nDescription: Booking is now open. Your little Miss or Mr. doctor in training now have a prescription for fun pretend play and learning important skills as a doctor or nurse. The imaginary play doctor set, in either pink or blue, lets young children treat and take care of their friends, dolls, toys or stuffed animals and more, now that they have all the right medical play tools and equipment.<br/><br/> The pink or blue doctors' or nurses' kit includes all the medical pretend play tools kids and young children will need, including a stethoscope, a needle, glasses, sample dish, handy timer and carrying suitcase little ones can use to pack all their supplies to go-- fixing pretend play scrapes and scratches has never been more fun. A great toy that parents can plan to take with them on family vacations or road trips, as the plastic medical suitcase conveniently locks shut and is easy to travel with.<br/><br/> The Kidplokio complete doctor set pet set enhances young children's understanding of compassion towards friends and family; the medical kit inspires the imagination, giving kids lots of opportunities for social interaction, narrative development and role-playing fun too. <br/><br/> AGE: 3+<br/><br/> WARNING: Choking Hazard (small parts)<br/><br/> AVAILABLE COLORS: Pink or Blue (while quantities last)\nSearch Terms: my first job play sets toy doctors set for toddle boys ages 5 7 learning toys dress up medical station nurse kit learning toys for 3 year olds 4 toddler 5 ages 2 4 Christmas Hanukkah gifts set old boys girls preschool little barb melissa animal vet\nFeatures:\n- PRETEND PLAY DOCTOR KIT: This imaginary play doctor toy set for kids will help foster positive developmental growth with hours of entertainment as your child treats and take care of their friends, dolls, toys or stuffed animals now that they have all the right medical play tools and equipment\n- KIDS TOY DOCTOR SET INCLUDES: (7) total doctor play toy pieces used just like in real life; Stethoscope, Syringe, Stop Watch, Microscope, Petri dish, Spectacles, Locking Medical Case\n- DOCTOR DRESS UP KIT: Encourages hand-eye coordination and critical thinking. The pretend play doctor toy play set for kids is a perfect gift for kids who will be entertained for hours playing with all the components of the play set\n- DEVELOPMENTAL DOCTOR PLAY SET: The pretend play toy doctor set for kids has all the medical tools your kids will need to start their career in medicine\n- SPECIFICATIONS: Dimensions: 13 x 15 x 4 inches; Color: Pink; Material: Plastic; Warning: Choking Hazard (small parts); Toy doctor set for girls ages 3-8\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "KidFun Products 7-Piece Pink Doctor Kit for Kids Ages 3-8",
+            "tokens": {
+                "brand": "KidFun Products",
+                "pack_size": "7",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "Pink",
+                "name": "Doctor Kit for Kids"
+            },
+            "char_count": 57,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "KidFun Products 7-pc Pink Pretend Play Doctor Kit",
+            "tokens": {
+                "brand": "KidFun Products",
+                "pack_size": "7",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Pink",
+                "name": "Pretend Play Doctor Kit"
+            },
+            "char_count": 49,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Stethoscope, Syringe, Microscope, Spectacles, Locking Medical Case, Pretend Play, Role-Playing",
+            "char_count": 94,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "7 Piece Medical Set, Stethoscope Syringe Stopwatch Microscope Petri Dish Glasses, Locking Carry Case, Ages 3-8",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}

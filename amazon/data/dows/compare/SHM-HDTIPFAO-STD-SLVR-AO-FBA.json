@@ -1,0 +1,60 @@
+{
+    "sku": "SHM-HDTIPFAO-STD-SLVR-AO-FBA",
+    "asin": "B005EMBEI6",
+    "product_type": "OUTDOOR_RECREATION_PRODUCT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SHM-HDTIPFAO-STD-SLVR-AO-FBA\nProduct Type: OUTDOOR_RECREATION_PRODUCT\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Solid Titanium Ice Pick, 9.25\"\nDescription: The TI-ASR Solid Titanium Ice Pick by ASR Outdoor is a useful EDC probing tool precision milled from a rod of solid 6AL4V titanium, giving it incredible strength and durability while making it ultra-lightweight at 1.68 ounces for easy portability and effortless use. Made to the highest quality standards and thanks to its material construction, this robust titanium ice pick tool will never rust and is weather-resistant, even when exposed repeatedly to a saltwater environment; it has no magnetic signature making it an excellent EDC probe.<br/><br/>Overall the Titanium Ice Pick is 9.25\" in length fitting comfortably in either hand and features a smooth scalloped textured handle designed to induce a firm and comfortable grip that tapers down to a very sharp point. <br/><br/>The ASR Outdoor EDC every day carry titanium ice pick tool is an essential outdoor and potentially life-saving tool to keep in your climbing or hiking backpack, bug out bag, or survival kit. Whether you're backpacking, trekking, hiking, skiing, snowboarding, or even camping or hunting, you never know when this tool might come in handy on any kind of outdoor expedition or any kind of unforeseen emergency scenario. <br/><br/>This EDC every day carry tactical tool may just save your life, so make sure to bring one with you on your cold outdoor expeditions. Includes lanyard hole. Overall length: 9.25\". Weight: 1.68 oz.\nSearch Terms: edc tactical gear titanim toothpick ti chopstick emergency edc probe bug out survival tool active prepper outdoor home bar ice breaker stainless steel martial arts\nFeatures:\n- Milled from a solid rod of Grade 5, 6AL4V titanium; It is extremely sharp, lightweight and will never rust, standing up to any type of elements you put it through\n- ULTRALIGHT AND NON-MAGNETIC: This EDC tactical tool is only 1.68 ounces and has an overall length of 9.25 inches; larger than your metal toothpicks made from titanium\n- ERGONOMICALLY CONTOURED GRIP: Fitting comfortably in either hand, the smooth scalloped textured handle is designed to induce a firm and comfortable grip that tapers down to a very sharp point\n- UTILITY AND PURPOSE: Constructed to last a lifetime this unique EDC tactical tool can be used for many purposes as a probe or spike as needed in any situation\n- SPECIFICATIONS: Weight: 1.68oz; Length: 9.25 inches; Material: Grade 5 6AL4V titanium; Includes lanyard hole\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 9.25\" Solid Titanium Ice Pick",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "9.25",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Solid Titanium Ice Pick"
+            },
+            "char_count": 41,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 9.25 in Titanium Ice Pick",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "9.25",
+                "color": "",
+                "name": "Ice Pick"
+            },
+            "char_count": 37,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Grade 5 Titanium, Ultra-Lightweight 168Oz, Non-Magnetic, Rust-Proof, Sharp Point, Ergonomic Grip, EDC Tool",
+            "char_count": 106,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Grade 5 6AL4V Titanium, Ultralight 168 Oz, Non Magnetic, Rust Resistant, Lanyard Hole, Ergonomic Grip",
+            "char_count": 101,
+            "validation_error": null
+        }
+    }
+}

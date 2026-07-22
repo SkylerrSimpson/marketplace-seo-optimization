@@ -1,0 +1,60 @@
+{
+    "sku": "SON-AOWRCDPO-5X5X5-ORNG",
+    "asin": "B01MSIOGQZ",
+    "product_type": "BACKPACK",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-AOWRCDPO-5X5X5-ORNG\nProduct Type: BACKPACK\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Water Resistant Collapsible Day Pack - Orange\nDescription: The ASR Outdoor Water Resistant Collapsible Bag is the super lightweight day pack that won't weigh down your on-the-go lifestyle. <br/><br/>This day pack is ultra-lightweight and is constructed out of water-resistant 190T polyester. Comes with zipper closures to secure your belongings up and can hold up to 10Ibs. The bag when in use measures 17\" x 11\" x 5.5\". Collapsing this bag into its inner pocket converts it into a compact size that measures 5\" x 5\", making this day pack an excellent addition to any travel pack or emergency kit. <br/><br/>The Water Resistant Collapsible Day Bag is great for travel, hiking, or just the daily commute.\nSearch Terms: compact travel hiking day-pack backpack rucksack bag zip-up folding bug-out bright light-weight rip-stop nylon durable breathable comfortable padded strap pocket water resistant packable camping outdoor trail foldable portable ultralight handy small\nFeatures:\n- Ultra Lightweight Day Pack\n- Holds up to 10Ibs.\n- Material: Water Resistant Nylon\n- Color: Orange\n- Backpack Dimensions: 17\" x 11\" 5.5\"\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters.  Please include the size and color of the item in the Product Name, if available.\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Orange Water Resistant Collapsible Day Pack",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "17\" x 11\" x 5.5\"",
+                "color": "Orange",
+                "name": "Water Resistant Collapsible Day Pack"
+            },
+            "char_count": 55,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Orange Water Resistant Collapsible Day Pack",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Orange",
+                "name": "Water Resistant Collapsible Day Pack"
+            },
+            "char_count": 55,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Ultra Lightweight, Holds 10Lbs, Folds To 5\" X 5\", Water Resistant Nylon, Travel And Hiking",
+            "char_count": 90,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Ultra Lightweight, Water Resistant 190T Polyester, Packs To 5\" X 5\", Holds Up To 10 Lbs, Travel And Hiking Ready",
+            "char_count": 112,
+            "validation_error": null
+        }
+    }
+}

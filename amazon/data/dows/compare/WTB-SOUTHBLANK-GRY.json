@@ -1,0 +1,60 @@
+{
+    "sku": "WTB-SOUTHBLANK-GRY",
+    "asin": "B07TL15V7R",
+    "product_type": "BLANKET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: WTB-SOUTHBLANK-GRY\nProduct Type: BLANKET\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 60x80 Ultra Plush Fleece Blanket, Southwest Navajo Style Fleece Throw Blankets, Gray\nDescription: Wherever your plans may take you, our soft fleece throw blanket is the perfect fleece throw blanket to keep you warm indoors or outdoors<br/><br/>Incredibly soft, warm and cozy, these plush throw blankets from ASR Outdoor have a design that boast traditional southwestern flair with a nod to classic and timeless Navajo and Aztec inspired design. The fleece blankets are ultra soft, as well as insulating, making them a great item to include with your hiking or camping gear, but also entirely suitable for movie marathon nights in, as a beach or picnic blanket or for an evening of summer stargazing. <br/><br/>The fleece material is synthetic, and, shares many of the same qualities as wool, predominantly its excellent ability to retain heat; but these blankets are extra plush, so soft to the touch and semi permeable, meaning they are breathable and help to regulate temperature but, still keep the heat that our bodies generate under the blanket, making them great for camping, travel, road trips and much more. Our large fleece throw blankets are bound together with a flat black knit trim edge, for a clean finish that will help to prolong the throw blankets structural longevity.<br/><br/>Looking for a perfect gift? Look no further and give the gift of warmth. Available in multiple colorways, our fleece throw blankets are perfect for everyone on your holiday shopping list from bookworm and avid outdoorsman, to upcountry weekend cabin or cottage goers, kids and even pets, sure to keep everyone warm for many seasons to come.\nSearch Terms: home decor blanket blankets fleece throws indoor warmth outdoor camping accessories camping blanket road trip snuggle blankets throw fleece bedding southwest style decor native american home decor home accent dog blanket horse blanket pet blanket\nFeatures:\n- SOUTHWEST NAVAJO BLANKET: With a nod to classic Navajo and Aztec design, these fleece blankets are durable, lightweight, easy to take care of and amazingly soft! The throw blankets are versatile for camping, road trips, summer picnic or an evening next to the campfire\n- ULTRA SOFT FLEECE BLANKET: Incredibly soft, you'll want to have one nearby at all times; Use for bedding, camping or an all night movie marathon; lightweight, breathable plush fleece keeps in heat, making the blankets perfect for lounging or as another layer in your sleeping bag\n- SUMMER AND WINTER BLANKET: Created as a lightweight alternative to wool, these fleece throw blankets are breathable and can retain an incredible amount of heat; indoors or out, these fleece blankets will not only feel soft on your skin but will to keep you warm\n- COTTAGE AND CABIN DECOR: Grab a book and a hot cup of coffee or tea and snuggle up with these perfect cottage or cabin decor throw blankets; wonderfully soft to the touch, these throw blankets are perfect for a quiet night in or evening under the stars\n- SPECIFICATIONS: Size: Queen, 60 x 80 inches; Weight: 2.05lbs; Material: Ultra Plush Fleece; Care: Machine Wash Cold, hang dry or tumble dry low\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 60x80 Gray Southwest Navajo Fleece Blanket",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "60x80",
+                "pack_size_unit": "",
+                "size": "Queen",
+                "color": "Gray",
+                "name": "Southwest Navajo Fleece Blanket"
+            },
+            "char_count": 54,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 60x80 Gray Fleece Blanket",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "60x80",
+                "color": "Gray",
+                "name": "Fleece Blanket"
+            },
+            "char_count": 37,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Ultra Plush Fleece, Navajo And Aztec Design, Breathable Heat Retention, Indoor And Outdoor Use, Machine Washable",
+            "char_count": 112,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Ultra Soft Plush, Southwest Navajo Aztec Style, Lightweight Breathable, Camping Road Trips, Machine Washable",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

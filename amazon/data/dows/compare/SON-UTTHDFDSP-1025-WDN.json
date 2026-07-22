@@ -1,0 +1,60 @@
+{
+    "sku": "SON-UTTHDFDSP-1025-WDN",
+    "asin": "B01HFSDHW2",
+    "product_type": "HAMMER_MALLET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-UTTHDFDSP-1025-WDN\nProduct Type: HAMMER_MALLET\nBrand (from catalog): Universal Tool\nExisting Title: Universal Tool Texturising Hammer Dual Face Dimple Stripe Patterns\nDescription: Create beautifully textured jewelry with the Dual Head Texturizing Hammer.<br/><br/>This hammer features two different textured heads - rounded stripes on one side and dimples on the other. Overall the hammer is 10.25\" in length and the face diameters are 1.125\". <br/><br/>The wooden handle has a comfortably molded grip and the head is constructed of high quality steel. Make sure to grab this textured hammer before your next jewelry making or metalworking project.\nSearch Terms: texturizing tools jewelry hammers craft specialty dual face\nFeatures:\n- Dual Sided Textures: Rounded Stripes & Dimples\n- Overall Length: 10.25\"\n- Face Diameters: 1.125\"\n- Wooden Handle | High Quality Steel\n- Made in India\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 10.25in Texturising Hammer Dual Face",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "10.25",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Texturising Hammer Dual Face"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 10.25-in Dual Face Texturizing Hammer",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "10.25",
+                "color": "",
+                "name": "Dual Face Texturizing Hammer"
+            },
+            "char_count": 52,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Dual Sided Textures, Rounded Stripes And Dimples, High Quality Steel, Wooden Handle",
+            "char_count": 83,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Rounded Stripes And Dimples, 1025\" Overall Length, 1125\" Faces, Wooden Grip, High-Quality Steel, Made In India",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}

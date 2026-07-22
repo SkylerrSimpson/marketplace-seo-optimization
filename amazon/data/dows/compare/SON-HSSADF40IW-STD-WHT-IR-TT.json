@@ -1,0 +1,60 @@
+{
+    "sku": "SON-HSSADF40IW-STD-WHT-IR-TT",
+    "asin": "B0CDMFSNXM",
+    "product_type": "HOOK_LOOP_FASTENER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-HSSADF40IW-STD-WHT-IR-TT\nProduct Type: HOOK_LOOP_FASTENER\nBrand (from catalog): ToolTreaux\nExisting Title: White Hook and Loop 3/4 wide Fabric Tape Roll Self Adhesive 40 inch Fastener\nDescription: Hook and Loop peel and stick rolls. Cheaper than name brand options with just as much tick for tack you may never turn back from our product.<br/><br/>These Hanging Wall Self-Adhesive Strips are great for hanging lightweight objects when you don't want to leave nail and tack marks behind. The strips can easily be removed from any smooth surface and are perfect for short-term decorations.<br/><br/>The white hanging strips are easy to stick to just about any smooth surface. You can cut it into the length that you'll need out of the 40\" worth of material provided in each roll. Simply press the strips together and pull back on the strip to reveal the adhesive surface. Small art, frames, mirrors, and more can be secured to the wall without leaving any tacky nail marks behind.<br/><br/>Great for picture frames, remotes, small tools, speakers, surge protectors, and more.\nSearch Terms: 3/4 sticky back hook and loop rolls fastener security loop plastic tag fastener loop tag fastener hook and loop fastener for fabric self adhesive adhesive tape loop fabric fastener\nFeatures:\n- HOOK AND LOOP ROLLS: 40 inches of self-adhesive sticky backed fastener rolls are made of high-quality material; Hook side connects to the loop side firm and durable\n- CUT TO FIT: These rolls of hook and loop self adhesive fabric tape is made to be cut to length as needed and is reusable hundreds of times over. Perfect for sewing and crafting projects\n- UNIVERSAL APPLICATIONS: Before using self-adhesive hook and loop fasteners roll clean and dry the surface then peel the tape from release paper; Stick on the projects and press firmly into place\n- 3/4 WIDE ROLL HOOK AND LOOP: Self-adhesive fasteners roll use industrial-strength glue to ensure the sticky back fastening tape is sticky enough; Hook and loop roll can be applied on smooth surfaces such as glass, metal, wood, wallboards, and plastics\n- SPECIFICATIONS: Self-adhesive rolls are 40 inches long and 0.75 inches wide; Hook and loop strips for mounting various lightweight items; Color: White\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 40in 3/4in White Hook and Loop Fabric Tape",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "40",
+                "pack_size_unit": "in",
+                "size": "3/4in",
+                "color": "White",
+                "name": "Hook and Loop Fabric Tape"
+            },
+            "char_count": 53,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 40-in 3/4-in White Hook and Loop Fastener",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "40",
+                "pack_size_unit": "in",
+                "size": "3/4 in",
+                "color": "White",
+                "name": "Hook and Loop Fastener"
+            },
+            "char_count": 52,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Self-Adhesive, Industrial-Strength, Reusable Hundreds Of Times, Cut To Fit, Universal Applications",
+            "char_count": 98,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Self Adhesive, Cut-To-Fit 40 In Roll, Strong Hold On Smooth Surfaces, Removable, Reusable, Indoor Mounting",
+            "char_count": 106,
+            "validation_error": null
+        }
+    }
+}

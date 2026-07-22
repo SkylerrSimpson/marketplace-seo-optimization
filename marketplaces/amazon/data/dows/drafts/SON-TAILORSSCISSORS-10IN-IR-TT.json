@@ -3,14 +3,14 @@
     "asin": "B09KK4KSFC",
     "product_type": "SCISSORS",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:34:21+00:00",
+    "generated_at": "2026-07-21T20:11:25+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -44,20 +44,57 @@
             "asin": "B09KK4KSFC",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ToolTreaux 10 Inch Stainless Steel Heavy Duty Fabric Scissors",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ToolTreaux 10 Inch Silver Stainless Steel Fabric Scissors",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 57,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "10",
+                "pack_size_unit": "Inch",
+                "size": "",
+                "color": "Silver",
+                "name": "Stainless Steel Fabric Scissors"
+            }
         },
-        "title_differentiation": {
-            "value": "Knife Edge Blades, Sharp Retention, Ergonomic Handle, Sewing & Quilting",
+        "item_name_ai_openai": {
+            "value": "ToolTreaux 10-in Heavy Duty Fabric Scissors",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 43,
+            "review_only": true,
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "10",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Heavy Duty Fabric Scissors"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Heavy Duty Knife Edge Blades, Ultra Sharp Blade Retention, Cuts Multiple Layers, Ergonomic Handle, Corrosion Resistant",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 118,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Stainless Steel, Knife Edge Blades, Angled Handle, Sharp Blade Retention, Includes Storage Case",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 95,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

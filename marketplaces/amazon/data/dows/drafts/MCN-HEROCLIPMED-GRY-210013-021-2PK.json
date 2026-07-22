@@ -3,14 +3,14 @@
     "asin": "B0C6WJ58G8",
     "product_type": "CARABINER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:42:09+00:00",
+    "generated_at": "2026-07-21T19:59:18+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 11,
-        "ai_suggested": 4,
+        "ai_suggested": 6,
         "ai_null": 0,
         "base_template": 0
     },
@@ -174,25 +174,63 @@
             "model": "claude-haiku-4-5"
         },
         "generic_keyword": {
-            "value": "carabiner clip hook hanger camping backpack travel gear organizer rotating foldable hanging hook purse hanger bag hook heavy duty aluminum clip multi-purpose EDC outdoor hiking hook and hang system",
+            "value": "gear clip hook carabiner backpack hanger travel accessory camping hiking multi-purpose clip stroller hook luggage hook tent hook aluminum clip rotating hook D-ring clip gear organizer outdoor gear hanger dog leash clip tack hook growler carrier",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "GEAR AID HEROCLIP Medium Carabiner Clip Hook Gray 2 Pack",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "GEAR AID HEROCLIP Medium Gray 2-Pack Carabiner Clip",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 51,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "Pack",
+                "size": "Medium",
+                "color": "Gray",
+                "name": "HEROCLIP Carabiner Clip"
+            }
         },
-        "title_differentiation": {
-            "value": "360° Rotating, 60 lbs Capacity, Aircraft Aluminum, Compact Design",
+        "item_name_ai_openai": {
+            "value": "GEAR AID 2-pk Medium Gray HeroClip Carabiner Clip and Hook",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 58,
+            "review_only": true,
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "Medium",
+                "color": "Gray",
+                "name": "HeroClip Carabiner Clip and Hook"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "360-Degree Rotating Hook, Holds 60 Lbs, Aircraft-Grade Aluminum, Grippy Rubber Tip, Compact Design, Travel And Hiking Essential",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 127,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (127 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "360 Degree Rotation, 60 Lb Capacity, Wide Gate For Big Gear, Grippy Rubber Tip, Folds Compactly For Storage",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 107,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

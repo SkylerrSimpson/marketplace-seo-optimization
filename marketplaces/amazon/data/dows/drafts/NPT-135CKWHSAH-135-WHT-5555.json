@@ -3,14 +3,14 @@
     "asin": "B07GNW6PBX",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:06:55+00:00",
+    "generated_at": "2026-07-21T20:06:42+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 10,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -169,22 +169,60 @@
             "value": "Stainless Steel",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 13.5\" Wild Stallion Fixed Blade Hunting Knife",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 13.5in White Wild Stallion Fixed Blade Hunting Knife",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 64,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "White",
+                "name": "Wild Stallion Fixed Blade Hunting Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "8\" 440 Stainless Steel, Etched Design, Ornamental Scabbard, Collector's Piece",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 13.5 in White Wild Stallion Hunting Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 53,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "13.5",
+                "pack_size_unit": "in",
+                "size": "13.5 in",
+                "color": "White",
+                "name": "Wild Stallion Hunting Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Collectible Fixed Blade, 8In 440 Stainless Steel, Etched Design, Ornamental Scabbard, Wildlife Animal Head Pommel, Outdoor Gift",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 127,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (127 chars)"
+        },
+        "title_differentiation_ai_openai": {
+            "value": "440 Stainless Steel Blade, 8\" Etched Straight Back, Ornamental Scabbard, Collector Gift",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 87,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

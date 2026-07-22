@@ -3,14 +3,14 @@
     "asin": "B003B4OXVY",
     "product_type": "CORD_ROPE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:41:37+00:00",
+    "generated_at": "2026-07-21T20:12:04+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 1,
         "catalog": 9,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -145,20 +145,57 @@
             "asin": "B003B4OXVY",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 200lb Kevlar Utility Cord 25ft Blue",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 25ft Blue 200lb Kevlar Utility Cord",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 47,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "25",
+                "pack_size_unit": "ft",
+                "size": "200lb",
+                "color": "Blue",
+                "name": "Kevlar Utility Cord"
+            }
         },
-        "title_differentiation": {
-            "value": "USA Made, 200lb Breaking Strength, UV & Flame Resistant, Survival EDC",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 25-ft 200lb Blue Kevlar Utility Cord",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 48,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "25",
+                "pack_size_unit": "ft",
+                "size": "200lb",
+                "color": "Blue",
+                "name": "Kevlar Utility Cord"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "200Lb Breaking Strength, USA Made, Flame And Heat Resistant, UV Resistant, Low Stretch, Lightweight, Survival And EDC",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 117,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "200 Lb Breaking Strength, 3-Strand Braided, Polyurethane Coated, UV And Flame Resistant, Made In USA",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 100,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

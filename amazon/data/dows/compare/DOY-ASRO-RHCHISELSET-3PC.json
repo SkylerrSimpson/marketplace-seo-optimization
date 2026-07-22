@@ -1,0 +1,60 @@
+{
+    "sku": "DOY-ASRO-RHCHISELSET-3PC",
+    "asin": "B0D3WY4FLV",
+    "product_type": "CHISEL",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DOY-ASRO-RHCHISELSET-3PC\nProduct Type: CHISEL\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Full-Size 3pc Heavy Duty Cold Steel 12-inch Chisel Set Rock Hounding Equipment Geology Tools\nDescription: Take your rockhounding and fieldwork to the next level with the ASR Outdoor Heavy Duty 3pc Cold Steel Chisel Set, designed for serious hobbyists and aspiring geologists who need reliable, full-size tools in the field.  This cold chisel set will get the job done quickly and efficiently!<br/><br/>Featuring true full-length working tools at 9.5\", 10\" and 12\", giving you the reach, leverage and striking control needed for efficient and precise work.<br/><br/>Crafted from high-strength chrome molybdenum steel, hardened to HRC 55–58, each chisel delivers exceptional durability, impact resistance and long-term performance in rugged outdoor conditions. Whether you are splitting rock, extracting mineral specimens, or working through dense material, these chisels are built to withstand repeated heavy use without compromise.<br/><br/>Included are two flat heads chisels and one cross cut head chisel, offering versatility across a wide range of applications including geology, rockhounding, fossil digging, paleontology, masonry and metalwork. The extended length design improves force transfer with each strike while reducing fatigue, making them a dependable addition to any field kit or workshop.<br/><br/>From weekend hobbyists to dedicated collectors and field professionals, this chisel set is engineered to outperform smaller, lower-quality alternatives and provide the confidence you need when working in demanding environments.<br/><br/>Set Weight: 2.14lbs\nSearch Terms: rock pick mining hand tools stone splitting rockhounding equipment for adults hobby geology kit begginer gems fossil dig kit\nFeatures:\n- FULL-SIZE ROCK CHISEL SET: Unlike smaller, lightweight chisel sets, these full-length 9.5\", 10\" and 12\" chisels provide better reach, leverage and striking control for serious rockhounding, geology and field work; include these reliable chisels with your geology tools or rock hounding equipment to get the job done quickly and efficiently\n- BUILT FOR REAL FIELD USE: Made from hardened chrome molybdenum steel (HRC 55–58) for superior strength, impact resistance and durability in demanding environments like mining, fossil excavation and stone breaking\n- VERSATILE 3-PIECE SET: Includes (2) flat chisels and (1) cross-cut chisel; made for splitting rock, shaping stone, extracting specimens, brickwork and more\n- ENHANCED STRIKING PERFORMANCE: Longer shafts improve swing accuracy and energy transfer; reduces hand fatigue while increasing efficiency compared to shorter, undersized chisels\n- FIELD TESTED BY HOBBYISTS AND PROS; Designed for rock collectors, geology students, paleontology digs and outdoor enthusiasts who need reliable, full-size tools that will perform as intended in the field\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 3-pc Heavy Duty Cold Steel Chisel Set",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Cold Steel",
+                "name": "Chisel Set"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 3-Pk 12 in Cold Steel Chisel Set",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "3",
+                "pack_size_unit": "pk",
+                "size": "12 in",
+                "color": "",
+                "name": "Cold Steel Chisel Set"
+            },
+            "char_count": 44,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Full-Size 95-12 Inch, Chrome Molybdenum Steel HRC 55-58, Rock Hounding And Geology Tools",
+            "char_count": 88,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Full-Size 95\", 10\", 12\" Chisels, Hardened Chrome Moly Steel, 2 Flat And 1 Cross-Cut, Rockhounding And Geology",
+            "char_count": 109,
+            "validation_error": null
+        }
+    }
+}

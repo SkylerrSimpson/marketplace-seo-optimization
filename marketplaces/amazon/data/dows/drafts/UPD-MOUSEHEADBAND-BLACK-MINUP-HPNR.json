@@ -3,14 +3,14 @@
     "asin": "B07PX3Z67J",
     "product_type": "COSTUME_HEADWEAR",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:11:29+00:00",
+    "generated_at": "2026-07-21T19:48:38+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 2,
         "catalog": 7,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -126,24 +126,62 @@
             "raw_value": true
         },
         "fabric_type": {
-            "value": "Polyester",
+            "value": "100% Polyester",
             "is_required": true,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "Disney Minnie Mouse Unicorn Horn Ears Headband Sequins",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Disney Minnie Mouse Unicorn Horn Rainbow Headband Ears",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 54,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Rainbow",
+                "name": "Minnie Mouse Unicorn Horn Headband Ears"
+            }
         },
-        "title_differentiation": {
-            "value": "Rainbow Unicorn Horn, Sequin Bow, Girls Ages 3+, Officially Licensed",
+        "item_name_ai_openai": {
+            "value": "Disney Minnie Mouse Unicorn Ears Headband",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 41,
+            "review_only": true,
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Minnie Mouse Unicorn Ears Headband"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Officially Licensed, Sequin Bow And Horn, Ages 3 Plus, Cosplay Costume Headwear, Disney Theme Park",
             "is_required": false,
             "source": "ai",
-            "model": "claude-haiku-4-5"
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 98,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Rainbow Unicorn Horn, Sequined Ears And Bow, Ages 3 And Up, Officially Licensed, Halloween And Disneyland Ready",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 111,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -1,0 +1,60 @@
+{
+    "sku": "SON-SGBRUSH-PARENT",
+    "asin": "B099BZ48BH",
+    "product_type": "CLEANING_BRUSH",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-SGBRUSH-PARENT\nProduct Type: CLEANING_BRUSH\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor Shotgun Cleaning Brush Phosphor Bronze Aluminum Shaft (2 Sizes)\nDescription: Whether you're a firearms expert or just getting into shooting, you need to keep your gun clean to make sure it performs correctly during use. With the ASR Outdoor Shotgun Cleaning Brush and regular cleaning, you can ensure that your shotgun performs well and avoids malfunctions out in the field or at the range. <br/><br/>This brush is made of phosphor bronze, which is ideal for general purpose, moderate-use cleaning. This material is abrasive yet gentle so it will quickly and effectively remove reside from your gun that may affect performance. It features a durable, lightweight aluminum shaft that easily screws onto most cleaning brush rods designed for shotguns. Just screw it onto your rod and you can start cleaning right away, making this a great brush to keep in your range bag for immediate use after shooting.<br/><br/>The phosphor bronze brush is easy to clean too - with just a toothbrush and either alcohol or a soap solution, you can easily clean your brush. Just make sure it is completely dry before your next use. <br/><br/>2 Brush Sizes Available: 12 Gauge or .410 Caliber\nSearch Terms: shotgun cleaning brush .41 caliber aluminum gun kit shot brushes phosphor bronze firearm care kits clean\nFeatures:\n- SHOTGUN CLEANING BRUSH - The ASR Outdoor shotgun cleaning brush is designed to fit standard .410 caliber or 12 gauge shotguns. Cleaning your gun after each use will help it perform better and avoid malfunctions out in the field or at the range. Available in 2 sizes.\n- PHOSPHOR BRONZE BRUSH - Phosphor bronze brushes are great for general-purpose, moderate-use cleaning. Since it's abrasive yet gentle, the phosphor bronze brush will quickly and effectively remove residue that may affect performance.\n- ALUMINUM SHAFT - The durable yet lightweight aluminum shaft easily screws onto most cleaning brush rods designed for shotguns. Just screw it on to your rod and you can start removing residue right away, making this a great brush to keep in your range bag.\n- EASY TO CLEAN - You can easily clean your phosphor brush after you're done using it with an alcohol or soap solution and a toothbrush. Just make sure to fully dry your brush after you clean it to ensure there is no residue left before your next use.\n- SPECIFICATIONS - Overall brush length: 3\"; Bristle material: phosphor bronze; Sizes available: 12 gauge or .410 caliber\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor Shotgun Cleaning Brush Phosphor Bronze",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "2",
+                "pack_size_unit": "Sizes",
+                "size": "",
+                "color": "Phosphor Bronze",
+                "name": "Shotgun Cleaning Brush"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor Shotgun Cleaning Brush Phosphor Bronze Aluminum Shaft",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "Shotgun Cleaning Brush Phosphor Bronze Aluminum Shaft"
+            },
+            "char_count": 65,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Phosphor Bronze Bristles, Aluminum Shaft, 12 Gauge And 410 Caliber, Easy To Clean",
+            "char_count": 81,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Phosphor Bronze Bristles, Lightweight Aluminum Shaft, Fits 12 Gauge And 410 Caliber, Easy Residue Removal",
+            "char_count": 105,
+            "validation_error": null
+        }
+    }
+}

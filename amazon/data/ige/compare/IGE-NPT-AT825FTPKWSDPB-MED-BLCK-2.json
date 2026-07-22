@@ -1,0 +1,60 @@
+{
+    "sku": "IGE-NPT-AT825FTPKWSDPB-MED-BLCK-2",
+    "asin": "B06XYVRMRG",
+    "product_type": "KNIFE",
+    "account": "IGE",
+    "generated_at": "2026-07-21T17:20:41+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: IGE-NPT-AT825FTPKWSDPB-MED-BLCK-2\nProduct Type: KNIFE\nBrand (from catalog): ASR Tactical\nExisting Title: ASR Tactical Full Tang Paracord Survival Knife with Sheath - Drop Point Blade\nDescription: This 8.25\" ASR Tactical Paracord Knife is the urban survivalists must-have blade. Its 4\" drop point blade is made of 1065 surgical steel and features a rugged stonewashed finish.<br/><br/>This tactically designed knife has a full tang handle for durability and is wrapped in medium gauge paracord for various survival uses.<br/><br/>Included is a nylon, button clasp sheath with a belt loop for carrying convenience.\nSearch Terms: survival knife paracord knife stonewash knife tactical knife\nFeatures:\n- Tactical 8.25\" Urban Survival Knife\n- 4\" Drop Point Blade with Attractive Stonewash Finish\n- Paracord Wrapped Full Tang Handle For Multiple Survival Uses\n- Button Clasp Nylon Sheath with Belt Loop Included\n- Blade: 440 Stainless Steel with 3mm Thickness\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Tactical 8.25\" Black Paracord Survival Knife",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "8.25",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Black",
+                "name": "Paracord Survival Knife"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Tactical 8.25in Paracord Survival Knife",
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "8.25in",
+                "color": "",
+                "name": "Paracord Survival Knife"
+            },
+            "char_count": 43,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "4\" Drop Point Blade, Full Tang, Stonewash Finish, Paracord Wrapped, Nylon Sheath With Belt Loop",
+            "char_count": 95,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Stonewashed 4\" Drop Point Blade, 440 Stainless Steel, Full Tang Paracord Handle, Nylon Sheath, Belt Loop",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

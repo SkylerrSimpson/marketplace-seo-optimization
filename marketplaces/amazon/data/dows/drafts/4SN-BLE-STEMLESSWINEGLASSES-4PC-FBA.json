@@ -3,14 +3,14 @@
     "asin": "B0DXMZ78J6",
     "product_type": "DRINKING_CUP",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:30:00+00:00",
+    "generated_at": "2026-07-21T19:55:34+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 1
     },
@@ -82,20 +82,57 @@
             "asin": "B0DXMZ78J6",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille Stemless Wine Glasses 21oz Set of 4 Made in USA",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 4-Pc 21oz Stemless Wine Glasses Made in USA",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 50,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "Pc",
+                "size": "21oz",
+                "color": "",
+                "name": "Stemless Wine Glasses"
+            }
         },
-        "title_differentiation": {
-            "value": "Dishwasher Safe, Durable Glass, Classic Design, Versatile for Any Occasion",
+        "item_name_ai_openai": {
+            "value": "Beille 4-pk 21oz Stemless Wine Glasses",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 38,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "4",
+                "pack_size_unit": "pk",
+                "size": "21oz",
+                "color": "",
+                "name": "Stemless Wine Glasses"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Set Of 4, Dishwasher Safe, Durable Glass, Versatile For Red And White Wine, Stable Stemless Design, Perfect For Entertaining",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 124,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Made In USA, Dishwasher Safe, 21Oz Capacity, Sturdy Base, Versatile For Wine Cocktails Juice, Set Of 4",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 102,
+            "review_only": true
         },
         "occasion_type": {
             "value": [

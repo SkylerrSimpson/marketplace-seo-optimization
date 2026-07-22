@@ -1,0 +1,60 @@
+{
+    "sku": "26C-BEECH-PASTASPOON-GREY",
+    "asin": "B0D1TP9HKF",
+    "product_type": "FOOD_SPATULA",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 26C-BEECH-PASTASPOON-GREY\nProduct Type: FOOD_SPATULA\nBrand (from catalog): Beille\nExisting Title: Beille 1pc Beech Wood and Silicone Pasta Spoon Kitchen Utensils Cooking Baking Supplies Home Essentials, Light Grey\nDescription: The contending heroes of any kitchen? Reliable, silicone kitchen utensils say us! From scrambling eggs, sauteing vegetables, and flipping quesadillas, to scraping out brownie batter or removing delicate won tons, we reach for these silicone kitchen utensils time and time again in the kitchen, and for good reason.<br/><br/>This slotted silicone pasta spoon or pasta serving spoon features high quality BPA free food grade silicone, is dishwasher and freezer safe, odor resistant, stain resistant and heat resistant up to 400F, and comes with sturdy and durable beech wood handles.<br/><br/>Easy and comfortable to maneuver, this beech wood and silicone pasta spoon measures approximately 13.5 inches in length, providing excellent control and a comfortable grip over whatever recipe you’re taking on next! The kitchen tool features a matte silicone finish in a stylish light grey colorway, while each spoon comes with a top handle hole design if hanging storage or display is preferred. And, importantly this pasta strainer spoon won’t scratch or mark your pots and pans like other utensils can, especially where ceramic and nonstick cookware or bake ware are concerned.<br/><br/>The notable versatility, durability and high heat resistance of this Beille silicone pasta spoon makes a great investment for any kitchen, and an absolute home essentials item for any baker, professional chef or home cook!\nSearch Terms: silicone kitchen utensils set cooking baking supplies tools food meal prep soup ladle spoons punch bowl kitchen starter set serveware wedding house warming gifts new home chef restaurant equipment spatula skimmer spoon bakeware kitchen gadgets pasta\nFeatures:\n- SILICONE PASTA SPOON: Featuring sturdy beech wood handles, 100% food grade silicone and heat resistant up to 400F, this highly durable and neutral colored silicone pasta server makes a stylish and modern addition to any kitchen\n- DISHWASHER SAFE: After cooking, baking or meal and food prep, toss this silicone pasta spoon or pasta server utensil on the top rack for quick and easy clean up; stain and odor resistant, dish out that homemade spaghetti without worry!\n- BPA FREE KITCHEN UTENSILS: This silicone pasta spoon, as well as all kitchen utensils in this collection, are of food grade quality and BPA free, making them a safe and reliable choice for cooking and baking; hygienic, hypoallergenic and constructed with no open pores to harbor bacteria\n- BEECH WOOD HANDLES: The silicone pasta spoon features easy to grip durable handles made of sturdy beech wood; the silicone pasta spoon features a built in handle hole design for easy hanging storage or display if preferred\n- SPECIFICATIONS: Dimensions: 13.5 x 2.75 x 1.5 inches; Weight: 0.2lbs; Color: Light Grey\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 13.5in Light Grey Beech Wood Silicone Pasta Spoon",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "13.5",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Light Grey",
+                "name": "Beech Wood Silicone Pasta Spoon"
+            },
+            "char_count": 56,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 1-pk Light Grey Pasta Spoon",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "1",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Light Grey",
+                "name": "Pasta Spoon"
+            },
+            "char_count": 34,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Heat Resistant To 400F, BPA Free Food Grade Silicone, Dishwasher Safe, Stain And Odor Resistant, Durable Beech Wood Handle",
+            "char_count": 122,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Beech Wood Handle, Food Grade Silicone, Heat Resistant To 400F, Dishwasher Safe, Nonstick Safe, Hanging Hole",
+            "char_count": 108,
+            "validation_error": null
+        }
+    }
+}

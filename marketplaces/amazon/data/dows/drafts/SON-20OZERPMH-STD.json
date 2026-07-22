@@ -3,14 +3,14 @@
     "asin": "B007BTRT5W",
     "product_type": "HAMMER_MALLET",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:38:20+00:00",
+    "generated_at": "2026-07-21T20:11:53+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 7,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -152,20 +152,57 @@
             "asin": "B007BTRT5W",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor 20oz Rock Pick Mining Hammer, 11.5-inch",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 20oz Rock Pick Mining Hammer, 11 inch",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 49,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "20",
+                "pack_size_unit": "oz",
+                "size": "11 inch",
+                "color": "",
+                "name": "Rock Pick Mining Hammer"
+            }
         },
-        "title_differentiation": {
-            "value": "Single Piece Forged High-Carbon Steel, Pointed Tip, Gold Prospecting",
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 20oz Rock Pick Mining Hammer",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 40,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "20",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "",
+                "name": "Rock Pick Mining Hammer"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Single Piece Forged Steel, Gold Prospecting Tool, Geology Hammer, Anti-Fatigue Grip, Field Tested",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 97,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "One Piece Forged High-Carbon Steel, Anti-Shock Rubber Grip, Dual Face Head, Pointed Tip, Chisel Driving Power",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

@@ -1,0 +1,60 @@
+{
+    "sku": "DOY-MECHTIMER-WHT",
+    "asin": "B09Z4J1BJC",
+    "product_type": "TIMER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: DOY-MECHTIMER-WHT\nProduct Type: TIMER\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux 24 Hour Indoor Mechanical Timer Compatible with Household CFL Bulbs\nDescription: The ToolTreaux mechanical timer is designed with ease of use in mind - just plug it into any electrical outlet and you can set the timer for bulbs, appliances, or light fixtures. Mechanical timers are great for regulating devices and lights to conserve energy. Set them to turn off in as small as 30-minute intervals, and up to 24 hours.<br/><br/>These mechanical timers are designed to be compatible with common household CFL bulbs as well as LED bulbs, most small appliances, and fluorescent lighting. Each timer is just 2.24\" x 2.17\" x 3.31\" so it will easily fit in just about any household room or office without taking up too much space. It also has its own electrical outlet so you don't have to worry about losing an outlet to use it.\nSearch Terms: mechanical timer kitchen timer switch light for bathroom fan switches timer light bulb 24 hours timers for electrical outlets cooking kids kitchen appliances digital programmable plug in electrical outlets timers for kids digital\nFeatures:\n- EASY TO USE TIMER - The ToolTreaux mechanical timer is designed with ease of use in mind - just plug it into any electrical outlet and you can set the timer for bulbs, appliances, or light fixtures.\n- 24 HOUR AUTOMATION - Mechanical timers are great for regulating devices and lights to conserve energy. Set them to turn off in as small as 30-minute intervals, and up to 24 hours.\n- COMPATIBLE WITH CFL BUBLS - These mechanical timers are designed to be compatible with common household CFL bulbs as well as LED bulbs, most small appliances, and fluorescent lighting.\n- COMPACT DESIGN - Each timer is just 2.24\" x 2.17\" x 3.31\" so it will easily fit in just about any household room or office without taking up too much space. It also has its own electrical outlet so you don't have to worry about losing an outlet to use it.\n- SPECIFICATIONS - Rating: 125V AC, 60Hz, 1/2HP, TV-5; Color: white; Max load: 15A resistive; 2 on/off settings per hour; On/timer mode selection; Compatible with CFL bulbs; 1 outlet with ground pin\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux White 24 Hour Indoor Mechanical Timer",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "24 Hour",
+                "color": "White",
+                "name": "Indoor Mechanical Timer"
+            },
+            "char_count": 48,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 24-Hour White Indoor Mechanical Timer",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "24-Hour",
+                "color": "White",
+                "name": "Indoor Mechanical Timer"
+            },
+            "char_count": 48,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "24 Hour Automation, CFL And LED Compatible, Compact Design, Easy Plug-In, Energy Saving",
+            "char_count": 87,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "30 Minute Intervals, CFL And LED Compatible, 15A 125V, Compact One Outlet Design, On Timer Mode",
+            "char_count": 95,
+            "validation_error": null
+        }
+    }
+}

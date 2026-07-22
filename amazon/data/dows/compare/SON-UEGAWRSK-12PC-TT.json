@@ -1,0 +1,60 @@
+{
+    "sku": "SON-UEGAWRSK-12PC-TT",
+    "asin": "B09XGZ17F1",
+    "product_type": "PERSONAL_CARE_APPLIANCE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-UEGAWRSK-12PC-TT\nProduct Type: PERSONAL_CARE_APPLIANCE\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Eye Glasses Repair Kit Assorted Replacement Micro Screws 250 Pieces\nDescription: The ToolTreaux 250pc eyeglass repair kit comes with an assortment of micro screws and replacement parts that will allow you to fix your reading glasses or sunglasses on the go. Each kit comes with micro-screws that will fit just about any eyeglass frame, and all of the pieces fit neatly inside of a compact plastic storage container.<br/><br/>The replacement screws are made of durable, high-quality metal so you can count on them to last for years to come. The storage tube is made of red plastic and comes with a transparent lid to keep the pieces stored safely during transit. Store it in your backpack, purse, or car to ensure you can repair your glasses as needed. <br/><br/>In addition to eyeglass repair screws, we’ve also included an assortment of watch repair screws in a variety of sizes: winding watch screws and quartz watch screws. With this kit, you can repair both your eyeglasses and watches in one convenient place.\nSearch Terms: eyeglass repair kit with screws scratch repair compact watch repair kit tools battery replacement screw replacement professional deluxe set watch band repair kit sunglass repair kit screws scratch sunglasses repair tools fix sunglasses diy fix\nFeatures:\n- 250 ASSORTED REPAIR SCREWS - The ToolTreaux eyeglass and watch repair kit comes with 250 assorted micro-screws and replacement parts designed to fix eyeglasses, sunglasses, and watches on the go\n- VERSATILE SCREW SET - Included in the kit are both optical micro-screws for eyeglasses, winding watch screws, and quartz watch screws. Fix your eyeglass frames and watches on your own\n- COMPACT STORAGE CASE - All replacement screws fit neatly inside the included hard plastic swivel container. The container has 12 marked slots to keep the different sizes of screws organized and easy to identify\n- UNIVERSAL REPLACEMENT PARTS - The set features 250 different screws that will repair the most common eyeglasses and watches. Just make sure to keep a precision screwdriver on hand and you’ll be repairing your glasses and watches in no time\n- SPECIFICATIONS - Material: metal; plastic case; Size: 250 pieces; Optical and watch repair screws; Dimensions of storage case: 3” x 3”; Weight: .1lbs (1.6oz)\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 250-Piece Eyeglass and Watch Repair Kit",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "250",
+                "pack_size_unit": "Piece",
+                "size": "",
+                "color": "",
+                "name": "Eyeglass and Watch Repair Kit"
+            },
+            "char_count": 50,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 250-Piece Eyeglass Repair Kit",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "250",
+                "pack_size_unit": "piece",
+                "size": "",
+                "color": "",
+                "name": "Eyeglass Repair Kit"
+            },
+            "char_count": 40,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "250 Assorted Micro Screws, Eyeglass And Watch Repair, Compact Storage Case, Universal Replacement Parts",
+            "char_count": 103,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "250 Assorted Screws, Watch Repair Screws, 12-Slot Compact Case, Fits Glasses And Watches On The Go",
+            "char_count": 98,
+            "validation_error": null
+        }
+    }
+}

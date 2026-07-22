@@ -3,14 +3,14 @@
     "asin": "B0FW9CWW2T",
     "product_type": "COOKIE_CUTTER",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:41:06+00:00",
+    "generated_at": "2026-07-21T20:12:03+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 2,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -39,20 +39,58 @@
             "asin": "B0FW9CWW2T",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Beille 12pc Cookie Cutters Set, Stainless Steel, Dishwasher Safe",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Beille 12pc Silver Cookie Cutters Set",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 37,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "12",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Silver",
+                "name": "Cookie Cutters Set"
+            }
         },
-        "title_differentiation": {
-            "value": "Hearts, Stars, Circles & Flowers | 3 Sizes Each | Nested Design",
+        "item_name_ai_openai": {
+            "value": "Beille 12-pk Silver Cookie Cutters Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 38,
+            "review_only": true,
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "12",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Silver",
+                "name": "Cookie Cutters Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Hearts, Stars, Circles, Flowers, 3 Sizes Each, Stainless Steel, Dishwasher Safe",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 79,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "12 Piece Variety Pack, Stainless Steel, Dishwasher Safe, Nested Storage, Hearts Stars Circles Flowers, Cookies Fondant Biscuits",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 127,
+            "review_only": true,
+            "validation_error": "value exceeds maxLength 125 (127 chars)"
         },
         "california_proposition_65": {
             "value": [

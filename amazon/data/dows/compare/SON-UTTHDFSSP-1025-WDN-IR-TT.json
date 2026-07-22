@@ -1,0 +1,60 @@
+{
+    "sku": "SON-UTTHDFSSP-1025-WDN-IR-TT",
+    "asin": "B0BM6YPMNW",
+    "product_type": "HAMMER_MALLET",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-UTTHDFSSP-1025-WDN-IR-TT\nProduct Type: HAMMER_MALLET\nBrand (from catalog): ToolTreaux\nExisting Title: ToolTreaux Dimpled Texturizing Dual Face Jewelry Hammer Wooden Handle 10.25 Inch\nDescription: The ToolTreaux jewelry-making hammer features 2 different hammer head faces - square pattern and stripe pattern. This dual-faced hammer provides a variety of uses for jewelry making and other metalworking projects. <br/><br/>This hammer features an ergonomic, non-slip wooden handle that helps prevent injury during use. It's easy to use, provides precision striking for small and intricate pieces, ideal for jewelry making. The hammer weighs just 16 ounces and measures 10.25 inches.<br/><br/>Although the ToolTreaux texturizing hammer was originally designed for jewelry making, this versatile precision tool is also great for watchmaking and metalworking. You can count on it to work safely with metal, brass, copper, silver, and all types of soft precious metals.\nSearch Terms: artisan hammer jewelry making kit artist tool supplies jeweling chasing hammer tool set crafting building artisanal jeweler craft crafter hobbyist\nFeatures:\n- DUAL-FACED HAMMER - ToolTreaux jewelry hammer features 2 different faces: square dimple pattern and stripe line pattern; Provides variety of uses for jewelry making and other metalworking projects\n- WOODEN HANDLE - Ergonomic, non-slip wooden handle helps prevent injury during use; Easy to use, provides precision striking for small, detailed work ideal for jewelry making\n- LIGHTWEIGHT DESIGN - Hammer weighs only 16oz and measures 10.25\"; ideal for storing in tool belt, tool bag, toolbox, or other crafting storage containers; Great option for jewelers, watchmakers, and metalworkers\n- MULTI-USE TOOL - Texturizing hammer designed with versatility in mind - use safely with metal, brass, copper, silver, and more\n- SPECIFICATIONS - Materials: steel, wood (handle); Weight: 16oz; Length: 10.25\"; Dual-sided hammer head (square pattern, stripe pattern)\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ToolTreaux 10.25 in Dual Face Jewelry Hammer Wooden Handle",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "10.25",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "Wooden",
+                "name": "Dual Face Jewelry Hammer"
+            },
+            "char_count": 58,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ToolTreaux 10.25-in Dimpled Texturizing Dual Face Jewelry Hammer",
+            "tokens": {
+                "brand": "ToolTreaux",
+                "pack_size": "10.25",
+                "pack_size_unit": "in",
+                "size": "",
+                "color": "",
+                "name": "Dimpled Texturizing Dual Face Jewelry Hammer"
+            },
+            "char_count": 64,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Dual-Faced Design, Square And Stripe Pattern, 16Oz Lightweight, Ergonomic Wooden Handle, Jewelry Making And Metalworking",
+            "char_count": 120,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Square Dimple And Stripe Line Faces, Ergonomic Wooden Handle, 16 Oz, Precision Metalworking Tool",
+            "char_count": 96,
+            "validation_error": null
+        }
+    }
+}

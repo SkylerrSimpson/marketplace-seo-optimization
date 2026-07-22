@@ -1,0 +1,60 @@
+{
+    "sku": "MCN-CCHTPG-550",
+    "asin": "B07M6LTR9F",
+    "product_type": "CARABINER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: MCN-CCHTPG-550\nProduct Type: CARABINER\nBrand (from catalog): GEAR AID\nExisting Title: GEAR AID Camp Carabiner for Hanging Towels, Packs and Gear on a 550 Paracord\nDescription: It’s easy to hang gear on a line with the Camp Carabiner by GEAR AID. Featuring our signature twist-and-clip design, this small yet strong carabiner attaches to a 550 paracord and holds lanterns, backpacks and other gear weighing up to 25 lbs. The carabiner locks in place so stuff stays off the ground and heavier items don’t slide around. For a knot-free solution to hanging gear on a camp line, bring the Camp Carabiner on your next outdoor adventure.\nSearch Terms: carabiner paracord with rope camping clip outdoor for\nFeatures:\n- Hang up to 25 lbs. of gear from any 550 paracord or 4 mm line with knot-free ease; signature twist-and-clip design allows you to anchor items on the line without sliding\n- Use Carabiner to hang lanterns, packs, shoes, gravity filters, dry bags and water bottles at camp; small and lightweight, it weighs only 2.24 oz\n- Take it outdoors or use it at home for drying tents, life jackets, and wetsuits; made of black nylon plastic with a stainless-steel bail clip\n- Attach compatible lights and speakers with a standard 1/4-20 attachment point; it also swivels 360° for all-around access to devices\n- Not for climbing\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "GEAR AID Camp Carabiner for 550 Paracord",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "550",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Camp Carabiner"
+            },
+            "char_count": 40,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "GEAR AID Black Camp Carabiner",
+            "tokens": {
+                "brand": "GEAR AID",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "Black",
+                "name": "Camp Carabiner"
+            },
+            "char_count": 29,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Holds 25 Lbs, Twist-and-Clip Design, Knot-Free, Stainless Steel Bail, 360 Swivel, Lightweight",
+            "char_count": 93,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "25 Lb Load, Twist And Clip On 550 Paracord, 360 Degree Swivel, Black Nylon Plastic, Stainless Steel Bail",
+            "char_count": 104,
+            "validation_error": null
+        }
+    }
+}

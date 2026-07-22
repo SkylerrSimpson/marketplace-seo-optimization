@@ -3,14 +3,14 @@
     "asin": "B00ZV9T8HQ",
     "product_type": "CUTTING_BOARD",
     "account": "IGE",
-    "generated_at": "2026-07-14T18:51:01+00:00",
+    "generated_at": "2026-07-21T19:29:19+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 10,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -175,20 +175,57 @@
             "asin": "B00ZV9T8HQ",
             "raw_value": true
         },
-        "title_differentiation": {
-            "value": "Flexible dishwasher-safe polypropylene, won't dull knives, rolls up for storage, food-safe & multi-purpose",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "ASR Outdoor 20-Pack 12x15 Clear Flexible Cutting Board Mat",
+            "is_required": true,
             "source": "ai",
-            "model": "claude-opus-4-8",
-            "validation_error": "requires item_name <= 75 chars"
-        },
-        "item_name_ai_suggested": {
-            "value": "ASR Outdoor Flexible Cutting Board Mat, 12x15\", 20 Pack",
-            "is_required": false,
-            "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 58,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "20",
+                "pack_size_unit": "Pack",
+                "size": "12x15",
+                "color": "Clear",
+                "name": "Flexible Cutting Board Mat"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "ASR Outdoor 20-Pk 12x15 Clear Flexible Cutting Board Mats",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 57,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "20",
+                "pack_size_unit": "Pk",
+                "size": "12x15",
+                "color": "Clear",
+                "name": "Flexible Cutting Board Mats"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Dishwasher Safe, Food Safe Polypropylene, Non-Slip, Rollup Storage, Multi-Purpose Kitchen And Craft Mat",
+            "is_required": false,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 103,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Dishwasher Safe, Food Safe Polypropylene, Flexible Roll-Up Design, Knife Friendly, 12\" X 15\", 20 Pack",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 101,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

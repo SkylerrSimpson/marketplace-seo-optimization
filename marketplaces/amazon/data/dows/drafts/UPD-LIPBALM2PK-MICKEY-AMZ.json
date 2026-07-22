@@ -3,14 +3,14 @@
     "asin": "B0BS3HWKM3",
     "product_type": "LIP_BALM",
     "account": "DOWS",
-    "generated_at": "2026-07-14T21:51:39+00:00",
+    "generated_at": "2026-07-21T20:03:13+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 5,
-        "ai_suggested": 2,
+        "ai_suggested": 4,
         "ai_null": 0,
         "base_template": 0
     },
@@ -79,20 +79,57 @@
             "asin": "B0BS3HWKM3",
             "raw_value": true
         },
-        "item_name_ai_suggested": {
-            "value": "Disney Mickey Mouse 2-Pack Flavored Lip Balm Set for Kids",
-            "is_required": false,
+        "item_name_ai_anthropic": {
+            "value": "Disney Mickey Mouse 2-Pack Lip Balm Set",
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 39,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "2",
+                "pack_size_unit": "Pack",
+                "size": "",
+                "color": "",
+                "name": "Mickey Mouse Lip Balm Set"
+            }
         },
-        "title_differentiation": {
-            "value": "Mickey Ear-Shaped Caps, Cherry & Bubblegum Flavors, Water-Based Safe Formula",
+        "item_name_ai_openai": {
+            "value": "Disney 2-Pk Mickey Mouse Lip Balm Set",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 37,
+            "review_only": true,
+            "tokens": {
+                "brand": "Disney",
+                "pack_size": "2",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "",
+                "name": "Mickey Mouse Lip Balm Set"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Mickey Ear-Shaped Caps, 2 Flavors, Nontoxic Water-Based, Ages 3 And Up, Hydrating",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 81,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Cheerful Cherry And Bubblegum Flavors, Ear Shaped Caps, Water Based Nontoxic Formula, Ages 3, Travel Friendly",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 109,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

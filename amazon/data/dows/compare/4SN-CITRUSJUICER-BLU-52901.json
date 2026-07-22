@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-CITRUSJUICER-BLU-52901",
+    "asin": "B098V1B395",
+    "product_type": "JUICER",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-CITRUSJUICER-BLU-52901\nProduct Type: JUICER\nBrand (from catalog): Beille\nExisting Title: Beille Kitchen Citrus Juicer Juice Squeezer Handheld Glass 14 Ounce Jar, Blue\nDescription: Every kitchen needs a good citrus juicer. The Beille juicer is specifically designed to help you easily juice and pour citrus juices, and can also be used as an easy-pour container for other ingredients whether you're cooking or baking.<br/><br/>Our juicer is dishwasher safe (glass part only), so you don't need to worry about handwashing it when you're done juicing. It features a BPA-free glass body and a durable plastic lid (not dishwasher safe) that screws right onto the top of the jar tightly to keep your juice clean and fresh. The lid has an easy-pour spout and handle so you can make sure you pour just the right amount of juice.<br/><br/>The juicer measures just under 6\" tall and has a diameter of 3\", so it will easily fit inside just about any fridge. It can hold up to 14 ounces of your favorite citrus juice like lemons, limes, oranges, and grapefruit.<br/><br/>Juicers are an essential kitchen tool. Whether you're baking a cake or cooking a delicious and healthy meal for your family, you know how important it is to add just the right amount of an ingredient to make sure your masterpiece turns out perfectly. Our easy-pour juicer can also be used to carefully pour other liquid ingredients.<br/><br/>This juicer is a must-have tool for any kitchen. It's cute and compact design makes it a great gift housewarming gift idea too.<br/><br/>PLEASE NOTE: Only the glass part of the juicer is dishwasher safe. The lid is not dishwasher safe (hand wash only)\nSearch Terms: citrus juicer manual stainless steel glass chef hand press held small squeezer\nFeatures:\n- DISHWASHER SAFE (GLASS PART ONLY) - The Beille citrus juicer features a BPA-free glass jar and a durable plastic lid. The lid screws right onto the top of the jar tightly to keep your citrus juice clean and fresh. PLEASE NOTE - The lid must be handwashed.\n- EASY POUR SPOUT - The citrus juicer lid features an easy-to-use pour spout and handle so you can make sure you pour just the right amount! The lid comes in a light cream, red or blue color, making it a cute addition to any kitchen's decor.\n- COMPACT DESIGN - Our juicer measures just under 6\" tall and has a diameter of 3\", so it can easily fit inside just about any fridge. It can hold up to 14 ounces of your favorite citrus juice! Our juicer is designed to easily juice lemons, limes and even larger fruits like oranges and grapefruit.\n- ESSENTIAL KITCHEN TOOL - Whether you're cooking or baking, you know how important it is to add just the right amount of an ingredient to make sure your meal turns out perfect. Our easy-pour juicer can also be used to carefully pour other liquid ingredients.\n- SPECIFICATIONS - Body material: glass; Lid material: plastic; Volume: 14 ounces; Dishwasher safe (glass part only); Lid color: cream, red, or blue, Made in Turkey\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 14oz Blue Citrus Juicer with Easy-Pour Spout",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "14",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "Blue",
+                "name": "Citrus Juicer with Easy-Pour Spout"
+            },
+            "char_count": 51,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 14 oz Blue Handheld Glass Citrus Juicer",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "14",
+                "pack_size_unit": "oz",
+                "size": "",
+                "color": "Blue",
+                "name": "Handheld Glass Citrus Juicer"
+            },
+            "char_count": 46,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Dishwasher Safe Glass Jar, BPA-Free, Compact Design, Easy-Pour Spout, Manual Hand Press",
+            "char_count": 87,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "BPA-Free Glass Jar, Dishwasher Safe Glass Part, Easy-Pour Spout, Compact 14 Oz Capacity",
+            "char_count": 87,
+            "validation_error": null
+        }
+    }
+}

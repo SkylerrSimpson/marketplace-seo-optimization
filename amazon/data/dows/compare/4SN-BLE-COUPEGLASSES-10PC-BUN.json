@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-BLE-COUPEGLASSES-10PC-BUN",
+    "asin": "B0FV4ZCXKD",
+    "product_type": "DRINKING_CUP",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-BLE-COUPEGLASSES-10PC-BUN\nProduct Type: DRINKING_CUP\nBrand (from catalog): Beille\nExisting Title: Beille 8.5oz Classic Coupe Glasses (Set of 10) Crystal Style Glassware for Champagne, Martinis and Craft Cocktails\nDescription: Bring timeless elegance and effortless sophistication to your home bar with Beille’s beautiful coupe glasses. Designed to strike the perfect balance between beauty and function, each glass features a refined stem, rounded edge, sturdy base, wide bowl and delicate etched detailing. A stunning and vintage-inspired way to serve classic drinks like champagne, martinis, Manhattans, and other craft cocktails.<br/><br/>Crafted from soda lime glass, these cocktail glasses are dishwasher safe, offer great durability, while the sturdy base and stem ensure stability and a comfortable hold. Whether you’re hosting an elegant dinner party, mixing up craft cocktails at home, or just simply building your glassware collection, these coupe glasses elevate every pour.<br/><br/>Perfect for everyday entertaining or special occasions, these coupe glasses or champagne glasses blend classic barware craftsmanship with modern convenience; the coupe glasses make a thoughtful, stylish gift for weddings, anniversaries, birthdays, or housewarmings—making them an essential addition to any bar cart, cocktail cabinet, or dining collection. Beautiful, functional, and made to last, these coupe cocktail glasses are ready to bring a timeless aesthetic to your next toast!<br/><br/>Sold in sets of 4, 6 or 10.<br/><br/>Dishwasher safe.<br/><br/>Holds 8.5 fluid ounces.\nSearch Terms: cocktail coupe champagne glasses; barware; glassware; vintage glassware; home and kitchen; home kitchen decor; housewarming gifts new home; prosecco sparkling wine; wine; restaurant supplies; entertaining hosting kitchen essentials; gifts for women\nFeatures:\n- COUPE GLASSES: Inspired by vintage glassware, these beautiful etched coupe glasses or champagne glasses add elegance and sophistication to any barware collection; 8.5oz capacity\n- CHAMPAGNE GLASSES: Ideal for craft cocktails, champagne or sparkling wine, or even a chocolate mousse dessert; naturally enhance aromas and flavors via their distinctive wide bowl design\n- STURDY GLASSWARE: Made from soda lime glass, these champagne glasses may look delicate, but in fact offer great durability, while the sturdy base and stem ensure stability and a comfortable hold; individual coupe glass weight equals 0.55lbs\n- DISHWASHER SAFE: Designed for everyday convenience, these whiskey glasses are dishwasher safe for quick and effortless cleanup, so you can spend more time enjoying your drink and less time hand washing\n- GIFT READY: A beautiful set and thoughtful choice for weddings, housewarmings, hosts or hostesses, holidays, birthdays, anniversaries and more\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 10-pc 8.5oz Crystal Coupe Glasses",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "10",
+                "pack_size_unit": "pc",
+                "size": "8.5oz",
+                "color": "Crystal",
+                "name": "Coupe Glasses"
+            },
+            "char_count": 40,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 10-Pk 8.5oz Classic Coupe Glasses",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "10",
+                "pack_size_unit": "Pk",
+                "size": "8.5oz",
+                "color": "",
+                "name": "Classic Coupe Glasses"
+            },
+            "char_count": 40,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Set Of 10, Dishwasher Safe, Vintage Etched Design, Champagne And Cocktail Glasses, Sturdy Soda Lime Glass",
+            "char_count": 105,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Vintage Etched Design, 85-Oz Capacity, Sturdy Stem And Base, Dishwasher Safe, Gift Ready, Ideal For Champagne And Cocktails",
+            "char_count": 123,
+            "validation_error": null
+        }
+    }
+}

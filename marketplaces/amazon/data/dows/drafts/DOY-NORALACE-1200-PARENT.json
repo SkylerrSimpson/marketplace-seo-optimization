@@ -3,14 +3,14 @@
     "asin": "B087CD3BQN",
     "product_type": "SHOELACE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:00:02+00:00",
+    "generated_at": "2026-07-21T20:05:12+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 4,
-        "ai_suggested": 2,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -65,19 +65,62 @@
             "raw_value": true
         },
         "model_name": {
-            "value": "TitanLace 1200 Technora Work Boot Lace",
+            "value": "TitanLace 1200",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
-            "value": "{\n  \"item_name\": \"ASR Tactical TitanLace 1200lb Technora Boot Laces\",\n  \"title_differentiation\": \"1200lb Breaking Strength, Made in USA, Multiple Lengths 36\"-108\", Emergency Cord\"\n}",
+        "item_name_ai_anthropic": {
+            "value": "ASR Tactical TitanLace 1200 Technora Boot Lace",
+            "is_required": true,
+            "source": "ai",
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "char_count": 46,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "1200",
+                "pack_size_unit": "lb",
+                "size": "",
+                "color": "",
+                "name": "TitanLace Technora Boot Lace"
+            }
+        },
+        "item_name_ai_openai": {
+            "value": "ASR Tactical TitanLace Technora Work Boot Laces",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 47,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "",
+                "name": "TitanLace Technora Work Boot Laces"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "1200Lb Breaking Strength, USA Made, Multiple Lengths 36-108In, Emergency Survival Cord, Heavy Duty Metal Aglets",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "review_only": true,
-            "note": "modular <=75 item_name for human review",
-            "validation_error": "exceeds modular item_name cap of 75 chars (181)"
+            "char_count": 111,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "1200 Lb Break Strength, PTFE Coated, 4 Mm Metal Aglets, Made In USA, Emergency Utility Cord, Hiking Camping Hunting EDC",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 119,
+            "review_only": true
         },
         "california_proposition_65": {
             "value": [

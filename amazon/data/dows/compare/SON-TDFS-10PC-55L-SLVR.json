@@ -1,0 +1,60 @@
+{
+    "sku": "SON-TDFS-10PC-55L-SLVR",
+    "asin": "B00KNCGOJQ",
+    "product_type": "TOOLS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:20+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-TDFS-10PC-55L-SLVR\nProduct Type: TOOLS\nBrand (from catalog): Universal Tool\nExisting Title: 10pc Professional Quality Tapered Diamond Abrasive Hobby File Set (Assorted Grits)\nDescription: This hobby file set has 10 different files for an array of different jobs and tasks whether it is for models, or detailed metal work. <br/><br/>Each file is 5.5\" in length and features small 2.5\" dipped rubber handles for precision craftsmanship. Includes PVC storage pouch.<br/><br/>There are nine flat files with three different widths and one round file. The set has varied grits identified by the handle color.<br/><br/>Red: 180 Grit<br/>Yellow: 260 Grit<br/>Green: 360 Grit<br/><br/>Because of its incredible variety this file set can help on almost any project type. Make sure to pick one up today.\nSearch Terms: diamond dust abrasive files; home hobby file set; DIY small files; filing tools crafting metal working home improvement\nFeatures:\n- Overall Length: 5 1/2\"(140mm)\n- Professional Quality\n- 180, 260, 360 Grits\n- 9 Flat Files and 1 Round File\n- Comes with convenient PVC pouch for storage\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal Tool 10-pc Diamond Abrasive Hobby File Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "10",
+                "pack_size_unit": "pc",
+                "size": "5.5 inch",
+                "color": "",
+                "name": "Diamond Abrasive Hobby File Set"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 10-Pc 5.5 In Tapered Diamond Abrasive File Set",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "10",
+                "pack_size_unit": "Pc",
+                "size": "5.5 In",
+                "color": "",
+                "name": "Tapered Diamond Abrasive File Set"
+            },
+            "char_count": 61,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "9 Flat And 1 Round File, 180-360 Grit Assorted, 55 Inch Length, Rubber Handles, PVC Storage Pouch",
+            "char_count": 97,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Precision Rubber Handles, 9 Flat And 1 Round File, 180 260 360 Grit, PVC Pouch, For Metal And Models",
+            "char_count": 100,
+            "validation_error": null
+        }
+    }
+}

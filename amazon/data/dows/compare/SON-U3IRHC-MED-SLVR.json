@@ -1,0 +1,60 @@
+{
+    "sku": "SON-U3IRHC-MED-SLVR",
+    "asin": "B074JVVXF2",
+    "product_type": "HARDWARE_CLAMP_VISE",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-U3IRHC-MED-SLVR\nProduct Type: HARDWARE_CLAMP_VISE\nBrand (from catalog): Universal Tool\nExisting Title: 1pk Universal Rubber Head Clamps 4 Inch Secure Lever Lock Metal Body Outdoor\nDescription: Need to hold something down or in place? <br/><br/>These 4\" Locking Rubber C clamps have a pivot lever locking mechanism that is easy to use and guarantees that materials being secured will stay that way. Designed to be a ceiling clamp, to help easily adjust supports and leveling lines, we've found that they are great at much more than that and have used them for holding down tarps and pieces of sheet metal together and much more.<br/><br/>Universal Rubber Head Clamp easily clamp and release mechanism allows for fast and easy positioning while the convenient thumb lock is designed to be comfortable and help reduce hand fatigue and cramping when positioning many locking clamps across a project grid at once. Perfect for all your securing needs. Galvanized steel construction makes this ideal for outdoor applications while being weatherproof and easily cleaned for many reuses; don't dispose, reuse.<br/><br/>The soft rubber clamp tips will maintain the proper clamp position and protect the clamping surface. Rubber head clamps are durable and reliable, while also giving you peace of mind that the surface being secured won't be damaged. The metal body design is lightweight and simple.\nSearch Terms: sheet metal grid clamp home improvement ceiling clamp lever locking c rubber tip weatherproof outside patio string lights attaching house support pivoting small clip no stick lockable camping\nFeatures:\n- SECURE LOCKING - Secure pivoting lever lock secures in place and stays that way\n- METAL BODY - Metal body construction is lightweight and designed to last\n- SAFE RUBBER HEAD - Rubber head clamp is durable and safe, reliably staying locked while avoiding damage to secured surfaces\n- MULTIFUNCTIONAL DESIGN - Ideal of home or outdoor use, camping, locking down tarps, or securing sheet metal\n- PRODUCT DETAILS - Length: 4\", Weight: .1 lbs.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Max. 250 characters\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Universal 4 inch Silver Rubber Head Clamp Lever Lock",
+            "tokens": {
+                "brand": "Universal",
+                "pack_size": "1",
+                "pack_size_unit": "pk",
+                "size": "4 inch",
+                "color": "Silver",
+                "name": "Rubber Head Clamp Lever Lock"
+            },
+            "char_count": 52,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Universal Tool 1-pk 4 in Rubber Head Clamp",
+            "tokens": {
+                "brand": "Universal Tool",
+                "pack_size": "1",
+                "pack_size_unit": "pk",
+                "size": "4",
+                "color": "",
+                "name": "Rubber Head Clamp"
+            },
+            "char_count": 42,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Secure Pivoting Lever Lock, Rubber Tips, Metal Body, Weatherproof, Outdoor Safe",
+            "char_count": 79,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Secure Pivot Lever Lock, Rubber Tips Protect Surfaces, Metal Body, Weatherproof Outdoor Use, Fast Clamp And Release",
+            "char_count": 115,
+            "validation_error": null
+        }
+    }
+}

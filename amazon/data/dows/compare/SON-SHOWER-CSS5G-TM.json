@@ -1,0 +1,60 @@
+{
+    "sku": "SON-SHOWER-CSS5G-TM",
+    "asin": "B07PWZF3JR",
+    "product_type": "OUTDOOR_RECREATION_PRODUCT",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: SON-SHOWER-CSS5G-TM\nProduct Type: OUTDOOR_RECREATION_PRODUCT\nBrand (from catalog): ASR Outdoor\nExisting Title: ASR Outdoor 5 Gallon Solar Shower Camping Gear\nDescription: When you're away from civilization and need a considerable amount of flowing hot water, the ASR Outdoor 5 Gallon Solar Shower Set with Thermometer Hiking Camping Outdoors can help provide the supply. Once the sun naturally heats the water-filled bag to the desired temperature, you're ready to take a shower, wash your clothes, rinse dishes, and whatever you need to do. It is handy to have while camping, traveling, and during any sort of emergency or survival situation.<br/><br/>The bag has a 5-gallon capacity. Before use, you should be sure to prepare the bag by washing the inner walls with a mixture of lukewarm water and a tablespoon of baking soda, rinse, and then add water to use. With the average temperature of 70 degrees Fahrenheit. Lay the bag out for a maximum of 3 hours with the heat absorbing surface facing the sun. For best results lay the bag in direct sunlight when the sun is at its highest point. When ready to use, insert the PVC pipe into the handle's slot. Secure the bag upright by tethering the rope and hook to the handle and a suitable anchor (eg., tree branch). For water to flow, allow the hose to hang without kinks and rotate the spigot to the ON position.\nSearch Terms: camping accessories gear shower supplies gadgets trekking backpacking ultralight hiking backpack compact lightweight portable travel boating black bag first aid kits 5 gallon hot bladder pack earthquake emergency tool disaster tools prepper\nFeatures:\n- HOLDS UP TO 5 GALLONS - The bag can hold 5 gallons of water to give you the ideal warm shower while\n- INCLUDES - This package includes a 28-hole showerhead (1-1/2\" dia.) and clear transparent 25\" shower hose.\n- MANY USES - You can use it to not only shower, but to wash your clothes, rinse dishes, and whatever you need to do\n- Hunter, Camper, Survivalist, Outdoors Enthusiast,\n- GREAT GIFT - Give this necessity to your friend or family member as a Christmas gift, House Warming, Hanukkah gift, Kwanzaa gift, party favor, party gift, stocking stuffer, swag bag, conference bag, goodie bag, gift bag, graduation gift, Easter basket, birthday present, or Valentine's day present.\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "ASR Outdoor 5 Gallon Solar Shower Camping",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "Gallon",
+                "size": "",
+                "color": "",
+                "name": "Solar Shower"
+            },
+            "char_count": 41,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "ASR Outdoor 5-Gal Solar Shower",
+            "tokens": {
+                "brand": "ASR Outdoor",
+                "pack_size": "5",
+                "pack_size_unit": "gal",
+                "size": "",
+                "color": "",
+                "name": "Solar Shower"
+            },
+            "char_count": 30,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Includes Showerhead And 25 Inch Hose, Hot Water Heating, Emergency Survival Gear, Portable Camping Shower",
+            "char_count": 105,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "28-Hole Showerhead, 25\" Hose, Built-In Thermometer, Portable Water Bag, Camping And Emergency Use",
+            "char_count": 97,
+            "validation_error": null
+        }
+    }
+}

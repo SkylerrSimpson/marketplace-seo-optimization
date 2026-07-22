@@ -3,14 +3,14 @@
     "asin": "B00EW49W3G",
     "product_type": "KNIFE",
     "account": "DOWS",
-    "generated_at": "2026-07-14T22:25:08+00:00",
+    "generated_at": "2026-07-21T20:09:38+00:00",
     "model": "auto",
     "status": "ok",
     "context_source": "self",
     "totals": {
         "fillable": 0,
         "catalog": 7,
-        "ai_suggested": 3,
+        "ai_suggested": 5,
         "ai_null": 0,
         "base_template": 0
     },
@@ -112,22 +112,59 @@
             "value": "Ceramic",
             "is_required": false,
             "source": "ai",
-            "model": "claude-sonnet-4-6"
+            "model": "claude-sonnet-5"
         },
-        "item_name_ai_suggested": {
+        "item_name_ai_anthropic": {
             "value": "ASR Tactical Folding Ceramic Razor Blade Micro EDC Knife",
-            "is_required": false,
+            "is_required": true,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
+            "char_count": 56,
             "review_only": true,
-            "note": "modular <=75 item_name for human review"
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "1",
+                "pack_size_unit": "Pack",
+                "size": "Micro",
+                "color": "Black",
+                "name": "Folding Ceramic Razor Blade Knife"
+            }
         },
-        "title_differentiation": {
-            "value": "Lightweight, Non-Metal, Rustproof, SERE Survival & Escape Tool",
+        "item_name_ai_openai": {
+            "value": "ASR Tactical 1-Pk Folding Ceramic Razor Blade Knife",
+            "is_required": true,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 51,
+            "review_only": true,
+            "tokens": {
+                "brand": "ASR Tactical",
+                "pack_size": "1",
+                "pack_size_unit": "Pk",
+                "size": "",
+                "color": "",
+                "name": "Folding Ceramic Razor Blade Knife"
+            }
+        },
+        "title_differentiation_ai_anthropic": {
+            "value": "Ceramic Blade, Non-Metal EDC, SERE Survival Kit, Keychain, Cuts Paracord And Zip Ties, Rustproof, 17In Closed",
             "is_required": false,
             "source": "ai",
+            "provider": "anthropic",
             "model": "claude-haiku-4-5",
-            "validation_error": "requires item_name <= 75 chars"
+            "char_count": 109,
+            "review_only": true
+        },
+        "title_differentiation_ai_openai": {
+            "value": "Zirconia Ceramic Blade, Cuts Kevlar Paracord And Zip Ties, Non Metal, Keychain Lanyard Hole, EDC Survival",
+            "is_required": false,
+            "source": "ai",
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "char_count": 105,
+            "review_only": true
         },
         "is_green_purchasing_law_compliant": {
             "is_required": false,

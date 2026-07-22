@@ -1,0 +1,60 @@
+{
+    "sku": "26C-WHTCOOKTOOLS-5PC-BUN",
+    "asin": "B0B9HS4X5W",
+    "product_type": "SPOON",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 26C-WHTCOOKTOOLS-5PC-BUN\nProduct Type: SPOON\nBrand (from catalog): Beille\nExisting Title: Beille Cream Wheat Straw Cooking Kitchen Utensils Set Spoons Spatulas Ladle, 5pc\nDescription: Want to step up your cooking and meal prep game? Then you need the Beille solid spoon 5pc set made with wheat straw. These spoons, spatulas and ladle are made with an innovative plant based material called wheat straw, that mimics classic kitchen tools without the harmful byproducts of traditional plastic.<br/><br/>Wheat straw is a bioplastic that is not made from fossil fuels making it more sustainable and a great zero waste option. It’s certified BPA free and is food-grade safe so you can count on it for food and meal prep. The spoons, ladle and spatulas are dishwasher safe for easy clean up after use.<br/><br/>Every kitchen needs a reliable, durable solid set of cooking and baking spoons, spatulas and ladle. With the Beille wheat straw plant based 5pc set, you can cook and meal prep with peace of mind, knowing you’re doing your part to protect yourself, your family, and the planet from harmful materials.\nSearch Terms: kitchen utensils set cooking baking supplies tools food meal prep slotted spoons kitchen starter set serveware wedding house warming gifts new home college dorm room essentials chef restaurant equipment server wheat straw sustainable products\nFeatures:\n- ESSENTIAL KITCHEN TOOLS: Beille 5pc kitchen tool set comes with 5 assorted cooking utensils every kitchen needs: a slotted spoon, a solid spoon, a slotted spatula, a solid spatula and a ladle; All accessories come in trendy cream color that fits nicely with any kitchen decor\n- PLANT BASED MATERIAL: Unique kitchen tools are made of bioplastic wheat straw; plant based material not made from fossil fuels making it more sustainable; Innovative material is a great zero waste option; Certified BPA free\n- DURABLE AND RELIABLE: Beille wheat straw kitchen utensils mimic traditional plastic cooking kitchen utensils without harmful byproducts; All spoons, spatulas and ladle are all dishwasher safe and can be used with both hot and cold food ingredients\n- STAINLESS STEEL HANDLES: Sturdy handles made of durable, corrosion resistant stainless steel that won’t rust so you can count on them to last; Come with handy slot in handle for easy hang storage if preferred\n- SPECIFICATIONS: Colors: cream, chrome; Material: 60% wheat straw, 40% polypropylene, stainless steel; Dimensions: 13 x 2.5 inches\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Beille 5pc Cream Wheat Straw Cooking Utensils Set",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "5",
+                "pack_size_unit": "pc",
+                "size": "",
+                "color": "Cream",
+                "name": "Wheat Straw Cooking Utensils Set"
+            },
+            "char_count": 49,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Beille 5-Pk Cream Wheat Straw Cooking Utensils Set",
+            "tokens": {
+                "brand": "Beille",
+                "pack_size": "5",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "Cream",
+                "name": "Cooking Utensils Set"
+            },
+            "char_count": 50,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "5 Piece Set, Wheat Straw Plant-Based, BPA-Free, Dishwasher Safe, Stainless Steel Handles, Sustainable",
+            "char_count": 101,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "BPA-Free, Dishwasher Safe, Stainless Steel Handles, Slotted Spoon, Solid Spoon, Spatulas, Ladle, Hot And Cold Foods",
+            "char_count": 115,
+            "validation_error": null
+        }
+    }
+}

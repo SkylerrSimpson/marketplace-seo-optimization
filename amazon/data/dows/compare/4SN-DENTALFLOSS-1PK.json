@@ -1,0 +1,60 @@
+{
+    "sku": "4SN-DENTALFLOSS-1PK",
+    "asin": "B086QB9SRG",
+    "product_type": "DENTAL_FLOSS",
+    "account": "DOWS",
+    "generated_at": "2026-07-21T18:10:21+00:00",
+    "providers": [
+        "anthropic",
+        "openai"
+    ],
+    "prompt": "You are an Amazon SP-API listing specialist and an expert at writing\nsearch-engine-optimized (SEO) Amazon listings. For the product below, write an\nitem_name of AT MOST 75 characters and a title_differentiation of AT MOST\n125 characters. Always return both, each within its own limit.\n\n=== PRODUCT CONTEXT ===\nSKU: 4SN-DENTALFLOSS-1PK\nProduct Type: DENTAL_FLOSS\nBrand (from catalog): Home Essentials\nExisting Title: Fresh Mint Dental Floss for Teeth Gum Oral Care\nDescription: Fresh Mint Oral Care Dental Floss: an oral care essential and one of the must-have teeth cleaning tools.<br/><br/>Yes, we all know that dental floss should be a part of our daily teeth cleaning and teeth whitening routine. Using fresh mint floss regularly helps with the removal of food particles in between our teeth, where regular oral care tools like toothpaste, mouthwash or a toothbrush cannot reach.<br/><br/>Gently stimulating and helping to maintain the gum line, regular use of fresh mint dental floss will prevent the acid build-up that leads to cavities, tooth decay, gingivitis, gum disease and has been proven in the maintenance of a healthy heart and heart disease prevention.<br/><br/>Made from nylon and covered with a light coating of wax, this dental floss is easy to use, grip and maneuver between your teeth in order to remove unwanted food from your mouth. The floss also features a not-too-powerful fresh mint flavor, helping to keep your teeth and mouth feeling clean and your breath fresh.<br/><br/>As far as teeth whitening is concerned, using dental floss does not necessarily make your teeth more white from acrid food or stains caused by beverages like coffee or wine BUT, it does help keep your teeth from yellowing through the constant removal of food particles and unwanted stuff that ultimately leads to plaque and tartar buildup. <br/><br/>A must-have in your arsenal of oral care tools, add Fresh Mint Dental Floss to your everyday routine for healthy, white and happy teeth and gums.\nSearch Terms: dental floss minty fresh teeth whitening tools care supplies oral mouth cleaning heart health hygiene personal gum protection plaque remover wax food\nFeatures:\n- DENTAL FLOSS: An oral health essential, dental floss should be a part of your daily teeth cleaning and teeth whitening routine; the use of floss regularly helps to remove food particles in between your teeth where our other oral health tools like a toothbrush, toothpaste or mouthwash can't reach\n- ORAL CARE TOOL: Made from nylon with a light coating of wax, this floss is easy to use, hold and maneuver between your teeth in order to remove unwanted food\n- ESSENTIAL GUM HEALTH: Dental floss helps to prevent the build of plaque and later tartar just below the gum line, therefore decreasing your chance of developing any general tooth decay, gingivitis or gum disease, as well as helping to maintain a healthy heart\n- FRESH MINT FLAVOR: This dental floss will help to keep your teeth and mouth feeling clean and your breath fresh with the refreshing and not too powerful 'Freshmint' flavor\n- SPECIFICATIONS: Pack: one; Length: 54.68 yards; Color: White; Case: plastic; Material: nylon\n\n=== ITEM_NAME (title, <= 75 chars) ===\nWrite a concise, keyword-rich, SEO-optimized item_name — a shopper-facing title,\nnot a part number. Derive these tokens, then assemble the title from them in order:\n  ${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}\n- brand: use the catalog brand above.\n- pack_size + pack_size_unit: parse from the existing title (e.g. \"4-pk\", or a\n  dimension like 13\" -> pack_size \"13\", pack_size_unit \"in\"). Omit if absent.\n- size, color, name: parse from the existing title (name = what the product IS).\nDrop any token you cannot determine; never emit the SKU, MPN, or a part number.\nLead with the brand; condense to AT MOST 75 characters.\nAmazon schema guidance: Provide a title for the item that may be customer facing\n\n=== TITLE_DIFFERENTIATION (item highlight, 100–125 chars) ===\nWrite a compact, comma-separated list of the product's strongest, most\nsearch-relevant features/benefits — NOT a full sentence, NOT the brand, and NOT a\nrepeat of the item_name (e.g. \"Set of 6, Dishwasher Safe, 8oz, BPA-Free, Stackable\").\nUse the available space: aim for 100–125 characters, leading with the\nhighest-value keywords. Never pad with filler or repeat a point.\nCapitalize the first letter of every word (e.g. \"Natural Wood Grain\", but keep\nacronyms like \"US\" fully uppercase). Do not use special characters — spell out\n\"&\" as \"and\" and \"=\" as \"is\" (e.g. \"Yellow Is Real\", \"Works On US And\nInternational Currency\"); only hyphen, double quote, and apostrophe are\nallowed.\nAmazon schema guidance: Provide product features or benefit driven phrases, not a full sentence. Information will appear only when the item name is under 75 characters. Do not repeat information already in the item name.\n\n=== RETURN ===\nReturn ONLY a valid JSON object, no markdown fences, in this exact shape:\n{\"item_name\": \"<= 75 char title\", \"tokens\": {\"brand\": \"\", \"pack_size\": \"\", \"pack_size_unit\": \"\", \"size\": \"\", \"color\": \"\", \"name\": \"\"}, \"title_differentiation\": \"<= 125 char benefit phrase\"}",
+    "item_name": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "item_name": "Home Essentials Fresh Mint Dental Floss White",
+            "tokens": {
+                "brand": "Home Essentials",
+                "pack_size": "1",
+                "pack_size_unit": "pk",
+                "size": "",
+                "color": "White",
+                "name": "Fresh Mint Dental Floss"
+            },
+            "char_count": 45,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "item_name": "Home Essentials Fresh Mint White Dental Floss",
+            "tokens": {
+                "brand": "Home Essentials",
+                "pack_size": "",
+                "pack_size_unit": "",
+                "size": "",
+                "color": "White",
+                "name": "Fresh Mint Dental Floss"
+            },
+            "char_count": 45,
+            "validation_error": null
+        }
+    },
+    "title_differentiation": {
+        "anthropic": {
+            "provider": "anthropic",
+            "model": "claude-haiku-4-5",
+            "title_differentiation": "Waxed Nylon Floss, Fresh Mint Flavor, Removes Food And Plaque, Gum Health, 5468 Yards",
+            "char_count": 85,
+            "validation_error": null
+        },
+        "openai": {
+            "provider": "openai",
+            "model": "gpt-5.4-mini",
+            "title_differentiation": "Wax-Coated Nylon, 5468 Yards, Easy Glide, Fresh Mint Flavor, Supports Gum Health, Helps Remove Plaque And Food",
+            "char_count": 110,
+            "validation_error": null
+        }
+    }
+}
