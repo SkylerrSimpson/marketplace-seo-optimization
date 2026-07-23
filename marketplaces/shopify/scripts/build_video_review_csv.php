@@ -1,10 +1,17 @@
 <?php
 declare(strict_types=1);
 /**
- * Merge authored watch-page copy (video_watch_pages_authored.json) with the
- * YouTube-pulled metadata (video_metadata.json) into one review CSV.
- * Read-only. Flags meta_title > 60 and meta_description > 165.
- * Writes shopify/data/drafts/video_watch_pages_review.csv
+ * Merge hand-authored watch-page copy (video_watch_pages_authored.json) with
+ * YouTube-pulled metadata (video_metadata.json) into one CSV for human review
+ * before build_video_watch_pages.php creates the actual blog articles.
+ * Read-only. Flags meta_title > 60 chars and meta_description > 165 chars.
+ *
+ * Prerequisites: data/drafts/video_watch_pages_authored.json (hand-authored
+ * copy) and data/drafts/video_metadata.json (from pull_youtube_meta.php)
+ * must already exist.
+ *
+ * Usage: php marketplaces/shopify/scripts/build_video_review_csv.php
+ * Writes: marketplaces/shopify/data/drafts/video_watch_pages_review.csv
  */
 $dir = __DIR__ . '/../data/drafts/';
 $authored = json_decode(file_get_contents($dir.'video_watch_pages_authored.json'), true);

@@ -1,7 +1,8 @@
 # ASR Outdoor SEO/AI Project — Key Findings & Status (ref. 2026-06-03)
 
-Consolidated reference. Deep research lives in `geo_seo_strategy.md`; phase plan/rules in
-`phase1_rules.md`; this is the quick "what we know + what's left" sheet.
+Consolidated reference. Deep research lives in `geo-seo-strategy.md` (this dir); phase
+plan/rules live in `marketplaces/shopify/rules/product-metadata-rules.md` (originally
+`phase1_rules.md`, renamed since); this is the quick "what we know + what's left" sheet.
 
 ---
 
@@ -33,7 +34,7 @@ Perplexity/Copilot. Perplexity also reads the live open web.
 ---
 
 ## Meta-description work (Phase 1–2)
-- Rules locked in `phase1_rules.md`: 140–160 chars, grounded in the real product body
+- Rules locked in `marketplaces/shopify/rules/product-metadata-rules.md`: 140–160 chars, grounded in the real product body
   (boss requirement: condense, don't invent), benefit-led, includes use-case + audience,
   no hype/stuffing, brand ≤1×.
 - Scope: meta description for ~199 products + `product_type` for 23 blanks
@@ -83,9 +84,9 @@ consensus → F crawler access/llms.txt → G measurement.
 ## Project file map
 - `audit_products.php` → `products_audit.csv` — Phase 0 gap audit (read-only)
 - `export_descriptions.php` → `phase2_input.json` / `phase2_preview.csv` — real bodies (read-only)
-- NOTE: files reorganized into shopify/scripts, shopify/data/{input,drafts,output}, docs/ — see README.md for the authoritative layout. (AI drafter removed; drafting was done in-session.)
+- NOTE: files now live under `marketplaces/shopify/scripts/`, `marketplaces/shopify/data/{input,drafts,output}/`, `docs/` — see `marketplaces/shopify/README.md` for the authoritative layout. (AI drafter removed; drafting was done in-session.)
 - `drafts_manual.json` + `assemble_output.php` → `phase2_output.{csv,json}` — in-session drafts
 - `audit_feed.php` → `feed_audit.csv` — Phase A structured-data audit (read-only)
-- `phase1_rules.md` — field rules + AI prompt
-- `geo_seo_strategy.md` — full GEO/AI research + roadmap
-- `KEY_FINDINGS.md` — this file
+- `marketplaces/shopify/rules/product-metadata-rules.md` (was `phase1_rules.md`) — field rules + AI prompt
+- `geo-seo-strategy.md` (was `geo_seo_strategy.md`, this dir) — full GEO/AI research + roadmap
+- `key-findings.md` (was `KEY_FINDINGS.md`, this dir) — this file

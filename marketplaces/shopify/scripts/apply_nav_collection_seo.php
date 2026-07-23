@@ -14,8 +14,8 @@ declare(strict_types=1);
  *   - Warns (does not crash) if a handle isn't live yet.
  *
  * USAGE:
- *   php apply_nav_collection_seo.php            # dry-run
- *   php apply_nav_collection_seo.php --apply    # LIVE write
+ *   php marketplaces/shopify/scripts/apply_nav_collection_seo.php            # dry-run
+ *   php marketplaces/shopify/scripts/apply_nav_collection_seo.php --apply    # LIVE write
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

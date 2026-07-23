@@ -9,6 +9,7 @@ mapped via aspect_field_map.json with fallback priority), and emit one task carr
 all the child evidence the agent needs to propose a parent value + reviewer note.
 
 Outputs: data/parent_fill/parent_rollup_tasks.jsonl  (one task per parent-aspect)
+Usage:   python3 marketplaces/ebay/scripts/build_parent_rollup_tasks.py   (no args; runs dows+ige)
 """
 import csv, json, glob, re, sys, collections, os
 

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 /**
  * apply_aspects.php — Stage 2 of write-back, the FULL account write (fills the "no
- * bulk write-back script yet" gap noted in ebay/README.md). Pushes apply_set.json's
+ * bulk write-back script yet" gap noted in marketplaces/ebay/README.md). Pushes apply_set.json's
  * already-computed, complete specifics set to eBay via Trading ReviseItem, one
  * listing at a time, across the whole account (or a single item / a limited slice).
  *
@@ -29,12 +29,12 @@ declare(strict_types=1);
  *     data/<acct>/output/apply_aspects_run.csv and the run continues to the next item.
  *
  * Usage:
- *   php ebay/scripts/apply_aspects.php --account=dows --item=126454417969            # dry-run, one item
- *   php ebay/scripts/apply_aspects.php --account=dows --item=126454417969 --verify    # server validates, no commit
- *   php ebay/scripts/apply_aspects.php --account=dows --item=126454417969 --live      # writes that one item
- *   php ebay/scripts/apply_aspects.php --account=dows --limit=20 --verify             # first 20 listings, verify-only
- *   php ebay/scripts/apply_aspects.php --account=dows --live --confirm=WRITE          # full account, all listings
- *   php ebay/scripts/apply_aspects.php --account=dows --offset=100 --limit=100 --live --confirm=WRITE --exclude=ID,ID
+ *   php marketplaces/ebay/scripts/apply_aspects.php --account=dows --item=126454417969            # dry-run, one item
+ *   php marketplaces/ebay/scripts/apply_aspects.php --account=dows --item=126454417969 --verify    # server validates, no commit
+ *   php marketplaces/ebay/scripts/apply_aspects.php --account=dows --item=126454417969 --live      # writes that one item
+ *   php marketplaces/ebay/scripts/apply_aspects.php --account=dows --limit=20 --verify             # first 20 listings, verify-only
+ *   php marketplaces/ebay/scripts/apply_aspects.php --account=dows --live --confirm=WRITE          # full account, all listings
+ *   php marketplaces/ebay/scripts/apply_aspects.php --account=dows --offset=100 --limit=100 --live --confirm=WRITE --exclude=ID,ID
  *                                                                                     # batch 2 of a sequential run, skipping specific items
  */
 

@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 /**
  * PHASE 5 — gap audit. For each enumerated+enriched listing, diff the Item
- * Specifics it currently has (ebay/data/{account}/output/items/{id}.json) against
- * the aspect schema for its leaf category (ebay/data/aspects/{catId}.json), and
+ * Specifics it currently has (marketplaces/ebay/data/{account}/output/items/{id}.json) against
+ * the aspect schema for its leaf category (marketplaces/ebay/data/aspects/{catId}.json), and
  * emit a priority-scored list of what's MISSING.
  *
  * A "gap" = an aspect the category schema defines that the listing does not have.
  * Required-but-missing is weighted far above recommended-but-missing.
  *   priority = missing_required * 5 + missing_recommended
  *
- * Outputs (per account, under ebay/data/{account}/output/):
+ * Outputs (per account, under marketplaces/ebay/data/{account}/output/):
  *   aspect_gaps_summary.csv   one row per listing: counts + the missing names,
  *                             sorted by priority (worst first). The review file.
  *   aspect_gaps_worklist.csv  one row per (listing x missing aspect): the actual
@@ -23,8 +23,8 @@ declare(strict_types=1);
  * Read-only (consumes local JSON only — no eBay calls).
  *
  * Usage:
- *   php ebay/scripts/audit_listings.php                # both accounts
- *   php ebay/scripts/audit_listings.php --account=dows
+ *   php marketplaces/ebay/scripts/audit_listings.php                # both accounts
+ *   php marketplaces/ebay/scripts/audit_listings.php --account=dows
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

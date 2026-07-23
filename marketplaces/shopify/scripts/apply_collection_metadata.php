@@ -14,11 +14,14 @@ declare(strict_types=1);
  *   - Per-collection non-fatal: one userError won't abort the batch.
  *   - Validates each new description is <=160 chars and ASCII before sending.
  *
+ * Prerequisites: data/output/collections_phase2.json (hand-authored; no
+ * producer script in this repo) must already exist.
+ *
  * USAGE:
- *   php apply_collection_metadata.php                # dry-run, all
- *   php apply_collection_metadata.php --limit 3      # dry-run, first 3
- *   php apply_collection_metadata.php --apply        # LIVE write
- *   php apply_collection_metadata.php --apply --limit 3   # live canary
+ *   php marketplaces/shopify/scripts/apply_collection_metadata.php                # dry-run, all
+ *   php marketplaces/shopify/scripts/apply_collection_metadata.php --limit 3      # dry-run, first 3
+ *   php marketplaces/shopify/scripts/apply_collection_metadata.php --apply        # LIVE write
+ *   php marketplaces/shopify/scripts/apply_collection_metadata.php --apply --limit 3   # live canary
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

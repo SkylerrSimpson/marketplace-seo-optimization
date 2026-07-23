@@ -39,7 +39,7 @@ declare(strict_types=1);
  * so you get an added / removed / changed summary without needing git.
  *
  * Usage:
- *   php amazon/scripts/drift_snapshot.php [--account=IGE|DOWS] [OPTIONS]
+ *   php marketplaces/amazon/scripts/drift_snapshot.php [--account=IGE|DOWS] [OPTIONS]
  *
  * Flags:
  *   --account=IGE|DOWS   Seller account to snapshot. Default: IGE.
@@ -48,11 +48,11 @@ declare(strict_types=1);
  *   --help               Show this help message.
  *
  * Inputs (all from disk, no API):
- *   amazon/data/{account}/input/listings/{sku}.json
- *   amazon/data/{account}/input/catalog/{asin}.json (+ catalog/errors/{asin}.json)
+ *   marketplaces/amazon/data/{account}/input/listings/{sku}.json
+ *   marketplaces/amazon/data/{account}/input/catalog/{asin}.json (+ catalog/errors/{asin}.json)
  *
  * Output (committed, stable filename — overwritten each run):
- *   amazon/data/{account}/drift/snapshot.json
+ *   marketplaces/amazon/data/{account}/drift/snapshot.json
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';
@@ -96,7 +96,7 @@ const PROJECTED_ATTRS = [
 
 if (in_array('--help', $argv ?? [], true)) {
     echo <<<'HELP'
-Usage: php amazon/scripts/drift_snapshot.php [--account=IGE|DOWS] [OPTIONS]
+Usage: php marketplaces/amazon/scripts/drift_snapshot.php [--account=IGE|DOWS] [OPTIONS]
 
 Flags:
   --account=IGE|DOWS   Seller account to snapshot. Default: IGE.

@@ -23,14 +23,14 @@ declare(strict_types=1);
  * Rate limit: 3 requests/minute (Walmart-documented). Batches up to 20 product types
  * per request. ~438 product types / 20 per call ≈ 22 calls ≈ ~8 minutes.
  *
- * Output: walmart/data/{country}/output/product_type_specs_{country}.json
+ * Output: marketplaces/walmart/data/{country}/output/product_type_specs_{country}.json
  *   { "Kitchen Shears": {"color": "Color", "material": "Material", ...}, ... }
  *   (xml attribute name -> human-readable title, straight from the schema's own
  *   "title" field -- this is the canonical, complete label source for the unified
  *   aspects review sheet: covers every attribute applicable to a product type,
  *   not just whatever happened to be included in one mixed-batch xlsx export.)
  *
- * Usage: php walmart/scripts/fetch_product_type_specs.php --country=us
+ * Usage: php marketplaces/walmart/scripts/fetch_product_type_specs.php --country=us
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

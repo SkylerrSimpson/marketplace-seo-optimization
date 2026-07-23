@@ -37,11 +37,11 @@ declare(strict_types=1);
  *      an explicit --target-policy-id, it doesn't guess it from this file.
  *
  * Usage:
- *   php ebay/scripts/audit_shipping_policy.php --account=dows
- *   php ebay/scripts/audit_shipping_policy.php --account=dows --price-under=20 --policy-contains="under 1lb" --target-contains="sub $15"
- *   php ebay/scripts/audit_shipping_policy.php --account=dows --limit=20   # smoke test a subset first
+ *   php marketplaces/ebay/scripts/audit_shipping_policy.php --account=dows
+ *   php marketplaces/ebay/scripts/audit_shipping_policy.php --account=dows --price-under=20 --policy-contains="under 1lb" --target-contains="sub $15"
+ *   php marketplaces/ebay/scripts/audit_shipping_policy.php --account=dows --limit=20   # smoke test a subset first
  *
- * Output (under ebay/data/{account}/output/):
+ * Output (under marketplaces/ebay/data/{account}/output/):
  *   shipping_policy_audit.csv   one row per checked candidate:
  *                                item_id, sku, title, is_variation, live_price,
  *                                package_weight_lb, policy_id, policy_name,

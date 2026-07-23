@@ -14,7 +14,7 @@ declare(strict_types=1);
  * Writes ONLY a local CSV (data/output/product_video_inventory.csv). Never
  * writes to Shopify. read_products scope.
  *
- * Usage: php audit_product_media.php
+ * Usage: php marketplaces/shopify/scripts/audit_product_media.php
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

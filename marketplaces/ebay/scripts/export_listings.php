@@ -23,15 +23,15 @@ declare(strict_types=1);
  *
  * The POST in step 1 creates a REPORT task; it does NOT modify any listing.
  *
- * Output (under ebay/data/{account}/output/):
+ * Output (under marketplaces/ebay/data/{account}/output/):
  *   active_inventory_report.xml   raw decompressed report (for schema inspection)
  *   listings.json                 [{item_id, sku, price, quantity, site_id, format}]
  *   skus.csv                      same, flat, for eyeballing
  *
  * Usage:
- *   php ebay/scripts/export_listings.php --account=dows
- *   php ebay/scripts/export_listings.php --account=ige --task=12345   # reuse an existing task
- *   php ebay/scripts/export_listings.php --account=dows --format=FIXED_PRICE
+ *   php marketplaces/ebay/scripts/export_listings.php --account=dows
+ *   php marketplaces/ebay/scripts/export_listings.php --account=ige --task=12345   # reuse an existing task
+ *   php marketplaces/ebay/scripts/export_listings.php --account=dows --format=FIXED_PRICE
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

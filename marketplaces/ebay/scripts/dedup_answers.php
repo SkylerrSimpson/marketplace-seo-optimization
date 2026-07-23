@@ -8,9 +8,9 @@ declare(strict_types=1);
  * Validates JSON, reports malformed lines, dup collapses, and coverage vs the task list.
  *
  * Usage:
- *   php ebay/scripts/dedup_answers.php --account=ige
- *     reads  ebay/data/{acct}/output/ai_fill_answers_RAW.jsonl
- *     writes ebay/data/{acct}/output/ai_fill_answers.jsonl   (deduped, last-wins)
+ *   php marketplaces/ebay/scripts/dedup_answers.php --account=ige
+ *     reads  marketplaces/ebay/data/{acct}/output/ai_fill_answers_RAW.jsonl
+ *     writes marketplaces/ebay/data/{acct}/output/ai_fill_answers.jsonl   (deduped, last-wins)
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

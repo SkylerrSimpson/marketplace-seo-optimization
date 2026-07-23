@@ -5,14 +5,14 @@ declare(strict_types=1);
  * Re-mints ADMIN_API_TOKEN with the scopes currently configured on the app.
  *
  * Interactive CLI path (writes .env, manages its own state via a temp file):
- *   php oauth_mint.php url                        # 1) print the authorize URL
- *   php oauth_mint.php exchange "<code|redirURL>" # 2) swap code -> token, write .env
+ *   php marketplaces/shopify/scripts/oauth_mint.php url                        # 1) print the authorize URL
+ *   php marketplaces/shopify/scripts/oauth_mint.php exchange "<code|redirURL>" # 2) swap code -> token, write .env
  *
  * Non-interactive path used by DOWScripts' in-browser OAuth flow (does NOT touch
  * .env; the caller manages state/CSRF and stores the token itself):
- *   php oauth_mint.php authorize-url --redirect-uri=<uri> --state=<state>
+ *   php marketplaces/shopify/scripts/oauth_mint.php authorize-url --redirect-uri=<uri> --state=<state>
  *                                                 # prints ONLY the consent URL
- *   php oauth_mint.php web-exchange --code=<code> --json
+ *   php marketplaces/shopify/scripts/oauth_mint.php web-exchange --code=<code> --json
  *                                                 # prints {access_token,scope,shop,api_version} to stdout
  *
  * Secrets (CLIENT_ID/CLIENT_SECRET) are read from .env, never printed.

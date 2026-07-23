@@ -1,9 +1,13 @@
 <?php
 declare(strict_types=1);
 /**
- * Enumerate every product video (EXTERNAL_VIDEO) with its real YouTube ID +
- * the product it lives on, so we can build the video watch-page list.
- * Read-only. Writes shopify/data/drafts/video_master_list.csv
+ * Enumerate every product video (EXTERNAL_VIDEO media) across all products,
+ * extract each one's real YouTube ID, and record which product(s) it's on.
+ * First step of the video watch-page pipeline — output feeds pull_youtube_meta.php.
+ * Read-only.
+ *
+ * Usage: php marketplaces/shopify/scripts/list_product_videos.php
+ * Writes: marketplaces/shopify/data/drafts/video_master_list.csv
  */
 require __DIR__ . '/../../lib/bootstrap.php';
 use Shopify\Context; use Shopify\Auth\FileSessionStorage; use Shopify\Clients\Graphql;

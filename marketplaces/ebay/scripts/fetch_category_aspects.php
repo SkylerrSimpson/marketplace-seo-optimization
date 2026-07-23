@@ -15,15 +15,15 @@ declare(strict_types=1);
  * --account=dows|ige restricts to one account's categories.)
  *
  * Output (committed, reviewable — eBay analog of the Amazon product-type schemas):
- *   ebay/data/aspects/{categoryId}.json   normalized schema for that category
- *   ebay/data/aspects/_index.csv          per-category required/total aspect counts
+ *   marketplaces/ebay/data/aspects/{categoryId}.json   normalized schema for that category
+ *   marketplaces/ebay/data/aspects/_index.csv          per-category required/total aspect counts
  *
  * Read-only. Idempotent: skips categories already cached unless --refresh.
  *
  * Usage:
- *   php ebay/scripts/fetch_category_aspects.php --limit=5      # canary
- *   php ebay/scripts/fetch_category_aspects.php                # full (union)
- *   php ebay/scripts/fetch_category_aspects.php --refresh
+ *   php marketplaces/ebay/scripts/fetch_category_aspects.php --limit=5      # canary
+ *   php marketplaces/ebay/scripts/fetch_category_aspects.php                # full (union)
+ *   php marketplaces/ebay/scripts/fetch_category_aspects.php --refresh
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

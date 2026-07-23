@@ -15,10 +15,10 @@ declare(strict_types=1);
  * weight is NOT a selection criterion. Weight is still fetched and written to
  * the output CSV for reference, and --max-weight-lbs stays available as an
  * optional gate (default: unset = no weight filtering) in case that changes.
- * See ebay/docs/two_pack_rules.txt for the canonical rule sheet.
+ * See marketplaces/ebay/docs/two_pack_rules.txt for the canonical rule sheet.
  * ============================================================================
  *
- * Source data: ebay/data/{account}/output/skus.csv, produced by
+ * Source data: marketplaces/ebay/data/{account}/output/skus.csv, produced by
  * export_listings.php (item_id, sku, is_variation, price, quantity). That
  * file is the cheap, no-API-call filter pass (by price); this script then
  * calls GetItem per surviving row to pull the one thing the summary doesn't
@@ -39,16 +39,16 @@ declare(strict_types=1);
  * and refuses to touch a `no` row under any circumstance, including an
  * explicit --item override.
  *
- * Output: ebay/data/{account}/output/two_pack_candidates.csv
+ * Output: marketplaces/ebay/data/{account}/output/two_pack_candidates.csv
  *   item_id, sku, title, price, weight_lbs, quantity, category_id,
  *   category_name, is_variation, new_title, new_price, new_quantity, approved,
  *   issues
  * This file is exactly what create_two_pack_listings.php --input-file expects.
  *
  * Usage:
- *   php ebay/scripts/find_two_pack_candidates.php --account=dows
- *   php ebay/scripts/find_two_pack_candidates.php --account=dows --max-price=12 --max-weight-lbs=0.75
- *   php ebay/scripts/find_two_pack_candidates.php --account=dows --limit=25   # smoke test, fewer GetItem calls
+ *   php marketplaces/ebay/scripts/find_two_pack_candidates.php --account=dows
+ *   php marketplaces/ebay/scripts/find_two_pack_candidates.php --account=dows --max-price=12 --max-weight-lbs=0.75
+ *   php marketplaces/ebay/scripts/find_two_pack_candidates.php --account=dows --limit=25   # smoke test, fewer GetItem calls
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

@@ -9,8 +9,10 @@ declare(strict_types=1);
  * reference actual variant attribute values (sizes, colors, materials) instead of
  * generic "multiple sizes". Writes variants.json keyed by numeric_id:
  *   { is_parent, variant_count, options: [ {name, values:[...]} ] }
+ * No automated consumer — output is a reference file for whoever authors the
+ * description copy by hand.
  *
- * Usage: php export_variants.php
+ * Usage: php marketplaces/shopify/scripts/export_variants.php
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

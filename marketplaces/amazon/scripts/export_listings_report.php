@@ -7,7 +7,7 @@ declare(strict_types=1);
  *
  * Requests two reports from the Reports API in parallel (both created upfront
  * so Amazon processes them simultaneously), polls each to completion, and
- * writes output files to amazon/data/input/reports/:
+ * writes output files to marketplaces/amazon/data/{account}/input/reports/:
  *
  *   listings_{timestamp}.tsv         — raw all-listings TSV
  *   listings_{timestamp}.json        — lossless sidecar keyed by seller-sku;
@@ -16,7 +16,7 @@ declare(strict_types=1);
  *   suppressed_{timestamp}.json      — sidecar keyed by SKU with reason/issue
  *
  * Usage:
- *   php amazon/scripts/export_listings_report.php [--account=IGE|DOWS] [--force]
+ *   php marketplaces/amazon/scripts/export_listings_report.php [--account=IGE|DOWS] [--force]
  *
  * Flags:
  *   --account=  Seller account to export. Default: IGE.
@@ -43,7 +43,7 @@ use SellingPartnerApi\Seller\ReportsV20210630\Responses\Report;
 
 if (in_array('--help', $argv ?? [], true)) {
     echo <<<'HELP'
-Usage: php amazon/scripts/export_listings_report.php [--account=IGE|DOWS] [--force]
+Usage: php marketplaces/amazon/scripts/export_listings_report.php [--account=IGE|DOWS] [--force]
 
 Flags:
   --account=IGE|DOWS   Seller account to export. Default: IGE.

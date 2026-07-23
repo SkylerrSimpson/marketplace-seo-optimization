@@ -95,7 +95,9 @@ Reframe the unit of optimization from "meta description" to "the whole product r
 **Refinements to fold into the current phases:**
 - **Meta descriptions:** explicitly include the **primary use case + target audience**
   (beginner/expert, the activity) so they map to conversational queries — still grounded
-  in the real body (boss requirement intact). Done in `phase1_rules.md`.
+  in the real body (boss requirement intact). Done in
+  `marketplaces/shopify/rules/product-metadata-rules.md` (originally `phase1_rules.md`,
+  renamed since).
 - **Product bodies:** ensure each has a clean **spec block** + **use-case/audience**
   language + ideally a short **FAQ**. Many of our bodies already have spec lists (good).
 - **Structured attributes (feed):** audit GTIN/MPN, brand, condition, availability,

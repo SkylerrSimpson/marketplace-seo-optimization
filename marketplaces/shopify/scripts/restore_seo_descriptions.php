@@ -17,7 +17,15 @@ declare(strict_types=1);
  * Idempotent: skips products whose seo.description already matches the snapshot.
  * Guards: refuses to write a non-ASCII description.
  *
+ * Prerequisites: data/output/products_export_1.csv (pre-wipe snapshot) and
+ * data/output/product_handle_reference.csv (handle -> numeric_id) must exist.
  * DRY-RUN by default. Pass --apply to write.
+ *
+ * Usage:
+ *   php marketplaces/shopify/scripts/restore_seo_descriptions.php                 # dry run (all)
+ *   php marketplaces/shopify/scripts/restore_seo_descriptions.php --ids=ID,ID     # canary subset
+ *   php marketplaces/shopify/scripts/restore_seo_descriptions.php --limit=20      # first N
+ *   php marketplaces/shopify/scripts/restore_seo_descriptions.php --apply         # write
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

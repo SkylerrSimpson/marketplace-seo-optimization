@@ -59,7 +59,7 @@ description + priceValidUntil at the **variant** level (hasVariant.offers), whic
 the GSC "description"(146) and "priceValidUntil"(36) warnings persist despite the
 group-level description being present.
 
-Snippet written: `shopify/theme/product-structured-data.liquid` — mirrors Dawn's exact
+Snippet written: `marketplaces/shopify/theme/product-structured-data.liquid` — mirrors Dawn's exact
 ProductGroup/hasVariant/offers structure and adds, per variant+offer: description,
 priceValidUntil, itemCondition, hasMerchantReturnPolicy (US/30-day/customer-paid, matches
 MC), shippingDetails (US; **rate is a $0.00 placeholder — set to real US rate or remove

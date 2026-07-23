@@ -14,11 +14,11 @@ declare(strict_types=1);
  * Requires Phase 1 (export_listings_report.php) to have run first so that
  * the listings_{ts}.json sidecar (SKU→ASIN map) is available.
  *
- * Writes one file per ASIN to amazon/data/{account}/input/catalog/{asin}.json.
+ * Writes one file per ASIN to marketplaces/amazon/data/{account}/input/catalog/{asin}.json.
  * Each file is the raw JSON item from the API — lossless.
  *
  * Usage:
- *   php amazon/scripts/export_catalog_items.php [--account=IGE|DOWS] [--force] [--limit=N]
+ *   php marketplaces/amazon/scripts/export_catalog_items.php [--account=IGE|DOWS] [--force] [--limit=N]
  *
  * Flags:
  *   --account=  Seller account to export. Default: IGE.
@@ -40,7 +40,7 @@ require __DIR__ . '/../../lib/AmazonRateLimits.php';
 
 if (in_array('--help', $argv ?? [], true)) {
     echo <<<'HELP'
-Usage: php amazon/scripts/export_catalog_items.php [--account=IGE|DOWS] [--force] [--limit=N]
+Usage: php marketplaces/amazon/scripts/export_catalog_items.php [--account=IGE|DOWS] [--force] [--limit=N]
 
 Flags:
   --account=IGE|DOWS   Seller account to export. Default: IGE.

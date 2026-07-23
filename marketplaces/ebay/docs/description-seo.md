@@ -1,8 +1,8 @@
 # eBay description SEO — audit & standardization (DRY-RUN)
 
 Re-authors every listing's description into one company-standard HTML template. Built
-on the `media/` snapshots from `audit_media.php`. **No eBay writes** — output is a
-review sheet for Ethan; write-back reuses the merge-guarded transport described in
+on the `media/` snapshots from `audit_media.php`. Output is a review sheet for human
+sign-off; write-back reuses the merge-guarded transport described in
 `docs/apply-bridge.md` (description is a separate `ReviseItem`/`ReviseFixedPriceItem`
 field, not an aspect).
 
@@ -35,7 +35,7 @@ extract_description_source.py
 split_author_batches.py [--size=135]
    -> author_batches/in_NN.jsonl per-batch input, skipping already-authored listings
 
-[authoring pass: ebay/scripts/AUTHOR_PROMPT.md is the task spec/contract — one JSON
+[authoring pass: marketplaces/ebay/scripts/AUTHOR_PROMPT.md is the task spec/contract — one JSON
  object per listing: factual, sales, bullets[], mobile, title_issue, new_title]
    -> author_batches/out_NN.jsonl
 
@@ -84,7 +84,7 @@ accounts needed this); watch for it in any future authoring pass on a variation 
 ## The canonical HTML template
 
 `build_description_review.php`'s `renderFull()` must match
-`ebay/tools/description-generator.html` (the actual in-house generator tool) structurally,
+`marketplaces/ebay/tools/description-generator.html` (the actual in-house generator tool) structurally,
 byte-for-byte:
 
 ```
@@ -102,8 +102,8 @@ byte-for-byte:
 </div>
 ```
 
-(Contact Us link removed 2026-07 per Ethan — "Our Store" only. Prop65 badge added the
-same round, see `ebay/docs/review-rules.md` §3.)
+(Contact Us link removed 2026-07 — "Our Store" only. Prop65 badge added the
+same round, see `marketplaces/ebay/docs/review-rules.md` §3.)
 
 Two structural bugs were found and fixed comparing against the reference tool: feature
 labels weren't trimmed before the `Label:` bold-split, and Product Specifications didn't
@@ -116,8 +116,9 @@ Both accounts fully authored and rendered: **1,257/1,257 DOWS, 370/370 IGE**. Ti
 rewritten (flagged + replaced) on 79 DOWS listings and 34 IGE listings — everything else
 kept its original title. Verified structurally clean (0 issues) against: template
 skeleton match, title ≤80 chars, mobile ≤800 escaped chars, no identifier leakage into
-visible copy. `description_review.csv` (21 columns) is ready for Ethan; copies live in
-`ebay/data/for_ethan/eBay_{ACCT}_descriptions-standardized-v2_REVIEW.csv`.
+visible copy. `description_review.csv` (21 columns) is ready for review; copies live in
+`marketplaces/ebay/data/review_bundle/eBay_{ACCT}_descriptions-standardized-v2_REVIEW.csv`.
 
-Write-back of approved descriptions is not yet built — same open gap as the aspects
-pipeline's bulk write-back (see `docs/apply-bridge.md` §6).
+Write-back is built (`apply_descriptions.php`, Pipeline 2 step 8 in
+`marketplaces/ebay/README.md`) and has run live for both accounts —
+`apply_descriptions_run.csv` shows live writes for both DOWS and IGE.

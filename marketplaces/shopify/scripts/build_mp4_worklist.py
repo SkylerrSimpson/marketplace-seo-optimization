@@ -2,11 +2,14 @@
 """
 READ-ONLY. Build the "replace hosted MP4 with YouTube embed" worklist.
 
-Reads product_video_inventory.csv (the 13 products with self-hosted Shopify
-MP4s) and matches each to its likely YouTube counterpart (from the 17 channel
-videos). Writes a local checklist CSV + prints a table. No store writes.
+Reads product_video_inventory.csv (from audit_product_media.php) and matches
+each self-hosted-MP4 product to its likely YouTube counterpart. The YT id ->
+title map and the handle-prefix -> match table below are hand-curated from a
+one-time review of the channel; re-check them if new hosted MP4s show up.
+Writes a local checklist CSV + prints a table. No store writes.
 
-Output: shopify/data/output/mp4_replacement_worklist.csv
+Usage: python3 marketplaces/shopify/scripts/build_mp4_worklist.py
+Output: marketplaces/shopify/data/output/mp4_replacement_worklist.csv
 """
 import csv, os
 

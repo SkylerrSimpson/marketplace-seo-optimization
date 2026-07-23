@@ -1,11 +1,18 @@
 <?php
 declare(strict_types=1);
 /**
- * Pull real YouTube view counts for the 20 videos and store each on its
- * watch-page article as custom.view_count (number_integer) so the sort
- * dropdown can order by popularity. Re-run anytime to refresh the counts.
+ * Pull current YouTube view counts (via YOUTUBE_API_KEY) for every video in
+ * video_watch_pages_authored.json and store each on its watch-page article as
+ * custom.view_count (number_integer) so the front-end sort dropdown can order
+ * by popularity. Re-run anytime to refresh the counts.
  *
- * DRY-RUN unless --apply. Needs write_content (+ YOUTUBE_API_KEY).
+ * Prerequisites: build_video_watch_pages.php must have already created the
+ * articles (matched here by handle); data/drafts/video_watch_pages_authored.json
+ * must exist. DRY-RUN unless --apply. Needs write_content.
+ *
+ * Usage:
+ *   php marketplaces/shopify/scripts/apply_video_viewcounts.php           # dry-run
+ *   php marketplaces/shopify/scripts/apply_video_viewcounts.php --apply   # writes
  */
 require __DIR__ . '/../../lib/bootstrap.php';
 use Shopify\Context; use Shopify\Auth\FileSessionStorage; use Shopify\Clients\Graphql;

@@ -5,8 +5,8 @@ declare(strict_types=1);
  * Most are the Amazon-imported "Shopify_Prop65graphic" warning image.
  *
  * IDEMPOTENT: only touches <img> with no alt / alt="". DRY-RUN unless --apply.
- *   php apply_product_desc_image_alts.php          # dry run + CSV preview
- *   php apply_product_desc_image_alts.php --apply  # write descriptionHtml back
+ *   php marketplaces/shopify/scripts/apply_product_desc_image_alts.php          # dry run + CSV preview
+ *   php marketplaces/shopify/scripts/apply_product_desc_image_alts.php --apply  # write descriptionHtml back
  *
  * Needs write_products (productUpdate descriptionHtml — single field, no clobber).
  */

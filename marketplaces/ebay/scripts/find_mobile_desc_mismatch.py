@@ -11,7 +11,7 @@ faithful mobile scores ~100%; a mobile blurb with different/stale wording scores
 800-char mobile summary.) Listings below --threshold (default 95%) are flagged MISMATCH.
 
 Outputs: data/mobile_vs_desc_match.csv  (all listings, worst match first)
-Usage:   python3 ebay/scripts/find_mobile_desc_mismatch.py [--threshold=95]
+Usage:   python3 marketplaces/ebay/scripts/find_mobile_desc_mismatch.py [--threshold=95]
 """
 import json, glob, re, os, sys, csv, html, collections
 

@@ -17,7 +17,7 @@ declare(strict_types=1);
  * media/{itemId}.json by audit_media.php. Run that first.
  *
  * Output: description_image_audit.csv, one row per <img> tag found.
- * Usage: php ebay/scripts/audit_description_images.php --account=dows [--limit=N] [--concurrency=20]
+ * Usage: php marketplaces/ebay/scripts/audit_description_images.php --account=dows [--limit=N] [--concurrency=20]
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

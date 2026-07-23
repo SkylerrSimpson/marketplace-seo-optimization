@@ -6,11 +6,17 @@ declare(strict_types=1);
  * Assemble the reviewable Phase 2 output from the in-session drafts.
  *
  * Merges drafts_manual.json ({numeric_id: meta}) with phase2_input.json, fills
- * product_type for the 23 blanks (4 Fishing IDs, rest Survival/Camping), computes
- * char counts + status, and writes phase2_output.{json,csv}. Resumable: re-run any
- * time as more drafts are added. Reports how many of the 199 are still undrafted.
+ * blank product_type (FISHING_IDS below get 'Fishing', everything else blank
+ * gets 'Survival/Camping'), computes char counts + status, and writes
+ * phase2_output.{json,csv}. Resumable: re-run any time as more drafts are added.
+ * Reports how many input rows are still undrafted (status TODO).
  *
- * Usage: php assemble_output.php
+ * Prerequisites: data/input/phase2_input.json (from export_descriptions.php) and
+ * data/drafts/drafts_manual.json (from author_descriptions_ai.php) must exist.
+ * data/input/image_alts.json (export_image_alts.php) and data/drafts/drafts_alt.json
+ * (author_descriptions_ai.php) are optional — used if present.
+ *
+ * Usage: php marketplaces/shopify/scripts/assemble_output.php
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

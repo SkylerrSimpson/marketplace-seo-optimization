@@ -22,11 +22,11 @@ declare(strict_types=1);
  * Phase 1 (export_listings_report.php) must be run first for accounts with
  * > 1000 SKUs so that open-date data is available for date-range chunking.
  *
- * Writes one file per SKU to amazon/data/{account}/input/listings/{sku}.json.
+ * Writes one file per SKU to marketplaces/amazon/data/{account}/input/listings/{sku}.json.
  * Each file is the raw JSON item from the API — lossless.
  *
  * Usage:
- *   php amazon/scripts/export_listings_items.php [--account=IGE|DOWS] [--force] [--limit=N]
+ *   php marketplaces/amazon/scripts/export_listings_items.php [--account=IGE|DOWS] [--force] [--limit=N]
  *
  * Flags:
  *   --account=  Seller account to export. Default: IGE.
@@ -50,7 +50,7 @@ use \SellingPartnerApi\Seller\ListingsItemsV20210801\Api as ListingsItemsApi;
 
 if (in_array('--help', $argv ?? [], true)) {
     echo <<<'HELP'
-Usage: php amazon/scripts/export_listings_items.php [--account=IGE|DOWS] [--force] [--limit=N]
+Usage: php marketplaces/amazon/scripts/export_listings_items.php [--account=IGE|DOWS] [--force] [--limit=N]
 
 Flags:
   --account=IGE|DOWS   Seller account to export. Default: IGE.

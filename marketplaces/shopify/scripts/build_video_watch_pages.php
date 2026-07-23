@@ -10,10 +10,14 @@ declare(strict_types=1);
  *   - metafields custom.youtube_id / video_upload_date / video_duration / video_description
  *     (the theme snippet video-jsonld.liquid reads these to emit VideoObject schema)
  *
+ * Prerequisites: data/drafts/video_watch_pages_authored.json (hand-authored
+ * context paragraph + meta title/description per video) and
+ * data/drafts/video_metadata.json (from pull_youtube_meta.php) must exist.
+ *
  * IDEMPOTENT: reuses the Videos blog if it exists; skips an article whose handle
  * already exists in that blog. DRY-RUN unless --apply.
- *   php build_video_watch_pages.php
- *   php build_video_watch_pages.php --apply
+ *   php marketplaces/shopify/scripts/build_video_watch_pages.php
+ *   php marketplaces/shopify/scripts/build_video_watch_pages.php --apply
  *
  * Needs write_content.
  */

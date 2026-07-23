@@ -13,7 +13,7 @@ declare(strict_types=1);
  * Writes ONLY a local CSV (data/output/blog_video_inventory.csv). Never writes
  * to Shopify. Needs read_content scope.
  *
- * Usage: php audit_blog_media.php
+ * Usage: php marketplaces/shopify/scripts/audit_blog_media.php
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

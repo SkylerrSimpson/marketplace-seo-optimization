@@ -11,7 +11,7 @@ declare(strict_types=1);
  *       header X-EBAY-C-MARKETPLACE-ID: EBAY_US
  *   -> title, categoryId, categoryPath, localizedAspects[] (name/value pairs)
  *
- * Output (under ebay/data/{account}/output/):
+ * Output (under marketplaces/ebay/data/{account}/output/):
  *   items/{itemId}.json   per-listing snapshot {item_id, title, category_id,
  *                         category_path, aspects:{name:value}, status}
  *   enriched_summary.csv  item_id, title, category_id, category_path, aspect_count, status
@@ -21,9 +21,9 @@ declare(strict_types=1);
  * --refresh. Throttle/backoff on 429. --limit / --ids for canary runs.
  *
  * Usage:
- *   php ebay/scripts/enrich_listings.php --account=dows --limit=5     # canary
- *   php ebay/scripts/enrich_listings.php --account=dows               # full
- *   php ebay/scripts/enrich_listings.php --account=ige --refresh
+ *   php marketplaces/ebay/scripts/enrich_listings.php --account=dows --limit=5     # canary
+ *   php marketplaces/ebay/scripts/enrich_listings.php --account=dows               # full
+ *   php marketplaces/ebay/scripts/enrich_listings.php --account=ige --refresh
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

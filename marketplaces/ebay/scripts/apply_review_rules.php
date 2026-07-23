@@ -28,7 +28,7 @@ declare(strict_types=1);
  *     chemical/brand. This rule now only leaves a reviewer_notes trail; actually
  *     removing the already-live values is handled by the separate
  *     mark_prop65_delete.php + delete_prop65_live.php pair (see
- *     ebay/docs/review-rules.md §3 for the full writeup).
+ *     marketplaces/ebay/docs/review-rules.md §3 for the full writeup).
  *  3. Country of Origin -> when blank/unknown, default to China (blank rows only;
  *     never overwrite an existing country).
  *  4. Manufacturer Warranty -> standard WARRANTY_TEXT, unless the aspect is
@@ -42,7 +42,7 @@ declare(strict_types=1);
  *     `ai_review.php --mode=blanks` first or this rule silently has nothing to apply.
  *     Documented further in docs/review-rules.md.
  *
- * Usage: php ebay/scripts/apply_review_rules.php --account=dows [--dry]
+ * Usage: php marketplaces/ebay/scripts/apply_review_rules.php --account=dows [--dry]
  *   --dry  print what would change without writing the sheet.
  *
  * IMPORTANT: run this AFTER build_review_sheet.php (it regenerates the sheet and

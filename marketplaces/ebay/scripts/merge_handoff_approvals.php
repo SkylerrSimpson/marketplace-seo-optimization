@@ -26,7 +26,7 @@ declare(strict_types=1);
  * unless --force is passed.
  *
  * Usage:
- *   php ebay/scripts/merge_handoff_approvals.php --account=dows --input=path/to/handoff.csv [--dry-run] [--force]
+ *   php marketplaces/ebay/scripts/merge_handoff_approvals.php --account=dows --input=path/to/handoff.csv [--dry-run] [--force]
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

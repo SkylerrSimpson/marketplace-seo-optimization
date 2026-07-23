@@ -19,10 +19,10 @@ use Ige\Amazon\Ai\CostEstimator;
  * each into the draft under a review-only key (item_name_ai_{provider} /
  * title_differentiation_ai_{provider}); the winner is chosen at patch time.
  *
- * Output: one draft JSON per SKU at amazon/data/{account}/drafts/{sku}.json
+ * Output: one draft JSON per SKU at marketplaces/amazon/data/{account}/drafts/{sku}.json
  *
  * Usage:
- *   php amazon/scripts/draft_listings.php [--account=IGE|DOWS] [OPTIONS]
+ *   php marketplaces/amazon/scripts/draft_listings.php [--account=IGE|DOWS] [OPTIONS]
  *
  * Flags:
  *   --account=IGE|DOWS        Seller account. Default: IGE.
@@ -52,16 +52,16 @@ use Ige\Amazon\Ai\CostEstimator;
  *   ANTHROPIC_API_KEY         Required in .env or shell.
  *
  * Inputs:
- *   amazon/data/{account}/output/listings_gap_fill.csv
- *   amazon/data/{account}/input/usurper/*.csv      (latest by mtime)
- *   amazon/data/{account}/input/listings/{sku}.json
- *   amazon/data/{account}/input/catalog/{asin}.json
- *   amazon/data/{account}/compare/{sku}.json        (title options; optional)
- *   amazon/data/schemas/{PRODUCT_TYPE}.json
+ *   marketplaces/amazon/data/{account}/output/listings_gap_fill.csv
+ *   marketplaces/amazon/data/{account}/input/usurper/*.csv      (latest by mtime)
+ *   marketplaces/amazon/data/{account}/input/listings/{sku}.json
+ *   marketplaces/amazon/data/{account}/input/catalog/{asin}.json
+ *   marketplaces/amazon/data/{account}/compare/{sku}.json        (title options; optional)
+ *   marketplaces/amazon/data/schemas/{PRODUCT_TYPE}.json
  *
  * Output:
- *   amazon/data/{account}/drafts/{sku}.json
- *   amazon/data/schemas/applicability/{PRODUCT_TYPE}.json  (applicability cache)
+ *   marketplaces/amazon/data/{account}/drafts/{sku}.json
+ *   marketplaces/amazon/data/schemas/applicability/{PRODUCT_TYPE}.json  (applicability cache)
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';
@@ -114,7 +114,7 @@ const TEMPLATE_NEVER_COPY = [
 
 if (in_array('--help', $argv ?? [], true)) {
     echo <<<'HELP'
-Usage: php amazon/scripts/draft_listings.php [--account=IGE|DOWS] [OPTIONS]
+Usage: php marketplaces/amazon/scripts/draft_listings.php [--account=IGE|DOWS] [OPTIONS]
 
 Flags:
   --account=IGE|DOWS        Seller account. Default: IGE.
@@ -127,7 +127,7 @@ Flags:
                               claude-opus-4-8  — opus for all AI attributes
   --include-recommended     Author the full optional schema tail. Default authors
                             only required + the curated high-value allowlist
-                            (lib/HighValueAttributes.php).
+                            (marketplaces/lib/HighValueAttributes.php).
   --no-data-gate            Do not skip context-less SKUs to needs_human; author
                             from whatever context exists (the old behavior).
   --no-applicability        Disable the per-product-type applicability filter.

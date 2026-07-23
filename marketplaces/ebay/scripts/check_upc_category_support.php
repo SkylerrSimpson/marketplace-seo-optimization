@@ -33,10 +33,10 @@ declare(strict_types=1);
  *     custom ItemSpecific "UPC" AND a real identifier exist on the same listing (see
  *     gtin_report_{acct}.csv's upc_duplicated column).
  *
- * Output: ebay/data/{acct}/output/upc_category_support_{acct}.csv
+ * Output: marketplaces/ebay/data/{acct}/output/upc_category_support_{acct}.csv
  *   category_id, category_path, listing_count, upc_support, ean_support, isbn_support
  *
- * Usage: php ebay/scripts/check_upc_category_support.php --account=dows
+ * Usage: php marketplaces/ebay/scripts/check_upc_category_support.php --account=dows
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

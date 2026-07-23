@@ -25,7 +25,7 @@ declare(strict_types=1);
  * here would overwrite those with a different schema; keeping media/ separate
  * preserves both and lets this run independently / resumably.
  *
- * Output (under ebay/data/{account}/output/):
+ * Output (under marketplaces/ebay/data/{account}/output/):
  *   media/{itemId}.json   per-listing: price, images[], image_count, eps stats,
  *                         description (HTML), short_description, revision, status,
  *                         children[] (variation listings only -- see below)
@@ -58,9 +58,9 @@ declare(strict_types=1);
  * Resumable: skips itemIds already in media/ unless --refresh. Backs off on 429.
  *
  * Usage:
- *   php ebay/scripts/audit_media.php --account=dows --limit=5     # canary
- *   php ebay/scripts/audit_media.php --account=dows               # full roster
- *   php ebay/scripts/audit_media.php --account=ige --refresh
+ *   php marketplaces/ebay/scripts/audit_media.php --account=dows --limit=5     # canary
+ *   php marketplaces/ebay/scripts/audit_media.php --account=dows               # full roster
+ *   php marketplaces/ebay/scripts/audit_media.php --account=ige --refresh
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

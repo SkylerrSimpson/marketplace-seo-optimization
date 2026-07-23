@@ -23,8 +23,8 @@ One row per (sku, attribute, value) -- multi-value attributes (e.g. "Accessories
 Included") get one row per filled value; an attribute with zero values gets exactly
 one row with a blank current_value.
 
-Usage: python3 walmart/scripts/build_aspects_review.py --country=us
-Output: walmart/data/{country}/output/aspects_review_{country}.csv
+Usage: python3 marketplaces/walmart/scripts/build_aspects_review.py --country=us
+Output: marketplaces/walmart/data/{country}/output/aspects_review_{country}.csv
   sku, wpid, title, varied_by, aspect_name, requirement_level,
   current_value, proposed_value, approved_value, reviewer_notes
 """

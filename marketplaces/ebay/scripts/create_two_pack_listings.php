@@ -9,7 +9,7 @@ declare(strict_types=1);
  * calls verifyAddFixedPriceItem/addFixedPriceItem, never ReviseItem.
  *
  * ============================================================================
- * Business rules are captured in ebay/docs/two_pack_rules.txt. Pricing
+ * Business rules are captured in marketplaces/ebay/docs/two_pack_rules.txt. Pricing
  * (2x - 20%, rounded to match/nearest the source's cents ending), quantity
  * (source/2), title prefix ("2 Pack "), description (unchanged), item specifics
  * (copied as-is + one new "Bundle Description" = "2 Pack" flag), photos (reused
@@ -46,11 +46,11 @@ declare(strict_types=1);
  *     the run continues to the next candidate.
  *
  * Usage:
- *   php ebay/scripts/create_two_pack_listings.php --account=dows --item=ID                       # dry-run, one item
- *   php ebay/scripts/create_two_pack_listings.php --account=dows --item=ID --verify               # real validation, creates nothing
- *   php ebay/scripts/create_two_pack_listings.php --account=dows --item=ID --live                 # creates that one new listing
- *   php ebay/scripts/create_two_pack_listings.php --account=dows --limit=10 --verify               # first 10 candidates, verify-only
- *   php ebay/scripts/create_two_pack_listings.php --account=dows --live --confirm=WRITE            # every candidate in the input file
+ *   php marketplaces/ebay/scripts/create_two_pack_listings.php --account=dows --item=ID                       # dry-run, one item
+ *   php marketplaces/ebay/scripts/create_two_pack_listings.php --account=dows --item=ID --verify               # real validation, creates nothing
+ *   php marketplaces/ebay/scripts/create_two_pack_listings.php --account=dows --item=ID --live                 # creates that one new listing
+ *   php marketplaces/ebay/scripts/create_two_pack_listings.php --account=dows --limit=10 --verify               # first 10 candidates, verify-only
+ *   php marketplaces/ebay/scripts/create_two_pack_listings.php --account=dows --live --confirm=WRITE            # every candidate in the input file
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

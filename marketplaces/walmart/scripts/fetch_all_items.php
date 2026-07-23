@@ -20,14 +20,14 @@ declare(strict_types=1);
  *
  * Paginates via nextCursor. limit=50 is the API's max per page.
  *
- * Output: walmart/data/{country}/input/listings.json
+ * Output: marketplaces/walmart/data/{country}/input/listings.json
  *   [{ sku, wpid, upc, gtin, title, productType, shelf, condition, availability,
  *      publishedStatus, lifecycleStatus, variantGroupId,
  *      aspects: [{ name, value, isVariant: true }, ...] }, ...]
  *   (aspects here is ONLY the variant-grouping dimension, not a full attribute set —
  *   see README.)
  *
- * Usage: php walmart/scripts/fetch_all_items.php --country=us [--limit=N]
+ * Usage: php marketplaces/walmart/scripts/fetch_all_items.php --country=us [--limit=N]
  *        [--lifecycleStatus=ACTIVE] [--publishedStatus=PUBLISHED]
  */
 

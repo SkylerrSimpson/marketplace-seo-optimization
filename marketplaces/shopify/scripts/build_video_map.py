@@ -2,14 +2,18 @@
 """
 READ-ONLY. Build a video -> product/collection/blog mapping CSV for ASR Outdoor.
 
-Reads the local catalog (products_audit.csv, collections_phase2.csv), takes the
-17 ASR YouTube video IDs (discovered from the channel page + verified via oEmbed),
-scrapes each PUBLIC watch page for uploadDate + duration, derives the YouTube
+Reads the local catalog (products_audit.csv from audit_products.php,
+collections_phase2.csv), takes the 17 ASR YouTube video IDs (discovered from
+the channel page + verified via oEmbed, hardcoded in VIDEOS below), scrapes
+each PUBLIC watch page for uploadDate + duration, derives the YouTube
 thumbnail URL, and proposes a best-match product (with alternates) or a blog/
 collection target. Writes ONLY a local CSV. Nothing is sent to Shopify or YouTube.
 
-Output: shopify/data/output/video_product_map.csv
-Usage:  python3 build_video_map.py
+Prerequisites: data/output/products_audit.csv (audit_products.php) and
+data/output/collections_phase2.csv must exist.
+
+Usage:  python3 marketplaces/shopify/scripts/build_video_map.py
+Output: marketplaces/shopify/data/output/video_product_map.csv
 """
 import csv, re, sys, os, urllib.request
 from html import unescape

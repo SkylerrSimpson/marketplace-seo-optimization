@@ -19,19 +19,19 @@ declare(strict_types=1);
  *   (missing_required × 10) + (amazon_issue_count × 5) + (missing_recommended × 1)
  *
  * Usage:
- *   php amazon/scripts/analyze_gap_fill.php [--account=IGE|DOWS]
+ *   php marketplaces/amazon/scripts/analyze_gap_fill.php [--account=IGE|DOWS]
  *
  * Flags:
  *   --account=IGE|DOWS   Seller account to analyze. Default: IGE.
  *   --help               Show this help message.
  *
  * Inputs (from disk):
- *   amazon/data/{account}/input/listings/{sku}.json
- *   amazon/data/{account}/input/usurper/usurper_catalog_*.csv  (latest by mtime)
- *   amazon/data/schemas/{PRODUCT_TYPE}.json
+ *   marketplaces/amazon/data/{account}/input/listings/{sku}.json
+ *   marketplaces/amazon/data/{account}/input/usurper/*.csv  (latest by mtime — the Usurper InventoryExport)
+ *   marketplaces/amazon/data/schemas/{PRODUCT_TYPE}.json
  *
  * Output:
- *   amazon/data/{account}/output/listings_gap_fill.csv
+ *   marketplaces/amazon/data/{account}/output/listings_gap_fill.csv
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';
@@ -43,7 +43,7 @@ require __DIR__ . '/../../lib/UsurperExport.php';
 
 if (in_array('--help', $argv ?? [], true)) {
     echo <<<'HELP'
-Usage: php amazon/scripts/analyze_gap_fill.php [--account=IGE|DOWS]
+Usage: php marketplaces/amazon/scripts/analyze_gap_fill.php [--account=IGE|DOWS]
 
 Flags:
   --account=IGE|DOWS   Seller account to analyze. Default: IGE.

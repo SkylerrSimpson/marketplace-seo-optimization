@@ -8,7 +8,7 @@ Same load-existing -> update-by-item_id -> rewrite pattern as _pilot_author.py, 
 driven from a file instead of hardcoded answers. Idempotent: re-running with the same
 (or a corrected) batch file safely replaces prior entries for the same item_ids.
 
-Usage: python3 ebay/scripts/merge_authored_batch.py --account=dows path/to/out_01.jsonl [path/to/out_02.jsonl ...]
+Usage: python3 marketplaces/ebay/scripts/merge_authored_batch.py --account=dows path/to/out_01.jsonl [path/to/out_02.jsonl ...]
 """
 import json, os, sys
 

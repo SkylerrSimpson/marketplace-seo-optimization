@@ -20,7 +20,7 @@ declare(strict_types=1);
  *   apply_preview.csv  — one row per (listing, aspect) with the action + provenance,
  *                        so a human can eyeball every decision.
  *
- * Usage: php ebay/scripts/build_apply_set.php --account=dows [--threshold=80]
+ * Usage: php marketplaces/ebay/scripts/build_apply_set.php --account=dows [--threshold=80]
  *   --threshold  minimum certainty for an UNREVIEWED llm fill to be applied (default 80).
  *                Deterministic (usurper/rule/default) fills are always applied.
  *                A human `approved_value` always wins regardless of threshold.
@@ -50,7 +50,7 @@ function isDeterministic(string $src): bool
 
 // advisory SELECTION_ONLY check against the (possibly truncated) allowed list in the
 // sheet. Truncated lists (ending '...') can't be trusted → treated as valid here;
-// write_back.php MUST re-validate against ebay/data/aspects/{cat}.json before sending.
+// apply_aspects.php MUST re-validate against marketplaces/ebay/data/aspects/{cat}.json before sending.
 function allowedOk(string $val, string $mode, string $allowed): bool
 {
     if ($mode !== 'SELECTION_ONLY' || $allowed === '' || strpos($allowed, '...') !== false) { return true; }

@@ -1,8 +1,13 @@
 # Next Steps — Phases 3-5 (after boss sign-off)
 
+> **Historical snapshot (2026-06-03).** Superseded — write access was granted and
+> `apply_metadata.php` has since run; the Shopify metadata pipeline's write steps are
+> live (see root `README.md`'s marketplace status table). Kept for the record of how the
+> write-back was planned and gated.
+
 Scope: applying the approved product metadata (SEO description, product_type, image
 alt) to Shopify and verifying it. Deliberately ignoring GTIN / feed / reviews work
-for now (tracked separately in geo_seo_strategy.md / KEY_FINDINGS.md).
+for now (tracked separately in `geo-seo-strategy.md` / `key-findings.md`).
 
 Status as of 2026-06-03: `phase2_output.csv` reviewed by boss; QA pass complete
 (0 non-ASCII, X-piece/X-inch consistent, variant values on size/material parents,
@@ -27,19 +32,19 @@ correct), checks `userErrors` on every call, THROTTLED backoff + leaky-bucket pa
 
 ### Step 2 — Dry run (read-only, safe)
 ```
-php shopify/scripts/apply_metadata.php
+php marketplaces/shopify/scripts/apply_metadata.php
 ```
 Logs exactly what it WOULD change per product. Sends nothing. Review the output.
 
 ### Step 3 — Canary (3 products)
 ```
-php shopify/scripts/apply_metadata.php --apply --limit 3
+php marketplaces/shopify/scripts/apply_metadata.php --apply --limit 3
 ```
 Writes 3. Verify in Shopify admin: description, product_type, and image alt all correct.
 
 ### Step 4 — Full apply
 ```
-php shopify/scripts/apply_metadata.php --apply
+php marketplaces/shopify/scripts/apply_metadata.php --apply
 ```
 Idempotent — skips the 3 from the canary and anything already correct; writes the rest.
 

@@ -5,7 +5,7 @@ declare(strict_types=1);
 /**
  * Phase 9 — Project AI-authored draft attributes back to Usurper CSV format.
  *
- * Reads  amazon/data/{account}/drafts/{sku}.json  (Phase 7 output) and emits
+ * Reads  marketplaces/amazon/data/{account}/drafts/{sku}.json  (Phase 7 output) and emits
  * a Usurper-compatible CSV keyed by sku with attr.* column names. Import the
  * output CSV into Usurper to persist AI-authored values alongside native
  * product data.
@@ -39,7 +39,7 @@ declare(strict_types=1);
  *   review-only file, since we can't safely fill its un-authored cells.
  *
  * Usage:
- *   php amazon/scripts/project_to_usurper.php [--account=IGE|DOWS] [OPTIONS]
+ *   php marketplaces/amazon/scripts/project_to_usurper.php [--account=IGE|DOWS] [OPTIONS]
  *
  * Flags:
  *   --account=IGE|DOWS    Seller account. Default: IGE.
@@ -48,12 +48,12 @@ declare(strict_types=1);
  *   --help                Show this help message.
  *
  * Inputs:
- *   amazon/data/{account}/drafts/{sku}.json
- *   amazon/data/{account}/input/usurper/*.csv   (latest by mtime; for backfill)
+ *   marketplaces/amazon/data/{account}/drafts/{sku}.json
+ *   marketplaces/amazon/data/{account}/input/usurper/*.csv   (latest by mtime; for backfill)
  *
  * Output:
- *   amazon/data/{account}/output/usurper_update_{timestamp}.csv          (import)
- *   amazon/data/{account}/output/usurper_new_or_unresolved_{ts}.csv      (review)
+ *   marketplaces/amazon/data/{account}/output/usurper_update_{timestamp}.csv          (import)
+ *   marketplaces/amazon/data/{account}/output/usurper_new_or_unresolved_{ts}.csv      (review)
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';
@@ -72,7 +72,7 @@ const REQUIRED_USURPER_HEADERS = ['sku', 'name', 'sku_type'];
 
 if (in_array('--help', $argv ?? [], true)) {
     echo <<<'HELP'
-Usage: php amazon/scripts/project_to_usurper.php [--account=IGE|DOWS] [OPTIONS]
+Usage: php marketplaces/amazon/scripts/project_to_usurper.php [--account=IGE|DOWS] [OPTIONS]
 
 Flags:
   --account=IGE|DOWS    Seller account. Default: IGE.

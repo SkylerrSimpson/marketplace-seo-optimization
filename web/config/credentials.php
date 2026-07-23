@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 // Per marketplace: which fields the credentials UI shows/accepts, and how to turn
 // them into the real env vars EbayClient.php actually reads. Grounded directly in
-// ../marketplaces/ebay/scripts/lib/EbayClient.php: $this->creds keys (fields), its envValue()
+// marketplaces/ebay/scripts/lib/EbayClient.php: $this->creds keys (fields), its envValue()
 // prefix, and its account-suffix precedence (ige -> EBAY_API_<BASE>_IGE, dows ->
 // unsuffixed) — not guessed. A marketplace missing here just shows "no known
 // credential fields yet" and gets no env injection — add its shape when its scripts
@@ -15,7 +15,7 @@ return [
         'fields' => ['app_id', 'cert_id', 'dev_id', 'ru_name', 'refresh_token'],
         'env_prefix' => 'EBAY_API_',
         'account_env_suffix' => ['ige' => '_IGE'],
-        // Same roster as ScriptController::KNOWN_ACCOUNTS — only these accounts have
+        // Same roster as ScriptController::knownAccounts() — only these accounts have
         // scripts registered against them, so the "Add an account" form offers a
         // dropdown of exactly these rather than free text (a typo'd account here
         // creates a dead credential row no script will ever match). A marketplace

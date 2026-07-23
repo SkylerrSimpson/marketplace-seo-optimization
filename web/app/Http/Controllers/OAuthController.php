@@ -14,7 +14,7 @@ use Illuminate\Support\Str;
  * In-browser OAuth connect flow. DOWScripts owns the browser redirect dance,
  * the CSRF state, and where the resulting token is stored (its own DB) — but
  * every actual call to the marketplace's OAuth endpoints is delegated to the
- * existing CLI script (shopify/scripts/oauth_mint.php), per dowscripts/CLAUDE.md's
+ * existing CLI script (marketplaces/shopify/scripts/oauth_mint.php), per web/CLAUDE.md's
  * rule that this app never talks to a marketplace API directly. The script's
  * client_secret never leaves the server and is never handed to DOWScripts.
  *

@@ -11,7 +11,7 @@ declare(strict_types=1);
  * apply_review_rules.php's own rule that dry-run script never touches
  * approved_value, because this isn't a content judgment call for a reviewer to weigh in
  * on, it's a blanket policy decision already made by the owner. See
- * ebay/docs/review-rules.md §3 for the full writeup.
+ * marketplaces/ebay/docs/review-rules.md §3 for the full writeup.
  *
  * IMPORTANT: this only sets an audit-trail marker in review_sheet.csv. The actual
  * live eBay write is a SEPARATE script, delete_prop65_live.php — it deliberately
@@ -26,7 +26,7 @@ declare(strict_types=1);
  * — nothing in between may rebuild the sheet, or this marker is silently wiped.
  * Re-runnable / idempotent (only touches rows currently missing a DELETE marker).
  *
- * Usage: php ebay/scripts/mark_prop65_delete.php --account=dows [--dry]
+ * Usage: php marketplaces/ebay/scripts/mark_prop65_delete.php --account=dows [--dry]
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

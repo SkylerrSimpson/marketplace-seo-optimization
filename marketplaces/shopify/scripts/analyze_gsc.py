@@ -16,6 +16,12 @@ Method: compares each row's actual CTR to an expected organic CTR-by-position
 curve; "opportunity clicks" = impressions x (expected_ctr - actual_ctr) when the
 page already ranks in reach (pos <= ~15). That isolates clicks you can win WITHOUT
 ranking higher (a title/meta job) vs. clicks that need a ranking push.
+
+Prerequisites: the GSC export CSVs above must already be placed in data/output/
+(downloaded by hand from Google Search Console — Performance report, exported
+per-tab). Any missing file is skipped silently (empty section).
+
+Usage: python3 marketplaces/shopify/scripts/analyze_gsc.py
 """
 import csv, os, re
 

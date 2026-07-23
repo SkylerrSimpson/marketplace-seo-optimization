@@ -9,7 +9,7 @@ declare(strict_types=1);
  * lightweight catalog search against the configured endpoint (sandbox by default).
  *
  * Usage:
- *   php amazon/scripts/check_connection.php [--account=IGE|DOWS]
+ *   php marketplaces/amazon/scripts/check_connection.php [--account=IGE|DOWS]
  *
  * Flags:
  *   --account=IGE|DOWS   Seller account to test. Default: IGE.
@@ -34,7 +34,7 @@ $account = 'IGE';
 foreach ($argv ?? [] as $arg) {
     if ($arg === '--help') {
         echo <<<'HELP'
-Usage: php amazon/scripts/check_connection.php [--account=IGE|DOWS]
+Usage: php marketplaces/amazon/scripts/check_connection.php [--account=IGE|DOWS]
 
 Flags:
   --account=IGE|DOWS   Seller account to test. Default: IGE.

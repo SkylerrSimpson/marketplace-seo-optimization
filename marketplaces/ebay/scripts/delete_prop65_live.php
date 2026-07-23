@@ -5,7 +5,7 @@ declare(strict_types=1);
 /**
  * delete_prop65_live.php — the live eBay write that actually removes "California
  * Prop 65 Warning" from item specifics (2026-07 policy change; see
- * mark_prop65_delete.php and ebay/docs/review-rules.md §3).
+ * mark_prop65_delete.php and marketplaces/ebay/docs/review-rules.md §3).
  *
  * DELIBERATELY DOES NOT USE apply_set.json / apply_aspects.php's normal path.
  * Reason (confirmed by direct inspection, 2026-07-13): DOWS has 916 items where the
@@ -19,7 +19,7 @@ declare(strict_types=1);
  * this script uses the same safe path for both accounts for consistency.
  *
  * Instead, the outgoing ItemSpecifics for each item is built directly from that
- * item's own cached CURRENT state — ebay/data/<acct>/output/items/{id}.json's
+ * item's own cached CURRENT state — marketplaces/ebay/data/<acct>/output/items/{id}.json's
  * `aspects` dict (the exact same representation enrich_listings.php's Browse API
  * getItem snapshot uses, and the same source review_sheet.csv's current_value column
  * is built from) — with ONLY the Prop65 key removed. Every other field is resent
@@ -35,11 +35,11 @@ declare(strict_types=1);
  * item-id-retype for a single item, --live --confirm=WRITE for bulk, every Ack logged).
  *
  * Usage:
- *   php ebay/scripts/delete_prop65_live.php --account=ige --item=ID                 # dry-run, one item
- *   php ebay/scripts/delete_prop65_live.php --account=ige --item=ID --verify        # server validates, no commit
- *   php ebay/scripts/delete_prop65_live.php --account=ige --item=ID --live          # writes that one item
- *   php ebay/scripts/delete_prop65_live.php --account=ige --limit=5 --verify        # first 5 affected listings, verify-only
- *   php ebay/scripts/delete_prop65_live.php --account=ige --live --confirm=WRITE    # every affected listing in the account
+ *   php marketplaces/ebay/scripts/delete_prop65_live.php --account=ige --item=ID                 # dry-run, one item
+ *   php marketplaces/ebay/scripts/delete_prop65_live.php --account=ige --item=ID --verify        # server validates, no commit
+ *   php marketplaces/ebay/scripts/delete_prop65_live.php --account=ige --item=ID --live          # writes that one item
+ *   php marketplaces/ebay/scripts/delete_prop65_live.php --account=ige --limit=5 --verify        # first 5 affected listings, verify-only
+ *   php marketplaces/ebay/scripts/delete_prop65_live.php --account=ige --live --confirm=WRITE    # every affected listing in the account
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

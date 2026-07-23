@@ -7,13 +7,13 @@ GTIN/MPN/Google Shopping attributes, an accessibility alt-text sweep, nav/taxono
 utilities, GSC/CTR analysis, and a full video/YouTube SEO pipeline.
 
 All scripts require `../../lib/bootstrap.php` (autoload + `.env` + path constants) and read
-from / write to `shopify/data/`. Run from the repo root:
+from / write to `marketplaces/shopify/data/`. Run from the repo root:
 
 ```bash
-php shopify/scripts/<script>.php
+php marketplaces/shopify/scripts/<script>.php
 ```
 
-**New here?** See **`shopify/docs/walkthrough.md`** first — one real product traced
+**New here?** See **`marketplaces/shopify/docs/walkthrough.md`** first — one real product traced
 through every step of the core pipeline below, with actual commands and actual
 before/after data.
 
@@ -48,9 +48,9 @@ the whole output.
 `apply_metadata.php` is **dry-run by default**:
 
 ```bash
-php shopify/scripts/apply_metadata.php            # dry run — logs intended changes
-php shopify/scripts/apply_metadata.php --apply --limit 3   # canary on 3
-php shopify/scripts/apply_metadata.php --apply             # full (idempotent; skips correct rows)
+php marketplaces/shopify/scripts/apply_metadata.php            # dry run — logs intended changes
+php marketplaces/shopify/scripts/apply_metadata.php --apply --limit 3   # canary on 3
+php marketplaces/shopify/scripts/apply_metadata.php --apply             # full (idempotent; skips correct rows)
 ```
 
 It is idempotent (reads current values, skips if already correct), checks `userErrors`,
@@ -142,7 +142,7 @@ description bodies, and video media too:
 A fully separate, self-contained pipeline: audits which product/blog videos are
 self-hosted vs. YouTube-embedded, builds a match/replacement plan, pulls real YouTube
 metadata, and generates indexable "watch page" articles. See
-**`../docs/video-indexing-runbook.md`** for the full narrative — this table is the script
+**`../../docs/video-indexing-runbook.md`** for the full narrative — this table is the script
 reference:
 
 | # | Script | Purpose |
@@ -164,4 +164,4 @@ reference:
 
 ## Rules & docs
 - Field rules + AI drafting prompt: `rules/product-metadata-rules.md`
-- Strategy / next steps / video runbook: `../docs/`
+- Strategy / next steps / video runbook: `../../docs/`

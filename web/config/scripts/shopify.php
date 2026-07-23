@@ -5,13 +5,13 @@ declare(strict_types=1);
 // Each entry here is untrusted input from ScriptRegistry's point of view — see
 // App\Scripts\ScriptDefinition::fromArray() for the validation boundary. Field
 // shapes are transcribed from each script's own docblock/usage line and its real
-// $argv parsing, not guessed — see shopify/README.md's own pipeline table, which
+// $argv parsing, not guessed — see marketplaces/shopify/README.md's own pipeline table, which
 // already documents this exact step order.
 //
 // Unlike eBay (two seller accounts, dows/ige), Shopify is a single store
 // (asroutdoor.myshopify.com) — no script here takes an --account flag, and none
 // of these scripts are registered in config/credentials.php: they read
-// SHOP_DOMAIN/ADMIN_API_TOKEN straight from .env via lib/bootstrap.php, the same
+// SHOP_DOMAIN/ADMIN_API_TOKEN straight from .env via marketplaces/lib/bootstrap.php, the same
 // as every eBay script reads its own credentials, just without DOWScripts'
 // per-account env injection layer since there's only ever one account.
 

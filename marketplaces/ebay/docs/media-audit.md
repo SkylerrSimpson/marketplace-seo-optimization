@@ -20,12 +20,12 @@ snapshot so it never clobbers the Phase-1 aspect snapshots in `items/`.
 
 ## Run
 ```
-php ebay/scripts/audit_media.php --account=dows         # full roster (resumable)
-php ebay/scripts/audit_media.php --account=ige
-php ebay/scripts/audit_media.php --account=dows --ids=ID --refresh   # one listing
+php marketplaces/ebay/scripts/audit_media.php --account=dows         # full roster (resumable)
+php marketplaces/ebay/scripts/audit_media.php --account=ige
+php marketplaces/ebay/scripts/audit_media.php --account=dows --ids=ID --refresh   # one listing
 ```
 
-## Outputs (`ebay/data/{account}/output/`)
+## Outputs (`marketplaces/ebay/data/{account}/output/`)
 - `media/{itemId}.json` — price, images[] (url/w/h/host/is_eps), image_count,
   description (HTML), short_description, revision, is_group, status.
 - `media_summary.csv` — one row/listing (price, image_count, eps stats,
@@ -53,7 +53,7 @@ anything. `build_image_review.py` turns `media_summary.csv` + `media_images.csv`
 the per-listing worklist a human actually works from:
 
 ```
-python3 ebay/scripts/build_image_review.py
+python3 marketplaces/ebay/scripts/build_image_review.py
    -> data/{account}/output/image_review.csv
 ```
 

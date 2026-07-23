@@ -16,7 +16,7 @@ Writes proposed_value + reviewer_notes + source='child_rollup' into the PARENT r
 each account's review_sheet.csv (blank proposed_value only; never overrides). Backs up
 the original and emits an audit CSV of every fill.
 
-Usage: python3 ebay/scripts/merge_parent_fills.py [--dry-run]
+Usage: python3 marketplaces/ebay/scripts/merge_parent_fills.py [--dry-run]
 """
 import csv, json, os, sys, collections, shutil, datetime
 

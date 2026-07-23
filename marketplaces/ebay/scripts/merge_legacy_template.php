@@ -7,7 +7,7 @@ declare(strict_types=1);
  * descriptions onto the new standardized template, with ZERO content rewriting.
  *
  * For each listing: decomposes its old description into the same factual/sales/
- * bullets/image/mpn/upc fields the new template expects (ebay/scripts/lib/
+ * bullets/image/mpn/upc fields the new template expects (marketplaces/ebay/scripts/lib/
  * legacy_template.php — see that file's docblock for the three content-loss bugs
  * this design fixes), renders it through the REAL renderFull() (the exact function
  * every other listing's description goes through — required from
@@ -33,15 +33,15 @@ declare(strict_types=1);
  * approval-gate + verify/live/confirm=WRITE safety model.
  *
  * Usage:
- *   php merge_legacy_template.php --account=dows --dry-run
+ *   php marketplaces/ebay/scripts/merge_legacy_template.php --account=dows --dry-run
  *       Classify + decompose + render + audit every listing, write NOTHING. Prints
  *       a summary and a full per-item report CSV. Safe to run any time.
- *   php merge_legacy_template.php --account=dows --exclude=path/to/ids.txt
+ *   php marketplaces/ebay/scripts/merge_legacy_template.php --account=dows --exclude=path/to/ids.txt
  *       Same, but for every ACCEPTED row, writes new_html/etc. into
  *       description_review.csv and descriptions/{id}.html. Still does not touch
  *       `approved` -- fill that yourself (or pass --mark-approved) before running
  *       apply_descriptions.php.
- *   php merge_legacy_template.php --account=dows --item=ID
+ *   php marketplaces/ebay/scripts/merge_legacy_template.php --account=dows --item=ID
  *       Single item, prints the full decomposition + rendered HTML + audit result.
  *   Add --mark-approved to also set approved=yes on every ACCEPTED row (opt-in;
  *   default leaves `approved` exactly as it already was).

@@ -58,7 +58,7 @@ One-video-per-page fixes both.
 
 ## Build steps
 
-### Part A — Theme (Skyler pastes once; Claude writes the Liquid)
+### Part A — Theme (you paste the theme code once; Claude writes the Liquid)
 1. A **video-article template** (`article.video.liquid`) or a conditional block in the existing
    article template that, when an article has a `custom.youtube_id` metafield:
    - Renders the YouTube iframe at the top as main content (responsive 16:9).
@@ -73,7 +73,7 @@ One-video-per-page fixes both.
 from a plain embed. Two options:
 - **(Recommended)** Create a free **YouTube Data API key** (Google Cloud Console, 5 min). Claude's
   script then auto-pulls each video's real title, description, publish date, and duration.
-- **(Manual)** Skyler provides a quick list: per video, the upload date + length. More tedious.
+- **(Manual)** you provide a quick list: per video, the upload date + length. More tedious.
 
 ### Part C — Content (Claude does via API; needs write_content, already have it)
 1. **Create the "Videos" blog** (`blogCreate`).
@@ -101,12 +101,12 @@ from a plain embed. Two options:
 1. Decide: all 20 videos or a curated how-to subset.
 2. Get the YouTube Data API key (or supply metadata manually).
 3. Claude builds the content script + the theme Liquid in parallel.
-4. Skyler pastes the theme code; Claude creates the blog + articles (dry-run first).
+4. You paste the theme code; Claude creates the blog + articles (dry-run first).
 5. Verify with Rich Results Test, then request indexing.
 
 ## Decisions (LOCKED 2026-07-01)
 - **All 20 videos** get watch pages.
-- **Metadata:** Skyler hands Claude a per-video list (title, description, upload date, duration);
+- **Metadata:** you hand Claude a per-video list (title, description, upload date, duration);
   Claude may offer to auto-pull upload date + duration from YouTube to save effort.
 - **Old `/pages/gold-panning-videos`:** DELETE + 301-redirect to the new `/blogs/videos` hub.
 - **Hub name:** "Videos".

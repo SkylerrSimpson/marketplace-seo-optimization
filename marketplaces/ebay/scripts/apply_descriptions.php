@@ -20,7 +20,7 @@ declare(strict_types=1);
  * decision column in description_review.csv, same shape as every other review sheet
  * in this pipeline (build_apply_set.php never writes an aspect without a human
  * approval either). As of 2026-07-13 every row's `approved` is blank — nothing will
- * write until that sheet comes back reviewed. See ebay/docs/review-rules.md and the
+ * write until that sheet comes back reviewed. See marketplaces/ebay/docs/review-rules.md and the
  * Prop65 removal plan for why the *aspect* deletion is gated on THIS script actually
  * landing descriptions live first (no window where neither surface carries the
  * Prop65 warning).
@@ -32,11 +32,11 @@ declare(strict_types=1);
  *   - No silent skip-on-error: any non-Success Ack is logged and the run continues.
  *
  * Usage:
- *   php ebay/scripts/apply_descriptions.php --account=dows --item=ID              # dry-run, one item
- *   php ebay/scripts/apply_descriptions.php --account=dows --item=ID --verify     # server validates, no commit
- *   php ebay/scripts/apply_descriptions.php --account=dows --item=ID --live       # writes that one item
- *   php ebay/scripts/apply_descriptions.php --account=dows --limit=20 --verify    # first 20 approved listings, verify-only
- *   php ebay/scripts/apply_descriptions.php --account=dows --live --confirm=WRITE # every approved listing in the account
+ *   php marketplaces/ebay/scripts/apply_descriptions.php --account=dows --item=ID              # dry-run, one item
+ *   php marketplaces/ebay/scripts/apply_descriptions.php --account=dows --item=ID --verify     # server validates, no commit
+ *   php marketplaces/ebay/scripts/apply_descriptions.php --account=dows --item=ID --live       # writes that one item
+ *   php marketplaces/ebay/scripts/apply_descriptions.php --account=dows --limit=20 --verify    # first 20 approved listings, verify-only
+ *   php marketplaces/ebay/scripts/apply_descriptions.php --account=dows --live --confirm=WRITE # every approved listing in the account
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

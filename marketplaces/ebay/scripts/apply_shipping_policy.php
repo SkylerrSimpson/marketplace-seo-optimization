@@ -41,11 +41,11 @@ declare(strict_types=1);
  *     run continues to the next item.
  *
  * Usage:
- *   php ebay/scripts/apply_shipping_policy.php --account=dows --target-policy-id=272760555019 --item=ID              # dry-run, one item
- *   php ebay/scripts/apply_shipping_policy.php --account=dows --target-policy-id=272760555019 --item=ID --verify     # server validates, no commit
- *   php ebay/scripts/apply_shipping_policy.php --account=dows --target-policy-id=272760555019 --item=ID --live       # writes that one item
- *   php ebay/scripts/apply_shipping_policy.php --account=dows --target-policy-id=272760555019 --limit=20 --verify    # first 20 flagged listings, verify-only
- *   php ebay/scripts/apply_shipping_policy.php --account=dows --target-policy-id=272760555019 --live --confirm=WRITE # every flagged listing in the audit
+ *   php marketplaces/ebay/scripts/apply_shipping_policy.php --account=dows --target-policy-id=272760555019 --item=ID              # dry-run, one item
+ *   php marketplaces/ebay/scripts/apply_shipping_policy.php --account=dows --target-policy-id=272760555019 --item=ID --verify     # server validates, no commit
+ *   php marketplaces/ebay/scripts/apply_shipping_policy.php --account=dows --target-policy-id=272760555019 --item=ID --live       # writes that one item
+ *   php marketplaces/ebay/scripts/apply_shipping_policy.php --account=dows --target-policy-id=272760555019 --limit=20 --verify    # first 20 flagged listings, verify-only
+ *   php marketplaces/ebay/scripts/apply_shipping_policy.php --account=dows --target-policy-id=272760555019 --live --confirm=WRITE # every flagged listing in the audit
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

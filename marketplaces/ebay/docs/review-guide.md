@@ -21,7 +21,7 @@ One row per (listing × aspect), covering **every** eBay listing — both the va
 
 The two queues below are filtered slices of this sheet for focused passes.
 
-You'll also work from two files per account (in `ebay/data/{dows,ige}/output/`):
+You'll also work from two files per account (in `marketplaces/ebay/data/{dows,ige}/output/`):
 
 ## 1. `hand_fill_queue.csv` — every blank gap, rated by effort
 Holds **all** the still-blank aspects, with a **`fillability`** column so you choose

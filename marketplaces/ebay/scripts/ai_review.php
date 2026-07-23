@@ -42,14 +42,14 @@ declare(strict_types=1);
  * first to see the chunk plan and an example prompt at no cost.
  *
  * Usage:
- *   php ebay/scripts/ai_review.php --mode=blanks  --account=dows --tasks
- *   php ebay/scripts/ai_review.php --mode=blanks  --account=dows --merge
- *   php ebay/scripts/ai_review.php --mode=current --account=dows --tasks
- *   php ebay/scripts/ai_review.php --mode=current --account=dows --merge
- *   php ebay/scripts/ai_review.php --mode=deep     --account=dows --tasks
- *   php ebay/scripts/ai_review.php --mode=deep     --account=dows --merge
- *   php ebay/scripts/ai_review.php --mode=deep     --account=dows --run --dry-run
- *   php ebay/scripts/ai_review.php --mode=deep     --account=dows --run
+ *   php marketplaces/ebay/scripts/ai_review.php --mode=blanks  --account=dows --tasks
+ *   php marketplaces/ebay/scripts/ai_review.php --mode=blanks  --account=dows --merge
+ *   php marketplaces/ebay/scripts/ai_review.php --mode=current --account=dows --tasks
+ *   php marketplaces/ebay/scripts/ai_review.php --mode=current --account=dows --merge
+ *   php marketplaces/ebay/scripts/ai_review.php --mode=deep     --account=dows --tasks
+ *   php marketplaces/ebay/scripts/ai_review.php --mode=deep     --account=dows --merge
+ *   php marketplaces/ebay/scripts/ai_review.php --mode=deep     --account=dows --run --dry-run
+ *   php marketplaces/ebay/scripts/ai_review.php --mode=deep     --account=dows --run
  *   Add --limit=N to any --tasks or --run call to cap the batch size; --all to
  *   include already-answered items (normally skipped so re-runs are resumable).
  *   --run-only flags: --chunk-size=N (default 5), --model=MODEL (default

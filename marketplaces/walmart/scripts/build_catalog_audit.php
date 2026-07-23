@@ -35,7 +35,7 @@ declare(strict_types=1);
  *     export would get merged in once we have one):
  *     sku, wpid, aspect_name, aspect_value, is_variant
  *
- * Usage: php walmart/scripts/build_catalog_audit.php --country=us [--limit=N]
+ * Usage: php marketplaces/walmart/scripts/build_catalog_audit.php --country=us [--limit=N]
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

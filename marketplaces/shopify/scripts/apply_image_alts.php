@@ -3,20 +3,21 @@
 declare(strict_types=1);
 
 /**
- * Apply image alt text from shopify/data/drafts/image_alts.json
- * (keyed by MediaImage gid -> alt string). Authored ASCII-only, <=125 chars.
+ * Apply image alt text from data/drafts/image_alts.json (hand-authored,
+ * keyed by MediaImage gid -> alt string). Authored ASCII-only, <=125 chars.
  *
  * Writes alt via fileUpdate(files:[{id, alt}]) — nothing else on the file/product
  * is touched. Idempotent: reads each image's current alt and skips matches.
  * Guards: refuses to write a non-ASCII or >125-char alt.
  *
+ * Prerequisites: data/drafts/image_alts.json must already exist.
  * DRY-RUN by default. Pass --apply to write.
  *
  * Usage:
- *   php shopify/scripts/apply_image_alts.php               # dry run (all)
- *   php shopify/scripts/apply_image_alts.php --limit=20    # first N
- *   php shopify/scripts/apply_image_alts.php --ids=GID,GID # canary subset
- *   php shopify/scripts/apply_image_alts.php --apply       # write
+ *   php marketplaces/shopify/scripts/apply_image_alts.php               # dry run (all)
+ *   php marketplaces/shopify/scripts/apply_image_alts.php --limit=20    # first N
+ *   php marketplaces/shopify/scripts/apply_image_alts.php --ids=GID,GID # canary subset
+ *   php marketplaces/shopify/scripts/apply_image_alts.php --apply       # write
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

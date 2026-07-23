@@ -19,10 +19,10 @@ use Anthropic\Client;
  * dependency on author_batches/*.jsonl or a separate merge step.
  *
  * Usage:
- *   php author_descriptions_ai.php --account=dows --dry-run
- *   php author_descriptions_ai.php --account=dows --limit=5
- *   php author_descriptions_ai.php --account=dows
- *   php author_descriptions_ai.php --account=dows --ids=ID,ID   # reprocess specific items regardless of resumability
+ *   php marketplaces/ebay/scripts/author_descriptions_ai.php --account=dows --dry-run
+ *   php marketplaces/ebay/scripts/author_descriptions_ai.php --account=dows --limit=5
+ *   php marketplaces/ebay/scripts/author_descriptions_ai.php --account=dows
+ *   php marketplaces/ebay/scripts/author_descriptions_ai.php --account=dows --ids=ID,ID   # reprocess specific items regardless of resumability
  *
  * Flags:
  *   --account=dows|ige   Required.
@@ -34,11 +34,11 @@ use Anthropic\Client;
  *   --help
  *
  * Environment:
- *   ANTHROPIC_API_KEY    Required (repo-root .env) — same as amazon/scripts/draft_listings.php.
+ *   ANTHROPIC_API_KEY    Required (repo-root .env) — same as marketplaces/amazon/scripts/draft_listings.php.
  *
- * Input:  ebay/data/{account}/output/desc_source_pack.jsonl
- * Output: ebay/data/{account}/output/desc_authored.jsonl (upserted by item_id, saved after every chunk)
- *         ebay/data/{account}/output/author_descriptions_ai_errors.csv (failed items, if any)
+ * Input:  marketplaces/ebay/data/{account}/output/desc_source_pack.jsonl
+ * Output: marketplaces/ebay/data/{account}/output/desc_authored.jsonl (upserted by item_id, saved after every chunk)
+ *         marketplaces/ebay/data/{account}/output/author_descriptions_ai_errors.csv (failed items, if any)
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

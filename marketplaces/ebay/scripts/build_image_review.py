@@ -12,7 +12,7 @@ Problems flagged (priority order):
         very few images (<3)          -> add images
 
 Outputs: data/<acct>/output/image_review.csv
-Usage:   python3 ebay/scripts/build_image_review.py
+Usage:   python3 marketplaces/ebay/scripts/build_image_review.py
 """
 import csv, os, collections
 

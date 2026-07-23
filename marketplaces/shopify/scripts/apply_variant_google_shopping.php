@@ -20,6 +20,11 @@ declare(strict_types=1);
  * capitalized values (e.g. "New") are normalized to the lowercase spec value.
  *
  * DRY-RUN by default; pass --apply to write. --limit=N caps products scanned.
+ *
+ * Usage:
+ *   php marketplaces/shopify/scripts/apply_variant_google_shopping.php                # dry-run
+ *   php marketplaces/shopify/scripts/apply_variant_google_shopping.php --limit=20      # dry-run, first 20 products
+ *   php marketplaces/shopify/scripts/apply_variant_google_shopping.php --apply         # writes
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

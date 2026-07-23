@@ -80,7 +80,7 @@ class ScriptRun extends Model
     }
 
     /**
-     * Every long-running script in ebay/scripts/ already prints its own
+     * Every long-running script in marketplaces/ebay/scripts/ already prints its own
      * progress as a plain "N/M" tick (see e.g. audit_shipping_policy.php,
      * check_upc_category_support.php, build_gtin_report.php — the de facto
      * convention across that directory, not something invented for this

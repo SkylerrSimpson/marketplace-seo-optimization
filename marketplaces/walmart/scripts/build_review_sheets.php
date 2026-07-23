@@ -23,9 +23,9 @@ declare(strict_types=1);
  * current-live-attributes_REVIEW.csv pattern (stripped audit for review/correction),
  * not the fuller old-vs-new pattern used once an authoring pass exists.
  *
- * Output: walmart/data/{country}/output/catalog_review_{country}.csv
+ * Output: marketplaces/walmart/data/{country}/output/catalog_review_{country}.csv
  *
- * Usage: php walmart/scripts/build_review_sheets.php --country=us
+ * Usage: php marketplaces/walmart/scripts/build_review_sheets.php --country=us
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';
@@ -72,4 +72,4 @@ foreach ($catalogRows as $r) {
 }
 fclose($fh);
 printf("catalog_review: %d rows -> %s\n", count($catalogRows), $out);
-echo "For the aspects review sheet, run: python3 walmart/scripts/build_aspects_review.py --country={$country}\n";
+echo "For the aspects review sheet, run: python3 marketplaces/walmart/scripts/build_aspects_review.py --country={$country}\n";

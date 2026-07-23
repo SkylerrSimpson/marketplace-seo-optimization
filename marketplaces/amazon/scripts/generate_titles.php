@@ -25,7 +25,7 @@ use Ige\Amazon\Ai\TitleDifferentiationGenerator;
  * For each gap-fill SKU (or a single --sku), calls each requested LLM provider
  * once — a combined ModularTitleGenerator request that returns both attributes —
  * and writes both providers' candidates side by side to
- * amazon/data/{account}/compare/{sku}.json, plus a human-readable
+ * marketplaces/amazon/data/{account}/compare/{sku}.json, plus a human-readable
  * output/title_compare.csv rebuilt from all compare files.
  *
  * This script only emits the compare artifacts; it never writes drafts. Phase 7
@@ -33,7 +33,7 @@ use Ige\Amazon\Ai\TitleDifferentiationGenerator;
  * draft under separate keys, where the winner is picked at review/patch time.
  *
  * Usage:
- *   php amazon/scripts/generate_titles.php [--account=IGE|DOWS] [OPTIONS]
+ *   php marketplaces/amazon/scripts/generate_titles.php [--account=IGE|DOWS] [OPTIONS]
  *
  * Flags:
  *   --account=IGE|DOWS        Seller account. Default: IGE.
@@ -62,6 +62,8 @@ use Ige\Amazon\Ai\TitleDifferentiationGenerator;
  *                             whichever providers have finished. Providers still
  *                             running don't block the finished ones; the manifest
  *                             is kept so a later --resume collects them too.
+ *                             --provider/--model args are ignored; the manifest
+ *                             is the source of truth (same as --cancel).
  *   --cancel                  Cancel the manifest's in-flight batches and remove
  *                             it. --provider/--model args are ignored; the
  *                             manifest is the source of truth.
@@ -75,21 +77,21 @@ use Ige\Amazon\Ai\TitleDifferentiationGenerator;
  *   OPENAI_API_KEY            Required unless --provider=anthropic.
  *
  * Inputs:
- *   amazon/data/{account}/output/listings_gap_fill.csv   (SKU universe)
- *   amazon/data/{account}/input/listings/{sku}.json
- *   amazon/data/{account}/input/catalog/{asin}.json
- *   amazon/data/schemas/{PRODUCT_TYPE}.json
+ *   marketplaces/amazon/data/{account}/output/listings_gap_fill.csv   (SKU universe)
+ *   marketplaces/amazon/data/{account}/input/listings/{sku}.json
+ *   marketplaces/amazon/data/{account}/input/catalog/{asin}.json
+ *   marketplaces/amazon/data/schemas/{PRODUCT_TYPE}.json
  *
  * Output:
- *   amazon/data/{account}/compare/{sku}.json
- *   amazon/data/{account}/output/title_compare.csv
+ *   marketplaces/amazon/data/{account}/compare/{sku}.json
+ *   marketplaces/amazon/data/{account}/output/title_compare.csv
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';
 
 if (in_array('--help', $argv ?? [], true)) {
     echo <<<'HELP'
-Usage: php amazon/scripts/generate_titles.php [--account=IGE|DOWS] [OPTIONS]
+Usage: php marketplaces/amazon/scripts/generate_titles.php [--account=IGE|DOWS] [OPTIONS]
 
 Flags:
   --account=IGE|DOWS   Seller account. Default: IGE.
@@ -112,11 +114,11 @@ Flags:
   --dry-run            Preview only; no API calls, no files written.
   --help               Show this help message.
 
-Writes amazon/data/{account}/compare/{sku}.json (both providers' item_name and
+Writes marketplaces/amazon/data/{account}/compare/{sku}.json (both providers' item_name and
 title_differentiation candidates) and rebuilds output/title_compare.csv. Drafts
 are written later by draft_listings.php, which consumes the compare files.
 
---batch records the submitted batch ids in amazon/data/{account}/batch-manifest.json
+--batch records the submitted batch ids in marketplaces/amazon/data/{account}/batch-manifest.json
 and removes it once results are assembled. If a run is interrupted mid-poll the
 manifest survives: --resume reattaches to those same batches (no resubmit, no
 double billing), and --cancel tears them down.

@@ -2,7 +2,7 @@
 
 This traces a single real DOWS listing — item `126419572927`, "ASR Outdoor 3 in 1 Flint
 Rod Striker Fire Starter Whistle" — through every stage of both pipelines, with the
-actual commands and actual data at each step. If `ebay/README.md`'s script tables feel
+actual commands and actual data at each step. If `marketplaces/ebay/README.md`'s script tables feel
 abstract, this is the concrete version: what a row actually looks like before and after
 each script touches it.
 
@@ -24,8 +24,8 @@ children: SON-FLITWHISTLE-FS385OR-VAR (Orange, MPN FSWORG-2)
 ### Step 1 — enumerate + enrich
 
 ```bash
-php ebay/scripts/export_listings.php --account=dows     # -> listings.json
-php ebay/scripts/enrich_listings.php --account=dows      # -> items/126419572927.json
+php marketplaces/ebay/scripts/export_listings.php --account=dows     # -> listings.json
+php marketplaces/ebay/scripts/enrich_listings.php --account=dows      # -> items/126419572927.json
 ```
 
 `listings.json` gets the sku/variation skeleton:
@@ -58,8 +58,8 @@ Note the raw, unformatted numbers (`"1.000"`, `"0.0800"`) — nobody's normalize
 ### Step 2 — schema + gap audit
 
 ```bash
-php ebay/scripts/fetch_category_aspects.php    # caches data/aspects/166126.json
-php ebay/scripts/audit_listings.php --account=dows   # diffs live specifics vs. schema
+php marketplaces/ebay/scripts/fetch_category_aspects.php    # caches data/aspects/166126.json
+php marketplaces/ebay/scripts/audit_listings.php --account=dows   # diffs live specifics vs. schema
 ```
 This is where the real allowed-values list for category `166126` comes from — used later
 by the write-back step to know that eBay's `Theme` aspect (a different category, but same
@@ -69,9 +69,9 @@ be comma-split.
 ### Step 3 — fill gaps, build the master sheet
 
 ```bash
-php ebay/scripts/fill_aspects.php --account=dows --export=ebay/data/dows/input/InventoryExport_....csv
-php ebay/scripts/ai_review.php --mode=deep --account=dows --tasks     # only if gaps remain after fill_aspects
-php ebay/scripts/build_review_sheet.php --account=dows                # -> review_sheet.csv
+php marketplaces/ebay/scripts/fill_aspects.php --account=dows --export=marketplaces/ebay/data/dows/input/InventoryExport_....csv
+php marketplaces/ebay/scripts/ai_review.php --mode=deep --account=dows --tasks     # only if gaps remain after fill_aspects
+php marketplaces/ebay/scripts/build_review_sheet.php --account=dows                # -> review_sheet.csv
 ```
 
 Now every aspect for this listing is one row in `review_sheet.csv`. Four representative
@@ -92,17 +92,17 @@ never unit-normalized, never touched by the review rules below).
 ### Step 4 — LLM judgment passes (as needed)
 
 ```bash
-php ebay/scripts/ai_review.php --mode=current --account=dows --tasks   # audit live values
-php ebay/scripts/ai_review.php --mode=blanks  --account=dows --tasks   # judge genuine blanks
+php marketplaces/ebay/scripts/ai_review.php --mode=current --account=dows --tasks   # audit live values
+php marketplaces/ebay/scripts/ai_review.php --mode=blanks  --account=dows --tasks   # judge genuine blanks
 # ... an agent (or --run) answers the task JSONL ...
-php ebay/scripts/ai_review.php --mode=current --account=dows --merge
-php ebay/scripts/ai_review.php --mode=blanks  --account=dows --merge
+php marketplaces/ebay/scripts/ai_review.php --mode=current --account=dows --merge
+php marketplaces/ebay/scripts/ai_review.php --mode=blanks  --account=dows --merge
 ```
 
 ### Step 5 — deterministic proposing rules
 
 ```bash
-php ebay/scripts/apply_review_rules.php --account=dows
+php marketplaces/ebay/scripts/apply_review_rules.php --account=dows
 ```
 > Note (2026-07): this worked example predates the Prop65 policy change — the
 > aspect is no longer proposed/snapped at all, it's removed from item specifics
@@ -116,13 +116,13 @@ standard wording ("CALIFORNIA WARNING: This product can expose...").
 
 ### Step 6 — human review, merge, normalize
 
-Ethan reviews `review_sheet.csv` (or the extracted per-round handoff CSV), fills
-`approved_value`. For `Suitable For` he approved `"Backpacking, Camping, Hiking"` (not
-the LLM's `"Camping, Survival, Outdoors"` proposal — his call).
+The reviewer works through `review_sheet.csv` (or the extracted per-round handoff CSV),
+filling `approved_value`. For `Suitable For` they approved `"Backpacking, Camping, Hiking"`
+(not the LLM's `"Camping, Survival, Outdoors"` proposal — a human judgment call).
 
 ```bash
-php ebay/scripts/merge_handoff_approvals.php --account=dows --input=path/to/handoff.csv
-php ebay/scripts/normalize_review_sheet_units.php --account=dows   # or normalize_handoff_units.php
+php marketplaces/ebay/scripts/merge_handoff_approvals.php --account=dows --input=path/to/handoff.csv
+php marketplaces/ebay/scripts/normalize_review_sheet_units.php --account=dows   # or normalize_handoff_units.php
 ```
 `Item Weight`'s raw `"0.0800"` becomes `"0.08 lb"`, and — this is the part worth
 noticing — the normalization script **appends a note to `reviewer_notes` rather than
@@ -135,10 +135,10 @@ reviewer_notes: All 4 children share '0.08'. Unit-normalized (formatting only:
 ### Step 7 — build the write payload
 
 ```bash
-php ebay/scripts/build_apply_set.php --account=dows
+php marketplaces/ebay/scripts/build_apply_set.php --account=dows
 ```
 `apply_set.json`'s entry for this item is the **complete, final specifics dict** — it
-includes `Suitable For` with Ethan's approved value (`"Backpacking, Camping, Hiking"`,
+includes `Suitable For` with the reviewer's approved value (`"Backpacking, Camping, Hiking"`,
 not the LLM's original proposal), and critically: **none of the per-child Color/MPN
 rows are in this dict at all** — they were `source=variation` and got excluded, exactly
 as designed.
@@ -156,9 +156,9 @@ as designed.
 ### Step 8 — canary write
 
 ```bash
-php ebay/scripts/write_canary_test.php --account=dows --item=126419572927           # dry-run, prints the payload
-php ebay/scripts/write_canary_test.php --account=dows --item=126419572927 --verify  # eBay validates, commits nothing
-php ebay/scripts/write_canary_test.php --account=dows --item=126419572927 --live    # actually writes
+php marketplaces/ebay/scripts/write_canary_test.php --account=dows --item=126419572927           # dry-run, prints the payload
+php marketplaces/ebay/scripts/write_canary_test.php --account=dows --item=126419572927 --verify  # eBay validates, commits nothing
+php marketplaces/ebay/scripts/write_canary_test.php --account=dows --item=126419572927 --live    # actually writes
 ```
 For this exact item, the `--live` run produced `Ack: Success` — and specifically routed
 `Color` + `MPN` into each child's own `VariationSpecifics` (never the shared parent
@@ -182,8 +182,8 @@ aspects data Pipeline 1 just finished producing.
 ### Step 1 — grounding pack
 
 ```bash
-php ebay/scripts/audit_media.php --account=dows           # -> media/126419572927.json (current HTML, images)
-python3 ebay/scripts/extract_description_source.py         # -> desc_source_pack.jsonl
+php marketplaces/ebay/scripts/audit_media.php --account=dows           # -> media/126419572927.json (current HTML, images)
+python3 marketplaces/ebay/scripts/extract_description_source.py         # -> desc_source_pack.jsonl
 ```
 The pack pulls the *current* live copy as grounding material — nothing invented yet:
 ```json
@@ -197,9 +197,9 @@ The pack pulls the *current* live copy as grounding material — nothing invente
 ### Step 2 — batch + author
 
 ```bash
-python3 ebay/scripts/split_author_batches.py --size=135    # -> author_batches/in_NN.jsonl
+python3 marketplaces/ebay/scripts/split_author_batches.py --size=135    # -> author_batches/in_NN.jsonl
 # [an authoring pass against AUTHOR_PROMPT.md's task spec produces out_NN.jsonl]
-python3 ebay/scripts/merge_authored_batch.py --account=dows author_batches/out_05.jsonl
+python3 marketplaces/ebay/scripts/merge_authored_batch.py --account=dows author_batches/out_05.jsonl
 ```
 The authored answer, grounded in the pack above (no invented facts, `title_issue` left
 `false` since the original title is accurate):
@@ -215,17 +215,17 @@ The authored answer, grounded in the pack above (no invented facts, `title_issue
 ### Step 3 — render + review sheet
 
 ```bash
-php ebay/scripts/build_description_review.php --account=dows
+php marketplaces/ebay/scripts/build_description_review.php --account=dows
 ```
 Produces `description_review.csv` (old vs. new for every field) and
 `descriptions/126419572927.html` — the full rendered HTML matching
-`ebay/tools/description-generator.html`'s template exactly.
+`marketplaces/ebay/tools/description-generator.html`'s template exactly.
 
 ### Step 4 — mobile-summary check
 
 ```bash
-python3 ebay/scripts/find_mobile_desc_mismatch.py
-python3 ebay/scripts/build_mobile_fix_review.py
+python3 marketplaces/ebay/scripts/find_mobile_desc_mismatch.py
+python3 marketplaces/ebay/scripts/build_mobile_fix_review.py
 ```
 Confirms the hidden mobile summary (the `<span property="description">` block) actually
 matches the visible body — a mismatch here was a real, separately-found bug class on

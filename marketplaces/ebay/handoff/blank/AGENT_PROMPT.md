@@ -89,7 +89,7 @@ above, one line per input product, nothing else.
    `item_id` appears exactly once. Print any missing ids. Do not report success until
    this passes.
 
-**Write the result to** `ebay/handoff/blank/returned/<slice-name>.out.jsonl` and stop.
+**Write the result to** `marketplaces/ebay/handoff/blank/returned/<slice-name>.out.jsonl` and stop.
 Do not call the eBay API, do not edit the review sheet, do not run the merge — the
 human runs `verify_and_merge.sh`, which re-checks coverage and drops bad ids/aspects.
 

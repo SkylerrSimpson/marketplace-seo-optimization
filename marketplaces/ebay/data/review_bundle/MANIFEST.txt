@@ -1,4 +1,4 @@
-eBay REVIEW BUNDLE — for Ethan                        (all DRY-RUN; nothing is live on eBay)
+eBay REVIEW BUNDLE                                    (all DRY-RUN; nothing is live on eBay)
 =========================================================================================
 
 REVIEW SHEETS (fill the 'approved' / 'approved_value' + 'reviewer_notes' columns):
@@ -13,8 +13,8 @@ REVIEW SHEETS (fill the 'approved' / 'approved_value' + 'reviewer_notes' columns
 3) eBay_DOWS_descriptions-standardized-v3_REVIEW.csv (1257 rows)
 4) eBay_IGE_descriptions-standardized-v3_REVIEW.csv  (370 rows)
      CURRENT — supersedes v2 and the original v1 (both left in this folder for
-     reference only, not for action). v3 changes vs. v2, per Ethan's 2026-07-14
-     feedback:
+     reference only, not for action). v3 changes vs. v2, per 2026-07-14
+     reviewer feedback:
        - Removed the "Contact Us" link from the store header — "Our Store" only.
        - Added the California Prop 65 warning as a badge IMAGE (with alt text) at
          the bottom of every description, replacing the item-specific aspect of the
@@ -55,29 +55,29 @@ REVIEW SHEETS (fill the 'approved' / 'approved_value' + 'reviewer_notes' columns
 6) eBay_DOWS_invalid-approved-values_REVIEW.csv (28 rows) — RESOLVED 2026-07-07
      Found while rebuilding apply_set.json from the "Update 1" round-2 approvals: 28
      approved_value entries that didn't match eBay's real picklist for that listing's
-     category. Resolved via Slack with Ethan same day: 24 Age Level rows fixed by
+     category. Resolved same day: 24 Age Level rows fixed by
      dropping the invalid "8-11 Years" piece; Department/Franchise/Unit Type one-offs
-     fixed per his answers. All 28 included correctly in the write below.
+     fixed per reviewer answers. All 28 included correctly in the write below.
 
 7) eBay_DOWS_post-write-live-comparison_REVIEW.csv (17972 rows) — NEW 2026-07-07
-     Requested by Ethan while reviewing the bulk-write failures: a fresh, read-only
+     Built while reviewing the bulk-write failures: a fresh, read-only
      pull of every DOWS listing's CURRENT live aspects (Browse API, right now — not the
      stale cache), one row per listing x aspect, alongside our_proposed_value (what
      apply_set.json intended to write) and match (yes/no). Use this to compare current
      vs. proposed directly. write_ack/write_note carry the per-item write result where
-     available (see ebay/data/dows/output/bulk_write_2026-07-07_results.txt for the full
+     available (see marketplaces/ebay/data/dows/output/bulk_write_2026-07-07_results.txt for the full
      narrative — including a newly-found issue where eBay silently overrides our values
      with Catalog data on 4+ listings, invisible as a plain success/fail count since it
      returns Warning not Failure).
 
 8) eBay_DOWS_current-live-attributes_REVIEW_v3.csv (22149 rows) — NEW 2026-07-09
 9) eBay_IGE_current-live-attributes_REVIEW.csv  (3474 rows)  — NEW 2026-07-08
-     Requested by Ethan: a fresh, read-only pull of every listing's CURRENT live
+     A fresh, read-only pull of every listing's CURRENT live
      attributes only — no proposed_value/approved_value/certainty/reviewer_notes,
      just item_id, sku, varied_by, name, category_id, aspect, mode, cardinality,
      current_value, allowed_values, title. One row per listing x aspect (parent rows),
      plus one row per variation child x varied aspect. Same row skeleton as sheet 1/2
-     above, just stripped down for a manual current-vs-Ethan's-own-sheet comparison
+     above, just stripped down for a manual current-vs-approved-sheet comparison
      instead of an approval pass. IGE reflects pre-write state since IGE hasn't been
      written yet.
 

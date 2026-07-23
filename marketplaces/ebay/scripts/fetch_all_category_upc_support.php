@@ -22,12 +22,12 @@ declare(strict_types=1);
  * EBAY_US), cached locally since the full tree rarely changes and re-pulling it
  * is wasted work. --refresh forces a re-pull.
  *
- * Output: ebay/data/aspects/all_categories_upc_support.csv (shared, not account-specific
- *   — same reasoning as ebay/data/aspects/{cat}.json: this is a marketplace-level fact,
+ * Output: marketplaces/ebay/data/aspects/all_categories_upc_support.csv (shared, not account-specific
+ *   — same reasoning as marketplaces/ebay/data/aspects/{cat}.json: this is a marketplace-level fact,
  *   not a DOWS/IGE fact)
  *   category_id, category_name, upc_essential (YES|NO)
  *
- * Usage: php ebay/scripts/fetch_all_category_upc_support.php [--refresh] [--limit=N]
+ * Usage: php marketplaces/ebay/scripts/fetch_all_category_upc_support.php [--refresh] [--limit=N]
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

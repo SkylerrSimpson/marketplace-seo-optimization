@@ -23,7 +23,7 @@ declare(strict_types=1);
  * Restoring stale commercial data could mis-price or mis-stock a live SKU.
  *
  * Usage:
- *   php amazon/scripts/restore_listings.php --account=IGE --sku=SKU [OPTIONS]
+ *   php marketplaces/amazon/scripts/restore_listings.php --account=IGE --sku=SKU [OPTIONS]
  *
  * Flags:
  *   --account=IGE|DOWS          Seller account. Default: IGE.
@@ -38,11 +38,11 @@ declare(strict_types=1);
  *   --help                      Show this help message.
  *
  * Inputs:
- *   amazon/data/{account}/backups/{sku}/{timestamp}.json
+ *   marketplaces/amazon/data/{account}/backups/{sku}/{timestamp}.json
  *
  * Output:
- *   amazon/data/{account}/output/restore_results_{timestamp}.csv
- *   amazon/data/{account}/backups/{sku}/{timestamp}.json  (pre-restore, on --apply)
+ *   marketplaces/amazon/data/{account}/output/restore_results_{timestamp}.csv
+ *   marketplaces/amazon/data/{account}/backups/{sku}/{timestamp}.json  (pre-restore, on --apply)
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';
@@ -80,7 +80,7 @@ const NON_RESTORABLE = [
 
 if (in_array('--help', $argv ?? [], true)) {
     echo <<<'HELP'
-Usage: php amazon/scripts/restore_listings.php --account=IGE --sku=SKU [OPTIONS]
+Usage: php marketplaces/amazon/scripts/restore_listings.php --account=IGE --sku=SKU [OPTIONS]
 
 Flags:
   --account=IGE|DOWS          Seller account. Default: IGE.

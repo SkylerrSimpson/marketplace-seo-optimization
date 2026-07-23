@@ -5,7 +5,7 @@ declare(strict_types=1);
 /**
  * Phase 8 + Phase 10 — Guarded write-back to Amazon via SP-API patchListingsItem.
  *
- * Reads amazon/data/{account}/drafts/{sku}.json (Phase 7 output) and submits
+ * Reads marketplaces/amazon/data/{account}/drafts/{sku}.json (Phase 7 output) and submits
  * the authored attributes to Amazon using the Listings Items PATCH API.
  *
  * Safety model (mirrors Shopify's guarded-write pattern):
@@ -52,7 +52,7 @@ declare(strict_types=1);
  * attribute set. All guards (identifying, shrink, compliance, coupling) still apply.
  *
  * Usage:
- *   php amazon/scripts/patch_listings.php [--account=IGE|DOWS] [OPTIONS]
+ *   php marketplaces/amazon/scripts/patch_listings.php [--account=IGE|DOWS] [OPTIONS]
  *
  * Flags:
  *   --account=IGE|DOWS          Seller account. Default: IGE.
@@ -70,14 +70,14 @@ declare(strict_types=1);
  *   --help                      Show this help message.
  *
  * Inputs:
- *   amazon/data/{account}/drafts/{sku}.json
- *   amazon/data/{account}/output/title_decisions.csv (with --include-titles)
- *   amazon/data/{account}/input/listings/{sku}.json  (dry-run baseline)
- *   amazon/data/schemas/{PRODUCT_TYPE}.json           (identifying + compliance scope)
+ *   marketplaces/amazon/data/{account}/drafts/{sku}.json
+ *   marketplaces/amazon/data/{account}/output/title_decisions.csv (with --include-titles)
+ *   marketplaces/amazon/data/{account}/input/listings/{sku}.json  (dry-run baseline)
+ *   marketplaces/amazon/data/schemas/{PRODUCT_TYPE}.json           (identifying + compliance scope)
  *
  * Output:
- *   amazon/data/{account}/output/patch_results_{timestamp}.csv
- *   amazon/data/{account}/backups/{sku}/{timestamp}.json  (on --apply)
+ *   marketplaces/amazon/data/{account}/output/patch_results_{timestamp}.csv
+ *   marketplaces/amazon/data/{account}/backups/{sku}/{timestamp}.json  (on --apply)
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';
@@ -103,7 +103,7 @@ const BASELINE_INCLUDED_DATA = [
 
 if (in_array('--help', $argv ?? [], true)) {
     echo <<<'HELP'
-Usage: php amazon/scripts/patch_listings.php [--account=IGE|DOWS] [OPTIONS]
+Usage: php marketplaces/amazon/scripts/patch_listings.php [--account=IGE|DOWS] [OPTIONS]
 
 Flags:
   --account=IGE|DOWS          Seller account. Default: IGE.

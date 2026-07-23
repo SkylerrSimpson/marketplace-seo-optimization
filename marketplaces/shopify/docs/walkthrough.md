@@ -3,12 +3,12 @@
 This traces a single real product — numeric id `8406498541868`, "24pc Deluxe 50 Inch
 Aluminum Folding Sluice Box Gold Panning Kit with 30L Backpack" — through the core
 metadata pipeline, with the actual commands and actual data at each step. If
-`shopify/README.md`'s script tables feel abstract, this is the concrete version.
+`marketplaces/shopify/README.md`'s script tables feel abstract, this is the concrete version.
 
 ## Step 1 — audit
 
 ```bash
-php shopify/scripts/audit_products.php
+php marketplaces/shopify/scripts/audit_products.php
 ```
 Writes one row per product to `data/output/products_audit.csv`. This product's row
 flags a weak SEO description:
@@ -20,9 +20,9 @@ Thin, all-lowercase, reads like a keyword list rather than a sentence — a fix 
 ## Step 2 — export the grounding material
 
 ```bash
-php shopify/scripts/export_descriptions.php   # -> data/input/phase2_input.json
-php shopify/scripts/export_image_alts.php     # -> data/input/image_alts.json
-php shopify/scripts/export_variants.php       # -> data/input/variants.json
+php marketplaces/shopify/scripts/export_descriptions.php   # -> data/input/phase2_input.json
+php marketplaces/shopify/scripts/export_image_alts.php     # -> data/input/image_alts.json
+php marketplaces/shopify/scripts/export_variants.php       # -> data/input/variants.json
 ```
 These are read-only pulls of the *current* live state — the full body HTML, the current
 image alt text, variant option structure. Nothing authored yet; this is just the raw
@@ -48,7 +48,7 @@ the same text copy-pasted into two fields.
 ## Step 4 — assemble the reviewable sheet
 
 ```bash
-php shopify/scripts/assemble_output.php
+php marketplaces/shopify/scripts/assemble_output.php
 ```
 Merges the drafts back against the exported inputs, fills any blank `product_type`, and
 writes the before/after review sheet:
@@ -72,9 +72,9 @@ actually consumes.
 ## Step 5 — write it back (dry-run first, always)
 
 ```bash
-php shopify/scripts/apply_metadata.php                       # dry run — logs what WOULD change
-php shopify/scripts/apply_metadata.php --apply --limit 3      # canary — actually writes, first 3 only
-php shopify/scripts/apply_metadata.php --apply                # full — idempotent, skips already-correct rows
+php marketplaces/shopify/scripts/apply_metadata.php                       # dry run — logs what WOULD change
+php marketplaces/shopify/scripts/apply_metadata.php --apply --limit 3      # canary — actually writes, first 3 only
+php marketplaces/shopify/scripts/apply_metadata.php --apply                # full — idempotent, skips already-correct rows
 ```
 For this product, `--apply` would write the new `seo.description` and image alt via
 Shopify's Admin GraphQL API. **Idempotent** means re-running the full `--apply` after
@@ -91,8 +91,8 @@ skips if it already matches.
 ## Step 6 — verify it actually took
 
 ```bash
-php shopify/scripts/verify_applied.php        # re-pulls live catalog, diffs vs. phase2_output.json
-php shopify/scripts/validate_storefront.php   # checks the RENDERED public page, not just the Admin API's view
+php marketplaces/shopify/scripts/verify_applied.php        # re-pulls live catalog, diffs vs. phase2_output.json
+php marketplaces/shopify/scripts/validate_storefront.php   # checks the RENDERED public page, not just the Admin API's view
 ```
 `verify_applied.php` catches a write that silently partially failed (some products
 updated, some not). `validate_storefront.php` goes one step further and confirms the
@@ -111,5 +111,5 @@ appear in:
 - **Video SEO** (`audit_product_media.php` → ... → `build_video_watch_pages.php`) if it
   has an embedded product video.
 
-These are separate, independently-runnable work-streams — see `shopify/README.md` for
+These are separate, independently-runnable work-streams — see `marketplaces/shopify/README.md` for
 their own script tables. A product doesn't have to go through all of them.

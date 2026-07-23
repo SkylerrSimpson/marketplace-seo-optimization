@@ -5,11 +5,11 @@ declare(strict_types=1);
 /**
  * Export each product's FEATURED image: media id + current alt text (READ ONLY).
  *
- * Feeds the image-alt before/after work. The media id is what Phase 3 needs to
- * write a new alt (via productUpdateMedia / fileUpdate). Writes image_alts.json
- * keyed by numeric_id: { media_id, old_alt, url, title }.
+ * Feeds the image-alt before/after work: the media id is what apply_image_alts.php
+ * (and author_descriptions_ai.php) need to write a new alt via productUpdateMedia.
+ * Writes image_alts.json keyed by numeric_id: { media_id, old_alt, url, title }.
  *
- * Usage: php export_image_alts.php
+ * Usage: php marketplaces/shopify/scripts/export_image_alts.php
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

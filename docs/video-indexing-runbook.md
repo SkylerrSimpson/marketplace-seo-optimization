@@ -10,8 +10,8 @@ Videos tab + AI grounding), and standardize all product video onto **YouTube emb
 
 ## Current state (as of 2026-06-08)
 
-Catalog-wide media audit (`shopify/scripts/audit_product_media.php`, read-only →
-`shopify/data/output/product_video_inventory.csv`):
+Catalog-wide media audit (`marketplaces/shopify/scripts/audit_product_media.php`, read-only →
+`marketplaces/shopify/data/output/product_video_inventory.csv`):
 
 - (Original baseline) 13 self-hosted MP4s, 0 external embeds, 185 no video.
 - **Post-swap (2026-06-09 re-audit):** **14 products** have a YouTube embed, 1 still has
@@ -19,7 +19,7 @@ Catalog-wide media audit (`shopify/scripts/audit_product_media.php`, read-only �
 - `VideoObject` structured data: **now emitted by the Phase 2 snippet** (pending deploy).
 
 YouTube channel: **https://www.youtube.com/@asr_outdoor** — 17 listed videos pulled
-(titles/dates/durations in `shopify/data/output/video_product_map.csv`). The 5 MP4s
+(titles/dates/durations in `marketplaces/shopify/data/output/video_product_map.csv`). The 5 MP4s
 with no match in the 17 are from **YouTube Shorts** (not listed long-form videos).
 
 Approach decided: **hybrid VideoObject snippet** — real upload date/duration for the
@@ -101,7 +101,7 @@ and/or place how-to videos into **blog guides** (Online Store → Blog posts).
 ## Phase 2 — Build the hybrid `VideoObject` snippet  *(owner: Claude)* ✅ DONE 2026-06-09
 
 Covers **all** embedded videos — the swaps (Phase 1A) *and* the new adds (Phase 1B).
-Delivered: `shopify/theme/product-structured-data.liquid` now appends a `VideoObject`
+Delivered: `marketplaces/shopify/theme/product-structured-data.liquid` now appends a `VideoObject`
 block that loops `product.media`, filters `media_type == 'external_video'` + `host == 'youtube'`,
 and emits one VideoObject per video:
 - `name` = product title, `description` = product description (grounded, no upkeep).
@@ -180,8 +180,8 @@ https://developers.google.com/search/docs/appearance/structured-data/video
 > once and will cover everything embedded by then plus anything added later.
 
 ## Related files
-- `shopify/scripts/audit_product_media.php` — read-only video inventory
-- `shopify/data/output/product_video_inventory.csv` — per-product video state
-- `shopify/scripts/build_mp4_worklist.py` → `mp4_replacement_worklist.csv` — the 13 swaps
-- `shopify/scripts/build_video_map.py` → `video_product_map.csv` — 17 videos + dates/durations
-- `shopify/theme/product-structured-data.liquid` — the JSON-LD snippet to extend
+- `marketplaces/shopify/scripts/audit_product_media.php` — read-only video inventory
+- `marketplaces/shopify/data/output/product_video_inventory.csv` — per-product video state
+- `marketplaces/shopify/scripts/build_mp4_worklist.py` → `mp4_replacement_worklist.csv` — the 13 swaps
+- `marketplaces/shopify/scripts/build_video_map.py` → `video_product_map.csv` — 17 videos + dates/durations
+- `marketplaces/shopify/theme/product-structured-data.liquid` — the JSON-LD snippet to extend

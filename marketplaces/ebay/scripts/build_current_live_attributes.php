@@ -24,7 +24,7 @@ declare(strict_types=1);
  * Columns (same skeleton as v1/v2): item_id, sku, varied_by, name, category_id,
  * aspect, mode, cardinality, current_value, allowed_values, title
  *
- * Usage: php ebay/scripts/build_current_live_attributes.php --account=dows [--limit=N]
+ * Usage: php marketplaces/ebay/scripts/build_current_live_attributes.php --account=dows [--limit=N]
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

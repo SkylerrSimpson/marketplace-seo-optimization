@@ -1,11 +1,14 @@
 <?php
 declare(strict_types=1);
 /**
- * Prepend a prose intro <p> to 10 thin product descriptions (spec-bullet-only).
+ * Prepend a prose intro <p> to 10 thin product descriptions (spec-bullet-only,
+ * no lead-in prose) so they read as actual copy, not just a bullet list.
+ * Product IDs and intro text are hardcoded below, curated from a manual
+ * thin-content audit — this script has no external input file.
  * Preserves the existing descriptionHtml verbatim (intro + original bullets).
  * Idempotent: skips if the intro is already present. DRY-RUN unless --apply.
  *
- * Usage: php apply_thin_descriptions.php [--apply]
+ * Usage: php marketplaces/shopify/scripts/apply_thin_descriptions.php [--apply]
  */
 require __DIR__ . '/../../lib/bootstrap.php';
 use Shopify\Context; use Shopify\Auth\FileSessionStorage; use Shopify\Clients\Graphql;

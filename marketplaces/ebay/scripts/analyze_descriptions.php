@@ -23,12 +23,12 @@ declare(strict_types=1);
  *    (copy_rewrite = keep template, improve copy; restructure = thin/no real
  *    body, rebuild; ok = already strong, low priority).
  *
- * Output (ebay/data/{account}/output/):
+ * Output (marketplaces/ebay/data/{account}/output/):
  *   description_audit.csv     one row/listing: score, every signal, issues, treatment
  *   desc_rewrite_tasks.jsonl  one line/listing feeding the rewrite step
  *                             (title, category, key aspects, current copy, issues)
  *
- * Usage: php ebay/scripts/analyze_descriptions.php --account=dows|ige
+ * Usage: php marketplaces/ebay/scripts/analyze_descriptions.php --account=dows|ige
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

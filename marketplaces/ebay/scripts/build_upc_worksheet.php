@@ -20,8 +20,8 @@ declare(strict_types=1);
  *
  * No EAN/ISBN columns per request — UPC only.
  *
- * Output: ebay/data/{acct}/output/eBay_{ACCT}_upc-worksheet_REVIEW.csv
- * Usage: php ebay/scripts/build_upc_worksheet.php --account=dows
+ * Output: marketplaces/ebay/data/{acct}/output/eBay_{ACCT}_upc-worksheet_REVIEW.csv
+ * Usage: php marketplaces/ebay/scripts/build_upc_worksheet.php --account=dows
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

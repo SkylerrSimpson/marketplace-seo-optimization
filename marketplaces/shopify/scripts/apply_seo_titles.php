@@ -3,21 +3,23 @@
 declare(strict_types=1);
 
 /**
- * Apply product SEO titles (seo.title) from shopify/data/drafts/seo_titles.json
- * (keyed by numeric product id). Authored to <=60 chars, ASCII-only, unique.
+ * Apply product SEO titles (seo.title) from data/drafts/seo_titles.json
+ * (hand-authored, keyed by numeric product id). Authored to <=60 chars,
+ * ASCII-only, unique.
  *
  * Sets ONLY seo.title via productUpdate — seo.description is left untouched
  * (we pass just SEOInput.title, so Shopify keeps the existing description).
  *
+ * Prerequisites: data/drafts/seo_titles.json must already exist.
  * DRY-RUN by default (prints intended diffs). Pass --apply to write.
  * Idempotent: reads current seo.title and skips anything already correct.
  * Guards: refuses to write a non-ASCII or >60-char title.
  *
  * Usage:
- *   php shopify/scripts/apply_seo_titles.php                 # dry run (all)
- *   php shopify/scripts/apply_seo_titles.php --ids=ID,ID     # canary subset
- *   php shopify/scripts/apply_seo_titles.php --limit=20      # first N
- *   php shopify/scripts/apply_seo_titles.php --apply         # write
+ *   php marketplaces/shopify/scripts/apply_seo_titles.php                 # dry run (all)
+ *   php marketplaces/shopify/scripts/apply_seo_titles.php --ids=ID,ID     # canary subset
+ *   php marketplaces/shopify/scripts/apply_seo_titles.php --limit=20      # first N
+ *   php marketplaces/shopify/scripts/apply_seo_titles.php --apply         # write
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

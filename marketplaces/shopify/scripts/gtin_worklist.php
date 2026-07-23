@@ -14,7 +14,7 @@ declare(strict_types=1);
  *
  * Context uses ONLY read_products. No mutation is issued.
  *
- * Usage: php gtin_worklist.php
+ * Usage: php marketplaces/shopify/scripts/gtin_worklist.php
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

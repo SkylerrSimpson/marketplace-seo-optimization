@@ -1,21 +1,19 @@
 # The Write-Back Bridge — apply_set → eBay ItemSpecifics
 
-> **Status update (2026-07-07):** Stage 1 (`build_apply_set.php`) is built and
-> verified, and DOWS has completed a full round of Ethan's review plus a
-> corrected unit-normalization pass (see `ebay/README.md`'s Pipeline 1 table for
-> the current full script list — several steps only sketched below, like the
-> normalize/merge scripts, now exist as real files). Stage 2 now has both forms:
-> `ebay/scripts/write_canary_test.php` (canary, 4 hand-picked listings, tested
-> live 2026-07-06) and `ebay/scripts/apply_aspects.php` (the full-account write —
-> see §4.2, which corrects this doc's original transport decision). The bulk
-> script has been one-item live-tested against production DOWS
-> (item `126454417969`, re-pulled afterward and confirmed correct) but the actual
-> full-account run across all of `apply_set.json` hasn't happened yet — that's
-> the next thing to do (§6).
+> **Status update:** Stage 1 (`build_apply_set.php`) is built and verified. Stage 2
+> has both forms: `marketplaces/ebay/scripts/write_canary_test.php` (canary) and
+> `marketplaces/ebay/scripts/apply_aspects.php` (the full-account write — see §4.2,
+> which corrects this doc's original transport decision). **DOWS's full-account
+> write has since run live** (`apply_aspects_run.csv` shows live writes for 1,171
+> listings) — see `marketplaces/ebay/README.md`'s Known Gaps section for current
+> status. **IGE has not had a review round yet**, so its write is still pending
+> (§6). See `marketplaces/ebay/README.md`'s Pipeline 1 table for the current full
+> script list — several steps only sketched below, like the normalize/merge
+> scripts, now exist as real files.
 
-This doc explains the entire bridge in enough detail that you can finish it by
-hand if I run out of usage. Read it top to bottom once; then use the
-"**Continue by hand**" boxes as your checklist.
+This doc explains the entire bridge in enough detail to finish it by hand if
+needed. Read it top to bottom once; then use the "**Continue by hand**" boxes as
+a checklist.
 
 ---
 
@@ -33,13 +31,13 @@ hand if I run out of usage. Read it top to bottom once; then use the
   ai_review.php --mode=deep / proposed_fills*  (proposed values for GAPS)
         │
         ▼
-  [ Ethan reviews review_sheet.csv, fills approved_value column ]   ← we are waiting here
+  [ reviewer works through review_sheet.csv, fills approved_value column ]
         │
         ▼
   build_apply_set.php   ─►  apply_set.json  +  apply_preview.csv     ◄── STAGE 1 (this doc)
         │
         ▼
-  write_back.php  ─►  Sell Feed / LMS  ─►  eBay ReviseItem            ◄── STAGE 2 (gated)
+  write_canary_test.php / apply_aspects.php  ─►  eBay ReviseItem      ◄── STAGE 2 (§4)
 ```
 
 The **review sheet is the master sheet** (see `review-guide.md §0`). The bridge
@@ -79,10 +77,10 @@ omitted. **Omission from `specifics` means removal.** That is the guard.
 
 ## 2. Stage 1 — `build_apply_set.php` (BUILT, VERIFIED)
 
-`php ebay/scripts/build_apply_set.php --account=dows [--threshold=80]`
+`php marketplaces/ebay/scripts/build_apply_set.php --account=dows [--threshold=80]`
 
 ### 2.1 Input
-`ebay/data/{account}/output/review_sheet.csv` — grain is one row per
+`marketplaces/ebay/data/{account}/output/review_sheet.csv` — grain is one row per
 (listing × aspect). Relevant columns:
 
 | column | meaning |
@@ -92,7 +90,7 @@ omitted. **Omission from `specifics` means removal.** That is the guard.
 | `source` | where the row came from: `current` (live on eBay), `variation` (per-child, NOT a parent specific), `usurper*`/`rule`/`default` (deterministic gap fill), `llm` (model-proposed gap fill), `none` |
 | `current_value` | the value live on eBay today (only on `source=current` rows) |
 | `proposed_value` | suggested value (deterministic fill, or LLM suggestion) |
-| `approved_value` | **Ethan's column** — human decision. Empty today. |
+| `approved_value` | **the reviewer's column** — human decision. Empty until reviewed. |
 | `certainty` | 0–100; for LLM rows it's the model's confidence |
 | `mode` | `SELECTION_ONLY` (value must be in the allowed list) or `FREE_TEXT` |
 | `allowed_values` | pipe-joined allowed list (may be truncated with `...`) |
@@ -120,7 +118,7 @@ no approved_value                → KEEP the live value unchanged (action=keep)
 Only a human `approved_value` may change or delete a value that is already on
 eBay. The LLM's job on live values is to *flag*, not to *overwrite*. (This is
 the whole reason we did the `ai_check_current` audit — to surface suspects for
-Ethan, not to act on them.)
+the reviewer, not to act on them.)
 
 `source=variation` rows are **skipped** — they describe per-child variation
 dimensions, which are written through the Variations container, not the
@@ -144,7 +142,7 @@ parent's ItemSpecifics. (Stage 2 handles variation listings separately; see
 but **skips lists that are truncated** (ending `...`) because we can't trust a
 partial list. So `valid=NO` is a *hint*, not a gate. **Stage 2 (`write_back.php`)
 MUST re-validate every SELECTION_ONLY value against the authoritative
-`ebay/data/aspects/{cat}.json` `values[]` before sending** — that file, not the
+`marketplaces/ebay/data/aspects/{cat}.json` `values[]` before sending** — that file, not the
 sheet, is the source of truth for allowed values.
 
 ### 2.5 Verified run results (2026-06-22, threshold 80, no approvals yet)
@@ -155,9 +153,9 @@ sheet, is the source of truth for allowed values.
 | IGE  |  370 |  4443 |  3241 | 1202 | 0 | 0 | 1331 |  1 |
 
 Interpretation:
-- **change/delete = 0** is correct *right now* — Ethan hasn't returned approvals,
-  so nothing overrides a live value yet. After he fills `approved_value`, re-run
-  and these become non-zero.
+- **change/delete = 0** was correct *at the time* — no approvals had come back yet,
+  so nothing overrode a live value. Once `approved_value` is filled, re-running
+  makes these non-zero.
 - **All 14 `invalid` rows are `chosen_from=current`** — they are pre-existing
   live eBay values that fail our (partial) snapshot list. **Zero new fills are
   invalid.** The merge guard preserves them untouched; we are not introducing a
@@ -167,35 +165,41 @@ Interpretation:
   and no live aspect was dropped. ✓
 
 > **Continue by hand — Stage 1**
-> 1. `php ebay/scripts/build_apply_set.php --account=dows`
-> 2. `php ebay/scripts/build_apply_set.php --account=ige`
+> 1. `php marketplaces/ebay/scripts/build_apply_set.php --account=dows`
+> 2. `php marketplaces/ebay/scripts/build_apply_set.php --account=ige`
 > 3. Open `apply_preview.csv`, sort by `action`. Sanity-check that every
 >    `keep` row's `final_value == from_value`, every `add` has a `chosen_from`
 >    of deterministic/approved/llm≥N, and no `change`/`delete` exists unless
->    Ethan approved it.
+>    the reviewer approved it.
 > 4. Re-run whenever the review sheet changes (new approvals). It is idempotent.
 
 ---
 
-## 3. After Ethan returns the reviewed sheet
+## 3. After the reviewed sheet comes back
 
-1. Drop his edited `review_sheet.csv` back in `ebay/data/{account}/output/`.
+1. Drop the edited `review_sheet.csv` back in `marketplaces/ebay/data/{account}/output/`.
 2. Re-run `build_apply_set.php` for both accounts.
-3. In `apply_preview.csv`, the rows that changed are exactly the ones he touched:
-   - `action=change` → he corrected a live value
-   - `action=delete` → he wrote `DELETE` on a junk live value (e.g. `Year="NEW"`,
+3. In `apply_preview.csv`, the rows that changed are exactly the ones the reviewer touched:
+   - `action=change` → a live value was corrected
+   - `action=delete` → `DELETE` was written on a junk live value (e.g. `Year="NEW"`,
      `{CHEMNAME1}` Prop 65 templates, `Material=Plastic` on steel goods)
-   - `action=add` with `chosen_from=approved` → he supplied a value for a gap
+   - `action=add` with `chosen_from=approved` → a value was supplied for a gap
 4. Diff the new `apply_set.json` against the prior one to get the precise blast
    radius before any write.
 
 ---
 
-## 4. Stage 2 — `write_back.php` (NOT BUILT; gated; spec only)
+## 4. Stage 2 — the write-back scripts
 
-Build this **only** once prod write creds + scope + Scott's sign-off exist.
-Signature target: `php ebay/scripts/write_back.php --account=dows [--apply] [--limit=N] [--only=item_id,...]`.
-Default (no `--apply`) is dry-run: render the exact payload, validate, and
+> This section is the original design spec for a script called `write_back.php`.
+> It was ultimately built as two scripts instead — `write_canary_test.php`
+> (canary) and `apply_aspects.php` (full-account) — sharing the validation/
+> transport logic below via `lib/aspect_writer.php`. The design (re-validation,
+> transport, safety rails) is what actually shipped; only the filename differs
+> from what's written here.
+
+Signature (as built): `php marketplaces/ebay/scripts/apply_aspects.php --account=dows [--live] [--item=ID] [--limit=N] [--confirm=WRITE]`.
+Default (no `--live`) is dry-run: render the exact payload, validate, and
 **do not** transmit.
 
 ### 4.1 Re-validate (hard gate, not advisory)
@@ -222,7 +226,7 @@ Use Trading **`ReviseItem`** directly (`benmorel/ebay-sdk-php`'s
 `ReviseItemRequestType`). The merged `specifics` map → `Item.ItemSpecifics`, a
 `NameValueListArrayType` wrapping one `NameValueListType` per aspect (MULTI
 cardinality = multiple `Value[]` entries — see the value-cardinality gotcha in
-`ebay/README.md`, including the compound-allowed-value edge case). Variation
+`marketplaces/ebay/README.md`, including the compound-allowed-value edge case). Variation
 listings: parent ItemSpecifics as above, varied dimensions go in
 `Item.Variations.Variation[].VariationSpecifics` (a *repeated* array of
 `NameValueListArrayType`, not a single one — easy to get the wrapper type wrong,
@@ -255,32 +259,29 @@ canary class** — do one group end-to-end before bulk.
 ---
 
 ## 5. Constraints that must never be relaxed
-- **DRY-RUN until gated.** No eBay write without prod creds/scope **and** Scott's
-  sign-off.
+- **DRY-RUN until gated.** No eBay write without prod creds/scope **and**
+  management sign-off.
 - **Never let an LLM value overwrite a live eBay value.** Only `approved_value`.
 - **Always re-validate SELECTION_ONLY against `aspects/{cat}.json`** in Stage 2.
 - **Never send a partial ItemSpecifics set** — the merge guard union only.
 - **Drop a bad aspect, never a whole listing** (except a dropped REQUIRED →
   quarantine for manual fix).
 
-## 6. Open items / next actions (updated 2026-07-07)
-1. ☑ Ethan's reviewed `review_sheet.csv` for DOWS round 1 — done, merged via
+## 6. Open items / next actions
+
+1. ☑ Reviewed `review_sheet.csv` for DOWS round 1 — done, merged via
    `merge_handoff_approvals.php`, then corrected for a unit-normalization
-   contamination bug found afterward (see `ebay/README.md`'s vary-by rule).
+   contamination bug found afterward (see `marketplaces/ebay/README.md`'s vary-by rule).
 2. ☑ Canary write-back proven live on production DOWS via
    `write_canary_test.php` (Trading `ReviseItem`, per §4.2's correction) —
    4 hand-picked test listings, sales history confirmed preserved.
 3. ☑ Built the bulk `apply_aspects.php` per §4 (transport corrected to
    `ReviseItem`, not LMS), sharing `write_canary_test.php`'s
    `buildSpecifics()`/vary-by-guard/schema-aware splitting logic via
-   `lib/aspect_writer.php` rather than duplicating it. One-item live-tested
-   (item `126454417969`, solo listing — 8 real changes confirmed correct via a
-   fresh re-pull afterward) plus a `--verify` pass on a variation listing
-   (item `126191730089`, 3 children, values round-tripped unchanged).
-4. ☐ **Run the actual full-account write** — `apply_aspects.php --account=dows
-   --live --confirm=WRITE` (all 1,257 DOWS listings). This is the main
-   remaining gap now.
+   `lib/aspect_writer.php` rather than duplicating it.
+4. ☑ **Full-account write for DOWS has run** — `apply_aspects_run.csv` shows
+   live writes for 1,171 listings.
 5. ☐ IGE has not yet had any review round — still needs its own
-   `merge_handoff_approvals.php` pass once Ethan reviews it.
+   `merge_handoff_approvals.php` pass once reviewed.
 6. ☐ (optional) deterministic rule-fix for the IGE `Type="standard"` cluster
-   (~120 rows) so Ethan doesn't hand-touch each.
+   (~120 rows) to reduce hand-touching each one individually.

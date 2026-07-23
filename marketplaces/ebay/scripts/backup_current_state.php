@@ -20,9 +20,9 @@ declare(strict_types=1);
  * timestamped directory — never overwrites a prior backup.
  *
  * Usage:
- *   php ebay/scripts/backup_current_state.php --account=dows
- *   php ebay/scripts/backup_current_state.php --account=ige --what=descriptions
- *   php ebay/scripts/backup_current_state.php --account=dows --what=aspects --limit=5
+ *   php marketplaces/ebay/scripts/backup_current_state.php --account=dows
+ *   php marketplaces/ebay/scripts/backup_current_state.php --account=ige --what=descriptions
+ *   php marketplaces/ebay/scripts/backup_current_state.php --account=dows --what=aspects --limit=5
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

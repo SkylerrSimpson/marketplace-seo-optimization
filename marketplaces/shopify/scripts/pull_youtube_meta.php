@@ -1,13 +1,17 @@
 <?php
 declare(strict_types=1);
 /**
- * Pull real title, description, upload date, and duration for all 20 videos
- * from the YouTube Data API v3, using the IDs in video_master_list.csv.
- * Read-only. Writes:
- *   shopify/data/drafts/video_metadata.json   (machine — feeds the build script)
- *   shopify/data/drafts/video_metadata.csv    (human review)
+ * Pull title, description, upload date, and duration for every video ID in
+ * video_master_list.csv from the YouTube Data API v3. Read-only.
+ * Duration comes back ISO-8601 (PT2M34S) — exactly what VideoObject wants.
  *
- * Duration comes back ISO-8601 (PT2M34S) = exactly what VideoObject wants.
+ * Prerequisites: list_product_videos.php must have run first to produce
+ * data/drafts/video_master_list.csv; YOUTUBE_API_KEY set.
+ *
+ * Usage: php marketplaces/shopify/scripts/pull_youtube_meta.php
+ * Writes:
+ *   marketplaces/shopify/data/drafts/video_metadata.json   (machine — feeds build_video_watch_pages.php)
+ *   marketplaces/shopify/data/drafts/video_metadata.csv    (human review)
  */
 require __DIR__ . '/../../lib/bootstrap.php';
 

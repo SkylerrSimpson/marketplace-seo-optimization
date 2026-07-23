@@ -1,8 +1,13 @@
 # DOWScripts — Implementation Plan
 
-> **Status: planning only, not started.** This folder currently contains nothing but this
-> plan. Nothing below has been built yet. This doc is the reference to build from and to
-> revise as decisions change.
+> **SUPERSEDED — kept for history, not current guidance.** This was the original design
+> doc, written before any of it was built. The app described below now exists — see
+> `CLAUDE.md` for the rules that survived unchanged (wrapper-not-rewrite, safety model,
+> registry-driven scripts), `../ARCHITECTURE.md` for the as-built layout, and
+> `DEPLOYMENT.md` for how it actually runs in production. Specifics below (folder name,
+> script count, which marketplaces have pipelines, path examples) are stale — the repo
+> was later restructured (`dowscripts/` → `web/`, marketplace folders grouped under
+> `marketplaces/`) and Amazon/Walmart pipelines were since built.
 
 ---
 
@@ -12,8 +17,8 @@ Everything in `shopify/`, `ebay/` (and eventually `walmart/`, `amazon/`) is a pi
 PHP/Python scripts. They work, and several of them have been proven live in production —
 but using them requires knowing PHP, knowing which script comes after which, knowing the
 right flags, and being comfortable running things from a terminal. That's fine for a dev,
-but the whole point of pulling this into its own repo was so **future non-dev teammates
-(e.g. Ethan)** could make catalog changes without needing any of that.
+but the whole point of pulling this into its own repo was so **future non-dev teammates**
+could make catalog changes without needing any of that.
 
 **DOWScripts is a small internal Laravel web app that puts a UI in front of the existing
 scripts.** A nav bar with one dropdown per marketplace, each script gets a human-readable

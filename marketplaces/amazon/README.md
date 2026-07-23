@@ -119,7 +119,7 @@ Required `.env` values (US marketplace, IGE + `_DOWS` variants):
 - `ANTHROPIC_API_KEY` — required for Phase 6.5 (titles) and Phase 7 (attributes).
 - `OPENAI_API_KEY` — required for Phase 6.5 unless `--provider=anthropic`.
 
-`lib/bootstrap.php` defines the path constants and an `amazon_paths($account)`
+`marketplaces/lib/bootstrap.php` defines the path constants and an `amazon_paths($account)`
 helper that returns account-scoped paths and creates directories on first use.
 Every script begins with:
 
@@ -134,7 +134,7 @@ Every script supports `--help` and `--account=IGE|DOWS`.
 
 ## Usage
 
-The whole pipeline is a sequence of `php amazon/scripts/<x>.php --account=IGE`
+The whole pipeline is a sequence of `php marketplaces/amazon/scripts/<x>.php --account=IGE`
 commands. A complete cold-start run for one account (IGE shown; substitute
 `DOWS`) — each numbered step maps to the like-numbered phase documented under
 [The pipeline, phase by phase](#the-pipeline-phase-by-phase):
@@ -144,46 +144,46 @@ composer install
 cp .env.example .env    # fill in the Amazon block
 
 # 0 — connectivity
-php amazon/scripts/check_connection.php --account=IGE
+php marketplaces/amazon/scripts/check_connection.php --account=IGE
 
 # 1–3 — fetch data
-php amazon/scripts/export_listings_report.php --account=IGE
-php amazon/scripts/export_listings_items.php --account=IGE
-php amazon/scripts/export_catalog_items.php  --account=IGE
+php marketplaces/amazon/scripts/export_listings_report.php --account=IGE
+php marketplaces/amazon/scripts/export_listings_items.php --account=IGE
+php marketplaces/amazon/scripts/export_catalog_items.php  --account=IGE
 
 # 4 — schema cache (scans all accounts automatically)
-php amazon/scripts/fetch_product_type_schemas.php
+php marketplaces/amazon/scripts/fetch_product_type_schemas.php
 
 # 5–6 — audit + gap-fill (drop Usurper InventoryExport into usurper/ first)
-php amazon/scripts/audit_listings.php --account=IGE
-php amazon/scripts/analyze_gap_fill.php --account=IGE
+php marketplaces/amazon/scripts/audit_listings.php --account=IGE
+php marketplaces/amazon/scripts/analyze_gap_fill.php --account=IGE
 
 # 6.5 — modular titles (both providers → compare/{sku}.json + title_decisions.csv)
-php amazon/scripts/generate_titles.php --account=IGE --dry-run
-php amazon/scripts/generate_titles.php --account=IGE
+php marketplaces/amazon/scripts/generate_titles.php --account=IGE --dry-run
+php marketplaces/amazon/scripts/generate_titles.php --account=IGE
 # ...or ~50% cheaper for a full account via each provider's Batch API (blocks until done;
-# --resume/--cancel recover an interrupted run from amazon/data/{account}/batch-manifest.json):
-php amazon/scripts/generate_titles.php --account=IGE --batch
+# --resume/--cancel recover an interrupted run from marketplaces/amazon/data/{account}/batch-manifest.json):
+php marketplaces/amazon/scripts/generate_titles.php --account=IGE --batch
 
 # 6.6 — MANUAL: open output/title_decisions.csv and set each *_pick column
 
 # 7 — draft (dry-run, then write; folds compare/ title options into the draft)
-php amazon/scripts/draft_listings.php --account=IGE --dry-run
-php amazon/scripts/draft_listings.php --account=IGE
+php marketplaces/amazon/scripts/draft_listings.php --account=IGE --dry-run
+php marketplaces/amazon/scripts/draft_listings.php --account=IGE
 # → review the committed drafts/{sku}.json before writing anything to Amazon
 
 # 8 — write-back (dry-run, then apply; --include-titles to also patch reviewed titles)
-php amazon/scripts/patch_listings.php --account=IGE                          # dry-run
-php amazon/scripts/patch_listings.php --account=IGE --apply --include-titles
+php marketplaces/amazon/scripts/patch_listings.php --account=IGE                          # dry-run
+php marketplaces/amazon/scripts/patch_listings.php --account=IGE --apply --include-titles
 
 # 9 — project back to Usurper (includes reviewed titles), then import the CSV
-php amazon/scripts/project_to_usurper.php --account=IGE
+php marketplaces/amazon/scripts/project_to_usurper.php --account=IGE
 
 # 10 — variation diagnostic (any time; read-only)
-php amazon/scripts/analyze_variations.php --account=IGE
+php marketplaces/amazon/scripts/analyze_variations.php --account=IGE
 
 # 11 — drift snapshot (any time; read-only, commit to track catalog drift)
-php amazon/scripts/drift_snapshot.php --account=IGE
+php marketplaces/amazon/scripts/drift_snapshot.php --account=IGE
 ```
 
 **Acceptance checks:**
@@ -285,7 +285,7 @@ Data directories are **account-scoped** (`ige/`, `dows/`). Schemas are shared
 across accounts and live outside the account tree.
 
 ```
-amazon/
+marketplaces/amazon/
 ├── README.md             ← this file
 ├── data/
 │   ├── {account}/        ← one subtree per seller account (ige, dows)
@@ -303,10 +303,11 @@ amazon/
 │   └── schemas/           ← cached Product Type Definition schemas  (committed, shared)
 │       ├── _index.json    ← {productType: {fetched_at, version, locale, source_url}}
 │       └── {PRODUCT_TYPE}.json
-├── scripts/              ← PHP entrypoints (run via `php amazon/scripts/<x>.php`)
-└── lib/ (repo root)     ← AmazonClient, AmazonPatch, IdentifyingAttributes,
-                            ComplianceAttributes, ComplianceResolvers,
-                            DefaultAttributes, HighValueAttributes,
+└── scripts/              ← PHP entrypoints (run via `php marketplaces/amazon/scripts/<x>.php`)
+
+../lib/                   ← marketplaces/lib/, shared across marketplaces: AmazonClient,
+                            AmazonPatch, IdentifyingAttributes, ComplianceAttributes,
+                            ComplianceResolvers, DefaultAttributes, HighValueAttributes,
                             UsurperAttributeMap, AmazonRateLimits, …
                             Amazon/Ai/ (PSR-4 Ige\Amazon\Ai\ — title providers,
                             prompts, ModularTitleGenerator; Phase 6.5)
@@ -335,8 +336,8 @@ to overwrite existing output.
 before doing anything else. Prints endpoint, marketplace, and seller id.
 
 ```bash
-php amazon/scripts/check_connection.php --account=IGE
-php amazon/scripts/check_connection.php --account=DOWS
+php marketplaces/amazon/scripts/check_connection.php --account=IGE
+php marketplaces/amazon/scripts/check_connection.php --account=DOWS
 ```
 
 Exits 0 on success. Run this first whenever credentials change.
@@ -354,9 +355,9 @@ downloads and writes a raw TSV plus a normalized JSON sidecar keyed by
 `seller-sku` (the `asin1` field is the SKU→ASIN map).
 
 ```bash
-php amazon/scripts/export_listings_report.php --account=IGE
-php amazon/scripts/export_listings_report.php --account=DOWS
-php amazon/scripts/export_listings_report.php --account=IGE --force   # re-request today
+php marketplaces/amazon/scripts/export_listings_report.php --account=IGE
+php marketplaces/amazon/scripts/export_listings_report.php --account=DOWS
+php marketplaces/amazon/scripts/export_listings_report.php --account=IGE --force   # re-request today
 ```
 
 Idempotent: skips both reports if today's files already exist unless `--force`.
@@ -373,9 +374,9 @@ at 1,000 results, so accounts over the cap (DOWS: ~4,620 SKUs) fall back to
 stragglers. Writes lossless raw JSON per SKU.
 
 ```bash
-php amazon/scripts/export_listings_items.php --account=IGE --limit=5   # canary
-php amazon/scripts/export_listings_items.php --account=IGE
-php amazon/scripts/export_listings_items.php --account=DOWS             # date-range chunking kicks in
+php marketplaces/amazon/scripts/export_listings_items.php --account=IGE --limit=5   # canary
+php marketplaces/amazon/scripts/export_listings_items.php --account=IGE
+php marketplaces/amazon/scripts/export_listings_items.php --account=DOWS             # date-range chunking kicks in
 ```
 
 Idempotent per SKU (skips existing files unless `--force`). Requires Phase 1
@@ -394,9 +395,9 @@ delisted products) → `catalog/errors/{asin}.json` as a structured envelope
 rather than a dropped record.
 
 ```bash
-php amazon/scripts/export_catalog_items.php --account=IGE --limit=5    # canary
-php amazon/scripts/export_catalog_items.php --account=IGE
-php amazon/scripts/export_catalog_items.php --account=DOWS
+php marketplaces/amazon/scripts/export_catalog_items.php --account=IGE --limit=5    # canary
+php marketplaces/amazon/scripts/export_catalog_items.php --account=IGE
+php marketplaces/amazon/scripts/export_catalog_items.php --account=DOWS
 ```
 
 Idempotency checks both `catalog/` and `catalog/errors/`, so 404'd ASINs
@@ -415,8 +416,8 @@ schemas are account-agnostic). Writes `data/schemas/{PRODUCT_TYPE}.json` and
 updates `_index.json` after each, so partial runs resume safely.
 
 ```bash
-php amazon/scripts/fetch_product_type_schemas.php          # scans all accounts
-php amazon/scripts/fetch_product_type_schemas.php --force  # re-fetch cached types
+php marketplaces/amazon/scripts/fetch_product_type_schemas.php          # scans all accounts
+php marketplaces/amazon/scripts/fetch_product_type_schemas.php --force  # re-fetch cached types
 ```
 
 No-op for already-cached types unless `--force`.
@@ -437,8 +438,8 @@ a priority-scored CSV — the Amazon counterpart to Shopify's `audit_products.ph
 Read-only, no API calls (works entirely from the Phase 2–4 snapshots on disk).
 
 ```bash
-php amazon/scripts/audit_listings.php --account=IGE
-php amazon/scripts/audit_listings.php --account=DOWS
+php marketplaces/amazon/scripts/audit_listings.php --account=IGE
+php marketplaces/amazon/scripts/audit_listings.php --account=DOWS
 ```
 
 Output: `output/listings_audit.csv`, one row per SKU (ASIN, productType,
@@ -452,7 +453,7 @@ the data (`fillable`) or a human/AI must supply it (`needs_authoring`). This is
 what turns the audit into an actionable work list.
 
 Re-derives the full missing-attribute list per SKU (not just Phase 5's top-5
-summary), then resolves each gap against `lib/UsurperAttributeMap.php` — an
+summary), then resolves each gap against `marketplaces/lib/UsurperAttributeMap.php` — an
 ordered preference list of Usurper columns per Amazon attribute. First
 non-empty column wins; `bullet_point` is multi-source (`attr.feature01`–`05`).
 Any attribute with no explicit map entry is also checked against the
@@ -462,10 +463,10 @@ Any attribute with no explicit map entry is also checked against the
 `usurper/` directory. Any `*.csv` there is accepted; most-recent by mtime wins.
 
 ```bash
-# amazon/data/ige/input/usurper/InventoryExport_YYYY-MM-DD-HH-MM-SS.csv
-# amazon/data/dows/input/usurper/InventoryExport_YYYY-MM-DD-HH-MM-SS.csv
-php amazon/scripts/analyze_gap_fill.php --account=IGE
-php amazon/scripts/analyze_gap_fill.php --account=DOWS
+# marketplaces/amazon/data/ige/input/usurper/InventoryExport_YYYY-MM-DD-HH-MM-SS.csv
+# marketplaces/amazon/data/dows/input/usurper/InventoryExport_YYYY-MM-DD-HH-MM-SS.csv
+php marketplaces/amazon/scripts/analyze_gap_fill.php --account=IGE
+php marketplaces/amazon/scripts/analyze_gap_fill.php --account=DOWS
 ```
 
 Output: `output/listings_gap_fill.csv`, one row per SKU/attribute pair
@@ -483,16 +484,16 @@ For each gap-fill SKU (or a single `--sku`), the tool assembles one product cont
 (brand from the catalog snapshot, the existing title, description, `bullet_point`
 features, and `generic_keyword` search terms) and asks **each provider** — Anthropic
 and OpenAI — for both attributes in a single combined call
-(`lib/Amazon/Ai/ModularTitleGenerator`). The item_name prompt drives a token format
+(`marketplaces/lib/Amazon/Ai/ModularTitleGenerator`). The item_name prompt drives a token format
 (`${brand} ${pack_size}-${pack_size_unit} ${size} ${color} ${name}`) and returns the
 parsed tokens alongside the assembled title; each candidate's char count and any
 over-cap violation are recorded.
 
 ```bash
 # Requires ANTHROPIC_API_KEY and OPENAI_API_KEY (or narrow with --provider=)
-php amazon/scripts/generate_titles.php --account=IGE --dry-run
-php amazon/scripts/generate_titles.php --account=IGE
-php amazon/scripts/generate_titles.php --account=IGE --sku=SOME-SKU --provider=anthropic
+php marketplaces/amazon/scripts/generate_titles.php --account=IGE --dry-run
+php marketplaces/amazon/scripts/generate_titles.php --account=IGE
+php marketplaces/amazon/scripts/generate_titles.php --account=IGE --sku=SOME-SKU --provider=anthropic
 ```
 
 Flags: `--provider=both|anthropic|openai` (default both), `--anthropic-model=`
@@ -509,18 +510,18 @@ assembles the same `compare/{sku}.json` files as the live path.
 
 ```bash
 # Submit both providers as batches and block until they complete.
-php amazon/scripts/generate_titles.php --account=IGE --batch --force \
+php marketplaces/amazon/scripts/generate_titles.php --account=IGE --batch --force \
     --anthropic-model=haiku --openai-model=gpt-5.4-mini
 
 # Poll less often (default 30s) while waiting.
-php amazon/scripts/generate_titles.php --account=IGE --batch --poll-interval=60
+php marketplaces/amazon/scripts/generate_titles.php --account=IGE --batch --poll-interval=60
 
 # The batch window can run for many minutes/hours; run it detached if you like:
-nohup php amazon/scripts/generate_titles.php --account=IGE --batch --force \
+nohup php marketplaces/amazon/scripts/generate_titles.php --account=IGE --batch --force \
     > batch.log 2>&1 &
 ```
 
-On submit the script writes **`amazon/data/{account}/batch-manifest.json`** recording
+On submit the script writes **`marketplaces/amazon/data/{account}/batch-manifest.json`** recording
 each provider's batch id, model, and the SKU↔request map, and deletes it once results
 are assembled. While that manifest exists (i.e. a run was interrupted mid-poll before
 it finished), two recovery flags act on it — no argument needed, the manifest is the
@@ -528,10 +529,10 @@ source of truth for providers and models:
 
 ```bash
 # Reattach to the still-running batches and finish (no resubmit, no double billing).
-php amazon/scripts/generate_titles.php --account=IGE --resume
+php marketplaces/amazon/scripts/generate_titles.php --account=IGE --resume
 
 # Cancel the in-flight batches and remove the manifest.
-php amazon/scripts/generate_titles.php --account=IGE --cancel
+php marketplaces/amazon/scripts/generate_titles.php --account=IGE --cancel
 ```
 
 Batch flags: `--batch`, `--resume`, `--cancel`, `--poll-interval=SECONDS` (default 30).
@@ -622,7 +623,7 @@ per-attribute schema constraints. Three cost/quality controls keep spend sane
 ~7 are required):
 
 - **Scope** — by default authors only **required + a curated high-value
-  allowlist** (`lib/HighValueAttributes.php`: title, bullets, description,
+  allowlist** (`marketplaces/lib/HighValueAttributes.php`: title, bullets, description,
   keywords, brand, key descriptors). The full optional tail is opt-in via
   `--include-recommended`.
 - **Model tiering** (`--model=auto`, default) — **Haiku** for enum/short-string
@@ -654,7 +655,7 @@ ASIN's own authoritative value may still come from its catalog snapshot (tagged
 `identifying` + `variation_member`), and stays held back at patch time behind
 `--include-identifying` (see 8.1).
 
-**Default attributes** (`lib/DefaultAttributes.php`): a hand-editable layer the
+**Default attributes** (`marketplaces/lib/DefaultAttributes.php`): a hand-editable layer the
 drafter applies fill-missing only, in scope where the schema defines the
 attribute. Two kinds:
 - **null defaults** (`compliance_media`, `fcc_radio_frequency_emission_compliance`,
@@ -667,25 +668,25 @@ attribute. Two kinds:
 
 ```bash
 # Requires ANTHROPIC_API_KEY in .env
-php amazon/scripts/draft_listings.php --account=IGE --dry-run    # preview + cost estimate
-php amazon/scripts/draft_listings.php --account=IGE              # writes drafts/
-php amazon/scripts/draft_listings.php --account=DOWS --dry-run
-php amazon/scripts/draft_listings.php --account=DOWS
+php marketplaces/amazon/scripts/draft_listings.php --account=IGE --dry-run    # preview + cost estimate
+php marketplaces/amazon/scripts/draft_listings.php --account=IGE              # writes drafts/
+php marketplaces/amazon/scripts/draft_listings.php --account=DOWS --dry-run
+php marketplaces/amazon/scripts/draft_listings.php --account=DOWS
 
 # Author the full optional tail / bypass the data-gate:
-php amazon/scripts/draft_listings.php --account=IGE --include-recommended
-php amazon/scripts/draft_listings.php --account=IGE --no-data-gate
-php amazon/scripts/draft_listings.php --account=IGE --full            # both; the old exhaustive draft
-php amazon/scripts/draft_listings.php --account=IGE --full --model=opus
+php marketplaces/amazon/scripts/draft_listings.php --account=IGE --include-recommended
+php marketplaces/amazon/scripts/draft_listings.php --account=IGE --no-data-gate
+php marketplaces/amazon/scripts/draft_listings.php --account=IGE --full            # both; the old exhaustive draft
+php marketplaces/amazon/scripts/draft_listings.php --account=IGE --full --model=opus
 
 # Force a single model (overrides auto):
-php amazon/scripts/draft_listings.php --account=IGE --model=claude-sonnet-5
+php marketplaces/amazon/scripts/draft_listings.php --account=IGE --model=claude-sonnet-5
 
 # Single-SKU test:
-php amazon/scripts/draft_listings.php --account=IGE --sku=IGE-PENLIGHT
+php marketplaces/amazon/scripts/draft_listings.php --account=IGE --sku=IGE-PENLIGHT
 
 # -NCX/-FBA placeholder templating (see 8.4):
-php amazon/scripts/draft_listings.php --account=IGE --template-placeholders
+php marketplaces/amazon/scripts/draft_listings.php --account=IGE --template-placeholders
 ```
 
 `--dry-run` prints a per-model cost estimate before you spend anything.
@@ -756,22 +757,22 @@ Default off, mirroring `--include-identifying`.
 
 ```bash
 # Dry-run (no API calls) — always review this first:
-php amazon/scripts/patch_listings.php --account=IGE
-php amazon/scripts/patch_listings.php --account=DOWS
+php marketplaces/amazon/scripts/patch_listings.php --account=IGE
+php marketplaces/amazon/scripts/patch_listings.php --account=DOWS
 
 # Apply (writes a pre-change backup per touched SKU, then submits):
-php amazon/scripts/patch_listings.php --account=IGE --apply
-php amazon/scripts/patch_listings.php --account=DOWS --apply
+php marketplaces/amazon/scripts/patch_listings.php --account=IGE --apply
+php marketplaces/amazon/scripts/patch_listings.php --account=DOWS --apply
 
 # Also patch the reviewed modular titles from output/title_decisions.csv:
-php amazon/scripts/patch_listings.php --account=IGE --apply --include-titles
+php marketplaces/amazon/scripts/patch_listings.php --account=IGE --apply --include-titles
 
 # Single-SKU apply:
-php amazon/scripts/patch_listings.php --account=IGE --sku=IGE-PENLIGHT --apply
+php marketplaces/amazon/scripts/patch_listings.php --account=IGE --sku=IGE-PENLIGHT --apply
 
 # Include identifying data (variation theme, IDs, etc. — see 8.1):
-php amazon/scripts/patch_listings.php --account=IGE --apply --include-identifying
-php amazon/scripts/patch_listings.php --account=IGE --apply --include-identifying=variation_theme
+php marketplaces/amazon/scripts/patch_listings.php --account=IGE --apply --include-identifying
+php marketplaces/amazon/scripts/patch_listings.php --account=IGE --apply --include-identifying=variation_theme
 ```
 
 Records results to `output/patch_results_{ts}.csv` with per-SKU status
@@ -794,7 +795,7 @@ write path. Each guard below traces back to one of them:
 | `item_quantity` / `number_of_items` are identifying and shouldn't be written by default. | On the curated identifying list.                                                                | 8.1   |
 | "Don't modify a variation member's theme attributes (`material`, `size`+`color`)."       | AI never authors them; the item's own `relationships` theme attrs join the identifying guard.   | 8.1   |
 | Sharpening stones need a Prop 65 **airborne-silica** warning, not lead.                   | `SILICA_PRODUCT_TYPES` in `ComplianceResolvers` (precedence over lead).                          | 8.5   |
-| A set of compliance/behavior attributes need explicit defaults (mostly null).            | `lib/DefaultAttributes.php` fill-missing layer; nulls document-only, `product_tax_code`/`unit_count` real. | Phase 7 |
+| A set of compliance/behavior attributes need explicit defaults (mostly null).            | `marketplaces/lib/DefaultAttributes.php` fill-missing layer; nulls document-only, `product_tax_code`/`unit_count` real. | Phase 7 |
 | Modular titles cap `item_name` at 75 chars; want a reviewable AI title.                  | `item_name_ai_suggested` (Opus, ≤75, `review_only` — never patched).                            | Phase 7 |
 
 These guards are always on in `patch_listings.php`; the flags below relax them.
@@ -813,7 +814,7 @@ These guards are always on in `patch_listings.php`; the flags below relax them.
 
 Identifying attributes classify a listing or bind it into a variation family —
 a wrong value can suppress the listing or detach a variant. They are **held
-back by default**. `lib/IdentifyingAttributes.php` is a hybrid definition: a
+back by default**. `marketplaces/lib/IdentifyingAttributes.php` is a hybrid definition: a
 hand-maintained curated list _plus_ the variation-defining attributes each
 product type's cached schema declares (so theme attributes like `color_name`/
 `size_name` are caught automatically), _plus_ the theme attributes **this
@@ -842,9 +843,9 @@ identifying guard.
 
 ```bash
 # Restore the latest backup of every SKU (dry-run):
-php amazon/scripts/restore_listings.php --account=IGE
+php marketplaces/amazon/scripts/restore_listings.php --account=IGE
 # Restore one SKU from a specific backup, and apply:
-php amazon/scripts/restore_listings.php --account=IGE --sku=IGE-PENLIGHT --timestamp=2026-07-02-12-00-00 --apply
+php marketplaces/amazon/scripts/restore_listings.php --account=IGE --sku=IGE-PENLIGHT --timestamp=2026-07-02-12-00-00 --apply
 ```
 
 **Fidelity limits:** restore replays _attribute values only_. It does **not**
@@ -865,12 +866,12 @@ identifying data still requires `--include-identifying` at patch time.
 
 #### 8.5 Always-present compliance attributes
 
-`lib/ComplianceAttributes.php` lists attributes that must always be present
+`marketplaces/lib/ComplianceAttributes.php` lists attributes that must always be present
 before a patch (seed: `california_proposition_65`, `pesticide_marking`). **AI
 is barred** from authoring these. Resolution is per-attribute:
 
 - **`california_proposition_65`** → deterministic rule in
-  `lib/ComplianceResolvers.php`, evaluated in precedence order: product type in
+  `marketplaces/lib/ComplianceResolvers.php`, evaluated in precedence order: product type in
   `SILICA_PRODUCT_TYPES` (sharpening stones / `KNIFE_SHARPENER`) →
   `chemical_names: ["silica_crystalline_airborne_particles_of"]`; else in the
   maintained `LEAD_PRODUCT_TYPES` list (edged-blade/metal-tool types) →
@@ -906,14 +907,14 @@ are projected to their Usurper columns (`item_name` → `attr.title_amazon`,
 title column written.
 
 ```bash
-php amazon/scripts/project_to_usurper.php --account=IGE
-php amazon/scripts/project_to_usurper.php --account=DOWS
+php marketplaces/amazon/scripts/project_to_usurper.php --account=IGE
+php marketplaces/amazon/scripts/project_to_usurper.php --account=DOWS
 
 # Full attribute refresh (also emit the usurper-sourced values):
-php amazon/scripts/project_to_usurper.php --account=IGE --include-usurper
+php marketplaces/amazon/scripts/project_to_usurper.php --account=IGE --include-usurper
 
 # Single-SKU:
-php amazon/scripts/project_to_usurper.php --account=IGE --sku=IGE-PENLIGHT
+php marketplaces/amazon/scripts/project_to_usurper.php --account=IGE --sku=IGE-PENLIGHT
 ```
 
 Output: `output/usurper_update_{ts}.csv`. Import it into Usurper. On the next
@@ -943,10 +944,10 @@ own `issues[]` (Amazon's compliance verdict). Theme comparison is
 token-normalized and heuristic (Usurper themes are free-form).
 
 ```bash
-php amazon/scripts/analyze_variations.php --account=IGE
-php amazon/scripts/analyze_variations.php --account=DOWS
-php amazon/scripts/analyze_variations.php --account=IGE --all          # every SKU, not just discrepancies
-php amazon/scripts/analyze_variations.php --account=IGE --sku=IGE-XXX  # single SKU
+php marketplaces/amazon/scripts/analyze_variations.php --account=IGE
+php marketplaces/amazon/scripts/analyze_variations.php --account=DOWS
+php marketplaces/amazon/scripts/analyze_variations.php --account=IGE --all          # every SKU, not just discrepancies
+php marketplaces/amazon/scripts/analyze_variations.php --account=IGE --sku=IGE-XXX  # single SKU
 ```
 
 Output: `output/variation_analysis_{ts}.csv` (one row per SKU) plus a
@@ -992,10 +993,10 @@ The `listing_hash` is identical across all three modes, so switching mode never
 changes drift _detection_ — only how much context sits beside the hash.
 
 ```bash
-php amazon/scripts/drift_snapshot.php --account=IGE
-php amazon/scripts/drift_snapshot.php --account=DOWS
-php amazon/scripts/drift_snapshot.php --account=DOWS --hashes-only   # slim tripwire for large accounts
-php amazon/scripts/drift_snapshot.php --account=IGE --full           # every attribute inline
+php marketplaces/amazon/scripts/drift_snapshot.php --account=IGE
+php marketplaces/amazon/scripts/drift_snapshot.php --account=DOWS
+php marketplaces/amazon/scripts/drift_snapshot.php --account=DOWS --hashes-only   # slim tripwire for large accounts
+php marketplaces/amazon/scripts/drift_snapshot.php --account=IGE --full           # every attribute inline
 ```
 
 Before overwriting, the run diffs against the prior snapshot and prints an
@@ -1056,13 +1057,14 @@ it to record each drift checkpoint.
 
 ## Reference: patterns borrowed from Usurper
 
-`../usurper/app/Services/Inventory/Marketplace/Amazon/` has battle-tested
+`../../../usurper/app/Services/Inventory/Marketplace/Amazon/` (sibling checkout of the
+Usurper repo, outside this repo) has battle-tested
 patterns that translated directly into these standalone scripts:
 
 - **`SellingPartnerApi/BaseApi.php`** — connector lifecycle + per-call retry
   shape (minus the Laravel rate limiter).
 - **`OperationIds.php` / `RateLimits.php`** — per-operation burst/decay rates,
-  ported into `lib/AmazonOperationIds.php` and `lib/AmazonRateLimits.php` so
+  ported into `marketplaces/lib/AmazonOperationIds.php` and `marketplaces/lib/AmazonRateLimits.php` so
   every script paces itself.
 - **`{CatalogItems,Listings,ProductTypeDefinitions,Reports}/Api.php`** — exact
   method signatures and DTO types; the scripts call the same connector methods.

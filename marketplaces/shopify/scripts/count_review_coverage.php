@@ -7,7 +7,7 @@ declare(strict_types=1);
  * vs zero. The zero bucket is what GSC flags "Missing aggregateRating" — only
  * fixable by earning reviews, never by inventing them.
  *
- * Usage: php count_review_coverage.php
+ * Usage: php marketplaces/shopify/scripts/count_review_coverage.php
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

@@ -7,7 +7,7 @@ declare(strict_types=1);
  * Usurper export + constant defaults, constrained to each aspect's allowed-value
  * list. Writes a reviewable proposed_fills.csv. Does NOT touch eBay.
  *
- * Sources (see ebay/data/aspect_field_map.json):
+ * Sources (see marketplaces/ebay/data/aspect_field_map.json):
  *   - usurper  : value from a mapped column in the Usurper export, joined to the
  *                listing by its representative SKU (listings.json item_id->sku).
  *   - default  : a fixed constant (Unit Type=Unit, Unit Quantity=1, Vintage=No...).
@@ -15,12 +15,12 @@ declare(strict_types=1);
  * allowed-value list (case/space-insensitive); non-matches are flagged
  * 'value_not_in_list' and NOT proposed, so we never feed eBay an invalid value.
  *
- * Output (ebay/data/{account}/output/proposed_fills.csv):
+ * Output (marketplaces/ebay/data/{account}/output/proposed_fills.csv):
  *   item_id, sku, name, category_id, aspect, importance, mode, proposed_value, source, status, title
  * status: ok | value_not_in_list | placeholder | no_source_value | no_usurper_row | unmapped
  *
  * Usage:
- *   php ebay/scripts/fill_aspects.php --account=dows --export=ebay/data/dows/input/InventoryExport_....csv
+ *   php marketplaces/ebay/scripts/fill_aspects.php --account=dows --export=marketplaces/ebay/data/dows/input/InventoryExport_....csv
  *   (omit --export to auto-pick the newest InventoryExport_*.csv in that account's input)
  */
 

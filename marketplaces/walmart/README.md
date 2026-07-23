@@ -17,9 +17,11 @@ reviewable output -> guarded write. US and CA are separate seller accounts/crede
 - Credentials: `.env` under the Walmart section — `WALMART_CLIENT_ID_US` /
   `WALMART_CLIENT_ID_CA` (+ `_SECRET`). Not filled in yet — nothing here can hit the
   live API until real creds are added.
-- Scripts go in `walmart/scripts/` (client wrapper in `walmart/scripts/lib/`), data in
-  `walmart/data/{us,ca}/{input,drafts,output}` (per-country, like eBay's per-account split).
-- `lib/bootstrap.php` has `walmart_dir($country, $subdir)` for path resolution.
+- Scripts go in `marketplaces/walmart/scripts/` (client wrapper in
+  `marketplaces/walmart/scripts/lib/`), data in
+  `marketplaces/walmart/data/{us,ca}/{input,drafts,output}` (per-country, like eBay's
+  per-account split).
+- `marketplaces/lib/bootstrap.php` has `walmart_dir($country, $subdir)` for path resolution.
 
 ## Two different Items read surfaces — use the right one
 

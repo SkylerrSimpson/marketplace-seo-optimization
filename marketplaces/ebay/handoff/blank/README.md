@@ -2,7 +2,7 @@
 
 Goal: for every BLANK field in the review sheet, decide if it's blank because the
 aspect **doesn't apply** to the product (→ mark `blank_value`) or just **unknown**
-(→ leave blank). The judging is delegated to an external agent to save usage.
+(→ leave blank). The judging is delegated to an external agent, run per slice.
 
 ## Slices (one per agent run)
 `slices/` holds the work split 150 listings per file:
@@ -16,7 +16,7 @@ aspect **doesn't apply** to the product (→ mark `blank_value`) or just **unkno
 2. Save its output to `returned/<slice>.out.jsonl`.
 3. Merge it:
    ```
-   bash ebay/handoff/blank/verify_and_merge.sh <dows|ige> ebay/handoff/blank/returned/<slice>.out.jsonl
+   bash marketplaces/ebay/handoff/blank/verify_and_merge.sh <dows|ige> marketplaces/ebay/handoff/blank/returned/<slice>.out.jsonl
    ```
    This reports coverage (expected/returned/missing), appends valid lines, rebuilds
    the sheet, and re-applies rules #1–5 so the `blank_value` markers land.

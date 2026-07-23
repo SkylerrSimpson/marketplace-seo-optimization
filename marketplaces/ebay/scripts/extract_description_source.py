@@ -19,7 +19,7 @@ Inputs:  data/<acct>/output/media/<id>.json     (audit_media.php)
                                                   Preferred over items/<id>.json's raw,
                                                   pre-review export when present.)
 Output:  data/<acct>/output/desc_source_pack.jsonl   (one grounding row/listing)
-Usage:   python3 ebay/scripts/extract_description_source.py
+Usage:   python3 marketplaces/ebay/scripts/extract_description_source.py
 """
 import json, glob, os, re, html, csv
 

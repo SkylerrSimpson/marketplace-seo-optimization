@@ -22,11 +22,11 @@ declare(strict_types=1);
  * ItemSpecific check is parent-level only (that's how the DOWS duplication existed
  * — UPC was never a per-variation vary-by dimension).
  *
- * Output: ebay/data/{acct}/output/gtin_report_{acct}.csv
+ * Output: marketplaces/ebay/data/{acct}/output/gtin_report_{acct}.csv
  *   item_id, sku, varied_by, title, upc, ean, isbn, gtin, missing_gtin,
  *   custom_upc_specific, upc_duplicated
  *
- * Usage: php ebay/scripts/build_gtin_report.php --account=dows [--limit=N]
+ * Usage: php marketplaces/ebay/scripts/build_gtin_report.php --account=dows [--limit=N]
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

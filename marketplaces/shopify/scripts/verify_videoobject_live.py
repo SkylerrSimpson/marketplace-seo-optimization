@@ -12,9 +12,12 @@ and check:
   - duration is present for curated IDs
   - the JSON parses
 
+Prerequisites: audit_product_media.php must have run to produce
+data/output/product_video_inventory.csv.
+
 Usage:
-  python3 verify_videoobject_live.py                 # all external-video products
-  python3 verify_videoobject_live.py <url> [<url>..] # just these
+  python3 marketplaces/shopify/scripts/verify_videoobject_live.py                 # all external-video products
+  python3 marketplaces/shopify/scripts/verify_videoobject_live.py <url> [<url>..] # just these
 Writes data/output/videoobject_live_check.csv when run over the full set.
 """
 import csv, json, os, re, sys, time, urllib.request

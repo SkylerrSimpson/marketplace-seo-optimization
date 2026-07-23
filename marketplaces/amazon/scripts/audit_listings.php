@@ -21,14 +21,14 @@ declare(strict_types=1);
  *   - Schema missing: still reports Amazon issues; flags the row, zeroes schema columns.
  *
  * Usage:
- *   php amazon/scripts/audit_listings.php [--account=IGE|DOWS]
+ *   php marketplaces/amazon/scripts/audit_listings.php [--account=IGE|DOWS]
  *
  * Flags:
  *   --account=IGE|DOWS   Seller account to audit. Default: IGE.
  *   --help               Show this help message.
  *
  * Output:
- *   amazon/data/{account}/output/listings_audit.csv
+ *   marketplaces/amazon/data/{account}/output/listings_audit.csv
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';
@@ -40,7 +40,7 @@ require __DIR__ . '/../../lib/AmazonClient.php';
 
 if (in_array('--help', $argv ?? [], true)) {
     echo <<<'HELP'
-Usage: php amazon/scripts/audit_listings.php [--account=IGE|DOWS]
+Usage: php marketplaces/amazon/scripts/audit_listings.php [--account=IGE|DOWS]
 
 Flags:
   --account=IGE|DOWS   Seller account to audit. Default: IGE.

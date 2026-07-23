@@ -5,7 +5,7 @@
 > (descriptions, images) and reversed one decision this doc makes explicitly (§6/§9 say to
 > use bulk Feed/LMS for the write path and avoid Trading `ReviseItem` — Feed/LMS turned out
 > not to support Item Specifics at all, so `ReviseItem` is what actually got built and
-> tested live). **See [`ebay/README.md`](README.md) for the current, accurate picture.**
+> tested live). **See [`marketplaces/ebay/README.md`](README.md) for the current, accurate picture.**
 
 > This is the authoritative plan. §0 is the plain-English overview; §1–5 are the strategy +
 > technical decisions; **§6 is the day-by-day Week 1 schedule** ("what exactly we're doing");
@@ -138,7 +138,7 @@ headline goal, concrete tasks, a **Deliverable**, and an **Acceptance check** (h
 - Add `benmorel/ebay-sdk-php` + `dvicklund/ebay-oauth-php-client` to composer; `composer install`.
 - Read Usurper's `ClientAdaptor.php`, `AuthorizationService.php`, `EbayCredentialService.php` as the
   reference for token-minting (app token via client-credentials; user-token refresh).
-- Build `ebay/scripts/lib/EbayClient.php` wrapping the benmorel SDK (OAuth + Taxonomy + Trading).
+- Build `marketplaces/ebay/scripts/lib/EbayClient.php` wrapping the benmorel SDK (OAuth + Taxonomy + Trading).
   (`.env.example` already uses Usurper's `EBAY_API_*` per-account OAuth schema.)
 - Build `check_connection.php`: mint app token → Taxonomy `getDefaultCategoryTreeId` → per-account
   user-token refresh → `GeteBayOfficialTime`.

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 match_usurper_aspects.py -- fill aspects_review_us.csv's proposed_value column from
-a Usurper inventory export (walmart/data/{country}/input/InventoryExport_*.csv).
+a Usurper inventory export (marketplaces/walmart/data/{country}/input/InventoryExport_*.csv).
 
 Usurper already carries 148 "_walmart"-suffixed attribute columns (e.g.
 attr.color_walmart, attr.count_per_pack_walmart) that correspond closely to Walmart's
@@ -26,8 +26,8 @@ Matching rule (deliberately conservative, confirmed with the user 2026-07-11):
     already-populated multi-row list is ambiguous; only genuinely single-row (blank
     or single-value) aspects get auto-filled from Usurper.
 
-Usage: python3 walmart/scripts/match_usurper_aspects.py --country=us
-Rewrites: walmart/data/{country}/output/aspects_review_{country}.csv (proposed_value
+Usage: python3 marketplaces/walmart/scripts/match_usurper_aspects.py --country=us
+Rewrites: marketplaces/walmart/data/{country}/output/aspects_review_{country}.csv (proposed_value
   column filled in; reviewer_notes gets "Usurper: <source column>" appended -- the
   Usurper attribute name, not the value, since the value is already visible in
   proposed_value -- when the proposal is a correction to a non-blank current_value,

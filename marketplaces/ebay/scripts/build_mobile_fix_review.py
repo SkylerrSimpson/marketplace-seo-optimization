@@ -12,7 +12,7 @@ those listings (backup kept).
 Inputs:  data/mobile_vs_desc_match.csv, data/<acct>/output/description_review.csv,
          data/<acct>/output/media/<id>.json
 Output:  data/mobile_desc_fix_review.csv   (MISMATCH first, NO_MOBILE in the back half)
-Usage:   python3 ebay/scripts/build_mobile_fix_review.py
+Usage:   python3 marketplaces/ebay/scripts/build_mobile_fix_review.py
 """
 import csv, json, os, re, shutil, html
 

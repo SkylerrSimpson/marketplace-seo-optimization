@@ -14,9 +14,15 @@ declare(strict_types=1);
  * them at the variant level anyway.
  *
  * Idempotent: skips products whose product-level mpn already matches. Reads the
- * single variant's mm-google-shopping.mpn as the source value.
+ * single variant's mm-google-shopping.mpn as the source value — variant MPNs
+ * must already be set (e.g. by apply_mpn_gtin.php) before this has anything to mirror.
  *
  * DRY-RUN by default. --apply to write. --limit=N for a canary.
+ *
+ * Usage:
+ *   php marketplaces/shopify/scripts/apply_product_mpn.php                    # dry-run
+ *   php marketplaces/shopify/scripts/apply_product_mpn.php --limit=20         # dry-run, first 20 pending
+ *   php marketplaces/shopify/scripts/apply_product_mpn.php --apply            # writes
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

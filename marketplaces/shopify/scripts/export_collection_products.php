@@ -11,7 +11,7 @@ declare(strict_types=1);
  * body excerpt). Writes collection_products.json keyed by handle. Writes
  * nothing to Shopify.
  *
- * Usage: php export_collection_products.php
+ * Usage: php marketplaces/shopify/scripts/export_collection_products.php
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

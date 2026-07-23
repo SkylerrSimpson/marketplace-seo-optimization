@@ -12,7 +12,7 @@ declare(strict_types=1);
  *
  * Never writes to Shopify. Reads only (read_products covers collections).
  *
- * Usage: php audit_collections.php
+ * Usage: php marketplaces/shopify/scripts/audit_collections.php
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

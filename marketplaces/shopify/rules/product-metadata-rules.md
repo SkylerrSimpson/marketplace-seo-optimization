@@ -14,7 +14,7 @@
 **Structure (in order):**
 1. Lead with the concrete benefit or primary attribute — what it does / why it matters.
 2. Work in the key search term naturally (usually the product noun: "survival multitool", "emergency blanket"). No stuffing, no repetition.
-3. **Include the use case + target audience when the body supports it** (e.g. "for beginners", "for camping and emergency kits", "river and creek gold prospecting"). This is what makes the description match conversational AI-agent queries like *"best beginner gold panning kit"* — see `geo_seo_strategy.md` §4. Stay grounded: only state an audience/use named or clearly implied by the body; do NOT invent a geography (no "PNW" unless the body says so).
+3. **Include the use case + target audience when the body supports it** (e.g. "for beginners", "for camping and emergency kits", "river and creek gold prospecting"). This is what makes the description match conversational AI-agent queries like *"best beginner gold panning kit"* — see `../../../docs/geo-seo-strategy.md` §4. Stay grounded: only state an audience/use named or clearly implied by the body; do NOT invent a geography (no "PNW" unless the body says so).
 4. Close with a differentiator (material, size, count, packability) when room allows.
 
 **Voice:** plain, confident, outdoors/utility tone. Active voice. No hype words ("amazing", "best ever"), no ALL CAPS, no emoji. American spelling.

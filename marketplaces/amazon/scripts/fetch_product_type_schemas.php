@@ -7,18 +7,18 @@ declare(strict_types=1);
  *
  * Walks per-SKU listings files across all accounts, collects distinct
  * productType values from summaries, and fetches the JSON Schema document for
- * each type not already cached in amazon/data/schemas/.
+ * each type not already cached in marketplaces/amazon/data/schemas/.
  *
  * Schemas are shared across accounts and committed to git as a stable,
  * reviewable reference for what Amazon requires per product type. Phase 5
  * (audit) reads from this cache rather than hitting the API at runtime.
  *
  * Writes:
- *   amazon/data/schemas/{PRODUCT_TYPE}.json   — raw JSON Schema from Amazon
- *   amazon/data/schemas/_index.json           — {productType: {fetched_at, version, locale, source_url}}
+ *   marketplaces/amazon/data/schemas/{PRODUCT_TYPE}.json   — raw JSON Schema from Amazon
+ *   marketplaces/amazon/data/schemas/_index.json           — {productType: {fetched_at, version, locale, source_url}}
  *
  * Usage:
- *   php amazon/scripts/fetch_product_type_schemas.php [--force]
+ *   php marketplaces/amazon/scripts/fetch_product_type_schemas.php [--force]
  *
  * Flags:
  *   --force   Re-fetch and overwrite already-cached schemas.
@@ -36,7 +36,7 @@ require __DIR__ . '/../../lib/AmazonRateLimits.php';
 
 if (in_array('--help', $argv ?? [], true)) {
     echo <<<'HELP'
-Usage: php amazon/scripts/fetch_product_type_schemas.php [--force]
+Usage: php marketplaces/amazon/scripts/fetch_product_type_schemas.php [--force]
 
 Flags:
   --force   Re-fetch and overwrite already-cached schemas.

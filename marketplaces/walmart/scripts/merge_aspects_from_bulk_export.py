@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 merge_aspects_from_bulk_export.py -- merge Walmart Seller Center's bulk "Update with
-GTINs" export (.xlsx files dropped in walmart/data/{country}/input/) into
+GTINs" export (.xlsx files dropped in marketplaces/walmart/data/{country}/input/) into
 aspects_{country}.csv.
 
 Why this exists: Walmart's read APIs (getAllItems, Item Search, the Item Report) do
@@ -38,8 +38,8 @@ against that attribute's own xml name. NOTE: this uses the spec-template's namin
 used elsewhere in this pipeline (fetch_all_items.php) -- confirmed by inspecting real
 export data; the two Walmart systems name the same concept differently.
 
-Usage: python3 walmart/scripts/merge_aspects_from_bulk_export.py --country=us
-Output: overwrites walmart/data/{country}/output/aspects_{country}.csv
+Usage: python3 marketplaces/walmart/scripts/merge_aspects_from_bulk_export.py --country=us
+Output: overwrites marketplaces/walmart/data/{country}/output/aspects_{country}.csv
 """
 
 import argparse

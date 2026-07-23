@@ -16,7 +16,10 @@ declare(strict_types=1);
  *   seo_title, seo_description, gpc (google_product_category),
  *   gender, age_group, condition, size_system, size_type
  *
- * Read-only. Output: shopify/data/output/seo_review_live.csv
+ * Read-only.
+ *
+ * Usage: php marketplaces/shopify/scripts/export_review_csv.php
+ * Output: marketplaces/shopify/data/output/seo_review_live.csv
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

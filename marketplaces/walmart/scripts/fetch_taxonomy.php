@@ -12,10 +12,10 @@ declare(strict_types=1);
  * getTaxonomyResponse() takes no params — it returns the seller's full category tree
  * in one call, not paginated per-category like eBay's Taxonomy API.
  *
- * Output: walmart/data/{country}/output/taxonomy_{country}.json (raw payload, for
+ * Output: marketplaces/walmart/data/{country}/output/taxonomy_{country}.json (raw payload, for
  * scripts to consume — not meant to be hand-edited).
  *
- * Usage: php walmart/scripts/fetch_taxonomy.php --country=us
+ * Usage: php marketplaces/walmart/scripts/fetch_taxonomy.php --country=us
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

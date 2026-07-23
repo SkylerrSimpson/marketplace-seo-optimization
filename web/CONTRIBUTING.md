@@ -6,8 +6,8 @@ This file is the how-to.
 ## Local setup
 
 ```
-cd dowscripts
-php8.2 /usr/local/bin/composer install
+cd web
+composer install
 cp .env.example .env        # already done if you're reading this post-scaffold
 php8.2 artisan key:generate
 touch database/database.sqlite
@@ -15,10 +15,9 @@ php8.2 artisan migrate
 php8.2 artisan serve
 ```
 
-This project targets PHP 8.2+. The parent repo's own scripts run on the system's
-default PHP (currently 8.1), so always invoke Composer/Artisan here explicitly via
-`php8.2`, not the bare `composer`/`php artisan` — the bare commands will resolve to the
-wrong PHP version and Composer will refuse to install Laravel's dependencies.
+This project targets PHP 8.2+. If the bare `php`/`composer` on your machine resolves to
+a different major version, invoke `php8.2` explicitly (as in the commands above) —
+Laravel and this app's dependencies will refuse to run under the wrong version.
 
 ## Adding a new wrapped script
 

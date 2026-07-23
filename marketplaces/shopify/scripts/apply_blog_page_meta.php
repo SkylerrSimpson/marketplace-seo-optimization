@@ -5,9 +5,12 @@ declare(strict_types=1);
  * Stored as global.title_tag / global.description_tag metafields (single_line_text).
  * These two metafields are independent, so setting one never clobbers the other.
  *
+ * Prerequisites: data/drafts/blog_page_meta_authored.json (hand-authored meta
+ * title/description keyed by article/page handle) must already exist.
+ *
  * IDEMPOTENT: skips a field whose live value already matches. DRY-RUN unless --apply.
- *   php apply_blog_page_meta.php
- *   php apply_blog_page_meta.php --apply
+ *   php marketplaces/shopify/scripts/apply_blog_page_meta.php
+ *   php marketplaces/shopify/scripts/apply_blog_page_meta.php --apply
  *
  * Needs write_content (articles/pages metafields).
  */

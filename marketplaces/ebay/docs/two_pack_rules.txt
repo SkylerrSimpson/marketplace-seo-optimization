@@ -7,8 +7,8 @@ REVIEW WORKFLOW
   the preview can't drift from reality), an `approved` column defaulting to
   yes ("assume they're all valid from the start"), and an `issues` column
   (free text, blank when nothing's wrong) explaining anything worth a
-  second look before approving. Send the file to whoever's reviewing
-  (Ethan/Pat); they flip specific rows to `no` and/or fix flagged issues.
+  second look before approving. Send the file to whoever's reviewing;
+  they flip specific rows to `no` and/or fix flagged issues.
 - create_two_pack_listings.php reads the `approved` column back and will
   not touch a `no` row under any circumstance, including an explicit
   --item/--items override — the gate can't be accidentally bypassed.
@@ -16,8 +16,8 @@ REVIEW WORKFLOW
     - Title had to be truncated to fit eBay's 80-char cap (see TITLE below).
     - Source title already mentions a pack/multi-unit (e.g. "ASR Outdoor 2
       Pack Gold Panning Pan") — 2-packing one of these means the real
-      multiplier isn't a simple 2x anymore (Ethan: "this still applies to
-      things that are already a 4 piece, now it becomes an 8pc"), so it's
+      multiplier isn't a simple 2x anymore (the rule still applies when the
+      source is already a multi-piece set — e.g. a 4-piece set becomes 8pc), so it's
       flagged for a human to sanity-check the quantity/price math rather
       than silently assumed correct. Found on a real DOWS run: 11 of 720
       candidates, 5 of which wouldn't have been flagged for any other
@@ -36,12 +36,12 @@ CANDIDATE SELECTION
 
 TITLE
 - Prefix "2 Pack " in front of the original title. Confirmed wording: "2 Pack".
-- Ethan floated "2-Pack" (hyphenated) as maybe better, but explicitly said
-  "not sure, fine tuning at that point" — not a decision, just noted here so
-  it isn't lost. Current code keeps "2 Pack " until this is actually settled.
+- "2-Pack" (hyphenated) was floated as maybe better, but not settled — still
+  just fine-tuning at this point, noted here so it isn't lost. Current code
+  keeps "2 Pack " until this is actually decided.
 - Overflow past 80 characters: try an AI-assisted shrink first (preserves brand /
   item type / key distinguishing feature, drops filler, uses natural
-  abbreviations) via ebay/scripts/lib/two_pack_title_shrink.php. Needs
+  abbreviations) via marketplaces/ebay/scripts/lib/two_pack_title_shrink.php. Needs
   ANTHROPIC_API_KEY configured. If that's not set, the call fails, or the
   model's output is still too long, falls back to a blunt truncation and
   notes it in the candidates CSV's `issues` column for a human look — never
@@ -72,7 +72,7 @@ IMAGES
   different items' photos merged together — it's 2 of the same item.
 - "2 Pack" badge stamp on the main image only, bottom-right corner:
    — PHP's GD extension draws a proportional rounded badge on any JPEG/PNG/WebP source.
-  Working prototype at ebay/scripts/lib/image_stamp.php
+  Working prototype at marketplaces/ebay/scripts/lib/image_stamp.php
   (stampTwoPackBadge()), proven against both large (1200px) and small
   (500px) mockups. Badge color/style (charcoal + white text) is a
   placeholder, not a brand decision. Requires the php8.2-gd system package
@@ -89,13 +89,13 @@ ITEM SPECIFICS
 - Copied as-is from the source listing.
 - Add one new custom specific noting it's a 2-pack (a description-only
   specific, not a category-required aspect).
-- Name/Value (DECIDED 2026-07-22, Skyler's call, Ethan unavailable):
-  "Bundle Description" / "2 Pack". Deliberately not "Number of Items" or
-  "Pack Quantity" — those are real schema-defined aspects in some eBay
-  categories already and could collide with an existing, unrelated value on
-  the source listing (e.g. a multi-piece set). Easy to change later if
-  Pat/Ethan want different wording — ebay/scripts/create_two_pack_listings.php,
-  search "Bundle Description".
+- Name/Value (decided 2026-07-22): "Bundle Description" / "2 Pack".
+  Deliberately not "Number of Items" or "Pack Quantity" — those are real
+  schema-defined aspects in some eBay categories already and could collide
+  with an existing, unrelated value on the source listing (e.g. a
+  multi-piece set). Easy to change the wording later —
+  marketplaces/ebay/scripts/create_two_pack_listings.php, search
+  "Bundle Description".
 
 GTIN / UPC
 - Reuse the source listing's UPC as-is — same item. Not treated as a

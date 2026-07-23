@@ -3,14 +3,18 @@
 READ-ONLY. Master site-wide YouTube-embed audit for ASR Outdoor.
 
 Combines the three surfaces that can hold an embedded video:
-  - PRODUCTS  (from product_video_inventory.csv, via Admin API audit)
-  - BLOGS     (from blog_video_inventory.csv, via storefront crawl)
-  - PAGES     (the hub page scan, hardcoded from the latest crawl)
+  - PRODUCTS  (from product_video_inventory.csv, produced by audit_product_media.php)
+  - BLOGS     (from blog_video_inventory.csv, produced by audit_blog_media.php)
+  - PAGES     (the hub page scan, hardcoded from the latest crawl — update
+               PAGE_EMBEDS by hand if pages with video embeds change)
 
 Emits master_video_audit.csv: one row per (URL x video_id), flags whether the
 video is a single-video "home" page (indexable) vs a multi-video page (only the
 primary video indexes), and — for product pages — whether the video_id is in the
-product-structured-data.liquid VideoObject lookup. Nothing is written to Shopify.
+product-structured-data.liquid VideoObject lookup (SNIPPET_LOOKUP below, kept in
+sync by hand). Nothing is written to Shopify.
+
+Usage: python3 marketplaces/shopify/scripts/build_master_video_audit.py
 """
 import csv, os, re
 from collections import defaultdict

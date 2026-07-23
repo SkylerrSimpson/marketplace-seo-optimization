@@ -14,12 +14,12 @@ declare(strict_types=1);
  *      .env as EBAY_API_RU_NAME (or EBAY_API_RU_NAME_IGE).
  *
  *   2. Get the consent URL:
- *        php ebay/scripts/mint_refresh_token.php --account=dows
+ *        php marketplaces/ebay/scripts/mint_refresh_token.php --account=dows
  *      Open it, sign in as the seller, accept. eBay redirects your browser to
  *      your accept URL with `?code=...` — copy that code from the address bar.
  *
  *   3. Exchange it:
- *        php ebay/scripts/mint_refresh_token.php --account=dows --code='PASTE'
+ *        php marketplaces/ebay/scripts/mint_refresh_token.php --account=dows --code='PASTE'
  *      The refresh token is written to .env (quoted) as EBAY_API_REFRESH_TOKEN.
  *
  * Read-only against your listings; only writes the token line in .env.

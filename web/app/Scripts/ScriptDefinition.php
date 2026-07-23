@@ -9,7 +9,7 @@ final class ScriptDefinition
     /**
      * @param  list<ParamDefinition>  $params
      * @param  list<string>  $outputFiles  repo-root-relative path templates, e.g.
-     *                                     'ebay/data/{account}/output/enriched_summary.csv' — {account} is
+     *                                     'marketplaces/ebay/data/{account}/output/enriched_summary.csv' — {account} is
      *                                     substituted from the run's own submitted params, never guessed.
      * @param  list<ReferenceFile>  $referenceFiles  input/lookup files this script
      *                                               reads from, shown independent of any run — see ReferenceFile.

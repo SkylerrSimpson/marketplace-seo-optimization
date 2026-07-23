@@ -8,7 +8,7 @@ declare(strict_types=1);
  * propose to fill. The inventory team verifies the current values and fills the
  * proposed/blank ones.
  *
- * Inputs (ebay/data/{acct}/output/):
+ * Inputs (marketplaces/ebay/data/{acct}/output/):
  *   items/{item_id}.json      — per-listing CURRENT item specifics (live on eBay)
  *   listings.json             — every listing: parent sku + variation children
  *   aspect_gaps_worklist.csv  — every (listing x MISSING aspect)
@@ -34,8 +34,8 @@ declare(strict_types=1);
  *   no LLM-suspect-value overlay on current rows — just what's live right now.
  *
  * Usage:
- *   php ebay/scripts/build_review_sheet.php --account=dows
- *   php ebay/scripts/build_review_sheet.php --account=dows --mode=read
+ *   php marketplaces/ebay/scripts/build_review_sheet.php --account=dows
+ *   php marketplaces/ebay/scripts/build_review_sheet.php --account=dows --mode=read
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

@@ -16,8 +16,8 @@ declare(strict_types=1);
  * Idempotent: reads current seo, skips anything already correct.
  *
  * Usage:
- *   php shopify/scripts/apply_ctr_seo.php            # dry run
- *   php shopify/scripts/apply_ctr_seo.php --apply    # write
+ *   php marketplaces/shopify/scripts/apply_ctr_seo.php            # dry run
+ *   php marketplaces/shopify/scripts/apply_ctr_seo.php --apply    # write
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

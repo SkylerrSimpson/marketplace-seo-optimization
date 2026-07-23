@@ -1,12 +1,20 @@
 <?php
 declare(strict_types=1);
 /**
- * Fix the 20 video watch pages:
- *   1) back-date publishDate to the real YouTube upload date (was showing today)
- *   2) swap featured image to high-res maxresdefault.jpg (hqdefault looked blurry on the hero)
+ * Post-fix pass for the video watch-page articles created by
+ * build_video_watch_pages.php: 1) back-dates publishDate to the real YouTube
+ * upload date (articles were created showing today's date), and 2) swaps the
+ * featured image from the low-res hqdefault.jpg thumbnail to the high-res
+ * maxresdefault.jpg (hqdefault looked blurry on the hero).
  *
- * IDEMPOTENT-ish: safe to re-run. DRY-RUN unless --apply.
- * Needs write_content.
+ * Prerequisites: build_video_watch_pages.php must have already created the
+ * articles (matched here by handle); data/drafts/video_watch_pages_authored.json
+ * and data/drafts/video_metadata.json must exist.
+ * Idempotent: safe to re-run. DRY-RUN unless --apply. Needs write_content.
+ *
+ * Usage:
+ *   php marketplaces/shopify/scripts/fix_video_articles.php            # dry-run
+ *   php marketplaces/shopify/scripts/fix_video_articles.php --apply    # writes
  */
 require __DIR__ . '/../../lib/bootstrap.php';
 use Shopify\Context; use Shopify\Auth\FileSessionStorage; use Shopify\Clients\Graphql;

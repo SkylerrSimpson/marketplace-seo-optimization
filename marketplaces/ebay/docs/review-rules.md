@@ -1,6 +1,6 @@
-# Proposing rules for the review sheet (from Ethan, 2026-06-22)
+# Proposing rules for the review sheet
 
-These are applied automatically by `ebay/scripts/apply_review_rules.php` (DRY-RUN;
+These are applied automatically by `marketplaces/ebay/scripts/apply_review_rules.php` (DRY-RUN;
 writes only the `proposed_value` column + a `reviewer_notes` trail — never
 `current_value` or `approved_value`). Run it **after** `build_review_sheet.php`
 (verify_and_merge.sh already chains it last). Re-runnable / idempotent.
@@ -37,11 +37,11 @@ ASRoutdoor.com already handles it: one generic badge image
 per-chemical text. See `build_description_review.php`'s `PROP65_BADGE_URL`/
 `PROP65_BADGE_ALT` constants and `renderFull()` for the implementation.
 
-**Exception (Ethan, 2026-07-14): Gear Aid branded items get NO Prop65 badge** — same
+**Exception (2026-07-14): Gear Aid branded items get NO Prop65 badge** — same
 exception the old item-specific rule had (title-matched via `isGearAid()`, 52 DOWS /
 86 IGE, confirmed against `items/{id}.json` titles). `renderFull()`'s
 `$showProp65Badge` parameter controls this per listing; the manual generator tool
-(`ebay/tools/description-generator.html`) has a matching checkbox, default checked.
+(`marketplaces/ebay/tools/description-generator.html`) has a matching checkbox, default checked.
 
 `apply_review_rules.php`'s rule #2 no longer proposes any Prop65 text — it only
 leaves a `reviewer_notes` trail on rows where the aspect is still live. The actual
@@ -107,8 +107,8 @@ blank field; the **not-applicable** ones get the literal value `blank_value` (+ 
 Pipeline (delegated, mirrors the current-value check):
 ```
 ai_review.php --mode=blanks --tasks   -> blank_check_tasks.jsonl  (one line/listing: title, category, blank aspects)
-   -> external agent (ebay/handoff/blank/AGENT_PROMPT.md) returns {item_id, na:[{aspect,reason}]}
-   -> ebay/handoff/blank/verify_and_merge.sh <acct> results.jsonl
+   -> external agent (marketplaces/ebay/handoff/blank/AGENT_PROMPT.md) returns {item_id, na:[{aspect,reason}]}
+   -> marketplaces/ebay/handoff/blank/verify_and_merge.sh <acct> results.jsonl
         = merge + ai_review.php --mode=blanks --merge -> blank_value_checks.csv
         + build_review_sheet + apply_review_rules (re-applies #1-5 cleanly)
 ```

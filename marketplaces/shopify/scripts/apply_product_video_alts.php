@@ -5,8 +5,8 @@ declare(strict_types=1);
  * poster thumbnails render with empty alt because the media alt is blank).
  *
  * IDEMPOTENT: only touches video media whose alt is empty. DRY-RUN unless --apply.
- *   php apply_product_video_alts.php
- *   php apply_product_video_alts.php --apply
+ *   php marketplaces/shopify/scripts/apply_product_video_alts.php
+ *   php marketplaces/shopify/scripts/apply_product_video_alts.php --apply
  *
  * Needs write_products (productUpdateMedia).
  */

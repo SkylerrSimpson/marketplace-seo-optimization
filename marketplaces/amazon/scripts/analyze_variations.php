@@ -28,7 +28,7 @@ declare(strict_types=1);
  *                             reflect (or vice versa / different parent).
  *
  * Usage:
- *   php amazon/scripts/analyze_variations.php [--account=IGE|DOWS] [OPTIONS]
+ *   php marketplaces/amazon/scripts/analyze_variations.php [--account=IGE|DOWS] [OPTIONS]
  *
  * Flags:
  *   --account=IGE|DOWS   Seller account to analyze. Default: IGE.
@@ -38,16 +38,16 @@ declare(strict_types=1);
  *   --help               Show this help message.
  *
  * Inputs (all from disk, no API):
- *   amazon/data/{account}/input/listings/{sku}.json
- *   amazon/data/{account}/input/catalog/{asin}.json (+ catalog/errors/{asin}.json)
- *   amazon/data/{account}/input/usurper/InventoryExport_*.csv (latest by mtime)
+ *   marketplaces/amazon/data/{account}/input/listings/{sku}.json
+ *   marketplaces/amazon/data/{account}/input/catalog/{asin}.json (+ catalog/errors/{asin}.json)
+ *   marketplaces/amazon/data/{account}/input/usurper/InventoryExport_*.csv (latest by mtime)
  *
  * Output:
- *   amazon/data/{account}/output/variation_analysis_{timestamp}.csv
+ *   marketplaces/amazon/data/{account}/output/variation_analysis_{timestamp}.csv
  *     One row per SKU. Key columns: discrepancies (semicolon-joined tags),
  *     disagreeing_layers, catalog_confirms_child (self|parent_record|no —
  *     how the realized catalog binds this child), issues_summary.
- *   amazon/data/{account}/output/variation_analysis_summary_{timestamp}.txt
+ *   marketplaces/amazon/data/{account}/output/variation_analysis_summary_{timestamp}.txt
  *     The bucketed analysis (category counts, actionable-vs-backlog tiers,
  *     divergence/theme/parent breakdowns) — regenerable, no external tooling.
  */
@@ -61,7 +61,7 @@ require __DIR__ . '/../../lib/UsurperExport.php';
 
 if (in_array('--help', $argv ?? [], true)) {
     echo <<<'HELP'
-Usage: php amazon/scripts/analyze_variations.php [--account=IGE|DOWS] [OPTIONS]
+Usage: php marketplaces/amazon/scripts/analyze_variations.php [--account=IGE|DOWS] [OPTIONS]
 
 Flags:
   --account=IGE|DOWS   Seller account to analyze. Default: IGE.

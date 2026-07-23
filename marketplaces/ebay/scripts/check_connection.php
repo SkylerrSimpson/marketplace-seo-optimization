@@ -12,10 +12,10 @@ declare(strict_types=1);
  *   4. Trading GeteBayOfficialTime                         -> Trading + OAuth IAF token valid
  *
  * Usage:
- *   php ebay/scripts/check_connection.php --account=dows
- *   php ebay/scripts/check_connection.php --account=ige --mode=sandbox
- *   php ebay/scripts/check_connection.php --all
- *   php ebay/scripts/check_connection.php --all --json    # machine-readable, for DOWScripts'
+ *   php marketplaces/ebay/scripts/check_connection.php --account=dows
+ *   php marketplaces/ebay/scripts/check_connection.php --account=ige --mode=sandbox
+ *   php marketplaces/ebay/scripts/check_connection.php --all
+ *   php marketplaces/ebay/scripts/check_connection.php --all --json    # machine-readable, for DOWScripts'
  *                                                          # connection-check widget — suppresses
  *                                                          # the human-readable lines below and
  *                                                          # prints one JSON object instead.

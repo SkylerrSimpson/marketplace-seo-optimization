@@ -22,8 +22,8 @@ per-type (not per-batch) via fetch_product_type_specs.php -> product_type_specs_
 Recommended (from the xlsx) AND actually applicable to that item's specific product
 type (from the per-type spec) -- run fetch_product_type_specs.php first.
 
-Usage: python3 walmart/scripts/find_missing_aspects.py --country=us
-Output: walmart/data/{country}/output/missing_aspects_{country}.csv
+Usage: python3 marketplaces/walmart/scripts/find_missing_aspects.py --country=us
+Output: marketplaces/walmart/data/{country}/output/missing_aspects_{country}.csv
   sku, wpid, title, missing_required, missing_recommended
   (missing_required/missing_recommended are "; "-joined attribute names, blank if none)
 """
