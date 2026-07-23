@@ -23,9 +23,9 @@ declare(strict_types=1);
  *     only Item->ItemID and Item->ProductListingDetails->UPC go in the request.
  *
  * Usage:
- *   php ebay/scripts/write_gtin.php --account=dows --item=127239950660 --upc=810058485588            # dry-run
- *   php ebay/scripts/write_gtin.php --account=dows --item=127239950660 --upc=810058485588 --verify    # server validates, no commit
- *   php ebay/scripts/write_gtin.php --account=dows --item=127239950660 --upc=810058485588 --live      # writes it
+ *   php marketplaces/ebay/scripts/write_gtin.php --account=dows --item=127239950660 --upc=810058485588            # dry-run
+ *   php marketplaces/ebay/scripts/write_gtin.php --account=dows --item=127239950660 --upc=810058485588 --verify    # server validates, no commit
+ *   php marketplaces/ebay/scripts/write_gtin.php --account=dows --item=127239950660 --upc=810058485588 --live      # writes it
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

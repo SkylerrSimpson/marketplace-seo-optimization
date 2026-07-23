@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 /**
  * Finish the Shopify identifier back-fill from the authoritative sheet
- * shopify/data/output/mpn_worklist_updated.csv. Two writes per variant:
+ * data/output/mpn_worklist_updated.csv (hand-reviewed; no producer script in
+ * this repo). Two writes per variant:
  *
  *   1. variant.barcode  <- "correct GTIN-14"   (REPLACES the current barcode;
  *      the previous GTINs were entered wrong). Done via productVariantsBulkUpdate.
@@ -24,11 +25,12 @@ declare(strict_types=1);
  *   --apply            write live (needs write_products)
  *   --only=gtin|mpn    do just one side (default: both)
  *   --limit=N          first N worklist rows (after parsing)
+ *   --ids=VID,VID      restrict to specific variant_ids (canary subset)
  *
  * Usage:
- *   php shopify/scripts/apply_mpn_gtin.php                 # dry-run, both
- *   php shopify/scripts/apply_mpn_gtin.php --only=gtin     # dry-run, barcodes only
- *   php shopify/scripts/apply_mpn_gtin.php --apply         # live, both
+ *   php marketplaces/shopify/scripts/apply_mpn_gtin.php                 # dry-run, both
+ *   php marketplaces/shopify/scripts/apply_mpn_gtin.php --only=gtin     # dry-run, barcodes only
+ *   php marketplaces/shopify/scripts/apply_mpn_gtin.php --apply         # live, both
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

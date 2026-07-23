@@ -251,7 +251,7 @@ echo "  {$outDir}/description_review.csv\n  {$descDir}/{itemId}.html\n";
 // --- renderers -----------------------------------------------------------------
 
 /**
- * THE canonical description template — byte-for-byte what ebay/tools/description-
+ * THE canonical description template — byte-for-byte what marketplaces/ebay/tools/description-
  * generator.html emits. One schema.org/Product block:
  *   hidden mobile description (eBay-required mobile summary, display:none)
  *   store header (brand + Our Store link)

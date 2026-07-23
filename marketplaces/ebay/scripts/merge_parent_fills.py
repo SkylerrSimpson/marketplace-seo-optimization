@@ -5,7 +5,7 @@ merge_parent_fills.py — finalize the parent aspect roll-up and merge into revi
 Inputs:
   data/parent_fill/parent_rollup_tasks.jsonl            all 1196 tasks
   data/parent_fill/answers/agent_judgment_answers.jsonl the agent's 246 judgment calls
-Refinements applied here (per Skyler, 2026-06-23):
+Refinements applied here (2026-06-23):
   - Country of Origin: canonicalize spelling/abbrev variants (CA->Canada, US/USA->United
     States, ...). If children collapse to ONE country -> fill it. Genuinely different
     countries stay BLANK (compliance).
@@ -163,7 +163,7 @@ def main():
     print(f"{'DRY-RUN — ' if DRY else ''}parent roll-up merge")
     for k, v in sorted(stats.items()): print(f"  {k:24s} {v}")
     print(f"  -> proposed_value FILLED: {applied}")
-    print(f"  -> left blank but NOTED (flags for Ethan): {noted}")
+    print(f"  -> left blank but NOTED (flags for reviewer): {noted}")
     if not DRY:
         print(f"  audit: data/parent_fill/parent_fills_applied.csv")
         print(f"  backups: data/<acct>/output/review_sheet.csv.preparentfill.bak")

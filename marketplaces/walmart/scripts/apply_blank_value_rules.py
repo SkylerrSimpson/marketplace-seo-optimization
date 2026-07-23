@@ -3,8 +3,8 @@
 apply_blank_value_rules.py -- mark proposed_value='blank_value' for rows where the
 attribute is confirmed inapplicable to that item, matching the eBay convention (a
 "blank_value" on a current-state row signals "not applicable," not "unreviewed" --
-same as ebay/scripts/merge_handoff_approvals.php's handling of Ethan's blank_value
-answers).
+same as marketplaces/ebay/scripts/merge_handoff_approvals.php's handling of reviewer
+blank_value answers).
 
 Only applied where BOTH current_value and proposed_value are already blank (never
 overwrites real data or an existing Usurper-sourced proposal), and only for

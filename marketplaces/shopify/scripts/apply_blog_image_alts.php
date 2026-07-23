@@ -8,8 +8,8 @@ declare(strict_types=1);
  * IDEMPOTENT: only touches <img> with no alt or alt="". Images that already
  * have alt text are left untouched, so re-running is safe.
  *
- *   php apply_blog_image_alts.php            # DRY RUN — writes a preview file
- *   php apply_blog_image_alts.php --apply    # write changes back to Shopify
+ *   php marketplaces/shopify/scripts/apply_blog_image_alts.php            # DRY RUN — writes a preview file
+ *   php marketplaces/shopify/scripts/apply_blog_image_alts.php --apply    # write changes back to Shopify
  *
  * Needs a token with write_content (the seo-content re-mint). DRY-RUN default.
  */

@@ -6,11 +6,15 @@ declare(strict_types=1);
  * Phase 3 — Apply approved metadata to Shopify (WRITE path).
  *
  * Reads phase2_output.json (the reviewed drafts) and, for each product, sets:
- *   - seo.description  (the new meta description)         via productUpdate
- *   - productType      (only the 23 that were blank)       via productUpdate
- *   - featured image alt (new_image_alt)                   via fileUpdate
+ *   - seo.description    (the new meta description)                  via productUpdate
+ *   - productType        (only rows assemble_output.php flagged
+ *                          product_type_changed, i.e. it was blank)   via productUpdate
+ *   - featured image alt (new_image_alt)                             via fileUpdate
  * productUpdate carries desc + productType in one call; the image alt is a
  * separate fileUpdate against the featured media id.
+ *
+ * Prerequisites: data/output/phase2_output.json must exist — run
+ * assemble_output.php first.
  *
  * Safety built in:
  *   - DRY-RUN BY DEFAULT. Logs intended changes; sends nothing. Pass --apply to write.
@@ -27,12 +31,12 @@ declare(strict_types=1);
  * will 403 on --apply until re-authorized with write access.
  *
  * Usage:
- *   php apply_metadata.php            # dry-run, all 199 (default)
- *   php apply_metadata.php --limit 3  # dry-run, first 3
- *   php apply_metadata.php --apply    # LIVE write (needs write_products scope)
- *   php apply_metadata.php --apply --limit 3        # live canary on first 3
- *   php apply_metadata.php --ids=123,456            # dry-run only those 2
- *   php apply_metadata.php --apply --ids=123,456    # live write only those 2
+ *   php marketplaces/shopify/scripts/apply_metadata.php            # dry-run, all rows (default)
+ *   php marketplaces/shopify/scripts/apply_metadata.php --limit 3  # dry-run, first 3
+ *   php marketplaces/shopify/scripts/apply_metadata.php --apply    # LIVE write (needs write_products scope)
+ *   php marketplaces/shopify/scripts/apply_metadata.php --apply --limit 3        # live canary on first 3
+ *   php marketplaces/shopify/scripts/apply_metadata.php --ids=123,456            # dry-run only those 2
+ *   php marketplaces/shopify/scripts/apply_metadata.php --apply --ids=123,456    # live write only those 2
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

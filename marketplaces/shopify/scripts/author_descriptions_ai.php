@@ -8,16 +8,16 @@ use Anthropic\Client;
  * AI-authored SEO meta descriptions + image alt text — calls the Anthropic API
  * directly to draft the two fields Assemble Output/Apply Metadata read
  * (drafts_manual.json, drafts_alt.json), replacing the in-session manual
- * authoring step. Mirrors ebay/scripts/author_descriptions_ai.php's proven shape
- * (chunking, dry-run cost preview, resumability, per-chunk save) for the same
- * reason: a script this app can just shell out to, not app-layer logic.
+ * authoring step. Mirrors marketplaces/ebay/scripts/author_descriptions_ai.php's
+ * proven shape (chunking, dry-run cost preview, resumability, per-chunk save)
+ * for the same reason: a script this app can just shell out to, not app-layer logic.
  *
  * The meta-description prompt is loaded verbatim from
- * shopify/rules/product-metadata-rules.md §4 — the already-reviewed drafting
- * rules (140-160 chars, condense-the-real-body-don't-invent, voice, hard don'ts)
- * — not re-derived here. Image alt text has its own inline prompt below: that
- * rules doc predates alt text being in scope (see its own §"Scope locked" note),
- * so there's no existing prompt to reuse for it.
+ * marketplaces/shopify/rules/product-metadata-rules.md §4 — the already-reviewed
+ * drafting rules (140-160 chars, condense-the-real-body-don't-invent, voice, hard
+ * don'ts) — not re-derived here. Image alt text has its own inline prompt below:
+ * that rules doc predates alt text being in scope (see its own §"Scope locked"
+ * note), so there's no existing prompt to reuse for it.
  *
  * Self-contained: reads phase2_input.json (export_descriptions.php) and, when
  * present, image_alts.json (export_image_alts.php) directly. Does its own
@@ -26,10 +26,10 @@ use Anthropic\Client;
  * its own chunking + upsert-merge — no separate merge step.
  *
  * Usage:
- *   php shopify/scripts/author_descriptions_ai.php --dry-run
- *   php shopify/scripts/author_descriptions_ai.php --limit=5
- *   php shopify/scripts/author_descriptions_ai.php
- *   php shopify/scripts/author_descriptions_ai.php --ids=ID,ID   # reprocess specific products regardless of resumability
+ *   php marketplaces/shopify/scripts/author_descriptions_ai.php --dry-run
+ *   php marketplaces/shopify/scripts/author_descriptions_ai.php --limit=5
+ *   php marketplaces/shopify/scripts/author_descriptions_ai.php
+ *   php marketplaces/shopify/scripts/author_descriptions_ai.php --ids=ID,ID   # reprocess specific products regardless of resumability
  *
  * Flags:
  *   --chunk-size=N   Products per API call. Default: 5.
@@ -42,12 +42,13 @@ use Anthropic\Client;
  * Environment:
  *   ANTHROPIC_API_KEY   Required (repo-root .env) — same as the eBay script.
  *
- * Input:  shopify/data/input/phase2_input.json (required)
- *         shopify/data/input/image_alts.json (optional — alt text skipped per
- *         product if this file or that product's entry doesn't exist)
- * Output: shopify/data/drafts/drafts_manual.json (upserted by numeric_id, saved after every chunk)
- *         shopify/data/drafts/drafts_alt.json (upserted by numeric_id, saved after every chunk)
- *         shopify/data/output/author_descriptions_ai_errors.csv (failed items, if any)
+ * Input:  data/input/phase2_input.json (required — from export_descriptions.php)
+ *         data/input/image_alts.json (optional, from export_image_alts.php —
+ *         alt text skipped per product if this file or that product's entry
+ *         doesn't exist)
+ * Output: data/drafts/drafts_manual.json (upserted by numeric_id, saved after every chunk)
+ *         data/drafts/drafts_alt.json (upserted by numeric_id, saved after every chunk)
+ *         data/output/author_descriptions_ai_errors.csv (failed items, if any)
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

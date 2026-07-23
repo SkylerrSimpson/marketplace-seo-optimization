@@ -14,7 +14,7 @@ declare(strict_types=1);
  * Setup:
  *   composer install
  *   cp .env.example .env   # then fill in values
- *   php audit_products.php
+ *   php marketplaces/shopify/scripts/audit_products.php
  *
  * .env keys:
  *   SHOP_DOMAIN=asroutdoor.myshopify.com   (the *.myshopify.com admin domain)
