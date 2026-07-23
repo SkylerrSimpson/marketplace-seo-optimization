@@ -15,7 +15,7 @@ declare(strict_types=1);
  *                           (riskiest first; >=80 can be rubber-stamped).
  *
  * Both keep the approved_value / reviewer_notes columns for the reviewer.
- * Read-only. Usage: php ebay/scripts/split_review_queues.php --account=dows
+ * Read-only. Usage: php marketplaces/ebay/scripts/split_review_queues.php --account=dows
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

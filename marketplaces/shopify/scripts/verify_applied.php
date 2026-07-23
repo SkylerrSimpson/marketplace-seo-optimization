@@ -14,9 +14,12 @@ declare(strict_types=1);
  * Read-only. Reports per-field match counts and lists every mismatch so we can
  * confirm all changes went through fully, or pinpoint exactly what didn't.
  *
+ * Prerequisites: data/output/phase2_output.json (from assemble_output.php) must
+ * exist, and the changes it describes must have already been applied to the store.
+ *
  * Usage:
- *   php shopify/scripts/verify_applied.php           # summary + any mismatches
- *   php shopify/scripts/verify_applied.php --csv      # also write a per-product report
+ *   php marketplaces/shopify/scripts/verify_applied.php           # summary + any mismatches
+ *   php marketplaces/shopify/scripts/verify_applied.php --csv      # also write a per-product report
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

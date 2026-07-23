@@ -29,10 +29,10 @@ declare(strict_types=1);
  *     builds and prints the exact request that WOULD be sent, for review.
  *
  * Usage:
- *   php ebay/scripts/write_canary_test.php --account=dows --item=127389768412
- *   php ebay/scripts/write_canary_test.php --account=dows --item=127389768412 --verify
- *   php ebay/scripts/write_canary_test.php --account=dows --item=127389768412 --live
- *   php ebay/scripts/write_canary_test.php --account=dows --list          # show the 4 test items
+ *   php marketplaces/ebay/scripts/write_canary_test.php --account=dows --item=127389768412
+ *   php marketplaces/ebay/scripts/write_canary_test.php --account=dows --item=127389768412 --verify
+ *   php marketplaces/ebay/scripts/write_canary_test.php --account=dows --item=127389768412 --live
+ *   php marketplaces/ebay/scripts/write_canary_test.php --account=dows --list          # show the 4 test items
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

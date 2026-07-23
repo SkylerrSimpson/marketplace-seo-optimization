@@ -12,7 +12,7 @@ declare(strict_types=1);
  *
  * Verified against live ASR account data: even with includeDetails=true, this
  * endpoint does NOT return full aspects/attributes (additionalAttributes was empty on
- * every one of 50 real active items tested) — see walmart/README.md "Aspects/
+ * every one of 50 real active items tested) — see marketplaces/walmart/README.md "Aspects/
  * attributes have NO read-back endpoint". The one exception is the variant-defining
  * dimension itself, via variantGroupInfo.groupingAttributes on items with a
  * variantGroupId — that's what we capture as "aspects" here. SAME RULE AS EBAY: never

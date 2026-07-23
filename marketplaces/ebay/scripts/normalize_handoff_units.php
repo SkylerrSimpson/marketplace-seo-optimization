@@ -20,8 +20,8 @@ declare(strict_types=1);
  * completely untouched regardless of aspect scope.
  *
  * Usage:
- *   php ebay/scripts/normalize_handoff_units.php --input="ebay/handoff/returned/ebay dows first round updates, no features no set includes.csv" --account=dows
- *   php ebay/scripts/normalize_handoff_units.php --input=... --account=dows --out=path/to/round2.csv
+ *   php marketplaces/ebay/scripts/normalize_handoff_units.php --input="marketplaces/ebay/handoff/returned/ebay dows first round updates, no features no set includes.csv" --account=dows
+ *   php marketplaces/ebay/scripts/normalize_handoff_units.php --input=... --account=dows --out=path/to/round2.csv
  */
 
 require __DIR__ . '/lib/unit_normalizer.php';

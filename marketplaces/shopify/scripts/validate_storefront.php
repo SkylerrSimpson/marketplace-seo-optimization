@@ -15,10 +15,13 @@ declare(strict_types=1);
  *
  * Read-only. Pulls handles from the Admin API, then curls the storefront.
  *
+ * Prerequisites: data/output/phase2_output.json (from assemble_output.php) must
+ * exist, and the changes it describes must have already been applied and published.
+ *
  * Usage:
- *   php shopify/scripts/validate_storefront.php           # sample (~12 spread across catalog)
- *   php shopify/scripts/validate_storefront.php --all     # every product (slower)
- *   php shopify/scripts/validate_storefront.php --ids=ID,ID
+ *   php marketplaces/shopify/scripts/validate_storefront.php           # sample (~12 spread across catalog)
+ *   php marketplaces/shopify/scripts/validate_storefront.php --all     # every product (slower)
+ *   php marketplaces/shopify/scripts/validate_storefront.php --ids=ID,ID
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

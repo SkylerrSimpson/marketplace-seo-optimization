@@ -7,7 +7,7 @@ aspects_{country}.csv.
 Why this exists: Walmart's read APIs (getAllItems, Item Search, the Item Report) do
 NOT expose the full attribute/spec set (Color, Material, Assembled Product Weight,
 etc.) -- only the Seller Center bulk "Update with GTINs" export comes back
-pre-populated with current values. See walmart/README.md, "Aspects/attributes have NO
+pre-populated with current values. See marketplaces/walmart/README.md, "Aspects/attributes have NO
 read-back endpoint" -- confirmed against 10,222 real items across four API surfaces
 before falling back to this export.
 
@@ -37,6 +37,15 @@ against that attribute's own xml name. NOTE: this uses the spec-template's namin
 ("color", "size") which does NOT match the read API's "actual_color"-style naming
 used elsewhere in this pipeline (fetch_all_items.php) -- confirmed by inspecting real
 export data; the two Walmart systems name the same concept differently.
+
+This module also gets imported (REPO_ROOT, TARGET_SECTION, resolve_columns,
+build_aspect_plan) by find_missing_aspects.py and build_aspects_review.py, which
+parse the same xlsx files directly rather than reading this script's own CSV output
+-- that output is a standalone legacy artifact now, superseded by
+build_aspects_review.py's unified aspects_review_{country}.csv. NOTE: its output path
+(aspects_{country}.csv) collides with build_catalog_audit.php's own
+aspects_{country}.csv (variant-dimension-only data from listings.json) -- whichever
+of the two scripts runs last wins that file. Nothing currently reads either one.
 
 Usage: python3 marketplaces/walmart/scripts/merge_aspects_from_bulk_export.py --country=us
 Output: overwrites marketplaces/walmart/data/{country}/output/aspects_{country}.csv

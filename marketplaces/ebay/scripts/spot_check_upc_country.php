@@ -17,7 +17,7 @@ declare(strict_types=1);
  * Does NOT write items/*.json, enriched_summary.csv, or category_coverage.csv —
  * those are enrich_listings.php's rollups and are not touched here.
  *
- * Usage: php ebay/scripts/spot_check_upc_country.php --account=dows --file=path/to/ids.txt
+ * Usage: php marketplaces/ebay/scripts/spot_check_upc_country.php --account=dows --file=path/to/ids.txt
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

@@ -15,7 +15,7 @@ declare(strict_types=1);
  * This script never writes to Shopify. It only reads.
  *
  * Usage:
- *   php export_descriptions.php
+ *   php marketplaces/shopify/scripts/export_descriptions.php
  *
  * Reuses the same .env keys as audit_products.php (SHOP_DOMAIN, ADMIN_API_TOKEN,
  * API_VERSION, APP_API_KEY, APP_API_SECRET).

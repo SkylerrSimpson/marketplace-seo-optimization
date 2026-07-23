@@ -8,7 +8,7 @@ declare(strict_types=1);
  * listings.json (sku/upc/gtin/title/status/aspects per item, no description/images)
  * and, for each item with a upc or gtin, calls Item Search (getSearchResult) to pull
  * the live description/images/brand — the read surface that actually carries that
- * content (see walmart/README.md "Two different Items read surfaces").
+ * content (see marketplaces/walmart/README.md "Two different Items read surfaces").
  *
  * Item Search is a catalog/keyword-style search, not a direct by-ID lookup — a query
  * can return multiple matches (other sellers' offers on the same UPC, etc). We prefer
@@ -31,7 +31,7 @@ declare(strict_types=1);
  *     productType, image_urls, match_note
  *   aspects_{country}.csv        — one row per SKU x aspect (currently only the
  *     variant-grouping dimension is populated — see the "no read-back endpoint"
- *     note in walmart/README.md; this file is where a full Seller Center bulk
+ *     note in marketplaces/walmart/README.md; this file is where a full Seller Center bulk
  *     export would get merged in once we have one):
  *     sku, wpid, aspect_name, aspect_value, is_variant
  *

@@ -20,10 +20,10 @@ declare(strict_types=1);
  *     collections) — does not depend on any cached CSV/JSON.
  *
  * USAGE:
- *   php apply_nav_tags.php                       # dry-run, all parents
- *   php apply_nav_tags.php --only=nav-rock-hounding   # dry-run, one parent
- *   php apply_nav_tags.php --apply               # LIVE write
- *   php apply_nav_tags.php --apply --only=nav-rock-hounding
+ *   php marketplaces/shopify/scripts/apply_nav_tags.php                       # dry-run, all parents
+ *   php marketplaces/shopify/scripts/apply_nav_tags.php --only=nav-rock-hounding   # dry-run, one parent
+ *   php marketplaces/shopify/scripts/apply_nav_tags.php --apply               # LIVE write
+ *   php marketplaces/shopify/scripts/apply_nav_tags.php --apply --only=nav-rock-hounding
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

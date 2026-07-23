@@ -15,7 +15,7 @@ declare(strict_types=1);
  *   personalization   - conditional on Personalize=Yes (we default No) -> LEAVE OUT
  *   candidate_export  - plausibly has a Usurper column we never mapped/pulled -> CHECK PICKER
  *
- * Output: ebay/data/{acct}/output/blank_triage.csv (aspect, gap_count, category,
+ * Output: marketplaces/ebay/data/{acct}/output/blank_triage.csv (aspect, gap_count, category,
  *         action, candidate_column). Read-only. Usage: --account=dows
  */
 

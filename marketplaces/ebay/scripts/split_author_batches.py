@@ -9,7 +9,7 @@ Each batch row is the minimal grounding an author needs:
 (aspects pruned of Prop-65 / unit-type / identifier-only fields).
 
 Output: data/<acct>/output/author_batches/in_<NN>.jsonl
-Usage:  python3 ebay/scripts/split_author_batches.py [--size=135]
+Usage:  python3 marketplaces/ebay/scripts/split_author_batches.py [--size=135]
 """
 import json, os, sys, glob, re
 

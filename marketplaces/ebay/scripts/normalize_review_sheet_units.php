@@ -17,8 +17,8 @@ declare(strict_types=1);
  * variation a child sku maps to on eBay and orphan its sales history.
  *
  * Usage:
- *   php ebay/scripts/normalize_review_sheet_units.php --account=ige [--dry-run]
- *   php ebay/scripts/normalize_review_sheet_units.php --input=path/to/review_sheet.csv --out=path/to/out.csv
+ *   php marketplaces/ebay/scripts/normalize_review_sheet_units.php --account=ige [--dry-run]
+ *   php marketplaces/ebay/scripts/normalize_review_sheet_units.php --input=path/to/review_sheet.csv --out=path/to/out.csv
  */
 
 require __DIR__ . '/lib/unit_normalizer.php';

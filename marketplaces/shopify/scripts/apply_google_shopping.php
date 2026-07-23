@@ -3,9 +3,10 @@
 declare(strict_types=1);
 
 /**
- * Apply Google Shopping attributes from shopify/data/output/google_shopping_review.csv
- * (the reviewed/approved artifact). Writes ONLY these legacy mm-google-shopping
- * metafields, matching where Shopify already stores them:
+ * Apply Google Shopping attributes from data/output/google_shopping_review.csv
+ * (hand-reviewed/approved artifact — no producer script in this repo). Writes
+ * ONLY these legacy mm-google-shopping metafields, matching where Shopify
+ * already stores them:
  *
  *   mm-google-shopping.gender                  = "unisex"  (all products)
  *   mm-google-shopping.age_group               = "adult"   (all products)
@@ -20,10 +21,10 @@ declare(strict_types=1);
  * DRY-RUN by default. Pass --apply to write.
  *
  * Usage:
- *   php shopify/scripts/apply_google_shopping.php                # dry run (all)
- *   php shopify/scripts/apply_google_shopping.php --ids=ID,ID    # canary subset
- *   php shopify/scripts/apply_google_shopping.php --limit=10     # first N
- *   php shopify/scripts/apply_google_shopping.php --apply        # write
+ *   php marketplaces/shopify/scripts/apply_google_shopping.php                # dry run (all)
+ *   php marketplaces/shopify/scripts/apply_google_shopping.php --ids=ID,ID    # canary subset
+ *   php marketplaces/shopify/scripts/apply_google_shopping.php --limit=10     # first N
+ *   php marketplaces/shopify/scripts/apply_google_shopping.php --apply        # write
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

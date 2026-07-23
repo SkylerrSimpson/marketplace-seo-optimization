@@ -76,7 +76,7 @@ def main():
             "(without it, missing-required results are unreliable across mixed-product-type batches)"
         )
     with open(specs_path) as fh:
-        specs_by_type = json.load(fh)  # {productType: [xml_name, ...]}
+        specs_by_type = json.load(fh)  # {productType: {xml_name: title}} -- only keys are used here
     applicable_by_type = {t: set(attrs) for t, attrs in specs_by_type.items()}
 
     with open(listings_path) as fh:

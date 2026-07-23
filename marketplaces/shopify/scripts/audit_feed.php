@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Phase A — Feed / structured-data completeness audit (READ ONLY).
  *
  * The product feed is the backbone for AI-agent + Google Shopping pickup
- * (see geo_seo_strategy.md). This audits the structured attributes that
+ * (see docs/geo-seo-strategy.md). This audits the structured attributes that
  * Merchant Center / ChatGPT / Gemini / Perplexity actually use to match and
  * recommend products, and flags what's missing.
  *
@@ -17,7 +17,7 @@ declare(strict_types=1);
  *
  * Never writes to Shopify.
  *
- * Usage: php audit_feed.php
+ * Usage: php marketplaces/shopify/scripts/audit_feed.php
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';

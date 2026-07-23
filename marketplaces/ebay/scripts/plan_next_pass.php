@@ -9,7 +9,7 @@ declare(strict_types=1);
  * sum of blank gaps of the aspects that reference it), and packs them into
  * <=22-column passes (3 reserved for the sku / parent.sku / name join keys).
  *
- * Read-only. Usage: php ebay/scripts/plan_next_pass.php --account=dows
+ * Read-only. Usage: php marketplaces/ebay/scripts/plan_next_pass.php --account=dows
  */
 
 require __DIR__ . '/../../lib/bootstrap.php';
